@@ -1,0 +1,176 @@
+@charset "iso-8859-1";
+BODY
+{
+	margin:0;
+	font-family: Tahoma; 
+	font-size: 8.5px; 
+	color: #000000;
+}
+.tb_admin { margin-left:auto; margin-right:auto;}
+table{
+	border-collapse:collapse;
+}
+
+.bg_admin
+{
+	background: url(../images/bg_admin.jpg) top center no-repeat;
+	width:1280px;
+	height:537px;
+	margin-left:auto; margin-right:auto;
+}
+
+.textbox
+{
+font-family: Arial; 
+font-size: 12px; 
+color: #000000;
+}
+
+.smallfont
+{
+font-family: Tahoma; 
+font-size: 8.5pt; 
+color: #000000;
+}
+
+.smallfontbold
+{
+font-family: Tahoma; 
+font-size: 8.5pt; 
+color: #ED008C;
+font-weight: bold;
+}
+
+.midfont
+{
+font-family: Tahoma; 
+font-size: 10pt; 
+color: #ED008C;
+}
+
+.midfontbold
+{
+font-family: Tahoma; 
+font-size: 10pt; 
+color: #ED008C;
+font-weight: bold;
+}
+
+A:hover {
+	TEXT-DECORATION: none; font-family:Tahoma;color: #990000;}
+A:link {
+	FONT-FAMILY: Tahoma; TEXT-DECORATION: none; 
+}
+A {
+	FONT-FAMILY: Tahoma; TEXT-DECORATION: none;
+	color: #006AAA;
+}
+
+.normalfont
+{
+background-color:#FFFFFF;
+font-family: Tahoma; 
+font-size: 8.5pt; 
+color: #006AAA;
+font-weight: bold;
+}
+
+.button
+{
+background-color:#006AAA;
+font-family: Tahoma; 
+font-size: 8.5pt; 
+color: #FFFFFF;
+border-style: solid; 
+border-width: 1px;
+}
+
+.title
+{
+background-color:#0069A8;
+font-family: Tahoma; 
+font-size: 8.5pt; 
+color: #FFFFFF;
+font-weight: bold;
+}
+
+.err
+{
+font-family: Tahoma; 
+font-size: 8.5pt; 
+color: #FF0000;
+}
+
+.midtitle
+{
+background-color:#0069A8;
+font-family: Tahoma; 
+font-size: 12pt; 
+color: #FFFFFF;
+font-weight: bold;
+}
+
+input{
+font-family: Tahoma; 
+font-size: 8pt; 
+}
+.smallfont
+{
+font-family: Tahoma; 
+font-size: 8.5pt; 
+color: #000000;
+}
+
+.fieldKey
+{
+font-family: Tahoma; 
+font-size: 8pt; 
+border: 1px solid #000000; 
+background-color: #FFFFFF;
+color: #00000000;
+}
+
+.smallfontbold
+{
+font-family: Tahoma; 
+font-size: 8.5pt; 
+color: #000000;
+font-weight: bold;
+}
+.normalfont
+{
+font-family: Tahoma; 
+font-size: 8.5pt; 
+color: #000000;
+}
+
+.normalfontbold
+{
+font-family: Tahoma; 
+font-size: 8.5pt; 
+color: #606060;
+}
+
+.titlenormalfontbold
+{
+font-family: Tahoma; 
+font-size: 8.5pt; 
+color: #CC0006;
+font-weight: bold;
+}
+
+.midfont
+{
+font-family: Tahoma; 
+font-size: 10pt; 
+color: #000000;
+}
+
+.midfontbold
+{
+font-family: Tahoma; 
+font-size: 10pt; 
+color: #ED008C;
+font-weight: bold;
+}
+.fontRed{color:red; font-size:12px;}

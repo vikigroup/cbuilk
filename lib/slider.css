@@ -1,0 +1,75 @@
+/* CSS Document */
+
+.infiniteCarousel {
+  width: 345px;
+  position: relative;
+}
+ 
+.infiniteCarousel .wrapper {
+  width: 315px; /* .infiniteCarousel width - (.wrapper margin-left + .wrapper margin-right) */
+  overflow: hidden;
+  min-height: 10em;
+  margin: 0 15px;
+  position: absolute;
+  top: 0;
+  
+}
+ 
+.infiniteCarousel ul a img {
+  border: 0px solid #CCCCCC;
+  -moz-border-radius: 1px;
+  -webkit-border-radius: 1px;
+}
+ 
+.infiniteCarousel .wrapper ul {
+  width: 9999px;
+  list-style-image:none;
+  list-style-position:outside;
+  list-style-type:none;
+  margin:0;
+  padding:0;
+  position: absolute;
+  top: 0;
+}
+ 
+.infiniteCarousel ul li {
+  display:block;
+  float:left;
+  padding: 4px 5px;
+  height: 115px;
+  width: 150px;
+}
+ 
+.infiniteCarousel ul li a img {
+  display:block;
+}
+ 
+.infiniteCarousel .arrow {
+  display: block;
+  height: 36px;
+  width: 37px;
+  background: url(arrow.png) no-repeat 0 0;
+  text-indent: -999px;
+  position: absolute;
+  top: 40px;
+  cursor: pointer;
+}
+ 
+.infiniteCarousel .forward {
+  background-position: 0 0;
+  right: 0;
+}
+ 
+.infiniteCarousel .back {
+  background-position: 0 -72px;
+  left: 0;
+}
+ 
+.infiniteCarousel .forward:hover {
+  background-position: 0 -36px;
+}
+ 
+.infiniteCarousel .back:hover {
+  background-position: 0 -108px;
+}
+ 

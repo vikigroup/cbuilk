@@ -1,0 +1,179 @@
+body{
+	font-family: Arial; 
+	font-size: 8.5px;
+	color: #000000;
+	margin:0;
+}
+
+table{
+	border-collapse:collapse;
+	font-family: Tahoma; 
+	font-size: 8.5pt; 
+	color: #000000;
+}
+input{
+	border: #dfdfdf 1px inset;
+	FONT-SIZE: 11px;
+	COLOR: #3d3d3d;
+	FONT-FAMILY: Tahoma,Arial,Verdana,Serif; 
+	HEIGHT: 18px; 
+	BACKGROUND-COLOR: #FBFBFB
+}
+select{
+	BORDER-RIGHT: #dfdfdf 1px inset; BORDER-TOP: #dfdfdf 1px inset; FONT-SIZE: 18px; VERTICAL-ALIGN: middle; BORDER-LEFT: #dfdfdf 1px inset; COLOR: #3d3d3d; BORDER-BOTTOM: #dfdfdf 1px inset; FONT-FAMILY: Tahoma,Arial,Verdana,Serif; HEIGHT: 18px; BACKGROUND-COLOR: #f8f8f8
+}
+textarea{
+	BORDER-RIGHT: #dfdfdf 1px inset; PADDING-RIGHT: 4px; BORDER-TOP: #dfdfdf 1px inset; PADDING-LEFT: 4px; FONT-SIZE: 11px; PADDING-BOTTOM: 4px; VERTICAL-ALIGN: middle; BORDER-LEFT: #dfdfdf 1px inset; COLOR: #3d3d3d; LINE-HEIGHT: 150%; PADDING-TOP: 4px; BORDER-BOTTOM: #dfdfdf 1px inset; FONT-FAMILY: Tahoma,Arial,Verdana,Serif; BACKGROUND-COLOR: #f8f8f8
+}
+a{color:#0000CC;text-decoration:none;}
+a:hover{color:0000CC;text-decoration:underline;}
+/*-------------------------------------------------------------------------------------------------*/
+
+.textbox{
+	background-color:#FBFBFB;
+	font-family: Tahoma;
+	font-size: 8.5pt;
+	color: #000000;
+}
+.tinyfont{
+	font-family: Tahoma; 
+	font-size: 7pt;
+	color: #000000;
+}
+.smallfont{
+	font-family: Tahoma; 
+	font-size: 8.5pt; 
+	color: #000000;
+}
+
+.fontRed{color:red;}
+
+.bgBlue{background-color:blue;}
+.bgGray{background-color:gray;}
+.bgBlack{background-color:black;}
+
+.aBlack{color:black;text-decoration:none;}
+.aBlack:hover{color:black;text-decoration:underline;}
+.aWhite{color:white;text-decoration:none;}
+.aWhite:hover{color:white;text-decoration:underline;}
+.aGray{color:gray;text-decoration:none;}
+.aGray:hover{color:gray;text-decoration:underline;}
+.aRed{color:red;text-decoration:none;}
+.aRed:hover{color:red;text-decoration:underline;}
+.aBlue{color:blue;text-decoration:none;}
+.aBlue:hover{color:blue;text-decoration:underline;}
+.aGreen{color:green;text-decoration:none;}
+.aGreen:hover{color:green;text-decoration:underline;}
+.aGold{color:#808000;text-decoration:none;}
+.aGold:hover{color:#808000;text-decoration:underline;}
+.aMagenta{color:magenta;text-decoration:none;}
+.aMagenta:hover{color:magenta;text-decoration:underline;}
+.aCyan{color:cyan;text-decoration:none;}
+.aCyan:hover{color:cyan;text-decoration:underline;}
+.aDarkCyan{color:DarkCyan;text-decoration:none;}
+.aDarkCyan:hover{color:DarkCyan;text-decoration:underline;}
+.a454EBA{color:#454EBA;text-decoration:none;}
+.a454EBA:hover{color:#454EBA;text-decoration:underline;}
+
+
+.aLink1{color:#0099FF;text-decoration:none;}
+.aLink1:hover{color:#66FFCC;text-decoration:none;}
+.aLink2{color:#0080C0;text-decoration:none;}
+.aLink2:hover{color:#80FFFF;text-decoration:none;}
+.aLink3{color:#0000FF;text-decoration:none;}
+.aLink3:hover{color:#FF0000;text-decoration:none;}
+
+.button{
+	background-color:#006AAA;
+	font-family: Tahoma; 
+	font-size: 8.5pt; 
+	color: #FFFFFF;
+	border-style: solid; 
+	border-width: 1px;
+}
+
+.title{
+	background-color:#0069A8;
+	font-family: Tahoma; 
+	font-size: 8.5pt; 
+	color: #FFFFFF;
+	font-weight: bold;
+}
+.title1{
+	background-color:#E1F0F0;
+	font-family: Tahoma; 
+	font-size: 9pt; 
+	color: #6A6A00;
+	font-weight: bold;
+}
+.normalTitle{
+	font-family: Tahoma; 
+	font-size: 8.5pt; 
+	color: #CC0006;
+	font-weight: bold;
+}
+.normalFont{
+	font-family: Tahoma; 
+	font-size: 8.5pt; 
+	color: #606060;
+}
+.err{
+	font-family: Tahoma; 
+	font-size: 8.5pt; 
+	color: #FF0000;
+}
+.catParent{
+	position:absolute;
+	background-color:#0080C0;
+	width:130px;
+	font-family: Tahoma;
+	font-size: 8.5pt;
+	text-decoration:none;
+	color: #FFFFFF;
+	font-weight: bold;
+	cursor:hand;
+	padding:6px 0 6px 6px;
+	margin-top:-12px;
+}
+.catParent:hover{
+	background-color:#3300FF;
+	color:#FFFFFF;
+}
+.catChild{
+	position:absolute;
+	background-color:#EEEEEE;
+	width:120px;
+	font-family: Tahoma;
+	font-size: 7pt;
+	text-decoration:none;
+	color: #8080FF;
+	font-weight: bold;
+	cursor:hand;
+	padding:5px 0 5px 15px;
+	margin-top:-11px;
+}
+.catChild:hover{
+	background-color:#EEEEEE;
+	color:#8080FF;
+	text-decoration:underline;
+}
+
+
+.button {
+	BACKGROUND: #6a6358;
+}
+
+.buttonOrange {
+	BORDER-RIGHT: #ffffff 1px solid; BORDER-TOP: #ffffff 1px solid; FONT-WEIGHT: bold; FONT-SIZE: 11px; PADDING-BOTTOM: 1px; BORDER-LEFT: #ffffff 1px solid; WIDTH: 80px; CURSOR: hand; COLOR: #ffffff; BORDER-BOTTOM: #B50103 1px solid; FONT-FAMILY: Tahoma, Verdana,Tahoma,Serif; HEIGHT: 22px; BACKGROUND-COLOR: #088ACA
+}
+
+.buttonBlue {
+	BORDER-RIGHT: #ffffff 1px solid; BORDER-TOP: #ffffff 1px solid; FONT-WEIGHT: bold; FONT-SIZE: 11px; PADDING-BOTTOM: 1px; BORDER-LEFT: #ffffff 1px solid; WIDTH: 80px; CURSOR: hand; COLOR: #000000; BORDER-BOTTOM: #ffffff 1px solid; FONT-FAMILY: Tahoma, Verdana,Tahoma,Serif; HEIGHT: 22px; BACKGROUND-COLOR: #ff6600
+}
+
+.radiobutton {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; VERTICAL-ALIGN: middle; BORDER-LEFT: 0px; BORDER-BOTTOM: 0px
+}
+.checkbox {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; VERTICAL-ALIGN: middle; BORDER-LEFT: 0px; BORDER-BOTTOM: 0px
+}
