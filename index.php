@@ -66,17 +66,51 @@ require("module/box_device.php");
 
         <?php include("module/box_tool_ad.php") ;?>
 
-        <section class="tool-ct">
-
-            <?php include("module/box_support.php") ;?>
-
-            <?php include("module/info_user.php") ;?>
-
-            <div class="clear"></div>
-        </section><!-- End .tool-ct -->
-
     </div><!-- End .m-wrap -->
 </header>
+
+<div class="container">
+    <div class="m-wrap">
+        <section class="tool-ct">
+            <?php include("module/box_support.php") ;?>
+            <?php include("module/info_user.php") ;?>
+        </section><!-- End .tool-ct -->
+    </div><!-- End .m-wrap -->
+</div>
+
+<div class="container menu-responsive">
+    <div class="m-wrap">
+        <section class="top-ct">
+            <article class="dmsp2">
+                <nav id="nav-wrap">
+                    <ul id="nav">
+                        <?php
+                        $cate=get_records("tbl_shop_category","status=0 AND  parent=2"," "," "," ");
+                        $i=1;
+                        while($row_cate=mysql_fetch_assoc($cate)){
+                            ?>
+                            <li>
+                                <a href="<?php echo $linkrootshop?>/<?php echo $row_cate['subject'];?>.html"><?php echo $row_cate['name'];?></a>
+                            </li>
+                        <?php }?>
+                    </ul>
+                    <div class="clear"></div>
+                    <script type="text/javascript">
+                        jQuery(document).ready(function($){
+                            /* prepend menu icon */
+                            $('#nav-wrap').prepend('<div id="menu-icon">Menu</div>');
+                            /* toggle nav */
+                            $("#menu-icon").on("click", function(){
+                                $("#nav").slideToggle();
+                                $(this).toggleClass("active");
+                            });
+                        });
+                    </script>
+                </nav>
+            </article><!-- Responsive dmsp -->
+        </section><!-- End .top-ct -->
+    </div><!-- End .m-wrap -->
+</div>
 
 <div class="container-fluid">
     <div class="row" id="slider">
@@ -92,15 +126,6 @@ require("module/box_device.php");
 <section id="container">
     <div class="m-wrap">
 
-        <section class="tool-ct">
-
-            <?php include("module/box_support.php") ;?>
-
-            <?php include("module/info_user.php") ;?>
-
-            <div class="clear"></div>
-        </section><!-- End .tool-ct -->
-
         <?php include("module/processFrame.php");?>
 
         <?php
@@ -108,7 +133,7 @@ require("module/box_device.php");
             ?>
             <?php include("module/service_new.php") ;?>
 
-            <section class="app-orther">
+            <section class="app-orther" style="clear: both">
 
                 <?php include("module/box_shop_new.php") ;?>
 
@@ -120,7 +145,7 @@ require("module/box_device.php");
 
             </section><!-- End .app-orther -->
 
-        <?php }else{}?>
+        <?php }?>
 
     </div><!-- End .m-wrap -->
 </section><!-- End #container -->
