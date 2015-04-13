@@ -66,6 +66,15 @@ require("module/box_device.php");
 
         <?php include("module/box_tool_ad.php") ;?>
 
+        <section class="tool-ct">
+
+            <?php include("module/box_support.php") ;?>
+
+            <?php include("module/info_user.php") ;?>
+
+            <div class="clear"></div>
+        </section><!-- End .tool-ct -->
+
     </div><!-- End .m-wrap -->
 </header>
 
