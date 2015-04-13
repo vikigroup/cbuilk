@@ -1,0 +1,33 @@
+
+conect to database----------------------------------
+
+-config.php
+-$hostname        ="localhost";
+-$databasename    ="name-of_databse";
+-$username        ="username_of_databse";
+-$password        ="password_of_databse";
+
+
+root folder------------------------------------------
+
+-$root_file="";
+
+
+link for sub of website: abc.domain.com -------------
+
+-$root="http://domain.com";
+-$sub="domain.com";
+-$subname="domain";
+
+permission for dolder -------------------------------- 
+
+-imagecache/imagecache set permiss: 777
+-web/images/
+	   shopcate       :permis  777	
+	   gianhang	  :permis  777	
+		   /item  :permiss 777
+		   /ad    :permiss 777
+	           /xxxx  :permiss 777
+
+------------------------------------------------------
+ 

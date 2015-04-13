@@ -1,0 +1,17 @@
+admin-root--------------------------------
+
+-link    : domain.com/admin/admin.php
+-username: admin
+-password: admin123
+
+------------------------------------------
+
+abc.domain.com 
+
+-link    : abc.domain.com/quantri
+-username: xxxx
+-password: xxxx
+
+or use the user admin root to login
+
+------------------------------------------
