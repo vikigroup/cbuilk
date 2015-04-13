@@ -97,6 +97,10 @@ BEGIN CONTAINER
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
 	border-radius: 3px;
+    position: relative;
+    z-index: 100 !important;
+    background-color: white !important;
+    opacity: 0.85;
 }
 .mn-dm:hover {
 	-webkit-border-radius: 3px;
