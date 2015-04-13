@@ -1,0 +1,53 @@
+RewriteEngine on
+ErrorDocument 404 /404.shtml
+ErrorDocument 401 /403.shtml
+ErrorDocument 403 /403.shtml
+ErrorDocument 500 /500.shtml
+
+RewriteCond %{HTTP_HOST} !^cpcmart.com$ [NC]
+RewriteCond %{REQUEST_URI} !^/web/.*$ [NC]
+RewriteRule ^(.*)$ web/$1 [L]
+
+RewriteCond %{REQUEST_URI} !\.[^./]+$
+RewriteCond %{REQUEST_URI} !(.*)/$
+#RewriteRule ^(.*)$ http://cpcmart.com/$1.html [R=301,L]
+
+#RewriteRule ^(.*)/$ http://cpcmart.com/$1.html [R=301,L]
+
+
+
+
+RewriteRule ^trang-chu.html$ index.php?shop=$1 [L]
+RewriteRule ^404-page-not-found.html$ ?act=page404 [L]
+
+RewriteRule ^dang-ky.html$ ?act=register [L]
+RewriteRule ^dang-ky-thanh-cong.html$ ?act=registersuccess [L]
+RewriteRule ^dang-nhap.html$ ?act=login [L]
+RewriteRule ^doi-mat-khau.html$ ?act=changepass [L]
+RewriteRule ^quan-ly.html$ ?act=changeinfo [L]
+RewriteRule ^thoat.html$ ?act=logout [L]
+RewriteRule ^thong-tin/(.*).html$ ?act=info_detail&tenthongtin=$1 [L]
+RewriteRule ^xem-tat-ca.html$ ?act=xemtatca [L]
+RewriteRule ^quen-mat-khau.html$ ?act=forgetpass [L]
+
+RewriteRule ^dang-ky-gian-hang.html$ ?act=addshop [L]
+
+RewriteRule ^xu-ly.html$ module/xuly.php [L]
+RewriteRule ^tu-khoa-tim/(.*)/(.*)html$ ?act=search&loai=$1&tukhoa=$2 [L]
+RewriteRule ^page-tu-khoa-tim/(.*)/(.*)/(.*).html$ index.php?act=search&keyword=$1&loai=$2&pageNum=$3 [L]
+
+#RewriteRule ^(.*).html$ ?act=products&danhmuc=$1 [L]
+#RewriteRule ^(.*)/(.*)/$ ?act=product1s&danhmuc1=$1&danhmuc1=$2 [L]
+
+RewriteRule ^page-danh-muc/(.*)/(.*)/(.*).html$ ?act=products&danhmuc=$1&tukhoa=$2&pageNum=$3 [L]
+
+RewriteRule ^(.*).html$ ?act=product_detail&tensanpham=$1 [L]
+
+
+RewriteRule ^(.*).html$ ?act=service_detail&tendichvu=$1 [L]
+
+RewriteRule ^tin-tuc/(.*).html$ ?act=new_detail&tenthongtin=$1 [L]
+
+
+
+
