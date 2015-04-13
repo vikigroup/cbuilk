@@ -1,0 +1,162 @@
+body {
+	background-color: #CCC;
+	margin-top: 0px;
+	margin-right: auto;
+	margin-bottom: auto;
+	margin-left: 0px;
+}
+.link a{
+	text-decoration: none;
+	color: #00F;
+	font-weight: bold;
+	cursor:pointer;
+}
+.link a:hover {
+	color: #900;
+	cursor:pointer;
+}
+.link_loc a{
+	text-decoration: none;
+	color: #000;
+	font-weight: normal;
+}
+.link_loc a:hover {
+	color: #900;
+}
+
+#main {
+	height: auto;
+	width: 1200px;
+	margin-top: 0px;
+	margin-right: auto;
+	margin-bottom: 0px;
+	margin-left: auto;
+	border: 1px solid #666;
+}
+#ketop {
+	background-color: #000;
+	height: 3px;
+}
+#banner {
+	background-color: #FFF;
+	text-align: left;
+	border-top-width: 2px;
+	border-top-style: solid;
+	border-top-color: #999;
+	float: left;
+	width: 100%;
+}
+#dangnhap {
+	float: right;
+	width: 270px;
+}
+
+#menu {
+	background-color: #3883CC;
+	float: left;
+	width: 100%;
+
+}
+#cen {
+	clear: both;
+	float: none;
+	height: auto;
+	background-color: #FFF;
+	text-align: center;
+}
+
+
+
+
+.hightlight {
+	background-color:#FFC;
+}
+.PageNum span {
+	font-weight: bold;
+	color: #FFF;
+	background-color: #09F;
+	border: 1px solid #000000;
+	margin-right: 5px;
+	padding-top: 2px;
+	padding-right: 5px;
+	padding-bottom: 2px;
+	padding-left: 5px;
+	font-size: 12px;
+}
+.PageNum  a {
+	color: #000;
+	text-decoration: none;
+	border: 1px solid #000000;
+	background-color: #CCC;
+	margin-right: 5px;
+	padding-top: 2px;
+	padding-right: 5px;
+	padding-bottom: 2px;
+	padding-left: 5px;
+	font-size: 12px;
+	font-weight: bold;
+}
+.PageNum a:hover   {
+	color: #FFF;
+	text-decoration: none;
+	background-color: #09F;
+	font-size: 12px;
+	font-weight: bold;
+}
+.PageNext span {
+	font-weight: bold;
+	color: #FFF;
+	background-color: #09F;
+	border: 1px solid #000000;
+	margin-right: 5px;
+	padding-top: 2px;
+	padding-right: 5px;
+	padding-bottom: 2px;
+	padding-left: 5px;
+	font-size: 12px;
+}
+.PageNext a {
+	color: #000;
+	text-decoration: none;
+	margin-right: 5px;
+	padding-top: 2px;
+	padding-right: 5px;
+	padding-bottom: 2px;
+	padding-left: 5px;
+	font-weight: bold;
+	border: 1px solid #000;
+	background-color: #CCC;
+	font-size: 12px;
+}
+.PageNext  a:hover   {
+	color: #FFF;
+	text-decoration: none;
+	background-color: #09F;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+
+#foot {
+	background-color: #1D93AC;
+	clear: both;
+	float: none;
+	text-align: center;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	color: #FFF;
+	font-size: 12px;
+	border-top-width: medium;
+	border-top-style: solid;
+	border-top-color: #CCC;
+	border-bottom-width: 2px;
+	border-bottom-style: solid;
+	border-bottom-color: #999999;
+}
+.hinh {
+	background-color: #FFF;
+	padding: 2px;
+	border: 1px solid #CCC;
+}
+.admin_tieude_table a { color:#FFF; text-decoration:none;}
+.table_chinh tr td { padding:2px;}

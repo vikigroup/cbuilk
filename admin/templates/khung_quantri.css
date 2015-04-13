@@ -1,0 +1,94 @@
+@charset "utf-8";
+.table_chinh {
+	font-size: 14px;
+	color: #000;
+}
+
+.sao {
+	font-size: 16px;
+	color: #F00;
+}
+.coloi_hien {
+	font-style: italic;
+	color: #F00;
+	font-weight: normal;
+}
+.table_chu_tieude {
+	font-size: 24px;
+	font-weight: bold;
+	color: #000;
+	clear: left;
+	float: left;
+	height: auto;
+	width: 100%;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #CCC;
+	padding-bottom: 10px;
+}
+.table_chu_tieude_them {
+	font-size: 24px;
+	font-weight: bold;
+	color: #000;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #CCC;
+	padding-bottom: 10px;
+}
+.table_admin_tr {
+	height: 30px;
+}
+
+.table_chu {
+	font-weight: bold;
+	color: #000;
+	width: 200px;
+}
+.table_khungnho {
+	width: 300px;
+	background-color: #E8E8E8;
+	border: 1px solid #999;
+	height: 23px;
+}
+.table_khungvua {
+	width: 300px;
+	height: 100px;
+	background-color: #E8E8E8;
+	border: 1px solid #999;
+}
+.table_list {
+	width: 300px;
+	height: 23px;
+	background-color: #E8E8E8;
+	border: 1px solid #CCC;
+}
+.list_tim_loc {
+	background-color: #FFF;
+	width: 150px;
+	border: 1px solid #999;
+	margin: 0px;
+	padding: 0px;
+}
+
+.nut_table {
+	color: #FFF;
+	background-color: #3883CC;
+	font-weight: bold;
+	font-size: 12px;
+	border: 1px solid #999;
+	padding-right: 3px;
+	padding-bottom: 5px;
+	padding-left: 3px;
+	padding-top: 4px;
+}
+.admin_table td{
+	border: 1px solid #666;
+}
+
+.admin_tieude_table {
+	color: #FFF;
+	background-color: #3883CC;
+	font-weight: bold;
+	font-size: 16px;
+	height: 25px;
+}
