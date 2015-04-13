@@ -1,6 +1,8 @@
 <?php include("module/menu_left_home.php") ;?>
 
-<?php include("module/khuyenmai_home.php") ;?>
+<div class="row">
+    <?php include("module/khuyenmai_home.php") ;?>
+</div>
 
 <?php
 $gt=get_records("tbl_adv","status=0","id DESC","0,2"," ");
