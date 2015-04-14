@@ -2,7 +2,9 @@
 
     <div class="mn-dm fix-box-sizing">
         <div class="m-mn-dm">
-
+            <ul class="ul-dm">
+                <img class="img-right" src="http://placehold.it/168x470">
+            </ul>
         </div><!-- End .m-mn-dm -->
     </div><!-- End .mn-dm -->
 
