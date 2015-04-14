@@ -1,4 +1,5 @@
 <?php include("module/menu_left_home.php") ;?>
+<?php include("module/menu_right_home.php") ;?>
 
 <div class="row">
     <?php include("module/khuyenmai_home.php") ;?>
