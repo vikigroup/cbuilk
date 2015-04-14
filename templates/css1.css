@@ -90,7 +90,10 @@ BEGIN CONTAINER
 .dmsp2 {display: none;}
 .dmsp3 {float: right; width: 190px; position: absolute; top: 119px; right: 70px; height: 470px;}
 .img-right{width: 168px; height: 470px;}
-.ads-home{float:left; width: 808px;}
+.ads-home{float:left; width: 830px;}
+.ads-logo{width: 132px; margin: 0 3px 0 3px; background-color: white; float: left; padding: 18px 0 18px 0; text-align: center;}
+.ads-logo img{width: 90px; height: 45px; display: inline}
+.ads-article{margin: 30px auto;}
 .slider {float: right; width: 770px; height: 312px; overflow: hidden;}
 
 #slider img {width: 770px; height: 312px;}
