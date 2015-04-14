@@ -1,4 +1,4 @@
-<section class="Prod-nb">
+<section class="Prod-nb" style="clear: both">
     
     <h4 class="t-Pnb">
         Sản phẩm khuyến mãi
