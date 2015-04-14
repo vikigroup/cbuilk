@@ -204,7 +204,7 @@ ul.ul-dm > li:hover > .sub-menu {display: block;}
 
 /*Sub menu*/
 
-.Prod-nb {margin-top: 120px; padding-bottom: 20px;}
+.Prod-nb {margin-top: 10px; padding-bottom: 20px;}
 .t-Pnb {height: 37px; line-height: 37px; border: 1px solid #ececec; background: url(../imgs/layout/t-Pnb.png) no-repeat center; font-size: 15px; padding: 0 8px;}
 .m-Pnb {padding: 10px 0 0 0;}
 .m-Pnb2 {display: none;}
