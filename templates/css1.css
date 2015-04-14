@@ -87,7 +87,7 @@ BEGIN CONTAINER
 .top-ct {padding: 20px 0;}
 .dmsp {float: left; width: 190px;}
 .dmsp2 {display: none;}
-.dmsp3 {float: right; width: 190px; position: absolute; top: 119px; right: 70px}
+.dmsp3 {float: right; width: 190px; position: absolute; top: 119px; right: 70px; height: 470px;}
 .slider {float: right; width: 770px; height: 312px; overflow: hidden;}
 
 #slider img {width: 770px; height: 312px;}
