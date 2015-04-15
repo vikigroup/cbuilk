@@ -89,11 +89,12 @@ BEGIN CONTAINER
 .dmsp1 {float: right; width: 190px;}
 .dmsp2 {display: none;}
 .dmsp3 {float: right; width: 190px; position: absolute; top: 119px; right: 70px; height: 470px;}
+.dmsp4 {float: left; width: 190px; height: 420px;}
 .img-right{width: 168px; height: 470px;}
 .ads-home{float:left; width: 830px;}
 .ads-logo{width: 132px; margin: 0 3px 0 3px; background-color: white; float: left; padding: 18px 0 18px 0; text-align: center;}
 .ads-logo img{width: 90px; height: 45px; display: inline}
-.ads-article{padding: 30px 0 30px 0;}
+.ads-article{padding-top: 30px;}
 .clearfix{clear: both;}
 .slider {float: right; width: 770px; height: 312px; overflow: hidden;}
 
