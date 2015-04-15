@@ -93,7 +93,8 @@ BEGIN CONTAINER
 .ads-home{float:left; width: 830px;}
 .ads-logo{width: 132px; margin: 0 3px 0 3px; background-color: white; float: left; padding: 18px 0 18px 0; text-align: center;}
 .ads-logo img{width: 90px; height: 45px; display: inline}
-.ads-article{margin: 30px auto;}
+.ads-article{padding: 30px 0 30px 0;}
+.clearfix{clear: both;}
 .slider {float: right; width: 770px; height: 312px; overflow: hidden;}
 
 #slider img {width: 770px; height: 312px;}
@@ -563,7 +564,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 .rm_prod_other:hover{text-decoration:underline;}
 
 
-.form_dn{padding-top:20px;}
+.form_dn{padding-top:20px; margin-top: 470px;}
 .form_dn ul li{float:left; width:480px;}
 .form_dn ul li:nth-child(1n){float:left;}
 .form_dn ul li:nth-child(2n){float:right;}
