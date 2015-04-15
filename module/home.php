@@ -1,6 +1,7 @@
 <?php include("module/menu_left_home.php") ;?>
 <?php include("module/menu_right_home.php") ;?>
 <?php include("module/ads_home.php") ;?>
+<?php include("module/floors_home.php") ;?>
 <?php include("module/khuyenmai_home.php") ;?>
 
 <?php
