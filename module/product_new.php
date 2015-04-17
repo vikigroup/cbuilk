@@ -98,6 +98,7 @@
 <script>
     $(document).ready(function(){
         $('.bx-wrapper').css('max-width', '1200px');
+        $('.bx-wrapper').css('margin', '0 auto 27px');
         $('.slide').css('margin-right', '25px');
     });
 </script>
