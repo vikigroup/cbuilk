@@ -89,7 +89,9 @@ BEGIN CONTAINER
 .dmsp1 {float: right; width: 190px;}
 .dmsp2 {display: none;}
 .dmsp3 {float: right; width: 190px; position: absolute; top: 119px; right: 70px; height: 470px;}
-.dmsp4 {float: left; width: 190px; height: 420px;}
+.dmsp4-1 {float: left; width: 190px; height: 420px; background-color: #FAFAF8;}
+.dmsp4-2 {float: left; width: 390px; height: 420px; background-color: #FAFAF8;}
+.dmsp4-3 {float: left; width: 630px; height: 420px; background-color: #FAFAF8;}
 .img-right{width: 168px; height: 470px;}
 .ads-home{float:left; width: 830px;}
 .ads-logo{width: 132px; margin: 0 3px 0 3px; background-color: white; float: left; padding: 18px 0 18px 0; text-align: center;}
@@ -663,4 +665,98 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     .menu-responsive{
         display: block;
     }
+}
+
+.arrowLine
+{
+    float: left;
+    background-color: #FD2334;
+    border-right:1px solid white;
+    height:15px;
+    width:34px;
+    padding: 9px;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 14px;
+    text-align: center;
+    border-bottom: 2px solid #FD2334;
+}
+
+.triangle_left
+{
+    height:0px; width:0px;
+    border-left:17px solid #FD2334;
+    border-top:17px solid transparent;
+    border-bottom:17px solid transparent;
+    float:left;
+}
+
+.arrowCategory{
+    float: left;
+    background-color: #FC3948;
+    text-transform: uppercase;
+    color: white;
+    font-weight: bold;
+    width: 137px;
+    height: 32px;
+    padding-top: 3px;
+    overflow: hidden;
+    text-align: center;
+}
+
+.divCategory{
+    clear: both;
+    background-color: #FC3948;
+    height: 68px;
+    border-top: 1px solid white;
+}
+
+.divContent{
+    float: left;
+    width: 94px;
+    text-align: center;
+    color: white;
+    padding: 5px 0 4px 0;
+    cursor: pointer;
+}
+
+.sep{
+    width: 1px;
+    height: 31px;
+    background-color: #A0CEEF;
+    margin: 17px 0 17px 0;
+    float: left;
+    -webkit-box-shadow: 8px 0 10px -6px #A0CEEF;
+    -moz-box-shadow: 8px 0 10px -6px #A0CEEF;
+    box-shadow: 8px 0 10px -6px #A0CEEF;
+}
+
+.divSubCategory{
+    clear: both;
+    background-color: #FAFAF8;
+    height: 178px;
+}
+
+.aSubCategory{
+    font-size: 13px;
+    margin: 5px;
+    overflow: hidden;
+}
+
+.aSubCategory a{
+    width: 190px;
+    overflow: hidden;
+}
+
+.divProductLine1{
+    float: left;
+    width: 210px;
+    height: 256px;
+}
+
+.divProductLine2{
+    float: left;
+    width: 210px;
+    height: 164px;
 }
