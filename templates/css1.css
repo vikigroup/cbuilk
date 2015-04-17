@@ -214,11 +214,12 @@ ul.ul-dm > li:hover > .sub-menu {display: block;}
 /*Sub menu*/
 
 .Prod-nb {margin-top: 10px; padding-bottom: 20px;}
-.t-Pnb {height: 37px; line-height: 37px; border: 1px solid #ececec; background: url(../imgs/layout/t-Pnb.png) no-repeat center; font-size: 15px; padding: 0 8px;}
+.t-Pnb {height: 37px; line-height: 37px; border: 1px solid #ececec; font-size: 15px; padding: 0 8px;}
+/*background: url(../imgs/layout/t-Pnb.png) no-repeat center;*/
 .m-Pnb {padding: 10px 0 0 0;}
 .m-Pnb2 {display: none;}
 .m-Pnb ul li {
-	width: 176px; height: 218px;	
+	width: 176px; height: 218px;
 	border: 1px solid #ececec;
 	background: #fff;
 	padding: 5px 5px 0 5px;
@@ -759,4 +760,10 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     float: left;
     width: 210px;
     height: 164px;
+}
+
+.ads-floors{
+    clear:both;
+    padding-top: 30px;
+    text-align: center;
 }
