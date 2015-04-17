@@ -68,7 +68,7 @@
             pager: false
         });
 
-        $('.bx-wrapper').css('max-width', '180px');
-        $('.bx-viewport').css('width', '180px');
+        $('.bx-wrapper').css('max-width', '185px');
+        $('.bx-viewport').css('width', '185px');
     });
 </script>
