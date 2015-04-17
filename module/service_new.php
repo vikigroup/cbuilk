@@ -102,3 +102,10 @@
     </article>
     
 </section><!-- End .News-nb -->
+
+<script>
+    $(document).ready(function(){
+        $('.bx-wrapper').css('max-width', '1200px');
+        $('.bx-wrapper').css('margin', '0 auto 27px');
+    });
+</script>
