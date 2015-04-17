@@ -94,3 +94,10 @@
     </article><!-- Responsive m-Pnb2 -->
     <?php }?>
 </section><!-- End .Prod-nb -->
+
+<script>
+    $(document).ready(function(){
+        $('.bx-wrapper').css('max-width', '1200px');
+        $('.slide ul li').css('width', '190px');
+    });
+</script>

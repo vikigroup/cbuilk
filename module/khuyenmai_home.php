@@ -78,7 +78,8 @@
 
 <script>
     $(document).ready(function(){
-        $('.bx-wrapper').css('max-width', '1150px');
-        $('ul-Pnb li').attr('css', 'width: 180px !important');
+        $('.bx-wrapper').css('max-width', '1200px');
+        $('.bx-wrapper').css('margin', '0 auto 30px');
+        $('.ul-Pnb li').attr('style', 'float: left; list-style: none; position: relative; width: 179px !important; margin-right: 10px;');
     });
 </script>
