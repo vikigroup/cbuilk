@@ -51,7 +51,7 @@
     </article>
 </section><!-- End .Prod-nb -->
 
-<section class="Adv" style="clear:both; padding-top: 30px">
+<section class="Adv ads-floors">
     <a href="#" target="_blank">
         <img src="http://cpcmart.com/web/images/adv/advs2.png" alt="">
     </a>

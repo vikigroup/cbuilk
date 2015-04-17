@@ -75,3 +75,10 @@
     
     <?php }?>
 </section><!-- End .Prod-nb -->
+
+<script>
+    $(document).ready(function(){
+        $('.bx-wrapper').css('max-width', '1150px');
+        $('ul-Pnb li').attr('css', 'width: 180px !important');
+    });
+</script>
