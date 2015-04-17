@@ -53,6 +53,8 @@ require("module/box_device.php");
     <link href="<?php echo $linkrootshop?>/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="<?php echo $linkrootshop?>/jquery.bxslider/jquery.bxslider.css">
     <script type="text/javascript" src="<?php echo $linkrootshop?>/jquery.bxslider/jquery.bxslider.min.js"></script>
+    <script type="text/javascript" src="<?php echo $linkrootshop?>/jquery.bxslider/plugins/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="<?php echo $linkrootshop?>/jquery.bxslider/plugins/jquery.fitvids.js"></script>
 
 </head>
 <body>
