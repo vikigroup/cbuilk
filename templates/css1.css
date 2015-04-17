@@ -309,7 +309,7 @@ ul.ul-dm > li:hover > .sub-menu {display: block;}
 
 .app-orther {padding: 0 0 20px 0;}
 .app-orther article {
-	width: 291px; 
+	width: 368px;
 	float: left; 
 	margin: 0 20px 0 0;
 	border: 1px solid #dbdbdb;
@@ -363,7 +363,8 @@ BEGIN FOOTER
 footer {}
 
 .i-foot {background: url(../imgs/layout/i-foot.png) no-repeat center bottom; border-top: 1px solid #d8d8d8; padding: 0 0 10px 0;}
-.bg-ifoot {background: url(../imgs/layout/ul-ifoot.png) repeat-y; }
+.bg-ifoot {}
+/*background: url(../imgs/layout/ul-ifoot.png) repeat-y;*/
 .i-foot ul.ul-ifoot > li {float: left; width: 25%;}
 .t-ifoot {padding: 0 0 0 20px; background: #f3f3f3; height: 30px; line-height: 30px;}
 .m-ifoot {padding: 10px 10px 10px 20px; line-height: 22px; font-size: 11px;}
