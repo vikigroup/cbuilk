@@ -61,24 +61,71 @@
     <div class="mini-user">
         <p><i class="fa fa-user fa-2x"></i></p>
         <p>Tài khoản</p>
-        <div class="tooltip_description" style="display:none" title="SAMSUNG GALAXY WIN">
-            Màn hình:	WVGA, 4.7", 480 x 800 pixels <br/>
-            CPU: Qualcomm MSM8625, 4 nhân, 1.2 GHz <br/>
-            RAM 1 GB <br/>
-            Hệ điều hành:	Android 4.1.2 (Jelly Bean) <br/>
-            Camera:	5.0 MP, Quay phim HD 720p@15fps <br/>
-            Dung lượng pin: 2000 mAh
-        </div>
+    </div>
+    <div class="mini-login">
+        <div class="main_f_dn">
+            <h1 class="title_f_tt"> Đăng nhập </h1>
+            <form id="form1" name="form1" method="post" action="#">
+                <div class="main_f_tt">
+
+                    <div class="module_ftt">
+                        <div class="l_f_tt">
+                            Tên
+                        </div>
+                        <div class="r_f_tt">
+                            <input class="ipt_f_tt" type="text" id="username" name="username" value="<?php  echo $_COOKIE['un'];?>" />
+                            <span class="star_style">*</span>
+                        </div>
+                        <div class="clear"></div>
+                    </div><!-- End .module_ftt -->
+
+                    <div class="module_ftt">
+                        <div class="l_f_tt">
+                            Mật khẩu
+                        </div>
+                        <div class="r_f_tt">
+                            <input class="ipt_f_tt" type="password" id="password" name="password" value="<?php  echo $_COOKIE['pw'];?>" />
+                            <span class="star_style">*</span>
+                        </div>
+                        <div class="clear"></div>
+                    </div><!-- End .module_ftt -->
+
+                    <div class="module_ftt">
+                        <div class="l_f_tt">
+                            &nbsp;
+                        </div>
+                        <div class="r_f_tt">
+                            <input type="checkbox"  name="nho" />
+                            <span style="padding-left:5px;">Nhớ mật khẩu</span> | <a href="<?php echo $linkrootshop?>/quen-mat-khau.html" title="">Quên mật khẩu</a>
+                        </div>
+                        <div class="clear"></div>
+                    </div><!-- End .module_ftt -->
+
+                    <div class="module_ftt" style="color:#F00; text-align:center;">
+                        <?php echo $error_login;?>
+                    </div>
+
+                    <div class="module_ftt">
+                        <div class="l_f_tt">
+                            &nbsp;
+                        </div>
+                        <div class="r_f_tt">
+                            <div style="padding-bottom:15px;">
+                                <input name="btn_dangnhap_in" class="btn_dn" type="submit" value="&nbsp;"/>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                    </div><!-- End .module_ftt -->
+
+                    <div class="info_f_tt">
+                        Đăng nhập bây giờ để quá trình mua hàng diễn ra nhanh chóng. Bạn cũng có thể xem chi tiết lịch sử giao dịch & tình trạng đơn hàng trong tài khoản của bạn.
+                    </div><!-- End .info_f_tt -->
+
+                </div><!-- End .main_f_tt -->
+            </form>
+        </div><!-- End .main_f_dn -->
     </div>
 </div>
-
-<link rel="stylesheet" href="scripts/jquery.tooltip/jquery.tooltip.css" type="text/css" />
-<script type="text/javascript" src="scripts/jquery.tooltip.js"></script>
-<script type="text/javascript">
-    $(document).ready(function(){
-        $(".mini-user").tooltip();
-    });
-</script>
 
 <script>
     $(document).ready(function(){
