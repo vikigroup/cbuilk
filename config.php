@@ -26,9 +26,6 @@ $arrLanguage = array(
 
 $root_file='';
 $linkroot='http://'.$_SERVER['HTTP_HOST'];
-if($linkroot[strlen($linkroot)] == ''){
-    $linkroot .= '/';
-}
 $linkroot=$linkroot.$root_file;
 
 $linkrootshop=$linkroot;
