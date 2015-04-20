@@ -768,3 +768,24 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     padding-top: 30px;
     text-align: center;
 }
+
+.mini-bar{
+    background-color: #000000;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 35px;
+    height: 100%;
+    overflow: hidden;
+    z-index: 100;
+}
+
+.mini-user{
+    color: #ffffff;
+    margin-top: 50px;
+    text-align: center;
+}
+
+.mini-user:hover{
+    background-color: #AB4040;
+}
