@@ -57,6 +57,29 @@
     </a>
 </section>
 
+<div class="mini-bar">
+    <div class="mini-user">
+        <p><i class="fa fa-user fa-2x"></i></p>
+        <p>Tài khoản</p>
+        <div class="tooltip_description" style="display:none" title="SAMSUNG GALAXY WIN">
+            Màn hình:	WVGA, 4.7", 480 x 800 pixels <br/>
+            CPU: Qualcomm MSM8625, 4 nhân, 1.2 GHz <br/>
+            RAM 1 GB <br/>
+            Hệ điều hành:	Android 4.1.2 (Jelly Bean) <br/>
+            Camera:	5.0 MP, Quay phim HD 720p@15fps <br/>
+            Dung lượng pin: 2000 mAh
+        </div>
+    </div>
+</div>
+
+<link rel="stylesheet" href="scripts/jquery.tooltip/jquery.tooltip.css" type="text/css" />
+<script type="text/javascript" src="scripts/jquery.tooltip.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $(".mini-user").tooltip();
+    });
+</script>
+
 <script>
     $(document).ready(function(){
         $('.divAds').bxSlider({
