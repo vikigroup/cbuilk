@@ -782,10 +782,23 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 
 .mini-user{
     color: #ffffff;
-    margin-top: 50px;
+    margin-top: 100px;
     text-align: center;
 }
 
 .mini-user:hover{
     background-color: #AB4040;
+    cursor: pointer;
+}
+
+.mini-login{
+    position: fixed;
+    right: 35px;
+    top: 100px;
+    width: 230px;
+    background-color: #ffffff;
+}
+
+.mini-login .main_f_dn #form1 .main_f_tt .module_ftt .r_f_tt #username, #password{
+    width: 130px;
 }
