@@ -66,6 +66,7 @@
             slideMargin: 2,
             auto: true,
             pager: false
+//            controls: false
         });
 
         $('.bx-wrapper').css('max-width', '185px');
