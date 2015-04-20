@@ -187,7 +187,7 @@ $(document).ready(function() {
                              Mật khẩu
                         </div>
                         <div class="r_f_tt">
-                            <input required class="ipt_f_tt" type="password" name="matkhau" value="<?php echo $password; ?>" />
+                            <input required class="ipt_f_tt" type="password" name="matkhau" /> <!-- value="<?php echo $password; ?>" -->
                             <span class="star_style">*</span>
                         </div>
                         <div class="clear"></div>
