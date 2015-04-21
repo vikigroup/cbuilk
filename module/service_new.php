@@ -107,7 +107,7 @@
     $(document).ready(function(){
         $('.bx-wrapper').css('max-width', '1200px');
         $('.bx-wrapper').css('margin', '0 auto 27px');
-        $('.bx-viewport').css('width', '983px');
+        $('.m-News-nb .bx-wrapper .bx-viewport').css('width', '983px');
         $('.ul-Pnb3 .slide').css('margin-right', '25px');
     });
 </script>
