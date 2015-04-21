@@ -777,16 +777,16 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     width: 35px;
     height: 100%;
     overflow: hidden;
-    z-index: 100;
+    z-index: 1003;
+    padding: 250px 0 250px 0;
 }
 
 .mini-user{
     color: #ffffff;
-    margin-top: 100px;
     text-align: center;
 }
 
-.mini-user:hover{
+.mini-user:hover, .mini-shopping:hover{
     background-color: #AB4040;
     cursor: pointer;
 }
@@ -794,7 +794,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 .mini-login{
     position: fixed;
     right: 35px;
-    top: 100px;
+    top: 250px;
     width: 230px;
     background-color: #ffffff;
     display: none;
@@ -812,9 +812,27 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 .mini-angle{
     position: fixed;
     right: 28px;
-    top: 100px;
+    top: 250px;
     color: #f5f5f1;
     background-color: transparent;
     display: none;
     z-index: 9999;
+}
+
+.mini-shopping, .mini-shopping a{
+    color: #ffffff !important;
+    text-align: center;
+}
+
+.menu {
+    background: #ffffff;
+    top: 5px;
+    z-index: 1001;
+}
+
+.fixed {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1002;
 }
