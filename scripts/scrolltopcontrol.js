@@ -47,7 +47,7 @@ var scrolltotop={
 			var iebrws=document.all
 			mainobj.cssfixedsupport=!iebrws || iebrws && document.compatMode=="CSS1Compat" && window.XMLHttpRequest //not IE or IE7+ browsers in standards mode
 			mainobj.$body=(window.opera)? (document.compatMode=="CSS1Compat"? $('html') : $('body')) : $('html,body')
-			mainobj.$control=$('<div id="topcontrol" style="z-index:999;">'+mainobj.controlHTML+'</div>')
+			mainobj.$control=$('<div id="topcontrol" style="z-index:1004;">'+mainobj.controlHTML+'</div>')
 				.css({position:mainobj.cssfixedsupport? 'fixed' : 'absolute', bottom:mainobj.controlattrs.offsety, right:mainobj.controlattrs.offsetx, opacity:0, cursor:'pointer'})
 				.attr({title:'Scroll Back to Top'})
 				.click(function(){mainobj.scrollup(); return false})
