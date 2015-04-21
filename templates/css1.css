@@ -281,7 +281,7 @@ ul.ul-dm > li:hover > .sub-menu {display: block;}
 	-moz-border-radius: 3px;
 	border-radius: 3px;
 }
-.m-News-nb {padding: 10px 0;}
+.m-News-nb {padding: 10px 0; height: 325px}
 .m-News-nb2 {display: none;}
 .ul-Pnb3 .slide ul li {
 	width: 302px;
@@ -813,7 +813,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     position: fixed;
     right: 28px;
     top: 100px;
-    color: #ffffff;
+    color: #f5f5f1;
     background-color: transparent;
     display: none;
     z-index: 9999;
