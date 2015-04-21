@@ -309,7 +309,7 @@ ul.ul-dm > li:hover > .sub-menu {display: block;}
 
 .app-orther {padding: 0 0 20px 0;}
 .app-orther article {
-	width: 368px;
+	width: 298px;
 	float: left; 
 	margin: 0 20px 0 0;
 	border: 1px solid #dbdbdb;
@@ -320,7 +320,7 @@ ul.ul-dm > li:hover > .sub-menu {display: block;}
 }
 .app-orther article:nth-child(3n) {margin-right: 0;}
 
-.m-AppOr {padding: 10px 0;}
+.m-AppOr {padding: 10px 0; height: 290px;}
 .m-AppOr2 {display: none;}
 .m-AppOr .bx-controls .bx-pager {position: absolute; top: -28px; right: 0; padding: inherit; bottom: inherit; text-align: inherit; width: inherit;}
 .m-AppOr .bx-controls .bx-pager  a {
@@ -797,8 +797,24 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     top: 100px;
     width: 230px;
     background-color: #ffffff;
+    display: none;
+    z-index: 9999;
 }
 
 .mini-login .main_f_dn #form1 .main_f_tt .module_ftt .r_f_tt #username, #password{
-    width: 130px;
+    width: 125px;
+}
+
+.mini-remember{
+    width: 80%;
+}
+
+.mini-angle{
+    position: fixed;
+    right: 28px;
+    top: 100px;
+    color: #ffffff;
+    background-color: transparent;
+    display: none;
+    z-index: 9999;
 }
