@@ -63,7 +63,7 @@ require("module/box_device.php");
         /*$("img").lazyload({ placeholder : "<?php echo $linkrootshop?>/imgs/grey.gif" });*/
     });
 </script>
-<header>
+<header class="menu">
     <div class="m-wrap">
 
         <?php include("module/box_logo.php") ;?>
@@ -250,87 +250,91 @@ require("module/box_device.php");
         <div class="mini-bar">
             <?php if(!isset($_SESSION['kh_login_username'])){ ?>
                 <div class="mini-user">
-                    <p><i class="fa fa-user fa-2x"></i></p>
+                    <p><i class="fa fa-user fa-lg"></i></p>
                     <p>Tài khoản</p>
                 </div>
-            <div style="padding:5px;   color:#F00; padding-bottom:10px;">
-                <center>
-                    <?php if($_SERVER['HTTP_REFERER']=="http://shop.jbs.vn/dang-ky.html" && $_SESSION['register_re']==1)echo "Bạn vừa đăng ký thành công tài khoản ";?>
-                </center>
-            </div>
-            <div class="mini-login">
-                <div class="main_f_dn">
-                    <h1 class="title_f_tt"> Đăng nhập </h1>
-                    <form id="form1" name="form1" method="post" action="#">
-                        <div class="main_f_tt">
+                <div style="padding:5px;   color:#F00; padding-bottom:10px;">
+                    <center>
+                        <?php if($_SERVER['HTTP_REFERER']=="http://shop.jbs.vn/dang-ky.html" && $_SESSION['register_re']==1)echo "Bạn vừa đăng ký thành công tài khoản ";?>
+                    </center>
+                </div>
+                <div class="mini-login">
+                    <div class="main_f_dn">
+                        <h1 class="title_f_tt"> Đăng nhập </h1>
+                        <form id="form1" name="form1" method="post" action="#">
+                            <div class="main_f_tt">
 
-                            <div class="module_ftt">
-                                <div class="l_f_tt">
-                                    Tên
-                                </div>
-                                <div class="r_f_tt">
-                                    <input class="ipt_f_tt" type="text" id="username" name="username" value="<?php  echo $_COOKIE['un'];?>" />
-                                    <span class="star_style">*</span>
-                                </div>
-                                <div class="clear"></div>
-                            </div><!-- End .module_ftt -->
-
-                            <div class="module_ftt">
-                                <div class="l_f_tt">
-                                    Mật khẩu
-                                </div>
-                                <div class="r_f_tt">
-                                    <input class="ipt_f_tt" type="password" id="password" name="password" value="<?php  echo $_COOKIE['pw'];?>" />
-                                    <span class="star_style">*</span>
-                                </div>
-                                <div class="clear"></div>
-                            </div><!-- End .module_ftt -->
-
-                            <div class="module_ftt">
-                                <div class="l_f_tt">
-                                    &nbsp;
-                                </div>
-                                <div class="r_f_tt mini-remember">
-                                    <input type="checkbox"  name="nho" />
-                                    <span style="padding-left:5px;">Ghi nhớ</span> | <a href="<?php echo $linkrootshop?>/quen-mat-khau.html" title="">Quên mật khẩu</a>
-                                </div>
-                                <div class="clear"></div>
-                            </div><!-- End .module_ftt -->
-
-                            <div class="module_ftt" style="color:#F00; text-align:center;">
-                                <?php echo $error_login;?>
-                            </div>
-
-                            <div class="module_ftt">
-                                <div class="l_f_tt">
-                                    &nbsp;
-                                </div>
-                                <div class="r_f_tt">
-                                    <div style="padding-bottom:15px;">
-                                        <input name="btn_dangnhap_in" class="btn_dn" type="submit" value="&nbsp;"/>
+                                <div class="module_ftt">
+                                    <div class="l_f_tt">
+                                        Tên
                                     </div>
+                                    <div class="r_f_tt">
+                                        <input class="ipt_f_tt" type="text" id="username" name="username" value="<?php  echo $_COOKIE['un'];?>" />
+                                        <span class="star_style">*</span>
+                                    </div>
+                                    <div class="clear"></div>
+                                </div><!-- End .module_ftt -->
+
+                                <div class="module_ftt">
+                                    <div class="l_f_tt">
+                                        Mật khẩu
+                                    </div>
+                                    <div class="r_f_tt">
+                                        <input class="ipt_f_tt" type="password" id="password" name="password" value="<?php  echo $_COOKIE['pw'];?>" />
+                                        <span class="star_style">*</span>
+                                    </div>
+                                    <div class="clear"></div>
+                                </div><!-- End .module_ftt -->
+
+                                <div class="module_ftt">
+                                    <div class="l_f_tt">
+                                        &nbsp;
+                                    </div>
+                                    <div class="r_f_tt mini-remember">
+                                        <input type="checkbox"  name="nho" />
+                                        <span style="padding-left:5px;">Ghi nhớ</span> | <a href="<?php echo $linkrootshop?>/quen-mat-khau.html" title="">Quên mật khẩu</a>
+                                    </div>
+                                    <div class="clear"></div>
+                                </div><!-- End .module_ftt -->
+
+                                <div class="module_ftt" style="color:#F00; text-align:center;">
+                                    <?php echo $error_login;?>
                                 </div>
-                                <div class="clear"></div>
-                            </div><!-- End .module_ftt -->
 
-                            <div class="info_f_tt">
-                                Đăng nhập bây giờ để quá trình mua hàng diễn ra nhanh chóng. Bạn cũng có thể xem chi tiết lịch sử giao dịch & tình trạng đơn hàng trong tài khoản của bạn.
-                            </div><!-- End .info_f_tt -->
+                                <div class="module_ftt">
+                                    <div class="l_f_tt">
+                                        &nbsp;
+                                    </div>
+                                    <div class="r_f_tt">
+                                        <div style="padding-bottom:15px;">
+                                            <input name="btn_dangnhap_in" class="btn_dn" type="submit" value="&nbsp;"/>
+                                        </div>
+                                    </div>
+                                    <div class="clear"></div>
+                                </div><!-- End .module_ftt -->
 
-                        </div><!-- End .main_f_tt -->
-                    </form>
-                </div><!-- End .main_f_dn -->
+                                <div class="info_f_tt">
+                                    Đăng nhập bây giờ để quá trình mua hàng diễn ra nhanh chóng. Bạn cũng có thể xem chi tiết lịch sử giao dịch & tình trạng đơn hàng trong tài khoản của bạn.
+                                </div><!-- End .info_f_tt -->
+
+                            </div><!-- End .main_f_tt -->
+                        </form>
+                    </div><!-- End .main_f_dn -->
+                </div>
+                <div class="mini-angle"><i class="fa fa-caret-right fa-3x"></i></div>
+            <?php } ?>
+            <div class="mini-shopping">
+                <a href="#">
+                    <p><i class="fa fa-shopping-cart fa-lg"></i></p>
+                    <p>Giỏ hàng</p>
+                </a>
             </div>
-            <div class="mini-angle"><i class="fa fa-caret-right fa-3x"></i></div>
-        <?php } ?>
     </div><!-- End .m-wrap -->
 </section><!-- End #container -->
 
 <?php include("module/footer.php") ;?>
 
 <?php require("common_end.php");?>
-
-
 
 <link rel="stylesheet" type="text/css" href="<?php echo $linkrootshop?>/scripts/nivo-slider/nivo-slider.css">
 <link rel="stylesheet" type="text/css" href="<?php echo $linkrootshop?>/scripts/nivo-slider/themes/default/default.css">
@@ -359,6 +363,26 @@ require("module/box_device.php");
             $('.mini-login').hide(); $('.mini-angle').hide();
         });
 
+    $(function() {
+        var $document, didScroll, offset;
+        offset = $('.menu').position().top;
+        $document = $(document);
+        didScroll = false;
+        $(window).on('scroll touchmove', function() {
+            return didScroll = true;
+        });
+        var k = 0;
+        return setInterval(function() {
+            if (didScroll) {
+                $('.menu').toggleClass('fixed', $document.scrollTop() > offset);
+                if(k == 0){
+                    $( ".menu" ).fadeIn(3000);
+                    k++;
+                }
+                return didScroll = false;
+            }
+        }, 250);
+    });
 </script>
 </body>
 </html>
