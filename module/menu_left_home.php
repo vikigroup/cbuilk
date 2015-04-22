@@ -1,13 +1,13 @@
 <article class="dmsp">
 
     <div class="mn-dm fix-box-sizing">
-        <h2 class="t-mn-dm">
-            Danh mục sản phẩm
-        </h2><!-- End .t-mn-dm -->
+<!--        <h2 class="t-mn-dm">-->
+<!--            Danh mục sản phẩm-->
+<!--        </h2><!-- End .t-mn-dm -->
         <div class="m-mn-dm">
             <ul class="ul-dm">
                 <?php
-                $cate=get_records("tbl_shop_category","status=0 AND  parent=2"," ","0,13"," ");
+                $cate=get_records("tbl_shop_category","status=0 AND  parent=2"," ","0,15"," ");
                 $i=1;
                 while($row_cate=mysql_fetch_assoc($cate)){
                     ?>
@@ -41,7 +41,7 @@
                     <?php $i++; }?>
 
             </ul>
-            <a class="readmore" href="<?php echo $linkrootshop?>/xem-tat-ca.html">Xem tất cả danh mục</a>
+<!--            <a class="readmore" href="--><?php //echo $linkrootshop?><!--/xem-tat-ca.html">Xem tất cả danh mục</a>-->
         </div><!-- End .m-mn-dm -->
     </div><!-- End .mn-dm -->
 
