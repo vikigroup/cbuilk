@@ -729,6 +729,14 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     cursor: pointer;
 }
 
+.a-subName{
+    color: #3E3E3E !important;
+}
+
+.a-subName:hover{
+    color: #365DB5 !important;
+}
+
 .sep{
     width: 1px;
     height: 31px;
