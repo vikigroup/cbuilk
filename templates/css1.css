@@ -684,17 +684,14 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 .arrowLine
 {
     float: left;
-    background-color: #FD2334;
-    border-right:1px solid white;
     height:15px;
     width:34px;
-    padding: 9px;
+    padding: 9px 9px 11px 9px;
     color: white;
     font-weight: bold;
     text-transform: uppercase;
     font-size: 14px;
     text-align: center;
-    border-bottom: 2px solid #FD2334;
 }
 
 .triangle_left
@@ -708,11 +705,10 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 
 .arrowCategory{
     float: left;
-    background-color: #FC3948;
     text-transform: uppercase;
     color: white;
     font-weight: bold;
-    width: 137px;
+    width: 138px;
     height: 32px;
     padding-top: 3px;
     overflow: hidden;
@@ -721,9 +717,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 
 .divCategory{
     clear: both;
-    background-color: #FC3948;
     height: 68px;
-    border-top: 1px solid white;
 }
 
 .divContent{
