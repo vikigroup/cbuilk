@@ -375,6 +375,12 @@ require("module/box_device.php");
         return setInterval(function() {
             if (didScroll) {
                 $('.menu').toggleClass('fixed', $document.scrollTop() > offset);
+                if($document.scrollTop() == offset){
+                    $('.dmsp3').css('top', '119px');
+                }
+                else{
+                    $('.dmsp3').css('top', '37px');
+                }
                 if(k == 0){
                     $( ".menu" ).fadeIn(3000);
                     k++;
