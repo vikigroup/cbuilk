@@ -706,13 +706,17 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 .arrowCategory{
     float: left;
     text-transform: uppercase;
-    color: white;
+    color: white !important;
     font-weight: bold;
     width: 138px;
     height: 32px;
     padding-top: 3px;
     overflow: hidden;
     text-align: center;
+}
+
+.arrowCategory a{
+    color: white !important;
 }
 
 .divCategory{
@@ -724,9 +728,13 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     float: left;
     width: 94px;
     text-align: center;
-    color: white;
+    color: white !important;
     padding: 5px 0 4px 0;
     cursor: pointer;
+}
+
+.divContent p a{
+    color: #ffffff !important;
 }
 
 .a-subName{
