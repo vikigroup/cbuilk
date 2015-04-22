@@ -363,7 +363,7 @@ require("module/box_device.php");
             $('.mini-login').hide(); $('.mini-angle').hide();
         });
 
-    $(function() {
+    $(window).load(function() {
         var $document, didScroll, offset;
         offset = $('.menu').position().top;
         $document = $(document);
