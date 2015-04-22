@@ -45,7 +45,7 @@ $product=get_records("tbl_item","status=0 AND type=0 AND parent1 in ({$parent}) 
 <section class="breacrum">
     <ul>
         <li><a href="<?php echo $linkrootshop;?>">Trang chủ</a></li>
-        <li><a href="<?php echo $linkrootshop;?><?php echo $danhmuc;?>/"><?php echo get_field('tbl_shop_category','subject',$danhmuc,'name');?></a></li>
+        <li><a href="<?php echo $linkrootshop;?>/<?php echo $danhmuc;?>/"><?php echo get_field('tbl_shop_category','subject',$danhmuc,'name');?></a></li>
         <li><a href="#">Hiện có <strong><?php echo $totalRows;?></strong> sản phẩm</a></li>
     </ul>
     <div class="clear"></div>
