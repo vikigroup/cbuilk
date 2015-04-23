@@ -784,8 +784,28 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 
 .divProductLine1{
     float: left;
-    width: 210px;
-    height: 256px;
+    width: 190px;
+    height: 236px;
+    padding: 10px;
+}
+
+.divProductLine1 span{
+    width: 100%;
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: bold;
+}
+
+.divProductLine1 span:first-child{
+    font-size: 13px;
+}
+
+.divProductLine1 span:last-child{
+    font-size: 14px;
+    color: #C31213;
+    font-weight: bold;
 }
 
 .divProductLine2{
