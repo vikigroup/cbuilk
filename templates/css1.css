@@ -733,6 +733,11 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     cursor: pointer;
 }
 
+.divContent img{
+    width: 25px;
+    height: 25px;
+}
+
 .divContent p a{
     color: #ffffff !important;
 }
