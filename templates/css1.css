@@ -101,6 +101,10 @@ BEGIN CONTAINER
 .dmsp3 {float: right; width: 190px; position: absolute; top: 119px; right: 70px; height: 481px;}
 .dmsp4-1 {float: left; width: 190px; height: 420px; background-color: #FAFAF8;}
 .dmsp4-2 {float: left; width: 390px; height: 420px; background-color: #FAFAF8;}
+.dmsp4-2 img{
+    width: 390px;
+    height: 420px;
+}
 .dmsp4-3 {float: left; width: 630px; height: 420px; background-color: #FAFAF8;}
 .img-right{width: 168px; height: 481px;}
 .ads-home{float:left; width: 830px;}
