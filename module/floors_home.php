@@ -7,10 +7,12 @@ $cate_floor = get_records("tbl_shop_category","status=0 AND  parent=2"," ","0,8"
 $myArrID = array();
 $myArrName = array();
 $myArrPrimarySubject = array();
+$myArrPrimaryImage = array();
 while($row_cate_floor=mysql_fetch_assoc($cate_floor)){
     array_push($myArrID, $row_cate_floor['id']);
     array_push($myArrName, $row_cate_floor['name']);
     array_push($myArrPrimarySubject, $row_cate_floor['subject']);
+    array_push($myArrPrimaryImage, $row_cate_floor['image_large']);
 }
 for($i = 0; $i < 8; $i++){
 ?>
@@ -24,21 +26,39 @@ for($i = 0; $i < 8; $i++){
         </div>
         <div class="divCategory" style="background-color: <?php echo $myArr3[$i]; ?>; border-top: 1px solid <?php echo $myArr1[$i]; ?>">
             <?php
-            $sub_cate_floor=get_records("tbl_shop_category","status=0 AND parent='".$myArrID[$i]."'","hot","8"," ");
+            $sub_cate_floor1=get_records("tbl_shop_category","status=0 AND parent='".$myArrID[$i]."' AND hot=1","date_added","2"," ");
             $myArrSubName = array();
             $myArrSubject = array();
-            while($row_sub_cate=mysql_fetch_assoc($sub_cate_floor)){
-                array_push($myArrSubName, $row_sub_cate['name']);
-                array_push($myArrSubject, $row_sub_cate['subject']);
+            $myArrImage = array();
+            while($row_sub_cate1=mysql_fetch_assoc($sub_cate_floor1)){
+                array_push($myArrSubName, $row_sub_cate1['name']);
+                array_push($myArrSubject, $row_sub_cate1['subject']);
+                array_push($myArrImage, $row_sub_cate1['image']);
             }
+
+            $sub_cate_floor2=get_records("tbl_shop_category","status=0 AND parent='".$myArrID[$i]."' AND hot=0","date_added","6"," ");
+            while($row_sub_cate2=mysql_fetch_assoc($sub_cate_floor2)){
+                array_push($myArrSubName, $row_sub_cate2['name']);
+                array_push($myArrSubject, $row_sub_cate2['subject']);
+                array_push($myArrImage, $row_sub_cate2['image']);
+            }
+
             ?>
             <div class="divContent">
-                <i class="fa fa-mobile fa-2x"></i>
+                <?php if(isset($myArrImage[0])){ ?>
+                    <img src="<?php echo $linkroot?>/<?php echo $myArrImage[0] ;?>" />
+                <?php }else{ ?>
+                    <img src="<?php echo $linkroot?>/images/noimage.png" />
+                <?php } ?>
                 <p><a href="<?php echo $linkrootshop?>/<?php echo $myArrSubject[0];?>.html"><?php echo $myArrSubName[0]; ?></a></p>
             </div>
             <div class="sep"></div>
             <div class="divContent">
-                <i class="fa fa-laptop fa-2x"></i>
+                <?php if(isset($myArrImage[1])){ ?>
+                    <img src="<?php echo $linkroot?>/<?php echo $myArrImage[1] ;?>" />
+                <?php }else{ ?>
+                    <img src="<?php echo $linkroot?>/images/noimage.png" />
+                <?php } ?>
                 <p><a href="<?php echo $linkrootshop?>/<?php echo $myArrSubject[1];?>.html"><?php echo $myArrSubName[1]; ?></a></p>
             </div>
         </div>
@@ -61,15 +81,31 @@ for($i = 0; $i < 8; $i++){
         </div>
     </article>
     <article class="dmsp4-2">
-        <img src="http://placehold.it/390x420">
+        <img src="<?php echo $linkroot?>/<?php echo $myArrPrimaryImage[$i] ;?>" />
     </article>
     <article class="dmsp4-3">
-        <div class="divProductLine1"><a href="#"><img src="http://placehold.it/210x256"></a></div>
-        <div class="divProductLine1"><a href="#"><img src="http://placehold.it/210x256"></a></div>
-        <div class="divProductLine1"><a href="#"><img src="http://placehold.it/210x256"></a></div>
-        <div class="divProductLine2"><a href="#"><img src="http://placehold.it/210x164"></a></div>
-        <div class="divProductLine2"><a href="#"><img src="http://placehold.it/210x164"></a></div>
-        <div class="divProductLine2"><a href="#"><img src="http://placehold.it/210x164"></a></div>
+        <?php
+        $parent_floor=getParent("tbl_shop_category",$myArrID[$i]);
+        $product_floor=get_records("tbl_item","status=0 AND type=0 AND parent1 in ({$parent_floor}) order by date_added limit 0,6"," "," "," ");
+
+        while($row_floor=mysql_fetch_assoc($product_floor)){
+        ?>
+        <div class="divProductLine1" style="background-image: url('<?php echo $linkrootshop.'/web/'.$row_floor['image'] ?>'); background-size: cover">
+            <div class="divProductOverlay1" onmouseover="this.style.backgroundColor = '<?php echo $myArr3[$i] ?>'; $('.img-rounded').attr('src', '<?php echo $linkrootshop.'/web/'.$row_floor['image'] ?>');" onmouseout="this.style.backgroundColor = 'white'">
+                <span><?php echo $row_floor['name'] ?></span><br/><br/>
+                <span><?php echo $row_floor['description'] ?></span><br/><br/>
+                <?php if($row_floor['price'] > 0 && $row_floor['pricekm'] > 0){ ?>
+                    <span class="spanMoneyKM"><?php echo number_format($row_floor['pricekm'])."đ"; ?></span><br/>
+                    <span class="spanMoney"><?php echo number_format($row_floor['price'])."đ"; ?></span>
+                <?php }else{ ?>
+                    <span class="spanMoneyKM"><?php if($row_floor['pricekm'] > 0){echo number_format($row_floor['pricekm'])."đ";}else{echo number_format($row_floor['price'])."đ";} ?></span>
+                <?php } ?>
+            </div>
+        </div>
+        <?php } ?>
+<!--        <div class="divProductLine2"><a href="#"><img src="http://placehold.it/210x164"></a></div>-->
+<!--        <div class="divProductLine2"><a href="#"><img src="http://placehold.it/210x164"></a></div>-->
+<!--        <div class="divProductLine2"><a href="#"><img src="http://placehold.it/210x164"></a></div>-->
     </article>
 </section><!-- End .Prod-nb -->
 
@@ -94,5 +130,27 @@ for($i = 0; $i < 8; $i++){
 
         $('.bx-wrapper').css('max-width', '185px');
         $('.bx-viewport').css('width', '185px');
+
+        $container = $('<div/>').attr('id', 'imgPreviewWithStyles').append('<img/>').hide().css('position', 'absolute').appendTo('body'),
+
+            $img = $('img', $container),
+            $('.divProductOverlay1').mousemove(function (e) {
+                $container.css({
+                    top: e.pageY - 250 + 'px',
+                    right: 1400 - e.pageX + 'px'
+                });
+            }).hover(function () {
+                    var link = this;
+                    $container.show();
+                    $img.load(function () {
+                        $img.addClass('img-rounded');
+                        $img.show();
+                    }).attr('src', 'imgs/loader.gif');
+                }, function () {
+                    $container.hide();
+                    $img.unbind('load').attr('src', '').hide();
+                });
+
     });
 </script>
+
