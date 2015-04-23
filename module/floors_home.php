@@ -91,7 +91,8 @@ for($i = 0; $i < 8; $i++){
         while($row_floor=mysql_fetch_assoc($product_floor)){
         ?>
         <div class="divProductLine1" style="background-image: url('<?php echo $linkrootshop.'/web/'.$row_floor['image'] ?>'); background-size: cover">
-            <div class="divProductOverlay1" onmouseover="this.style.backgroundColor = '<?php echo $myArr3[$i] ?>'; $('.img-rounded').attr('src', '<?php echo $linkrootshop.'/web/'.$row_floor['image'] ?>');" onmouseout="this.style.backgroundColor = 'white'">
+            <div class="divProductOverlay1" onmouseover="this.style.backgroundColor = '<?php echo $myArr3[$i] ?>'; $('.img-rounded').attr('src', '<?php echo $linkrootshop.'/web/'.$row_floor['image'] ?>');"
+                 onmouseout="this.style.backgroundColor = 'white'" onclick="window.location.href = '<?php echo $linkrootshop;?>/<?php echo $row_floor['subject'];?>.html'">
                 <span><?php echo $row_floor['name'] ?></span><br/><br/>
                 <span><?php echo $row_floor['description'] ?></span><br/><br/>
                 <?php if($row_floor['price'] > 0 && $row_floor['pricekm'] > 0){ ?>
@@ -130,6 +131,8 @@ for($i = 0; $i < 8; $i++){
 
         $('.bx-wrapper').css('max-width', '185px');
         $('.bx-viewport').css('width', '185px');
+        $('.bx-wrapper .bx-viewport').css('-webkit-box-shadow', 'none');
+        $('.bx-wrapper .bx-viewport').css('box-shadow', 'none');
 
         $container = $('<div/>').attr('id', 'imgPreviewWithStyles').append('<img/>').hide().css('position', 'absolute').appendTo('body'),
 
