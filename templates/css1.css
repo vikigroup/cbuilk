@@ -99,13 +99,13 @@ BEGIN CONTAINER
 .dmsp1 {float: right; width: 190px;}
 .dmsp2 {display: none;}
 .dmsp3 {float: right; width: 190px; position: absolute; top: 119px; right: 70px; height: 481px;}
-.dmsp4-1 {float: left; width: 190px; height: 420px; background-color: #FAFAF8;}
+.dmsp4-1 {float: left; width: 189px; height: 420px; background-color: #FAFAF8; border-right: 1px solid #ffffff}
 .dmsp4-2 {float: left; width: 390px; height: 420px; background-color: #FAFAF8;}
 .dmsp4-2 img{
     width: 390px;
     height: 420px;
 }
-.dmsp4-3 {float: left; width: 630px; height: 420px; background-color: #FAFAF8;}
+.dmsp4-3 {float: left; width: 630px; height: 420px;}
 .img-right{width: 168px; height: 481px;}
 .ads-home{float:left; width: 830px;}
 .ads-logo{width: 132px; margin: 0 3px 0 3px; background-color: white; float: left; padding: 18px 0 18px 0; text-align: center;}
@@ -712,7 +712,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     text-transform: uppercase;
     color: white !important;
     font-weight: bold;
-    width: 138px;
+    width: 137px;
     height: 32px;
     padding-top: 3px;
     overflow: hidden;
@@ -784,28 +784,55 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 
 .divProductLine1{
     float: left;
-    width: 190px;
-    height: 190px;
-    padding: 10px;
+    width: 200px;
+    height: 209px;
+    margin: 0 5px 0 5px;
+    z-index: 12;
+}
+
+.divProductLine1:first-child, .divProductLine1:nth-child(4){
+    margin-left: 0px;
+}
+
+.divProductOverlay1{
+    width: 200px;
+    height: 204px;
+    background-color: #ffffff;
+    opacity: 0.9;
+    border: 1px solid #E5E5E5;
+    padding: 5px 5px 0 5px;
+    z-index: 13;
+}
+
+.divProductOverlay1:hover{
+    color: #000000;
+    cursor: pointer;
+    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
 }
 
 .divProductLine1 span{
-    width: 100%;
-    display: inline-block;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    font-weight: bold;
+    min-width: 190px;
+    /*display: inline-block;*/
+    /*white-space: nowrap;*/
+    /*overflow: hidden;*/
+    /*text-overflow: ellipsis;*/
+    font-weight: normal;
 }
 
 .divProductLine1 span:first-child{
-    font-size: 13px;
+    font-size: 14px;
+    font-weight: bold;
 }
 
-.divProductLine1 span:last-child{
+.spanMoneyKM{
     font-size: 14px;
     color: #C31213;
-    font-weight: bold;
+    font-weight: bold !important;
+}
+
+.spanMoney{
+    font-size: 14px;
+    text-decoration: line-through ;
 }
 
 .divProductLine2{
@@ -886,4 +913,18 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     position: fixed;
     top: 0;
     z-index: 1002;
+}
+
+#imgPreviewWithStyles {
+    z-index: 999;
+    border: none;
+    background: #333 url(imgs/loader.gif) no-repeat center;
+    padding: 15px;
+}
+/* Text below image */
+#imgPreviewWithStyles span {
+    color: white;
+    text-align: center;
+    display: block;
+    padding: 10px 0 3px 0;
 }
