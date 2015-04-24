@@ -133,7 +133,7 @@ for($i = 0; $i < 8; $i++){
         $('.bx-wrapper .bx-viewport').css('-webkit-box-shadow', 'none');
         $('.bx-wrapper .bx-viewport').css('box-shadow', 'none');
         $('.bx-wrapper .bx-viewport').css('border', '6px solid #fff');
-        $('.bx-wrapper .bx-viewport').css('border-bottom', '7px solid #fff');
+        $('.bx-wrapper .bx-viewport').css('border-bottom', '8px solid #fff');
 
         $container = $('<div/>').attr('id', 'imgPreviewWithStyles').append('<img/>').hide().css('position', 'absolute').appendTo('body'),
 
