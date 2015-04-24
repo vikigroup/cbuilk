@@ -1,9 +1,9 @@
 <article class="r-tool-ct r-box-tool">
     <ul>
-<!--        <li>-->
+        <li>
 <!--            <span class="sp-gh1">0</span>-->
 <!--            <a class="btn-gh1" href="#"></a>-->
-<!--        </li>-->
+        </li>
         <li><span class="hotline">hotline: <?=$row_title_lap['hotlinekh'];?></span></li>
         <li>|</li>
         <?php if($_SESSION['kh_login_username']==""){?>
