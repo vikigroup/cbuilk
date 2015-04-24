@@ -16,6 +16,11 @@ while($row_cate_floor=mysql_fetch_assoc($cate_floor)){
 }
 for($i = 0; $i < 8; $i++){
 ?>
+<section class="Adv ads-floors">
+    <a href="#" target="_blank">
+        <img src="http://cpcmart.com/web/images/adv/advs2.png" alt="">
+    </a>
+</section>
 <section class="Prod-nb clearfix ads-article">
     <article class="dmsp4-1">
         <div class="arrowLine" style="background-color: <?php echo $myArr1[$i]; ?>;">
@@ -109,12 +114,6 @@ for($i = 0; $i < 8; $i++){
 <!--        <div class="divProductLine2"><a href="#"><img src="http://placehold.it/210x164"></a></div>-->
     </article>
 </section><!-- End .Prod-nb -->
-
-<section class="Adv ads-floors">
-    <a href="#" target="_blank">
-        <img src="http://cpcmart.com/web/images/adv/advs2.png" alt="">
-    </a>
-</section>
 <?php } ?>
 
 <script>
