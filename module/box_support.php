@@ -6,13 +6,16 @@
 </article><!-- End .l-tool-ct -->
 
 <script>
-    $('.l-tool-ct').hover(
-        function(){
+    $('.l-tool-ct').hover(function(){
             $(".dmsp").slideDown(1000);
             $(".ads-top").attr("style", "display: block !important;");
-        },
-        function(){
-            $(".dmsp").slideUp(1000);
-            $(".ads-top").attr("style", "display: block !important;");
+            $('.left-home').hover(
+                function(){
+                $(".dmsp").show();
+                },
+                function(){
+                    $(".dmsp").slideUp(1000);
+                    $(".ads-top").attr("style", "display: block !important;");
+            });
         });
 </script>
