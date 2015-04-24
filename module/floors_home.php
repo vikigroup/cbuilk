@@ -129,7 +129,7 @@ for($i = 0; $i < 8; $i++){
         });
 
         $('.bx-wrapper').css('max-width', '185px');
-        $('.bx-viewport').css('width', '185px');
+        $('.bx-viewport').css('width', '180px');
         $('.bx-wrapper .bx-viewport').css('-webkit-box-shadow', 'none');
         $('.bx-wrapper .bx-viewport').css('box-shadow', 'none');
 
