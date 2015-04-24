@@ -7,14 +7,14 @@
 
 <script>
     $('.l-tool-ct').hover(function(){
-            $(".dmsp").slideDown(1000);
+            $(".left-home").slideDown(1000);
             $(".ads-top").attr("style", "display: block !important;");
             $('.left-home').hover(
                 function(){
-                $(".dmsp").show();
+                $(".left-home").show();
                 },
                 function(){
-                    $(".dmsp").slideUp(1000);
+                    $(".left-home").slideUp(1000);
                     $(".ads-top").attr("style", "display: block !important;");
             });
         });
