@@ -126,10 +126,8 @@ if (isset($_POST['btnSave'])){
 <div class="row-fluid">
     <div class="span12">
         <div class="box-widget">
-             
             <div class="widget-container">
                 <div class="widget-block">
-                    
                    <form method="post" name="frmForm" enctype="multipart/form-data" action="admin.php?act=adv_m">
             <input type="hidden" name="txtSubject" id="txtSubject">
             <input type="hidden" name="txtDetailShort" id="txtDetailShort">
@@ -168,6 +166,20 @@ if (isset($_POST['btnSave'])){
                             <input class="table_khungnho" value="<?=$sort?>" type="text" name="txtSort"  />
                         </td>
                     </tr>
+                     <tr>
+                         <td valign="middle" width="30%">
+                             Vị trí<span class="sao_bb">*</span>
+                         </td>
+                         <td valign="middle" width="70%">
+                             <select class="table_khungnho" id="slAlignCreateAdminBanner" style="margin-bottom: 5px;" onchange="positionSelector(this.value);">
+                                 <option value="0">BÊN TRÁI</option>
+                                 <option value="1">Ở GIỮA</option>
+                                 <option value="2">BÊN TRÊN</option>
+                                 <option value="3">BÊN PHẢI</option>
+                             </select>
+                             <select class="table_khungnho" id="slPageCreateAdminBanner"> </select>
+                         </td>
+                     </tr>
                     <tr>
                         <td valign="middle" width="30%">
                         Hình đại diện</td>
@@ -175,9 +187,6 @@ if (isset($_POST['btnSave'])){
                             <input type="file" name="txtImage" class="textbox" size="34">
 							<input type="checkbox" name="chkClearImg" value="on"> Xóa bỏ hình ảnh	 <br>
 							<? if ($image!=''){ echo '<img border="0" width="80" height="80" src="../web/'.$image.'"><br><br>Hình (kích thước nhỏ)';}?>&nbsp;&nbsp;
-                             
-                     
-                            
                         </td>
                     </tr>
                     <tr>
@@ -197,10 +206,42 @@ if (isset($_POST['btnSave'])){
                         </td>
                     </tr>
                 </table>
-                </form> 
-
+                </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<script>
+    $(document).ready(function(){
+        positionSelector(0);
+    });
+
+    function positionSelector(selector){
+        $("#slPageCreateAdminBanner option").remove();
+        if(selector == 0){
+            $("#slPageCreateAdminBanner").append("<option value='0'>TOP (190x330)</option>");
+            for(var i = 1; i <= 8; i++){
+                $("#slPageCreateAdminBanner").append("<option value='"+i+"'>"+i+"C (180x60)</option>");
+            }
+        }
+        if(selector == 1){
+            for(var j = 1; j <= 4; j++){
+                $("#slPageCreateAdminBanner").append("<option value='0"+j+"'>TOP - HÀNG "+j+" (90x45)</option>");
+            }
+
+            for(var i = 1; i <= 8; i++){
+                $("#slPageCreateAdminBanner").append("<option value='"+i+"'>"+i+"C (390x420)</option>");
+            }
+        }
+        if(selector == 2){
+            for(var i = 1; i <= 8; i++){
+                $("#slPageCreateAdminBanner").append("<option value='"+i+"'>"+i+"C (1210x60)</option>");
+            }
+        }
+        if(selector == 3){
+            $("#slPageCreateAdminBanner").append("<option value='0'>TOP (190x330)</option>");
+        }
+    }
+</script>
