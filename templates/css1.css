@@ -72,8 +72,8 @@ BEGIN CONTAINER
 
 #container {padding: 0 0 20px 0;}
 
-.tool-ct {height: 34px; line-height: 34px; font-size: 11px; background: url(../imgs/layout/tool-ct.png) repeat-x bottom; padding-bottom: 4px;}
-
+.tool-ct {height: 34px; line-height: 34px; font-size: 11px;}
+/*background: url(../imgs/layout/tool-ct.png) repeat-x bottom; padding-bottom: 4px;*/
 .l-tool-ct {float: left;}
 .l-tool-ct ul.ul-ltct > li {float: left; text-transform: uppercase;}
 .l-tool-ct ul.ul-ltct > li span.hotline {background: url(../imgs/layout/hotline.png) no-repeat left; padding-left: 22px; display: block;}
@@ -110,7 +110,8 @@ BEGIN CONTAINER
 .ads-home{float:left; width: 830px;}
 .ads-logo{width: 132px; margin: 0 3px 0 3px; background-color: white; float: left; padding: 18px 0 18px 0; text-align: center;}
 .ads-logo img{width: 90px; height: 45px; display: inline}
-.ads-article{padding-top: 30px;}
+.ads-article{}
+.ads-top article{padding: 20px 0 30px 0;}
 .clearfix{clear: both;}
 .slider {float: right; width: 770px; height: 312px; overflow: hidden;}
 
@@ -767,7 +768,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 
 .divSubCategory{
     clear: both;
-    background-color: #FAFAF8;
+    background-color: #ffffff;
     height: 175px;
 }
 
