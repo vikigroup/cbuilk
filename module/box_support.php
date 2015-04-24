@@ -9,12 +9,10 @@
     $('.l-tool-ct').hover(
         function(){
             $(".dmsp").slideDown(1000);
-            $(".ads-top").css("margin-top", "0");
-            $('.ads-top').show();
+            $(".ads-article").css("margin-top", "0");
         },
         function(){
             $(".dmsp").slideUp(1000);
-            $(".ads-top").css("margin-top", "470px");
-            $('.ads-top').show();
+            $(".ads-article").css("margin-top", "470px");
         });
 </script>

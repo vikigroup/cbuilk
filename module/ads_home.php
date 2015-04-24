@@ -1,5 +1,5 @@
 <section class="Prod-nb ads-article">
-    <article class="dmsp ads-top">
+    <article class="dmsp ads-top ads-article">
         <img src="http://placehold.it/190x330">
     </article>
     <article class="ads-home ads-top ads-article">
