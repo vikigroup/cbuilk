@@ -1,4 +1,4 @@
-<article class="dmsp">
+<article class="dmsp left-home">
 
     <div class="mn-dm fix-box-sizing">
 <!--        <h2 class="t-mn-dm">-->

@@ -4,3 +4,15 @@
     </ul>
     <div class="clear"></div>
 </article><!-- End .l-tool-ct -->
+
+<script>
+    $('.l-tool-ct').hover(
+        function(){
+            $(".dmsp").slideDown(1000);
+//            $(".ads-article").css("margin-top", "0");
+        },
+        function(){
+            $(".dmsp").slideUp(1000);
+//            $(".ads-top").css("margin-top", "520px");
+        });
+</script>

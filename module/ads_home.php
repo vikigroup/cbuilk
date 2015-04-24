@@ -1,8 +1,8 @@
-<section class="Prod-nb ads-article ads-top">
-    <article class="dmsp">
+<section class="Prod-nb ads-article">
+    <article class="dmsp ads-top">
         <img src="http://placehold.it/190x330">
     </article>
-    <article class="ads-home">
+    <article class="ads-home ads-top">
         <!-- line 1 -->
         <a class="ads-logo" target="_blank"><img src="http://placehold.it/90x45"></a>
         <a class="ads-logo" target="_blank"><img src="http://placehold.it/90x45"></a>
@@ -35,7 +35,7 @@
         <a class="ads-logo" target="_blank"><img src="http://placehold.it/90x45"></a>
         <a class="ads-logo" target="_blank"><img src="http://placehold.it/90x45"></a>
     </article>
-    <article class="dmsp1">
+    <article class="dmsp1 ads-top">
         <img src="http://placehold.it/190x330">
     </article>
 </section><!-- End .Prod-nb -->
