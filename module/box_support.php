@@ -29,14 +29,14 @@
 <script>
     $('.all-categories').hover(function(){
             $(".left-home").slideDown(1000);
-            $(".ads-top").attr("style", "margin-top: 0; display: block !important;");
+            $(".ads-top").attr("style", "margin-top: 10px; display: block !important;");
             $('.left-home').hover(
                 function(){
                 $(".left-home").show();
                 },
                 function(){
                     $(".left-home").slideUp(1000);
-                    $(".ads-top").attr("style", "margin-top: 480px; display: block !important;");
+                    $(".ads-top").attr("style", "margin-top: 495px; display: block !important;");
             });
         });
 </script>
