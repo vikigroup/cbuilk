@@ -134,24 +134,24 @@ require("module/box_device.php");
 
         <?php include("module/processFrame.php");?>
 
-        <?php
-        if($frame!="register" && $frame!="login" &&  $frame!="changepass" &&  $frame!="changeinfo" &&  $frame!="addshop" ){
-            ?>
-            <?php include("module/service_new.php") ;?>
-
-            <section class="app-orther" style="clear: both">
-
-                <?php include("module/box_shop_new.php") ;?>
-
-                <?php include("module/box_shop_best.php") ;?>
-
-                <?php //include("module/box_news.php") ;?>
-                <?php  include("module/box_raovat.php") ;?>
-                <div class="clear"></div>
-
-            </section><!-- End .app-orther -->
-
-        <?php }?>
+<!--        --><?php
+//        if($frame!="register" && $frame!="login" &&  $frame!="changepass" &&  $frame!="changeinfo" &&  $frame!="addshop" ){
+//            ?>
+<!--            --><?php //include("module/service_new.php") ;?>
+<!---->
+<!--            <section class="app-orther" style="clear: both">-->
+<!---->
+<!--                --><?php //include("module/box_shop_new.php") ;?>
+<!---->
+<!--                --><?php //include("module/box_shop_best.php") ;?>
+<!---->
+<!--                --><?php ////include("module/box_news.php") ;?>
+<!--                --><?php // include("module/box_raovat.php") ;?>
+<!--                <div class="clear"></div>-->
+<!---->
+<!--            </section><!-- End .app-orther -->
+<!---->
+<!--        --><?php //}?>
 
         <?php
 
