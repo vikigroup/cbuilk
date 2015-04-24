@@ -110,8 +110,8 @@ BEGIN CONTAINER
 .ads-home{float:left; width: 830px;}
 .ads-logo{width: 132px; margin: 0 3px 0 3px; background-color: white; float: left; padding: 18px 0 18px 0; text-align: center;}
 .ads-logo img{width: 90px; height: 45px; display: inline}
-.ads-article{}
-.ads-top article{padding: 20px 0 30px 0;}
+.ads-article article{}
+.ads-top{padding: 20px 0 30px 0; margin-top: 470px;}
 .clearfix{clear: both;}
 .slider {float: right; width: 770px; height: 312px; overflow: hidden;}
 
@@ -935,4 +935,8 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 .img-rounded{
     width: 100%;
     height: 100%;
+}
+
+.left-home{
+    display: none;
 }
