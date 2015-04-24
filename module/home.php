@@ -2,7 +2,7 @@
 <?php //include("module/menu_right_home.php") ;?>
 <?php include("module/ads_home.php") ;?>
 <?php include("module/floors_home.php") ;?>
-<?php include("module/khuyenmai_home.php") ;?>
+<?php //include("module/khuyenmai_home.php") ;?>
 
 <?php
 //$gt=get_records("tbl_adv","status=0","id DESC","0,2"," ");
@@ -16,7 +16,7 @@
 <!--</section><!-- End .Adv -->
 <?php //}?>
 
-<?php include("module/product_new.php") ;?>
+<?php //include("module/product_new.php") ;?>
 <?//
 //$row_slide=mysql_fetch_assoc($gt);
 //if($row_slide['id']>0){
