@@ -1,4 +1,4 @@
-<section class="Prod-nb ads-article">
+<section class="Prod-nb">
     <article class="dmsp ads-top ads-article">
         <img src="http://placehold.it/190x330">
     </article>
