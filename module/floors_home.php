@@ -163,7 +163,6 @@ for($i = 0; $i < 8; $i++){
                     $container.hide();
                     $img.unbind('load').attr('src', '').hide();
                 });
-
     });
 </script>
 
