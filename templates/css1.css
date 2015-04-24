@@ -940,3 +940,11 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 .left-home{
     display: none;
 }
+
+.primary-category{
+    margin-left: 65px;
+}
+
+.primary-category .ul-ltct li a.btn-gh3{
+    background-color: transparent;
+}
