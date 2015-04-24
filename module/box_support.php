@@ -8,14 +8,14 @@
 <script>
     $('.l-tool-ct').hover(function(){
             $(".left-home").slideDown(1000);
-            $(".ads-top").attr("style", "display: block !important;");
+            $(".ads-top").attr("style", "margin-top: -480px; display: block !important;");
             $('.left-home').hover(
                 function(){
                 $(".left-home").show();
                 },
                 function(){
                     $(".left-home").slideUp(1000);
-                    $(".ads-top").attr("style", "display: block !important;");
+                    $(".ads-top").attr("style", "margin-top: 480px; display: block !important;");
             });
         });
 </script>
