@@ -26,8 +26,8 @@ for($i = 0; $i < 8; $i++){
         <div class="arrowLine" style="background-color: <?php echo $myArr1[$i]; ?>;">
             <span><?php echo $i+1; ?>c</span>
         </div>
-        <div class="arrowCategory" style="background-color: <?php echo $myArr2[$i]; ?>;">
-            <a href="<?php echo $linkrootshop?>/<?php echo $myArrPrimarySubject[$i];?>.html"><?php echo $myArrName[$i]; ?></a>
+        <div class="arrowCategory" style="background-color: <?php echo $myArr2[$i]; ?>;" id="divCategoryID<?php echo $i ?>">
+            <a href="<?php echo $linkrootshop?>/<?php echo $myArrPrimarySubject[$i];?>.html" id="aCategoryName<?php echo $i ?>"><?php echo $myArrName[$i]; ?></a>
         </div>
         <div class="divCategory" style="background-color: <?php echo $myArr3[$i]; ?>; border-top: 1px solid <?php echo $myArr1[$i]; ?>">
             <?php
@@ -163,6 +163,12 @@ for($i = 0; $i < 8; $i++){
                     $container.hide();
                     $img.unbind('load').attr('src', '').hide();
                 });
+
+        for(var i = 0; i < 8; i++){
+            if($('#aCategoryName'+i).height() > 14){
+                $('#divCategoryID'+i).css('padding', '5px 0 11px 0');
+            }
+        }
     });
 </script>
 
