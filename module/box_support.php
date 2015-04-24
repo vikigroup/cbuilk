@@ -9,10 +9,10 @@
     $('.l-tool-ct').hover(
         function(){
             $(".dmsp").slideDown(1000);
-            $(".ads-top").attr("style", "margin-top: 0 !important; display: block !important;");
+            $(".ads-top").attr("style", "display: block !important;");
         },
         function(){
             $(".dmsp").slideUp(1000);
-            $(".ads-top").attr("style", "margin-top: 470px !important; display: block !important;");
+            $(".ads-top").attr("style", "display: block !important;");
         });
 </script>
