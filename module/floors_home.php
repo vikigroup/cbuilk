@@ -138,10 +138,21 @@ for($i = 0; $i < 8; $i++){
 
             $img = $('img', $container),
             $('.divProductOverlay1').mousemove(function (e) {
-                $container.css({
-                    top: e.pageY - 250 + 'px',
-                    right: 1400 - e.pageX + 'px'
-                });
+                var mac = navigator.platform.match(/(Mac|iPhone|iPod|iPad)/i) ? true : false;
+                //    alert(mac);
+                if(mac == false){
+                    $container.css({
+                        top: e.pageY - 250 + 'px',
+                        right: 1400 - e.pageX + 'px'
+                    });
+                }
+                else{
+                    $container.css({
+                        top: e.pageY - 250 + 'px',
+                        right: 1500 - e.pageX + 'px'
+                    });
+                }
+
             }).hover(function () {
                     var link = this;
                     $container.show();
