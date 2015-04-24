@@ -714,8 +714,8 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     color: white !important;
     font-weight: bold;
     width: 137px;
-    height: 32px;
-    padding-top: 3px;
+    height: 19px;
+    padding: 11px 0 5px 0;
     overflow: hidden;
     text-align: center;
 }
