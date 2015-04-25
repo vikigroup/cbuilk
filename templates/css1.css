@@ -96,8 +96,7 @@ BEGIN CONTAINER
 
 .top-ct {padding: 20px 0;}
 .dmsp {float: left; width: 190px;}
-.ads-top-left{height: 330px;}
-.ads-top-right {float: right; width: 190px; height: 330px;}
+.dmsp1 {float: right; width: 190px;}
 .dmsp2 {display: none;}
 .dmsp3 {float: right; width: 190px; position: absolute; top: 119px; right: 70px; height: 481px;}
 .dmsp4-1 {float: left; width: 189px; height: 420px; background-color: #FAFAF8; border-right: 1px solid #ffffff}
@@ -108,13 +107,13 @@ BEGIN CONTAINER
 }
 .dmsp4-3 {float: left; width: 630px; height: 420px;}
 .img-right{width: 168px; height: 481px;}
-.ads-top-center{float:left; width: 830px;}
+.ads-home{float:left; width: 830px;}
 .ads-logo{width: 132px; margin: 0 3px 0 3px; background-color: white; float: left; padding: 18px 0 18px 0; text-align: center;}
 .ads-logo img{width: 90px; height: 45px; display: inline}
 .ads-article article{}
-.ads-article img{
-    width: 100%;
-    height: 100%;
+.ads-top-left-right{
+    width: 190px !important;
+    height: 330px !important;
 }
 .ads-top{padding: 20px 0 0 0; margin-top: 495px;}
 .clearfix{clear: both;}
