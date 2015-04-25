@@ -246,8 +246,14 @@ if (isset($_POST['btnSave'])){
 
 <script>
     $(document).ready(function(){
-        $("select#slAlignCreateAdminBanner").find("option#<?php echo $mainPosition ?>").attr("selected", true);
-        positionSelector("<?php echo $mainPosition ?>");
+        var subPosition = "<?php echo $subPosition ?>";
+        if(subPosition == ''){
+            positionSelector(0);
+        }
+        else{
+            $("select#slAlignCreateAdminBanner").find("option#<?php echo $mainPosition ?>").attr("selected", true);
+            positionSelector("<?php echo $mainPosition ?>");
+        }
     });
 
     function positionSelector(selector){
