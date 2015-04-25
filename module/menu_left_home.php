@@ -30,11 +30,11 @@
                                 </ul>
                                 <div class="clear"></div>
                             </div><!-- End .m-sub-mn -->
-<!--                            --><?php
-//                            if($row_cate['image_large']!=""){
-//                                ?>
-<!--                                <img class="img-sty-sub" src="--><?php //echo $linkroot?><!--/--><?php //echo $row_cate['image_large']?><!--" alt="">-->
-<!--                            --><?php //}?>
+                            <?php
+                            if($row_cate['image_large']!=""){
+                                ?>
+                                <img class="img-sty-sub" src="<?php echo $linkroot?>/<?php echo $row_cate['image_large']?>" alt="">
+                            <?php }?>
 
                         </div><!-- End .sub-menu -->
                     </li>

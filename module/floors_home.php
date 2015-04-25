@@ -17,9 +17,24 @@ while($row_cate_floor=mysql_fetch_assoc($cate_floor)){
 for($i = 0; $i < 8; $i++){
 ?>
 <section class="Adv ads-floors">
-    <a href="#" target="_blank">
-        <img src="http://cpcmart.com/web/images/adv/advs2.png" alt="">
-    </a>
+    <?php
+    $dt = date("Y-m-d");
+    $adv_floor = "SELECT *, COUNT(id) AS amount FROM tbl_adv WHERE status = 0 AND start_banner <= '".$dt."' AND '".$dt."' <= finish_banner AND main_position = 2 AND sub_position = '".($i+1)."' ORDER BY date_added LIMIT 1";
+    if ($result_floor = mysql_query($adv_floor,$conn)) {
+        $row_floor=mysql_fetch_array($result_floor);
+        if($row_floor['amount'] > 0){
+            if($row_floor['image'] != ''){
+                echo '<a href="'.$row_floor['link'].'" target="_blank"><img src="../web/'.$row_floor['image'].'" alt="'.$row_floor['name'].'"></a>';
+            }
+            else{
+                echo '<a href="'.$row_floor['link'].'" target="_blank"><img src="http://placehold.it/190x330&text=No Image" alt="'.$row_floor['name'].'"></a>';
+            }
+        }
+        else{
+            echo '<a target="_blank"><img src="http://placehold.it/1210x60"></a>';
+        }
+    }
+    ?>
 </section>
 <section class="Prod-nb clearfix ads-article">
     <article class="dmsp4-1">
@@ -86,7 +101,25 @@ for($i = 0; $i < 8; $i++){
         </div>
     </article>
     <article class="dmsp4-2">
-        <img src="<?php echo $linkroot?>/<?php echo $myArrPrimaryImage[$i] ;?>" />
+        <?php
+        $dt = date("Y-m-d");
+        $adv_floor = "SELECT *, COUNT(id) AS amount FROM tbl_adv WHERE status = 0 AND start_banner <= '".$dt."' AND '".$dt."' <= finish_banner AND main_position = 1 AND sub_position = '".($i+1)."' ORDER BY date_added LIMIT 1";
+        if ($result_floor = mysql_query($adv_floor,$conn)) {
+            $row_floor=mysql_fetch_array($result_floor);
+            if($row_floor['amount'] > 0){
+                if($row_floor['image'] != ''){
+                    echo '<a href="'.$row_floor['link'].'" target="_blank"><img src="../web/'.$row_floor['image'].'" alt="'.$row_floor['name'].'"></a>';
+                }
+                else{
+                    echo '<a href="'.$row_floor['link'].'" target="_blank"><img src="http://placehold.it/190x330&text=No Image" alt="'.$row_floor['name'].'"></a>';
+                }
+            }
+            else{
+                echo '<a target="_blank"><img src="http://placehold.it/390x420"></a>';
+            }
+        }
+        ?>
+<!--        <img src="--><?php //echo $linkroot?><!--/--><?php //echo $myArrPrimaryImage[$i] ;?><!--" />-->
     </article>
     <article class="dmsp4-3">
         <?php
@@ -109,9 +142,6 @@ for($i = 0; $i < 8; $i++){
             </div>
         </div>
         <?php } ?>
-<!--        <div class="divProductLine2"><a href="#"><img src="http://placehold.it/210x164"></a></div>-->
-<!--        <div class="divProductLine2"><a href="#"><img src="http://placehold.it/210x164"></a></div>-->
-<!--        <div class="divProductLine2"><a href="#"><img src="http://placehold.it/210x164"></a></div>-->
     </article>
 </section><!-- End .Prod-nb -->
 <?php } ?>
