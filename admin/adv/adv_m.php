@@ -262,7 +262,7 @@ if (isset($_POST['btnSave'])){
         if(selector == 0){
             $("#slPageCreateAdminBanner").append("<option value='0'>TOP (190x330)</option>");
             for(var i = 1; i <= 8; i++){
-                $("#slPageCreateAdminBanner").append("<option value='"+i+"'>"+i+"C (180x60)</option>");
+                $("#slPageCreateAdminBanner").append("<option value='"+i+"'>"+i+"C (185x67)</option>");
             }
         }
         if(selector == 1){
