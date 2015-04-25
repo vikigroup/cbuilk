@@ -119,7 +119,9 @@ BEGIN CONTAINER
 .clearfix{clear: both;}
 .slider {float: right; width: 770px; height: 312px; overflow: hidden;}
 
-#slider a img {width: 180px; height: 60px;}
+#slider img {width: 770px; height: 312px;}
+
+.slide a img{width: 180px; height: 60px;}
 
 .mn-dm {
 	border: 1px solid #dbdbdb;
