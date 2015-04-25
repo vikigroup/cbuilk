@@ -260,7 +260,7 @@ if (isset($_POST['btnSave'])){
         }
         if(selector == 1){
             for(var j = 1; j <= 4; j++){
-                $("#slPageCreateAdminBanner").append("<option value='0"+j+"'>TOP - HÀNG "+j+" (90x45)</option>");
+                $("#slPageCreateAdminBanner").append("<option value='"+(j+8)+"'>TOP - HÀNG "+j+" (90x45)</option>");
             }
 
             for(var i = 1; i <= 8; i++){
