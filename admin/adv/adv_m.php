@@ -247,7 +247,6 @@ if (isset($_POST['btnSave'])){
 <script>
     $(document).ready(function(){
         $("select#slAlignCreateAdminBanner").find("option#<?php echo $mainPosition ?>").attr("selected", true);
-        alert("<?php echo $subPosition ?>");
         positionSelector("<?php echo $mainPosition ?>");
     });
 
