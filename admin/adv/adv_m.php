@@ -21,24 +21,35 @@ if (isset($_POST['btnSave'])){
 	$link          = isset($_POST['link']) ? trim($_POST['link']) : '';
 	$sort          = isset($_POST['txtSort']) ? trim($_POST['txtSort']) : 0;
 	$status        = $_POST['chkStatus']!='' ? 1 : 0;
-	
-	$catInfo       = getRecord('tbl_adv', 'id='.$parent);
+    $mainPosition = $_POST['slAlignCreateAdminBanner'];
+    $subPosition   = $_POST['slPageCreateAdminBanner'];
+    $startDateTime = $_POST['txtCreateBannerCreateDatetime'] ? trim($_POST['txtCreateBannerCreateDatetime']) : '';
+    $endDateTime   = $_POST['txtCreateBannerEndDatetime'] ? trim($_POST['txtCreateBannerEndDatetime']) : '';
+
+    $catInfo       = getRecord('tbl_adv', 'id='.$parent);
 	if(!$multiLanguage){
 		$lang      = $catInfo['lang'];
 	}else{
 		$lang      = $catInfo['lang'] != '' ? $catInfo['lang'] : $_POST['cmbLang'];
 	}
 
-	if ($name=="") $errMsg .= "Hãy nhập tên danh mục !<br>";
-	$errMsg .= checkUpload($_FILES["txtImage"],".jpg;.gif;.bmp;.png",500*1024,0);
+	if ($name=="") $errMsg .= "Hãy nhập tên banner !<br>";
+    if ($link=="") $errMsg .= "Hãy nhập liên kết cho banner !<br>";
+    if ($startDateTime=="") $errMsg .= "Hãy nhập thời gian đặt banner !<br>";
+    if ($endDateTime=="") $errMsg .= "Hãy nhập thời gian kết thúc banner !<br>";
+    if ($endDateTime < $startDateTime) $errMsg .= "Thời gian kết thúc phải bằng hoặc lớn hơn thời gian đặt banner !<br>";
+
+    $errMsg .= checkUpload($_FILES["txtImage"],".jpg;.gif;.bmp;.png",500*1024,0);
 	$errMsg .= checkUpload($_FILES["txtImageLarge"],".jpg;.gif;.bmp;.png",500*1024,0);
 
 	if ($errMsg==''){
 		if (!empty($_POST['id'])){
 			$oldid = $_POST['id'];
-			 $sql = "update tbl_adv set name='".$name."',type='".$type."',link='".$link."',sort='".$sort."', status='".$status."',last_modified=now() where id='".$oldid."'";
+			 $sql = "update tbl_adv set name='".$name."',type='".$type."',link='".$link."',sort='".$sort."', status='".$status."'
+			 ,main_position='".$mainPosition."',sub_position='".$subPosition."',start_banner='".$startDateTime."',finish_banner='".$endDateTime."',last_modified=now() where id='".$oldid."'";
 		}else{
-			 $sql = "insert into tbl_adv (name, type, link, sort, status,  date_added, last_modified  ) values ('".$name."','".$type."','".$link."','".$sort."','1',now(),now())";
+			 $sql = "insert into tbl_adv (name, type, link, sort, status,  date_added, last_modified, main_position, sub_position, start_banner, finish_banner) values ('".$name."'
+			 ,'".$type."','".$link."','".$sort."','1',now(),now(),'".$mainPosition."','".$subPosition."','".$startDateTime."','".$endDateTime."')";
 		}
 		if (mysql_query($sql,$conn)){
 			if(empty($_POST['id'])) $oldid = mysql_insert_id();
@@ -107,6 +118,10 @@ if (isset($_POST['btnSave'])){
 			$status        = $row['status'];
 			$date_added    = $row['date_added'];
 			$last_modified = $row['last_modified'];
+            $mainPosition  = $row['main_position'];
+            $subPosition   = $row['sub_position'];
+            $startDateTime = $row['start_banner'];
+            $endDateTime   = $row['finish_banner'];
 		}
 	}
 }
@@ -148,14 +163,14 @@ if (isset($_POST['btnSave'])){
                     </tr>
                     <tr>
                         <td valign="middle" width="30%">
-                            Tên  <span class="sao_bb">*</span>
+                            Tên<span class="sao_bb">*</span>
                         </td>
                         <td valign="middle" width="70%">
                             <input name="txtName" type="text" class="table_khungnho" id="txtName" value="<?=$name?>"/>
                         </td>
                     </tr>
                     <tr>
-                      <td valign="middle">Link</td>
+                      <td valign="middle" width="30%">Link<span class="sao_bb">*</span></td>
                       <td valign="middle"><input name="link" type="text" class="table_khungnho" id="link" value="<?=$link;?>"  /></td>
                     </tr>
                     <tr>
@@ -171,13 +186,29 @@ if (isset($_POST['btnSave'])){
                              Vị trí<span class="sao_bb">*</span>
                          </td>
                          <td valign="middle" width="70%">
-                             <select class="table_khungnho" id="slAlignCreateAdminBanner" style="margin-bottom: 5px;" onchange="positionSelector(this.value);">
-                                 <option value="0">BÊN TRÁI</option>
-                                 <option value="1">Ở GIỮA</option>
-                                 <option value="2">BÊN TRÊN</option>
-                                 <option value="3">BÊN PHẢI</option>
+                             <select class="table_khungnho" id="slAlignCreateAdminBanner" name="slAlignCreateAdminBanner" value="<?=$mainPosition?>" style="margin-bottom: 5px;" onchange="positionSelector(this.value);">
+                                 <option value="0" id="0">BÊN TRÁI</option>
+                                 <option value="1" id="1">Ở GIỮA</option>
+                                 <option value="2" id="2">BÊN TRÊN</option>
+                                 <option value="3" id="3">BÊN PHẢI</option>
                              </select>
-                             <select class="table_khungnho" id="slPageCreateAdminBanner"> </select>
+                             <select class="table_khungnho" id="slPageCreateAdminBanner" name="slPageCreateAdminBanner" value="<?=$subPosition?>"> </select>
+                         </td>
+                     </tr>
+                     <tr>
+                         <td valign="middle" width="30%">
+                             Thời gian đặt banner<span class="sao_bb">*</span>
+                         </td>
+                         <td valign="middle" width="70%">
+                             <input style="margin-top: 2px;" type="date" class="table_khungnho" name="txtCreateBannerCreateDatetime" value="<?=$startDateTime?>" id="txtCreateBannerCreateDatetime">
+                         </td>
+                     </tr>
+                     <tr>
+                         <td valign="middle" width="30%">
+                             Thời gian kết thúc banner<span class="sao_bb">*</span>
+                         </td>
+                         <td valign="middle" width="70%">
+                             <input style="margin-top: 2px;" type="date" class="table_khungnho" name="txtCreateBannerEndDatetime" value="<?=$endDateTime?>" id="txtCreateBannerEndDatetime">
                          </td>
                      </tr>
                     <tr>
@@ -215,7 +246,8 @@ if (isset($_POST['btnSave'])){
 
 <script>
     $(document).ready(function(){
-        positionSelector(0);
+        $("select#slAlignCreateAdminBanner").find("option#<?php echo $mainPosition ?>").attr("selected", true);
+        positionSelector("<?php echo $mainPosition ?>");
     });
 
     function positionSelector(selector){
