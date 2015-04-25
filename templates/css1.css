@@ -921,7 +921,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 #imgPreviewWithStyles {
     z-index: 999;
     border: none;
-    background: #333 url(imgs/loader.gif) no-repeat center;
+    background-color: #ffffff;
     padding: 15px;
     width: 424px;
     height: 422px;
@@ -932,7 +932,6 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     text-align: center;
     display: block;
     padding: 10px 0 3px 0;
-    background-color: #ffffff !important;
 }
 
 .img-rounded{
