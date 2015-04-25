@@ -7,7 +7,8 @@
         <div class="m-mn-dm">
             <ul class="ul-dm">
                 <?php
-                $cate=get_records("tbl_shop_category","status=0 AND parent=2"," ","8,15"," ");
+                $arrayID = array('209', '210', '211');
+                $cate=get_records("tbl_shop_category","status=0 AND parent=2 AND id NOT IN ( '" . implode($arrayID, "', '"). "' )"," ","8,15"," ");
                 $i=1;
                 while($row_cate=mysql_fetch_assoc($cate)){
                     ?>
