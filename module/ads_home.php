@@ -113,7 +113,7 @@
             }
         }
         else{
-            echo '<a class="ads-logo" target="_blank"><img class="ads-top-left-right" src="http://placehold.it/190x330"></a>';
+            echo '<a target="_blank"><img class="ads-top-left-right" src="http://placehold.it/190x330"></a>';
         }
     }
     ?>
