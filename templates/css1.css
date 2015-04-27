@@ -108,7 +108,7 @@ BEGIN CONTAINER
 .dmsp4-3 {float: left; width: 630px; height: 420px;}
 .img-right{width: 168px; height: 481px;}
 .ads-home{float:left; width: 830px;}
-.ads-logo{width: 132px; margin: 0 3px 0 3px; background-color: white; float: left; padding: 18px 0 18px 0; text-align: center;}
+.ads-logo{width: 136px; background-color: white; float: left; padding: 18px 0 18px 0; text-align: center; border: 1px solid #F5F5F5}
 .ads-logo img{width: 90px; height: 45px; display: inline}
 .ads-article article{}
 .ads-top-left-right{
