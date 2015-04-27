@@ -866,6 +866,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     overflow: hidden;
     z-index: 100;
     padding: 250px 0 250px 0;
+    display: none;
 }
 
 .mini-user{
@@ -966,4 +967,10 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     background-color: transparent;
     color: #000000 !important;
     width: 140px;
+}
+
+@media (min-width: 992px) {
+    .mini-bar{
+        display: block !important;
+    }
 }
