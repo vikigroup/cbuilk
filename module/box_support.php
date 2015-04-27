@@ -28,10 +28,12 @@
 
 <script>
     $('.all-categories').hover(function(){
-            $(".left-home").slideDown(1000);
-            $(".ads-top").attr("style", "margin-top: 10px; display: block !important;");
             var windowSize = $(window).width();
-            $('.ads-home').css('width', windowSize - 190 - 190 - 139);
+            if(windowSize >= 992){
+                $(".left-home").slideDown(1000);
+                $(".ads-top").attr("style", "margin-top: 10px; display: block !important;");
+                $('.ads-home').css('width', windowSize - 190 - 190 - 139);
+            }
         $('.left-home').hover(
                 function(){
                     $(".left-home").show();
