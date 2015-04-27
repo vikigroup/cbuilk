@@ -7,21 +7,21 @@
 
 <article class="l-tool-ct primary-category">
     <ul class="ul-ltct">
-        <li><a class="btn-gh3" href="<?php echo $linkrootshop?>/16-may-thiet-bi-cu.html"><i class="fa fa-arrow-circle-o-down fa-lg"></i>Máy, thiết bị củ</a></li>
+        <li><a class="btn-gh3" href="<?php echo $linkrootshop?>/16-may-thiet-bi-cu.html">Máy, thiết bị củ</a></li>
     </ul>
     <div class="clear"></div>
 </article><!-- End .l-tool-ct -->
 
 <article class="l-tool-ct primary-category">
     <ul class="ul-ltct">
-        <li><a class="btn-gh3" href="<?php echo $linkrootshop?>/17-cho-thue-may-thiet-bi.html"><i class="fa fa-arrow-circle-o-down fa-lg"></i>Thuê Máy, thiết bị</a></li>
+        <li><a class="btn-gh3" href="<?php echo $linkrootshop?>/17-cho-thue-may-thiet-bi.html">Thuê Máy, thiết bị</a></li>
     </ul>
     <div class="clear"></div>
 </article><!-- End .l-tool-ct -->
 
 <article class="l-tool-ct primary-category">
     <ul class="ul-ltct">
-        <li><a class="btn-gh3" href="<?php echo $linkrootshop?>/18-tin-tuc-chuyen-nganh.html"><i class="fa fa-arrow-circle-o-down fa-lg"></i>Tin chuyên ngành</a></li>
+        <li><a class="btn-gh3" href="<?php echo $linkrootshop?>/18-tin-tuc-chuyen-nganh.html">Tin chuyên ngành</a></li>
     </ul>
     <div class="clear"></div>
 </article><!-- End .l-tool-ct -->
