@@ -41,13 +41,13 @@ require("module/box_device.php");
     <script type="text/javascript" src="<?php echo $linkrootshop?>/scripts/selectivizr-min.js"></script>
     <![endif]-->
 
-    <link href="<?php echo $linkrootshop?>/templates/css1.css" media="screen and (min-width: 1281px)" rel="stylesheet" />
-    <link rel="stylesheet" href="<?php echo $linkrootshop?>/templates/css2.css" media="screen and (max-width: 1280px) and (min-width: 1025px)" />
-    <link rel="stylesheet" href="<?php echo $linkrootshop?>/templates/css3.css" media="screen and (max-width: 1024px) and (min-width: 769px)"  />
-    <link rel="stylesheet" href="<?php echo $linkrootshop?>/templates/css4.css" media="screen and (max-width: 768px) and (min-width: 641px)"  />
-    <link rel="stylesheet" href="<?php echo $linkrootshop?>/templates/css5.css" media="screen and (max-width: 640px) and (min-width: 481px)"  />
-    <link rel="stylesheet" href="<?php echo $linkrootshop?>/templates/css6.css" media="screen and (max-width: 480px) and (min-width: 361px)"  />
-    <link rel="stylesheet" href="<?php echo $linkrootshop?>/templates/css7.css" media="screen and (max-width: 360px) and (min-width: 321px)"  />
+    <link href="<?php echo $linkrootshop?>/templates/css1.css" media="screen and (min-width: 992px)" rel="stylesheet" />
+<!--    <link rel="stylesheet" href="--><?php //echo $linkrootshop?><!--/templates/css2.css" media="screen and (max-width: 1280px) and (min-width: 1025px)" />-->
+<!--    <link rel="stylesheet" href="--><?php //echo $linkrootshop?><!--/templates/css3.css" media="screen and (max-width: 1024px) and (min-width: 769px)"  />-->
+<!--    <link rel="stylesheet" href="--><?php //echo $linkrootshop?><!--/templates/css4.css" media="screen and (max-width: 768px) and (min-width: 641px)"  />-->
+<!--    <link rel="stylesheet" href="--><?php //echo $linkrootshop?><!--/templates/css5.css" media="screen and (max-width: 640px) and (min-width: 481px)"  />-->
+<!--    <link rel="stylesheet" href="--><?php //echo $linkrootshop?><!--/templates/css6.css" media="screen and (max-width: 480px) and (min-width: 361px)"  />-->
+<!--    <link rel="stylesheet" href="--><?php //echo $linkrootshop?><!--/templates/css7.css" media="screen and (max-width: 360px) and (min-width: 321px)"  />-->
     <link href="<?php echo $linkrootshop?>/templates/css8.css" media="screen and (max-width: 320px)" rel="stylesheet" />
     <link href="<?php echo $linkrootshop?>/templates/hover.css" rel="stylesheet" />
 
@@ -390,6 +390,30 @@ require("module/box_device.php");
             }
         }, 250);
     });
+</script>
+
+<script>
+    window.onload = function(){
+        autoHome();
+        $(window).resize(function () {
+            autoHome();
+        });
+    };
+
+    function autoHome(){
+        alert("ok");
+        if($(window).width() < 768){
+
+        }
+
+        if($(window).width() >= 768 && $(window).width() < 992){
+
+        }
+
+        if($(window).width() >= 992 || $(window).width() >= 1200){
+
+        }
+    }
 </script>
 </body>
 </html>
