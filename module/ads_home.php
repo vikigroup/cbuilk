@@ -25,16 +25,16 @@
     $total1 = 0;
     while($row1=mysql_fetch_assoc($adv_top_center1)){
         if($row1['image'] != ''){
-            echo '<a class="ads-logo" href="'.$row1['link'].'" target="_blank"><img src="../web/'.$row1['image'].'" alt="'.$row1['name'].'"></a>';
+            echo '<a class="ads-logo push" href="'.$row1['link'].'" target="_blank"><img src="../web/'.$row1['image'].'" alt="'.$row1['name'].'"></a>';
         }
         else{
-            echo '<a class="ads-logo" href="'.$row1['link'].'" target="_blank"><img src="http://placehold.it/90x45&text=No Image" alt="'.$row1['name'].'"></a>';
+            echo '<a class="ads-logo push" href="'.$row1['link'].'" target="_blank"><img src="http://placehold.it/90x45&text=No Image" alt="'.$row1['name'].'"></a>';
         }
         $total1++;
     }
     if($total1 < 6){
         for($i1 = 0; $i1 < (6 - $total1); $i1++){
-            echo '<a class="ads-logo" target="_blank"><img src="http://placehold.it/90x45"></a>';
+            echo '<a class="ads-logo push" target="_blank"><img src="http://placehold.it/90x45"></a>';
         }
     }
     ?>
@@ -45,16 +45,16 @@
     $total1 = 0;
     while($row1=mysql_fetch_assoc($adv_top_center1)){
         if($row1['image'] != ''){
-            echo '<a class="ads-logo" href="'.$row1['link'].'" target="_blank"><img src="../web/'.$row1['image'].'" alt="'.$row1['name'].'"></a>';
+            echo '<a class="ads-logo push" href="'.$row1['link'].'" target="_blank"><img src="../web/'.$row1['image'].'" alt="'.$row1['name'].'"></a>';
         }
         else{
-            echo '<a class="ads-logo" href="'.$row1['link'].'" target="_blank"><img src="http://placehold.it/90x45&text=No Image" alt="'.$row1['name'].'"></a>';
+            echo '<a class="ads-logo push" href="'.$row1['link'].'" target="_blank"><img src="http://placehold.it/90x45&text=No Image" alt="'.$row1['name'].'"></a>';
         }
         $total1++;
     }
     if($total1 < 6){
         for($i1 = 0; $i1 < (6 - $total1); $i1++){
-            echo '<a class="ads-logo" target="_blank"><img src="http://placehold.it/90x45"></a>';
+            echo '<a class="ads-logo push" target="_blank"><img src="http://placehold.it/90x45"></a>';
         }
     }
     ?>
@@ -65,16 +65,16 @@
     $total1 = 0;
     while($row1=mysql_fetch_assoc($adv_top_center1)){
         if($row1['image'] != ''){
-            echo '<a class="ads-logo" href="'.$row1['link'].'" target="_blank"><img src="../web/'.$row1['image'].'" alt="'.$row1['name'].'"></a>';
+            echo '<a class="ads-logo push" href="'.$row1['link'].'" target="_blank"><img src="../web/'.$row1['image'].'" alt="'.$row1['name'].'"></a>';
         }
         else{
-            echo '<a class="ads-logo" href="'.$row1['link'].'" target="_blank"><img src="http://placehold.it/90x45&text=No Image" alt="'.$row1['name'].'"></a>';
+            echo '<a class="ads-logo push" href="'.$row1['link'].'" target="_blank"><img src="http://placehold.it/90x45&text=No Image" alt="'.$row1['name'].'"></a>';
         }
         $total1++;
     }
     if($total1 < 6){
         for($i1 = 0; $i1 < (6 - $total1); $i1++){
-            echo '<a class="ads-logo" target="_blank"><img src="http://placehold.it/90x45"></a>';
+            echo '<a class="ads-logo push" target="_blank"><img src="http://placehold.it/90x45"></a>';
         }
     }
     ?>
@@ -85,16 +85,16 @@
     $total1 = 0;
     while($row1=mysql_fetch_assoc($adv_top_center1)){
         if($row1['image'] != ''){
-            echo '<a class="ads-logo" href="'.$row1['link'].'" target="_blank"><img src="../web/'.$row1['image'].'" alt="'.$row1['name'].'"></a>';
+            echo '<a class="ads-logo push" href="'.$row1['link'].'" target="_blank"><img src="../web/'.$row1['image'].'" alt="'.$row1['name'].'"></a>';
         }
         else{
-            echo '<a class="ads-logo" href="'.$row1['link'].'" target="_blank"><img src="http://placehold.it/90x45&text=No Image" alt="'.$row1['name'].'"></a>';
+            echo '<a class="ads-logo push" href="'.$row1['link'].'" target="_blank"><img src="http://placehold.it/90x45&text=No Image" alt="'.$row1['name'].'"></a>';
         }
         $total1++;
     }
     if($total1 < 6){
         for($i1 = 0; $i1 < (6 - $total1); $i1++){
-            echo '<a class="ads-logo" target="_blank"><img src="http://placehold.it/90x45"></a>';
+            echo '<a class="ads-logo push" target="_blank"><img src="http://placehold.it/90x45"></a>';
         }
     }
     ?>
