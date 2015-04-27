@@ -953,6 +953,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 .primary-category{
     width: 140px;
     margin-left: 2%;
+    display: none;
 }
 
 .primary-category:first-child{
@@ -971,6 +972,10 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 
 @media (min-width: 992px) {
     .mini-bar{
+        display: block !important;
+    }
+
+    .primary-category{
         display: block !important;
     }
 }
