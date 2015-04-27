@@ -143,10 +143,10 @@ for($i = 0; $i < 8; $i++){
                 <span onmouseover="$('.img-rounded').attr('src', '<?php echo $linkrootshop.'/web/'.$row_floor['image'] ?>');"><?php echo $row_floor['name'] ?></span><br/><br/>
                 <span onmouseover="$('.img-rounded').attr('src', '<?php echo $linkrootshop.'/web/'.$row_floor['image'] ?>');"><?php echo $row_floor['description'] ?></span><br/><br/>
                 <?php if($row_floor['price'] > 0 && $row_floor['pricekm'] > 0){ ?>
-                    <span class="spanMoneyKM" onmouseover="$('.img-rounded').attr('src', '<?php echo $linkrootshop.'/web/'.$row_floor['image'] ?>');"><?php echo number_format($row_floor['pricekm'])."?"; ?></span><br/>
-                    <span class="spanMoney" onmouseover="$('.img-rounded').attr('src', '<?php echo $linkrootshop.'/web/'.$row_floor['image'] ?>');"><?php echo number_format($row_floor['price'])."?"; ?></span>
+                    <span class="spanMoneyKM" onmouseover="$('.img-rounded').attr('src', '<?php echo $linkrootshop.'/web/'.$row_floor['image'] ?>');"><?php echo number_format($row_floor['pricekm'])."đ"; ?></span><br/>
+                    <span class="spanMoney" onmouseover="$('.img-rounded').attr('src', '<?php echo $linkrootshop.'/web/'.$row_floor['image'] ?>');"><?php echo number_format($row_floor['price'])."đ"; ?></span>
                 <?php }else{ ?>
-                    <span class="spanMoneyKM" onmouseover="$('.img-rounded').attr('src', '<?php echo $linkrootshop.'/web/'.$row_floor['image'] ?>');"><?php if($row_floor['pricekm'] > 0){echo number_format($row_floor['pricekm'])."?";}else{echo number_format($row_floor['price'])."?";} ?></span>
+                    <span class="spanMoneyKM" onmouseover="$('.img-rounded').attr('src', '<?php echo $linkrootshop.'/web/'.$row_floor['image'] ?>');"><?php if($row_floor['pricekm'] > 0){echo number_format($row_floor['pricekm'])."đ";}else{echo number_format($row_floor['price'])."đ";} ?></span>
                 <?php } ?>
             </div>
         </div>
