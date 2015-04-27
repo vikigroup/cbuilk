@@ -171,7 +171,7 @@ if (isset($_POST['btnSave'])){
                     </tr>
                     <tr>
                       <td valign="middle" width="30%">Link<span class="sao_bb">*</span></td>
-                      <td valign="middle"><input name="link" type="text" class="table_khungnho" id="link" value="<?=$link;?>"  /></td>
+                      <td valign="middle"><input name="link" type="text" class="table_khungnho" id="link" value="<?=$link;?>" onchange="addhttp(this.value)"/></td>
                     </tr>
                     <tr>
                         <td valign="middle" width="30%">
@@ -282,5 +282,13 @@ if (isset($_POST['btnSave'])){
         if(selector == 3){
             $("#slPageCreateAdminBanner").append("<option value='0'>TOP (190x330)</option>");
         }
+    }
+
+    function addhttp(url) {
+        var pattern = /^((http|https):\/\/)/;
+        if(!pattern.test(url)) {
+            url = "http://" + url;
+        }
+        $('#link').val(url);
     }
 </script>
