@@ -4,7 +4,7 @@
 <!--            <span class="sp-gh1">0</span>-->
 <!--            <a class="btn-gh1" href="#"></a>-->
         </li>
-        <li><span class="hotline">hotline: <?=$row_title_lap['hotlinekh'];?></span></li>
+        <li><span class="hotline"><i class="fa fa-mobile fa-lg"></i> <?=$row_title_lap['hotlinekh'];?></span></li>
         <li>|</li>
         <?php if($_SESSION['kh_login_username']==""){?>
             <li><a href="<?php echo $linkrootshop;?>/dang-nhap.html">Đăng nhập</a></li>
