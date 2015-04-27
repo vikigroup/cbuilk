@@ -20,7 +20,7 @@ a.btn-gh3:hover{text-decoration: underline;}
 a.btn-gh3 i{margin-right: 5px;}
 .btn-gh ul li a.btn-gh1:hover , .btn-gh ul li a.btn-gh2:hover {background-position: 0px -32px;}
 
-.search_top_header {position: absolute; top: 24px; left: 211px; width: 455px; height: 30px; border: 1px solid #ddd; background: #fff;}
+.search_top_header {position: absolute; top: 24px; left: 211px; width: 35%; height: 30px; border: 1px solid #ddd; background: #fff;}
 
 .select_item_search {
 	height: 30px;
@@ -76,7 +76,7 @@ BEGIN CONTAINER
 /*background: url(../imgs/layout/tool-ct.png) repeat-x bottom; padding-bottom: 4px;*/
 .l-tool-ct {float: left;}
 .l-tool-ct ul.ul-ltct > li {float: left; text-transform: uppercase;}
-.l-tool-ct ul.ul-ltct > li span.hotline {background: url(../imgs/layout/hotline.png) no-repeat left; padding-left: 22px; display: block;}
+span.hotline { margin: 10px 30px 10px 30px !important;}
 .l-tool-ct ul.ul-ltct > li span.support {background: url(../imgs/layout/support.png) no-repeat left; padding-left: 22px; display: block;}
 .l-tool-ct ul.ul-ltct > li + li {padding-left: 20px;}
 
@@ -105,9 +105,9 @@ BEGIN CONTAINER
     width: 390px;
     height: 420px;
 }
-.dmsp4-3 {float: left; width: 630px; height: 420px;}
+.dmsp4-3 {float: left; width: 630px; height: 420px; overflow: hidden;}
 .img-right{width: 168px; height: 481px;}
-.ads-home{float:left; width: 830px;}
+.ads-home{float:left; width: 830px; height: 330px !important; overflow: hidden;}
 .ads-logo{width: 136px; background-color: white; float: left; padding: 18px 0 18px 0; text-align: center; border: 1px solid #F5F5F5}
 .ads-logo img{width: 90px; height: 45px; display: inline}
 .ads-article article{}
@@ -797,7 +797,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 }
 
 .divProductLine1:first-child, .divProductLine1:nth-child(4){
-    margin-left: 0px;
+    margin-left: 5px;
 }
 
 .divProductOverlay1{
@@ -950,10 +950,20 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 }
 
 .primary-category{
-    margin-left: 65px;
+    width: 140px;
+    margin-left: 2%;
+}
+
+.primary-category:first-child{
+    margin-left: 5%;
+}
+
+.primary-category:last-child{
+    margin-right: 5%;
 }
 
 .primary-category .ul-ltct li a.btn-gh3{
     background-color: transparent;
     color: #000000 !important;
+    width: 140px;
 }
