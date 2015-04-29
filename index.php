@@ -411,6 +411,7 @@ require("module/box_device.php");
             $('.ul-ifoot li').css('width', '100%');
             $('.arrowCategory').css('width', windowSize - 52);
             $('.t-Pnb').css('width', windowSize - 2);
+            $('.hotline').attr('style', 'margin: 0 0 0 5px !important;');
 
             for(var i = 0; i < 8; i++){
                 if($('#aCategoryName'+i).height() > 14){
@@ -436,6 +437,7 @@ require("module/box_device.php");
             $('.sli-fcon-1 .bx-wrapper .bx-viewport').css('width', '100%');
             $('.t-Pnb, .filter-Prod, .content').css('width', 770);
             $('.li-Pc1').css('width', 173);
+            $('.hotline').attr('style', 'margin: 10px 30px 10px 30px !important;');
 
             for(var i = 0; i < 8; i++){
                 if($('#aCategoryName'+i).height() > 14){
