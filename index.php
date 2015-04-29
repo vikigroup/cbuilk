@@ -404,10 +404,13 @@ require("module/box_device.php");
     function autoHome(){
         var windowSize = $(window).width();
         if($(window).width() < 768){
-            $('.m-wrap, .dmsp4-2, .dmsp4-3, .ads-home, .btn-gh3, .form_dn, .form_dn ul li, .l-fcont, .r-fcont, .sli-fcon-1').css('width', windowSize);
+            $('.m-wrap, .dmsp4-2, .dmsp4-3, .ads-home, .btn-gh3, .form_dn, .form_dn ul li, .l-fcont, .r-fcont, .sli-fcon-1' +
+                ', .sli-fcon-1 .bx-wrapper .bx-viewport, .filter-Prod, .content').css('width', windowSize);
             $('.divProductLine1, .divProductOverlay1').css('width', windowSize/2 - 11);
+            $('.li-Pc1').css('width', windowSize/2 - 23);
             $('.ul-ifoot li').css('width', '100%');
             $('.arrowCategory').css('width', windowSize - 52);
+            $('.t-Pnb').css('width', windowSize - 2);
 
             for(var i = 0; i < 8; i++){
                 if($('#aCategoryName'+i).height() > 14){
@@ -434,6 +437,9 @@ require("module/box_device.php");
             $('.l-fcont').css('width', 644);
             $('.r-fcont').css('width', 306);
             $('.sli-fcon-1').css('width', 572);
+            $('.sli-fcon-1 .bx-wrapper .bx-viewport').css('width', '100%');
+            $('.t-Pnb, .filter-Prod, .content').css('width', 770);
+            $('.li-Pc1').css('width', 173);
 
             for(var i = 0; i < 8; i++){
                 if($('#aCategoryName'+i).height() > 14){
