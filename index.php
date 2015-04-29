@@ -41,7 +41,7 @@ require("module/box_device.php");
     <script type="text/javascript" src="<?php echo $linkrootshop?>/scripts/selectivizr-min.js"></script>
     <![endif]-->
 
-    <link href="<?php echo $linkrootshop?>/templates/css1.css" media="screen and (min-width: 992px)" rel="stylesheet" />
+    <link href="<?php echo $linkrootshop?>/templates/css1.css" rel="stylesheet" />
 <!--    <link rel="stylesheet" href="--><?php //echo $linkrootshop?><!--/templates/css2.css" media="screen and (max-width: 1280px) and (min-width: 1025px)" />-->
 <!--    <link rel="stylesheet" href="--><?php //echo $linkrootshop?><!--/templates/css3.css" media="screen and (max-width: 1024px) and (min-width: 769px)"  />-->
 <!--    <link rel="stylesheet" href="--><?php //echo $linkrootshop?><!--/templates/css4.css" media="screen and (max-width: 768px) and (min-width: 641px)"  />-->
@@ -330,6 +330,7 @@ require("module/box_device.php");
                     <p>Giỏ hàng</p>
                 </a>
             </div>
+        </div>
     </div><!-- End .m-wrap -->
 </section><!-- End #container -->
 
@@ -401,17 +402,26 @@ require("module/box_device.php");
     };
 
     function autoHome(){
-        alert("ok");
+        var windowSize = $(window).width();
         if($(window).width() < 768){
-
+            $('.m-wrap, .dmsp4-2, .dmsp4-3, .ads-home, .btn-gh3').css('width', windowSize);
+            $('.divProductLine1, .divProductOverlay1').css('width', windowSize/2 - 11);
+            $('.ul-ifoot li').css('width', '100%');
         }
 
         if($(window).width() >= 768 && $(window).width() < 992){
 
         }
 
-        if($(window).width() >= 992 || $(window).width() >= 1200){
-
+        if($(window).width() >= 992){
+            $('.m-wrap').css('width', windowSize - 139);
+            $('.dmsp4-3').css('width', windowSize - 190 - 390 - 139);
+            $('.ads-home').css('width', windowSize - 190 - 190 - 139);
+            $('.btn-gh3').css('width', 190);
+            $('.arrowCategory').css('width', 137);
+            $('.btn-gh3').css('width', 190);
+            $('.divProductLine1, .divProductOverlay1').css('width', 200);
+            $('.ul-ifoot li').css('width', '25%');
         }
     }
 </script>
