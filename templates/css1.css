@@ -79,7 +79,7 @@ BEGIN CONTAINER
 .tool-ct {height: 34px; line-height: 34px; font-size: 11px;}
 /*background: url(../imgs/layout/tool-ct.png) repeat-x bottom; padding-bottom: 4px;*/
 .l-tool-ct {float: left;}
-.l-tool-ct ul.ul-ltct > li {float: left; text-transform: uppercase;}
+.l-tool-ct ul.ul-ltct > li {float: left; text-transform: capitalize;}
 span.hotline { margin: 10px 30px 10px 30px !important;}
 .l-tool-ct ul.ul-ltct > li span.support {background: url(../imgs/layout/support.png) no-repeat left; padding-left: 22px; display: block;}
 .l-tool-ct ul.ul-ltct > li + li {padding-left: 20px;}
@@ -1055,12 +1055,11 @@ ul.ul-fP li.atc a {color: #3ba11b;}
         width: 180px !important;
     }
 
-    .form_dn ul li:nth-child(1n) img{
-        display: block;
-        width: 100%;
+    .form_dn ul li:nth-child(1n) img, .fix-box-sizing{
+        width: 100% !important;
     }
 
-    .breacrum{
+    .breacrum, .list-cate{
         margin-top: 10px;
     }
 
