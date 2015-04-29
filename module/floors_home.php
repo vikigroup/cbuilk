@@ -64,7 +64,7 @@ for($i = 0; $i < 8; $i++){
             }
 
             ?>
-            <div class="divContent">
+            <div class="divContent" style="background-color: <?php echo $myArr3[$i]; ?>; ?>">
                 <?php if(isset($myArrImage[0])){ ?>
                     <img src="<?php echo $linkroot?>/<?php echo $myArrImage[0] ;?>" />
                 <?php }else{ ?>
@@ -73,7 +73,7 @@ for($i = 0; $i < 8; $i++){
                 <p><a href="<?php echo $linkrootshop?>/<?php echo $myArrSubject[0];?>.html"><?php echo $myArrSubName[0]; ?></a></p>
             </div>
             <div class="sep"></div>
-            <div class="divContent">
+            <div class="divContent" style="background-color: <?php echo $myArr3[$i]; ?>; ?>">
                 <?php if(isset($myArrImage[1])){ ?>
                     <img src="<?php echo $linkroot?>/<?php echo $myArrImage[1] ;?>" />
                 <?php }else{ ?>
