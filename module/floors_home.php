@@ -37,7 +37,7 @@ for($i = 0; $i < 8; $i++){
     ?>
 </section>
 <section class="Prod-nb clearfix ads-article">
-    <article class="dmsp4-1" style="background-color: <?php echo $myArr3[$i]; ?>;">
+    <article class="dmsp4-1" style="background-color: <?php echo $myArr2[$i]; ?>;">
         <div class="arrowLine" style="background-color: <?php echo $myArr1[$i]; ?>;">
             <span><?php echo $i+1; ?>c</span>
         </div>
