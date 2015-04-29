@@ -874,7 +874,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     overflow: hidden;
     z-index: 100;
     padding: 250px 0 250px 0;
-    display: none;
+    visibility: hidden;
 }
 
 .mini-user{
@@ -980,7 +980,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 
 @media (min-width: 992px) {
     .mini-bar{
-        display: block !important;
+        visibility: visible !important;
     }
 
     .primary-category{
