@@ -109,9 +109,7 @@ if (isset($_POST['btn_dangnhap_in'])==true){
      </div>
     <ul>
         <li>
-            <center>
-                <img src="<?php echo $linkrootshop;?>/imgs/layout/LoginRed.jpg" alt=""/>
-            </center>
+            <img src="<?php echo $linkrootshop;?>/imgs/layout/LoginRed.jpg" alt=""/>
         </li>
         <li>
             <div class="main_f_dn">
