@@ -37,7 +37,7 @@ for($i = 0; $i < 8; $i++){
     ?>
 </section>
 <section class="Prod-nb clearfix ads-article">
-    <article class="dmsp4-1">
+    <article class="dmsp4-1" style="background-color: <?php echo $myArr3[$i]; ?>;">
         <div class="arrowLine" style="background-color: <?php echo $myArr1[$i]; ?>;">
             <span><?php echo $i+1; ?>c</span>
         </div>
@@ -96,16 +96,16 @@ for($i = 0; $i < 8; $i++){
                     echo '<div class="slide"><a href="'.$row_floor1['link'].'" target="_blank"><img src="../web/'.$row_floor1['image'].'" alt="'.$row_floor1['name'].'"></a></div>';
                 }
                 else{
-                    echo '<div class="slide"><a href="'.$row_floor1['link'].'" target="_blank"><img src="http://placehold.it/180x60&text=No Image" alt="'.$row_floor1['name'].'"></a></div>';
+                    echo '<div class="slide"><a href="'.$row_floor1['link'].'" target="_blank"><img src="http://placehold.it/190x67&text=No Image" alt="'.$row_floor1['name'].'"></a></div>';
                 }
                 $total_adv1++;
             }
             if($total_adv1 == 0){
-                echo '<div class="slide"><a target="_blank"><img src="http://placehold.it/185x67"></a></div>';
-                echo '<div class="slide"><a target="_blank"><img src="http://placehold.it/185x67"></a></div>';
+                echo '<div class="slide"><a target="_blank"><img src="http://placehold.it/190x67"></a></div>';
+                echo '<div class="slide"><a target="_blank"><img src="http://placehold.it/190x67"></a></div>';
             }
             else if($total_adv1 == 1){
-                echo '<div class="slide"><a target="_blank"><img src="http://placehold.it/185x67"></a></div>';
+                echo '<div class="slide"><a target="_blank"><img src="http://placehold.it/190x67"></a></div>';
             }
             ?>
         </div>
@@ -167,8 +167,8 @@ for($i = 0; $i < 8; $i++){
 //            controls: false
         });
 
-        $('.bx-wrapper').css('max-width', '170px');
-        $('.bx-viewport').css('width', '185px');
+        $('.bx-wrapper').css('max-width', '180px');
+        $('.bx-viewport').css('width', '190px');
         $('.bx-wrapper .bx-viewport').css('-webkit-box-shadow', 'none');
         $('.bx-wrapper .bx-viewport').css('box-shadow', 'none');
         $('.bx-wrapper .bx-viewport').css('border', '0');
