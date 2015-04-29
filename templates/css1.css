@@ -57,15 +57,16 @@ a.btn-gh3 i{margin-right: 5px;}
 }
 .ipt_s:focus, .ipt_s:hover {color: #333;}
 .btn_s{
-	/*background: url(../imgs/layout/btn-s.png) no-repeat 0px 0px;*/
+	background: url(../imgs/search.png) no-repeat 0px 0px;
 	width: 28px; height: 28px;
 	border: none;
 	position: absolute;
-	top: 1px; right: 1px;	
+	top: 1px; right: 1px;
 	cursor: pointer;
+    background-size: cover;
     background-color: #669AD3;
 }
-.btn_s:hover {background-position: 0px -28px;}
+/*.btn_s:hover {background-position: 0px -28px;}*/
 
 /************************************************************************************
 END HEADER
