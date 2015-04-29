@@ -1,3 +1,7 @@
+body{
+    overflow-x: hidden;
+}
+
 .m-wrap {width: 1210px; margin: 0 auto;}
 
 /************************************************************************************
@@ -87,7 +91,7 @@ span.hotline { margin: 10px 30px 10px 30px !important;}
 .r-box-tool ul li:first-child{
     margin-top: 0;
 }
-.r-tool-ct {float: right;}
+.r-tool-ct {float: right; background-color: #ffffff;}
 .r-tool-ct ul li {float: left; text-transform: capitalize;}
 .r-tool-ct ul li + li {padding-left: 5px;}
 .r-tool-ct ul li a {color: #444;}
@@ -102,8 +106,8 @@ span.hotline { margin: 10px 30px 10px 30px !important;}
 .dmsp4-1 {float: left; width: 189px; height: 420px; background-color: #FAFAF8; border-right: 1px solid #ffffff}
 .dmsp4-2 {float: left; width: 390px; height: 420px; background-color: #FAFAF8;}
 .dmsp4-2 a img{
-    width: 390px;
-    height: 420px;
+    width: 100%;
+    height: 100%;
 }
 .dmsp4-3 {float: left; width: 630px; height: 420px; overflow: hidden;}
 .img-right{width: 168px; height: 481px;}
@@ -121,7 +125,7 @@ span.hotline { margin: 10px 30px 10px 30px !important;}
 
 #slider img {width: 770px; height: 312px;}
 
-.slide a img{width: 185px; height: 67px;}
+.slide a img{width: 190px; height: 67px;}
 
 .mn-dm {
 	border: 1px solid #dbdbdb;
@@ -740,7 +744,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     width: 94px;
     text-align: center;
     color: white !important;
-    padding: 5px 0 4px 0;
+    padding: 5px 0 0 0;
     cursor: pointer;
 }
 
@@ -775,13 +779,17 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 .divSubCategory{
     clear: both;
     background-color: #ffffff;
-    height: 175px;
+    height: 180px;
 }
 
 .aSubCategory{
     font-size: 13px;
     margin: 5px;
     overflow: hidden;
+}
+
+.aSubCategory:first-child{
+    margin-top: 0;
 }
 
 .aSubCategory a{
@@ -883,7 +891,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     position: fixed;
     right: 35px;
     top: 250px;
-    width: 230px;
+    width: 220px;
     background-color: #ffffff;
     display: none;
     z-index: 100;
@@ -977,5 +985,64 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 
     .primary-category{
         display: block !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .container .m-wrap{
+        margin: 60px 0  60px 0;
+    }
+
+    .search_top_header{
+        top: 80px;
+        left: 0;
+        width: 100%;
+    }
+
+    .hotline{
+        display: none;
+    }
+
+    .r-box-tool{
+        margin-top: 70px;
+        width: 100%;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #dbdbdb;
+        margin-bottom: 5px;
+    }
+
+    .menu, .r-box-tool, .search_top_header{
+        margin-left: -1px;
+    }
+
+    .btn-gh3{
+        margin-bottom: 5px;
+    }
+
+    .container-fluid, .ads-top, .ads-floors, .divAds, .dmsp4-2, .divCategory, .divSubCategory, #topcontrol{
+        display: none;
+    }
+
+    .dmsp4-1{
+        width: 100%;
+        height: auto;
+    }
+
+    .bx-viewport{
+        height: 0 !important;
+    }
+
+    .divProductLine1:first-child{
+        margin-left: 0;
+    }
+
+    .divProductLine1:nth-child(3), .divProductLine1:nth-child(5){
+        margin-left: 0px;
+    }
+
+    .dmsp4-3{
+        overflow: visible;
+        height: auto;
+        margin-bottom: 10px;
     }
 }
