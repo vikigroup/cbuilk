@@ -403,7 +403,7 @@ require("module/box_device.php");
 
     function autoHome(){
         var windowSize = $(window).width();
-        if($(window).width() < 768){
+        if($(window).width() < 992){
             $('.m-wrap, .dmsp4-2, .dmsp4-3, .ads-home, .btn-gh3, .form_dn, .form_dn ul li, .l-fcont, .r-fcont, .sli-fcon-1' +
                 ', .sli-fcon-1 .bx-wrapper .bx-viewport, .filter-Prod, .content').css('width', windowSize);
             $('.divProductLine1, .divProductOverlay1').css('width', windowSize/2 - 11);
@@ -417,10 +417,6 @@ require("module/box_device.php");
                     $('#divCategoryID'+i).css('padding', '5px 0 0 0');
                 }
             }
-        }
-
-        if($(window).width() >= 768 && $(window).width() < 992){
-
         }
 
         if($(window).width() >= 992){
