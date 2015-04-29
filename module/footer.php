@@ -10,7 +10,7 @@
                         <ul class="news">
                             <li><a href="<?php echo $linkrootshop?>/thong-tin/<?=get_field('jbs_tin','id',1,'subject');?>.html"><?=get_field('jbs_tin','id',1,'name');?></a></li>
                             <li><a href="<?php echo $linkrootshop?>/thong-tin/<?=get_field('jbs_tin','id',2,'subject');?>.html"><?=get_field('jbs_tin','id',2,'name');?></a></li>
-                            <li><a href="<?php echo $linkrootshop?>/thong-tin/<?=get_field('jbs_tin','id',3,'subject');?>.html"><?=get_field('jbs_tin','id',1,'name');?></a></li>  
+                            <li><a href="<?php echo $linkrootshop?>/thong-tin/<?=get_field('jbs_tin','id',3,'subject');?>.html"><?=get_field('jbs_tin','id',3,'name');?></a></li>
                         </ul>
                     </div><!-- End .m-ifoot -->
                 </li>                    
