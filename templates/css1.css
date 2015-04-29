@@ -598,7 +598,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 
 .form_dn{padding-top:20px; margin-top: 470px;}
 .form_dn ul li{float:left; width:480px;}
-.form_dn ul li:nth-child(1n){float:left;}
+.form_dn ul li:nth-child(1n){float:left; text-align: center;}
 .form_dn ul li:nth-child(2n){float:right;}
 
 .main_f_dn{
@@ -1037,12 +1037,38 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     }
 
     .divProductLine1:nth-child(3), .divProductLine1:nth-child(5){
-        margin-left: 0px;
+        margin-left: 0;
     }
 
     .dmsp4-3{
         overflow: visible;
         height: auto;
         margin-bottom: 10px;
+    }
+
+    .form_dn{
+        margin-top: 0;
+        padding-top: 0;
+    }
+
+    .ipt_f_tt{
+        width: 180px !important;
+    }
+
+    .form_dn ul li:nth-child(1n) img{
+        display: block;
+        width: 100%;
+    }
+
+    .breacrum{
+        margin-top: 10px;
+    }
+
+    .r-fcont{
+        float: left;
+    }
+
+    .bx-prev, .bx-next{
+        display: none;
     }
 }
