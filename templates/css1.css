@@ -1,5 +1,5 @@
 body{
-    /*overflow-x: hidden;*/
+    overflow-x: hidden;
 }
 
 .m-wrap {width: 1210px; margin: 0 auto;}
@@ -1081,5 +1081,9 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 
     .bx-wrapper{
         display: none;
+    }
+
+    .logo{
+        left: 20%;
     }
 }
