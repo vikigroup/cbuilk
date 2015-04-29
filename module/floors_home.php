@@ -204,12 +204,6 @@ for($i = 0; $i < 8; $i++){
                     $container.hide();
                     $img.unbind('load').attr('src', '').hide();
                 });
-
-        for(var i = 0; i < 8; i++){
-            if($('#aCategoryName'+i).height() > 14){
-                $('#divCategoryID'+i).css('padding', '5px 0 11px 0');
-            }
-        }
     });
 </script>
 
