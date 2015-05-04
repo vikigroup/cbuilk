@@ -435,7 +435,7 @@ require("module/box_device.php");
             $('.news li, .yahoo li').css('width', '100%');
             $('.l-fcont').css('width', 870);
             $('.r-fcont').css('width', 330);
-            $('.sli-fcon-1').css('width', 572);
+            $('.sli-fcon-1').css('width', 860);
             $('.sli-fcon-1 .bx-wrapper .bx-viewport').css('width', '100%');
             $('.t-Pnb, .filter-Prod, .content').css('width', 1000);
             $('.li-Pc1').css('width', 173);
