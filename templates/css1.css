@@ -447,7 +447,7 @@ END FOOTER
 }
 /************************************** END PHAN TRANG **************************************/
 
-.breacrum {padding: 7px 0; margin-top: 480px;}
+.breacrum {padding: 7px 0;}
 .breacrum ul li {float: left;}
 .breacrum ul li a {background: url(../imgs/layout/icon-breacrum.png) no-repeat right; color: #999; padding: 0 14px 0 10px; cursor: pointer;}
 .breacrum ul li a:hover {text-decoration: underline; color: #3ba11b;}
