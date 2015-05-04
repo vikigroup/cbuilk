@@ -1,0 +1,146 @@
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+RewriteRule ^(.*)$ http://%1/$1  [R=301,L]
+
+RewriteRule ^(.*)/$ http://%{HTTP_HOST}/$1.html [R=301,L]
+
+
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([^\.]+)$ http://%{HTTP_HOST}/$1.html [R=301,L]
+
+#RewriteRule ^quantri/$ /quantri/index.php  [L]
+RewriteRule ^quantri.html$ /quantri/index.php  [L]
+
+RewriteRule ^trang-chu.html$ ?act=home [L]
+RewriteRule ^gioi-thieu.html$ ?act=introduce [L]
+RewriteRule ^lien-he.html$ ?act=contact [L]
+RewriteRule ^dich-vu.html$ ?act=service [L]
+RewriteRule ^page-dich-vu/(.*)/(.*)/$ ?act=service&tukhoa=$1&pageNum=$2 [L]
+
+RewriteRule ^xu-ly.html$ content/xuly.php [L]
+RewriteRule ^xu-ly/(.*).html$ content/xuly.php?k=$1 [L]
+RewriteRule ^tu-khoa-tim/(.*).html$ ?act=search&keyword=$1 [L]
+RewriteRule ^page-tim-kiem/(.*)/(.*).html$ ?act=search&keyword=$1&pageNum=$1 [L]
+
+RewriteRule ^404-page-not-found.html$ ?act=page404 [L]
+RewriteRule ^xem-gio-hang.html$ ?act=viewcart [L]
+
+RewriteRule ^dat-hang-thanh-cong.html$ ?act=order&code=1 [L]
+RewriteRule ^dat-hang.html$ ?act=order [L]
+
+RewriteRule ^show-tip/(.*).html$ content/product_tip.php?idsp=$1 [L]
+
+
+RewriteRule ^page-danh-muc/(.*)/(.*)/(.*).html$ ?act=products&danhmuc=$1&tukhoa=$2&pageNum=$3 [L]
+
+RewriteRule ^(.*)/$ ?act=products&danhmuc=$1 [L]
+RewriteRule ^(.*).html$ ?act=product_detail&tensanpham=$1 [L]
+
+
+
+
+
+
+
+RewriteRule ^page-tags/(.*)/(.*)/$ ?act=tag&keyword=$1&pageNum=$2 [L]
+RewriteRule ^tags/(.*)/$ ?act=tag&keyword=$1 [L]
+
+
+
+## thong tin - tin tuc
+##RewriteRule ^khuyen-mai/$ ?p=khuyenmai [L]
+RewriteRule ^thanh-toan/$ ?p=thanhtoan [L]
+RewriteRule ^doi-tac/$ ?p=doitac [L]
+RewriteRule ^tuyen-dung/$ ?p=tuyendung [L] 
+RewriteRule ^tin-tuc/$ ?p=news [L]
+RewriteRule ^ban-do/$ ?p=bando [L]
+RewriteRule ^huong-dan/$ ?p=huongdan [L]
+RewriteRule ^hoi-dap/$ ?p=hoidap [L]
+
+##RewriteRule ^thong-tin/(.*)$ ?p=info_detail&tenthongtin=$1 [L]
+
+##RewriteRule ^page-chuyen-muc/(.*)/(.*)/$ ?p=chuyenmuc&chuyenmuc=$1&pageNum=$2 [L]
+##RewriteRule ^chuyen-muc/(.*)$ ?p=chuyenmuc&chuyenmuc=$1 [L]
+##RewriteRule ^thong-tin-chuyen-muc/(.*)$ ?p=chuyenmuc_detail&tenchuyenmuc=$1 [L]
+
+##RewriteRule ^page-khuyen-mai/(.*)/(.*)/$ ?p=khuyenmai&tukhoa=$1&pageNum=$2 [L]
+
+##RewriteRule ^page-thanh-toan/(.*)/(.*)/$ ?p=khuyenmai&tukhoa=$1&pageNum=$2 [L]
+
+##RewriteRule ^page-tin-tuc/(.*)/(.*)/$ ?p=news&tukhoa=$1&pageNum=$2 [L]
+
+##RewriteRule ^page-doi-tac/(.*)/(.*)/$ ?p=doitac&tukhoa=$1&pageNum=$2 [L]
+
+##RewriteRule ^page-tuyen-dung/(.*)/(.*)/$ ?p=tuyendung&tukhoa=$1&pageNum=$2 [L]
+
+##RewriteRule ^page-ban-do/(.*)/(.*)/$ ?p=bando&tukhoa=$1&pageNum=$2 [L]
+
+##RewriteRule ^page-huong-dan/(.*)/(.*)/$ ?p=huongdan&tukhoa=$1&pageNum=$2 [L]
+
+##RewriteRule ^page-hoi-dap/(.*)/(.*)/$ ?p=hoidap&tukhoa=$1&pageNum=$2 [L]
+
+
+## san pham - dich vu
+##RewriteRule ^danh-muc/(.*)/(.*)$ ?p=sanpham&tentheloai=$1&tenloai=$2 [L]
+
+##RewriteRule ^danh-muc/(.*)$ ?p=sanpham&tentheloai=$1 [L]
+
+##RewriteRule ^xem-tat-ca/$ ?p=sanpham [L]
+
+##RewriteRule ^page-danh-muc/(.*)/(.*)/(.*)/(.*)/$ ?p=sanpham&tentheloai=$1&tenloai=$2&tukhoa=$3&pageNum=$4  [L]
+
+##RewriteRule ^page-danh-muc/(.*)/(.*)/(.*)/$ ?p=sanpham&tentheloai=$1&tukhoa=$2&pageNum=$3 [L]
+
+##RewriteRule ^page-xem-tat-ca/(.*)/(.*)/$ ?p=sanpham&tukhoa=$1&pageNum=$2 [L]
+
+#RewriteRule ^chi-tiet/(.*)$ ?p=product_detail&tensanpham=$1 [L]
+
+##RewriteRule ^chi-tiet-tootip/(.*)$ librarys/incs/product_tip.php?idsp=$1 [L]
+
+
+
+
+
+
+#RewriteRule ^tootip/(.*)$ gianhang/librarys/incs/news_tip.php?idtin=$1 [L]
+#RewriteRule ^show-tip/(.*)$ librarys/incs/product_tip.php?idsp=$1 [L]
+#RewriteRule ^show-tip-vip/(.*)/$ vip/product_tip.php?idsp=$1 [L]
+
+
+## xu ly tim kiem san pham
+## vip
+##RewriteRule ^xu-ly-tim/(.*)/$ vip/xuly.php?k=$1 [L]
+##RewriteRule ^tu-khoa-dang-tim/(.*)/$ ?p=search&keyword=$2 [L]
+##RewriteRule ^page-dang-tim-kiem/(.*)/(.*)/$ ?p=search&keyword=$1&pageNum=$2 [L]
+
+
+##RewriteRule ^xu-ly/(.*)/$ librarys/incs/xuly.php?k=$1 [L]
+
+##RewriteRule ^tu-khoa-tim/(.*)/(.*)/(.*)/(.*)/(.*)/$ ?p=search&keyword=$1&theloai=$2&loai=$3&price1=$4&price2=$5 [L]
+
+##RewriteRule ^page-tim-kiem/(.*)/(.*)/(.*)/(.*)/(.*)/(.*)/$ ?p=search&theloai=$1&loai=$2&price1=$3&price2=$4&keyword=$5&pageNum=$6 [L]
+
+
+##RewriteRule ^page-tags/(.*)/(.*)/$ ?p=tag&keyword=$2&pageNum=$3 [L]
+##RewriteRule ^tags/(.*)/$ ?p=tag&keyword=$2 [L]
+
+##RewriteRule ^page-news-tags/(.*)/(.*)/$ ?p=tagnew&keyword=$2&pageNum=$3 [L]
+
+##RewriteRule ^news-tags/(.*)/$ ?p=tagnew&keyword=$2 [L]
+
+
+## xu ly tim kiem dich vu
+
+##RewriteRule ^xu-ly-dn/(.*)/$ gianhang/librarys/incs/xuly_dn.php?tengianhang=$1&k=$2 [L]
+
+##RewriteRule ^tu-khoa-tim-dn/(.*)/$ ?p=search_dn&keyword=$2 [L]
+
+##RewriteRule ^page-tim-kiem-dn/(.*)/(.*)/$ ?p=search_dn&keyword=$2&pageNum=$3 [L]
+
+
+
+
+##RewriteRule ^bao-tri$ ?p=baotri&baotri=1 [L]
+

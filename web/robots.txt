@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /quantri/
+Disallow: /xem-tat-ca.html

@@ -1,0 +1,140 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML><HEAD>
+<TITLE>401 Authorization Required</TITLE>
+<style type="text/css">
+<!--
+body {
+	padding: 0px;
+}
+#main {
+	height: 418px;
+	width: 401px;
+	margin-top: 0px;
+	margin-right: auto;
+	margin-bottom: 0px;
+	margin-left: auto;
+	text-align: center;
+	background-color: #36F;
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-left-width: 0px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+}
+#login_thanhcong a {
+	text-decoration: none;
+	color: #00F;
+}
+#login_thanhcong a:hover {
+	text-decoration: none;
+	color: #C00;
+}
+.chu_thanhcong {
+	font-size: 18px;
+	font-weight: bold;
+	background-color: #2290FF;
+	color: #FFF;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+#sogiay {
+	color: #00F;
+	font-size: 36px;
+	font-weight: bold;
+}
+-->
+</style>
+<script>
+s=3; 
+setTimeout("document.location=''",s*1000); 
+setInterval("document.getElementById('sogiay').innerHTML=s--;",1000);
+</script>
+</HEAD><BODY>
+<H1>Authorization Required</H1>
+This server could not verify that you are authorized to access the document requested. Either you supplied the wrong credentials (e.g., bad password), or your browser doesn't understand how to supply the credentials required.
+<HR>
+<I><!--#echo var="HTTP_HOST" --></I>
+</BODY></HTML>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
