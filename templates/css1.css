@@ -391,7 +391,7 @@ BEGIN FOOTER
 
 footer {}
 
-.i-foot {background: url(../imgs/layout/i-foot.png) no-repeat center bottom; border-top: 1px solid #d8d8d8; padding: 0 0 10px 0; margin-top: 440px;}
+.i-foot {background: url(../imgs/layout/i-foot.png) no-repeat center bottom; border-top: 1px solid #d8d8d8; padding: 0 0 10px 0;}
 .bg-ifoot {}
 /*background: url(../imgs/layout/ul-ifoot.png) repeat-y;*/
 .i-foot ul.ul-ifoot > li {float: left; width: 25%;}
