@@ -143,15 +143,53 @@ if($ghinho==1){ // prodetail
                 <input name="id" id="id" value="<?php echo $row_sanpham['id'];?>" type="hidden" />
                 <input id="qty" name="qty" class="ipt_prod_details" type="text" value="1"/>
                 <input name="name_shop" id="name_shop" value="<?php echo $shop['subject'];?>" type="hidden" />
-                <input class="btn_prod_details" type="submit" value="&nbsp;"/>
-                
+                <input class="btn_prod_details" type="submit" value="&#10009; THÊM VÀO GIỎ HÀNG"/>
+
                 <div class="clear"></div>
             
              
         
         </div><!-- End .slsp -->
         <?php }?>
-        
+
+        <div id="closed"></div>
+        <a href="#popup" class="popup-link" onclick="$('.popup-container').show();">ĐẶT MUA</a>
+        <div class="popup-wrapper" id="popup">
+            <div class="popup-container"><!-- Popup Contents, just modify with your own -->
+                <div class="popup-image">
+                    <?php
+                    $demm=mysql_num_rows($hinh);
+                    if($demm>0){
+                        while($row_hinh=mysql_fetch_assoc($hinh)){
+                            ?>
+                            <img src="<?php echo $linkroot;?>/<?php echo $row_hinh['image'];?>" />
+                        <?php }} else { ?>
+                        <img src="<?php echo $linkroot;?>/<?php echo $row_sanpham['image'];?>" alt=""/>
+                    <?php }?>
+                    <h1><?php echo $row_sanpham['name'];?></h1>
+                    <h1 class="popup-price"><?php  if(preg_match ("/^([0-9]+)$/", $row_sanpham['price'])) echo number_format($row_sanpham['price'],0)."  VNĐ";else echo "Giá: Liên hệ"; ?></h1>
+                </div>
+                <div class="popup-checkout">
+                    <div class="popup-form">
+                        <div class="input-group">
+                            <p><input type="text" id="txtNamePopup" placeholder="Tên người nhận"></p>
+                            <p><input type="text" id="txtPhonePopup" placeholder="Điện thoại (bắc buộc)"></p>
+                            <p><input type="text" id="txtAddressPopup" placeholder="Địa chỉ"></p>
+                            <p><input type="email" id="emailPopup" placeholder="Email (bắc buộc)"></p>
+                            <p><input type="button" value="XÁC NHẬN" id="btnConfirmPopup"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="popup-footer">
+                    <input checked="checked" class="checked" id="popupAccept" type="checkbox" value="true">
+                    Tôi đồng ý với <a href="#" target="_blank" style="color: #4a90e2">Chính sách và quy định đặt hàng trực tuyến</a>
+                </div>
+                <!-- Popup Content is untill here--><a class="popup-close" href="#closed" onclick="$('.popup-container').hide();">X</a>
+            </div>
+        </div>
+
+        <div class="clear"></div>
+
         <div class="info_prod_details">
         
             <ul>
@@ -191,7 +229,7 @@ if($ghinho==1){ // prodetail
             </ul>	
         
         </div><!-- End .info_prod_details -->
-        
+
         <div class="block_prod_details">
             
             <div class="info_gh">
@@ -587,6 +625,6 @@ $product=get_records("tbl_item","status=0 AND type=0 AND parent1 in ({$parent}) 
     </div><!-- End .content -->
     
     <div class="clear"></div>
-</section><!-- End .f-ct -->	
-    
+</section><!-- End .f-ct -->
+
 <?php }?>
