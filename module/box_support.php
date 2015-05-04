@@ -7,21 +7,21 @@
 
 <article class="l-tool-ct primary-category">
     <ul class="ul-ltct">
-        <li><a class="btn-gh3" href="<?php echo $linkrootshop?>/16-may-thiet-bi-cu.html">Máy, thiết bị củ</a></li>
+        <li><a class="btn-gh3" href="<?php echo $linkrootshop?>/may-thiet-bi-cu.html">Máy, thiết bị cũ</a></li>
     </ul>
     <div class="clear"></div>
 </article><!-- End .l-tool-ct -->
 
 <article class="l-tool-ct primary-category">
     <ul class="ul-ltct">
-        <li><a class="btn-gh3" href="<?php echo $linkrootshop?>/17-cho-thue-may-thiet-bi.html">Thuê Máy, thiết bị</a></li>
+        <li><a class="btn-gh3" href="<?php echo $linkrootshop?>/thue-may-thiet-bi.html">Thuê Máy, thiết bị</a></li>
     </ul>
     <div class="clear"></div>
 </article><!-- End .l-tool-ct -->
 
 <article class="l-tool-ct primary-category">
     <ul class="ul-ltct">
-        <li><a class="btn-gh3" href="<?php echo $linkrootshop?>/18-tin-tuc-chuyen-nganh.html">Tin chuyên ngành</a></li>
+        <li><a class="btn-gh3" href="<?php echo $linkrootshop?>/tin-tuc-chuyen-nganh.html">Tin chuyên ngành</a></li>
     </ul>
     <div class="clear"></div>
 </article><!-- End .l-tool-ct -->
