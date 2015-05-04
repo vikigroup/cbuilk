@@ -21,7 +21,7 @@
                 Không tìm thấy kết quả yêu cầu
                 <br />
                 <script>
-                s=3; 
+                s=5;
                 setTimeout("document.location='<?php echo $linkrootshop;?>'",s*1000); 
                 setInterval("document.getElementById('sogiay').innerHTML=s--;",1000);
                 </script> 
