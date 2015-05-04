@@ -423,7 +423,9 @@ require("module/box_device.php");
         }
 
         if($(window).width() >= 992){
-            $('.m-wrap, .form_dn').css('width', windowSize - 139);
+            $('.m-wrap').css('max-width', 1210);
+            $('.m-wrap').css('width', '100%');
+            $('.form_dn').css('width', windowSize - 139);
             $('.dmsp4-3').css('width', windowSize - 190 - 390 - 139);
             $('.ads-home').css('width', windowSize - 190 - 190 - 139);
             $('.btn-gh3').css('width', 190);
