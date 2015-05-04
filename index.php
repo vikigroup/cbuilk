@@ -119,6 +119,7 @@ require("module/box_device.php");
     </div><!-- End .m-wrap -->
 </div>
 
+<?php if($frame==""){ ?>
 <div class="container-fluid">
     <div class="row" id="slider">
         <?php
@@ -129,6 +130,7 @@ require("module/box_device.php");
         <?php } ?>
     </div>
 </div>
+<?php } ?>
 
 <section id="container">
     <div class="m-wrap">
