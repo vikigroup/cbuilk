@@ -11,7 +11,7 @@ if($row_sanpham['id']!="")   {
 	if(isset($_GET['tensanpham'])) {
 		$danhmuc=$_GET['tensanpham'];
 		$parent1=get_field('tbl_shop_category','subject',$danhmuc,'id');
-		if($parent1=="")  echo  '<script>window.location="'.'404-page-not-found" </script>';
+		if($parent1=="")  echo  '<script>window.location="'.'404-page-not-found.html" </script>';
 	}
 	$parent=getParent("tbl_shop_category",$parent1);
 	$ghinho=2;
