@@ -2,7 +2,7 @@
 $tensanpham=$_GET['tenthongtin'];
 $row_sanpham   = getRecord('jbs_tin', "subject='".$tensanpham."'");
  
-if($row_sanpham['id']=="")  echo  '<script>window.location="'.'404-page-not-found" </script>';
+if($row_sanpham['id']=="")  echo  '<script>window.location="'.'404-page-not-found.html" </script>';
  
  
 
