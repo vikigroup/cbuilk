@@ -430,14 +430,14 @@ require("module/box_device.php");
             $('.arrowCategory').css('width', 137);
             $('.btn-gh3').css('width', 190);
             $('.form_dn ul li').css('width', 480);
-            $('.divProductLine1, .divProductOverlay1').css('width', 200);
+            $('.divProductLine1, .divProductOverlay1').css('width', 198);
             $('.ul-ifoot li').css('width', '25%');
             $('.news li, .yahoo li').css('width', '100%');
-            $('.l-fcont').css('width', 644);
-            $('.r-fcont').css('width', 306);
+            $('.l-fcont').css('width', 870);
+            $('.r-fcont').css('width', 330);
             $('.sli-fcon-1').css('width', 572);
             $('.sli-fcon-1 .bx-wrapper .bx-viewport').css('width', '100%');
-            $('.t-Pnb, .filter-Prod, .content').css('width', 770);
+            $('.t-Pnb, .filter-Prod, .content').css('width', 1000);
             $('.li-Pc1').css('width', 173);
             $('.hotline').attr('style', 'margin: 10px 30px 10px 30px !important;');
 
