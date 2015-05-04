@@ -1,0 +1,1 @@
+<div class="hotline_w"><?php echo $row_shop['hotline'];?></div>
