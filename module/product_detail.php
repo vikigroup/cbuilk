@@ -1,4 +1,4 @@
-<?php 
+<?php
 $tensanpham=$_GET['tensanpham'];
 $row_sanpham   = getRecord('tbl_item', "subject='".$tensanpham."'");
 
