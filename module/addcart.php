@@ -61,6 +61,4 @@
 				unset($_SESSION['dayloaisp'][$idSP]);
 		    }
 	}
-	
-	echo '<script>window.location="'.$host_link_full.'/xem-gio-hang" </script>';
 ?>
