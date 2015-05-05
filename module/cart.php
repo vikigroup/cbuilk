@@ -1,3 +1,4 @@
+<?php include("module/addcart.php") ?>
 <div class="form_dn">
     <style>
         .sty_table_rv{
