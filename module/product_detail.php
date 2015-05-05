@@ -26,7 +26,7 @@ if($ghinho==1){ // prodetail
 			var sl=$("#qty").val();
 			var nameshop=$("#name_shop").val();
 			var id=$("#id").val();	
-			$(location).attr('href', '<?php echo $linkrootshop;?>'+'<?php echo '/dat-hang.html';?>?act=add_item&id='+id+'&sl='+sl);
+			$(location).attr('href', '<?php echo $linkrootshop;?>'+'<?php echo '/xem-gio-hang.html';?>?act=add_item&id='+id+'&sl='+sl);
 
 		});
 	});
