@@ -32,7 +32,10 @@ RewriteRule ^quen-mat-khau.html$ ?act=forgetpass [L]
 
 RewriteRule ^dang-ky-gian-hang.html$ ?act=addshop [L]
 
-RewriteRule ^cart.html$ ?act=cart [L]
+RewriteRule ^xem-gio-hang.html$ ?act=viewcart [L]
+
+RewriteRule ^dat-hang-thanh-cong.html$ ?act=order&code=1 [L]
+RewriteRule ^dat-hang.html$ ?act=order [L]
 
 RewriteRule ^xu-ly.html$ module/xuly.php [L]
 RewriteRule ^tu-khoa-tim/(.*)/(.*)html$ ?act=search&loai=$1&tukhoa=$2 [L]
