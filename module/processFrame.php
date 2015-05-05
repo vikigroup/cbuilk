@@ -31,6 +31,7 @@ switch ($frame){
     case "viewcart"                : include("module/cart.php");;break;
     case "cart"                    : include("module/order.php");;break;
 
+    case "add_item"                : include("module/addcart.php");break;
 
     default                        : include("module/home.php");;break;
 }
