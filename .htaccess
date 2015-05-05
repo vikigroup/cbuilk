@@ -32,6 +32,8 @@ RewriteRule ^quen-mat-khau.html$ ?act=forgetpass [L]
 
 RewriteRule ^dang-ky-gian-hang.html$ ?act=addshop [L]
 
+RewriteRule ^cart.html$ ?act=cart [L]
+
 RewriteRule ^xu-ly.html$ module/xuly.php [L]
 RewriteRule ^tu-khoa-tim/(.*)/(.*)html$ ?act=search&loai=$1&tukhoa=$2 [L]
 RewriteRule ^page-tu-khoa-tim/(.*)/(.*)/(.*).html$ index.php?act=search&keyword=$1&loai=$2&pageNum=$3 [L]
