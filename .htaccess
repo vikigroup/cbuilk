@@ -33,6 +33,7 @@ RewriteRule ^quen-mat-khau.html$ ?act=forgetpass [L]
 RewriteRule ^dang-ky-gian-hang.html$ ?act=addshop [L]
 
 RewriteRule ^xem-gio-hang.html$ ?act=viewcart [L]
+RewriteRule ^xem-gio-hang.html$ ?act=add_item [L]
 
 RewriteRule ^dat-hang-thanh-cong.html$ ?act=order&code=1 [L]
 RewriteRule ^dat-hang.html$ ?act=order [L]
