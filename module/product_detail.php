@@ -628,3 +628,22 @@ $product=get_records("tbl_item","status=0 AND type=0 AND parent1 in ({$parent}) 
 </section><!-- End .f-ct -->
 
 <?php }?>
+
+<script>
+    $('#btnConfirmPopup').click(function(){
+        var name = $('#txtNamePopup').val();
+        var phone = $('#txtPhonePopup').val();
+        var address = $('#txtAddressPopup').val();
+        var email = $('#emailPopup').val();
+        if(phone == '' || email == ''){
+            alert("Điện thoại và email là các thông tin bắc buộc. Xin vui lòng không được để trống...");
+        }
+        else if($('#popupAccept').is(':checked') == false){
+            alert("Bạn chưa đồng ý với chính sách của chúng tôi...");
+        }
+        else{
+            var dataString = "name="+name+"&phone="+phone+"&address="+address+"&email="+email;
+            alert(dataString);
+        }
+    });
+</script>

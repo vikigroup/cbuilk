@@ -27,7 +27,9 @@ switch ($frame){
 									unset($_SESSION['kh_login_id']);
 									header("location: $linkrootshop");
 									};break;
-	
+
+    case "cart"                    : include("module/cart.php");;break;
+
 	default                        : include("module/home.php");;break;
 }
 ?>
