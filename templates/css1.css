@@ -1,8 +1,10 @@
 body{
     overflow-x: hidden;
+    max-width: 1349px;
+    margin: 0 auto 0 auto;
 }
 
-.m-wrap {width: 1210px; margin: 0 auto;}
+.m-wrap {max-width: 1210px; margin: 0 auto;}
 
 /************************************************************************************
 BEGIN HEADER
