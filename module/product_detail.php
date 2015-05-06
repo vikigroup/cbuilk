@@ -141,7 +141,7 @@ if($ghinho==1){ // prodetail
             
                 <span>Số lượng mua</span> 
                 <input name="id" id="id" value="<?php echo $row_sanpham['id'];?>" type="hidden" />
-                <input id="qty" name="qty" class="ipt_prod_details" type="text" value="1" onchange="$('#qtyPopup').val(this.value);"/>
+                <input id="qty" name="qty" class="ipt_prod_details" type="text" value="1" onchange="setDefault(this.id); $('#qtyPopup').val(this.value); $('#qtyPopup').change();"/>
                 <input name="name_shop" id="name_shop" value="<?php echo $shop['subject'];?>" type="hidden" />
                 <input class="btn_prod_details" type="submit" value="&#10009; THÊM VÀO GIỎ HÀNG"/>
 
@@ -152,7 +152,6 @@ if($ghinho==1){ // prodetail
         </div><!-- End .slsp -->
         <?php }?>
 
-        <div id="closed"></div>
         <a href="#popup" class="popup-link" onclick="$('.popup-container').show();">ĐẶT MUA</a>
         <div class="popup-wrapper" id="popup">
             <div class="popup-container"><!-- Popup Contents, just modify with your own -->
@@ -637,6 +636,13 @@ $product=get_records("tbl_item","status=0 AND type=0 AND parent1 in ({$parent}) 
         var phone = $('#txtPhonePopup').val();
         var address = $('#txtAddressPopup').val();
         var email = $('#emailPopup').val();
+        var idProduct = $("#id").val();
+        var amount = $('#qtyPopup').val();
+        var unit = "<?php echo $row_sanpham['price'] ?>";
+        var idShop = "<?php echo $row_sanpham['idshop']; ?>"
+        var total = amount*unit;
+        var idCustomer = "<?php echo $idKH=$_SESSION['kh_login_id']; ?>";
+
         if(phone == '' || email == ''){
             alert("Điện thoại và email là các thông tin bắc buộc. Xin vui lòng không được để trống...");
         }
@@ -644,8 +650,9 @@ $product=get_records("tbl_item","status=0 AND type=0 AND parent1 in ({$parent}) 
             alert("Bạn chưa đồng ý với chính sách của chúng tôi...");
         }
         else{
-            var dataString = "name="+name+"&phone="+phone+"&address="+address+"&email="+email;
-            alert(dataString);
+            var dataString = "name="+name+"&phone="+phone+"&address="+address+"&email="+email+"&idProduct="+idProduct+"&amount="+amount+"&unit="+unit
+                +"&idShop="+idShop+"&total="+total+"&idCustomer="+idCustomer;
+            insertOrder(dataString);
         }
     });
 
@@ -662,5 +669,31 @@ $product=get_records("tbl_item","status=0 AND type=0 AND parent1 in ({$parent}) 
 
     Number.prototype.toCurrencyString=function(){
         return this.toFixed(0).replace(/(\d)(?=(\d{3})+\b)/g,'$1,');
+    }
+
+    function setDefault(id){
+        if($('#'+id).val() < 1){
+            $('#'+id).val(1);
+        }
+    }
+
+    function insertOrder(dataString){
+        var dataString = dataString+"&functionName="+"insertOrder";
+//        alert(dataString);
+
+        $.ajax({
+            type: "POST",
+            url: "lib/functions.php",
+            data: dataString,
+            success: function(x){
+//                alert(x);
+                if(x == 1){
+                    alert("Đặt mua thành công");
+                }
+                else{
+                    alert("Lỗi! Xin vui lòng tải lại trang và thử lại...");
+                }
+            }
+        });
     }
 </script>
