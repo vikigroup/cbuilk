@@ -689,6 +689,7 @@ $product=get_records("tbl_item","status=0 AND type=0 AND parent1 in ({$parent}) 
 //                alert(x);
                 if(x == 1){
                     alert("Đặt mua thành công");
+                    $('.popup-container').hide();
                 }
                 else{
                     alert("Lỗi! Xin vui lòng tải lại trang và thử lại...");
