@@ -121,15 +121,13 @@ require("module/box_device.php");
 </div>
 
 <?php if($frame==""){ ?>
-<div class="container-fluid">
-    <div class="row" id="slider">
-        <?php
-        $gt=get_records("tbl_slider","status=0 AND idshop=0"," ","0,20"," ");
-        while($row_slide=mysql_fetch_assoc($gt)){
-            ?>
-            <a href="#"><img src="<?php echo $linkroot ;?>/<?php echo $row_slide['image']?>" alt="" /></a>
-        <?php } ?>
-    </div>
+<div id="slider">
+    <?php
+    $gt=get_records("tbl_slider","status=0 AND idshop=0"," ","0,20"," ");
+    while($row_slide=mysql_fetch_assoc($gt)){
+        ?>
+        <a href="#"><img src="<?php echo $linkroot ;?>/<?php echo $row_slide['image']?>" alt="" /></a>
+    <?php } ?>
 </div>
 <?php } ?>
 
@@ -427,8 +425,8 @@ require("module/box_device.php");
             $('.m-wrap').css('max-width', 1210);
             $('.m-wrap').css('width', '100%');
             $('.form_dn').css('width', windowSize - 139);
-            $('.dmsp4-3').css('width', windowSize - 190 - 390 - 139);
-            $('.ads-home').css('width', windowSize - 190 - 190 - 139);
+            $('.dmsp4-3').css('max-width', windowSize - 190 - 390 - 139);
+            $('.ads-home').css('max-width', windowSize - 190 - 190 - 139);
             $('.btn-gh3').css('width', 190);
             $('.arrowCategory').css('width', 137);
             $('.btn-gh3').css('width', 190);
