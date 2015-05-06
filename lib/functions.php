@@ -1,21 +1,13 @@
 <?php
-    $servername = "cpcmart.com";
+    $servername = "localhost";
     $username = "cpcmart";
     $password = "12345678P";
     $dbname = "cpcmart_1811";
 
     $functionName = filter_input(INPUT_POST, 'functionName');
 
-    if($functionName == "getStatus"){
-        getStatus();
-    }
-
-    if($functionName == "insertBooking"){
-        insertBooking();
-    }
-
-    if($functionName == "updateBooking"){
-        updateBooking();
+    if($functionName == "insertOrder"){
+        insertOrder();
     }
 
     function connect(){
@@ -30,67 +22,44 @@
         }
     }
 
-    function getStatus(){
-        $paymentCode = filter_input(INPUT_POST, 'paymentCode');
-        $conn = connect();
-        $sql = "SELECT payment_status FROM payment WHERE payment_code = '$paymentCode'";
-        $result = $conn->query($sql);
+    function insertOrder(){
+        $dt = date("Y-m-d H:i:s");
+        $name = filter_input(INPUT_POST, 'name');
+        $phone = filter_input(INPUT_POST, 'phone');
+        $address = filter_input(INPUT_POST, 'address');
+        $email = filter_input(INPUT_POST, 'email');
+        $idProduct = filter_input(INPUT_POST, 'idProduct');
+        $amount = filter_input(INPUT_POST, 'amount');
+        $unit = filter_input(INPUT_POST, 'unit');
+        $idShop = filter_input(INPUT_POST, 'idShop');
+        $total = filter_input(INPUT_POST, 'total');
+        $idCustomer = filter_input(INPUT_POST, 'idCustomer');
 
-        if ($result->num_rows > 0) {
-            // output data of each row
-            while($row = $result->fetch_assoc()) {
-                echo $row["payment_status"];
-            }
-        } else {
-            echo 0;
-        }
-        close($conn);
-    }
-
-    function insertBooking(){
-        $paymentCode = filter_input(INPUT_POST, 'paymentCode');
-        $paymentAmount = filter_input(INPUT_POST, 'total');
-        $paymentStatus = "InProgress";
-        $paymentDateTime = date("Y-m-d H:i:s");
-        $bookerName = filter_input(INPUT_POST, 'firstName');
-        $toursName = filter_input(INPUT_POST, 'tours');
-        $emailAddress = filter_input(INPUT_POST, 'emailAddress');
+        $idDH = maxID("id", "tbl_donhang")+1;
 
         $conn = connect();
-        $sql = "INSERT INTO payment VALUES ('$paymentCode', '$paymentAmount', '$paymentStatus', '$paymentDateTime', null, '$bookerName', '$emailAddress', '$toursName')";
+        $sql1 = "INSERT INTO tbl_donhang VALUES ('$idDH', '$idShop', '$total', '$idCustomer', '$phone', '$dt', n'$name', n'$address', '$email', 0, 0, null)";
 
-        if ($conn->query($sql) === TRUE) {
-            echo 1;
-        } else {
-            echo "Error: " . $sql . "<br>" . $conn->error;
-        }
-        close($conn);
-    }
-
-    function updateBooking(){
-        $paymentCode = filter_input(INPUT_POST, 'paymentCode');
-        if(checkPaymentCode($paymentCode) == 1){
-            $paymentStatus = filter_input(INPUT_POST, 'paymentStatus');
-            $transactionID = filter_input(INPUT_POST, 'transactionID');
-            $conn = connect();
-            $sql = "UPDATE payment SET payment_status = '$paymentStatus', transaction_id = '$transactionID' WHERE payment_code = '$paymentCode'";
-            if ($conn->query($sql) === TRUE) {
+        if ($conn->query($sql1) === TRUE) {
+            $sql2 = "INSERT INTO tbl_donhangchitiet(idDH, idSP, SoLuong, DonGia) VALUES ('$idDH', '$idProduct', '$amount', '$unit')";
+            if ($conn->query($sql2) === TRUE) {
                 echo 1;
             } else {
-                echo "Error: " . $sql . "<br>" . $conn->error;
+                echo "Error: " . $sql2 . "<br>" . $conn->error;
             }
-            close($conn);
+        } else {
+            echo "Error: " . $sql1 . "<br>" . $conn->error;
         }
-        else{
-            echo 0;
-        }
+        close($conn);
     }
 
-    function checkPaymentCode($paymentCode){
+    function maxID($id, $table){
         $conn = connect();
-        $sql = "SELECT * FROM payment WHERE payment_code = '$paymentCode'";
+        $sql = "SELECT MAX(".$id.") AS maxID FROM ".$table;
         $result = $conn->query($sql);
-        return $result->num_rows;
+        while($row = $result->fetch_assoc()) {
+            return $row["maxID"];
+        }
         close($conn);
     }
 
