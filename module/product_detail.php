@@ -168,6 +168,8 @@ if($ghinho==1){ // prodetail
                     <?php }?>
                     <h1><?php echo $row_sanpham['name'];?></h1>
                     <h1 class="popup-price"><?php  if(preg_match ("/^([0-9]+)$/", $row_sanpham['price'])) echo number_format($row_sanpham['price'],0)."  VNĐ";else echo "Giá: Liên hệ"; ?></h1>
+                    <span>Số lượng mua</span>
+                    <input id="qtyPopup" type="number" min="1" value="1" onchange="setMoney();"/>
                 </div>
                 <div class="popup-checkout">
                     <div class="popup-form">
@@ -646,4 +648,19 @@ $product=get_records("tbl_item","status=0 AND type=0 AND parent1 in ({$parent}) 
             alert(dataString);
         }
     });
+
+    function setMoney(){
+        var money = $('#qtyPopup').val();
+        if(money < 1){
+            $('.popup-price').html("<?php echo number_format($row_sanpham['price'],0).' VND'; ?>");
+            $('#qtyPopup').val('1');
+        }else{
+            money = (money * '<?php echo $row_sanpham['price'] ?>').toCurrencyString();
+            $('.popup-price').html(money + ' VND');
+        }
+    }
+
+    Number.prototype.toCurrencyString=function(){
+        return this.toFixed(0).replace(/(\d)(?=(\d{3})+\b)/g,'$1,');
+    }
 </script>
