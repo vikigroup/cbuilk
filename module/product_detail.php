@@ -141,7 +141,7 @@ if($ghinho==1){ // prodetail
             
                 <span>Số lượng mua</span> 
                 <input name="id" id="id" value="<?php echo $row_sanpham['id'];?>" type="hidden" />
-                <input id="qty" name="qty" class="ipt_prod_details" type="text" value="1"/>
+                <input id="qty" name="qty" class="ipt_prod_details" type="text" value="1" onchange="$('#qtyPopup').val(this.value);"/>
                 <input name="name_shop" id="name_shop" value="<?php echo $shop['subject'];?>" type="hidden" />
                 <input class="btn_prod_details" type="submit" value="&#10009; THÊM VÀO GIỎ HÀNG"/>
 
