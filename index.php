@@ -64,6 +64,7 @@ require("module/box_device.php");
         /*$("img").lazyload({ placeholder : "<?php echo $linkrootshop?>/imgs/grey.gif" });*/
     });
 </script>
+<div id="closed"></div>
 <header class="menu">
     <div class="m-wrap">
 
