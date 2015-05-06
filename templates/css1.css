@@ -943,6 +943,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     padding: 15px;
     width: 424px;
     height: 422px;
+    border: 1px solid grey;
 }
 /* Text below image */
 #imgPreviewWithStyles span {
