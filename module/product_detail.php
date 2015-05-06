@@ -688,8 +688,8 @@ $product=get_records("tbl_item","status=0 AND type=0 AND parent1 in ({$parent}) 
             success: function(x){
 //                alert(x);
                 if(x == 1){
-                    alert("Đặt mua thành công");
-                    $('.popup-container').hide();
+                    alert("Cám ơn bạn đã đặt mua. Chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất.");
+                    window.location.href = "#closed";
                 }
                 else{
                     alert("Lỗi! Xin vui lòng tải lại trang và thử lại...");
