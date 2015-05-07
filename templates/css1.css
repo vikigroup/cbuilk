@@ -934,6 +934,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     position: fixed;
     top: 0;
     z-index: 1002;
+    max-width: 1314px;
 }
 
 #imgPreviewWithStyles {
@@ -1105,15 +1106,15 @@ a.popup-link {
     width: 300px;
     color: #fff;
     text-decoration: none;
-    background-color: #669AD3;
+    background-color: #FFBA00;
     border-radius: 3px;
-    box-shadow: 0 5px 0px 0px #00599D;
+    box-shadow: 0 5px 0px 0px #eea900;
     display: block;
     font-size: 16px;
 }
 a.popup-link:hover {
-    background-color: #004481;
-    box-shadow: 0 3px 0px 0px #00599D;
+    background-color: #ff9900;
+    box-shadow: 0 3px 0px 0px #eea900;
     -webkit-transition:all 1s;
     -moz-transition:all 1s;
     transition:all 1s;
@@ -1145,8 +1146,8 @@ a.popup-link:hover {
         width:757px;
     }
     .popup-image{
-        width: 280px;
-        height: 280px;
+        width: 240px;
+        height: 260px;
     }
     .popup-checkout{
         width: 450px;
