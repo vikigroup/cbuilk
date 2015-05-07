@@ -135,21 +135,21 @@ if($ghinho==1){ // prodetail
             <h1><?php  if(preg_match ("/^([0-9]+)$/", $row_sanpham['price'])) echo number_format($row_sanpham['price'],0)."  VNĐ";else echo "Giá: Liên hệ"; ?></h1>
         </div><!-- End .gbsp -->
         
-        <div class="slsp">
-        
-          
-            
-                <span>Số lượng mua</span> 
-                <input name="id" id="id" value="<?php echo $row_sanpham['id'];?>" type="hidden" />
-                <input id="qty" name="qty" class="ipt_prod_details" type="text" value="1" onchange="setDefault(this.id); $('#qtyPopup').val(this.value); $('#qtyPopup').change();"/>
-                <input name="name_shop" id="name_shop" value="<?php echo $shop['subject'];?>" type="hidden" />
-                <input class="btn_prod_details" type="submit" value="&#10009; THÊM VÀO GIỎ HÀNG"/>
+<!--        <div class="slsp">-->
 
-                <div class="clear"></div>
-            
-             
-        
-        </div><!-- End .slsp -->
+
+
+<!--                <span>Số lượng mua</span> -->
+                <input name="id" id="id" value="<?php echo $row_sanpham['id'];?>" type="hidden" />
+<!--                <input id="qty" name="qty" class="ipt_prod_details" type="text" value="1" onchange="setDefault(this.id); $('#qtyPopup').val(this.value); $('#qtyPopup').change();"/>-->
+                <input name="name_shop" id="name_shop" value="<?php echo $shop['subject'];?>" type="hidden" />
+<!--                <input class="btn_prod_details" type="submit" value="&#10009; THÊM VÀO GIỎ HÀNG"/>-->
+
+<!--                <div class="clear"></div>-->
+
+
+
+<!--        </div><!-- End .slsp -->
         <?php }?>
 
         <a href="#popup" class="popup-link" onclick="$('.popup-container').show();">ĐẶT MUA</a>
