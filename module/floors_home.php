@@ -189,7 +189,7 @@ for($i = 0; $i < 8; $i++){
                 else{
                     $container.css({
                         top: e.pageY - 250 + 'px',
-                        right: 1700 - e.pageX + 'px'
+                        right: 1950 - e.pageX + 'px'
                     });
                 }
 
