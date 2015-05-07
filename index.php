@@ -3,8 +3,6 @@ require("config.php");
 require("common_start.php");
 include("lib/func.lib.php");
 
-
-
 if($frame!="login" && $frame!="register" && $frame!="changepass" && $frame!="changeinfo"){
     unset($_SESSION['back_raovat']);
 }
