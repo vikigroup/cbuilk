@@ -67,9 +67,9 @@ if (isset($_POST['btnSave'])){
 	if ($errMsg==''){
 		if (!empty($_POST['id'])){
 			$oldid = $_POST['id'];
-			$sql = "update tbl_item set name='".$name."',parent1='".$parent1."',detail='".$detail."',type='".$loaihinh."',price='".$price."',pricekm='".$pricekm."',sort='".$sort."', status='".$status."',last_modified=now() where id='".$oldid."'";
+			$sql = "update tbl_item set name='".$name."',parent='".$parent."',parent1='".$parent1."',detail='".$detail."',type='".$loaihinh."',price='".$price."',pricekm='".$pricekm."',sort='".$sort."', status='".$status."',last_modified=now() where id='".$oldid."'";
 		}else{
-			$sql = "insert into tbl_item (name, parent1 , detail, type , price , pricekm , sort, status,  date_added, last_modified  ) values ('".$name."','".$parent1."','".$detail."','".$loaihinh."','".$price."','".$pricekm."','".$sort."','1',now(),now())";
+			$sql = "insert into tbl_item (name, parent, parent1 , detail, type , price , pricekm , sort, status,  date_added, last_modified  ) values ('".$name."','".$parent."','".$parent1."','".$detail."','".$loaihinh."','".$price."','".$pricekm."','".$sort."','1',now(),now())";
 		} 
 		if (mysql_query($sql,$conn)){
 			if(empty($_POST['id'])) $oldid = mysql_insert_id();
@@ -229,14 +229,14 @@ $(document).ready(function() {
 
                       <td valign="middle"><select name="ddCat" id="ddCat" class="table_list">
                         <?php if($_POST['ddCat']!=NULL){ ?>
-                        <option value="<?php echo $idtheloaic=$_POST['ddCat'] ; ?>"><?php echo get_field('tbl_item_category','id',$parent,'name'); ?></option>
+                        <option value="<?php echo $idtheloaic=$_POST['ddCat'] ; ?>"><?php echo get_field('tbl_shop_category','id',$parent,'name'); ?></option>
                         <?php }?>
                         <?php if($parent!=-1 && $parent!=""){?>
-                         <option value="<?php echo $parent ?>"><?php echo get_field('tbl_item_category','id',$parent,'name'); ?></option>
+                         <option value="<?php echo $parent ?>"><?php echo get_field('tbl_shop_category','id',$parent,'name'); ?></option>
                          <?php }?>
                         <option value="-1" <?php if($parent==-1) echo 'selected="selected"';?> > Chọn danh mục </option>
 						<?php   
-                        $gt=get_records("tbl_item_category","parent=2 and status=0 and (idshop='{$idshop}' or '{$idshop}'=-1)  ","id DESC"," "," ");
+                        $gt=get_records("tbl_shop_category","parent=2 and status=0 ","id DESC"," "," "); //and (idshop='{$idshop}' or '{$idshop}'=-1)
                         while($row=mysql_fetch_assoc($gt)){?>
                         <option value="<?php echo $row['id']; ?>" <?php if($parent==$row['id']) echo 'selected="selected"';?> ><?php echo $row['name']; ?></option>
                         <?php } ?>
@@ -249,10 +249,10 @@ $(document).ready(function() {
                       <td valign="middle"> 
                         <select name="ddCatch" id="ddCatch" class="table_list">
                           <?php if($_POST['ddCatch']!=NULL && $_POST['ddCatch']!=-1 ){ ?>
-                          <option value="<?php echo $parent1=$_POST['ddCatch'] ; ?>"><?php echo get_field('tbl_item_category','id',$parent1,'name'); ?></option>
+                          <option value="<?php echo $parent1=$_POST['ddCatch'] ; ?>"><?php echo get_field('tbl_shop_category','id',$parent1,'name'); ?></option>
                           <?php }?>
                            <?php if($parent1!=-1 && $parent1!=""){?>
-                          <option value="<?php echo $parent1 ?>"><?php echo get_field('tbl_item_category','id',$parent1,'name'); ?></option>
+                          <option value="<?php echo $parent1 ?>"><?php echo get_field('tbl_shop_category','id',$parent1,'name'); ?></option>
                           <?php }?>
                           <option value="-1"> Chọn danh mục con </option>
                         </select>
