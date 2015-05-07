@@ -1,8 +1,8 @@
 <?php
     $servername = "localhost";
-    $username = "cpcmart";
-    $password = "12345678P";
-    $dbname = "cpcmart_1811";
+    $username = "cbuilk_2015";
+    $password = "123456P";
+    $dbname = "cbuilk_2015";
 
     $functionName = filter_input(INPUT_POST, 'functionName');
 
