@@ -78,7 +78,7 @@ END HEADER
 BEGIN CONTAINER
 *************************************************************************************/
 
-#container {padding: 0 0 20px 0;}
+#container {padding: 0 0 20px 0; min-height: 400px;}
 
 .tool-ct {height: 34px; line-height: 34px; font-size: 11px;}
 /*background: url(../imgs/layout/tool-ct.png) repeat-x bottom; padding-bottom: 4px;*/
