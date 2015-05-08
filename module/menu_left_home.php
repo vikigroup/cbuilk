@@ -47,7 +47,3 @@
     </div><!-- End .mn-dm -->
 
 </article><!-- End .dmsp -->
-
-
-<div class="clear"></div>
-
