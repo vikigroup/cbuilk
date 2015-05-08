@@ -123,9 +123,13 @@ span.hotline { margin: 10px 30px 10px 30px !important;}
     width: 190px !important;
     height: 330px !important;
 }
-.ads-top{padding: 20px 0 0 0; margin-top: 495px;}
+.ads-top{padding: 20px 0 0 0;}
 .clearfix{clear: both;}
 .slider {float: right; width: 770px; height: 312px; overflow: hidden;}
+
+#slider{
+    z-index: 99;
+}
 
 #slider img {width: 770px; height: 312px;}
 
@@ -961,6 +965,8 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 
 .left-home{
     display: none;
+    z-index: 100;
+    margin-left: 70px;
 }
 
 .primary-category{
@@ -1271,3 +1277,8 @@ a.popup-link:hover {
     width: 100px;
     float: left;
 }
+
+.fix_main{
+    margin-top: 495px;
+}
+
