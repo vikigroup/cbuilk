@@ -1,3 +1,4 @@
+<div class="clear-fix"></div>
 <article class="dmsp ads-top ads-article">
     <?php
     $dt = date("Y-m-d");
