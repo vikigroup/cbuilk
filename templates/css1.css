@@ -88,7 +88,7 @@ span.hotline { margin: 10px 30px 10px 30px !important;}
 .l-tool-ct ul.ul-ltct > li span.support {background: url(../imgs/layout/support.png) no-repeat left; padding-left: 22px; display: block;}
 .l-tool-ct ul.ul-ltct > li + li {padding-left: 20px;}
 
-.r-box-tool{margin-top: 15px;}
+.r-box-tool{margin: 15px 15px 0 0;}
 .r-box-tool ul li{
      margin-top: 25px;
  }
@@ -397,7 +397,7 @@ BEGIN FOOTER
 
 footer {}
 
-.i-foot {background: url(../imgs/layout/i-foot.png) no-repeat center bottom; border-top: 1px solid #d8d8d8; padding: 0 0 10px 0;}
+.i-foot {background: url(../imgs/layout/i-foot.png) no-repeat center bottom; padding: 0 0 10px 0;}
 .bg-ifoot {}
 /*background: url(../imgs/layout/ul-ifoot.png) repeat-y;*/
 .i-foot ul.ul-ifoot > li {float: left; width: 25%;}
@@ -876,7 +876,6 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     position: fixed;
     right: 0;
     top: 0;
-    width: 3%;
     height: 100%;
     overflow: hidden;
     z-index: 100;
@@ -934,7 +933,6 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 }
 
 .fixed {
-    width: 97%;
     position: fixed;
     top: 0;
     z-index: 1002;
@@ -965,7 +963,6 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 .left-home{
     display: none;
     z-index: 100;
-    margin-left: 70px;
 }
 
 .primary-category{
@@ -1004,6 +1001,9 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     .main_f_dn{
         height: 433px;
     }
+    .r-tool-ct{
+        margin-right: 31px;
+    }
 }
 
 @media (max-width: 991px) {
@@ -1028,6 +1028,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
         padding: 30px 0 10px 0;
         border-bottom: 1px solid #dbdbdb;
         margin-bottom: 5px;
+        margin-right: 0;
     }
 
     .menu, .r-box-tool, .search_top_header{
@@ -1109,6 +1110,45 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     .fix_main{
         margin-top: 0;
     }
+}
+
+@media (min-width: 992px) and (max-width: 1008px) {
+    .fixed{
+        width: 97%;
+    }
+    .btn-gh3{
+        width: 190px !important;
+    }
+    .r-box-tool{
+        margin: 15px 40px 0 0;
+    }
+    .dmsp4-2{
+        width: 390px !important;
+    }
+    .dmsp4-3{
+        width: 350px !important;
+    }
+    .ads-home{
+        width: 450px !important;
+    }
+    .menu{
+        width: 97% !important;
+    }
+    .mini-bar{
+        width: 3% !important;
+    }
+    .arrowCategory{
+        width: 137px !important;
+    }
+}
+
+@media (min-width: 1009px) {
+    .dmsp4-2{
+        width: 390px !important;
+    }
+    /*.dmsp4-3{*/
+        /*width: 350px !important;*/
+    /*}*/
 }
 
 a.popup-link {
