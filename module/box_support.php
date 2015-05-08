@@ -31,8 +31,8 @@
             var windowSize = $(window).width();
             if(windowSize >= 992){
                 $(".left-home").slideDown(1000);
-                $(".ads-top").attr("style", "margin-top: 10px; display: block !important;");
-                $('.ads-home').css('width', windowSize - 190 - 190 - 139);
+//                $(".ads-top").attr("style", "margin-top: 10px; display: block !important;");
+//                $('.ads-home').css('width', windowSize - 190 - 190 - 139);
             }
         $('.left-home').hover(
                 function(){
@@ -41,8 +41,8 @@
                 },
                 function(){
                     $(".left-home").slideUp(1000);
-                    $(".ads-top").attr("style", "margin-top: 495px; display: block !important;");
-                    $('.ads-home').css('width', windowSize - 190 - 190 - 139);
+//                    $(".ads-top").attr("style", "margin-top: 495px; display: block !important;");
+//                    $('.ads-home').css('width', windowSize - 190 - 190 - 139);
                 });
         });
 </script>
