@@ -114,11 +114,11 @@ require("module/box_device.php");
     </section><!-- End .top-ct -->
 </div><!-- End .m-wrap -->
 
+<?php if($frame==""){ ?>
 <div class="m-wrap">
-<?php include("module/menu_left_home.php") ;?>
+    <?php include("module/menu_left_home.php") ;?>
 </div>
 
-<?php if($frame==""){ ?>
 <div id="slider">
     <?php
     $gt=get_records("tbl_slider","status=0 AND idshop=0"," ","0,20"," ");
@@ -129,7 +129,7 @@ require("module/box_device.php");
 </div>
 <?php } ?>
 
-<section id="container" class="fix_main">
+<section id="container" <?php if($frame == ''){echo 'class="fix_main"';} ?>>
     <div class="m-wrap">
 
         <?php include("module/processFrame.php");?>
