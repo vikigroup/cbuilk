@@ -114,6 +114,8 @@ require("module/box_device.php");
     </section><!-- End .top-ct -->
 </div><!-- End .m-wrap -->
 
+<?php include("module/menu_left_home.php") ;?>
+
 <?php if($frame==""){ ?>
 <div id="slider">
     <?php
