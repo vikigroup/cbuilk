@@ -114,7 +114,9 @@ require("module/box_device.php");
     </section><!-- End .top-ct -->
 </div><!-- End .m-wrap -->
 
+<div class="m-wrap">
 <?php include("module/menu_left_home.php") ;?>
+</div>
 
 <?php if($frame==""){ ?>
 <div id="slider">
@@ -405,7 +407,7 @@ require("module/box_device.php");
                 ', .sli-fcon-1 .bx-wrapper .bx-viewport, .filter-Prod, .content').css('width', windowSize);
             $('.divProductLine1, .divProductOverlay1').css('width', windowSize/2 - 11);
             $('.li-Pc1').css('width', windowSize/2 - 23);
-            $('.ul-ifoot li').css('width', '100%');
+            $('.ul-ifoot li, .menu').css('width', '100%');
             $('.arrowCategory').css('width', windowSize - 52);
             $('.t-Pnb').css('width', windowSize - 2);
             $('.hotline').attr('style', 'margin: 0 0 0 5px !important;');
@@ -420,9 +422,11 @@ require("module/box_device.php");
         if($(window).width() >= 992){
             $('.m-wrap').css('max-width', 1210);
             $('.m-wrap').css('width', '100%');
+            $('.menu').css('width', '97%');
+            $('.mini-bar').css('width', '3%');
             $('.form_dn').css('width', windowSize - 139);
             $('.dmsp4-3').css('max-width', windowSize - 190 - 390 - 139);
-            $('.ads-home').css('max-width', windowSize - 190 - 190 - 139);
+            $('.ads-home').css('width', windowSize - 190 - 190 - 139);
             $('.btn-gh3').css('width', 190);
             $('.arrowCategory').css('width', 137);
             $('.btn-gh3').css('width', 190);
