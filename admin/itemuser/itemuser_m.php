@@ -20,7 +20,7 @@ function btnSave_onclick(){
 	}
 	
 	//document.forms.frmForm.elements.txtSubject.value = oEdit0.getHTMLBody();
-	document.forms.frmForm.elements.txtDetailShort.value = oEdit1.getHTMLBody();
+    document.frmForm.txtDetailShort.focus();
 	document.forms.frmForm.elements.txtDetail.value = oEdit2.getHTMLBody();
 	
 	return true;
@@ -35,7 +35,7 @@ function btnSave_onclick(){
 $path = "../web/images/gianhang/item";
 $pathdb = "images/gianhang/item";
 if (isset($_POST['btnSave'])){
-	$code          = isset($_POST['txtCode']) ? trim($_POST['txtCode']) : '';
+	echo $code          = isset($_POST['txtCode']) ? trim($_POST['txtCode']) : '';
 	$name          = isset($_POST['txtName']) ? trim($_POST['txtName']) : '';
 	$price         = isset($_POST['txtPrice']) ? trim($_POST['txtPrice']) : '';
 	$pricekm       = isset($_POST['txtPricekm']) ? trim($_POST['txtPricekm']) : '';
@@ -171,7 +171,7 @@ if (isset($_POST['btnSave'])){
 $(document).ready(function() {
 	$("#ddCat").change(function(){ 
 		var id=$(this).val();//val(1) gan vao gia tri 1 dung trong form
-		var table="tbl_item_category";
+		var table="tbl_shop_category";
 		$("#ddCatch").load("getChild.php?table="+ table + "&id=" +id); //alert(idthanhpho)
 	});
 });
@@ -229,14 +229,14 @@ $(document).ready(function() {
 
                       <td valign="middle"><select name="ddCat" id="ddCat" class="table_list">
                         <?php if($_POST['ddCat']!=NULL){ ?>
-                        <option value="<?php echo $idtheloaic=$_POST['ddCat'] ; ?>"><?php echo get_field('tbl_item_category','id',$parent,'name'); ?></option>
+                        <option value="<?php echo $idtheloaic=$_POST['ddCat'] ; ?>"><?php echo get_field('tbl_shop_category','id',$parent,'name'); ?></option>
                         <?php }?>
                         <?php if($parent!=-1 && $parent!=""){?>
-                         <option value="<?php echo $parent ?>"><?php echo get_field('tbl_item_category','id',$parent,'name'); ?></option>
+                         <option value="<?php echo $parent ?>"><?php echo get_field('tbl_shop_category','id',$parent,'name'); ?></option>
                          <?php }?>
                         <option value="-1" <?php if($parent==-1) echo 'selected="selected"';?> > Chọn danh mục </option>
 						<?php   
-                        $gt=get_records("tbl_item_category","parent=2 and status=0 ","id DESC"," "," ");
+                        $gt=get_records("tbl_shop_category","parent=2 and status=0 ","id DESC"," "," ");
                         while($row=mysql_fetch_assoc($gt)){?>
                         <option value="<?php echo $row['id']; ?>" <?php if($parent==$row['id']) echo 'selected="selected"';?> ><?php echo $row['name']; ?></option>
                         <?php } ?>
@@ -249,10 +249,10 @@ $(document).ready(function() {
                       <td valign="middle"> 
                         <select name="ddCatch" id="ddCatch" class="table_list">
                           <?php if($_POST['ddCatch']!=NULL && $_POST['ddCatch']!=-1 ){ ?>
-                          <option value="<?php echo $parent1=$_POST['ddCatch'] ; ?>"><?php echo get_field('tbl_item_category','id',$parent1,'name'); ?></option>
+                          <option value="<?php echo $parent1=$_POST['ddCatch'] ; ?>"><?php echo get_field('tbl_shop_category','id',$parent1,'name'); ?></option>
                           <?php }?>
                            <?php if($parent1!=-1 && $parent1!=""){?>
-                          <option value="<?php echo $parent1 ?>"><?php echo get_field('tbl_item_category','id',$parent1,'name'); ?></option>
+                          <option value="<?php echo $parent1 ?>"><?php echo get_field('tbl_shop_category','id',$parent1,'name'); ?></option>
                           <?php }?>
                           <option value="-1"> Chọn danh mục con </option> 
                         </select>
@@ -287,29 +287,6 @@ $(document).ready(function() {
                     <tr>
 
                       <td colspan="2" valign="middle"><textarea name="txtDetailShort"  style="width:780px; height:150px;" id="txtDetailShort"><?php echo $detail_short;?></textarea>
-                      <script type="text/javascript">
-
-                            var editor = CKEDITOR.replace( 'txtDetailShort',
-
-                            {
-
-								height:100,
-
-								width:780,
-
-								filebrowserImageBrowseUrl : '../lib/ckfinder/ckfinder.html?Type=Images',
-
-								filebrowserFlashBrowseUrl : '../lib/ckfinder/ckfinder.html?Type=Flash',
-
-								filebrowserImageUploadUrl : '../lib/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
-
-								filebrowserFlashUploadUrl : '../lib/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash',									
-
-								fullPage : true
-
-                            }); 
-
-                            </script>
                       </td>
 
                     </tr>
@@ -326,29 +303,29 @@ $(document).ready(function() {
 
                       <td colspan="2" valign="middle"><textarea name="txtDetail" class="txt" id="txtDetail"><?php echo $detail?></textarea>
 
-                      <script type="text/javascript">
+                          <script type="text/javascript">
 
-                            var editor = CKEDITOR.replace( 'txtDetail',
+                              var editor = CKEDITOR.replace( 'txtDetail',
 
-                            {
+                                  {
 
-								height:200,
+                                      height:100,
 
-								width:780,
+                                      width:780,
 
-								filebrowserImageBrowseUrl : '../lib/ckfinder/ckfinder.html?Type=Images',
+                                      filebrowserImageBrowseUrl : '../lib/ckfinder/ckfinder.html?Type=Images',
 
-								filebrowserFlashBrowseUrl : '../lib/ckfinder/ckfinder.html?Type=Flash',
+                                      filebrowserFlashBrowseUrl : '../lib/ckfinder/ckfinder.html?Type=Flash',
 
-								filebrowserImageUploadUrl : '../scripts/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
+                                      filebrowserImageUploadUrl : '../lib/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
 
-								filebrowserFlashUploadUrl : '../scripts/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash',									
+                                      filebrowserFlashUploadUrl : '../lib/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash',
 
-								fullPage : true
+                                      fullPage : true
 
-                            }); 
+                                  });
 
-                            </script></td>
+                          </script>
 
                     </tr>
 
