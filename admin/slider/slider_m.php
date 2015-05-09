@@ -21,7 +21,8 @@ if (isset($_POST['btnSave'])){
 	$link          = isset($_POST['link']) ? trim($_POST['link']) : '';
 	$sort          = isset($_POST['txtSort']) ? trim($_POST['txtSort']) : 0;
 	$status        = $_POST['chkStatus']!='' ? 1 : 0;
-	
+	$color         = $_POST['color'];
+
 	$catInfo       = getRecord('tbl_slider', 'id='.$parent);
 	if(!$multiLanguage){
 		$lang      = $catInfo['lang'];
@@ -36,9 +37,9 @@ if (isset($_POST['btnSave'])){
 	if ($errMsg==''){
 		if (!empty($_POST['id'])){
 			$oldid = $_POST['id'];
-			echo $sql = "update tbl_slider set name='".$name."',type='".$type."',link='".$link."',sort='".$sort."', status='".$status."',last_modified=now() where id='".$oldid."'";
+			echo $sql = "update tbl_slider set name='".$name."',type='".$type."',link='".$link."',color='".$color."',sort='".$sort."', status='".$status."',last_modified=now() where id='".$oldid."'";
 		}else{
-			$sql = "insert into tbl_slider (name, type, link, sort, status,  date_added, last_modified  ) values ('".$name."','".$type."','".$link."','".$sort."','1',now(),now())";
+			$sql = "insert into tbl_slider (name, type, link, color, sort, status,  date_added, last_modified  ) values ('".$name."','".$type."','".$link."','".$color."','".$sort."','1',now(),now())";
 		}
 		if (mysql_query($sql,$conn)){
 			if(empty($_POST['id'])) $oldid = mysql_insert_id();
@@ -100,7 +101,8 @@ if (isset($_POST['btnSave'])){
 			$subject       = $row['subject'];
 			$detail_short  = $row['detail_short'];
 			$link         = $row['link'];
-			$detail        = $row['detail'];
+            $color         = $row['color'];
+            $detail        = $row['detail'];
 			$image         = $row['image'];
 			$image_large   = $row['image_large'];
 			$sort          = $row['sort'];
@@ -176,6 +178,15 @@ if (isset($_POST['btnSave'])){
                             <input class="table_khungnho" value="<?=$sort?>" type="text" name="txtSort"  />
                         </td>
                     </tr>
+                     <tr>
+                         <td valign="middle" width="30%">
+                             Màu nền<span class="sao_bb"></span>
+                         </td>
+                         <td valign="middle" width="70%">
+                             <input type="text" name="pk" id="pk" value="<?=$color?>" onchange="$('#color').val($('#pk').val());"/>
+                             <input type="color" name="color" id="color" value="<?=$color?>" onchange="$('#pk').val(this.value);">
+                         </td>
+                     </tr>
                     <tr>
                         <td valign="middle" width="30%">
                         Hình đại diện</td>
