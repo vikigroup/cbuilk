@@ -196,7 +196,7 @@ $(document).ready(function() {
                                   <td valign="middle"  colspan="11">
                                     <center>
                                         <div class="table_chu_tieude">
-                                        <strong>DANH MỤC LOẠI SẢN PHẨM</strong>
+                                        <strong>DANH MỤC LOẠI TIN TỨC</strong>
                                         </div>
                                     </center>
                               </td>
@@ -259,7 +259,7 @@ $(document).ready(function() {
                                   </td>
                                   
                                  <td width="88" align="center" colspan="1">
-                                  <div><a href="admin.php?act=item_category_m">
+                                  <div><a href="admin.php?act=news_category_m">
                                   <img width="48" height="48" border="0" src="images/them.png">
                                   </a></div></td>
                                 </tr>
