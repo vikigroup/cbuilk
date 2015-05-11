@@ -29,7 +29,7 @@
                 <ul> 
 <!--                    <li><a href="admin.php?act=item_category"> Danh mục loại sản phẩm</a> </li>-->
 <!--                    <li><a href="admin.php?act=itemuser">Sản phẩm</a></li>-->
-                    <li><a href="admin.php?act=item">Sản phẩm</a></li>
+                    <li><a href="admin.php?act=itemuser">Sản phẩm</a></li>
                     <li><a href="admin.php?act=service">Dịch vụ</a></li>
                     <li><a href="admin.php?act=newuser">Tin tức</a></li>
                     <li><a href="admin.php?act=advuser">Quảng cáo</a></li>
