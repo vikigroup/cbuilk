@@ -189,29 +189,31 @@ if (isset($_POST['btnSave'])){
 
                       <td colspan="2" valign="middle"><textarea name="txtDetail" class="txt" id="txtDetail"><?php echo $detail?></textarea>
 
-                      <script type="text/javascript">
+                          <script type="text/javascript">
 
-                            var editor = CKEDITOR.replace( 'txtDetail',
+                              var editor = CKEDITOR.replace( 'txtDetail',
 
-                            {
+                                  {
 
-								height:200,
+                                      height:500,
 
-								width:780,
+                                      width:780,
 
-								filebrowserImageBrowseUrl : '../lib/ckfinder/ckfinder.html?Type=Images',
+                                      filebrowserImageBrowseUrl : '../lib/ckfinder/ckfinder.html?Type=Images',
 
-								filebrowserFlashBrowseUrl : '../lib/ckfinder/ckfinder.html?Type=Flash',
+                                      filebrowserFlashBrowseUrl : '../lib/ckfinder/ckfinder.html?Type=Flash',
 
-								filebrowserImageUploadUrl : '../scripts/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
+                                      filebrowserImageUploadUrl : '../lib/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
 
-								filebrowserFlashUploadUrl : '../scripts/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash',									
+                                      filebrowserFlashUploadUrl : '../lib/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash',
 
-								fullPage : true
+                                      fullPage : true
 
-                            }); 
+                                  });
 
-                            </script></td>
+                          </script>
+
+                      </td>
 
                     </tr>
 
