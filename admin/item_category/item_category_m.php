@@ -191,7 +191,7 @@ $(document).ready(function() {
                             <table  class="table_chinh">
                                 
                                  <tr>
-                                  <td class="table_chu_tieude_them" colspan="2" align="center" valign="middle"  >DANH MỤC LOẠI SẢN PHẨM</td>
+                                  <td class="table_chu_tieude_them" colspan="2" align="center" valign="middle"  >DANH MỤC LOẠI <?php if($_GET['act'] == 'news_category_m'){echo "TIN TỨC";}else{echo "SẢN PHẨM";} ?></td>
                               	</tr>
                                 <tr>
                                   <td valign="middle"  class="table_chu">&nbsp;</td>
