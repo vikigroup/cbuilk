@@ -80,8 +80,8 @@ switch ($frame){
 	case "hotrouser"            : include("hotrouser/hotrouser.php");break;
 	case "hotrouser_m"          : include("hotrouser/hotrouser_m.php");break;
 	
-	case "newsuser"              : include("newuser/newuser.php");break;
-	case "newsuser_m"            : include("newuser/newuser_m.php");break;
+	case "newuser"              : include("newuser/newuser.php");break;
+	case "newuser_m"            : include("newuser/newuser_m.php");break;
 	
 	case "itemuser"             : include("itemuser/itemuser.php");break;
 	case "itemuser_m"           : include("itemuser/itemuser_m.php");break;
