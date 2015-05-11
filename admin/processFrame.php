@@ -70,8 +70,8 @@ switch ($frame){
 	// category of user
 	case "item_category"        : include("item_category/item_category.php");break;
 	case "item_category_m"      : include("item_category/item_category_m.php");break;
-    case "news_category"        : include("item_category/item_category.php");break;
-    case "news_category_m"      : include("item_category/item_category_m.php");break;
+    case "news_category"        : include("item_category/news_category.php");break;
+    case "news_category_m"      : include("item_category/news_category_m.php");break;
 
     case "advuser"              : include("advuser/advuser.php");break;
 	case "advuser_m"            : include("advuser/advuser_m.php");break;
