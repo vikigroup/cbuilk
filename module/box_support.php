@@ -37,7 +37,7 @@
         $('.left-home').hover(
                 function(){
                     $(".left-home").show();
-                    $('.ads-home').css('width', windowSize - 190 - 190 - 139);
+                    $('.ads-home').css('max-width', windowSize - 190 - 190 - 139);
                 },
                 function(){
                     $(".left-home").slideUp(1000);
