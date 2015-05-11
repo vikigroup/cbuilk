@@ -269,31 +269,7 @@ $(document).ready(function() {
 
                     <tr>
 
-                      <td colspan="2" valign="middle"><textarea name="txtDetailShort"  style="width:780px; height:150px;" id="txtDetailShort"><?php echo $detail_short;?></textarea>
-                      <script type="text/javascript">
-
-                            var editor = CKEDITOR.replace( 'txtDetailShort',
-
-                            {
-
-								height:100,
-
-								width:780,
-
-								filebrowserImageBrowseUrl : '../lib/ckfinder/ckfinder.html?Type=Images',
-
-								filebrowserFlashBrowseUrl : '../lib/ckfinder/ckfinder.html?Type=Flash',
-
-								filebrowserImageUploadUrl : '../lib/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
-
-								filebrowserFlashUploadUrl : '../lib/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash',									
-
-								fullPage : true
-
-                            }); 
-
-                            </script>
-                      </td>
+                      <td colspan="2" valign="middle"><textarea name="txtDetailShort"  style="width:780px; height:150px;" id="txtDetailShort"><?php echo $detail_short;?></textarea></td>
 
                     </tr>
 
@@ -309,29 +285,31 @@ $(document).ready(function() {
 
                       <td colspan="2" valign="middle"><textarea name="txtDetail" class="txt" id="txtDetail"><?php echo $detail?></textarea>
 
-                      <script type="text/javascript">
+                          <script type="text/javascript">
 
-                            var editor = CKEDITOR.replace( 'txtDetail',
+                              var editor = CKEDITOR.replace( 'txtDetail',
 
-                            {
+                                  {
 
-								height:200,
+                                      height:100,
 
-								width:780,
+                                      width:780,
 
-								filebrowserImageBrowseUrl : '../lib/ckfinder/ckfinder.html?Type=Images',
+                                      filebrowserImageBrowseUrl : '../lib/ckfinder/ckfinder.html?Type=Images',
 
-								filebrowserFlashBrowseUrl : '../lib/ckfinder/ckfinder.html?Type=Flash',
+                                      filebrowserFlashBrowseUrl : '../lib/ckfinder/ckfinder.html?Type=Flash',
 
-								filebrowserImageUploadUrl : '../scripts/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
+                                      filebrowserImageUploadUrl : '../lib/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
 
-								filebrowserFlashUploadUrl : '../scripts/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash',									
+                                      filebrowserFlashUploadUrl : '../lib/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash',
 
-								fullPage : true
+                                      fullPage : true
 
-                            }); 
+                                  });
 
-                            </script></td>
+                          </script>
+
+                      </td>
 
                     </tr>
 

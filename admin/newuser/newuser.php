@@ -320,11 +320,11 @@ $(document).ready(function() {
                                   		<? //comboCategory('ddCat',getArrayCategory('tbl_shop_category'),'list_tim_loc',$parent,1)?>
                                   		<select name="ddCat2" id="ddCat2" class="table_list">
                                           <?php if($_POST['ddCat']!=NULL){ ?>
-                                          <option value="<?php echo $idtheloaic=$_POST['ddCat'] ; ?>"><?php echo get_field('tbl_shop','id',$parent,'name'); ?></option>
+                                          <option value="<?php echo $idtheloaic=$_POST['ddCat'] ; ?>"><?php echo get_field('tbl_shop_category','id',$parent,'name'); ?></option>
                                           <?php }?>
                                           <option value="-1" <?php if($parent==-1) echo 'selected="selected"';?> > Chọn danh mục </option>
                                           <?php   
-											$gt=get_records("tbl_shop","status=0 ","id DESC"," "," ");
+											$gt=get_records("tbl_shop_category","status=0 ","id DESC"," "," ");
                                             while($row=mysql_fetch_assoc($gt)){?>
                                           <option value="<?php echo $row['id']; ?>"><?php echo $row['name']; ?></option>
                                           <?php } ?>
