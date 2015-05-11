@@ -26,6 +26,7 @@
             <li><a href="#"> Quản lý Shop &darr;</a>
                 <ul>
                     <li><a href="admin.php?act=shop">Danh sách shop</a></li>
+                    <li><a href="admin.php?act=item_category">Danh mục sản phẩm</a></li>
                     <li><a href="admin.php?act=template">Giao diện</a></li>
                     <li><a href="admin.php?act=advuser">Quảng cáo</a></li>
                     <li><a href="admin.php?act=slideruser">Slider</a></li>
