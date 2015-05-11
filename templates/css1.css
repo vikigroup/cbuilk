@@ -1325,4 +1325,6 @@ a.popup-link:hover {
     float: left;
 }
 
-
+.nivo-imageLink img{
+    width: 1210px !important;
+}
