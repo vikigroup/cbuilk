@@ -47,7 +47,7 @@
 
             <li><a href="#"> Quản lý tin tức &darr;</a>
                 <ul>
-                    <li><a href="admin.php?act=item_category&n=1">Danh mục tin tức</a> </li>
+                    <li><a href="admin.php?act=news_category">Danh mục tin tức</a> </li>
                     <li><a href="admin.php?act=newuser">Tất cả tin tức</a></li>
                     <li><a href="admin.php?act=newuser_m">Tạo tin tức mới</a></li>
                 </ul>
