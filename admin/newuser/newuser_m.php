@@ -291,7 +291,7 @@ $(document).ready(function() {
 
                                   {
 
-                                      height:100,
+                                      height:500,
 
                                       width:780,
 
