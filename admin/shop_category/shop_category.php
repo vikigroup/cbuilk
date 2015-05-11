@@ -201,7 +201,7 @@ $(document).ready(function() {
                                   <td valign="middle"  colspan="10">
                                     <center>
                                         <div class="table_chu_tieude">
-                                        <strong>DANH MỤC SHOP</strong>
+                                        <strong>DANH MỤC SẢN PHẨM</strong>
                                         </div>
                                     </center>
                               </td>
