@@ -134,7 +134,7 @@ $(document).ready(function() {
 $(document).ready(function() {
 	$("#ddCat").change(function(){ 
 		var id=$(this).val();//val(1) gan vao gia tri 1 dung trong form
-		var table="tbl_item_category";
+		var table="tbl_shop_category";
 		$("#ddCatch").load("getChild.php?table="+ table + "&id=" +id); //alert(idthanhpho)
 	});
 });
@@ -261,7 +261,7 @@ $(document).ready(function() {
 					
 					if($parent!=-1 || $parent1!=-1) {
 						if($parent1!='-1') $parenstrt="$parent1";
-						else $parenstrt=getParent("tbl_item_category",$parent);
+						else $parenstrt=getParent("tbl_shop_category",$parent);
 						$where="1=1 and type=0 and cate=0 and (id='{$tukhoa}' or name LIKE '%$tukhoa%' or '{$tukhoa}'=-1) and  ( parent1 in ({$parenstrt}) or id=$parent)";
 					}
                     else $where="1=1 and type=0 and cate=0 and (id='{$tukhoa}' or name LIKE '%$tukhoa%' or '{$tukhoa}'=-1)";
@@ -307,16 +307,16 @@ $(document).ready(function() {
                                 </tr>
                                 <tr align="center" >
                                   <td valign="middle" style="background-color:#F0F0F0; height:40px; padding-left:20px" colspan="10">  
-                                  		<? //comboCategory('ddCat',getArrayCategory('tbl_item_category'),'list_tim_loc',$parent,1)?>
+                                  		<? //comboCategory('ddCat',getArrayCategory('tbl_shop_category'),'list_tim_loc',$parent,1)?>
                                         
                                         <select name="ddCat" id="ddCat" class="list_tim_loc"> 
 											<?php if($_POST['ddCat']!=NULL){ ?>
-                                            <option value="<?php echo $idtheloaic=$_POST['ddCat'] ; ?>"><?php echo get_field('tbl_item_category','id',$parent,'name'); ?> </option> 
+                                            <option value="<?php echo $idtheloaic=$_POST['ddCat'] ; ?>"><?php echo get_field('tbl_shop_category','id',$parent,'name'); ?> </option>
                                             <?php }?>
                                             
                                             <option value="-1" <?php if($parent==-1) echo 'selected="selected"';?> > Chọn danh mục </option> 
                                             <?php   
-											$gt=get_records("tbl_item_category","parent=2 and status=0 ","id DESC"," "," ");
+											$gt=get_records("tbl_shop_category","parent=2 and status=0 ","id DESC"," "," ");
                                             while($row=mysql_fetch_assoc($gt)){?>
                                             <option value="<?php echo $row['id']; ?>"><?php echo $row['name']; ?></option> 
                                             <?php } ?>
@@ -324,7 +324,7 @@ $(document).ready(function() {
                                         </select>
                                         <select name="ddCatch" id="ddCatch" class="list_tim_loc"> 
 											<?php if($_POST['ddCatch']!=NULL && $_POST['ddCatch']!=-1 ){ ?>
-                                            <option value="<?php echo $parent1=$_POST['ddCatch'] ; ?>"><?php echo get_field('tbl_item_category','id',$parent1,'name'); ?> </option> 
+                                            <option value="<?php echo $parent1=$_POST['ddCatch'] ; ?>"><?php echo get_field('tbl_shop_category','id',$parent1,'name'); ?> </option>
                                             <?php }?>
                                         	<option value="-1"> Chọn danh mục con </option> 
                                         </select>
@@ -422,7 +422,7 @@ $(document).ready(function() {
     
                             
     
-                            $sql="select *,DATE_FORMAT(date_added,'%d/%m/%Y %h:%i') as dateAdd,DATE_FORMAT(last_modified,'%d/%m/%Y %h:%i') as dateModify from tbl_item where  $where $sortby  limit ".($startRow).",".$pageSize;
+                            $sql="select *,DATE_FORMAT(date_added,'%d/%m/%Y %h:%i') as dateAdd,DATE_FORMAT(last_modified,'%d/%m/%Y %h:%i') as dateModify from tbl_item where isNews = 0 and $where $sortby  limit ".($startRow).",".$pageSize;
     
                             $result=mysql_query($sql,$conn);
     
@@ -470,8 +470,8 @@ $(document).ready(function() {
     
                                     <td align="left">
 										<?=$row['name']?><br />
-                                        Thể loại:<?php echo get_field('tbl_item_category','id',get_field('tbl_item_category','id',$row['parent'],'parent'),'name');?> <br />
-                                        Loại    :<?php echo get_field('tbl_item_category','id',$row['parent'],'name');?>
+                                        Thể loại:<?php echo get_field('tbl_shop_category','id',get_field('tbl_shop_category','id',$row['parent'],'parent'),'name');?> <br />
+                                        Loại    :<?php echo get_field('tbl_shop_category','id',$row['parent'],'name');?>
                                     </td>
                                     <td align="center">
 									<a href="http://<?php echo get_field('tbl_shop','id',$row['idshop'],'subject');?>.jbs.vn" target="_blank">	<?php echo get_field('tbl_shop','id',$row['idshop'],'name');?></a>
