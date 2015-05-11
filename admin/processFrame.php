@@ -50,7 +50,10 @@ switch ($frame){
 	//info page
 	case "jbstin"             : include("jbstin/jbstin.php");break;
 	case "jbstin_m"           : include("jbstin/jbstin_m.php");break;
-	
+
+    case "jbsnews"             : include("jbstin/jbsnews.php");break;
+    case "jbsnews_m"           : include("jbstin/jbsnews_m.php");break;
+
 	//adv
 	case "adv"             : include("adv/adv.php");break;
 	case "adv_m"           : include("adv/adv_m.php");break;

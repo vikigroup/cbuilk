@@ -50,7 +50,7 @@
                     <li><a href="admin.php?act=shop_category">Danh mục shop</a> </li>
                     <li><a href="admin.php?act=itemuser">Sản phẩm</a></li>
                     <li><a href="admin.php?act=service">Dịch vụ</a></li>
-                    <li><a href="admin.php?act=newuser">Tin tức</a></li>
+                    <li><a href="admin.php?act=jbsnews">Tin tức</a></li>
                     <li><a href="admin.php?act=config&id=2">Cấu hình</a>  </li>
                     <li><a href="admin.php?act=slider">Slide ảnh</a> </li> 
                     <li><a href="admin.php?act=jbstin">Thông tin</a> </li> 
