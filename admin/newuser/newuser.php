@@ -43,10 +43,10 @@ if($_SESSION['kt_tukhoa_bignew']!=NULL){$tukhoa=$_SESSION['kt_tukhoa_bignew'];}
 if($_SESSION['kt_parent_bignew']==NULL){$parent=-1;}
 if($_SESSION['kt_parent_bignew']!=NULL){$parent=$_SESSION['kt_parent_bignew'];}
 
-if($_SESSION['kt_idshop']==NULL){$idshop=-1;}
+if($_SESSION['kt_idshop']==NULL){$idshop=0;}
 if($_SESSION['kt_idshop']!=NULL){$idshop=$_SESSION['kt_idshop'];}
 
-if($_SESSION['kt_idshop']==NULL){$parent1=-1;}
+if($_SESSION['kt_idshop']==NULL){$parent1=0;}
 if($_SESSION['kt_idshop']!=NULL){$parent1=$_SESSION['kt_ddCatch_bignew'];}
 
 if($_GET['anhien']==NULL){$anhien=-1;$_SESSION['kt_anhien']=$anhien;}

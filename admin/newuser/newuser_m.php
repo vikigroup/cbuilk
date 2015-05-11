@@ -131,7 +131,7 @@ if (isset($_POST['btnSave'])){
 			$name          = $row['name'];
 			
 			$parent1        = $row['parent'];
-			$parent         = get_field('tbl_item_category','id',$parent1,'parent');
+			$parent         = get_field('tbl_shop_category','id',$parent1,'parent');
 			
 			if($parent==2) {
 				$parent=$parent1;
