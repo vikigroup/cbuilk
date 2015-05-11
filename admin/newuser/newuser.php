@@ -84,7 +84,7 @@ $(document).ready(function() {
 
 		   url:'status.php',
 
-		   data: 'id='+ id +'&table=tbl_item',
+		   data: 'id='+ id +'&table=tbl_news',
 
 		   cache: false,
 
@@ -114,7 +114,7 @@ $(document).ready(function() {
 
 		   url:'hot.php',
 
-		   data: 'id='+ id +'&table=tbl_item',
+		   data: 'id='+ id +'&table=tbl_news',
 
 		   cache: false,
 
@@ -173,13 +173,13 @@ $(document).ready(function() {
     
                             $id = $_GET['id'];
     
-                            $r = getRecord("tbl_item","id=".$id);
+                            $r = getRecord("tbl_news","id=".$id);
     
                             $resultParent = 0;
     
                             
     
-                                @$result = mysql_query("delete from tbl_item where id='".$id."'",$conn);
+                                @$result = mysql_query("delete from tbl_news where id='".$id."'",$conn);
     
                                 if ($result){
     
@@ -215,11 +215,11 @@ $(document).ready(function() {
     
                             foreach ($_POST['chk'] as $id){
     
-                                $r = getRecord("tbl_item","id=".$id);
+                                $r = getRecord("tbl_news","id=".$id);
     
                                 $resultParent = 0;
 
-                                    @$result = mysql_query("delete from tbl_item where id='".$id."'",$conn);
+                                    @$result = mysql_query("delete from tbl_news where id='".$id."'",$conn);
     
                                     if ($result){
     
@@ -279,7 +279,7 @@ $(document).ready(function() {
     
                     $MAXPAGE=1;
     
-                    $totalRows=countRecord("tbl_item",$where);
+                    $totalRows=countRecord("tbl_news",$where);
     
                     
     
@@ -293,7 +293,7 @@ $(document).ready(function() {
     
                     <?
     
-                   // $pageindex = createPage(countRecord("tbl_item",$where),"./?act=shop_category&cat=".$_REQUEST['cat']."&page=",$MAXPAGE,$page)?>
+                   // $pageindex = createPage(countRecord("tbl_news",$where),"./?act=shop_category&cat=".$_REQUEST['cat']."&page=",$MAXPAGE,$page)?>
     
     
                     <? if ($_REQUEST['code']==1) $errMsg = 'Cập nhật thành công.'?>
@@ -423,7 +423,7 @@ $(document).ready(function() {
     
                             
     
-                            $sql="select *,DATE_FORMAT(date_added,'%d/%m/%Y %h:%i') as dateAdd,DATE_FORMAT(last_modified,'%d/%m/%Y %h:%i') as dateModify from tbl_item where  $where $sortby  limit ".($startRow).",".$pageSize;
+                            $sql="select *,DATE_FORMAT(date_added,'%d/%m/%Y %h:%i') as dateAdd,DATE_FORMAT(last_modified,'%d/%m/%Y %h:%i') as dateModify from tbl_news where  $where $sortby  limit ".($startRow).",".$pageSize;
     
                             $result=mysql_query($sql,$conn);
     
@@ -431,7 +431,7 @@ $(document).ready(function() {
     
                             while($row=mysql_fetch_array($result)){
     
-                            $parent = getRecord('tbl_item','id = '.$row['parent']);
+                            $parent = getRecord('tbl_news','id = '.$row['parent']);
     
                             $color = $i++%2 ? "#d5d5d5" : "#e5e5e5";
     
@@ -471,8 +471,8 @@ $(document).ready(function() {
     
                                     <td align="left">
 										<?=$row['name']?><br />
-                                        Thể loại:<?php echo get_field('tbl_item_category','id',get_field('tbl_item_category','id',$row['parent'],'parent'),'name');?> <br />
-                                        Loại    :<?php echo get_field('tbl_item_category','id',$row['parent'],'name');?>
+                                        Thể loại:<?php echo get_field('tbl_shop_category','id',get_field('tbl_shop_category','id',$row['parent'],'parent'),'name');?> <br />
+                                        Loại    :<?php echo get_field('tbl_shop_category','id',$row['parent'],'name');?>
                                     </td>
                                     <td align="center">
 									<a href="http://<?php echo get_field('tbl_shop','id',$row['idshop'],'subject');?>.jbs.vn" target="_blank">	<?php echo get_field('tbl_shop','id',$row['idshop'],'name');?></a>
