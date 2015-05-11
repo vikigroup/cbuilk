@@ -20,7 +20,7 @@ function btnSave_onclick(){
 	}
 	
 	//document.forms.frmForm.elements.txtSubject.value = oEdit0.getHTMLBody();
-	document.forms.frmForm.elements.txtDetailShort.value = oEdit1.getHTMLBody();
+	document.frmForm.txtDetailShort.focus();
 	document.forms.frmForm.elements.txtDetail.value = oEdit2.getHTMLBody();
 	
 	return true;
