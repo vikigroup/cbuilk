@@ -426,7 +426,7 @@ require("module/box_device.php");
             $('.mini-bar').css('width', '3%');
             $('.form_dn').css('width', windowSize - 139);
             $('.dmsp4-3').css('max-width', windowSize - 190 - 390 - 139);
-            $('.ads-home').css('width', windowSize - 190 - 190 - 139);
+            $('.ads-home').css('max-width', windowSize - 190 - 190 - 139);
             $('.btn-gh3').css('width', 190);
             $('.arrowCategory').css('width', 137);
             $('.btn-gh3').css('width', 190);
