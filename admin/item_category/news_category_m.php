@@ -210,10 +210,10 @@ $(document).ready(function() {
                                      <?php }?>
 
                                     <?php
-                                    $gt=get_records("tbl_item_category"," status=0 and cate=1 and (idshop='{$idshop}' or '{$idshop}'=-1) ","id DESC"," "," ");
-                                    while($row=mysql_fetch_assoc($gt)){?>
+                                    $gt=get_records("tbl_item_category"," status=0 and (idshop='{$idshop}' or '{$idshop}'=-1) ","id DESC"," "," ");
+                                    while($row=mysql_fetch_assoc($gt)){if($row['cate'] == 1 || in_array($row['id'], array('1', '2', '3'), true)){?>
                                     <option value="<?php echo $row['id']; ?>" <?php if($parent==$row['id']) echo 'selected="selected"';?> ><?php echo $row['name']; ?></option>
-                                    <?php } ?>
+                                    <?php } } ?>
                                   </select></td>
             
                                 </tr>
