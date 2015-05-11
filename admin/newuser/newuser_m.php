@@ -20,7 +20,7 @@ function btnSave_onclick(){
 	}
 	
 	//document.forms.frmForm.elements.txtSubject.value = oEdit0.getHTMLBody();
-	document.frmForm.txtDetailShort.focus();
+	document.forms.frmForm.elements.txtDetailShort.value = oEdit1.getHTMLBody();
 	document.forms.frmForm.elements.txtDetail.value = oEdit2.getHTMLBody();
 	
 	return true;
@@ -53,7 +53,7 @@ if (isset($_POST['btnSave'])){
 	$sort          = isset($_POST['txtSort']) ? trim($_POST['txtSort']) : 0;
 	$status        = $_POST['chkStatus']!='' ? 1 : 0;
 	
-	$catInfo       = getRecord('tbl_news', 'id='.$parent);
+	$catInfo       = getRecord('tbl_item', 'id='.$parent);
 	if(!$multiLanguage){
 		$lang      = $catInfo['lang'];
 	}else{
@@ -67,18 +67,18 @@ if (isset($_POST['btnSave'])){
 	if ($errMsg==''){
 		if (!empty($_POST['id'])){
 			$oldid = $_POST['id'];
-			$sql = "update tbl_news set name='".$name."',parent='".$parent."',parent1='".$parent1."',detail='".$detail."',type='".$loaihinh."',price='".$price."',pricekm='".$pricekm."',sort='".$sort."', status='".$status."',last_modified=now() where id='".$oldid."'";
+			$sql = "update tbl_item set name='".$name."',parent='".$parent."',parent1='".$parent1."',detail='".$detail."',type='".$loaihinh."',price='".$price."',pricekm='".$pricekm."',sort='".$sort."', status='".$status."',last_modified=now() where id='".$oldid."'";
 		}else{
-			$sql = "insert into tbl_news (name, parent, parent1 , detail, type , price , pricekm , sort, status,  date_added, last_modified  ) values ('".$name."','".$parent."','".$parent1."','".$detail."','".$loaihinh."','".$price."','".$pricekm."','".$sort."','1',now(),now())";
+			$sql = "insert into tbl_item (name, parent, parent1 , detail, type , price , pricekm , sort, status,  date_added, last_modified  ) values ('".$name."','".$parent."','".$parent1."','".$detail."','".$loaihinh."','".$price."','".$pricekm."','".$sort."','1',now(),now())";
 		} 
 		if (mysql_query($sql,$conn)){
 			if(empty($_POST['id'])) $oldid = mysql_insert_id();
-			$r = getRecord("tbl_news","id=".$oldid);
+			$r = getRecord("tbl_item","id=".$oldid);
 		
 			$arrField = array(
 			"subject"          => "'".vietdecode($name).$oldid."'"
 			);// ko them id vao cuoi cho dep
-			$result = update("tbl_news",$arrField,"id=".$oldid);
+			$result = update("tbl_item",$arrField,"id=".$oldid);
 			
 			$sqlUpdateField = "";
 			
@@ -108,7 +108,7 @@ if (isset($_POST['btnSave'])){
 			}
 			
 			if($sqlUpdateField!='')	{
-				$sqlUpdate = "update tbl_news set $sqlUpdateField where id='".$oldid."'";
+				$sqlUpdate = "update tbl_item set $sqlUpdateField where id='".$oldid."'";
 				mysql_query($sqlUpdate,$conn);
 			}
 		}else{
@@ -124,14 +124,14 @@ if (isset($_POST['btnSave'])){
 	if (isset($_GET['id'])){
 		$oldid=$_GET['id'];
 		$page = $_GET['page'];
-		$sql = "select * from tbl_news where id='".$oldid."'";
+		$sql = "select * from tbl_item where id='".$oldid."'";
 		if ($result = mysql_query($sql,$conn)) {
 			$row=mysql_fetch_array($result);
 			$code          = $row['code'];
 			$name          = $row['name'];
 			
 			$parent1        = $row['parent'];
-			$parent         = get_field('tbl_shop_category','id',$parent1,'parent');
+			$parent         = get_field('tbl_item_category','id',$parent1,'parent');
 			
 			if($parent==2) {
 				$parent=$parent1;
@@ -269,7 +269,31 @@ $(document).ready(function() {
 
                     <tr>
 
-                      <td colspan="2" valign="middle"><textarea name="txtDetailShort"  style="width:780px; height:150px;" id="txtDetailShort"><?php echo $detail_short;?></textarea></td>
+                      <td colspan="2" valign="middle"><textarea name="txtDetailShort"  style="width:780px; height:150px;" id="txtDetailShort"><?php echo $detail_short;?></textarea>
+                      <script type="text/javascript">
+
+                            var editor = CKEDITOR.replace( 'txtDetailShort',
+
+                            {
+
+								height:100,
+
+								width:780,
+
+								filebrowserImageBrowseUrl : '../lib/ckfinder/ckfinder.html?Type=Images',
+
+								filebrowserFlashBrowseUrl : '../lib/ckfinder/ckfinder.html?Type=Flash',
+
+								filebrowserImageUploadUrl : '../lib/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
+
+								filebrowserFlashUploadUrl : '../lib/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash',
+
+								fullPage : true
+
+                            });
+
+                            </script>
+                      </td>
 
                     </tr>
 
@@ -285,31 +309,29 @@ $(document).ready(function() {
 
                       <td colspan="2" valign="middle"><textarea name="txtDetail" class="txt" id="txtDetail"><?php echo $detail?></textarea>
 
-                          <script type="text/javascript">
+                      <script type="text/javascript">
 
-                              var editor = CKEDITOR.replace( 'txtDetail',
+                            var editor = CKEDITOR.replace( 'txtDetail',
 
-                                  {
+                            {
 
-                                      height:100,
+								height:200,
 
-                                      width:780,
+								width:780,
 
-                                      filebrowserImageBrowseUrl : '../lib/ckfinder/ckfinder.html?Type=Images',
+								filebrowserImageBrowseUrl : '../lib/ckfinder/ckfinder.html?Type=Images',
 
-                                      filebrowserFlashBrowseUrl : '../lib/ckfinder/ckfinder.html?Type=Flash',
+								filebrowserFlashBrowseUrl : '../lib/ckfinder/ckfinder.html?Type=Flash',
 
-                                      filebrowserImageUploadUrl : '../lib/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
+								filebrowserImageUploadUrl : '../scripts/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
 
-                                      filebrowserFlashUploadUrl : '../lib/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash',
+								filebrowserFlashUploadUrl : '../scripts/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash',
 
-                                      fullPage : true
+								fullPage : true
 
-                                  });
+                            });
 
-                          </script>
-
-                      </td>
+                            </script></td>
 
                     </tr>
 
