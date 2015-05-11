@@ -47,7 +47,7 @@
                 
             <li><a href="#"> Quản lý Trang chủ &darr;</a>
                 <ul>
-                    <li><a href="admin.php?act=shop_category">Danh mục shop</a> </li>
+                    <li><a href="admin.php?act=shop_category">Danh mục sản phẩm</a> </li>
                     <li><a href="admin.php?act=itemuser">Sản phẩm</a></li>
                     <li><a href="admin.php?act=service">Dịch vụ</a></li>
                     <li><a href="admin.php?act=newuser">Tin tức</a></li>
