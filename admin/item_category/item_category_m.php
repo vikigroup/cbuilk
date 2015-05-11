@@ -167,7 +167,7 @@ if (isset($_POST['btnSave'])){
 $(document).ready(function() {
 	$("#ddCat").change(function(){ 
 		var id=$(this).val();//val(1) gan vao gia tri 1 dung trong form
-		var table="tbl_rv_category";
+		var table="tbl_item_category";
 		$("#ddCatch").load("getChild.php?table="+ table + "&id=" +id); //alert(idthanhpho)
 	});
 });
@@ -210,7 +210,7 @@ $(document).ready(function() {
                                      <?php }?>
 
                                     <?php
-                                    $gt=get_records("tbl_item_category"," status=0 and cate=1 and (idshop='{$idshop}' or '{$idshop}'=-1) ","id DESC"," "," ");
+                                    $gt=get_records("tbl_item_category"," status=0 and cate=0 and (idshop='{$idshop}' or '{$idshop}'=-1) ","id DESC"," "," ");
                                     while($row=mysql_fetch_assoc($gt)){?>
                                     <option value="<?php echo $row['id']; ?>" <?php if($parent==$row['id']) echo 'selected="selected"';?> ><?php echo $row['name']; ?></option>
                                     <?php } ?>
