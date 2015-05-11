@@ -202,7 +202,7 @@ $(document).ready(function() {
                  <table  class="table_chinh">
 
                     <tr>
-                      <td class="table_chu_tieude_them" colspan="2" align="center" valign="middle"  >SẢN PHẨM - DỊCH VỤ</td>
+                      <td class="table_chu_tieude_them" colspan="2" align="center" valign="middle"  ><?php if($_GET['act'] == "service_m"){echo "DỊCH VỤ";} else{echo "SẢN PHẨM";}  ?></td>
                   </tr>
                     <tr>
                       <td valign="middle"  class="table_chu">&nbsp;</td>
