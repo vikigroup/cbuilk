@@ -7,11 +7,9 @@
             <?php if($_SESSION['kt_login_id']!=""){?>
 <!--            <li><a href="admin.php">Admin</a></li> -->
  
-            <li><a href="#">Shop &darr;</a>
-                <ul> 
-                    <li><a href="admin.php?act=shop_category"> Danh mục shop</a> </li>
-                    <li><a href="admin.php?act=shop">Danh sách shop</a></li>
-                    <li><a href="admin.php?act=template">Giao diện</a></li>
+<!--            <li><a href="#">Shop &darr;</a>-->
+<!--                <ul> -->
+
 <!--                    <li>-->
 <!--                    	<a href="admin.php?act=jbsnews_category"> Sản phẩm dịch vụ  &raquo;</a>-->
 <!--                        <ul>-->
@@ -21,21 +19,19 @@
 <!--                         -->
 <!--                        </ul> -->
 <!--                    </li>-->
-
-                </ul>
-            </li>
+<!---->
+<!--                </ul>-->
+<!--            </li>-->
             
-            <li><a href="#"> Quản lý thông tin shop &darr;</a>
-                <ul> 
-<!--                    <li><a href="admin.php?act=item_category"> Danh mục loại sản phẩm</a> </li>-->
-<!--                    <li><a href="admin.php?act=itemuser">Sản phẩm</a></li>-->
-                    <li><a href="admin.php?act=itemuser">Sản phẩm</a></li>
-                    <li><a href="admin.php?act=service">Dịch vụ</a></li>
-                    <li><a href="admin.php?act=newuser">Tin tức</a></li>
+            <li><a href="#"> Quản lý Shop &darr;</a>
+                <ul>
+                    <li><a href="admin.php?act=shop">Danh sách shop</a></li>
+                    <li><a href="admin.php?act=template">Giao diện</a></li>
                     <li><a href="admin.php?act=advuser">Quảng cáo</a></li>
                     <li><a href="admin.php?act=slideruser">Slider</a></li>
                     <li><a href="admin.php?act=hotrouser">Hỗ trợ</a></li>
  					<li><a href="admin.php?act=videouser">Video</a></li>
+
                 </ul>
             </li>
          
@@ -49,13 +45,17 @@
             
             
                 
-            <li><a href="#"> Quản lý thông tin trang chủ &darr;</a>
-                <ul> 
+            <li><a href="#"> Quản lý Trang chủ &darr;</a>
+                <ul>
+                    <li><a href="admin.php?act=shop_category">Danh mục shop</a> </li>
+                    <li><a href="admin.php?act=itemuser">Sản phẩm</a></li>
+                    <li><a href="admin.php?act=service">Dịch vụ</a></li>
+                    <li><a href="admin.php?act=newuser">Tin tức</a></li>
                     <li><a href="admin.php?act=config&id=2">Cấu hình</a>  </li>
                     <li><a href="admin.php?act=slider">Slide ảnh</a> </li> 
                     <li><a href="admin.php?act=jbstin">Thông tin</a> </li> 
                     <li><a href="admin.php?act=hotro">Hỗ trợ</a> </li> 
-                    <li><a href="admin.php?act=adv">Quảng cáo</a> </li> 
+                    <li><a href="admin.php?act=adv">Quảng cáo</a> </li>
                 </ul>
             </li>
              
