@@ -259,7 +259,7 @@ $(document).ready(function() {
                                   </td>
                                   
                                  <td width="88" align="center" colspan="1">
-                                  <div><a href="admin.php?act=item_category_m">
+                                  <div><a href="admin.php?act=<?php if($_GET['act'] == 'news_category'){echo "news_category_m";}else{echo "item_category_m";} ?>">
                                   <img width="48" height="48" border="0" src="images/them.png">
                                   </a></div></td>
                                 </tr>
@@ -329,7 +329,7 @@ $(document).ready(function() {
                                     <?=$row['dateAdd']?>
                                 </td>                                        
                                 <td align="center">
-                                    <a href="admin.php?act=item_category_m&cat=<?=$_REQUEST['cat']?>&page=<?=$_REQUEST['page']?>&id=<?=$row['id']?>"><img src="images/icon3.png"/></a>
+                                    <a href="admin.php?act=<?php if($_GET['act'] == 'news_category'){echo "news_category_m";}else{echo "item_category_m";} ?>&cat=<?=$_REQUEST['cat']?>&page=<?=$_REQUEST['page']?>&id=<?=$row['id']?>"><img src="images/icon3.png"/></a>
                                     <a  title="Xóa" href="admin.php?act=item_category&action=del&page=<?=$_REQUEST['page']?>&id=<?=$row['id']?>" onclick="return confirm('Bạn có muốn xoá luôn không ?');" ><img src="images/icon4.png" width="20" border="0" /></a>
                                 </td>
                             </tr>
