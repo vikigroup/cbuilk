@@ -35,7 +35,8 @@ switch ($frame){
 	case "item"             : include("item/item.php");break;
 	case "service"          : include("item/service.php");break;
 	case "item_m"           : include("item/item_m.php");break;
-	case "itemsaleoff"      : include("item/itemsaleoff.php");break;
+    case "service_m"        : include("item/item_m.php");break;
+    case "itemsaleoff"      : include("item/itemsaleoff.php");break;
 	
 	//support
 	case "hotro"             : include("hotro/hotro.php");break;
