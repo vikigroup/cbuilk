@@ -305,7 +305,7 @@ $(document).ready(function() {
                                     <option value="<?php echo $row['id']; ?>"><?php echo $row['name']; ?></option>
                                     <?php } ?>
                                   </select>
-                                    <input class="table_khungnho"  name="tukhoa" id="tukhoa" type="text" value="<?=$tukhoa?>"  placeholder="Từ khóa" />
+                                    <input class="table_khungnho"  name="tukhoa" id="tukhoa" type="text" value="<?php if($tukhoa != '-1'){echo $tukhoa;}?>"  placeholder="Từ khóa" />
                                         <input name="tim" type="submit" class="nut_table" id="tim" value="Tìm kiếm"/>
                                         <input type="submit" name="reset" class="nut_table" value="Reset" title=" Reset " />
                                  
