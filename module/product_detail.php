@@ -174,9 +174,9 @@ if($ghinho==1){ // prodetail
                     <div class="popup-form">
                         <div class="input-group">
                             <p><input type="text" id="txtNamePopup" placeholder="Tên người nhận"></p>
-                            <p><input type="text" id="txtPhonePopup" placeholder="Điện thoại (bắc buộc)"></p>
+                            <p><input type="text" id="txtPhonePopup" placeholder="Điện thoại (bắt buộc)"></p>
                             <p><input type="text" id="txtAddressPopup" placeholder="Địa chỉ"></p>
-                            <p><input type="email" id="emailPopup" placeholder="Email (bắc buộc)"></p>
+                            <p><input type="email" id="emailPopup" placeholder="Email (bắt buộc)"></p>
                             <p><input type="button" value="XÁC NHẬN" id="btnConfirmPopup"></p>
                         </div>
                     </div>
