@@ -325,9 +325,8 @@ if ($_REQUEST['cat']!='') $where="parent=".$_REQUEST['cat']; ?>
         <select name="ddCatch" id="ddCatch" class="list_tim_loc table_list">
             <?php if($_POST['ddCatch']!=NULL && $_POST['ddCatch']!=-1 ){ ?>
                 <option value="<?php echo $parent1=$_POST['ddCatch'] ; ?>"><?php echo get_field('tbl_shop_category','id',$parent1,'name'); ?> </option>
-            <?php }else{?>
+            <?php }?>
             <option value="-1"> Chọn danh mục con </option>
-            <?php } ?>
         </select>
         <input class="table_khungnho"  name="tukhoa" id="tukhoa" type="text" value="Từ khóa..." onfocus="if(this.value=='Từ khóa...') this.value='';" onblur="if(this.value=='') this.value='Từ khóa...';" />
         <input name="tim" type="submit" class="nut_table" id="tim" value="Tìm kiếm"/>
@@ -471,7 +470,7 @@ while($row=mysql_fetch_array($result)){
 
         <td align="left">
             <?=$row['name']?><br />
-            Thể loại:<?php echo get_field('tbl_shop_category','id',get_field('tbl_shop_category','id',$row['parent'],'parent'),'name');?> <br />
+            Thể loại:<?php echo get_field('tbl_shop_category','id',get_field('tbl_shop_category','id',$row['parent1'],'id'),'name');?> <br />
             Loại    :<?php echo get_field('tbl_shop_category','id',$row['parent'],'name');?>
         </td>
         <td align="center">
