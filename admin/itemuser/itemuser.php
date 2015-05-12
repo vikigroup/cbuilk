@@ -282,11 +282,11 @@ $(document).ready(function() {
     
                     <input type="hidden" name="page" value="<?=$page?>">
     
-                    <input type="hidden" name="act" value="item">
+                    <input type="hidden" name="act" value="itemuser">
     
                     <?
     
-                   // $pageindex = createPage(countRecord("tbl_item",$where),"./?act=shop_category&cat=".$_REQUEST['cat']."&page=",$MAXPAGE,$page)?>
+                   // $pageindex = createPage(countRecord("tbl_itemuser",$where),"./?act=shop_category&cat=".$_REQUEST['cat']."&page=",$MAXPAGE,$page)?>
     
     
                     <? if ($_REQUEST['code']==1) $errMsg = 'Cập nhật thành công.'?>
@@ -309,20 +309,20 @@ $(document).ready(function() {
                                   <td valign="middle" style="background-color:#F0F0F0; height:40px; padding-left:20px" colspan="10">  
                                   		<? //comboCategory('ddCat',getArrayCategory('tbl_shop_category'),'list_tim_loc',$parent,1)?>
                                         
-                                        <select name="ddCat" id="ddCat" class="list_tim_loc"> 
+                                        <select name="ddCat" id="ddCat" class="list_tim_loc table_list">
 											<?php if($_POST['ddCat']!=NULL){ ?>
                                             <option value="<?php echo $idtheloaic=$_POST['ddCat'] ; ?>"><?php echo get_field('tbl_shop_category','id',$parent,'name'); ?> </option>
                                             <?php }?>
                                             
                                             <option value="-1" <?php if($parent==-1) echo 'selected="selected"';?> > Chọn danh mục </option> 
                                             <?php   
-											$gt=get_records("tbl_shop_category","parent=2 and status=0 and id != 211","id DESC"," "," ");
+											$gt=get_records("tbl_shop_category","parent=2 and status=0 and cate=0","id DESC"," "," ");
                                             while($row=mysql_fetch_assoc($gt)){?>
                                             <option value="<?php echo $row['id']; ?>"><?php echo $row['name']; ?></option> 
                                             <?php } ?>
                                         
                                         </select>
-                                        <select name="ddCatch" id="ddCatch" class="list_tim_loc"> 
+                                        <select name="ddCatch" id="ddCatch" class="list_tim_loc table_list">
 											<?php if($_POST['ddCatch']!=NULL && $_POST['ddCatch']!=-1 ){ ?>
                                             <option value="<?php echo $parent1=$_POST['ddCatch'] ; ?>"><?php echo get_field('tbl_shop_category','id',$parent1,'name'); ?> </option>
                                             <?php }?>
