@@ -316,7 +316,7 @@ $(document).ready(function() {
                                             
                                             <option value="-1" <?php if($parent==-1) echo 'selected="selected"';?> > Chọn danh mục </option> 
                                             <?php   
-											$gt=get_records("tbl_shop_category","parent=2 and status=0 ","id DESC"," "," ");
+											$gt=get_records("tbl_shop_category","parent=2 and status=0 and id != 211","id DESC"," "," ");
                                             while($row=mysql_fetch_assoc($gt)){?>
                                             <option value="<?php echo $row['id']; ?>"><?php echo $row['name']; ?></option> 
                                             <?php } ?>
