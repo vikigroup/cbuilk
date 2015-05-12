@@ -179,7 +179,7 @@ $(document).ready(function() {
 					}
                     else $where="1=1   and (id='{$tukhoa}' or name LIKE '%$tukhoa%' or '{$tukhoa}'=-1)";
 					
-					$where.=" AND ( status='{$anhien}' or '{$anhien}'=-1)  AND ( hot='{$noibat}' or '{$noibat}'=-1)"; 
+					$where.=" AND ( status='{$anhien}' or '{$anhien}'=-1)  AND ( hot='{$noibat}' or '{$noibat}'=-1)";
 				
                 $MAXPAGE=1;
 				$totalRows=countRecord("tbl_shop_category",$where);
@@ -210,14 +210,14 @@ $(document).ready(function() {
                                   <td valign="middle" style="background-color:#F0F0F0; height:40px; padding-left:20px" colspan="10">  
                                   		<? //comboCategory('ddCat',getArrayCategory('jbs_news_category'),'list_tim_loc',$parent,1)?>
                                         
-                                        <select name="ddCat" id="ddCat" class="list_tim_loc"> 
+                                        <select name="ddCat" id="ddCat" class="list_tim_loc table_list">
 											<?php if($_POST['ddCat']!=NULL){ ?>
                                             <option value="<?php echo $idtheloaic=$_POST['ddCat'] ; ?>"><?php echo get_field('tbl_shop_category','id',$parent,'name'); ?> </option> 
                                             <?php }?>
                                             
                                             <option value="-1" <?php if($parent==-1) echo 'selected="selected"';?> > Chọn danh mục </option> 
                                             <?php   
-											$gt=get_records("tbl_shop_category","parent=2 and status=0 ","id DESC"," "," ");
+											$gt=get_records("tbl_shop_category","parent=2 and status=0 and id!=211","id DESC"," "," ");
                                             while($row=mysql_fetch_assoc($gt)){?>
                                             <option value="<?php echo $row['id']; ?>"><?php echo $row['name']; ?></option> 
                                             <?php } ?>
@@ -293,7 +293,7 @@ $(document).ready(function() {
 						if ($_REQUEST['sortby']!='') $sortby="order by ".(int)$_REQUEST['sortby'];
 						$direction=($_REQUEST['direction']==''||$_REQUEST['direction']=='0'?"desc":"");
 						
-						 $sql="select *,DATE_FORMAT(date_added,'%d/%m/%Y %h:%i') as dateAdd,DATE_FORMAT(last_modified,'%d/%m/%Y %h:%i') as dateModify from tbl_shop_category where   $where $sortby   limit ".($startRow).",".$pageSize;
+						 $sql="select *,DATE_FORMAT(date_added,'%d/%m/%Y %h:%i') as dateAdd,DATE_FORMAT(last_modified,'%d/%m/%Y %h:%i') as dateModify from tbl_shop_category where $where and parent != 211 $sortby   limit ".($startRow).",".$pageSize;
 						$result=mysql_query($sql,$conn);
 						$i=0;
 						while($row=mysql_fetch_array($result)){
