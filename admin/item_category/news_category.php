@@ -217,7 +217,7 @@ if ($_REQUEST['cat']!='') $where="parent=".$_REQUEST['cat']; ?>
 
                 <option value="-1" <?php if($parent==-1) echo 'selected="selected"';?> > Chọn danh mục </option>
                 <?php
-                $gt=get_records("tbl_shop_category","parent=2 and status=0 and id=211","id DESC"," "," ");
+                $gt=get_records("tbl_shop_category","parent=2 and status=0 and cate=1","id DESC"," "," ");
                 while($row=mysql_fetch_assoc($gt)){?>
                     <option value="<?php echo $row['id']; ?>"><?php echo $row['name']; ?></option>
                 <?php } ?>
@@ -293,7 +293,7 @@ if ($_REQUEST['cat']!='') $where="parent=".$_REQUEST['cat']; ?>
     if ($_REQUEST['sortby']!='') $sortby="order by ".(int)$_REQUEST['sortby'];
     $direction=($_REQUEST['direction']==''||$_REQUEST['direction']=='0'?"desc":"");
 
-    $sql="select *,DATE_FORMAT(date_added,'%d/%m/%Y %h:%i') as dateAdd,DATE_FORMAT(last_modified,'%d/%m/%Y %h:%i') as dateModify from tbl_shop_category where $where and parent = 211 $sortby   limit ".($startRow).",".$pageSize;
+    $sql="select *,DATE_FORMAT(date_added,'%d/%m/%Y %h:%i') as dateAdd,DATE_FORMAT(last_modified,'%d/%m/%Y %h:%i') as dateModify from tbl_shop_category where $where $sortby   limit ".($startRow).",".$pageSize;
     $result=mysql_query($sql,$conn);
     $i=0;
     while($row=mysql_fetch_array($result)){
