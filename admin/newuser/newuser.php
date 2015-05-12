@@ -470,8 +470,8 @@ while($row=mysql_fetch_array($result)){
 
         <td align="left">
             <?=$row['name']?><br />
-            Thể loại:<?php echo get_field('tbl_shop_category','id',get_field('tbl_shop_category','id',$row['parent1'],'id'),'name');?> <br />
-            Loại    :<?php echo get_field('tbl_shop_category','id',$row['parent'],'name');?>
+            Thể loại:<?php echo get_field('tbl_shop_category','id',get_field('tbl_shop_category','id',$row['parent'],'id'),'name');?> <br />
+            Loại    :<?php echo get_field('tbl_shop_category','id',$row['parent1'],'name');?>
         </td>
         <td align="center">
             <a href="http://<?php echo get_field('tbl_shop','id',$row['idshop'],'subject');?>.jbs.vn" target="_blank">	<?php echo get_field('tbl_shop','id',$row['idshop'],'name');?></a>

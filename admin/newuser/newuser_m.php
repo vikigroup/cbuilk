@@ -8,6 +8,11 @@ if(isset($frame)==true){
 
 <script language="javascript">
 function btnSave_onclick(){
+    if($('#ddCat').val() == -1){
+        alert('Hãy chọn "danh mục"');
+        return false;
+    }
+
 	if(test_empty(document.frmForm.txtName.value)){
 		alert('Hãy nhập "tên" !');
 		document.frmForm.txtName.focus();
@@ -18,12 +23,12 @@ function btnSave_onclick(){
 		document.frmForm.txtSort.focus();
 		return false;
 	}
-	
+
 	//document.forms.frmForm.elements.txtSubject.value = oEdit0.getHTMLBody();
 	document.frmForm.txtDetailShort.focus();
 	document.forms.frmForm.elements.txtDetail.value = oEdit2.getHTMLBody();
-	
-	return true;
+
+    return true;
 }
 </script>
 
@@ -44,7 +49,7 @@ if (isset($_POST['btnSave'])){
 	$parent        = $_POST['ddCat'];
 	$parent1       = $_POST['ddCatch'];
 	
-	if($parent1==-1) $parent1=$parent;
+	if($parent1==-1) $parent1=211;
 	
 	$subject       = vietdecode($name);
 	$detail_short  = isset($_POST['txtDetailShort']) ? trim($_POST['txtDetailShort']) : '';
@@ -130,8 +135,8 @@ if (isset($_POST['btnSave'])){
 			$code          = $row['code'];
 			$name          = $row['name'];
 			
-			$parent1        = $row['parent1'];
-			$parent         = $row['parent'];
+			$parent1        = $row['parent'];
+			$parent         = get_field('tbl_shop_category','id',$parent1,'parent');
 			
 			if($parent==2) {
 				$parent=$parent1;
