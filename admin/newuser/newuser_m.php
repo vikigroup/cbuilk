@@ -65,7 +65,7 @@ if (isset($_POST['btnSave'])){
 		$lang      = $catInfo['lang'] != '' ? $catInfo['lang'] : $_POST['cmbLang'];
 	}
 
-	if ($name=="") $errMsg .= "Hãy nhập tên danh mục !<br>";
+	if ($name=="") echo $errMsg .= "Hãy nhập tên danh mục !<br>";
 	$errMsg .= checkUpload($_FILES["txtImage"],".jpg;.gif;.bmp;.png",500*1024,0);
 	$errMsg .= checkUpload($_FILES["txtImageLarge"],".jpg;.gif;.bmp;.png",500*1024,0);
 
@@ -168,7 +168,6 @@ if (isset($_POST['btnSave'])){
 ?>
 <div class="alert alert-block no-radius fade in">
     <button type="button" class="close" data-dismiss="alert"><span class="mini-icon cross_c"></span></button>
-    <h4>Warning!</h4>
      <? $errMsg =''?>
 </div>
 <?php }?>
