@@ -217,7 +217,7 @@ if ($_REQUEST['cat']!='') $where="parent=".$_REQUEST['cat']; ?>
 
                 <option value="-1" <?php if($parent==-1) echo 'selected="selected"';?> > Chọn danh mục </option>
                 <?php
-                $gt=get_records("tbl_shop_category","parent=2 and status=0 and cate=1","id DESC"," "," ");
+                $gt=get_records("tbl_shop_category","parent=211 and status=0","id DESC"," "," ");
                 while($row=mysql_fetch_assoc($gt)){?>
                     <option value="<?php echo $row['id']; ?>"><?php echo $row['name']; ?></option>
                 <?php } ?>
