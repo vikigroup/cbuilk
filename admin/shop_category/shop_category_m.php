@@ -188,7 +188,7 @@ if (isset($_POST['btnSave'])){
                             <table  class="table_chinh">
                                 
                                  <tr>
-                                  <td class="table_chu_tieude_them" colspan="2" align="center" valign="middle"  >DANH MỤC SHOP</td>
+                                  <td class="table_chu_tieude_them" colspan="2" align="center" valign="middle"  >DANH MỤC SẢN PHẨM</td>
                               	</tr>
                                 <tr>
                                   <td valign="middle"  class="table_chu">&nbsp;</td>
@@ -207,7 +207,7 @@ if (isset($_POST['btnSave'])){
                                      <?php }?>
                                     <option value="-1" <?php if($parent==-1) echo 'selected="selected"';?> > Chọn danh mục </option>
                                     <?php   
-                                    $gt=get_records("tbl_shop_category","parent=2 and status=0 and parent != 211","id DESC"," "," ");
+                                    $gt=get_records("tbl_shop_category","parent=2 and status=0 and id != 211","id DESC"," "," ");
                                     while($row=mysql_fetch_assoc($gt)){?>
                                     <option value="<?php echo $row['id']; ?>" <?php if($parent==$row['id']) echo 'selected="selected"';?> ><?php echo $row['name']; ?></option>
                                     <?php } ?>
