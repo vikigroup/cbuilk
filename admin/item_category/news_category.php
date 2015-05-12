@@ -95,7 +95,7 @@ else $ks='DESC';
         $(document).ready(function() {
             $("#ddCat").change(function(){
                 var id=$(this).val();//val(1) gan vao gia tri 1 dung trong form
-                var table="jbs_shop_category";
+                var table="tbl_shop_category";
                 $("#ddCatch").load("getChild.php?table="+ table + "&id=" +id); //alert(idthanhpho)
             });
         });
@@ -172,7 +172,12 @@ if (isset($_GET['pageNum'])==true) $pageNum = $_GET['pageNum'];
 if ($pageNum<=0) $pageNum=1;
 $startRow = ($pageNum-1) * $pageSize;
 
-$where="1=1   and (id='{$tukhoa}' or name LIKE '%$tukhoa%' or '{$tukhoa}'=-1) and (idshop='{$parent}'  or '{$parent}'=-1)";
+if($parent!=-1 || $parent1!=-1) {
+    if($parent1!='-1') $parenstrt="$parent1";
+    else $parenstrt=getParent("tbl_shop_category",$parent);
+    $where="1=1   and (id='{$tukhoa}' or name LIKE '%$tukhoa%' or '{$tukhoa}'=-1) and  (parent in ({$parenstrt}) or id=$parent)";
+}
+else $where="1=1   and (id='{$tukhoa}' or name LIKE '%$tukhoa%' or '{$tukhoa}'=-1)";
 
 $where.=" AND ( status='{$anhien}' or '{$anhien}'=-1)  AND ( hot='{$noibat}' or '{$noibat}'=-1)";
 
@@ -193,26 +198,26 @@ if ($_REQUEST['cat']!='') $where="parent=".$_REQUEST['cat']; ?>
     <table width="100%"   class="admin_table">
     <thead>
     <tr align="center" >
-        <td valign="middle"  colspan="11">
+        <td valign="middle"  colspan="10">
             <center>
                 <div class="table_chu_tieude">
-                    <strong>DANH MỤC LOẠI TIN TỨC</strong>
+                    <strong>DANH MỤC TIN TỨC</strong>
                 </div>
             </center>
         </td>
     </tr>
     <tr align="center" >
-        <td valign="middle" style="background-color:#F0F0F0; height:40px; padding-left:20px" colspan="11">
+        <td valign="middle" style="background-color:#F0F0F0; height:40px; padding-left:20px" colspan="10">
             <? //comboCategory('ddCat',getArrayCategory('jbs_news_category'),'list_tim_loc',$parent,1)?>
 
-            <select name="ddCat" id="ddCat" class="table_list">
+            <select name="ddCat" id="ddCat" class="list_tim_loc table_list">
                 <?php if($_POST['ddCat']!=NULL){ ?>
                     <option value="<?php echo $idtheloaic=$_POST['ddCat'] ; ?>"><?php echo get_field('tbl_shop_category','id',$parent,'name'); ?> </option>
                 <?php }?>
 
                 <option value="-1" <?php if($parent==-1) echo 'selected="selected"';?> > Chọn danh mục </option>
                 <?php
-                $gt=get_records("tbl_shop_category","status=0 and id=211","id DESC"," "," ");
+                $gt=get_records("tbl_shop_category","parent=2 and status=0 and id=211","id DESC"," "," ");
                 while($row=mysql_fetch_assoc($gt)){?>
                     <option value="<?php echo $row['id']; ?>"><?php echo $row['name']; ?></option>
                 <?php } ?>
@@ -226,7 +231,7 @@ if ($_REQUEST['cat']!='') $where="parent=".$_REQUEST['cat']; ?>
         </td>
     </tr>
     <tr >
-        <td valign="middle" align="left" style="background-color:#F0F0F0; height:40px; padding-left:20px" colspan="11">
+        <td valign="middle" align="left" style="background-color:#F0F0F0; height:40px; padding-left:20px" colspan="10">
             <div class="link_loc" style="width:80px;text-align:center; padding:3px; border:solid 1px #999; float:left; margin-right:5px;<?php if($noibat==0  &&  $anhien==0) echo 'background-color:#FF0; color:#000;';else echo 'background-color:#FFF; color:#FFF;"';?>">
                 <a href="admin.php?act=news_category&tang=1&anhien=-1&noibat=-1">Tất cả</a>
             </div>
@@ -254,31 +259,30 @@ if ($_REQUEST['cat']!='') $where="parent=".$_REQUEST['cat']; ?>
         <td align="center" colspan="2">
             <input type="submit" value="Xóa chọn" name="btnDel" onClick="return confirm('Bạn có chắc chắn muốn xóa ?');" class="button">
         </td>
-        <td align="center" class="PageNum" colspan="8">
+        <td align="center" class="PageNum" colspan="7">
             <?php echo pagesListLimit($totalRows,$pageSize);?>
         </td>
 
-        <td width="88" align="center" colspan="1">
+        <td width="80" align="center" colspan="1">
             <div><a href="admin.php?act=news_category_m">
                     <img width="48" height="48" border="0" src="images/them.png">
                 </a></div></td>
     </tr>
     <tr class="admin_tieude_table">
-        <td width="20" align="center">
+        <td width="3%" align="center">
             <input name="chkall" id="chkall" type="checkbox"   onClick="chkallClick(this);"/>
         </td>
-        <td width="64" align="center">
+        <td width="4%" align="center">
             STT
         </td>
-        <td width="132" align="center">Hình</td>
-        <td width="160" align="center"><span class="title"><a class="title" href="<?=getLinkSort(3)?>">Tên danh mục</a></span></td>
-        <td width="139" align="center"><a class="title" href="<?=getLinkSort(4)?>">Thuộc danh mục</a></td>
-        <td width="141" align="center"><a class="title" href="<?=getLinkSort(10)?>">Shop</a></td>
-        <td width="55" align="center"><a class="title" href="<?=getLinkSort(10)?>">Thứ tự </a></td>
-        <td width="59" align="center"><a class="title" href="<?=getLinkSort(15)?>">Tiêu biểu</a></td>
-        <td width="85" align="center"><span class="title"><a class="title" href="<?=getLinkSort(11)?>">Không hiển thị</a></span></td>
-        <td width="120" align="center"><a class="title" href="<?=getLinkSort(12)?>">Ngày tạo lập</a></td>
-        <td width="88" align="center">
+        <td width="22%" align="center">Hình</td>
+        <td width="13%" align="center"><span class="title"><a class="title" href="<?=getLinkSort(3)?>">Tên danh mục</a></span></td>
+        <td width="12%" align="center"><a class="title" href="<?=getLinkSort(4)?>">Thuộc danh mục</a></td>
+        <td width="11%" align="center"><a class="title" href="<?=getLinkSort(10)?>">Thứ tự sắp xếp</a></td>
+        <td width="7%" align="center"><a class="title" href="<?=getLinkSort(15)?>">Tiêu biểu</a></td>
+        <td width="11%" align="center"><span class="title"><a class="title" href="<?=getLinkSort(11)?>">Không hiển thị</a></span></td>
+        <td width="10%" align="center"><a class="title" href="<?=getLinkSort(12)?>">Ngày tạo lập</a></td>
+        <td width="7%" align="center">
             Công cụ
         </td>
     </tr>
@@ -289,7 +293,7 @@ if ($_REQUEST['cat']!='') $where="parent=".$_REQUEST['cat']; ?>
     if ($_REQUEST['sortby']!='') $sortby="order by ".(int)$_REQUEST['sortby'];
     $direction=($_REQUEST['direction']==''||$_REQUEST['direction']=='0'?"desc":"");
 
-    $sql="select *,DATE_FORMAT(date_added,'%d/%m/%Y %h:%i') as dateAdd,DATE_FORMAT(last_modified,'%d/%m/%Y %h:%i') as dateModify from tbl_shop_category where   $where $sortby   limit ".($startRow).",".$pageSize;
+    $sql="select *,DATE_FORMAT(date_added,'%d/%m/%Y %h:%i') as dateAdd,DATE_FORMAT(last_modified,'%d/%m/%Y %h:%i') as dateModify from tbl_shop_category where $where and parent = 211 $sortby   limit ".($startRow).",".$pageSize;
     $result=mysql_query($sql,$conn);
     $i=0;
     while($row=mysql_fetch_array($result)){
@@ -314,12 +318,6 @@ if ($_REQUEST['cat']!='') $where="parent=".$_REQUEST['cat']; ?>
             <td align="center">
                 <?=$parent['name']?>
             </td>
-            <td align="left">
-                Shop: <?
-                echo get_field('tbl_shop','id',$row['idshop'],'name');
-                ?><br />
-                User: <? echo   get_field('tbl_customer','id',get_field('tbl_shop','id',$row['idshop'],'iduser'),'username');?>
-            </td>
             <td align="center">
                 <?=$row['sort']?>
             </td>
@@ -337,7 +335,7 @@ if ($_REQUEST['cat']!='') $where="parent=".$_REQUEST['cat']; ?>
 
     </tbody>
     <tr>
-        <td  class="PageNext" colspan="11" align="center" valign="middle">
+        <td  class="PageNext" colspan="10" align="center" valign="middle">
             <div style="padding:5px;">
                           <?php echo pagesLinks($totalRows,$pageSize);// Trang đầu,  Trang kế, tang trước, trang cuối ??>
                           </div>
