@@ -41,7 +41,6 @@ if (isset($_POST['btnSave'])){
     $parent1       = $_POST['ddCatch'];
 
     if($parent1==-1) $parent1=$parent;
-    IF($parent1==-1 && $parent==-1 )$parent1=2;
     $subject       = vietdecode($name);
     $detail_short  = isset($_POST['txtDetailShort']) ? trim($_POST['txtDetailShort']) : '';
     $detail        = isset($_POST['txtDetail']) ? trim($_POST['txtDetail']) : '';
@@ -59,7 +58,7 @@ if (isset($_POST['btnSave'])){
         $lang      = $catInfo['lang'] != '' ? $catInfo['lang'] : $_POST['cmbLang'];
     }
 
-    if ($name=="") $errMsg .= "Hãy nhập tên danh mục !<br>";
+    if ($name=="") echo $errMsg .= "Hãy nhập tên danh mục !<br>";
     $errMsg .= checkUpload($_FILES["txtImage"],".jpg;.gif;.bmp;.png",500*1024,0);
     $errMsg .= checkUpload($_FILES["txtImageLarge"],".jpg;.gif;.bmp;.png",500*1024,0);
 
@@ -126,7 +125,7 @@ if (isset($_POST['btnSave'])){
             $code          = $row['code'];
             $name          = $row['name'];
             $parent1        = $row['parent'];
-            $parent         = get_field('tbl_shop_category','id',$parent1,'parent');
+            $parent         = get_field('tbl_shop_category','id',$row['parent'],'parent');
 
             if($parent==2) {
                 $parent=$parent1;
@@ -156,7 +155,6 @@ if( $errMsg !=""){
     ?>
     <div class="alert alert-block no-radius fade in">
         <button type="button" class="close" data-dismiss="alert"><span class="mini-icon cross_c"></span></button>
-        <h4>Warning!</h4>
         <? $errMsg =''?>
     </div>
 <?php }?>
