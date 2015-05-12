@@ -130,8 +130,8 @@ if (isset($_POST['btnSave'])){
 			$code          = $row['code'];
 			$name          = $row['name'];
 			
-			$parent1        = $row['parent'];
-			$parent         = get_field('tbl_shop_category','id',$parent1,'parent');
+			$parent1        = $row['parent1'];
+			$parent         = $row['parent'];
 			
 			if($parent==2) {
 				$parent=$parent1;
