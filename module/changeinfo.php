@@ -176,7 +176,7 @@
                         </div>
                         <div class="r_f_tt">
                             <div style="padding-bottom:15px;">
-                            <input style="background:url('<?php echo $linkrootshop ;?>imgs/layout/ok.png') no-repeat scroll 0 0 rgba(0, 0, 0, 0);" name="them" class="btn_dn" type="submit" value="&nbsp;"/>
+                            <input style="background:url('<?php echo $linkrootshop ;?>/imgs/layout/ok.png') no-repeat scroll 0 0 rgba(0, 0, 0, 0);" name="them" class="btn_dn" type="submit" value="&nbsp;"/>
                             </div>
                         </div>
                         <div class="clear"></div>
