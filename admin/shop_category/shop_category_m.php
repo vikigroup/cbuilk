@@ -160,6 +160,15 @@ if (isset($_POST['btnSave'])){
      <? $errMsg =''?>
 </div>
 <?php }?>
+<script>
+    $(document).ready(function() {
+        $("#ddCat").change(function(){
+            var id=$(this).val();//val(1) gan vao gia tri 1 dung trong form
+            var table="tbl_shop_category";
+            $("#ddCatch").load("getChild.php?table="+ table + "&id=" +id); //alert(idthanhpho)
+        });
+    });
+</script>
 <div class="row-fluid">
     <div class="span12">
         <div class="box-widget">
