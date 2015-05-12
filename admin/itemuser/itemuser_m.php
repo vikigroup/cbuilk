@@ -69,7 +69,7 @@ if (isset($_POST['btnSave'])){
 			$oldid = $_POST['id'];
 			$sql = "update tbl_item set name='".$name."',parent1='".$parent1."',detail='".$detail."',type='".$loaihinh."',price='".$price."',pricekm='".$pricekm."',sort='".$sort."', status='".$status."',last_modified=now() where id='".$oldid."'";
 		}else{
-			$sql = "insert into tbl_item (name, parent1 , detail, type , price , pricekm , sort, status,  date_added, last_modified  ) values ('".$name."','".$parent1."','".$detail."','".$loaihinh."','".$price."','".$pricekm."','".$sort."','1',now(),now())";
+			$sql = "insert into tbl_item (name, parent, parent1 , detail, type , price , pricekm , sort, status,  date_added, last_modified  ) values ('".$name."','".$parent."','".$parent1."','".$detail."','".$loaihinh."','".$price."','".$pricekm."','".$sort."','1',now(),now())";
 		} 
 		if (mysql_query($sql,$conn)){
 			if(empty($_POST['id'])) $oldid = mysql_insert_id();
@@ -129,9 +129,9 @@ if (isset($_POST['btnSave'])){
 			$row=mysql_fetch_array($result);
 			$code          = $row['code'];
 			$name          = $row['name'];
-			
-			$parent1        = $row['parent1'];
-			$parent         = get_field('tbl_item_category','id',$parent1,'parent');
+
+            $parent1        = $row['parent1'];
+            $parent         = $row['parent'];
 			
 			if($parent==2) {
 				$parent=$parent1;

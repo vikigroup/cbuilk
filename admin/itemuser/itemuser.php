@@ -470,7 +470,7 @@ $(document).ready(function() {
     
                                     <td align="left">
 										<?=$row['name']?><br />
-                                        Thể loại:<?php echo get_field('tbl_shop_category','id',get_field('tbl_shop_category','id',$row['parent'],'parent'),'name');?> <br />
+                                        Thể loại:<?php echo get_field('tbl_shop_category','id',get_field('tbl_shop_category','id',$row['parent1'],'parent'),'name');?> <br />
                                         Loại    :<?php echo get_field('tbl_shop_category','id',$row['parent'],'name');?>
                                     </td>
                                     <td align="center">
