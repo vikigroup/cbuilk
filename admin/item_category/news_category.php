@@ -207,15 +207,15 @@ $(document).ready(function() {
                                         
                                         <select name="ddCat" id="ddCat" class="table_list"> 
 											<?php if($_POST['ddCat']!=NULL){ ?>
-                                            <option value="<?php echo $idtheloaic=$_POST['ddCat'] ; ?>"><?php echo get_field('tbl_item_category','id',$parent,'name'); ?> </option>
+                                            <option value="<?php echo $idtheloaic=$_POST['ddCat'] ; ?>"><?php echo get_field('tbl_shop_category','id',$parent,'name'); ?> </option>
                                             <?php }?>
                                             
                                             <option value="-1" <?php if($parent==-1) echo 'selected="selected"';?> > Chọn danh mục </option> 
                                             <?php   
-											$gt=get_records("tbl_item_category","status=0","id DESC"," "," ");
-                                            while($row=mysql_fetch_assoc($gt)){if($row['cate'] == 1 || in_array($row['id'], array('1', '2', '3'), true)){?>
+											$gt=get_records("tbl_shop_category","status=0 and parent=211","id DESC"," "," ");
+                                            while($row=mysql_fetch_assoc($gt)){?>
                                             <option value="<?php echo $row['id']; ?>"><?php echo $row['name']; ?></option> 
-                                            <?php } } ?>
+                                            <?php } ?>
                                         
                                         </select>
                                         <input class="table_khungnho"  name="tukhoa" id="tukhoa" type="text" value="Từ khóa..." onfocus="if(this.value=='Từ khóa...') this.value='';" onblur="if(this.value=='') this.value='Từ khóa...';" />

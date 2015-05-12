@@ -54,7 +54,7 @@ if (isset($_POST['btnSave'])){
 	$description   = isset($_POST['description']) ? trim($_POST['description']) : "";
 	$keyword       = isset($_POST['keyword']) ? trim($_POST['keyword']) : "";
 	
-	$catInfo       = getRecord('tbl_item_category', 'id='.$parent);
+	$catInfo       = getRecord('tbl_shop_category', 'id='.$parent);
 	if(!$multiLanguage){
 		$lang      = $catInfo['lang'];
 	}else{
@@ -87,7 +87,7 @@ if (isset($_POST['btnSave'])){
 				$extsmall=getFileExtention($_FILES['txtImage']['name']);
 				if (makeUpload($_FILES['txtImage'],"$path/item_category_s$oldid$extsmall")){
 					@chmod("$path/item_category_s$oldid$extsmall", 0777);
-					$sqlUpdateField = " image='$pathdb/item_category_s$oldid$extsmall' ";
+					$sqlUpdateField = " image='$pathdb/shop_category_s$oldid$extsmall' ";
 				}
 			}else{
 				if(file_exists('../'.$r['image'])) @unlink('../'.$r['image']);
@@ -128,7 +128,7 @@ if (isset($_POST['btnSave'])){
 			$code          = $row['code'];
 			$name          = $row['name'];
 			$parent1        = $row['parent'];
-			$parent         = get_field('tbl_item_category','id',$parent1,'parent');
+			$parent         = get_field('tbl_shop_category','id',$parent1,'parent');
 			
 			if($parent==2) {
 				$parent=$parent1;
@@ -206,14 +206,14 @@ $(document).ready(function() {
                                     <option value="<?php echo $idtheloaic=$_POST['ddCat'] ; ?>"><?php echo get_field('jbs_shop_category','id',$parent,'name'); ?></option>
                                     <?php }?>
                                     <?php if($parent!=-1 && $parent!=""){?>
-                                     <option value="<?php echo $parent ?>"><?php echo get_field('tbl_item_category','id',$parent,'name'); ?></option>
+                                     <option value="<?php echo $parent ?>"><?php echo get_field('tbl_shop_category','id',$parent,'name'); ?></option>
                                      <?php }?>
 
                                     <?php
-                                    $gt=get_records("tbl_item_category"," status=0 and (idshop='{$idshop}' or '{$idshop}'=-1) ","id DESC"," "," ");
-                                    while($row=mysql_fetch_assoc($gt)){if($row['cate'] == 1 || in_array($row['id'], array('1', '2', '3'), true)){?>
+                                    $gt=get_records("tbl_shop_category"," status=0 and parent=211 and (idshop='{$idshop}' or '{$idshop}'=-1) ","id DESC"," "," ");
+                                    while($row=mysql_fetch_assoc($gt)){?>
                                     <option value="<?php echo $row['id']; ?>" <?php if($parent==$row['id']) echo 'selected="selected"';?> ><?php echo $row['name']; ?></option>
-                                    <?php } } ?>
+                                    <?php } ?>
                                   </select></td>
             
                                 </tr>
@@ -226,7 +226,7 @@ $(document).ready(function() {
                                       <option value="<?php echo $parent1=$_POST['ddCatch'] ; ?>"><?php echo get_field('jbs_shop_category','id',$parent1,'name'); ?></option>
                                       <?php }?>
                                        <?php if($parent1!=-1 && $parent1!=""){?>
-                                      <option value="<?php echo $parent1 ?>"><?php echo get_field('tbl_item_category','id',$parent1,'name'); ?></option>
+                                      <option value="<?php echo $parent1 ?>"><?php echo get_field('tbl_shop_category','id',$parent1,'name'); ?></option>
                                       <?php }?>
                                       <option value="-1"> Chọn danh mục con </option>
                                     </select>
