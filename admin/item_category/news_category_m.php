@@ -115,7 +115,7 @@ if (isset($_POST['btnSave'])){
     }
 
     if ($errMsg == '')
-        echo '<script>window.location="admin.php?act=news_category&cat='.$_REQUEST['cat'].'&page='.$_REQUEST['page'].'&code=1"</script>';
+        echo '<script>window.location="admin.php?act=news_category#"</script>';
 }else{
     if (isset($_GET['id'])){
         $oldid=$_GET['id'];
@@ -200,7 +200,7 @@ if( $errMsg !=""){
 
                                 <td valign="middle"><select name="ddCat" id="ddCat" class="table_list">
                                         <?php if($_POST['ddCat']!=NULL){ ?>
-                                            <option value="<?php echo $idtheloaic=$_POST['ddCat'] ; ?>"><?php echo get_field('jbs_shop_category','id',$parent,'name'); ?></option>
+                                            <option value="<?php echo $idtheloaic=$_POST['ddCat'] ; ?>"><?php echo get_field('tbl_shop_category','id',$parent,'name'); ?></option>
                                         <?php }?>
                                         <?php if($parent!=-1 && $parent!=""){?>
                                             <option value="<?php echo $parent ?>"><?php echo get_field('tbl_shop_category','id',$parent,'name'); ?></option>
@@ -220,7 +220,7 @@ if( $errMsg !=""){
                                 <td valign="middle">
                                     <select name="ddCatch" id="ddCatch" class="table_list">
                                         <?php if($_POST['ddCatch']!=NULL && $_POST['ddCatch']!=-1 ){ ?>
-                                            <option value="<?php echo $parent1=$_POST['ddCatch'] ; ?>"><?php echo get_field('jbs_shop_category','id',$parent1,'name'); ?></option>
+                                            <option value="<?php echo $parent1=$_POST['ddCatch'] ; ?>"><?php echo get_field('tbl_shop_category','id',$parent1,'name'); ?></option>
                                         <?php }?>
                                         <?php if($parent1!=-1 && $parent1!=""){?>
                                             <option value="<?php echo $parent1 ?>"><?php echo get_field('tbl_shop_category','id',$parent1,'name'); ?></option>
