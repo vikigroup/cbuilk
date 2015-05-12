@@ -200,14 +200,14 @@ if (isset($_POST['btnSave'])){
             
                                   <td valign="middle"><select name="ddCat" id="ddCat" class="table_list">
                                     <?php if($_POST['ddCat']!=NULL){ ?>
-                                    <option value="<?php echo $idtheloaic=$_POST['ddCat'] ; ?>"><?php echo get_field('jbs_shop_category','id',$parent,'name'); ?></option>
+                                    <option value="<?php echo $idtheloaic=$_POST['ddCat'] ; ?>"><?php echo get_field('tbl_shop_category','id',$parent,'name'); ?></option>
                                     <?php }?>
                                     <?php if($parent!=-1 && $parent!=""){?>
                                      <option value="<?php echo $parent ?>"><?php echo get_field('tbl_shop_category','id',$parent,'name'); ?></option>
                                      <?php }?>
                                     <option value="-1" <?php if($parent==-1) echo 'selected="selected"';?> > Chọn danh mục </option>
                                     <?php   
-                                    $gt=get_records("tbl_shop_category","parent=2 and status=0 and id != 211","id DESC"," "," ");
+                                    $gt=get_records("tbl_shop_category","parent=2 and status=0 and cate=0","id DESC"," "," ");
                                     while($row=mysql_fetch_assoc($gt)){?>
                                     <option value="<?php echo $row['id']; ?>" <?php if($parent==$row['id']) echo 'selected="selected"';?> ><?php echo $row['name']; ?></option>
                                     <?php } ?>
@@ -220,7 +220,7 @@ if (isset($_POST['btnSave'])){
                                   <td valign="middle"> 
                                     <select name="ddCatch" id="ddCatch" class="table_list">
                                       <?php if($_POST['ddCatch']!=NULL && $_POST['ddCatch']!=-1 ){ ?>
-                                      <option value="<?php echo $parent1=$_POST['ddCatch'] ; ?>"><?php echo get_field('jbs_shop_category','id',$parent1,'name'); ?></option>
+                                      <option value="<?php echo $parent1=$_POST['ddCatch'] ; ?>"><?php echo get_field('tbl_shop_category','id',$parent1,'name'); ?></option>
                                       <?php }?>
                                        <?php if($parent1!=-1 && $parent1!=""){?>
                                       <option value="<?php echo $parent1 ?>"><?php echo get_field('tbl_shop_category','id',$parent1,'name'); ?></option>
