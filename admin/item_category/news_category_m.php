@@ -115,7 +115,7 @@ if (isset($_POST['btnSave'])){
     }
 
     if ($errMsg == '')
-        echo '<script>window.location="admin.php?act=news_category#"</script>';
+        echo '<script>window.location="admin.php?act=news_category&cat='.$_REQUEST['cat'].'&page='.$_REQUEST['page'].'&code=1"</script>';
 }else{
     if (isset($_GET['id'])){
         $oldid=$_GET['id'];
@@ -207,7 +207,7 @@ if( $errMsg !=""){
                                         <?php }?>
                                         <option value="-1" <?php if($parent==-1) echo 'selected="selected"';?> > Chọn danh mục </option>
                                         <?php
-                                        $gt=get_records("tbl_shop_category","status=0 and id=211","id DESC"," "," ");
+                                        $gt=get_records("tbl_shop_category","status=0 and parent=211","id DESC"," "," ");
                                         while($row=mysql_fetch_assoc($gt)){?>
                                             <option value="<?php echo $row['id']; ?>" <?php if($parent==$row['id']) echo 'selected="selected"';?> ><?php echo $row['name']; ?></option>
                                         <?php } ?>
@@ -311,7 +311,7 @@ if( $errMsg !=""){
                             </tr>
                             <tr>
                                 <td valign="top" width="30%">
-                                    Không hiển thị</td>
+                                    Hiển thị</td>
                                 <td valign="middle" width="70%">
                                     <input type="checkbox" name="chkStatus" value="on" <? if ($status>0) echo 'checked' ?>>
                                 </td>
