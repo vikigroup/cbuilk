@@ -59,7 +59,7 @@ else $ks='DESC';
                 obj = this;
                 $.ajax({
                     url:'status.php',
-                    data: 'id='+ id +'&table=tbl_item_category',
+                    data: 'id='+ id +'&table=tbl_shop_category',
                     cache: false,
                     success: function(data){ //alert(idvnexpres);
                         obj.src=data;
@@ -74,7 +74,7 @@ else $ks='DESC';
                 obj = this;
                 $.ajax({
                     url:'hot.php',
-                    data: 'id='+ id +'&table=tbl_item_category',
+                    data: 'id='+ id +'&table=tbl_shop_category',
                     cache: false,
                     success: function(data){ //alert(idvnexpres);
                         obj.src=data;
@@ -95,7 +95,7 @@ else $ks='DESC';
         $(document).ready(function() {
             $("#ddCat").change(function(){
                 var id=$(this).val();//val(1) gan vao gia tri 1 dung trong form
-                var table="jbs_item_category";
+                var table="jbs_shop_category";
                 $("#ddCatch").load("getChild.php?table="+ table + "&id=" +id); //alert(idthanhpho)
             });
         });
@@ -122,10 +122,10 @@ if( $errMsg !=""){
 switch ($_GET['action']){
     case 'del' :
         $id = $_GET['id'];
-        $r = getRecord("tbl_item_category","id=".$id);
-        $resultParent = mysql_query("select id from tbl_item_category where parent='".$id."'",$conn);
+        $r = getRecord("tbl_shop_category","id=".$id);
+        $resultParent = mysql_query("select id from tbl_shop_category where parent='".$id."'",$conn);
         if (mysql_num_rows($resultParent) <= 0){
-            @$result = mysql_query("delete from tbl_item_category where id='".$id."'",$conn);
+            @$result = mysql_query("delete from tbl_shop_category where id='".$id."'",$conn);
             if ($result){
                 if(file_exists('../'.$r['image'])) @unlink('../'.$r['image']);
                 if(file_exists('../'.$r['image_large'])) @unlink('../'.$r['image_large']);
@@ -143,10 +143,10 @@ if (isset($_POST['btnDel'])){
     $cntParentExist=0;
     if($_POST['chk']!=''){
         foreach ($_POST['chk'] as $id){
-            $r = getRecord("tbl_item_category","id=".$id);
-            $resultParent = mysql_query("select id from tbl_item_category where parent='".$id."'",$conn);
+            $r = getRecord("tbl_shop_category","id=".$id);
+            $resultParent = mysql_query("select id from tbl_shop_category where parent='".$id."'",$conn);
             if (mysql_num_rows($resultParent) <= 0){
-                @$result = mysql_query("delete from tbl_item_category where id='".$id."'",$conn);
+                @$result = mysql_query("delete from tbl_shop_category where id='".$id."'",$conn);
                 if ($result){
                     if(file_exists('../'.$r['image'])) @unlink('../'.$r['image']);
                     if(file_exists('../'.$r['image_large'])) @unlink('../'.$r['image_large']);
@@ -177,14 +177,14 @@ $where="1=1   and (id='{$tukhoa}' or name LIKE '%$tukhoa%' or '{$tukhoa}'=-1) an
 $where.=" AND ( status='{$anhien}' or '{$anhien}'=-1)  AND ( hot='{$noibat}' or '{$noibat}'=-1)";
 
 $MAXPAGE=1;
-$totalRows=countRecord("tbl_item_category",$where);
+$totalRows=countRecord("tbl_shop_category",$where);
 
 if ($_REQUEST['cat']!='') $where="parent=".$_REQUEST['cat']; ?>
 <form method="POST" action="#" name="frmForm" enctype="multipart/form-data">
     <input type="hidden" name="page" value="<?=$page?>">
     <input type="hidden" name="act" value="news_category">
 <?
-// $pageindex = createPage(countRecord("tbl_item_category",$where),"./?act=item_category&cat=".$_REQUEST['cat']."&page=",$MAXPAGE,$page)?>
+// $pageindex = createPage(countRecord("tbl_shop_category",$where),"./?act=shop_category&cat=".$_REQUEST['cat']."&page=",$MAXPAGE,$page)?>
 
 <? if ($_REQUEST['code']==1) $errMsg = 'Cập nhật thành công.'?>
 
@@ -212,7 +212,7 @@ if ($_REQUEST['cat']!='') $where="parent=".$_REQUEST['cat']; ?>
 
                 <option value="-1" <?php if($parent==-1) echo 'selected="selected"';?> > Chọn danh mục </option>
                 <?php
-                $gt=get_records("tbl_shop_category","status=0 and parent=211","id DESC"," "," ");
+                $gt=get_records("tbl_shop_category","status=0 and id=211","id DESC"," "," ");
                 while($row=mysql_fetch_assoc($gt)){?>
                     <option value="<?php echo $row['id']; ?>"><?php echo $row['name']; ?></option>
                 <?php } ?>
@@ -289,11 +289,11 @@ if ($_REQUEST['cat']!='') $where="parent=".$_REQUEST['cat']; ?>
     if ($_REQUEST['sortby']!='') $sortby="order by ".(int)$_REQUEST['sortby'];
     $direction=($_REQUEST['direction']==''||$_REQUEST['direction']=='0'?"desc":"");
 
-    $sql="select *,DATE_FORMAT(date_added,'%d/%m/%Y %h:%i') as dateAdd,DATE_FORMAT(last_modified,'%d/%m/%Y %h:%i') as dateModify from tbl_item_category where   $where $sortby   limit ".($startRow).",".$pageSize;
+    $sql="select *,DATE_FORMAT(date_added,'%d/%m/%Y %h:%i') as dateAdd,DATE_FORMAT(last_modified,'%d/%m/%Y %h:%i') as dateModify from tbl_shop_category where   $where $sortby   limit ".($startRow).",".$pageSize;
     $result=mysql_query($sql,$conn);
     $i=0;
     while($row=mysql_fetch_array($result)){
-        $parent = getRecord('tbl_item_category','id = '.$row['parent']);
+        $parent = getRecord('tbl_shop_category','id = '.$row['parent']);
         $color = $i++%2 ? "#d5d5d5" : "#e5e5e5";
         ?>
         <tr>

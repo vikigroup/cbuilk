@@ -160,6 +160,15 @@ if( $errMsg !=""){
         <? $errMsg =''?>
     </div>
 <?php }?>
+<script>
+    $(document).ready(function() {
+        $("#ddCat").change(function(){
+            var id=$(this).val();//val(1) gan vao gia tri 1 dung trong form
+            var table="tbl_shop_category";
+            $("#ddCatch").load("getChild.php?table="+ table + "&id=" +id); //alert(idthanhpho)
+        });
+    });
+</script>
 <div class="row-fluid">
     <div class="span12">
         <div class="box-widget">
@@ -198,7 +207,7 @@ if( $errMsg !=""){
                                         <?php }?>
                                         <option value="-1" <?php if($parent==-1) echo 'selected="selected"';?> > Chọn danh mục </option>
                                         <?php
-                                        $gt=get_records("tbl_shop_category","parent=211 and status=0 ","id DESC"," "," ");
+                                        $gt=get_records("tbl_shop_category","id=211 and status=0","id DESC"," "," ");
                                         while($row=mysql_fetch_assoc($gt)){?>
                                             <option value="<?php echo $row['id']; ?>" <?php if($parent==$row['id']) echo 'selected="selected"';?> ><?php echo $row['name']; ?></option>
                                         <?php } ?>
