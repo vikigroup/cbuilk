@@ -309,24 +309,25 @@ if ($_REQUEST['cat']!='') $where="parent=".$_REQUEST['cat']; ?>
     <td valign="middle" style="background-color:#F0F0F0; height:40px; padding-left:20px" colspan="10">
         <? //comboCategory('ddCat',getArrayCategory('tbl_shop_category'),'list_tim_loc',$parent,1)?>
 
-        <select name="ddCat" id="ddCat" class="list_tim_loc">
+        <select name="ddCat" id="ddCat" class="list_tim_loc table_list">
             <?php if($_POST['ddCat']!=NULL){ ?>
                 <option value="<?php echo $idtheloaic=$_POST['ddCat'] ; ?>"><?php echo get_field('tbl_shop_category','id',$parent,'name'); ?> </option>
             <?php }?>
 
             <option value="-1" <?php if($parent==-1) echo 'selected="selected"';?> > Chọn danh mục </option>
             <?php
-            $gt=get_records("tbl_shop_category","parent=2 and status=0 ","id DESC"," "," ");
+            $gt=get_records("tbl_shop_category","parent=211 and status=0 ","id DESC"," "," ");
             while($row=mysql_fetch_assoc($gt)){?>
                 <option value="<?php echo $row['id']; ?>"><?php echo $row['name']; ?></option>
             <?php } ?>
 
         </select>
-        <select name="ddCatch" id="ddCatch" class="list_tim_loc">
+        <select name="ddCatch" id="ddCatch" class="list_tim_loc table_list">
             <?php if($_POST['ddCatch']!=NULL && $_POST['ddCatch']!=-1 ){ ?>
                 <option value="<?php echo $parent1=$_POST['ddCatch'] ; ?>"><?php echo get_field('tbl_shop_category','id',$parent1,'name'); ?> </option>
-            <?php }?>
+            <?php }else{?>
             <option value="-1"> Chọn danh mục con </option>
+            <?php } ?>
         </select>
         <input class="table_khungnho"  name="tukhoa" id="tukhoa" type="text" value="Từ khóa..." onfocus="if(this.value=='Từ khóa...') this.value='';" onblur="if(this.value=='') this.value='Từ khóa...';" />
         <input name="tim" type="submit" class="nut_table" id="tim" value="Tìm kiếm"/>
