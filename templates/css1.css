@@ -807,9 +807,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 
 .divProductLine1{
     float: left;
-    width: 200px;
-    height: 209px;
-    margin: 0 5px 0 5px;
+    display: inline-block;
 }
 
 .divProductLine1:first-child, .divProductLine1:nth-child(4){
@@ -822,7 +820,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     background-color: #ffffff;
     opacity: 0.9;
     border: 1px solid #E5E5E5;
-    padding: 5px 5px 0 5px;
+    padding: 5px 0;
 }
 
 .divProductOverlay1:hover{
@@ -832,12 +830,13 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 }
 
 .divProductLine1 span{
-    min-width: 190px;
-    /*display: inline-block;*/
+    width: 95%;
+    display: inline-block;
     /*white-space: nowrap;*/
     /*overflow: hidden;*/
     /*text-overflow: ellipsis;*/
     font-weight: normal;
+    padding: 0 5px 0 5px;
 }
 
 .divProductLine1 span:first-child{
@@ -945,9 +944,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     border: none;
     background-color: #ffffff;
     padding: 15px;
-    width: 424px;
-    height: 422px;
-    border: 1px solid grey;
+    display: inline-block;
 }
 /* Text below image */
 #imgPreviewWithStyles span {
@@ -1005,6 +1002,9 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     }
     .r-tool-ct{
         margin-right: 31px;
+    }
+    .divProductLine1{
+        margin: 0 0 0 15px;
     }
 }
 
@@ -1111,6 +1111,9 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 
     .fix_main{
         margin-top: 0;
+    }
+    .divProductLine1{
+        margin: 0 0 0 10px;
     }
 }
 
