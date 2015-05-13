@@ -176,26 +176,31 @@ for($i = 0; $i < 8; $i++){
 
         $container = $('<div/>').attr('id', 'imgPreviewWithStyles').append('<img/>').hide().css('position', 'absolute').appendTo('body'),
 
+
             $img = $('img', $container),
             $('.divProductLine1 .divProductOverlay1').mousemove(function (e) {
+                var windowSize = $(window).width();
                 var mac = navigator.platform.match(/(Mac|iPhone|iPod|iPad)/i) ? true : false;
 //                alert(mac);
                 if(mac == false){
                     $container.css({
                         top: e.pageY - 250 + 'px',
-                        right: 1400 - e.pageX + 'px'
+                        right: windowSize + 50 - e.pageX + 'px'
                     });
                 }
                 else{
                     $container.css({
                         top: e.pageY - 250 + 'px',
-                        right: 1950 - e.pageX + 'px'
+                        right: windowSize - e.pageX + 'px'
                     });
                 }
 
             }).hover(function () {
-                    var link = this;
-                    $container.show();
+                    var windowSize = $(window).width();
+                    if(windowSize >= 992){
+                        var link = this;
+                        $container.show();
+                    }
                     $img.load(function () {
                         $img.addClass('img-rounded');
                         $img.show();
