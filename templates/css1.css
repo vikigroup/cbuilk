@@ -1035,7 +1035,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     }
 
     .menu, .r-box-tool, .search_top_header{
-        margin-left: -1px;
+        margin-left: -1px !important;
     }
 
     .btn-gh3{
