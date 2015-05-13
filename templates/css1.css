@@ -578,8 +578,8 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 .f_iod li{padding-top:5px; font-size:11px;}
 .f_iod li span{display:block;}
 .s1_iod{float:left; width:65px;}
-.s2_iod{overflow:hidden; width:235px; display: inline-block;}
-.s2_iod a{color:#666;}
+.s2_iod{overflow:hidden;}
+.s2_iod a{color:#666;width: 235px;}
 .s2_iod a:hover{text-decoration:underline;}
 .s2_iod img{padding:0 3px 3px 0;}
 
