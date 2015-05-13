@@ -284,12 +284,18 @@ if($ghinho==1){ // prodetail
                         <li>
                         
                             <span class="s1_iod">Hỗ trợ</span>
-                            
+
                             <span class="s2_iod">
-                                <img src='http://opi.yahoo.com/online?u=<?php echo $shop['yahoo'];?>&m=g&t=5&l=vi' alt ='' />
-                                <a href='ymsgr:sendIM?<?php echo $shop['yahoo'];?>'><?php echo $shop['yahoo'];?></a>
+                                <?php if($row_sanpham['idshop'] == 0){
+                                    $row_support   = getRecord('tbl_support', "idshop=0");
+                                ?>
+                                <img src='http://opi.yahoo.com/online?u=<?php echo $row_support['nickyahoo'];?>&m=g&t=5&l=vi' alt ='' />
+                                <a href='ymsgr:sendIM?<?php echo $row_support['nickyahoo'];?>'><?php echo $row_support['nickyahoo'];?></a>
+                                <?php }else{ ?>
+                                    <img src='http://opi.yahoo.com/online?u=<?php echo $shop['yahoo'];?>&m=g&t=5&l=vi' alt ='' />
+                                    <a href='ymsgr:sendIM?<?php echo $shop['yahoo'];?>'><?php echo $shop['yahoo'];?></a>
+                                <?php } ?>
                             </span>
-                            
                             <div class="clear"></div>
                         
                         </li>
