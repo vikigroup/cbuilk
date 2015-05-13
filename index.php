@@ -403,14 +403,15 @@ require("module/box_device.php");
     function autoHome(){
         var windowSize = $(window).width();
         if($(window).width() < 992){
-            $('.m-wrap, .dmsp4-2, .dmsp4-3, .ads-home, .btn-gh3, .form_dn, .form_dn ul li, .l-fcont, .r-fcont, .sli-fcon-1' +
+            $('.m-wrap, .dmsp4-3, .ads-home, .btn-gh3, .form_dn, .form_dn ul li, .l-fcont, .r-fcont, .sli-fcon-1' +
                 ', .sli-fcon-1 .bx-wrapper .bx-viewport, .filter-Prod, .content').css('width', windowSize);
-            $('.divProductLine1, .divProductOverlay1').css('width', windowSize/2 - 11);
+            $('.divProductLine1, .divProductOverlay1').css('width', windowSize/2 - 10);
             $('.li-Pc1').css('width', windowSize/2 - 23);
             $('.ul-ifoot li, .menu').css('width', '100%');
             $('.arrowCategory').css('width', windowSize - 52);
             $('.t-Pnb').css('width', windowSize - 2);
             $('.hotline').attr('style', 'margin: 0 0 0 5px !important;');
+            $('.dmsp4-3').css('max-width', windowSize);
 
             for(var i = 0; i < 8; i++){
                 if($('#aCategoryName'+i).height() > 14){
@@ -425,6 +426,7 @@ require("module/box_device.php");
             $('.menu').css('width', '97%');
             $('.mini-bar').css('width', '3%');
             $('.form_dn').css('width', windowSize - 139);
+            $('.dmsp4-3').css('width', windowSize - 190 - 390 - 139);
             $('.dmsp4-3').css('max-width', windowSize - 190 - 390 - 139);
             $('.ads-home').css('max-width', windowSize - 190 - 190 - 139);
             $('.btn-gh3').css('width', 190);
