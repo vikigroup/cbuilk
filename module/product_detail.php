@@ -17,6 +17,11 @@ if($row_sanpham['id']!="")   {
 	$ghinho=2;
 }
 
+if($row_sanpham['idshop'] == 0){
+    $row_support   = getRecord('tbl_support', "idshop=0");
+    $row_config   = getRecord('tbl_config', "copyright='cbuilk'");
+}
+
 if($ghinho==1){ // prodetail
 
 ?>
@@ -237,15 +242,23 @@ if($ghinho==1){ // prodetail
             
                 <div>
                     <div class="i_p_prod_details">
+                        <?php if($row_sanpham['idshop'] == 0){ ?>
+                        <a href="http://<?php echo $root;?>" title="">
+                            <img src="<?php echo $root;?>/imgs/layout/logo.png" alt=""/>
+                        </a>
+                        <?php } else{ ?>
                         <a href="http://<?php echo $shop['subject'];?>.<?php echo $sub;?>" title="">
                             <img src="<?php echo $linkroot?>/<?php echo $shop['logo'];?>" alt=""/>
                         </a>
+                        <?php } ?>
                     </div>
                     <div class="i_gh_details">
                         <h3>
                             <a href="http://<?php echo $shop['subject'];?>.<?php echo $sub;?>" title=""><?php echo $shop['name'];?></a>
                         </h3>
+                        <?php if($row_sanpham['idshop'] != 0){ ?>
                         <p>Ngày mở shop: <?php echo $shop['date_added'];?></p>
+                        <?php } ?>
                         <!--<span>Chủ shop: Lê Thu Thúy</span>-->
                     </div>
                     <div class="clear"></div>
@@ -257,8 +270,8 @@ if($ghinho==1){ // prodetail
                         <li>
                         
                             <span class="s1_iod">Địa chỉ</span>
-                            
-                            <span class="s2_iod"><?php echo $shop['address'];?></span>
+
+                            <span class="s2_iod"><?php if($row_sanpham['idshop'] == 0){ echo $row_config['dckh'];} else{echo $shop['address'];}?></span>
                             
                             <div class="clear"></div>
                         
@@ -267,7 +280,7 @@ if($ghinho==1){ // prodetail
                         
                             <span class="s1_iod">Điện thoại</span>
                             
-                            <span class="s2_iod"><?php echo $shop['mobile'];?></span>
+                            <span class="s2_iod"><?php if($row_sanpham['idshop'] == 0){ echo $row_config['hotlinekh'];} else{echo $shop['mobile'];}?></span>
                             
                             <div class="clear"></div>
                         
@@ -275,8 +288,8 @@ if($ghinho==1){ // prodetail
                         <li>
                         
                             <span class="s1_iod">Email</span>
-                            
-                            <span class="s2_iod"><?php echo $shop['email'];?></span>
+
+                            <span class="s2_iod"><?php if($row_sanpham['idshop'] == 0){ echo $row_config['emailkh'];} else{echo $shop['email'];}?></span>
                             
                             <div class="clear"></div>
                         
@@ -286,9 +299,7 @@ if($ghinho==1){ // prodetail
                             <span class="s1_iod">Hỗ trợ</span>
 
                             <span class="s2_iod">
-                                <?php if($row_sanpham['idshop'] == 0){
-                                    $row_support   = getRecord('tbl_support', "idshop=0");
-                                ?>
+                                <?php if($row_sanpham['idshop'] == 0){ ?>
                                 <img src='http://opi.yahoo.com/online?u=<?php echo $row_support['nickyahoo'];?>&m=g&t=5&l=vi' alt ='' />
                                 <a href='ymsgr:sendIM?<?php echo $row_support['nickyahoo'];?>'><?php echo $row_support['nickyahoo'];?></a>
                                 <?php }else{ ?>
