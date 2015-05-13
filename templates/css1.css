@@ -808,6 +808,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 .divProductLine1{
     float: left;
     display: inline-block;
+    margin: 0 5px 0 5px;
 }
 
 .divProductLine1:first-child, .divProductLine1:nth-child(4){
@@ -1003,9 +1004,6 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     .r-tool-ct{
         margin-right: 31px;
     }
-    .divProductLine1{
-        margin: 0 0 0 15px;
-    }
 }
 
 @media (max-width: 991px) {
@@ -1111,9 +1109,6 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 
     .fix_main{
         margin-top: 0;
-    }
-    .divProductLine1{
-        margin: 0 0 0 10px;
     }
 }
 
