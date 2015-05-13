@@ -63,8 +63,7 @@
     </div><!-- End .i-foot -->
     
     <div class="text-foot">
-        Bản quyền © 2014  <b> <?php echo   str_replace("http://", "", $linkrootshop);?> </b> - Bản quyền được bảo vệ<br>
-        Website đang hoạt động thử nghiệm
+        Bản quyền © 2015  <b> <?php echo   str_replace("http://", "", $linkrootshop);?>
     </div><!-- End .text-foot -->
     
 </div><!-- End .m-wrap -->
