@@ -2,6 +2,7 @@ body{
     overflow-x: hidden;
     max-width: 1349px;
     margin: 0 auto 0 auto;
+    background-color: #F5F5F5;
 }
 
 .m-wrap {max-width: 1210px; margin: 0 auto;}
@@ -397,12 +398,12 @@ BEGIN FOOTER
 
 footer {}
 
-.i-foot {background: url(../imgs/layout/i-foot.png) no-repeat center bottom; padding: 0 0 10px 0;}
+.i-foot {padding: 0 0 10px 0;}
 .bg-ifoot {}
 /*background: url(../imgs/layout/ul-ifoot.png) repeat-y;*/
 .i-foot ul.ul-ifoot > li {float: left; width: 25%;}
-.t-ifoot {padding: 0 0 0 20px; background: #f3f3f3; height: 30px; line-height: 30px;}
-.m-ifoot {padding: 10px 10px 10px 20px; line-height: 22px; font-size: 11px;}
+.t-ifoot {padding: 0 0 0 20px; background: #ffffff; height: 30px; line-height: 30px; margin-top: 30px;}
+.m-ifoot {padding: 10px 10px 10px 20px; line-height: 22px; font-size: 11px; background: #ffffff;}
 .m-ifoot ul.news li a {color: #444; background: url(../imgs/layout/icon-ifoot.png) no-repeat left 5px; padding: 0 0 0 10px;}
 .m-ifoot ul.news li a:hover {color: #3ba11b; text-decoration: underline;}
 
