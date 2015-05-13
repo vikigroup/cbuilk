@@ -421,15 +421,14 @@ require("module/box_device.php");
         }
 
         if($(window).width() >= 992){
-            $('.m-wrap').css('max-width', 1210);
-            $('.m-wrap').css('width', '100%');
+            $('.m-wrap, .f-cont').css('max-width', 1210);
+            $('.m-wrap, .f-cont').css('width', '100%');
             $('.menu').css('width', '97%');
             $('.mini-bar').css('width', '3%');
             $('.form_dn').css('width', windowSize - 139);
             $('.dmsp4-3').css('width', windowSize - 190 - 390 - 139);
             $('.dmsp4-3').css('max-width', windowSize - 190 - 390 - 139);
             $('.ads-home').css('max-width', windowSize - 190 - 190 - 139);
-            $('.ads-home').css('width', windowSize - 190 - 190 - 139);
             $('.btn-gh3').css('width', 190);
             $('.arrowCategory').css('width', 137);
             $('.btn-gh3').css('width', 190);
@@ -437,9 +436,6 @@ require("module/box_device.php");
             $('.divProductLine1, .divProductOverlay1').css('width', 198);
             $('.ul-ifoot li').css('width', '25%');
             $('.news li, .yahoo li').css('width', '100%');
-            $('.l-fcont').css('width', 870);
-            $('.r-fcont').css('width', 330);
-            $('.sli-fcon-1').css('width', windowSize - 489);
             $('.sli-fcon-1 .bx-wrapper .bx-viewport').css('width', '100%');
             $('.t-Pnb, .filter-Prod, .content').css('width', 1000);
             $('.li-Pc1').css('width', 173);
@@ -450,7 +446,6 @@ require("module/box_device.php");
                     $('#divCategoryID'+i).css('padding', '5px 0 11px 0');
                 }
             }
-
         }
     }
 </script>
