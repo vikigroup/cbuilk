@@ -49,7 +49,7 @@ a.btn-gh3 i{margin-right: 5px;}
 	cursor: pointer;
 	overflow: visible;
 }
-.select_input_search {overflow: hidden; padding: 0 10px; margin-right: 28px; z-index: 20; position: relative;}
+.select_input_search {overflow: hidden; padding: 0 10px; margin-right: 28px; z-index: 20; position: relative; display: inline-block;}
 .ipt_s{
 	height: 30px; width: 100%;
 	border: none;
@@ -409,7 +409,7 @@ footer {}
 
 .m-ifoot ul.yahoo li {height: 22px; line-height: 22px;}
 .l-yahoo {float: left; width: 50%;}
-.r-yahoo {overflow: hidden;}
+.r-yahoo {overflow: hidden; width: 100px; display: inline-block}
 .m-ifoot ul.yahoo li .l-yahoo a {color: #444; background: url(../imgs/layout/icon-ifoot.png) no-repeat left 5px; padding: 0 0 0 10px;}
 .m-ifoot ul.yahoo li .l-yahoo a:hover {color: #3ba11b; text-decoration: underline;}
 
@@ -578,7 +578,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 .f_iod li{padding-top:5px; font-size:11px;}
 .f_iod li span{display:block;}
 .s1_iod{float:left; width:65px;}
-.s2_iod{overflow:hidden; width:auto;}
+.s2_iod{overflow:hidden; width:235px; display: inline-block;}
 .s2_iod a{color:#666;}
 .s2_iod a:hover{text-decoration:underline;}
 .s2_iod img{padding:0 3px 3px 0;}
@@ -807,7 +807,8 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 
 .divProductLine1{
     float: left;
-    display: inline-block;
+    width: 200px;
+    height: 204px;
     margin: 0 5px 0 5px;
 }
 
@@ -820,7 +821,6 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     height: 204px;
     background-color: #ffffff;
     opacity: 0.9;
-    border: 1px solid #E5E5E5;
     padding: 5px 0;
 }
 
@@ -1004,6 +1004,9 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     .r-tool-ct{
         margin-right: 31px;
     }
+    .divProductLine1{
+        margin: 0 5px 0 5px;
+    }
 }
 
 @media (max-width: 991px) {
@@ -1056,8 +1059,15 @@ ul.ul-fP li.atc a {color: #3ba11b;}
         margin-left: 0;
     }
 
-    .divProductLine1:nth-child(3), .divProductLine1:nth-child(5){
+
+    .divProductLine1:nth-child(1), .divProductLine1:nth-child(3), .divProductLine1:nth-child(5){
         margin-left: 0;
+        margin-right: 4px;
+    }
+
+    .divProductLine1:nth-child(2), .divProductLine1:nth-child(4), .divProductLine1:nth-child(6){
+        margin-left: 0;
+        margin-right: 0;
     }
 
     .dmsp4-3{
