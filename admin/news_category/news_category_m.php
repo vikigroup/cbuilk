@@ -309,7 +309,7 @@ if( $errMsg !=""){
                             </tr>
                             <tr>
                                 <td valign="top" width="30%">
-                                    Hiển thị</td>
+                                    Không hiển thị</td>
                                 <td valign="middle" width="70%">
                                     <input type="checkbox" name="chkStatus" value="on" <? if ($status>0) echo 'checked' ?>>
                                 </td>
