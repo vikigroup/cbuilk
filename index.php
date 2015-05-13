@@ -403,9 +403,10 @@ require("module/box_device.php");
     function autoHome(){
         var windowSize = $(window).width();
         if($(window).width() < 992){
-            $('.m-wrap, .dmsp4-3, .ads-home, .btn-gh3, .form_dn, .form_dn ul li, .l-fcont, .r-fcont, .sli-fcon-1' +
+            $('.m-wrap, .dmsp4-3, .ads-home, .btn-gh3, .form_dn, .form_dn ul li, .l-fcont, .r-fcont' +
                 ', .sli-fcon-1 .bx-wrapper .bx-viewport, .filter-Prod, .content').css('width', windowSize);
             $('.divProductLine1, .divProductOverlay1').css('width', windowSize/2 - 2);
+            $('.sli-fcon-1').css('width', windowSize-2);
             $('.li-Pc1').css('width', windowSize/2 - 23);
             $('.ul-ifoot li, .menu').css('width', '100%');
             $('.arrowCategory').css('width', windowSize - 52);
