@@ -122,8 +122,8 @@ if (isset($_POST['btnSave'])){
 	}
 
 	if ($errMsg == ''){
-		if($r['type']=="0") echo '<script>window.location="admin.php?act=itemuser&cat='.$_REQUEST['cat'].'&page='.$_REQUEST['page'].'&code=1"</script>';
-		else  echo '<script>window.location="admin.php?act=itemuser&cat='.$_REQUEST['cat'].'&page='.$_REQUEST['page'].'&code=1"</script>';
+		if($r['type']=="0") echo '<script>window.location="admin.php?act=service&cat='.$_REQUEST['cat'].'&page='.$_REQUEST['page'].'&code=1"</script>';
+		else  echo '<script>window.location="admin.php?act=service&cat='.$_REQUEST['cat'].'&page='.$_REQUEST['page'].'&code=1"</script>';
 	}
 }else{
 	if (isset($_GET['id'])){
@@ -190,13 +190,13 @@ $(document).ready(function() {
             <div class="widget-container">
                 <div class="widget-block">
                     
-                   <form method="post" name="frmForm" enctype="multipart/form-data" action="admin.php?act=itemuser_m">
+                   <form method="post" name="frmForm" enctype="multipart/form-data" action="admin.php?act=service_m">
 
 
 
             
 
-            <input type="hidden" name="act" value="itemuser_m">
+            <input type="hidden" name="act" value="service_m">
 
             <input type="hidden" name="id" value="<?=$_REQUEST['id']?>">
 
@@ -207,7 +207,7 @@ $(document).ready(function() {
                  <table  class="table_chinh">
 
                     <tr>
-                      <td class="table_chu_tieude_them" colspan="2" align="center" valign="middle"  ><?php if($_GET['act'] == "service_m"){echo "DỊCH VỤ";} else{echo "SẢN PHẨM";}  ?></td>
+                      <td class="table_chu_tieude_them" colspan="2" align="center" valign="middle"  >DỊCH VỤ</td>
                   </tr>
                     <tr>
                       <td valign="middle"  class="table_chu">&nbsp;</td>
@@ -266,13 +266,13 @@ $(document).ready(function() {
 
                     
 
-                    <tr>
-                      <td valign="middle">&nbsp;</td>
-                      <td valign="middle"><select id="loaihinh" name="loaihinh"  class="table_list" >
-                        <option value="0" <?php if($loaihinh==0) echo 'selected="selected"';?> > Sản phẩm </option>
-                        <option value="1" <?php if($loaihinh==1 || $_GET['act'] == "service_m") echo 'selected="selected"';?> > Dịch vụ </option>
-                      </select></td>
-                    </tr>
+<!--                    <tr>-->
+<!--                      <td valign="middle">&nbsp;</td>-->
+<!--                      <td valign="middle"><select id="loaihinh" name="loaihinh"  class="table_list" >-->
+<!--                        <option value="0" --><?php //if($loaihinh==0) echo 'selected="selected"';?><!-- > Sản phẩm </option>-->
+<!--                        <option value="1" --><?php //if($loaihinh==1 || $_GET['act'] == "service_m") echo 'selected="selected"';?><!-- > Dịch vụ </option>-->
+<!--                      </select></td>-->
+<!--                    </tr>-->
                     <tr>
                       <td valign="middle"> Giá<span class="sao_bb"></span></td>
                       <td valign="middle"><input name="txtPrice" type="text" class="table_khungnho" id="txtPrice" value="<?=$price;?>"/></td>

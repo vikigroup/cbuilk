@@ -468,7 +468,7 @@ $(document).ready(function() {
     
                                     </td>
     
-                                    <td align="center">
+                                    <td align="left">
 										<?=$row['name']?><br />
                                         Thể loại:<?php echo get_field('tbl_shop_category','id',get_field('tbl_shop_category','id',$row['parent1'],'id'),'name');?> <br />
                                         Loại    :<?php echo get_field('tbl_shop_category','id',$row['parent'],'name');?>
