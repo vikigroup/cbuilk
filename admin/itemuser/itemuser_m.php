@@ -50,7 +50,10 @@ if (isset($_POST['btnSave'])){
 	$parent1       = $_POST['ddCatch'];
 	
 	if($parent1==-1) $parent1=$parent;
-	
+
+    $style = 0;
+    if($_GET['act'] == "service_m"){$style = 1;}
+
 	$subject       = vietdecode($name);
 	$detail_short  = isset($_POST['txtDetailShort']) ? trim($_POST['txtDetailShort']) : '';
 	$detail        = isset($_POST['txtDetail']) ? trim($_POST['txtDetail']) : '';
@@ -74,7 +77,7 @@ if (isset($_POST['btnSave'])){
 			$oldid = $_POST['id'];
 			$sql = "update tbl_item set name='".$name."',parent1='".$parent1."',detail='".$detail."',type='".$loaihinh."',price='".$price."',pricekm='".$pricekm."',sort='".$sort."', status='".$status."',last_modified=now() where id='".$oldid."'";
 		}else{
-			$sql = "insert into tbl_item (name, parent, parent1 , detail, type , price , pricekm , sort, status,  date_added, last_modified  ) values ('".$name."','".$parent."','".$parent1."','".$detail."','".$loaihinh."','".$price."','".$pricekm."','".$sort."','1',now(),now())";
+			$sql = "insert into tbl_item (name, style, parent, parent1 , detail, type , price , pricekm , sort, status,  date_added, last_modified  ) values ('".$name."','".$style."','".$parent."','".$parent1."','".$detail."','".$loaihinh."','".$price."','".$pricekm."','".$sort."','1',now(),now())";
 		} 
 		if (mysql_query($sql,$conn)){
 			if(empty($_POST['id'])) $oldid = mysql_insert_id();
