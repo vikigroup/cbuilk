@@ -284,7 +284,7 @@ border-top: 1px solid #dddddd;
                                   <td valign="middle" style="background-color:#F0F0F0; height:40px; padding-left:20px" colspan="10">  
                                   		<? //comboCategory('ddCat',getArrayCategory('tbl_shop_category'),'list_tim_loc',$parent,1)?>
                                         
-                                        <select name="ddCat" id="ddCat" class="list_tim_loc"> 
+                                        <select name="ddCat" id="ddCat" class="list_tim_loc table_list">
 											<?php if($_POST['ddCat']!=NULL){ ?>
                                             <option value="<?php echo $idtheloaic=$_POST['ddCat'] ; ?>"><?php echo get_field('tbl_shop_category','id',$parent,'name'); ?> </option> 
                                             <?php }?>
@@ -297,7 +297,7 @@ border-top: 1px solid #dddddd;
                                             <?php } ?>
                                         
                                         </select>
-                                        <select name="ddCatch" id="ddCatch" class="list_tim_loc"> 
+                                        <select name="ddCatch" id="ddCatch" class="list_tim_loc table_list">
 											<?php if($_POST['ddCatch']!=NULL && $_POST['ddCatch']!=-1 ){ ?>
                                             <option value="<?php echo $parent1=$_POST['ddCatch'] ; ?>"><?php echo get_field('tbl_shop_category','id',$parent1,'name'); ?> </option> 
                                             <?php }?>
