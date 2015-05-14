@@ -422,7 +422,7 @@ $(document).ready(function() {
     
                             
     
-                            $sql="select *,DATE_FORMAT(date_added,'%d/%m/%Y %h:%i') as dateAdd,DATE_FORMAT(last_modified,'%d/%m/%Y %h:%i') as dateModify from tbl_item where $where $sortby  limit ".($startRow).",".$pageSize;
+                            $sql="select *,DATE_FORMAT(date_added,'%d/%m/%Y %h:%i') as dateAdd,DATE_FORMAT(last_modified,'%d/%m/%Y %h:%i') as dateModify from tbl_item where style=0 and $where $sortby  limit ".($startRow).",".$pageSize;
     
                             $result=mysql_query($sql,$conn);
     

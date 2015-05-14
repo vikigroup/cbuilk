@@ -266,13 +266,15 @@ $(document).ready(function() {
 
                     
 
-                    <tr>
-                      <td valign="middle">&nbsp;</td>
-                      <td valign="middle"><select id="loaihinh" name="loaihinh"  class="table_list" >
-                        <option value="0" <?php if($loaihinh==0) echo 'selected="selected"';?> > Sản phẩm </option>
-                        <option value="1" <?php if($loaihinh==1 || $_GET['act'] == "service_m") echo 'selected="selected"';?> > Dịch vụ </option>
-                      </select></td>
-                    </tr>
+<!--                    <tr>-->
+<!--                      <td valign="middle">&nbsp;</td>-->
+<!--                      <td valign="middle">-->
+<!--                          <select id="loaihinh" name="loaihinh"  class="table_list" >-->
+<!--                            <option value="0" --><?php //if($loaihinh==0) echo 'selected="selected"';?><!-- > Sản phẩm </option>-->
+<!--                            <option value="1" --><?php //if($loaihinh==1 || $_GET['act'] == "service_m") echo 'selected="selected"';?><!-- > Dịch vụ </option>-->
+<!--                          </select>-->
+<!--                      </td>-->
+<!--                    </tr>-->
                     <tr>
                       <td valign="middle"> Giá<span class="sao_bb"></span></td>
                       <td valign="middle"><input name="txtPrice" type="text" class="table_khungnho" id="txtPrice" value="<?=$price;?>"/></td>
