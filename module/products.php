@@ -154,11 +154,11 @@ $product=get_records("tbl_item","status=0 AND type=0 AND parent1 in ({$parent}) 
         <section class="filter-Prod">
             <h4 class="t-Pnb">
                 <ul class="ul-fP">
-                    <li <?php if($kkk==1) echo 'class="act"';?>><a href="<?php echo $linkrootshop;?>module/process.php?filter1=1">Mới nhất</a></li>
+                    <li <?php if($kkk==1) echo 'class="act"';?>><a href="<?php echo $linkrootshop;?>/module/process.php?filter1=1">Mới nhất</a></li>
                     <li>|</li>
-                    <li <?php if($kkk==1) echo 'class="act"';?>><a href="<?php echo $linkrootshop;?>module/process.php?filter1=2">Giá thấp nhất</a></li>
+                    <li <?php if($kkk==1) echo 'class="act"';?>><a href="<?php echo $linkrootshop;?>/module/process.php?filter1=2">Giá thấp nhất</a></li>
                     <li>|</li>
-                    <li <?php if($kkk==1) echo 'class="act"';?>><a href="<?php echo $linkrootshop;?>module/process.php?filter1=3">Giá cao nhất</a></li>
+                    <li <?php if($kkk==1) echo 'class="act"';?>><a href="<?php echo $linkrootshop;?>/module/process.php?filter1=3">Giá cao nhất</a></li>
                 </ul>
                 <div class="clear"></div>
                 <div class="f-sty-P">
