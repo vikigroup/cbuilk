@@ -6,7 +6,8 @@
             
             <?php if($_SESSION['kt_login_id']!=""){?>
             
-            <li><a href="#"> Quản lý gian hàng &darr;</a>
+            <li>
+                <a href="#"> Quản lý gian hàng &darr;</a>
                 <ul>
                     <li><a href="admin.php?act=shop">Danh sách gian hàng</a></li>
                     <li><a href="admin.php?act=item_category">Danh mục sản phẩm</a></li>
@@ -19,7 +20,8 @@
                 </ul>
             </li>
                 
-            <li><a href="#"> Quản lý website &darr;</a>
+            <li>
+                <a href="#"> Quản lý website &darr;</a>
                 <ul>
                     <li><a href="admin.php?act=config&id=2">Cấu hình</a>  </li>
                     <li><a href="admin.php?act=slider">Slide ảnh</a> </li> 
@@ -35,9 +37,16 @@
                 </ul>
             </li>
 
-            <li><a href="admin.php?act=service">Dịch vụ</a></li>
+            <li>
+                <a href="admin.php?act=service">Dịch vụ</a>
+                <ul>
+                    <li><a href="admin.php?act=service">Tất cả dịch vụ</a></li>
+                    <li><a href="admin.php?act=service_m">Tạo dịch vụ mới</a></li>
+                </ul>
+            </li>
 
-            <li><a href="#"> Quản lý sản phẩm &darr;</a>
+            <li>
+                <a href="#"> Quản lý sản phẩm &darr;</a>
                 <ul>
                     <li><a href="admin.php?act=shop_category">Danh mục sản phẩm</a> </li>
                     <li><a href="admin.php?act=itemuser">Tất cả sản phẩm</a></li>
@@ -45,7 +54,8 @@
                 </ul>
             </li>
 
-            <li><a href="#"> Quản lý tin tức &darr;</a>
+            <li>
+                <a href="#"> Quản lý tin tức &darr;</a>
                 <ul>
                     <li><a href="admin.php?act=news_category">Danh mục tin tức</a> </li>
                     <li><a href="admin.php?act=newuser">Tất cả tin tức</a></li>
