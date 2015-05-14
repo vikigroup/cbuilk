@@ -142,7 +142,9 @@ for($i = 0; $i < 8; $i++){
                  onmouseout="this.style.backgroundColor = 'white'" onclick="window.open('<?php echo $linkrootshop;?>/<?php echo $row_floor['subject'];?>.html', 'new_window')">
                 <span onmouseover="$('.img-rounded').attr('src', '<?php echo $linkrootshop.'/web/'.$row_floor['image'] ?>');"><?php echo $row_floor['name'] ?></span><br/><br/>
                 <span onmouseover="$('.img-rounded').attr('src', '<?php echo $linkrootshop.'/web/'.$row_floor['image'] ?>');"><?php echo $row_floor['description'] ?></span><br/><br/>
-                <?php if($row_floor['price'] > 0 && $row_floor['pricekm'] > 0){ ?>
+                <?php if($row_floor['price'] == 0 && $row_floor['pricekm'] == 0){ ?>
+                <span class="spanMoneyKM" onmouseover="$('.img-rounded').attr('src', '<?php echo $linkrootshop.'/web/'.$row_floor['image'] ?>');">Giá liên hệ</span><br/>
+                <?php }else if($row_floor['price'] > 0 && $row_floor['pricekm'] > 0){ ?>
                     <span class="spanMoneyKM" onmouseover="$('.img-rounded').attr('src', '<?php echo $linkrootshop.'/web/'.$row_floor['image'] ?>');"><?php echo number_format($row_floor['pricekm'])."đ"; ?></span><br/>
                     <span class="spanMoney" onmouseover="$('.img-rounded').attr('src', '<?php echo $linkrootshop.'/web/'.$row_floor['image'] ?>');"><?php echo number_format($row_floor['price'])."đ"; ?></span>
                 <?php }else{ ?>
