@@ -1,6 +1,7 @@
 <?php
 $tensanpham=$_GET['tensanpham'];
 $row_sanpham   = getRecord('tbl_item', "subject='".$tensanpham."'");
+$row_category  = getRecord('tbl_shop_category', "subject='".$tensanpham."'");
 
 if($row_sanpham['id']!="")   {
 	$sql = "update tbl_item set view=view+1 where id='".$row_sanpham['id']."'";
@@ -508,7 +509,7 @@ $product=get_records("tbl_item","status=0 AND type=0 AND parent1 in ({$parent}) 
     </div><!-- End .sidebar -->
     
     <div class="content">
-        
+        <?php if($row_category['id'] != 211){ ?>
         <section class="Prod-nb">
         
             <h4 class="t-Pnb">
@@ -578,7 +579,8 @@ $product=get_records("tbl_item","status=0 AND type=0 AND parent1 in ({$parent}) 
             </article><!-- Responsive m-Pnb2 -->
         
         </section><!-- End .Prod-nb -->
-        
+        <?php } ?>
+
         <section class="filter-Prod">
             <h4 class="t-Pnb">
                 <ul class="ul-fP">
