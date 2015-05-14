@@ -5,11 +5,11 @@
 
 $hostname     = "localhost";
 
-$databasename = "cpcmart_1811";
+$databasename = "cbuilk_2015";
 
-$username     = "cpcmart_1811";
+$username     = "cbuilk_2015";
 
-$password     = "x8WfTuXwh";
+$password     = "123456P";
 
 
 
@@ -34,9 +34,9 @@ $linkroot=$linkrootshop."/web";
 
 $noimgs="images/noimage.png";
 
-$root     ="http://cpcmart.com";
-$sub      ="cpcmart.com";
-$subname  ="cpcmart";
+$root     ="http://cbuilk.com";
+$sub      ="cbuilk.com";
+$subname  ="cbuilk";
 
 
 ini_set('suhosin.session.cryptdocroot', 0);
