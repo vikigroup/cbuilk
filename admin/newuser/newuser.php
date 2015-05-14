@@ -262,9 +262,9 @@ $startRow = ($pageNum-1) * $pageSize;
 if($parent!=-1 || $parent1!=-1) {
     if($parent1!='-1') $parenstrt="$parent1";
     else $parenstrt=getParent("tbl_shop_category",$parent);
-    $where="1=1 and type=0 and cate=1 and (id='{$tukhoa}' or name LIKE '%$tukhoa%' or '{$tukhoa}'=-1) and  ( parent1 in ({$parenstrt}) or id=$parent)";
+    $where="1=1 and type=1 and (id='{$tukhoa}' or name LIKE '%$tukhoa%' or '{$tukhoa}'=-1) and  ( parent1 in ({$parenstrt}) or id=$parent)";
 }
-else $where="1=1 and type=0 and cate=1 and (id='{$tukhoa}' or name LIKE '%$tukhoa%' or '{$tukhoa}'=-1)";
+else $where="1=1 and type=1 and (id='{$tukhoa}' or name LIKE '%$tukhoa%' or '{$tukhoa}'=-1)";
 
 $where.=" AND ( status='{$anhien}' or '{$anhien}'=-1)  AND ( hot='{$noibat}' or '{$noibat}'=-1)";
 
