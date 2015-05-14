@@ -11,7 +11,7 @@ body{
 BEGIN HEADER
 *************************************************************************************/
 
-header {border-bottom: 1px solid #dbdbdb; height: 80px; background: #fff url(../imgs/layout/header.png) repeat-x bottom;}
+header {border-bottom: 1px solid #dbdbdb; height: 80px; background-color: #ffffff;}
 header .m-wrap {position: relative;}
 
 .logo {position: absolute; top: 0; left: 0;}
