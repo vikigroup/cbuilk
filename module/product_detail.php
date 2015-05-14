@@ -349,7 +349,7 @@ if($ghinho==1){ // prodetail
                                     <a href="<?php echo $linkrootshop;?>/<?php echo $row_shop_product['subject'];?>.html" title="<?php echo $row_shop_product['name'];?>"><?php echo $row_shop_product['name'];?></a>
                                 </h4>
                                 <?php 
-								if($row_sanpham['type']==0){
+								if($row_sanpham['style']==0){
 								?>
                                 <p><?php  if(preg_match ("/^([0-9]+)$/", $row_shop_product['price'])) echo number_format($row_shop_product['price'],0)."  VNĐ";else echo "Giá: Liên hệ"; ?></p>
                                 <?php }else {?>
@@ -415,7 +415,7 @@ if($ghinho==1){ // prodetail
                                 <span>
                                     <a href="http://<?php echo $shop['subject'];?>.<?php echo $sub;?>" target="_blank" title="<?php echo $shop['name'];?>"> <?php echo $shop['name'];?></a>
                                 </span>
-                                 <?php if($row_sanpham['type']==0){?>
+                                 <?php if($row_sanpham['style']==0){?>
                                 <p><?php  if(preg_match ("/^([0-9]+)$/", $row_shop_product['price'])) echo number_format($row_shop_product['price'],0)."  VNĐ";else echo "Giá: Liên hệ"; ?></p>
                                 <?php }?>
                             </span>
