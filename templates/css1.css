@@ -561,7 +561,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 .btn_prod_details{float:right; width:164px; height:38px; border:0; background-color: #669AD3; color: #ffffff;) no-repeat 0px 0px; cursor:pointer;}
 /*.btn_prod_details:hover, .btn_prod_details:focus{background:url(../imgs/layout/btn_prod_details.png) no-repeat 0px -38px;}*/
 
-.info_prod_details{border-bottom:1px solid #f1f1f1; padding-bottom:15px;}
+.info_prod_details{border-bottom:1px solid #f1f1f1; padding:12px;}
 .info_prod_details ul li{padding-top:15px; color:#4c4c4c;}
 .l_ipd{float:left; width:140px; font-weight:normal;}
 .r_ipd{overflow:hidden;}
