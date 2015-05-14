@@ -424,7 +424,6 @@ require("module/box_device.php");
         if($(window).width() >= 992){
             $('.m-wrap, .f-cont').css('max-width', 1210);
             $('.m-wrap, .f-cont').css('width', '100%');
-            $('.menu .m-wrap').css('max-width', windowSize);
             $('.menu').css('width', '97%');
             $('.mini-bar').css('width', '3%');
             $('.form_dn').css('width', windowSize - 139);
