@@ -262,9 +262,9 @@ $(document).ready(function() {
 					if($parent!=-1 || $parent1!=-1) {
 						if($parent1!='-1') $parenstrt="$parent1";
 						else $parenstrt=getParent("tbl_shop_category",$parent);
-						$where="1=1 and type=1 and cate=0 and (id='{$tukhoa}' or name LIKE '%$tukhoa%' or '{$tukhoa}'=-1) and  ( parent1 in ({$parenstrt}) or id=$parent)";
+						$where="1=1 and style=1 and type=0 and cate=0 and (id='{$tukhoa}' or name LIKE '%$tukhoa%' or '{$tukhoa}'=-1) and  ( parent1 in ({$parenstrt}) or id=$parent)";
 					}
-                    else $where="1=1 and type=1 and cate=0 and (id='{$tukhoa}' or name LIKE '%$tukhoa%' or '{$tukhoa}'=-1)";
+                    else $where="1=1 and style=1 and type=0 and cate=0 and (id='{$tukhoa}' or name LIKE '%$tukhoa%' or '{$tukhoa}'=-1)";
 					
 					$where.=" AND ( status='{$anhien}' or '{$anhien}'=-1)  AND ( hot='{$noibat}' or '{$noibat}'=-1)"; 
     
@@ -278,7 +278,7 @@ $(document).ready(function() {
     
                     if ($_REQUEST['cat']!='') $where="parent=".$_REQUEST['cat']; ?>
     
-                    <form method="POST" action="admin.php?act=item" name="frmForm" enctype="multipart/form-data">
+                    <form method="POST" action="admin.php?act=service" name="frmForm" enctype="multipart/form-data">
     
                     <input type="hidden" name="page" value="<?=$page?>">
     
@@ -309,7 +309,7 @@ $(document).ready(function() {
                                   <td valign="middle" style="background-color:#F0F0F0; height:40px; padding-left:20px" colspan="10">  
                                   		<? //comboCategory('ddCat',getArrayCategory('tbl_shop_category'),'list_tim_loc',$parent,1)?>
                                         
-                                        <select name="ddCat" id="ddCat" class="list_tim_loc"> 
+                                        <select name="ddCat" id="ddCat" class="list_tim_loc table_list">
 											<?php if($_POST['ddCat']!=NULL){ ?>
                                             <option value="<?php echo $idtheloaic=$_POST['ddCat'] ; ?>"><?php echo get_field('tbl_shop_category','id',$parent,'name'); ?> </option> 
                                             <?php }?>
@@ -322,7 +322,7 @@ $(document).ready(function() {
                                             <?php } ?>
                                         
                                         </select>
-                                        <select name="ddCatch" id="ddCatch" class="list_tim_loc"> 
+                                        <select name="ddCatch" id="ddCatch" class="list_tim_loc table_list">
 											<?php if($_POST['ddCatch']!=NULL && $_POST['ddCatch']!=-1 ){ ?>
                                             <option value="<?php echo $parent1=$_POST['ddCatch'] ; ?>"><?php echo get_field('tbl_shop_category','id',$parent1,'name'); ?> </option> 
                                             <?php }?>
@@ -422,7 +422,7 @@ $(document).ready(function() {
     
                             
     
-                            $sql="select *,DATE_FORMAT(date_added,'%d/%m/%Y %h:%i') as dateAdd,DATE_FORMAT(last_modified,'%d/%m/%Y %h:%i') as dateModify from tbl_item where  $where $sortby  limit ".($startRow).",".$pageSize;
+                            $sql="select *,DATE_FORMAT(date_added,'%d/%m/%Y %h:%i') as dateAdd,DATE_FORMAT(last_modified,'%d/%m/%Y %h:%i') as dateModify from tbl_item where $where $sortby  limit ".($startRow).",".$pageSize;
     
                             $result=mysql_query($sql,$conn);
     
@@ -470,8 +470,8 @@ $(document).ready(function() {
     
                                     <td align="center">
 										<?=$row['name']?><br />
-                                        Thể loại:<?php echo get_field('tbl_shop_category','id',get_field('tbl_shop_category','id',$row['parent1'],'parent'),'name');?> <br />
-                                        Loại    :<?php echo get_field('tbl_shop_category','id',$row['parent1'],'name');?>
+                                        Thể loại:<?php echo get_field('tbl_shop_category','id',get_field('tbl_shop_category','id',$row['parent1'],'id'),'name');?> <br />
+                                        Loại    :<?php echo get_field('tbl_shop_category','id',$row['parent'],'name');?>
                                     </td>
                                     <td align="center">
 										<a href="http://<?php echo get_field('tbl_shop','id',$row['idshop'],'subject');?>.jbs.vn" target="_blank">	<?php echo get_field('tbl_shop','id',$row['idshop'],'name');?></a>
@@ -495,7 +495,7 @@ $(document).ready(function() {
     
                                     <td align="center">
     
-                                        <a href="admin.php?act=item_m&cat=<?=$_REQUEST['cat']?>&page=<?=$_REQUEST['page']?>&id=<?=$row['id']?>"><img src="images/icon3.png"/></a>
+                                        <a href="admin.php?act=service_m&cat=<?=$_REQUEST['cat']?>&page=<?=$_REQUEST['page']?>&id=<?=$row['id']?>"><img src="images/icon3.png"/></a>
     
                                         <a  title="Xóa" href="admin.php?act=service&action=del&page=<?=$_REQUEST['page']?>&id=<?=$row['id']?>" onclick="return confirm('Bạn có muốn xoá luôn không ?');" ><img src="images/icon4.png" width="20" border="0" /></a>
     
