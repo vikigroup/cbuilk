@@ -819,7 +819,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 .divProductOverlay1{
     width: 200px;
     height: 204px;
-    background-color: #ffffff;
+    background-color: transparent;
     opacity: 0.9;
     padding: 5px 0;
 }
