@@ -51,9 +51,6 @@ if (isset($_POST['btnSave'])){
 	
 	if($parent1==-1) $parent1=$parent;
 
-    $style = 0;
-    if($_GET['act'] == "service_m"){$style = 1;}
-
 	$subject       = vietdecode($name);
 	$detail_short  = isset($_POST['txtDetailShort']) ? trim($_POST['txtDetailShort']) : '';
 	$detail        = isset($_POST['txtDetail']) ? trim($_POST['txtDetail']) : '';
@@ -77,7 +74,7 @@ if (isset($_POST['btnSave'])){
 			$oldid = $_POST['id'];
 			$sql = "update tbl_item set name='".$name."',parent1='".$parent1."',detail='".$detail."',type='".$loaihinh."',price='".$price."',pricekm='".$pricekm."',sort='".$sort."', status='".$status."',last_modified=now() where id='".$oldid."'";
 		}else{
-			$sql = "insert into tbl_item (name, style, parent, parent1 , detail, type , price , pricekm , sort, status,  date_added, last_modified  ) values ('".$name."','".$style."','".$parent."','".$parent1."','".$detail."','".$loaihinh."','".$price."','".$pricekm."','".$sort."','1',now(),now())";
+			$sql = "insert into tbl_item (name, parent, parent1 , detail, type , price , pricekm , sort, status,  date_added, last_modified  ) values ('".$name."','".$parent."','".$parent1."','".$detail."','".$loaihinh."','".$price."','".$pricekm."','".$sort."','1',now(),now())";
 		} 
 		if (mysql_query($sql,$conn)){
 			if(empty($_POST['id'])) $oldid = mysql_insert_id();
@@ -126,7 +123,7 @@ if (isset($_POST['btnSave'])){
 
 	if ($errMsg == ''){
 		if($r['type']=="0") echo '<script>window.location="admin.php?act=itemuser&cat='.$_REQUEST['cat'].'&page='.$_REQUEST['page'].'&code=1"</script>';
-		else  echo '<script>window.location="admin.php?act=itemuser&cat='.$_REQUEST['cat'].'&page='.$_REQUEST['page'].'&code=1"</script>'; 
+		else  echo '<script>window.location="admin.php?act=itemuser&cat='.$_REQUEST['cat'].'&page='.$_REQUEST['page'].'&code=1"</script>';
 	}
 }else{
 	if (isset($_GET['id'])){
@@ -269,15 +266,13 @@ $(document).ready(function() {
 
                     
 
-<!--                    <tr>-->
-<!--                      <td valign="middle">&nbsp;</td>-->
-<!--                      <td valign="middle">-->
-<!--                          <select id="loaihinh" name="loaihinh"  class="table_list" >-->
-<!--                            <option value="0" --><?php //if($loaihinh==0) echo 'selected="selected"';?><!-- > Sản phẩm </option>-->
-<!--                            <option value="1" --><?php //if($loaihinh==1 || $_GET['act'] == "service_m") echo 'selected="selected"';?><!-- > Dịch vụ </option>-->
-<!--                          </select>-->
-<!--                      </td>-->
-<!--                    </tr>-->
+                    <tr>
+                      <td valign="middle">&nbsp;</td>
+                      <td valign="middle"><select id="loaihinh" name="loaihinh"  class="table_list" >
+                        <option value="0" <?php if($loaihinh==0) echo 'selected="selected"';?> > Sản phẩm </option>
+                        <option value="1" <?php if($loaihinh==1 || $_GET['act'] == "service_m") echo 'selected="selected"';?> > Dịch vụ </option>
+                      </select></td>
+                    </tr>
                     <tr>
                       <td valign="middle"> Giá<span class="sao_bb"></span></td>
                       <td valign="middle"><input name="txtPrice" type="text" class="table_khungnho" id="txtPrice" value="<?=$price;?>"/></td>
