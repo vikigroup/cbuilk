@@ -475,7 +475,7 @@ $product=get_records("tbl_item","status=0 AND type=0 AND parent1 in ({$parent}) 
     <ul>
         <li><a href="<?php echo $linkrootshop;?>">Trang chủ</a></li>
         <li><a href="<?php echo $linkrootshop;?><?php echo $tensanpham;?>.html"><?php echo get_field('tbl_shop_category','subject',$tensanpham,'name');?></a></li>
-        <li><a href="#">Hiện có <strong><?php echo $totalRows;?></strong> sản phẩm</a></li>
+        <li><a href="#">Hiện có <strong><?php echo $totalRows;?></strong><?php if($row_category['id'] != 211){echo " sản phẩm";}else{echo " tin";} ?></a></li>
     </ul>
     <div class="clear"></div>
 </section><!-- End .breacrum -->
@@ -584,11 +584,18 @@ $product=get_records("tbl_item","status=0 AND type=0 AND parent1 in ({$parent}) 
         <section class="filter-Prod">
             <h4 class="t-Pnb">
                 <ul class="ul-fP">
-                    <li <?php if($kkk==1) echo 'class="act"';?>><a href="<?php echo $linkrootshop;?>/module/process.php?filter1=1">Mới nhất</a></li>
+                    <li class="act"><a href="<?php echo $linkrootshop;?>/module/process.php?filter1=1">Mới nhất</a></li>
                     <li>|</li>
-                    <li <?php if($kkk==1) echo 'class="act"';?>><a href="<?php echo $linkrootshop;?>/module/process.php?filter1=2">Giá thấp nhất</a></li>
+                    <li class="act"><a href="<?php echo $linkrootshop;?>/module/process.php?filter1=1">Nổi bật</a></li>
                     <li>|</li>
-                    <li <?php if($kkk==1) echo 'class="act"';?>><a href="<?php echo $linkrootshop;?>/module/process.php?filter1=3">Giá cao nhất</a></li>
+                    <li class="act"><a href="<?php echo $linkrootshop;?>/module/process.php?filter1=1">Xem nhiều nhất</a></li>
+                    <li>|</li>
+                    <?php if($row_category['id'] != 211){ ?>
+                    <li class="act"><a href="<?php echo $linkrootshop;?>/module/process.php?filter1=1">Giá cao nhất</a></li>
+                    <li>|</li>
+                    <li class="act"><a href="<?php echo $linkrootshop;?>/module/process.php?filter1=1">Giá thấp nhất</a></li>
+                    <li>|</li>
+                    <?php } ?>
                 </ul>
                 <div class="clear"></div>
                 <div class="f-sty-P">
@@ -630,7 +637,9 @@ $product=get_records("tbl_item","status=0 AND type=0 AND parent1 in ({$parent}) 
                         <br>
                         <?php echo $row_new['date_added'];?>
                     </div><!-- End .prod_row3 -->
+                    <?php if($row_category['id'] != 211){ ?>
                     <span class="price-Pnb"><?php  if(preg_match ("/^([0-9]+)$/", $row_new['price'])) echo number_format($row_new['price'],0)."  VNĐ";else echo "Giá: Liên hệ"; ?></span>
+                    <?php } ?>
                     <div class="clear"></div>
                 </li>
                 <?php }?>
