@@ -1007,6 +1007,8 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     .divProductLine1{
         margin: 0 5px 0 5px;
     }
+    header .m-wrap .logo{margin-left: 55px;}
+    .search_top_header{left: 266px;}
 }
 
 @media (max-width: 991px) {
