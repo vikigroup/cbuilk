@@ -8,6 +8,11 @@ if(isset($frame)==true){
 
 <script language="javascript">
 function btnSave_onclick(){
+    if($('#ddCat').val() == -1){
+        alert('Hãy chọn "danh mục"');
+        return false;
+    }
+
 	if(test_empty(document.frmForm.txtName.value)){
 		alert('Hãy nhập "tên" !');
 		document.frmForm.txtName.focus();
