@@ -365,7 +365,11 @@ if($ghinho==1){ // prodetail
                 </div><!-- End .main_prod_other -->
                 
                 <div style="text-align:right;">
-                    <a class="rm_prod_other" href="http://<?php echo $shop['subject'];?>.<?php echo $sub;?>"  target="_blank" title="<?php echo $shop['name']?>">Xem thêm sản phẩm</a>
+                    <?php if($row_sanpham['idshop'] == 0){ ?>
+                        <a class="rm_prod_other" href="<?php echo $root ;?>"  target="_blank" title="<?php echo $row['copyright']?>">Xem thêm sản phẩm</a>
+                    <?php } else{ ?>
+                        <a class="rm_prod_other" href="http://<?php echo $shop['subject'];?>.<?php echo $sub;?>"  target="_blank" title="<?php echo $shop['name']?>">Xem thêm sản phẩm</a>
+                    <?php } ?>
                 </div>
                 
             </div><!-- End .f_prod_other -->
