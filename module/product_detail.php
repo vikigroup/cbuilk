@@ -58,12 +58,12 @@ if($ghinho==1){ // prodetail
         <h1 class="t-lfcont"  >
             <?php echo $row_sanpham['name'];?>   
         </h1><!-- End .t-lfcont -->
-        <?php if($row_sanpham['type']==0){?> 
+
         <div class="sli-lfcont">
-            
+
             <div class="sli-fcon-1">
                 <ul class="ul-sli-fcon-1">
-                	
+
 					<?php
                     $hinh=get_records("tbl_ad","idshop='{$idshop}' AND name='' AND iditem=".$row_sanpham['id'],"id DESC","0,10"," ");
 					$demm=mysql_num_rows($hinh);
@@ -72,11 +72,11 @@ if($ghinho==1){ // prodetail
                     ?>
                     <li><img src="<?php echo $linkroot;?>/<?php echo $row_hinh['image'];?>" /></li>
                     <?php }} else { ?>
-                    <li><img src="<?php echo $linkroot;?>/<?php echo $row_sanpham['image'];?>" alt=""/> </li> 
-                    <?php }?> 
+                    <li><img src="<?php echo $linkroot;?>/<?php echo $row_sanpham['image'];?>" alt=""/> </li>
+                    <?php }?>
                 </ul>
             </div>
-            
+
             <div id="sli-fcon-2">
 				<?php
                 $hinh=get_records("tbl_ad","idshop='{$idshop}' AND name='' AND iditem=".$row_sanpham['id'],"id DESC","0,10"," ");
@@ -85,11 +85,11 @@ if($ghinho==1){ // prodetail
                 ?>
                 <a data-slide-index="<?php echo $i;?>" href=""><img src="<?php echo $linkroot;?>/<?php echo $row_hinh['image'];?>" /></a>
                	<?php $i++;}?>
-               
+
             </div>
-            
+
             <div class="clear"></div>
-            
+
             <script type="text/javascript">
                 $('.ul-sli-fcon-1').bxSlider({
                     pagerCustom: '#sli-fcon-2',
@@ -99,22 +99,19 @@ if($ghinho==1){ // prodetail
                     adaptiveHeight: true
                 });
             </script>
-            
+
         </div><!-- End .sli-lfcont -->
         
-        <?php }?>
-        
-        
-        <?php if($row_sanpham['type']==0){?> 
+        <?php if($row_sanpham['type']==0){?>
         <h4 class="t-ttct">
             Thông tin chi tiết sản phẩm
         </h4><!-- End .t-ttct -->
         <?php }else{?>
         <h4 class="t-ttct" style="padding-top:0px;">
-        
+            Nội dung chi tiết
         </h4><!-- End .t-ttct -->
         <?php }?>
-        
+
         <div class="f-ndct">
         
            <?php echo $row_sanpham['detail'];?> 
@@ -132,8 +129,8 @@ if($ghinho==1){ // prodetail
     
     <div class="r-fcont">
         <?php $shop=getRecord('tbl_shop', "id='".$row_sanpham['idshop']."'");?>
-        <?php 
-		if($row_sanpham['type']==0){
+        <?php
+		if($row_sanpham['style']==0){
 		?>
         <div class="gbsp">
             <span>Giá bán sản phẩm:</span>
@@ -157,6 +154,7 @@ if($ghinho==1){ // prodetail
 <!--        </div><!-- End .slsp -->
         <?php }?>
 
+        <?php if($row_sanpham['style']==0){?>
         <a href="#popup" class="popup-link" onclick="$('.popup-container').show();">ĐẶT MUA</a>
         <div class="popup-wrapper" id="popup">
             <div class="popup-container"><!-- Popup Contents, just modify with your own -->
@@ -193,6 +191,7 @@ if($ghinho==1){ // prodetail
                 <!-- Popup Content is untill here--><a class="popup-close" href="#closed" onclick="$('.popup-container').hide();">X</a>
             </div>
         </div>
+        <?php } ?>
 
         <div class="clear"></div>
 
@@ -205,7 +204,7 @@ if($ghinho==1){ // prodetail
                     <div class="clear"></div>
                 </li>-->
                 <li>
-                    <h4 class="l_ipd">Ngày đăng <?php if($row_sanpham['type']==0) echo "sản phẩm";else echo "Dịch vụ";?></h4>
+                    <h4 class="l_ipd">Ngày đăng <?php if($row_sanpham['type']==0) echo "sản phẩm";?></h4>
                     <span class="r_ipd"><?php echo $row_sanpham['date_added'];?></span>
                     <div class="clear"></div>
                 </li>
@@ -322,7 +321,7 @@ if($ghinho==1){ // prodetail
             <div class="f_prod_other">
                 
                 <h1 class="title_prod_other">
-                     <?php if($row_sanpham['cate']==0) echo "sản phẩm";else echo "Dịch vụ"?> của chúng tôi
+                     <?php if($row_sanpham['style'] == 1){echo "Tin tức chuyên ngành";} else if($row_sanpham['cate']==0) echo "Sản phẩm của chúng tôi";else echo "Dịch vụ của chúng tôi"?>
                 </h1><!-- End .title_prod_other -->
                 
                 <div class="main_prod_other">
