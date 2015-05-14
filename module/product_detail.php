@@ -133,7 +133,7 @@ if($ghinho==1){ // prodetail
 		if($row_sanpham['style']==0){
 		?>
         <div class="gbsp">
-            <span>Giá bán sản phẩm:</span>
+            <span> <?php if($row_sanpham['type']==0){echo "Giá bán sản phẩm:";}else{echo "Giá dịch vụ:";} ?></span>
             <h1><?php  if(preg_match ("/^([0-9]+)$/", $row_sanpham['price'])) echo number_format($row_sanpham['price'],0)."  VNĐ";else echo "Giá: Liên hệ"; ?></h1>
         </div><!-- End .gbsp -->
         
@@ -321,13 +321,16 @@ if($ghinho==1){ // prodetail
             <div class="f_prod_other">
                 
                 <h1 class="title_prod_other">
-                     <?php if($row_sanpham['style'] == 1){echo "Tin tức chuyên ngành";} else if($row_sanpham['cate']==0) echo "Sản phẩm của chúng tôi";else echo "Dịch vụ của chúng tôi"?>
+                     <?php if($row_sanpham['style'] == 1){echo "Tin tức chuyên ngành";} else if($row_sanpham['type']==0) echo "Sản phẩm của chúng tôi";else echo "Dịch vụ của chúng tôi"?>
                 </h1><!-- End .title_prod_other -->
                 
                 <div class="main_prod_other">
                     <ul>
                     <?php 
-					$shop_product=get_records("tbl_item","status=0 AND cate='".$row_sanpham['cate']."' AND idshop=".$row_sanpham['idshop'],"id DESC","0,5"," ");
+					$shop_product=get_records("tbl_item","status=0 AND type='".$row_sanpham['type']."' AND cate='".$row_sanpham['cate']."' AND idshop=".$row_sanpham['idshop'],"id DESC","0,5"," ");
+                    if($row_sanpham['style'] == 1){
+                        $shop_product=get_records("tbl_item","status=0 AND style=1 AND cate='".$row_sanpham['cate']."' AND idshop=".$row_sanpham['idshop'],"id DESC","0,5"," ");
+                    }
 					while($row_shop_product=mysql_fetch_assoc($shop_product)){
 					?>
                         <li>
@@ -364,9 +367,13 @@ if($ghinho==1){ // prodetail
                 </div><!-- End .main_prod_other -->
                 
                 <div style="text-align:right;">
-                    <?php if($row_sanpham['idshop'] == 0){ ?>
-                        <a class="rm_prod_other" href="<?php echo $root ;?>"  target="_blank" title="<?php echo $row['copyright']?>">Xem thêm sản phẩm</a>
+                    <?php if($row_sanpham['style'] == 1){ ?>
+                        <a class="rm_prod_other" href="<?php echo $root ;?>/tin-tuc-chuyen-nganh.html"  target="_blank" title="Tin tức chuyên ngành">Xem thêm tin tức</a>
+                    <?php } else if($row_sanpham['idshop'] == 0){ if($row_sanpham['type'] == 1){?>
+                        <a class="rm_prod_other" href="<?php echo $root ;?>"  target="_blank" title="<?php echo $row['copyright']?>">Xem thêm dịch vụ</a>
                     <?php } else{ ?>
+                        <a class="rm_prod_other" href="<?php echo $root ;?>"  target="_blank" title="<?php echo $row['copyright']?>">Xem thêm sản phẩm</a>
+                    <?php } }else{ ?>
                         <a class="rm_prod_other" href="http://<?php echo $shop['subject'];?>.<?php echo $sub;?>"  target="_blank" title="<?php echo $shop['name']?>">Xem thêm sản phẩm</a>
                     <?php } ?>
                 </div>
@@ -380,7 +387,7 @@ if($ghinho==1){ // prodetail
             <div class="f_prod_other">
                 
                 <h1 class="title_prod_other">
-                    <?php if($row_sanpham['type']==0) echo "sản phẩm";else echo "Dịch vụ"?> cùng loại
+                    <?php if($row_sanpham['style'] == 1){echo "Tin tức liên quan";} else if($row_sanpham['type']==0) echo "Sản phẩm liên quan";else echo "Dịch vụ liên quan"?>
                 </h1><!-- End .title_prod_other -->
                 
                 <div class="main_prod_other">
