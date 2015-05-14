@@ -98,7 +98,7 @@ $product=get_records("tbl_item","status=0 AND type=0 AND parent1 in ({$parent}) 
                         <li>
                             <div class="i-Pnb">
                                 <a href="<?php echo $linkrootshop;?>/<?php echo $row_new['subject'];?>.html" title="">
-                                    <img src="<?php echo $linkrootshop?>/imagecache/image.php/<?=$row_new['image']?>?width=176&amp;height=140&amp;cropratio=1:1&amp;image=<?php echo $linkroot?>/<?=$row_new['image']?>" alt=""/>
+                                    <img src="<?php echo $linkroot?>/<?=$row_new['image']?>" alt=""/>
                                 </a>
                             </div><!-- End .i-Pnb -->
                             <a class="n-Pnb" href="<?php echo $linkrootshop;?>/<?php echo $row_new['subject'];?>.html"><?php echo $row_new['name'];?></a>
@@ -136,7 +136,7 @@ $product=get_records("tbl_item","status=0 AND type=0 AND parent1 in ({$parent}) 
                         <li>
                             <div class="i-Pnb">
                                 <a href="<?php echo $linkrootshop;?>/<?php echo $row_new['subject'];?>.html" title="">
-                                    <img src="<?php echo $linkrootshop?>/imagecache/image.php/<?=$row_new['image']?>?width=176&amp;height=140&amp;cropratio=1:1&amp;image=<?php echo $linkroot?>/<?=$row_new['image']?>" alt=""/>
+                                    <img src="<?php echo $linkroot?>/<?=$row_new['image']?>" alt=""/>
                                 </a>
                             </div><!-- End .i-Pnb -->
                             <a class="n-Pnb" href="<?php echo $linkrootshop;?>/<?php echo $row_new['subject'];?>.html"><?php echo $row_new['name'];?></a>
@@ -183,7 +183,7 @@ $product=get_records("tbl_item","status=0 AND type=0 AND parent1 in ({$parent}) 
                     <li class="li-Pc1">
                         <div class="i-Pnb">
                             <a href="<?php echo $linkrootshop;?>/<?php echo $row_new['subject'];?>.html" title="">
-                                <img src="<?php echo $linkrootshop?>/imagecache/image.php/<?=$row_new['image']?>?width=176&amp;height=140&amp;cropratio=1:1&amp;image=<?php echo $linkroot?>/<?=$row_new['image']?>" alt=""/>
+                                <img src="<?php echo $linkroot?>/<?=$row_new['image']?>" alt=""/>
                             </a>
                         </div><!-- End .i-Pnb -->
                         <div class="prod_row1">
