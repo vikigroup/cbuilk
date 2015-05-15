@@ -7,14 +7,16 @@
 
 <article class="l-tool-ct primary-category">
     <ul class="ul-ltct">
-        <li><a class="btn-gh3" href="<?php echo $linkrootshop?>/may-thiet-bi-cu.html">Máy, thiết bị cũ</a></li>
+        <?php $old=getRecord('tbl_shop_category', "id=210"); ?>
+        <li><a class="btn-gh3" href="<?php echo $linkrootshop?>/<?php echo $old['subject']; ?>.html"><?php echo $old['name']; ?></a></li>
     </ul>
     <div class="clear"></div>
 </article><!-- End .l-tool-ct -->
 
 <article class="l-tool-ct primary-category">
     <ul class="ul-ltct">
-        <li><a class="btn-gh3" href="<?php echo $linkrootshop?>/thue-may-thiet-bi.html">Thuê Máy, thiết bị</a></li>
+        <?php $rent=getRecord('tbl_shop_category', "id=209"); ?>
+        <li><a class="btn-gh3" href="<?php echo $linkrootshop?>/<?php echo $rent['subject']; ?>.html"><?php echo $rent['name']; ?></a></li>
     </ul>
     <div class="clear"></div>
 </article><!-- End .l-tool-ct -->
@@ -22,7 +24,7 @@
 <article class="l-tool-ct primary-category">
     <ul class="ul-ltct">
         <?php $news=getRecord('tbl_shop_category', "id=211"); ?>
-<li><a class="btn-gh3" href="<?php echo $linkrootshop; ?>/<?php echo $news['subject']; ?>.html">Tin chuyên ngành</a></li>
+<li><a class="btn-gh3" href="<?php echo $linkrootshop; ?>/<?php echo $news['subject']; ?>.html"><?php echo $news['name']; ?></a></li>
     </ul>
     <div class="clear"></div>
 </article><!-- End .l-tool-ct -->
