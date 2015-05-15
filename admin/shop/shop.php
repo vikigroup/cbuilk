@@ -1,5 +1,5 @@
 <?php
-
+$noimgs = "imgs/no_image.gif";
 if(isset($frame)==true){
 
 	check_permiss($_SESSION['kt_login_id'],2,'admin.php');
