@@ -21,7 +21,8 @@
 
 <article class="l-tool-ct primary-category">
     <ul class="ul-ltct">
-        <li><a class="btn-gh3" href="<?php echo $linkrootshop?>/tin-tuc-chuyen-nganh.html">Tin chuyên ngành</a></li>
+        <?php $news=getRecord('tbl_shop_category', "id=211"); ?>
+<li><a class="btn-gh3" href="<?php echo $linkrootshop; ?>/<?php echo $news['subject']; ?>.html">Tin chuyên ngành</a></li>
     </ul>
     <div class="clear"></div>
 </article><!-- End .l-tool-ct -->

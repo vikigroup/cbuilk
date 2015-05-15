@@ -103,7 +103,7 @@ if($ghinho==1){ // prodetail
 
         </div><!-- End .sli-lfcont -->
         
-        <?php if($row_sanpham['type']==0){?>
+        <?php if($row_sanpham['style']==0){?>
         <h4 class="t-ttct">
             Thông tin chi tiết sản phẩm
         </h4><!-- End .t-ttct -->
@@ -196,6 +196,7 @@ if($ghinho==1){ // prodetail
 
         <div class="clear"></div>
 
+        <?php if($row_sanpham['style']==0){?>
         <div class="info_prod_details">
         
             <ul>
@@ -316,21 +317,22 @@ if($ghinho==1){ // prodetail
             </div><!-- End .info_gh -->
             
         </div><!-- End .block_prod_details -->
-        
+        <?php } ?>
+
         <div class="block_prod_details">
         
             <div class="f_prod_other">
                 
                 <h1 class="title_prod_other">
-                     <?php if($row_sanpham['style'] == 1){echo "Tin tức chuyên ngành";} else if($row_sanpham['type']==0) echo "Sản phẩm của chúng tôi";else echo "Dịch vụ của chúng tôi"?>
+                     <?php if($row_sanpham['style'] == 1){echo "Tin xem nhiều nhất";} else if($row_sanpham['type']==0) echo "Sản phẩm xem nhiều nhất";else echo "Dịch vụ xem nhiều nhất"?>
                 </h1><!-- End .title_prod_other -->
                 
                 <div class="main_prod_other">
                     <ul>
                     <?php 
-					$shop_product=get_records("tbl_item","status=0 AND type='".$row_sanpham['type']."' AND cate='".$row_sanpham['cate']."' AND idshop=".$row_sanpham['idshop'],"id DESC","0,5"," ");
+					$shop_product=get_records("tbl_item","status=0 AND type='".$row_sanpham['type']."' AND cate='".$row_sanpham['cate']."' AND idshop=".$row_sanpham['idshop'],"view DESC","0,10"," ");
                     if($row_sanpham['style'] == 1){
-                        $shop_product=get_records("tbl_item","status=0 AND style=1 AND cate='".$row_sanpham['cate']."' AND idshop=".$row_sanpham['idshop'],"id DESC","0,5"," ");
+                        $shop_product=get_records("tbl_item","status=0 AND style=1 AND cate='".$row_sanpham['cate']."' AND idshop=".$row_sanpham['idshop'],"view DESC","0,10"," ");
                     }
 					while($row_shop_product=mysql_fetch_assoc($shop_product)){
 					?>
@@ -447,14 +449,26 @@ $totalRows = 0;
 $xeptheo='id';
 $dem=1;
 
-$kkk="1";
-if(isset($_SESSION['filter1'])) {
-	$xapxep=$_SESSION['filter1'];
-	if($xapxep==" id DESC") $kkk="1";
-	elseif($xapxep==" price ASC") $kkk="2";
-	elseif($xapxep==" price DESC") $kkk="3";
-}
-else $xapxep="id DESC";
+//$kkk="1";
+//if(isset($_SESSION['filter1'])) {
+//	$sapxep=$_SESSION['filter1'];
+//	if($sapxep==" id DESC") $kkk="1";
+//	elseif($sapxep==" price ASC") $kkk="2";
+//	elseif($sapxep==" price DESC") $kkk="3";
+//}
+//else $sapxep="id DESC";
+
+$link = $_SERVER['REQUEST_URI'];
+$myLink = explode("?", $link);
+$data = explode("=", $myLink[1]);
+$filter = $data[1];
+$hot = 0;
+$sapxep="id DESC";
+if($filter == 1){$sapxep = "id DESC"; $hot = 0;}
+if($filter == 2){$sapxep = "date_added DESC"; $hot = 1;}
+if($filter == 3){$sapxep = "view DESC"; $hot = 0;}
+if($filter == 4){$sapxep = "price DESC"; $hot = 0;}
+if($filter == 5){$sapxep = "price ASC"; $hot = 0;}
 
 settype($pageSize,"int");
 settype($pageNum,"int");
@@ -469,7 +483,10 @@ $startRow = ($pageNum-1) * $pageSize;
 
 $totalRows = countRecord("tbl_item","status=0 AND type=0 AND parent1 in ({$parent})"); 
 //echo "status=0 AND parent='{$parent}' limit ".$startRow.",".$pageSize;
-$product=get_records("tbl_item","status=0 AND type=0 AND parent1 in ({$parent}) order by $xapxep limit ".$startRow.",".$pageSize," "," "," ");
+$product=get_records("tbl_item", "status=0 AND type=0 AND parent1 in ({$parent}) order by $sapxep limit ".$startRow.",".$pageSize," "," "," ");
+if($hot == 1){
+    $product=get_records("tbl_item", "status=0 AND type=0 AND hot = 1 AND parent1 in ({$parent}) order by $sapxep limit ".$startRow.",".$pageSize," "," "," ");
+}
 ?>
 <section class="breacrum">
     <ul>
@@ -570,7 +587,7 @@ $product=get_records("tbl_item","status=0 AND type=0 AND parent1 in ({$parent}) 
                         </div><!-- End .i-Pnb -->
                         <a class="n-Pnb" href="<?php echo $linkrootshop;?>/<?php echo $row_new['subject'];?>.html"><?php echo $row_new['name'];?></a>
                         <a class="s-Pnb" href="http://<?php echo $shop['subject'];?>.<?php echo $sub;?>"><?php echo $shop['subject'];?></a>
-                        <span class="price-Pnb"><?php  if(preg_match ("/^([0-9]+)$/", $row_new['price'])) echo number_format($row_new['price'],0)."  VNĐ";else echo "Giá: Liên hệ"; ?></span>
+                        <span class="price-Pnb"><?php  if($row_new['price'] != 0){echo number_format($row_new['price'],0)."  VNĐ";}else if($row_new['pricekm'] != 0){echo number_format($row_new['price'],0)."  VNĐ";}else{echo "Giá: Liên hệ";} ?></span>
                     </li>
                    <?php }?>
                    
@@ -584,16 +601,16 @@ $product=get_records("tbl_item","status=0 AND type=0 AND parent1 in ({$parent}) 
         <section class="filter-Prod">
             <h4 class="t-Pnb">
                 <ul class="ul-fP">
-                    <li class="act"><a href="<?php echo $linkrootshop;?>/module/process.php?filter1=1">Mới nhất</a></li>
+                    <li class="act"><a href="<?php echo $linkrootshop;?>/<?php echo $tensanpham ?>.html?filter1=1">Mới nhất</a></li>
                     <li>|</li>
-                    <li class="act"><a href="<?php echo $linkrootshop;?>/module/process.php?filter1=1">Nổi bật</a></li>
+                    <li class="act"><a href="<?php echo $linkrootshop;?>/<?php echo $tensanpham ?>.html?filter1=2">Nổi bật</a></li>
                     <li>|</li>
-                    <li class="act"><a href="<?php echo $linkrootshop;?>/module/process.php?filter1=1">Xem nhiều nhất</a></li>
+                    <li class="act"><a href="<?php echo $linkrootshop;?>/<?php echo $tensanpham ?>.html?filter1=3">Xem nhiều nhất</a></li>
                     <li>|</li>
                     <?php if($row_category['id'] != 211){ ?>
-                    <li class="act"><a href="<?php echo $linkrootshop;?>/module/process.php?filter1=1">Giá cao nhất</a></li>
+                    <li class="act"><a href="<?php echo $linkrootshop;?>/<?php echo $tensanpham ?>.html?filter1=4">Giá cao nhất</a></li>
                     <li>|</li>
-                    <li class="act"><a href="<?php echo $linkrootshop;?>/module/process.php?filter1=1">Giá thấp nhất</a></li>
+                    <li class="act"><a href="<?php echo $linkrootshop;?>/<?php echo $tensanpham ?>.html?filter1=5">Giá thấp nhất</a></li>
                     <li>|</li>
                     <?php } ?>
                 </ul>
@@ -613,9 +630,9 @@ $product=get_records("tbl_item","status=0 AND type=0 AND parent1 in ({$parent}) 
         <section class="Prod-cate">
         
             <ul>
-				<?php 
+				<?php
                 while($row_new=mysql_fetch_assoc($product)){
-			    $shop=getRecord('tbl_shop', "id='".$row_new['idshop']."'");
+			    $shop=getRecord('tbl_shop', "id=".$row_new['idshop']);
                 ?>
                 <li class="li-Pc1">
                     <div class="i-Pnb">
@@ -638,7 +655,7 @@ $product=get_records("tbl_item","status=0 AND type=0 AND parent1 in ({$parent}) 
                         <?php echo $row_new['date_added'];?>
                     </div><!-- End .prod_row3 -->
                     <?php if($row_category['id'] != 211){ ?>
-                    <span class="price-Pnb"><?php  if(preg_match ("/^([0-9]+)$/", $row_new['price'])) echo number_format($row_new['price'],0)."  VNĐ";else echo "Giá: Liên hệ"; ?></span>
+                    <span class="price-Pnb"><?php  if($row_new['price'] != 0){echo number_format($row_new['price'],0)."  VNĐ";}else if($row_new['pricekm'] != 0){echo number_format($row_new['price'],0)."  VNĐ";}else{echo "Giá: Liên hệ";} ?></span>
                     <?php } ?>
                     <div class="clear"></div>
                 </li>
