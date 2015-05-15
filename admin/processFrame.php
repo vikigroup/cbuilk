@@ -1,4 +1,5 @@
 <?php
+$noimgs = "imgs/no_image.gif";
 switch ($frame){
 	
 	//  category shop
