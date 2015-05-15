@@ -2,7 +2,6 @@
 $tensanpham=$_GET['tensanpham'];
 $row_sanpham   = getRecord('tbl_item', "subject='".$tensanpham."'");
 $row_category  = getRecord('tbl_shop_category', "subject='".$tensanpham."'");
-
 if($row_sanpham['id']!="")   {
 	$sql = "update tbl_item set view=view+1 where id='".$row_sanpham['id']."'";
 	mysql_query($sql);
@@ -371,7 +370,8 @@ if($ghinho==1){ // prodetail
                 
                 <div style="text-align:right;">
                     <?php if($row_sanpham['style'] == 1){ ?>
-                        <a class="rm_prod_other" href="<?php echo $root ;?>/tin-tuc-chuyen-nganh.html"  target="_blank" title="Tin tức chuyên ngành">Xem thêm tin tức</a>
+                        <?php $news=getRecord('tbl_shop_category', "id=211"); ?>
+                        <a class="rm_prod_other" href="<?php echo $root ;?>/<?php echo $news['subject']; ?>.html"  target="_blank" title="<?php echo $news['subject']; ?>">Xem thêm tin tức</a>
                     <?php } else if($row_sanpham['idshop'] == 0){ if($row_sanpham['type'] == 1){?>
                         <a class="rm_prod_other" href="<?php echo $root ;?>"  target="_blank" title="<?php echo $row['copyright']?>">Xem thêm dịch vụ</a>
                     <?php } else{ ?>
@@ -492,7 +492,7 @@ if($hot == 1){
     <ul>
         <li><a href="<?php echo $linkrootshop;?>">Trang chủ</a></li>
         <li><a href="<?php echo $linkrootshop;?><?php echo $tensanpham;?>.html"><?php echo get_field('tbl_shop_category','subject',$tensanpham,'name');?></a></li>
-        <li><a href="#">Hiện có <strong><?php echo $totalRows;?></strong><?php if($row_category['id'] != 211){echo " sản phẩm";}else{echo " tin";} ?></a></li>
+        <li><a href="#">Hiện có <strong><?php echo $totalRows;?></strong><?php if($row_category['id'] != 211 && $row_category['cate'] != 1){echo " sản phẩm";}else{echo " tin";} ?></a></li>
     </ul>
     <div class="clear"></div>
 </section><!-- End .breacrum -->
@@ -526,7 +526,7 @@ if($hot == 1){
     </div><!-- End .sidebar -->
     
     <div class="content">
-        <?php if($row_category['id'] != 211){ ?>
+        <?php if($row_category['id'] != 211 && $row_category['cate'] != 1){ ?>
         <section class="Prod-nb">
         
             <h4 class="t-Pnb">
@@ -607,7 +607,7 @@ if($hot == 1){
                     <li>|</li>
                     <li class="act"><a href="<?php echo $linkrootshop;?>/<?php echo $tensanpham ?>.html?filter1=3">Xem nhiều nhất</a></li>
                     <li>|</li>
-                    <?php if($row_category['id'] != 211){ ?>
+                    <?php if($row_category['id'] != 211 && $row_category['cate'] != 1){ ?>
                     <li class="act"><a href="<?php echo $linkrootshop;?>/<?php echo $tensanpham ?>.html?filter1=4">Giá cao nhất</a></li>
                     <li>|</li>
                     <li class="act"><a href="<?php echo $linkrootshop;?>/<?php echo $tensanpham ?>.html?filter1=5">Giá thấp nhất</a></li>
@@ -654,7 +654,7 @@ if($hot == 1){
                         <br>
                         <?php echo $row_new['date_added'];?>
                     </div><!-- End .prod_row3 -->
-                    <?php if($row_category['id'] != 211){ ?>
+                    <?php if($row_category['id'] != 211 && $row_category['cate'] != 1){ ?>
                     <span class="price-Pnb"><?php  if($row_new['price'] != 0){echo number_format($row_new['price'],0)."  VNĐ";}else if($row_new['pricekm'] != 0){echo number_format($row_new['price'],0)."  VNĐ";}else{echo "Giá: Liên hệ";} ?></span>
                     <?php } ?>
                     <div class="clear"></div>
