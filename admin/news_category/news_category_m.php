@@ -40,9 +40,8 @@ if (isset($_POST['btnSave'])){
     $parent        = $_POST['ddCat'];
     $parent1       = $_POST['ddCatch'];
 
-    if($parent1==-1 && $parent==-1){$parent1==211;}
-    else if($parent1==-1){$parent1=$parent;};
-
+    if($parent1==-1) $parent1=$parent;
+    if($parent1==-1 && $parent==-1) $parent1=211;
     $subject       = vietdecode($name);
     $detail_short  = isset($_POST['txtDetailShort']) ? trim($_POST['txtDetailShort']) : '';
     $detail        = isset($_POST['txtDetail']) ? trim($_POST['txtDetail']) : '';
