@@ -524,7 +524,8 @@ if($hot == 1){
         </div><!-- End .catelog -->
         
     </div><!-- End .sidebar -->
-    
+
+    <?php if($totalRows != 0){ ?>
     <div class="content">
         <?php if($row_category['id'] != 211 && $row_category['cate'] != 1){ ?>
         <section class="Prod-nb">
@@ -536,8 +537,10 @@ if($hot == 1){
             <article class="m-Pnb">
             
                 <ul class="ul-Pnb">
-					<?php 
-                    $new=get_records("tbl_item","status=0 AND type=0 AND parent1 in ({$parent}) "," ","0,9"," ");
+					<?php
+                    $totalNews = countRecord("tbl_item","status=0 AND type=0 AND pricekm != 0 AND parent1 in ({$parent})");
+                    $new=get_records("tbl_item","status=0 AND type=0 AND pricekm != 0 AND parent1 in ({$parent}) "," ","0,9"," ");
+                    if($totalNews == 0){echo "Hiện không có sản phẩm khuyến mãi trong danh mục này";}else{
 					while($row_new=mysql_fetch_assoc($new)){
 				    $shop=getRecord('tbl_shop', "id='".$row_new['idshop']."'");
                     ?>
@@ -549,9 +552,9 @@ if($hot == 1){
                         </div><!-- End .i-Pnb -->
                         <a class="n-Pnb" href="<?php echo $linkrootshop;?>/<?php echo $row_new['subject'];?>.html"><?php echo $row_new['name'];?></a>
                         <a class="s-Pnb" href="http://<?php echo $shop['subject'];?>.<?php echo $sub;?>"><?php echo $shop['subject'];?></a>
-                        <span class="price-Pnb"><?php  if(preg_match ("/^([0-9]+)$/", $row_new['price'])) echo number_format($row_new['price'],0)."  VNĐ";else echo "Giá: Liên hệ"; ?></span>
+                        <span class="price-Pnb"><?php  if(preg_match ("/^([0-9]+)$/", $row_new['pricekm'])) echo number_format($row_new['pricekm'],0)."  VNĐ";else echo "Giá: Liên hệ"; ?></span>
                     </li>
-                    <?php }?>
+                    <?php } } ?>
                     
                 </ul>
                 
@@ -679,7 +682,7 @@ if($hot == 1){
         </div><!-- End .frame_phantrang -->
         
     </div><!-- End .content -->
-    
+    <?php } ?>
     <div class="clear"></div>
 </section><!-- End .f-ct -->
 
