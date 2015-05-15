@@ -481,11 +481,15 @@ if ($pageNum<=0) $pageNum=1;
 $startRow = ($pageNum-1) * $pageSize;
 
 
-$totalRows = countRecord("tbl_item","status=0 AND type=0 AND parent1 in ({$parent})"); 
+if($row_category['id'] == 211){
+    $totalRows = countRecord("tbl_item","status=0 AND type=0 AND style = 1");
+    $product=get_records("tbl_item", "status=0 AND type=0 AND style = 1 order by $sapxep limit ".$startRow.",".$pageSize," "," "," ");
+    if($hot == 1){$product=get_records("tbl_item", "status=0 AND type=0 AND style = 1 AND hot = 1 AND parent1 in ({$parent}) order by $sapxep limit ".$startRow.",".$pageSize," "," "," ");}
+}else{
+    $totalRows = countRecord("tbl_item","status=0 AND type=0 AND parent1 in ({$parent})");
 //echo "status=0 AND parent='{$parent}' limit ".$startRow.",".$pageSize;
-$product=get_records("tbl_item", "status=0 AND type=0 AND parent1 in ({$parent}) order by $sapxep limit ".$startRow.",".$pageSize," "," "," ");
-if($hot == 1){
-    $product=get_records("tbl_item", "status=0 AND type=0 AND hot = 1 AND parent1 in ({$parent}) order by $sapxep limit ".$startRow.",".$pageSize," "," "," ");
+    $product=get_records("tbl_item", "status=0 AND type=0 AND parent1 in ({$parent}) order by $sapxep limit ".$startRow.",".$pageSize," "," "," ");
+    if($hot == 1){$product=get_records("tbl_item", "status=0 AND type=0 AND hot = 1 AND parent1 in ({$parent}) order by $sapxep limit ".$startRow.",".$pageSize," "," "," ");}
 }
 ?>
 <section class="breacrum">
@@ -645,7 +649,7 @@ if($hot == 1){
                     </div><!-- End .i-Pnb -->
                     <div class="prod_row1">
                         <a class="n-Pnb" href="<?php echo $linkrootshop;?>/<?php echo $row_new['subject'];?>.html"><?php echo $row_new['name'];?></a>
-                        <a class="s-Pnb" href="http://<?php echo $shop['subject'];?>.<?php echo $sub;?>"><?php echo $shop['subject'];?></a>
+                        <a class="s-Pnb" href="http://<?php echo $shop['subject'];?>.<?php echo $sub;?>"><?php echo $row_new['detail_short'];?></a>
                     </div><!-- End .prod_row1 -->
                     <div class="prod_row2">
                         Lượt xem
