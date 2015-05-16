@@ -756,4 +756,9 @@ if($hot == 1){$product=get_records("tbl_item", "status=0 AND type=0 AND style = 
     }
 </script>
 
-<script>$(function(){$(".f-sty-P2").click();})</script>
+<script>
+    $(function(){
+        $(".f-sty-P2").click();
+        $(".f-sty-P1").click();
+    })
+</script>
