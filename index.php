@@ -406,13 +406,14 @@ require("module/box_device.php");
             $('.m-wrap, .dmsp4-3, .ads-home, .btn-gh3, .form_dn, .form_dn ul li, .l-fcont, .r-fcont' +
                 ', .sli-fcon-1 .bx-wrapper .bx-viewport, .filter-Prod, .content').css('width', windowSize);
             $('.divProductLine1, .divProductOverlay1').css('width', windowSize/2 - 2);
-            $('.sli-fcon-1').css('width', windowSize-2);
+            $('.sli-fcon-1').css('width', windowSize - 2);
             $('.li-Pc1').css('width', windowSize/2 - 23);
             $('.ul-ifoot li, .menu').css('width', '100%');
             $('.arrowCategory').css('width', windowSize - 52);
             $('.t-Pnb').css('width', windowSize - 2);
             $('.hotline').attr('style', 'margin: 0 0 0 5px !important;');
             $('.dmsp4-3').css('max-width', windowSize);
+            $('.prod_row1').css('width', windowSize - 100);
 
             for(var i = 0; i < 8; i++){
                 if($('#aCategoryName'+i).height() > 14){
@@ -441,6 +442,7 @@ require("module/box_device.php");
             $('.t-Pnb, .filter-Prod, .content').css('width', 1000);
             $('.li-Pc1').css('width', 173);
             $('.hotline').attr('style', 'margin: 10px 30px 10px 30px !important;');
+            $('.prod_row1').css('width', 300);
 
             for(var i = 0; i < 8; i++){
                 if($('#aCategoryName'+i).height() > 14){
