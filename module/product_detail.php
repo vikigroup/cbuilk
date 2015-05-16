@@ -43,10 +43,10 @@ if($ghinho==1){ // prodetail
 		$cha=get_field('tbl_shop_category','id',get_field('tbl_shop_category','id',$row_sanpham['parent1'],'parent'),'parent');
         if($cha==2){
 		?>
-        <li><a href="<?php echo $linkrootshop;?><?php echo get_field('tbl_shop_category','id',get_field('tbl_shop_category','id',$row_sanpham['parent1'],'parent'),'subject');?>.html"  title="<?php echo get_field('tbl_shop_category','id',get_field('tbl_shop_category','id',$row_sanpham['parent1'],'parent'),'name');?>"><?php echo get_field('tbl_shop_category','id',get_field('tbl_shop_category','id',$row_sanpham['parent1'],'parent'),'name');?></a></li>
+        <li><a href="<?php echo $linkrootshop;?><?php echo get_field('tbl_shop_category','id',get_field('tbl_shop_category','id',$row_sanpham['parent1'],'parent'),'subject');?>.html"  title="<?php echo get_field('tbl_shop_category','id',get_field('tbl_shop_category','id',$row_sanpham['parent1'],'parent'),'title');?>"><?php echo get_field('tbl_shop_category','id',get_field('tbl_shop_category','id',$row_sanpham['parent1'],'parent'),'name');?></a></li>
         <?php }?>
-        <li><a href="<?php echo $linkrootshop;?><?php echo get_field('tbl_shop_category','id',$row_sanpham['parent1'],'subject');?>.html" title="<?php echo get_field('tbl_shop_category','id',$row_sanpham['parent1'],'name');?>"><?php echo get_field('tbl_shop_category','id',$row_sanpham['parent1'],'name');?></a></li>
-        <li><a title="<?php echo $row_sanpham['name'];?>"><?php echo $row_sanpham['name'];?> </a></li>
+        <li><a href="<?php echo $linkrootshop;?><?php echo get_field('tbl_shop_category','id',$row_sanpham['parent1'],'subject');?>.html" title="<?php echo get_field('tbl_shop_category','id',$row_sanpham['parent1'],'title');?>"><?php echo get_field('tbl_shop_category','id',$row_sanpham['parent1'],'name');?></a></li>
+        <li><a title="<?php echo $row_sanpham['title'];?>"><?php echo $row_sanpham['name'];?> </a></li>
     </ul>
     <div class="clear"></div>
 </section><!-- End .breacrum -->
@@ -243,18 +243,18 @@ if($ghinho==1){ // prodetail
                 <div>
                     <div class="i_p_prod_details">
                         <?php if($row_sanpham['idshop'] == 0){ ?>
-                        <a href="http://<?php echo $root;?>" title="">
-                            <img src="<?php echo $root;?>/imgs/layout/logo.png" alt=""/>
+                        <a href="http://<?php echo $root;?>" title="<?php echo $row_sanpham['title'];?>">
+                            <img src="<?php echo $root;?>/imgs/layout/logo.png" alt="<?php echo $row_sanpham['title'];?>"/>
                         </a>
                         <?php } else{ ?>
-                        <a href="http://<?php echo $shop['subject'];?>.<?php echo $sub;?>" title="">
-                            <img src="<?php echo $linkroot?>/<?php echo $shop['logo'];?>" alt=""/>
+                        <a href="http://<?php echo $shop['subject'];?>.<?php echo $sub;?>" title="<?php echo $shop['title'];?>">
+                            <img src="<?php echo $linkroot?>/<?php echo $shop['logo'];?>" alt="<?php echo $shop['title'];?>"/>
                         </a>
                         <?php } ?>
                     </div>
                     <div class="i_gh_details">
                         <h3>
-                            <a href="http://<?php echo $shop['subject'];?>.<?php echo $sub;?>" title=""><?php echo $shop['name'];?></a>
+                            <a href="http://<?php echo $shop['subject'];?>.<?php echo $sub;?>" title="<?php echo $shop['title'];?>"><?php echo $shop['name'];?></a>
                         </h3>
                         <?php if($row_sanpham['idshop'] != 0){ ?>
                         <p>Ngày mở shop: <?php echo $shop['date_added'];?></p>
@@ -339,15 +339,15 @@ if($ghinho==1){ // prodetail
                             <span class="s1_po">
                                 <div>
                                     <span>
-                                        <a href="<?php echo $linkrootshop;?>/<?php echo $row_shop_product['subject'];?>.html" title="<?php echo $row_shop_product['name'];?>">
-                                            <img src="<?php echo $linkroot?>/<?php echo $row_shop_product['image'];?>" alt=""/>
+                                        <a href="<?php echo $linkrootshop;?>/<?php echo $row_shop_product['subject'];?>.html" title="<?php echo $row_shop_product['title'];?>">
+                                            <img src="<?php echo $linkroot?>/<?php echo $row_shop_product['image'];?>" alt="<?php echo $row_shop_product['title'];?>"/>
                                         </a>
                                     </span>
                                 </div>
                             </span>
                             <span class="s2_po">
                                 <h4>
-                                    <a href="<?php echo $linkrootshop;?>/<?php echo $row_shop_product['subject'];?>.html" title="<?php echo $row_shop_product['name'];?>"><?php echo $row_shop_product['name'];?></a>
+                                    <a href="<?php echo $linkrootshop;?>/<?php echo $row_shop_product['subject'];?>.html" title="<?php echo $row_shop_product['title'];?>"><?php echo $row_shop_product['name'];?></a>
                                 </h4>
                                 <?php 
 								if($row_sanpham['style']==0){
@@ -371,13 +371,13 @@ if($ghinho==1){ // prodetail
                 <div style="text-align:right;">
                     <?php if($row_sanpham['style'] == 1){ ?>
                         <?php $news=getRecord('tbl_shop_category', "id=211"); ?>
-                        <a class="rm_prod_other" href="<?php echo $root ;?>/<?php echo $news['subject']; ?>.html"  target="_blank" title="<?php echo $news['subject']; ?>">Xem thêm tin tức</a>
+                        <a class="rm_prod_other" href="<?php echo $root ;?>/<?php echo $news['subject']; ?>.html"  target="_blank" title="<?php echo $news['title']; ?>">Xem thêm tin tức</a>
                     <?php } else if($row_sanpham['idshop'] == 0){ if($row_sanpham['type'] == 1){?>
                         <a class="rm_prod_other" href="<?php echo $root ;?>"  target="_blank" title="<?php echo $row['copyright']?>">Xem thêm dịch vụ</a>
                     <?php } else{ ?>
                         <a class="rm_prod_other" href="<?php echo $root ;?>"  target="_blank" title="<?php echo $row['copyright']?>">Xem thêm sản phẩm</a>
                     <?php } }else{ ?>
-                        <a class="rm_prod_other" href="http://<?php echo $shop['subject'];?>.<?php echo $sub;?>"  target="_blank" title="<?php echo $shop['name']?>">Xem thêm sản phẩm</a>
+                        <a class="rm_prod_other" href="http://<?php echo $shop['subject'];?>.<?php echo $sub;?>"  target="_blank" title="<?php echo $shop['title']?>">Xem thêm sản phẩm</a>
                     <?php } ?>
                 </div>
                 
@@ -404,18 +404,18 @@ if($ghinho==1){ // prodetail
                             <span class="s1_po">
                                 <div>
                                     <span>
-                                        <a href="<?php echo $linkrootshop;?>/<?php echo $row_shop_product['subject'];?>.html" title="<?php echo $row_shop_product['name'];?>">
-                                            <img src="<?php echo $linkroot?>/<?php echo $row_shop_product['image'];?>" alt=""/>
+                                        <a href="<?php echo $linkrootshop;?>/<?php echo $row_shop_product['subject'];?>.html" title="<?php echo $row_shop_product['title'];?>">
+                                            <img src="<?php echo $linkroot?>/<?php echo $row_shop_product['image'];?>" alt="<?php echo $row_shop_product['title'];?>"/>
                                         </a>
                                     </span>
                                 </div>
                             </span>
                             <span class="s2_po">
                                 <h4>
-                                    <a href="<?php echo $linkrootshop;?>/<?php echo $row_shop_product['subject'];?>.html" title="<?php echo $row_shop_product['name'];?>"><?php echo $row_shop_product['name'];?></a>
+                                    <a href="<?php echo $linkrootshop;?>/<?php echo $row_shop_product['subject'];?>.html" title="<?php echo $row_shop_product['title'];?>"><?php echo $row_shop_product['name'];?></a>
                                 </h4>
                                 <span>
-                                    <a href="http://<?php echo $shop['subject'];?>.<?php echo $sub;?>" target="_blank" title="<?php echo $shop['name'];?>"> <?php echo $shop['name'];?></a>
+                                    <a href="http://<?php echo $shop['subject'];?>.<?php echo $sub;?>" target="_blank" title="<?php echo $shop['title'];?>"> <?php echo $shop['name'];?></a>
                                 </span>
                                  <?php if($row_sanpham['style']==0){?>
                                 <p><?php  if(preg_match ("/^([0-9]+)$/", $row_shop_product['price'])) echo number_format($row_shop_product['price'],0)."  VNĐ";else echo "Giá: Liên hệ"; ?></p>
@@ -514,7 +514,7 @@ if($hot == 1){$product=get_records("tbl_item", "status=0 AND type=0 AND parent1 
 					else  $cate1=get_records("tbl_shop_category","status=0 AND parent='".get_field('tbl_shop_category','subject',$danhmuc,'parent')."'"," "," "," ");
 					while($row_cate1=mysql_fetch_assoc($cate1)){
 					?>
-						<li><a href="<?php echo $linkrootshop?>/<?php echo $row_cate1['subject'];?>.html" title=""><?php echo $row_cate1['name']?></a></li>
+						<li><a href="<?php echo $linkrootshop?>/<?php echo $row_cate1['subject'];?>.html" title="<?php echo $row_cate1['title']?>"><?php echo $row_cate1['name']?></a></li>
 					<?php }?> 
                 </ul>
                 <div class="clear"></div>
@@ -544,8 +544,8 @@ if($hot == 1){$product=get_records("tbl_item", "status=0 AND type=0 AND parent1 
                     ?>
                     <li>
                         <div class="i-Pnb">
-                            <a href="<?php echo $linkrootshop;?>/<?php echo $row_new['subject'];?>.html" title="">
-                                <img src="<?php echo $linkroot?>/<?=$row_new['image']?>" alt=""/>
+                            <a href="<?php echo $linkrootshop;?>/<?php echo $row_new['subject'];?>.html" title="<?php echo $row_new['title'];?>">
+                                <img src="<?php echo $linkroot?>/<?=$row_new['image']?>" alt="<?php echo $row_new['title'];?>"/>
                             </a>
                         </div><!-- End .i-Pnb -->
                         <a class="n-Pnb" href="<?php echo $linkrootshop;?>/<?php echo $row_new['subject'];?>.html"><?php echo $row_new['name'];?></a>
@@ -582,8 +582,8 @@ if($hot == 1){$product=get_records("tbl_item", "status=0 AND type=0 AND parent1 
                     ?>
                     <li>
                         <div class="i-Pnb">
-                            <a href="<?php echo $linkrootshop;?>/<?php echo $row_new['subject'];?>.html" title="">
-                                <img src="<?php echo $linkroot?>/<?=$row_new['image']?>" alt=""/>
+                            <a href="<?php echo $linkrootshop;?>/<?php echo $row_new['subject'];?>.html" title="<?php echo $row_new['title'];?>">
+                                <img src="<?php echo $linkroot?>/<?=$row_new['image']?>" alt="<?php echo $row_new['title'];?>"/>
                             </a>
                         </div><!-- End .i-Pnb -->
                         <a class="n-Pnb" href="<?php echo $linkrootshop;?>/<?php echo $row_new['subject'];?>.html"><?php echo $row_new['name'];?></a>
@@ -637,8 +637,8 @@ if($hot == 1){$product=get_records("tbl_item", "status=0 AND type=0 AND parent1 
                 ?>
                 <li class="li-Pc1">
                     <div class="i-Pnb">
-                        <a href="<?php echo $linkrootshop;?>/<?php echo $row_new['subject'];?>.html" title="">
-                        	<img src="<?php echo $linkroot?>/<?=$row_new['image']?>" alt=""/>
+                        <a href="<?php echo $linkrootshop;?>/<?php echo $row_new['subject'];?>.html" title="<?php echo $row_new['title'];?>">
+                        	<img src="<?php echo $linkroot?>/<?=$row_new['image']?>" alt="<?php echo $row_new['title'];?>"/>
                         </a>
                     </div><!-- End .i-Pnb -->
                     <div class="prod_row1">
