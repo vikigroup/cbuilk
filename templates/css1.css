@@ -521,10 +521,6 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 .Prod-cate ul li.li-Pc2 .prod_row3 {float: left; padding-left: 10px; text-align: center; width: 100px;}
 .Prod-cate ul li.li-Pc2 .price-Pnb {color: #F98D32; float: right; font-size: 17px; text-align: right; width: 160px; height: inherit; background: none; padding-top: 0; white-space: inherit; text-overflow: inherit; overflow: inherit;}
 
-.li-Pc2:active{
-    width: 100%;
-}
-
 .f-cont {padding: 10px 0 20px 0;}
 .l-fcont {width: 60%; float: left;}
 .r-fcont {width: 40%; float: right;}
