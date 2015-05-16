@@ -515,7 +515,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 .Prod-cate ul li.li-Pc2 {padding: 10px 0; border-bottom: 1px solid #ececec;}
 .Prod-cate ul li.li-Pc2 .i-Pnb {width: 90px; height: 71px; overflow: hidden; overflow: hidden; float: left;}
 .Prod-cate ul li.li-Pc2 .i-Pnb img {width: 90px; min-height: 71px;}
-.Prod-cate ul li.li-Pc2 .prod_row1 {float: left; padding-left: 10px; width: 250px;}
+.Prod-cate ul li.li-Pc2 .prod_row1 {float: left; padding-left: 10px; width: 300px;}
 .Prod-cate ul li.li-Pc2 .prod_row1 .n-Pnb {padding-top: 0;}
 .Prod-cate ul li.li-Pc2 .prod_row2 {float: left; padding-left: 10px; text-align: center; width: 100px;}
 .Prod-cate ul li.li-Pc2 .prod_row3 {float: left; padding-left: 10px; text-align: center; width: 100px;}
@@ -736,6 +736,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     padding: 11px 0 5px 0;
     overflow: hidden;
     text-align: center;
+    cursor: pointer;
 }
 
 .arrowCategory a{
@@ -1110,7 +1111,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
         padding: 0;
     }
 
-    .bx-wrapper, #slider{
+    #slider{
         visibility: hidden;
     }
 
@@ -1120,6 +1121,14 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 
     .fix_main{
         margin-top: 0;
+    }
+
+    .Prod-cate ul li.li-Pc2 .prod_row1{
+        width: 220px !important;
+    }
+
+    .Prod-cate ul li.li-Pc2 .prod_row2, .Prod-cate ul li.li-Pc2 .prod_row3{
+        display: none !important;
     }
 }
 
