@@ -46,7 +46,7 @@ require("module/box_device.php");
 <!--    <link rel="stylesheet" href="--><?php //echo $linkrootshop?><!--/templates/css5.css" media="screen and (max-width: 640px) and (min-width: 481px)"  />-->
 <!--    <link rel="stylesheet" href="--><?php //echo $linkrootshop?><!--/templates/css6.css" media="screen and (max-width: 480px) and (min-width: 361px)"  />-->
 <!--    <link rel="stylesheet" href="--><?php //echo $linkrootshop?><!--/templates/css7.css" media="screen and (max-width: 360px) and (min-width: 321px)"  />-->
-    <link href="<?php echo $linkrootshop?>/templates/css8.css" media="screen and (max-width: 320px)" rel="stylesheet" />
+<!--    <link href="--><?php //echo $linkrootshop?><!--/templates/css8.css" media="screen and (max-width: 320px)" rel="stylesheet" />-->
     <link href="<?php echo $linkrootshop?>/templates/hover.css" rel="stylesheet" />
 
     <link href="<?php echo $linkrootshop?>/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" />
