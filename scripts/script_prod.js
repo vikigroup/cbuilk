@@ -10,7 +10,7 @@ $(document).ready(function(){
 	$(".f-sty-P2").click(function () {
 		$(".li-Pc1").removeClass( "li-Pc1" ).addClass( "li-Pc2" );
 		$(".f-sty-P2").addClass('atc');
-		$(".f-sty-P2").removeClass('atc');										
+		$(".f-sty-P1").removeClass('atc');
 		$.cookie("luu_mn", "2", { path: '/' });
 		//alert( $.cookie("luu_mn") );
 	});
