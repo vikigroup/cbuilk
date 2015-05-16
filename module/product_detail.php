@@ -27,7 +27,6 @@ if($ghinho==1){ // prodetail
 ?>
 <script type="text/javascript" >
 	$(document).ready(function() {
-        $(".f-sty-P2").click();
 		$(".btn_prod_details").click(function(){;
 			var sl=$("#qty").val();
 			var nameshop=$("#name_shop").val();
@@ -755,3 +754,5 @@ if($hot == 1){$product=get_records("tbl_item", "status=0 AND type=0 AND parent1 
         });
     }
 </script>
+
+<script>$(function(){$(".f-sty-P2").click();})</script>
