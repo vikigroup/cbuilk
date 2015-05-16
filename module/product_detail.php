@@ -606,12 +606,12 @@ if($hot == 1){$product=get_records("tbl_item", "status=0 AND type=0 AND parent1 
                     <li>|</li>
                     <li class="act"><a href="<?php echo $linkrootshop;?>/<?php echo $tensanpham ?>.html?filter1=2">Nổi bật</a></li>
                     <li>|</li>
-                    <li class="act"><a href="<?php echo $linkrootshop;?>/<?php echo $tensanpham ?>.html?filter1=3">Xem nhiều nhất</a></li>
+                    <li class="act"><a href="<?php echo $linkrootshop;?>/<?php echo $tensanpham ?>.html?filter1=3">Xem nhiều</a></li>
                     <li>|</li>
                     <?php if($row_category['id'] != 211 && $row_category['cate'] != 1){ ?>
-                    <li class="act"><a href="<?php echo $linkrootshop;?>/<?php echo $tensanpham ?>.html?filter1=4">Giá cao nhất</a></li>
+                    <li class="act"><a href="<?php echo $linkrootshop;?>/<?php echo $tensanpham ?>.html?filter1=4">Giá cao</a></li>
                     <li>|</li>
-                    <li class="act"><a href="<?php echo $linkrootshop;?>/<?php echo $tensanpham ?>.html?filter1=5">Giá thấp nhất</a></li>
+                    <li class="act"><a href="<?php echo $linkrootshop;?>/<?php echo $tensanpham ?>.html?filter1=5">Giá thấp</a></li>
                     <li>|</li>
                     <?php } ?>
                 </ul>
