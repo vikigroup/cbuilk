@@ -41,7 +41,7 @@ for($i = 0; $i < 8; $i++){
         <div class="arrowLine" style="background-color: <?php echo $myArr1[$i]; ?>;">
             <span><?php echo $i+1; ?>c</span>
         </div>
-        <div class="arrowCategory" style="background-color: <?php echo $myArr2[$i]; ?>;" id="divCategoryID<?php echo $i ?>">
+        <div class="arrowCategory" style="background-color: <?php echo $myArr2[$i]; ?>;" id="divCategoryID<?php echo $i ?>" onclick="window.location.href = '<?php echo $linkrootshop?>/<?php echo $myArrPrimarySubject[$i];?>.html'">
             <a href="<?php echo $linkrootshop?>/<?php echo $myArrPrimarySubject[$i];?>.html" id="aCategoryName<?php echo $i ?>"><?php echo $myArrName[$i]; ?></a>
         </div>
         <div class="divCategory" style="background-color: <?php echo $myArr3[$i]; ?>; border-top: 1px solid <?php echo $myArr1[$i]; ?>">
