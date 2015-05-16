@@ -671,8 +671,8 @@ if($hot == 1){$product=get_records("tbl_item", "status=0 AND type=0 AND parent1 
         <div class="frame_phantrang">
             <div class="PageNum">
 					<?php  
-                    if(isset($_REQUEST['tensanpham'])){ echo pagesLinks_new_full_2013($totalRows, $pageSize , "http://shop.jbs.vn","p","page-danh-muc/".$_GET['tensanpham']);}
-                    else echo pagesLinks_new_full_2013($totalRows, $pageSize , "http://shop.jbs.vn","p","page-danh-muc/".$_GET['tensanpham']."/");
+                    if(isset($_REQUEST['tensanpham'])){ echo pagesLinks_new_full_2013($totalRows, $pageSize , "","p","page-danh-muc/".$_GET['tensanpham']);}
+                    else echo pagesLinks_new_full_2013($totalRows, $pageSize , "","p","page-danh-muc/".$_GET['tensanpham']."/");
                     ?>
 
             </div>
