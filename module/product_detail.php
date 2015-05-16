@@ -644,6 +644,7 @@ if($hot == 1){$product=get_records("tbl_item", "status=0 AND type=0 AND parent1 
                     <div class="prod_row1">
                         <a class="n-Pnb" href="<?php echo $linkrootshop;?>/<?php echo $row_new['subject'];?>.html"><b><?php echo $row_new['name'];?></b></a>
                         <span class="s-Pnb"><i><?php echo $row_new['description'];?></i></span>
+                        <span class="s-Pnb">Từ khóa: <i><?php echo $row_new['keyword'];?></i></span>
                     </div><!-- End .prod_row1 -->
                     <div class="prod_row2">
                         Lượt xem
