@@ -282,7 +282,7 @@ ul.ul-dm > li:hover > .sub-menu {display: block;}
 .i-Pnb {height: 140px; overflow: hidden;}
 .i-Pnb img {width: 176px; min-height: 140px;}
 .n-Pnb {display: block; color: #666; padding: 10px 0 0 0; overflow: hidden; white-space: nowrap; height: 15px; text-overflow: ellipsis;}
-.s-Pnb {display: block; color: #666; padding: 6px 0 0 0; overflow: hidden; white-space: nowrap; height: 15px; text-overflow: ellipsis;}
+.s-Pnb {display: block; color: #666; padding: 6px 0 0 0; overflow: hidden; white-space: nowrap; height: 15px; text-overflow: ellipsis; background: none !important;}
 .n-Pnb:hover{color: #3ba11b; text-decoration: underline;}
 .price-Pnb {display: block; color: #f98d32; padding: 6px 0 0 20px; overflow: hidden; white-space: nowrap; height: 15px; text-overflow: ellipsis; background: url(../imgs/layout/price-Pnb.png) no-repeat 0px 7px;}
 
@@ -1017,7 +1017,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     }
 
     .search_top_header{
-        top: 80px !important;
+        top: 70px !important;
         left: 0 !important;
         width: 100%;
     }
@@ -1028,9 +1028,9 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     }
 
     .r-box-tool{
-        margin-top: 70px;
+        margin-top: 55px;
         width: 100%;
-        padding: 30px 0 10px 0;
+        padding: 30px 0 30px 0;
         border-bottom: 1px solid #dbdbdb;
         margin-bottom: 5px;
         margin-right: 0;
@@ -1128,16 +1128,13 @@ ul.ul-fP li.atc a {color: #3ba11b;}
         margin-top: 0;
     }
 
-    .Prod-cate ul li.li-Pc2 .prod_row1{
-        width: 220px !important;
+    .prod_row1{
+        max-width: 200px !important;
+        width: 200px !important;
     }
 
-    .Prod-cate ul li.li-Pc2 .prod_row2, .Prod-cate ul li.li-Pc2 .prod_row3{
+    .prod_row2, .prod_row3{
         display: none !important;
-    }
-
-    .arrowCategory{
-        z-index: 9999;
     }
 }
 
