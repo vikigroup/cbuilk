@@ -1,5 +1,4 @@
 $(document).ready(function(){
-									
 	$(".f-sty-P1").click(function () {
 		$(".li-Pc2").removeClass( "li-Pc2" ).addClass( "li-Pc1" );
 		$(".f-sty-P1").addClass('atc');
