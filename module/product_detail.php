@@ -482,9 +482,9 @@ $startRow = ($pageNum-1) * $pageSize;
 
 //echo "status=0 AND parent='{$parent}' limit ".$startRow.",".$pageSize;
 if($row_category['id'] == 211){$parent = substr($parent, 0, -5);}
-$totalRows = countRecord("tbl_item","status=0 AND type=0 AND parent in ({$parent})");
-$product=get_records("tbl_item", "status=0 AND type=0 AND parent in ({$parent}) order by $sapxep limit ".$startRow.",".$pageSize," "," "," ");
-if($hot == 1){$product=get_records("tbl_item", "status=0 AND type=0 AND hot=1 AND parent1 in ({$parent}) order by $sapxep limit ".$startRow.",".$pageSize," "," "," ");}
+$totalRows = countRecord("tbl_item","status=0 AND type=0 AND parent1 in ({$parent}) OR parent in ({$parent})");
+$product=get_records("tbl_item", "status=0 AND type=0 AND parent1 in ({$parent}) OR parent in ({$parent}) order by $sapxep limit ".$startRow.",".$pageSize," "," "," ");
+if($hot == 1){$product=get_records("tbl_item", "status=0 AND type=0 AND hot=1 AND parent1 in ({$parent}) OR parent in ({$parent}) order by $sapxep limit ".$startRow.",".$pageSize," "," "," ");}
 ?>
 <section class="breacrum">
     <ul>
