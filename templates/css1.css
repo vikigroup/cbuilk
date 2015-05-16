@@ -1053,6 +1053,11 @@ ul.ul-fP li.atc a {color: #3ba11b;}
         height: auto;
     }
 
+    .dmsp4-1 .bx-wrapper{
+        margin: 0 0 0 0 !important;
+        max-width: 52px !important;
+    }
+
     .dmsp4-1 .bx-wrapper .bx-viewport{
         height: 0 !important;
     }
@@ -1129,6 +1134,10 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 
     .Prod-cate ul li.li-Pc2 .prod_row2, .Prod-cate ul li.li-Pc2 .prod_row3{
         display: none !important;
+    }
+
+    .arrowCategory{
+        z-index: 9999;
     }
 }
 
