@@ -27,12 +27,12 @@ if($ghinho==1){ // prodetail
 ?>
 <script type="text/javascript" >
 	$(document).ready(function() {
+        $(".f-sty-P2").click();
 		$(".btn_prod_details").click(function(){;
 			var sl=$("#qty").val();
 			var nameshop=$("#name_shop").val();
 			var id=$("#id").val();	
 			$(location).attr('href', 'http://'+nameshop+'.<?php echo $sub;?>?act=add_item&id='+id+'&sl='+sl);
-
 		});
 	});
 </script>
@@ -618,7 +618,7 @@ if($hot == 1){$product=get_records("tbl_item", "status=0 AND type=0 AND parent1 
                 <div class="clear"></div>
                 <div class="f-sty-P">
                     <ul>
-                        <li><a class="f-sty-P1 atc" href="javascript:void(0)"></a></li>
+                        <li><a class="f-sty-P1" href="javascript:void(0)"></a></li>
                         <li><a class="f-sty-P2" href="javascript:void(0)"></a></li>
                     </ul>
                     <div class="clear"></div>
