@@ -17,7 +17,7 @@ require("module/box_device.php");
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <?php include("module/title.php") ;?>
     <meta name="robots" content="index, follow"/>
-    <meta name="author" content="www.cpckids.com"/>
+    <meta name="author" content="www.cbuilk.com"/>
 
     <link rel="stylesheet" type="text/css" href="<?php echo $linkrootshop?>/templates/css.css">
     <script type="text/javascript" src="<?php echo $linkrootshop?>/scripts/jquery.js"></script>
@@ -413,7 +413,7 @@ require("module/box_device.php");
             $('.t-Pnb').css('width', windowSize - 2);
             $('.hotline').attr('style', 'margin: 0 0 0 5px !important;');
             $('.dmsp4-3').css('max-width', windowSize);
-            $('.prod_row1').css('width', windowSize - 100);
+            $('.prod_row1').css('width', windowSize/2 - 20);
 
             for(var i = 0; i < 8; i++){
                 if($('#aCategoryName'+i).height() > 14){
@@ -442,7 +442,7 @@ require("module/box_device.php");
             $('.t-Pnb, .filter-Prod, .content').css('width', 1000);
             $('.li-Pc1').css('width', 173);
             $('.hotline').attr('style', 'margin: 10px 30px 10px 30px !important;');
-            $('.prod_row1').css('width', 300);
+            $('.prod_row1').css('width', 'inherit');
 
             for(var i = 0; i < 8; i++){
                 if($('#aCategoryName'+i).height() > 14){
