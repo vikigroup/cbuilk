@@ -37,7 +37,12 @@ if($ghinho==1){ // prodetail
 </script>
 <section class="breacrum">
     <ul>
-        <li><a href="<?php echo $linkrootshop;?>">Trang chủ</a></li>
+        <?php
+        if($row_sanpham['style']==1){
+            $news=getRecord('tbl_shop_category', "id=211");
+        ?>
+        <li><a href="<?php echo $linkrootshop;?><?php echo $news['subject'];?>.html">Trang chủ</a></li>
+        <?php } ?>
         <?php
 		$cha=get_field('tbl_shop_category','id',get_field('tbl_shop_category','id',$row_sanpham['parent1'],'parent'),'parent');
         if($cha==2){
