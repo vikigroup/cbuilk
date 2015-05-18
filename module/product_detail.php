@@ -474,17 +474,30 @@ settype($pageNum,"int");
 settype($totalRows,"int");
 settype($dem,"int");
 
-
-if (isset($_GET['pageNum'])==true) $pageNum = $_GET['pageNum'];
+if($data[0] != 'filter1'){
+    $pageNum = $filter;
+}
 if ($pageNum<=0) $pageNum=1;
 $startRow = ($pageNum-1) * $pageSize;
-
 //echo "status=0 AND parent='{$parent}' limit ".$startRow.",".$pageSize;
 $style = 0;
-if($row_category['id'] == 211){$parent = substr($parent, 0, -5); $style = 1;}
-$totalRows = countRecord("tbl_item","status=0 AND type=0 AND style = ".$style." AND (parent1 in ({$parent}) OR parent in ({$parent}))");
-$product=get_records("tbl_item", "status=0 AND type=0 AND style = ".$style." AND (parent1 in ({$parent}) OR parent in ({$parent})) order by $sapxep limit ".$startRow.",".$pageSize," "," "," ");
-if($hot == 1){$product=get_records("tbl_item", "status=0 AND type=0 AND style = ".$style." AND (parent1 in ({$parent}) OR parent in ({$parent})) AND hot=1  order by $sapxep limit ".$startRow.",".$pageSize," "," "," ");}
+if($row_category['id'] == 211){
+    $parent = substr($parent, 0, -5);
+    $style = 1;
+    $totalRows = countRecord("tbl_item","status=0 AND type=0 AND style = ".$style." AND (parent1 in ({$parent}) OR parent in ({$parent}))");
+    $product = get_records("tbl_item", "status=0 AND type=0 AND style = ".$style." AND (parent1 in ({$parent}) OR parent in ({$parent})) order by $sapxep limit ".$startRow.",".$pageSize," "," "," ");
+    if($hot == 1){$product=get_records("tbl_item", "status=0 AND type=0 AND style = ".$style." AND (parent1 in ({$parent}) OR parent in ({$parent})) AND hot=1  order by $sapxep limit ".$startRow.",".$pageSize," "," "," ");}
+}
+else{
+    echo $totalRows = countRecord("tbl_item","status=0 AND type=0 AND parent in ({$parent})");
+    $product = get_records("tbl_item", "status=0 AND type=0 AND parent in ({$parent}) order by $sapxep limit ".$startRow.",".$pageSize," "," "," ");
+    if($hot == 1){$product = get_records("tbl_item", "status=0 AND type=0 AND parent in ({$parent}) AND hot=1  order by $sapxep limit ".$startRow.",".$pageSize," "," "," ");}
+    if($totalRows == 0){
+        echo $totalRows = countRecord("tbl_item","status=0 AND type=0 AND parent1 in ({$parent})");
+        $product = get_records("tbl_item", "status=0 AND type=0 AND parent1 in ({$parent}) order by $sapxep limit ".$startRow.",".$pageSize," "," "," ");
+        if($hot == 1){$product = get_records("tbl_item", "status=0 AND type=0 AND parent1 in ({$parent}) AND hot=1  order by $sapxep limit ".$startRow.",".$pageSize," "," "," ");}
+    }
+}
 ?>
 <section class="breacrum">
     <ul>
@@ -494,8 +507,14 @@ if($hot == 1){$product=get_records("tbl_item", "status=0 AND type=0 AND style = 
         ?>
         <li><a href="<?php echo $linkrootshop;?>/<?php echo $news['subject'];?>.html"><?php echo $news['name'];?></a></li>
         <?php } ?>
+        <?php
+        $row_bc = getRecord('tbl_shop_category', "id=".$parent);
+        if($row_bc != ''){
+        ?>
+        <li><a href="<?php echo $linkrootshop;?>/<?php echo get_field('tbl_shop_category','id',$row_bc['parent'],'subject');?>.html"><?php echo get_field('tbl_shop_category','id',$row_bc['parent'],'name');?></a></li>
+        <?php } ?>
         <li><a href="<?php echo $linkrootshop;?>/<?php echo $tensanpham;?>.html"><?php echo get_field('tbl_shop_category','subject',$tensanpham,'name');?></a></li>
-        <li style="text-align: right; width: 80%;"><a>Hiện có <strong><?php echo $totalRows;?></strong><?php if($row_category['id'] != 211 && $row_category['cate'] != 1){echo " sản phẩm";}else{echo " tin";} ?></a></li>
+        <li style="float: right; margin-right: 35px;"><a>Hiện có <strong><?php echo $totalRows;?></strong><?php if($row_category['id'] != 211 && $row_category['cate'] != 1){echo " sản phẩm";}else{echo " tin";} ?></a></li>
     </ul>
     <div class="clear"></div>
 </section><!-- End .breacrum -->
@@ -677,7 +696,7 @@ if($hot == 1){$product=get_records("tbl_item", "status=0 AND type=0 AND style = 
         <div class="frame_phantrang">
             <div class="PageNum">
 					<?php  
-                    if(isset($_REQUEST['tensanpham'])){ echo pagesLinks_new_full_2013($totalRows, $pageSize , "","p","page-danh-muc/".$_GET['tensanpham']);}
+                    if(isset($_REQUEST['tensanpham'])){ echo pagesLinks_new_full_2013($totalRows, $pageSize , "", "?page=","".$_GET['tensanpham'].".html");}
                     else echo pagesLinks_new_full_2013($totalRows, $pageSize , "","p","page-danh-muc/".$_GET['tensanpham']."/");
                     ?>
 
@@ -764,5 +783,10 @@ if($hot == 1){$product=get_records("tbl_item", "status=0 AND type=0 AND style = 
 <script>
     $(function(){
         $('.f-sty-P1').trigger('click');
+        var link = $('.PageNum a').attr('href');
+        var myArr = link.split("/");
+        var page = myArr[3].substr(0,1);
+        var linkAfter = "/"+myArr[1]+myArr[2]+page;
+        $('.PageNum a').attr('href', linkAfter);
     });
 </script>
