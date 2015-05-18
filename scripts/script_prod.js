@@ -30,7 +30,7 @@ $(document).ready(function(){
 		$(".li-Pc2").removeClass( "li-Pc2" ).addClass( "li-Pc1" );
 		$(".f-sty-P1").addClass('atc');
 		$(".f-sty-P2").removeClass('atc');											
-	}else{										
+	}else{
 		$(".li-Pc1").removeClass( "li-Pc1" ).addClass( "li-Pc2" );
 		$(".f-sty-P2").addClass('atc');
 		$(".f-sty-P2").removeClass('atc');											
