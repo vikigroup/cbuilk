@@ -459,8 +459,9 @@ $dem=1;
 
 $link = $_SERVER['REQUEST_URI'];
 $myLink = explode("?", $link);
-$data = explode("=", $myLink[1]);
-$filter = $data[1];
+$myData = explode("&", $myLink[1]);
+$myFilter = explode("=", $myData[0]);
+$filter = $myFilter[1];
 $hot = 0;
 $sapxep="id DESC";
 if($filter == 1){$sapxep = "id DESC"; $hot = 0;}
@@ -474,9 +475,8 @@ settype($pageNum,"int");
 settype($totalRows,"int");
 settype($dem,"int");
 
-if($data[0] != 'filter1'){
-    $pageNum = $filter;
-}
+$myPage = explode("=", $myData[1]);
+$pageNum = $myPage[1];
 if ($pageNum<=0) $pageNum=1;
 $startRow = ($pageNum-1) * $pageSize;
 //echo "status=0 AND parent='{$parent}' limit ".$startRow.",".$pageSize;
@@ -489,11 +489,11 @@ if($row_category['id'] == 211){
     if($hot == 1){$product=get_records("tbl_item", "status=0 AND type=0 AND style = ".$style." AND (parent1 in ({$parent}) OR parent in ({$parent})) AND hot=1  order by $sapxep limit ".$startRow.",".$pageSize," "," "," ");}
 }
 else{
-    echo $totalRows = countRecord("tbl_item","status=0 AND type=0 AND parent in ({$parent})");
+    $totalRows = countRecord("tbl_item","status=0 AND type=0 AND parent in ({$parent})");
     $product = get_records("tbl_item", "status=0 AND type=0 AND parent in ({$parent}) order by $sapxep limit ".$startRow.",".$pageSize," "," "," ");
     if($hot == 1){$product = get_records("tbl_item", "status=0 AND type=0 AND parent in ({$parent}) AND hot=1  order by $sapxep limit ".$startRow.",".$pageSize," "," "," ");}
     if($totalRows == 0){
-        echo $totalRows = countRecord("tbl_item","status=0 AND type=0 AND parent1 in ({$parent})");
+        $totalRows = countRecord("tbl_item","status=0 AND type=0 AND parent1 in ({$parent})");
         $product = get_records("tbl_item", "status=0 AND type=0 AND parent1 in ({$parent}) order by $sapxep limit ".$startRow.",".$pageSize," "," "," ");
         if($hot == 1){$product = get_records("tbl_item", "status=0 AND type=0 AND parent1 in ({$parent}) AND hot=1  order by $sapxep limit ".$startRow.",".$pageSize," "," "," ");}
     }
@@ -626,16 +626,16 @@ else{
         <section class="filter-Prod">
             <h4 class="t-Pnb">
                 <ul class="ul-fP">
-                    <li class="act"><a href="<?php echo $linkrootshop;?>/<?php echo $tensanpham ?>.html?filter1=1">Mới nhất</a></li>
+                    <li class="act"><a href="<?php echo $linkrootshop;?>/<?php echo $tensanpham ?>.html?filter1=1&page=<?php echo $pageNum ?>">Mới nhất</a></li>
                     <li>|</li>
-                    <li class="act"><a href="<?php echo $linkrootshop;?>/<?php echo $tensanpham ?>.html?filter1=2">Nổi bật</a></li>
+                    <li class="act"><a href="<?php echo $linkrootshop;?>/<?php echo $tensanpham ?>.html?filter1=2&page=<?php echo $pageNum ?>">Nổi bật</a></li>
                     <li>|</li>
-                    <li class="act"><a href="<?php echo $linkrootshop;?>/<?php echo $tensanpham ?>.html?filter1=3">Xem nhiều</a></li>
+                    <li class="act"><a href="<?php echo $linkrootshop;?>/<?php echo $tensanpham ?>.html?filter1=3&page=<?php echo $pageNum ?>">Xem nhiều</a></li>
                     <li>|</li>
                     <?php if($row_category['id'] != 211 && $row_category['cate'] != 1){ ?>
-                    <li class="act"><a href="<?php echo $linkrootshop;?>/<?php echo $tensanpham ?>.html?filter1=4">Giá cao</a></li>
+                    <li class="act"><a href="<?php echo $linkrootshop;?>/<?php echo $tensanpham ?>.html?filter1=4&page=<?php echo $pageNum ?>">Giá cao</a></li>
                     <li>|</li>
-                    <li class="act"><a href="<?php echo $linkrootshop;?>/<?php echo $tensanpham ?>.html?filter1=5">Giá thấp</a></li>
+                    <li class="act"><a href="<?php echo $linkrootshop;?>/<?php echo $tensanpham ?>.html?filter1=5&page=<?php echo $pageNum ?>">Giá thấp</a></li>
                     <li>|</li>
                     <?php } ?>
                 </ul>
@@ -786,7 +786,20 @@ else{
         var link = $('.PageNum a').attr('href');
         var myArr = link.split("/");
         var page = myArr[3].substr(0,1);
-        var linkAfter = "/"+myArr[1]+myArr[2]+page;
+        var filter = "<?php echo $filter ?>";
+        var pageNum = "<?php echo $pageNum ?>";
+        if(filter == ''){
+            filter = 1;
+        }
+        var getPage = myArr[2].substr(1, myArr[2].length);
+        var linkAfter = "/"+myArr[1]+"?filter1="+filter+"&"+getPage+page;
         $('.PageNum a').attr('href', linkAfter);
+        $('.PageNum').find('span').remove();
+        var firstPage = "/"+myArr[1]+"?filter1="+filter+"&"+getPage+1;
+        var previous =  "/"+myArr[1]+"?filter1="+filter+"&"+getPage+(pageNum-1);
+
+        $('.PageNum').prepend("<a href="+firstPage+">1</a>");
+        $('.PageNum').prepend("<a href="+firstPage+">&lsaquo;</a>");
+        $('.PageNum').prepend("<a href="+firstPage+">&#171;</a>");
     });
 </script>
