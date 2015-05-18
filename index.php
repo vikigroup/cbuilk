@@ -443,6 +443,8 @@ require("module/box_device.php");
             $('.li-Pc1').css('width', 173);
             $('.hotline').attr('style', 'margin: 10px 30px 10px 30px !important;');
             $('.prod_row1').css('width', 'inherit');
+            $('.t-Pnb').css('width', windowSize - 412);
+            $('.content').css('width', windowSize - 350);
 
             for(var i = 0; i < 8; i++){
                 if($('#aCategoryName'+i).height() > 14){
