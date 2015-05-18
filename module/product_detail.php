@@ -37,12 +37,7 @@ if($ghinho==1){ // prodetail
 </script>
 <section class="breacrum">
     <ul>
-        <?php
-        if($row_sanpham['style']==1){
-            $news=getRecord('tbl_shop_category', "id=211");
-        ?>
-        <li><a href="<?php echo $linkrootshop;?><?php echo $news['subject'];?>.html">Trang chủ</a></li>
-        <?php } ?>
+        <li><a href="<?php echo $linkrootshop;?>">Trang chủ</a></li>
         <?php
 		$cha=get_field('tbl_shop_category','id',get_field('tbl_shop_category','id',$row_sanpham['parent1'],'parent'),'parent');
         if($cha==2){
@@ -493,9 +488,14 @@ if($hot == 1){$product=get_records("tbl_item", "status=0 AND type=0 AND style = 
 ?>
 <section class="breacrum">
     <ul>
-        <li><a href="<?php echo $linkrootshop;?>">Trang chủ</a></li>
-        <li><a href="<?php echo $linkrootshop;?><?php echo $tensanpham;?>.html"><?php echo get_field('tbl_shop_category','subject',$tensanpham,'name');?></a></li>
-        <li><a href="#">Hiện có <strong><?php echo $totalRows;?></strong><?php if($row_category['id'] != 211 && $row_category['cate'] != 1){echo " sản phẩm";}else{echo " tin";} ?></a></li>
+        <?php
+        if($row_category['cate']==1 && $row_category['id'] != 211){
+            $news=getRecord('tbl_shop_category', "id=211");
+            ?>
+            <li><a href="<?php echo $linkrootshop;?>/<?php echo $news['subject'];?>.html"><?php echo $news['name'];?></a></li>
+        <?php } ?>
+        <li><a href="<?php echo $linkrootshop;?>/<?php echo $tensanpham;?>.html"><?php echo get_field('tbl_shop_category','subject',$tensanpham,'name');?></a></li>
+        <li><a>Hiện có <strong><?php echo $totalRows;?></strong><?php if($row_category['id'] != 211 && $row_category['cate'] != 1){echo " sản phẩm";}else{echo " tin";} ?></a></li>
     </ul>
     <div class="clear"></div>
 </section><!-- End .breacrum -->
