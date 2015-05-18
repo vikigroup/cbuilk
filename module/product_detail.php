@@ -618,8 +618,8 @@ if($hot == 1){$product=get_records("tbl_item", "status=0 AND type=0 AND style = 
                 <div class="clear"></div>
                 <div class="f-sty-P">
                     <ul>
-                        <li><a class="f-sty-P1" href="javascript:void(0)"></a></li>
-                        <li><a class="f-sty-P2" href="javascript:void(0)"></a></li>
+                        <li><a class="f-sty-P1" href="javascript:void(0)" onclick="$('.s-Pnb').hide(); $('.n-Pnb').css('text-align', 'center');"></a></li>
+                        <li><a class="f-sty-P2" href="javascript:void(0)" onclick="$('.s-Pnb').show(); $('.n-Pnb').css('text-align', 'left');"></a></li>
                     </ul>
                     <div class="clear"></div>
                 </div><!-- End .f-sty-P -->
@@ -756,4 +756,8 @@ if($hot == 1){$product=get_records("tbl_item", "status=0 AND type=0 AND style = 
     }
 </script>
 
-<script>$(function(){$(".f-sty-P1").click();});</script>
+<script>
+    $(function(){
+        $('.f-sty-P1').trigger('click');
+    });
+</script>
