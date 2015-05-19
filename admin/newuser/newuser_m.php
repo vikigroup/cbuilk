@@ -72,8 +72,10 @@ if (isset($_POST['btnSave'])){
 	$link          = isset($_POST['link']) ? trim($_POST['link']) : '';
 	$sort          = isset($_POST['txtSort']) ? trim($_POST['txtSort']) : 0;
 	$status        = $_POST['chkStatus']!='' ? 1 : 0;
-	
-	$catInfo       = getRecord('tbl_item', 'id='.$parent);
+    $title         = isset($_POST['title']) ? trim($_POST['title']) : '';
+    $keyword       = isset($_POST['keyword']) ? trim($_POST['keyword']) : '';
+
+    $catInfo       = getRecord('tbl_item', 'id='.$parent);
 	if(!$multiLanguage){
 		$lang      = $catInfo['lang'];
 	}else{
@@ -87,9 +89,9 @@ if (isset($_POST['btnSave'])){
 	if ($errMsg==''){
 		if (!empty($_POST['id'])){
 			$oldid = $_POST['id'];
-			$sql = "update tbl_item set name='".$name."',parent='".$parent."',parent1='".$parent1."',detail='".$detail."',type='".$loaihinh."',price='".$price."',pricekm='".$pricekm."',sort='".$sort."', status='".$status."',last_modified=now() where id='".$oldid."'";
+			$sql = "update tbl_item set name='".$name."',parent='".$parent."',parent1='".$parent1."',detail='".$detail."',type='".$loaihinh."',price='".$price."',pricekm='".$pricekm."',sort='".$sort."', status='".$status."', title='".$title."', description='".$description."', keyword='".$keyword."',last_modified=now() where id='".$oldid."'";
 		}else{
-			$sql = "insert into tbl_item (name, parent, parent1 , detail, type , price , pricekm , sort, status,  date_added, last_modified, style  ) values ('".$name."','".$parent."','".$parent1."','".$detail."','".$loaihinh."','".$price."','".$pricekm."','".$sort."','1',now(),now(),'1')";
+			$sql = "insert into tbl_item (name, parent, parent1 , detail, type , price , pricekm , sort, status,  date_added, last_modified, style, title, description, keyword  ) values ('".$name."','".$parent."','".$parent1."','".$detail."','".$loaihinh."','".$price."','".$pricekm."','".$sort."','1',now(),now(),'1','".$title."','".$description."','".$keyword."')";
 		} 
 		if (mysql_query($sql,$conn)){
 			if(empty($_POST['id'])) $oldid = mysql_insert_id();
