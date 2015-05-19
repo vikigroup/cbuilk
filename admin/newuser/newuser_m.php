@@ -8,21 +8,35 @@ if(isset($frame)==true){
 
 <script language="javascript">
 function btnSave_onclick(){
-    if($('#ddCat').val() == -1){
-        alert('Hãy chọn "danh mục"');
+    if($('#txtName').val() == ''){
+        alert('Bạn chưa nhập "tên" !');
+        $('#txtName').focus();
         return false;
     }
 
-	if(test_empty(document.frmForm.txtName.value)){
-		alert('Hãy nhập "tên" !');
-		document.frmForm.txtName.focus();
-		return false;
-	}
-	if(test_integer(document.frmForm.txtSort.value)){
-		alert('"Thứ tự sắp xếp" phải là số !');
-		document.frmForm.txtSort.focus();
-		return false;
-	}
+    if($('#ddCat').val() == -1){
+        alert('Bạn chưa chọn "danh mục"');
+        $('#ddCat').focus();
+        return false;
+    }
+
+    if($('#title').val() == ''){
+        alert('Bạn chưa nhập "tiêu đề"');
+        $('#title').focus();
+        return false;
+    }
+
+    if($('#description').val() == ''){
+        alert('Bạn chưa nhập "mô tả"');
+        $('#description').focus();
+        return false;
+    }
+
+    if($('#keyword').val() == ''){
+        alert('Bạn chưa nhập "từ khóa tìm kiếm"');
+        $('#keyword').focus();
+        return false;
+    }
 
 	//document.forms.frmForm.elements.txtSubject.value = oEdit0.getHTMLBody();
 	document.frmForm.txtDetailShort.focus();
@@ -45,7 +59,8 @@ if (isset($_POST['btnSave'])){
 	$price         = isset($_POST['txtPrice']) ? trim($_POST['txtPrice']) : '';
 	$pricekm       = isset($_POST['txtPricekm']) ? trim($_POST['txtPricekm']) : '';
     $loaihinh      = isset($_POST['loaihinh']) ? trim($_POST['loaihinh']) : '';
-	
+    $description   = isset($_POST['description']) ? trim($_POST['description']) : '';
+
 	$parent        = $_POST['ddCat'];
 	$parent1       = $_POST['ddCatch'];
 	
@@ -321,13 +336,13 @@ $(document).ready(function() {
 
                         <td valign="middle" width="30%">
 
-                           Thứ tự sắp xếp<span class="sao_bb">*</span>
+                           Thứ tự sắp xếp
 
                         </td>
 
                         <td valign="middle" width="70%">
 
-                            <input class="table_khungnho" value="<?=$sort?>" type="text" name="txtSort"  />
+                            <input class="table_khungnho" value="<?=$sort?>" type="text" name="txtSort" id="txtSort"  />
 
                         </td>
 
@@ -361,7 +376,7 @@ $(document).ready(function() {
 
                         <td valign="middle" width="30%">
 
-                            title  <span class="sao_bb">*</span>
+                            Tiêu đề  <span class="sao_bb">*</span>
 
                         </td>
 
@@ -377,7 +392,7 @@ $(document).ready(function() {
 
                         <td valign="middle" width="30%">
 
-                            description  <span class="sao_bb">*</span>
+                            Mô tả  <span class="sao_bb">*</span>
 
                         </td>
 
@@ -393,7 +408,7 @@ $(document).ready(function() {
 
                         <td valign="middle" width="30%">
 
-                            keyword  <span class="sao_bb">*</span>
+                            Từ khóa tìm kiếm  <span class="sao_bb">*</span>
 
                         </td>
 
