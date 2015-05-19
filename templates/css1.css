@@ -7,7 +7,7 @@ body{
 
 .m-wrap {max-width: 1210px; margin: 0 auto;}
 
-img { max-width:100% !important; height: auto !important; }
+img, iframe { max-width:100% !important; height: auto !important; }
 
 /************************************************************************************
 BEGIN HEADER
