@@ -65,11 +65,14 @@ if($ghinho==1){ // prodetail
             <?php echo $row_sanpham['name'];?>   
         </h1><!-- End .t-lfcont -->
 
+        <span>
+            <p><?php echo $row_sanpham['detail_short'];?></p>
+        </span><!-- End .t-lfcont -->
+
         <div class="sli-lfcont">
 
             <div class="sli-fcon-1">
                 <ul class="ul-sli-fcon-1">
-
 					<?php
                     $hinh=get_records("tbl_ad","idshop='{$idshop}' AND name='' AND iditem=".$row_sanpham['id'],"id DESC","0,10"," ");
 					$demm=mysql_num_rows($hinh);
@@ -84,7 +87,6 @@ if($ghinho==1){ // prodetail
             </div>
 
             <div id="sli-fcon-2">
-                <span><?php echo $row_sanpham['detail_short'];?></span>
 <!--				--><?php
 //                $hinh=get_records("tbl_ad","idshop='{$idshop}' AND name='' AND iditem=".$row_sanpham['id'],"id DESC","0,10"," ");
 //				$i=0;
