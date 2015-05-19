@@ -65,9 +65,7 @@ if($ghinho==1){ // prodetail
             <?php echo $row_sanpham['name'];?>   
         </h1><!-- End .t-lfcont -->
 
-        <span>
-            <p><?php echo $row_sanpham['detail_short'];?></p>
-        </span><!-- End .t-lfcont -->
+        <p><?php echo $row_sanpham['detail_short'];?></p>
 
         <div class="sli-lfcont">
 
