@@ -60,14 +60,7 @@ require("module/box_device.php");
     <link rel="stylesheet" type="text/css" href="<?php echo $linkrootshop?>/scripts/bxslider/jquery.bxslider.css">
     <script type="text/javascript" src="<?php echo $linkrootshop?>/scripts/bxslider/jquery.bxslider.js"></script>
     <script type="text/javascript" src="<?php echo $linkrootshop?>/scripts/scrolltopcontrol.js"></script>
-    <!--<script type="text/javascript" src="<?php echo $linkrootshop?>/scripts/jquery.lazyload.pack.js"></script>-->
 
-    <!--[if IE 6]>
-    <script type="text/javascript" src="<?php echo $linkrootshop?>/scripts/DD_belatedPNG_0.0.8a.js"></script>
-    <script type="text/javascript">
-        DD_belatedPNG.fix('img, div, span, a, h1, h2, h3, h4, h5, h6, p, table, input');
-    </script>
-    <![endif]-->
     <!--[if lt IE 9]>
     <script type="text/javascript" src="<?php echo $linkrootshop?>/scripts/css3-mediaqueries.js"></script>
     <script type="text/javascript" src="<?php echo $linkrootshop?>/scripts/html5.js"></script>
@@ -76,13 +69,6 @@ require("module/box_device.php");
     <![endif]-->
 
     <link href="<?php echo $linkrootshop?>/templates/css1.css" rel="stylesheet" />
-<!--    <link rel="stylesheet" href="--><?php //echo $linkrootshop?><!--/templates/css2.css" media="screen and (max-width: 1280px) and (min-width: 1025px)" />-->
-<!--    <link rel="stylesheet" href="--><?php //echo $linkrootshop?><!--/templates/css3.css" media="screen and (max-width: 1024px) and (min-width: 769px)"  />-->
-<!--    <link rel="stylesheet" href="--><?php //echo $linkrootshop?><!--/templates/css4.css" media="screen and (max-width: 768px) and (min-width: 641px)"  />-->
-<!--    <link rel="stylesheet" href="--><?php //echo $linkrootshop?><!--/templates/css5.css" media="screen and (max-width: 640px) and (min-width: 481px)"  />-->
-<!--    <link rel="stylesheet" href="--><?php //echo $linkrootshop?><!--/templates/css6.css" media="screen and (max-width: 480px) and (min-width: 361px)"  />-->
-<!--    <link rel="stylesheet" href="--><?php //echo $linkrootshop?><!--/templates/css7.css" media="screen and (max-width: 360px) and (min-width: 321px)"  />-->
-<!--    <link href="--><?php //echo $linkrootshop?><!--/templates/css8.css" media="screen and (max-width: 320px)" rel="stylesheet" />-->
     <link href="<?php echo $linkrootshop?>/templates/hover.css" rel="stylesheet" />
 
     <link href="<?php echo $linkrootshop?>/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" />
@@ -93,21 +79,12 @@ require("module/box_device.php");
 
 </head>
 <body>
-<script>
-    $(document).ready(function(){
-        /*$("img").lazyload({ placeholder : "<?php echo $linkrootshop?>/imgs/grey.gif" });*/
-    });
-</script>
 <div id="closed"></div>
 <header class="menu">
     <div class="m-wrap">
-
         <?php include("module/box_logo.php") ;?>
-
         <?php include("module/box_search.php") ;?>
-
         <?php include("module/box_tool_ad.php") ;?>
-
     </div><!-- End .m-wrap -->
 </header>
 
@@ -167,28 +144,7 @@ require("module/box_device.php");
 
 <section id="container" <?php if($frame == ''){echo 'class="fix_main"';} ?>>
     <div class="m-wrap">
-
         <?php include("module/processFrame.php");?>
-
-<!--        --><?php
-//        if($frame!="register" && $frame!="login" &&  $frame!="changepass" &&  $frame!="changeinfo" &&  $frame!="addshop" ){
-//            ?>
-<!--            --><?php //include("module/service_new.php") ;?>
-<!---->
-<!--            <section class="app-orther" style="clear: both">-->
-<!---->
-<!--                --><?php //include("module/box_shop_new.php") ;?>
-<!---->
-<!--                --><?php //include("module/box_shop_best.php") ;?>
-<!---->
-<!--                --><?php ////include("module/box_news.php") ;?>
-<!--                --><?php // include("module/box_raovat.php") ;?>
-<!--                <div class="clear"></div>-->
-<!---->
-<!--            </section><!-- End .app-orther -->
-<!---->
-<!--        --><?php //}?>
-
         <?php
 
         if (isset($_POST['btn_dangnhap_in'])==true){
@@ -291,17 +247,14 @@ require("module/box_device.php");
             <p><i class="fa fa-user fa-lg"></i></p>
             <p>Tài khoản</p>
         </div>
-        <div style="padding:5px;   color:#F00; padding-bottom:10px;">
-            <center>
-                <?php if($_SERVER['HTTP_REFERER']=="http://shop.jbs.vn/dang-ky.html" && $_SESSION['register_re']==1)echo "Bạn vừa đăng ký thành công tài khoản ";?>
-            </center>
+        <div style="padding:5px 5px 10px 5px; color:#F00; text-align: center">
+            <?php if($_SERVER['HTTP_REFERER']=="http://shop.jbs.vn/dang-ky.html" && $_SESSION['register_re']==1)echo "Bạn vừa đăng ký thành công tài khoản ";?>
         </div>
         <div class="mini-login">
             <div class="main_f_dn">
                 <h1 class="title_f_tt"> Đăng nhập </h1>
                 <form id="form1" name="form1" method="post" action="#">
                     <div class="main_f_tt">
-
                         <div class="module_ftt">
                             <div class="l_f_tt">
                                 Tên
@@ -383,8 +336,6 @@ require("module/box_device.php");
             controlNav: false,
             directionNav: false
         });
-
-//        $('.ul-Pnb').css('width', '100%');
     });
 
     $('.mini-user').hover(function(){
