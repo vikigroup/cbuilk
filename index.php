@@ -1,10 +1,22 @@
 <?php
+$link = $_SERVER['REQUEST_URI'];
+$myLink = explode("?", $link);
+$myData = explode("&", $myLink[1]);
+$myFilter = explode("=", $myData[0]);
+$filterCache = $myFilter[1];
+$myPage = explode("=", $myData[1]);
+$pageNumCache = $myPage[1];
+
 /* Assign your dynamically generated page to $page */
 $pageName = $_GET['tensanpham'];
 if($pageName == ''){
     $pageName = "home";
 }
-$page = $pageName.".php";
+$page = $pageName.".html";
+if($filterCache != ''){
+    $page .= "?filter1=".$filterCache."&page=".$pageNumCache;
+}
+
 /* Define path and name of cached file */
 $cachefile = 'cache/' .$page;
 
