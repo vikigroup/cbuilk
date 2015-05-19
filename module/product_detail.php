@@ -541,8 +541,8 @@ else{
             <div class="m-cate">
                 <ul>
                     <?php
-					if(countRecord("tbl_shop_category","parent='".$parent1."'")>0)  $cate1=get_records("tbl_shop_category","status=0 AND parent='".$parent1."'"," "," "," ");
-					else  $cate1=get_records("tbl_shop_category","status=0 AND parent='".get_field('tbl_shop_category','subject',$danhmuc,'parent')."'"," "," "," ");
+					if(countRecord("tbl_shop_category","parent='".$parent1."'")>0)  $cate1=get_records("tbl_shop_category","status=0 AND parent='".$parent1."'","name COLLATE utf8_unicode_ci"," "," ");
+					else  $cate1=get_records("tbl_shop_category","status=0 AND parent='".get_field('tbl_shop_category','subject',$danhmuc,'parent')."'"," ","name COLLATE utf8_unicode_ci"," ");
 					while($row_cate1=mysql_fetch_assoc($cate1)){
 					?>
 						<li><a href="<?php echo $linkrootshop?>/<?php echo $row_cate1['subject'];?>.html" title="<?php echo $row_cate1['title']?>"><?php echo $row_cate1['name']?></a></li>
@@ -664,6 +664,7 @@ else{
             <ul>
 				<?php
                 while($row_new=mysql_fetch_assoc($product)){
+
 			    $shop=getRecord('tbl_shop', "id=".$row_new['idshop']);
                 ?>
                 <li class="li-Pc1">
