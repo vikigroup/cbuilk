@@ -9,7 +9,7 @@ $page = $pageName.".php";
 $cachefile = 'cache/' .$page;
 
 /* How long to keep cache file? */
-$cachetime = 18000;
+$cachetime = 300;
 
 /* Is cache file still fresh? If so, serve it */
 
