@@ -7,6 +7,8 @@ body{
 
 .m-wrap {max-width: 1210px; margin: 0 auto;}
 
+img { max-width:100% !important; height: auto !important; }
+
 /************************************************************************************
 BEGIN HEADER
 *************************************************************************************/
@@ -523,7 +525,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 
 .f-cont {padding: 10px 0 20px 0;}
 .l-fcont {width: 75%; float: left;}
-.r-fcont {width: 25%; float: right; padding-left: 5px;}
+.r-fcont {width: 25%; float: right;}
 
 .t-lfcont {font-size: 18px; font-weight: normal; color: #111; padding-bottom: 10px;}
 
@@ -549,7 +551,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 .fb-comments, .fb-comments iframe[style], .fb-like-box, .fb-like-box iframe[style] {width: 100% !important;}
 .fb-comments span, .fb-comments iframe span[style], .fb-like-box span, .fb-like-box iframe span[style] {width: 100% !important;}
 
-.gbsp{padding-bottom:9px;}
+.gbsp{padding:0 0 12px 12px;}
 .gbsp span{color:#4c4c4c; display:block; font-size:16px; padding:0 0 12px 0;}
 .gbsp h1{color:#3ca31b; font-size:40px; font-weight:normal;}
 .title_dv_details{border-bottom:1px solid #f1f1f1; padding-bottom:1px !important;}
@@ -1191,7 +1193,7 @@ a.popup-link {
     text-align: center;
     position: relative;
     width: 200px;
-    margin-bottom: 10px;
+    margin: 0 0 12px 12px;
     color: #fff;
     text-decoration: none;
     background-color: #FFBA00;
