@@ -193,7 +193,7 @@ for($i = 0; $i < 8; $i++){
                 else{
                     $container.css({
                         top: e.pageY - 250 + 'px',
-                        right: windowSize - e.pageX + 'px'
+                        right: windowSize - 20 - e.pageX + 'px'
                     });
                 }
 
