@@ -533,8 +533,8 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 .sli-fcon-1 {width: 100%; float: left;}
 #sli-fcon-2 {width: 62px; float: right;}
 
-.sli-fcon-1 li {text-align: center;}
-.sli-fcon-1 li img {margin: 0 auto;}
+.ul-sli-fcon-1 li {text-align: center;}
+.ul-sli-fcon-1 li img {margin: 0 auto;}
 
 #sli-fcon-2 a {display: block; width: 60px; height: 60px; border: 1px solid #eaeaea; text-align: center;}
 #sli-fcon-2 a.active {border: 1px solid #3CA31C;}
