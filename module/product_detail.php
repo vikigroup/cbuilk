@@ -37,14 +37,21 @@ if($ghinho==1){ // prodetail
 </script>
 <section class="breacrum">
     <ul>
-        <li><a href="<?php echo $linkrootshop;?>">Trang chủ</a></li>
+        <?php
+        if($row_sanpham['style']==1){
+            $news=getRecord('tbl_shop_category', "id=211");
+        ?>
+        <li><a href="<?php echo $linkrootshop;?>/<?php echo $news['subject'];?>.html"><?php echo $news['name'];?></a></li>
+        <?php $row_parent = getRecord('tbl_shop_category', "id=".$row_sanpham['parent1']); ?>
+        <li><a href="<?php echo $linkrootshop;?>/<?php echo get_field('tbl_shop_category','id',$row_parent['parent'],'subject');?>.html"><?php echo get_field('tbl_shop_category','id',$row_parent['parent'],'name');?></a></li>
+        <?php } ?>
         <?php
 		$cha=get_field('tbl_shop_category','id',get_field('tbl_shop_category','id',$row_sanpham['parent1'],'parent'),'parent');
         if($cha==2){
 		?>
-        <li><a href="<?php echo $linkrootshop;?><?php echo get_field('tbl_shop_category','id',get_field('tbl_shop_category','id',$row_sanpham['parent1'],'parent'),'subject');?>.html"  title="<?php echo get_field('tbl_shop_category','id',get_field('tbl_shop_category','id',$row_sanpham['parent1'],'parent'),'title');?>"><?php echo get_field('tbl_shop_category','id',get_field('tbl_shop_category','id',$row_sanpham['parent1'],'parent'),'name');?></a></li>
+        <li><a href="<?php echo $linkrootshop;?>/<?php echo get_field('tbl_shop_category','id',get_field('tbl_shop_category','id',$row_sanpham['parent1'],'parent'),'subject');?>.html"  title="<?php echo get_field('tbl_shop_category','id',get_field('tbl_shop_category','id',$row_sanpham['parent1'],'parent'),'title');?>"><?php echo get_field('tbl_shop_category','id',get_field('tbl_shop_category','id',$row_sanpham['parent1'],'parent'),'name');?></a></li>
         <?php }?>
-        <li><a href="<?php echo $linkrootshop;?><?php echo get_field('tbl_shop_category','id',$row_sanpham['parent1'],'subject');?>.html" title="<?php echo get_field('tbl_shop_category','id',$row_sanpham['parent1'],'title');?>"><?php echo get_field('tbl_shop_category','id',$row_sanpham['parent1'],'name');?></a></li>
+        <li><a href="<?php echo $linkrootshop;?>/<?php echo get_field('tbl_shop_category','id',$row_sanpham['parent1'],'subject');?>.html" title="<?php echo get_field('tbl_shop_category','id',$row_sanpham['parent1'],'title');?>"><?php echo get_field('tbl_shop_category','id',$row_sanpham['parent1'],'name');?></a></li>
         <li><a title="<?php echo $row_sanpham['title'];?>"><?php echo $row_sanpham['name'];?> </a></li>
     </ul>
     <div class="clear"></div>
@@ -133,7 +140,7 @@ if($ghinho==1){ // prodetail
 		?>
         <div class="gbsp">
             <span> <?php if($row_sanpham['type']==0){echo "Giá bán sản phẩm:";}else{echo "Giá dịch vụ:";} ?></span>
-            <h1><?php  if(preg_match ("/^([0-9]+)$/", $row_sanpham['price'])) echo number_format($row_sanpham['price'],0)."  VNĐ";else echo "Giá: Liên hệ"; ?></h1>
+            <h1><?php if($row_sanpham['pricekm'] > 0){echo number_format($row_sanpham['pricekm'],0)."  VNĐ";}else if($row_sanpham['price'] > 0){echo number_format($row_sanpham['price'],0)."  VNĐ";}else{echo "Giá: Liên hệ";} ?></h1>
         </div><!-- End .gbsp -->
         
 <!--        <div class="slsp">-->
@@ -351,7 +358,7 @@ if($ghinho==1){ // prodetail
                                 <?php 
 								if($row_sanpham['style']==0){
 								?>
-                                <p><?php  if(preg_match ("/^([0-9]+)$/", $row_shop_product['price'])) echo number_format($row_shop_product['price'],0)."  VNĐ";else echo "Giá: Liên hệ"; ?></p>
+                                <p><?php if($row_shop_product['pricekm'] > 0){echo number_format($row_shop_product['pricekm'],0)."  VNĐ";}else if($row_shop_product['price'] > 0){echo number_format($row_shop_product['price'],0)."  VNĐ";}else{echo "Giá: Liên hệ";} ?></p>
                                 <?php }else {?>
                                 <p style="font-size:12px; color:#000; margin-top:2px;">Số lần xem:<?php echo $row_shop_product['view'];?> </p>
                                 <p style="font-size:12px; color:#000;">Ngày đăng:<?php echo date("d-m-Y", strtotime($row_shop_product['date_added']))?></p>
@@ -417,7 +424,7 @@ if($ghinho==1){ // prodetail
                                     <a href="http://<?php echo $shop['subject'];?>.<?php echo $sub;?>" target="_blank" title="<?php echo $shop['title'];?>"> <?php echo $shop['name'];?></a>
                                 </span>
                                  <?php if($row_sanpham['style']==0){?>
-                                <p><?php  if(preg_match ("/^([0-9]+)$/", $row_shop_product['price'])) echo number_format($row_shop_product['price'],0)."  VNĐ";else echo "Giá: Liên hệ"; ?></p>
+                                 <p><?php if($row_new['pricekm'] > 0){echo number_format($row_new['pricekm'],0)."  VNĐ";}else if($row_new['price'] > 0){echo number_format($row_new['price'],0)."  VNĐ";}else{echo "Giá: Liên hệ";} ?></p>
                                 <?php }?>
                             </span>
                             <div class="clear"></div>
@@ -574,7 +581,7 @@ else{
                         </div><!-- End .i-Pnb -->
                         <a class="n-Pnb" href="<?php echo $linkrootshop;?>/<?php echo $row_new['subject'];?>.html"><?php echo $row_new['name'];?></a>
                         <a class="s-Pnb" href="http://<?php echo $shop['subject'];?>.<?php echo $sub;?>"><?php echo $shop['subject'];?></a>
-                        <span class="price-Pnb"><?php  if(preg_match ("/^([0-9]+)$/", $row_new['price'])) echo number_format($row_new['price'],0)."  VNĐ";else echo "Giá: Liên hệ"; ?></span>
+                        <span class="price-Pnb"><?php if($row_shop_product['pricekm'] > 0){echo number_format($row_shop_product['pricekm'],0)."  VNĐ";}else if($row_shop_product['price'] > 0){echo number_format($row_shop_product['price'],0)."  VNĐ";}else{echo "Giá: Liên hệ";} ?></span>
                     </li>
                     <?php } } ?>
                     
@@ -612,6 +619,7 @@ else{
                         </div><!-- End .i-Pnb -->
                         <a class="n-Pnb" href="<?php echo $linkrootshop;?>/<?php echo $row_new['subject'];?>.html"><?php echo $row_new['name'];?></a>
                         <a class="s-Pnb" href="http://<?php echo $shop['subject'];?>.<?php echo $sub;?>"><?php echo $shop['subject'];?></a>
+
                         <span class="price-Pnb"><?php  if($row_new['price'] != 0){echo number_format($row_new['price'],0)."  VNĐ";}else if($row_new['pricekm'] != 0){echo number_format($row_new['price'],0)."  VNĐ";}else{echo "Giá: Liên hệ";} ?></span>
                     </li>
                    <?php }?>
