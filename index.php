@@ -1,4 +1,28 @@
 <?php
+/* Assign your dynamically generated page to $page */
+$pageName = $_GET['tensanpham'];
+if($pageName == ''){
+    $pageName = "home";
+}
+$page = $pageName.".php";
+/* Define path and name of cached file */
+$cachefile = 'cache/' .$page;
+
+/* How long to keep cache file? */
+$cachetime = 18000;
+
+/* Is cache file still fresh? If so, serve it */
+
+if (file_exists($cachefile) && time() - $cachetime < filemtime($cachefile)) {
+    include($cachefile);
+    exit;
+}
+
+/* If no file or too old, render and capture HTML page. */
+ob_start();
+?>
+
+<?php
 require("config.php");
 require("common_start.php");
 include("lib/func.lib.php");
@@ -456,3 +480,13 @@ require("module/box_device.php");
 </script>
 </body>
 </html>
+
+<?php
+/* Save the cached content to a file */
+$fp = fopen($cachefile, 'w');
+fwrite($fp, ob_get_contents());
+fclose($fp);
+
+/* Send browser output */
+ob_end_flush();
+?>
