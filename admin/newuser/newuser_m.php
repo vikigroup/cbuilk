@@ -98,7 +98,7 @@ if (isset($_POST['btnSave'])){
 			$r = getRecord("tbl_item","id=".$oldid);
 		
 			$arrField = array(
-			"subject"          => "'".vietdecode($name).$oldid."'"
+			"subject"          => "'".vietdecode($name)."'"
 			);// ko them id vao cuoi cho dep
 			$result = update("tbl_item",$arrField,"id=".$oldid);
 			
