@@ -358,7 +358,7 @@ $(document).ready(function() {
 
                         <td valign="middle" width="30%">
 
-                           Thứ tự sắp xếp<span class="sao_bb">*</span>
+                           Thứ tự sắp xếp
 
                         </td>
 
