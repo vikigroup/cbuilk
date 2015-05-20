@@ -71,7 +71,7 @@ if (isset($_POST['btnSave'])){
 	$detail        = isset($_POST['txtDetail']) ? trim($_POST['txtDetail']) : '';
 	$link          = isset($_POST['link']) ? trim($_POST['link']) : '';
 	$sort          = isset($_POST['txtSort']) ? trim($_POST['txtSort']) : 0;
-	$status        = $_POST['chkStatus']!='' ? 1 : 0;
+	$status        = $_POST['chkStatus'];
     $title         = isset($_POST['title']) ? trim($_POST['title']) : '';
     $keyword       = isset($_POST['keyword']) ? trim($_POST['keyword']) : '';
 
@@ -91,7 +91,7 @@ if (isset($_POST['btnSave'])){
 			$oldid = $_POST['id'];
             $sql = "update tbl_item set name='".$name."',parent='".$parent."',parent1='".$parent1."',detail='".$detail."',type='".$loaihinh."',price='".$price."',pricekm='".$pricekm."',sort='".$sort."',status='".$status."',title='".$title."',description='".$description."',keyword='".$keyword."',last_modified=now() where id='".$oldid."'";
 		}else{
-            $sql = "insert into tbl_item (name, parent, parent1 , detail, type , price , pricekm , sort, status,  date_added, last_modified, style, title, description, keyword  ) values ('".$name."','".$parent."','".$parent1."','".$detail."','".$loaihinh."','".$price."','".$pricekm."','".$sort."','1',now(),now(),'0','".$title."','".$description."','".$keyword."')";
+            $sql = "insert into tbl_item (name, parent, parent1 , detail, type , price , pricekm , sort, status,  date_added, last_modified, style, title, description, keyword  ) values ('".$name."','".$parent."','".$parent1."','".$detail."','".$loaihinh."','".$price."','".$pricekm."','".$sort."','".$status."',now(),now(),'0','".$title."','".$description."','".$keyword."')";
 		}
 		if (mysql_query($sql,$conn)){
 			if(empty($_POST['id'])) $oldid = mysql_insert_id();
@@ -450,7 +450,7 @@ $(document).ready(function() {
 
                         <td valign="middle" width="70%">
 
-                            <input type="checkbox" name="chkStatus" value="on" <? if ($status>0) echo 'checked' ?>>
+                            <input type="checkbox" name="chkStatus" value="<?php if($status>0){echo $status;}else{echo 0;} ?>" <? if ($status>0) echo 'checked' ?> onchange="if($(this).is(':checked')){this.value = 1;}else{this.value = 0;}">
 
                         </td>
 
