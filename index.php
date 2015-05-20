@@ -9,9 +9,7 @@ $pageNumCache = $myPage[1];
 
 /* Assign your dynamically generated page to $page */
 $pageName = $_GET['tensanpham'];
-if($pageName == ''){
-    $pageName = "home";
-}
+
 $page = $pageName.".html";
 if($filterCache != ''){
     $page .= "?filter1=".$filterCache."&page=".$pageNumCache;
@@ -24,11 +22,13 @@ $cachefile = 'cache/' .$page;
 $cachetime = 300;
 
 /* Is cache file still fresh? If so, serve it */
-
-if (file_exists($cachefile) && time() - $cachetime < filemtime($cachefile)) {
-    include($cachefile);
-    exit;
+if($pageName != ''){
+    if (file_exists($cachefile) && time() - $cachetime < filemtime($cachefile)) {
+        include($cachefile);
+        exit;
+    }
 }
+
 
 /* If no file or too old, render and capture HTML page. */
 ob_start();
@@ -444,9 +444,11 @@ require("module/box_device.php");
 
 <?php
 /* Save the cached content to a file */
-$fp = fopen($cachefile, 'w');
-fwrite($fp, ob_get_contents());
-fclose($fp);
+if($pageName != ''){
+    $fp = fopen($cachefile, 'w');
+    fwrite($fp, ob_get_contents());
+    fclose($fp);
+}
 
 /* Send browser output */
 ob_end_flush();
