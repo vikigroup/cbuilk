@@ -54,7 +54,7 @@ function btnSave_onclick(){
 $path = "../web/images/gianhang/item";
 $pathdb = "images/gianhang/item";
 if (isset($_POST['btnSave'])){
-	echo $code          = isset($_POST['txtCode']) ? trim($_POST['txtCode']) : '';
+	$code          = isset($_POST['txtCode']) ? trim($_POST['txtCode']) : '';
 	$name          = isset($_POST['txtName']) ? trim($_POST['txtName']) : '';
 	$price         = isset($_POST['txtPrice']) ? trim($_POST['txtPrice']) : '';
 	$pricekm       = isset($_POST['txtPricekm']) ? trim($_POST['txtPricekm']) : '';
@@ -91,7 +91,7 @@ if (isset($_POST['btnSave'])){
 			$oldid = $_POST['id'];
             $sql = "update tbl_item set name='".$name."',parent='".$parent."',parent1='".$parent1."',detail='".$detail."',type='".$loaihinh."',price='".$price."',pricekm='".$pricekm."',sort='".$sort."',status='".$status."',title='".$title."',description='".$description."',keyword='".$keyword."',last_modified=now() where id='".$oldid."'";
 		}else{
-            $sql = "insert into tbl_item (name, parent, parent1 , detail, type , price , pricekm , sort, status,  date_added, last_modified, style, title, description, keyword  ) values ('".$name."','".$parent."','".$parent1."','".$detail."','".$loaihinh."','".$price."','".$pricekm."','".$sort."','1',now(),now(),'1','".$title."','".$description."','".$keyword."')";
+            $sql = "insert into tbl_item (name, parent, parent1 , detail, type , price , pricekm , sort, status,  date_added, last_modified, style, title, description, keyword  ) values ('".$name."','".$parent."','".$parent1."','".$detail."','".$loaihinh."','".$price."','".$pricekm."','".$sort."','1',now(),now(),'0','".$title."','".$description."','".$keyword."')";
 		}
 		if (mysql_query($sql,$conn)){
 			if(empty($_POST['id'])) $oldid = mysql_insert_id();
