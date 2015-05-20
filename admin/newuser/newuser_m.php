@@ -269,7 +269,7 @@ $(document).ready(function() {
                     </tr>
 
                     <tr>
-                      <td height="31" valign="middle" class="table_chu">Danh mục con</td>
+                      <td height="31" valign="middle" class="table_chu"></td>
                       <td valign="middle"> 
                         <select name="ddCatch" id="ddCatch" class="table_list">
                           <?php if($_POST['ddCatch']!=NULL && $_POST['ddCatch']!=-1 ){ ?>
