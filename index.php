@@ -54,7 +54,8 @@ require("module/box_device.php");
     <?php include("module/title.php") ;?>
     <meta name="robots" content="index, follow"/>
     <meta name="author" content="www.cbuilk.com"/>
-
+    <meta content="vi-VN" itemprop="inLanguage" />
+    <link rel="shortcut icon" href="imgs/layout/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" type="text/css" href="<?php echo $linkrootshop?>/templates/css.css">
     <script type="text/javascript" src="<?php echo $linkrootshop?>/scripts/jquery.js"></script>
     <link rel="stylesheet" type="text/css" href="<?php echo $linkrootshop?>/scripts/bxslider/jquery.bxslider.css">
@@ -345,7 +346,7 @@ require("module/box_device.php");
 
     $(window).load(function() {
         $('#slider').nivoSlider({
-            effect: 'random',                 
+            effect: 'random',
             controlNav: false,
             directionNav: false
         });
