@@ -330,14 +330,6 @@ require("module/box_device.php");
 <link rel="stylesheet" type="text/css" href="<?php echo $linkrootshop?>/scripts/nivo-slider/themes/default/default.css">
 <script type="text/javascript" src="<?php echo $linkrootshop?>/scripts/nivo-slider/jquery.nivo.slider.js"></script>
 <script type="text/javascript">
-    $(window).load(function() {
-        $('#slider').nivoSlider({
-            effect: 'random',                 // Specify sets like: 'fold,fade,sliceDown'
-            controlNav: false,
-            directionNav: false
-        });
-    });
-
     $('.mini-user').hover(function(){
         $('.mini-login').show();
         $('.mini-angle').show();
@@ -352,6 +344,12 @@ require("module/box_device.php");
         });
 
     $(window).load(function() {
+        $('#slider').nivoSlider({
+            effect: 'random',                 
+            controlNav: false,
+            directionNav: false
+        });
+
         var $document, didScroll, offset;
         offset = $('.menu').position().top;
         $document = $(document);
@@ -416,7 +414,6 @@ require("module/box_device.php");
             $('.mini-bar').css('width', '3%');
             $('.form_dn').css('width', windowSize - 139);
             $('.dmsp4-3').css('width', windowSize - 190 - 390 - 139);
-//            $('.dmsp4-3').css('max-width', windowSize - 190 - 390 - 139);
             $('.ads-home').css('max-width', windowSize - 190 - 190 - 139);
             $('.btn-gh3').css('width', 190);
             $('.arrowCategory').css('width', 137);
