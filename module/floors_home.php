@@ -128,7 +128,6 @@ for($i = 0; $i < 8; $i++){
             }
         }
         ?>
-<!--        <img src="--><?php //echo $linkroot?><!--/--><?php //echo $myArrPrimaryImage[$i] ;?><!--" />-->
     </article>
     <article class="dmsp4-3">
         <?php
@@ -141,7 +140,6 @@ for($i = 0; $i < 8; $i++){
             <div class="divProductOverlay1" onmouseover="this.style.backgroundColor = '<?php echo $myArr3[$i] ?>'; $('.img-rounded').attr('src', '<?php echo $linkrootshop.'/web/'.$row_floor['image'] ?>');"
                  onmouseout="this.style.backgroundColor = 'white'" onclick="window.open('<?php echo $linkrootshop;?>/<?php echo $row_floor['subject'];?>.html', 'new_window')">
                 <span onmouseover="$('.img-rounded').attr('src', '<?php echo $linkrootshop.'/web/'.$row_floor['image'] ?>');"><?php echo $row_floor['name'] ?></span><br/><br/>
-                <span onmouseover="$('.img-rounded').attr('src', '<?php echo $linkrootshop.'/web/'.$row_floor['image'] ?>');"><?php echo $row_floor['description'] ?></span><br/><br/>
                 <?php if($row_floor['price'] == 0 && $row_floor['pricekm'] == 0){ ?>
                 <span class="spanMoneyKM" onmouseover="$('.img-rounded').attr('src', '<?php echo $linkrootshop.'/web/'.$row_floor['image'] ?>');">Giá liên hệ</span><br/>
                 <?php }else if($row_floor['price'] > 0 && $row_floor['pricekm'] > 0){ ?>
@@ -166,7 +164,6 @@ for($i = 0; $i < 8; $i++){
             slideMargin: 2,
             auto: true,
             pager: false
-//            controls: false
         });
 
         $('.bx-wrapper').css('max-width', '180px');
@@ -183,7 +180,6 @@ for($i = 0; $i < 8; $i++){
             $('.divProductLine1 .divProductOverlay1').mousemove(function (e) {
                 var windowSize = $(window).width();
                 var mac = navigator.platform.match(/(Mac|iPhone|iPod|iPad)/i) ? true : false;
-//                alert(mac);
                 if(mac == false){
                     $container.css({
                         top: e.pageY - 250 + 'px',
