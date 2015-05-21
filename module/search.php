@@ -31,7 +31,7 @@
 
     $totalRows = countRecord("tbl_item","status=0  AND cate=0 $str_tim  AND (  name LIKE '%$tukhoa%' or detail_short LIKE '%$tukhoa%' or detail LIKE '%$tukhoa%'  or title LIKE '%$tukhoa%' )"); 
 	 //echo "status=0 AND type=0 AND cate=0 $str_tim  AND (  name LIKE '%$tukhoa%' or detail_short LIKE '%$tukhoa%' or detail LIKE '%$tukhoa%'  or title LIKE '%$tukhoa%' ) order by $sapxep limit ".$startRow.",".$pageSize;
-	$product=get_records("tbl_item","status=0 AND cate=0 $str_tim AND (  name LIKE '%$tukhoa%' or detail_short LIKE '%$tukhoa%' or detail LIKE '%$tukhoa%'  or title LIKE '%$tukhoa%' ) order by $sapxep limit ".$startRow.",".$pageSize," "," "," ");
+	$product=get_records("tbl_item","status=0 AND cate=0 $str_tim AND (  name LIKE '%$tukhoa%' or detail_short LIKE '%$tukhoa%' or detail LIKE '%$tukhoa%'  or title LIKE '%$tukhoa%' or keyword LIKE '%$tukhoa%') order by $sapxep limit ".$startRow.",".$pageSize," "," "," ");
 ?>
 
 <section class="breacrum">
