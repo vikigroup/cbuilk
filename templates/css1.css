@@ -111,8 +111,8 @@ span.hotline { margin: 10px 30px 10px 30px !important;}
 .dmsp1 {float: right; width: 190px;}
 .dmsp2 {display: none;}
 .dmsp3 {float: right; width: 190px; position: absolute; top: 119px; right: 70px; height: 481px;}
-.dmsp4-1 {float: left; width: 189px; height: 420px; background-color: #FAFAF8; border-right: 1px solid #ffffff}
-.dmsp4-2 {float: left; width: 390px; height: 420px; background-color: #FAFAF8;}
+.dmsp4-1 {float: left; width: 189px; height: 420px; background-color: #ffffff; border-right: 1px solid #ffffff}
+.dmsp4-2 {float: left; width: 390px; height: 420px; background-color: #ffffff;}
 .dmsp4-2 a img{
     width: 100%;
     height: 100%;
@@ -802,7 +802,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 .divSubCategory{
     clear: both;
     background-color: #ffffff;
-    height: 178px;
+    height: 176px;
 }
 
 .aSubCategory{
