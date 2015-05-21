@@ -136,17 +136,17 @@ for($i = 0; $i < 8; $i++){
 
         while($row_floor=mysql_fetch_assoc($product_floor)){
         ?>
-        <div class="divProductLine1" style="background-image: url('<?php echo $linkrootshop.'/web/'.$row_floor['image'] ?>'); background-size: cover" onmouseover="$('.img-rounded').attr('src', '<?php echo $linkrootshop.'/web/'.$row_floor['image'] ?>');" onclick="window.open('<?php echo $linkrootshop;?>/<?php echo $row_floor['subject'];?>.html', 'new_window')">
-            <div class="divProductOverlay1" onmouseover="this.style.backgroundColor = '<?php echo $myArr3[$i] ?>'; $('.img-rounded').attr('src', '<?php echo $linkrootshop.'/web/'.$row_floor['image'] ?>');"
+        <div class="divProductLine1" style="background-image: url('<?php echo $linkrootshop.'/web/'.$row_floor['image'] ?>'); background-size: cover" onclick="window.open('<?php echo $linkrootshop;?>/<?php echo $row_floor['subject'];?>.html', 'new_window')">
+            <div class="divProductOverlay1" onmouseover="this.style.backgroundColor = '<?php echo $myArr3[$i] ?>';"
                  onmouseout="this.style.backgroundColor = 'white'" onclick="window.open('<?php echo $linkrootshop;?>/<?php echo $row_floor['subject'];?>.html', 'new_window')">
-                <span onmouseover="$('.img-rounded').attr('src', '<?php echo $linkrootshop.'/web/'.$row_floor['image'] ?>');"><?php echo $row_floor['name'] ?></span><br/><br/>
+                <span><?php echo $row_floor['name'] ?></span><br/>
                 <?php if($row_floor['price'] == 0 && $row_floor['pricekm'] == 0){ ?>
-                <span class="spanMoneyKM" onmouseover="$('.img-rounded').attr('src', '<?php echo $linkrootshop.'/web/'.$row_floor['image'] ?>');">Giá liên hệ</span><br/>
+                <span class="spanMoneyKM">Giá liên hệ</span><br/>
                 <?php }else if($row_floor['price'] > 0 && $row_floor['pricekm'] > 0){ ?>
-                    <span class="spanMoneyKM" onmouseover="$('.img-rounded').attr('src', '<?php echo $linkrootshop.'/web/'.$row_floor['image'] ?>');"><?php echo number_format($row_floor['pricekm'])."đ"; ?></span><br/>
-                    <span class="spanMoney" onmouseover="$('.img-rounded').attr('src', '<?php echo $linkrootshop.'/web/'.$row_floor['image'] ?>');"><?php echo number_format($row_floor['price'])."đ"; ?></span>
+                    <span class="spanMoneyKM"><?php echo number_format($row_floor['pricekm'])."đ"; ?></span><br/>
+                    <span class="spanMoney"><?php echo number_format($row_floor['price'])."đ"; ?></span>
                 <?php }else{ ?>
-                    <span class="spanMoneyKM" onmouseover="$('.img-rounded').attr('src', '<?php echo $linkrootshop.'/web/'.$row_floor['image'] ?>');"><?php if($row_floor['pricekm'] > 0){echo number_format($row_floor['pricekm'])."đ";}else{echo number_format($row_floor['price'])."đ";} ?></span>
+                    <span class="spanMoneyKM"><?php if($row_floor['pricekm'] > 0){echo number_format($row_floor['pricekm'])."đ";}else{echo number_format($row_floor['price'])."đ";} ?></span>
                 <?php } ?>
             </div>
         </div>
@@ -172,41 +172,6 @@ for($i = 0; $i < 8; $i++){
         $('.bx-wrapper .bx-viewport').css('box-shadow', 'none');
         $('.bx-wrapper .bx-viewport').css('border', '0');
         $('.bx-wrapper .bx-viewport').css('padding-right', '0');
-
-        $container = $('<div/>').attr('id', 'imgPreviewWithStyles').append('<img/>').hide().css('position', 'absolute').appendTo('body'),
-
-
-            $img = $('img', $container),
-            $('.divProductLine1 .divProductOverlay1').mousemove(function (e) {
-                var windowSize = $(window).width();
-                var mac = navigator.platform.match(/(Mac|iPhone|iPod|iPad)/i) ? true : false;
-                if(mac == false){
-                    $container.css({
-                        top: e.pageY - 250 + 'px',
-                        right: windowSize + 50 - e.pageX + 'px'
-                    });
-                }
-                else{
-                    $container.css({
-                        top: e.pageY - 250 + 'px',
-                        right: windowSize - 20 - e.pageX + 'px'
-                    });
-                }
-
-            }).hover(function () {
-                    var windowSize = $(window).width();
-                    if(windowSize >= 992){
-                        var link = this;
-                        $container.show();
-                    }
-                    $img.load(function () {
-                        $img.addClass('img-rounded');
-                        $img.show();
-                    }).attr('src', 'imgs/loader.gif');
-                }, function () {
-                    $container.hide();
-                    $img.unbind('load').attr('src', '').hide();
-                });
     });
 </script>
 
