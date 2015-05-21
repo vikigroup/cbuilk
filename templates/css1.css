@@ -299,7 +299,7 @@ ul.ul-dm > li:hover > .sub-menu {display: block;}
 }
 .s-Pnb {display: block; color: #666; padding: 6px 0 0 0; overflow: hidden; white-space: nowrap; height: 15px; text-overflow: ellipsis; background: none !important;}
 .n-Pnb:hover{color: #3ba11b; text-decoration: underline;}
-.price-Pnb {display: block; color: #f98d32; padding: 6px 0 0 20px; overflow: hidden; white-space: nowrap; height: 15px; text-overflow: ellipsis; background: url(../imgs/layout/price-Pnb.png) no-repeat 0px 7px;}
+.price-Pnb {display: block; color: #f98d32; padding: 3px 0 0 20px; overflow: hidden; white-space: nowrap; height: 15px; text-overflow: ellipsis; background: url(../imgs/layout/price-Pnb.png) no-repeat 0px 7px;}
 
 .Adv {padding-bottom: 20px; text-align: center;}
 .Adv img {max-width: 100%;}
