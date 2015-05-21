@@ -48,8 +48,8 @@
 <section class="breacrum">
     <ul>
         <li><a href="<?php echo $linkrootshop;?>">Trang chủ</a></li>
-        <li><a  > Tìm kiếm</a></li>
-        <li><a href="#">Hiện có <strong><?php echo $totalRows;?></strong> sản phẩm</a></li>
+        <li><a> Tìm kiếm</a></li>
+        <li><a href="#">Hiện có <strong><?php echo $totalRows;?></strong> kết quả </a></li>
     </ul>
     <div class="clear"></div>
 </section><!-- End .breacrum -->
@@ -116,8 +116,12 @@
                         </a>
                     </div><!-- End .i-Pnb -->
                     <div class="prod_row1">
-                        <a class="n-Pnb" href="<?php echo $linkrootshop;?>/<?php echo $row_new['subject'];?>.html"><?php echo $row_new['name'];?></a>
-                        <a class="s-Pnb" href="http://<?php echo $shop['subject'];?>.<?php echo $sub;?>"><?php echo $shop['subject'];?></a>
+                        <a class="n-Pnb" href="<?php echo $linkrootshop;?>/<?php echo $row_new['subject'];?>.html"><b><?php echo $row_new['name'];?></b></a>
+                        <?php if($row_new['idshop'] != 0){ ?>
+                        <a class="s-Pnb" href="http://<?php echo $shop['subject'];?>.<?php echo $sub;?>"><label><i class="icon-shopping-cart"></i><?php echo $shop['subject'];?></label></a>
+                        <?php } else{ ?>
+                        <a class="s-Pnb" href="http://<?php echo $linkrootshop ;?>.<?php echo $sub;?>"><label><i class="icon-shopping-cart"></i><?php echo $subname ;?></label></a>
+                        <?php } ?>
                     </div><!-- End .prod_row1 -->
                     <div class="prod_row2">
                         Lượt xem
@@ -129,7 +133,9 @@
                         <br>
                         <?php echo $row_new['date_added'];?>
                     </div><!-- End .prod_row3 -->
-                    <span class="price-Pnb"><?php  if(preg_match ("/^([0-9]+)$/", $row_new['price'])) echo number_format($row_new['price'],0)."  VNĐ";else echo "Giá: Liên hệ"; ?></span>
+                    <?php if($row_new['style'] == 0){ ?>
+                    <span class="price-Pnb"><?php  if($row_new['pricekm'] > 0){echo number_format($row_new['pricekm'],0)."  VNĐ";}else if($row_new['price'] > 0){echo number_format($row_new['price'],0)."  VNĐ";}else{echo "Giá: Liên hệ";} ?></span>
+                    <?php } ?>
                     <div class="clear"></div>
                 </li>
                 <?php }?>
