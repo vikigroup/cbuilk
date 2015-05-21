@@ -814,6 +814,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     height: 204px;
     margin: 0 5px 0 5px;
     position: relative;
+    cursor: pointer;
 }
 
 .divProductLine1:first-child, .divProductLine1:nth-child(4){
@@ -830,7 +831,6 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     left: 0;
     bottom: 0;
     text-align: center;
-    cursor: pointer;
 }
 
 .divProductOverlay1:hover{
