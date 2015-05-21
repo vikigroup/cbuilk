@@ -650,8 +650,8 @@ else{
                 <div class="clear"></div>
                 <div class="f-sty-P">
                     <ul>
-                        <li><a class="f-sty-P1" href="javascript:void(0)" onclick="$('.s-Pnb').hide(); $('.n-Pnb').css('text-align', 'center');"></a></li>
-                        <li><a class="f-sty-P2" href="javascript:void(0)" onclick="$('.s-Pnb').show(); $('.n-Pnb').css('text-align', 'left');"></a></li>
+                        <li><a class="f-sty-P1" href="javascript:void(0)" onclick="$('.s-Pnb').hide(); $('.n-Pnb').css('text-align', 'center'); $('label').width('100%');"></a></li>
+                        <li><a class="f-sty-P2" href="javascript:void(0)" onclick="$('.s-Pnb').show(); $('.n-Pnb').css('text-align', 'left'); $('label').width('inherit');"></a></li>
                     </ul>
                     <div class="clear"></div>
                 </div><!-- End .f-sty-P -->
