@@ -528,8 +528,8 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 .Prod-cate ul li.li-Pc1 .prod_row2, .Prod-cate ul li.li-Pc1 .prod_row3 {display: none;}
 
 .Prod-cate ul li.li-Pc2 {padding: 10px 0; border-bottom: 1px solid #ececec; width: 100% !important;}
-.Prod-cate ul li.li-Pc2 .i-Pnb {width: 90px; height: 71px; overflow: hidden; overflow: hidden; float: left;}
-.Prod-cate ul li.li-Pc2 .i-Pnb img {width: 90px; min-height: 71px;}
+.Prod-cate ul li.li-Pc2 .i-Pnb {width: 90px; height: 75px; overflow: hidden; overflow: hidden; float: left;}
+.Prod-cate ul li.li-Pc2 .i-Pnb img {width: 90px; min-height: 75px;}
 .Prod-cate ul li.li-Pc2 .prod_row1 {float: left; padding-left: 10px; width: 60% !important;}
 .Prod-cate ul li.li-Pc2 .prod_row1 .n-Pnb {padding-top: 0;}
 .Prod-cate ul li.li-Pc2 .prod_row2 {float: left; padding-left: 10px; text-align: center; width: 100px;}
@@ -1399,5 +1399,5 @@ label{
     padding: 3px;
     color: white;
     text-transform: uppercase;
-    content: "&#xf218;";
+    cursor: pointer;
 }
