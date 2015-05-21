@@ -4,7 +4,7 @@ if(isset($_SESSION['kh_login_id'])){
 // check dang nhap thanh vien	
 $id=get_field('tbl_shop','iduser',$_SESSION['kh_login_id'],'id');
 if($id!="") {
-	echo '<script> alert("Bạn đã đăng ký gian hàng rồi!") </script>';
+	echo '<script> alert("Bạn đã thực hiện việc đăng ký gian hàng cho tài khoản này...") </script>';
 	echo  '<script>window.location="'.$linkrootshop.'" </script>';
 }
 
@@ -260,7 +260,7 @@ $(document).ready(function() {
 </div>
 
 <?php }else {
-	echo thongbao($linkrootshop."/dang-nhap.html",$thongbao='Bạn phải đăng nhập tài khoản thì mới có thể tạo shop, nếu bạn chưa có tài khoản thì vui lòng đăng ký...!');
+	header("Location: ".$linkrootshop."/dang-nhap.html");
 }
 	
 ?>
