@@ -8,43 +8,32 @@
 	
 	if($parent1==2) $str_tim="";
 	else $str_tim="AND parent1 in ({$parent})";
-	
+
+    $link = $_SERVER['REQUEST_URI'];
+    $myLink = explode("?", $link);
+    $myPage = explode("=", $myLink[1]);
+    $pageNum = $myPage[1];
+
 	$pageSize = 20;
-	$pageNum = 1;
 	$totalRows = 0;
 	$xeptheo='id';
 	$dem=1;
 	
-	$kkk="1";
-	if(isset($_SESSION['filter1'])) {
-		$xapxep=$_SESSION['filter1'];
-		if($xapxep==" id DESC") $kkk="1";
-		elseif($xapxep==" price ASC") $kkk="2";
-		elseif($xapxep==" price DESC") $kkk="3";
-	}
-	else $xapxep="id DESC";
+    $sapxep="date_added DESC";
 	
 	settype($pageSize,"int");
 	settype($pageNum,"int");
 	settype($totalRows,"int");
 	settype($dem,"int");
-	
-	
-	if (isset($_GET['pageNum'])==true) $pageNum = $_GET['pageNum'];
+
 	if ($pageNum<=0) $pageNum=1;
 	$startRow = ($pageNum-1) * $pageSize;
-	
 
     $totalRows = countRecord("tbl_item","status=0  AND cate=0 $str_tim  AND (  name LIKE '%$tukhoa%' or detail_short LIKE '%$tukhoa%' or detail LIKE '%$tukhoa%'  or title LIKE '%$tukhoa%' )"); 
-	 //echo "status=0 AND type=0 AND cate=0 $str_tim  AND (  name LIKE '%$tukhoa%' or detail_short LIKE '%$tukhoa%' or detail LIKE '%$tukhoa%'  or title LIKE '%$tukhoa%' ) order by $xapxep limit ".$startRow.",".$pageSize;
-	$product=get_records("tbl_item","status=0 AND cate=0 $str_tim AND (  name LIKE '%$tukhoa%' or detail_short LIKE '%$tukhoa%' or detail LIKE '%$tukhoa%'  or title LIKE '%$tukhoa%' ) order by $xapxep limit ".$startRow.",".$pageSize," "," "," ");
-		
-/*	if($totalRows==1) {
-			$rowtin=mysql_fetch_assoc($product);
-			echo '<script>window.location="'.$linkrootshop.'thong-tin/'.$rowtin['subject'].'.html" </script>';
-	}*/
-
+	 //echo "status=0 AND type=0 AND cate=0 $str_tim  AND (  name LIKE '%$tukhoa%' or detail_short LIKE '%$tukhoa%' or detail LIKE '%$tukhoa%'  or title LIKE '%$tukhoa%' ) order by $sapxep limit ".$startRow.",".$pageSize;
+	$product=get_records("tbl_item","status=0 AND cate=0 $str_tim AND (  name LIKE '%$tukhoa%' or detail_short LIKE '%$tukhoa%' or detail LIKE '%$tukhoa%'  or title LIKE '%$tukhoa%' ) order by $sapxep limit ".$startRow.",".$pageSize," "," "," ");
 ?>
+
 <section class="breacrum">
     <ul>
         <li><a href="<?php echo $linkrootshop;?>">Trang chủ</a></li>
@@ -65,7 +54,7 @@
             <div class="m-cate">
                 <ul>
                     <?php
-				   $cate1=get_records("tbl_shop_category","status=0 AND parent='2'"," "," "," ");
+				   $cate1=get_records("tbl_shop_category","status=0 AND parent='2'","name COLLATE utf8_unicode_ci"," "," ");
 					 
 					while($row_cate1=mysql_fetch_assoc($cate1)){
 					?>
