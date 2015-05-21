@@ -813,6 +813,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     width: 200px;
     height: 204px;
     margin: 0 5px 0 5px;
+    position: relative;
 }
 
 .divProductLine1:first-child, .divProductLine1:nth-child(4){
@@ -821,10 +822,15 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 
 .divProductOverlay1{
     width: 200px;
-    height: 204px;
+    height: 70px;
     background-color: white;
     opacity: 0.9;
     padding: 5px 0;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    text-align: center;
+    cursor: pointer;
 }
 
 .divProductOverlay1:hover{
@@ -845,7 +851,6 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 
 .divProductLine1 span:first-child{
     font-size: 14px;
-    font-weight: bold;
 }
 
 .spanMoneyKM{
