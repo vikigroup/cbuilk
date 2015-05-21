@@ -842,15 +842,22 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 .divProductLine1 span{
     width: 95%;
     display: inline-block;
-    /*white-space: nowrap;*/
-    /*overflow: hidden;*/
-    /*text-overflow: ellipsis;*/
     font-weight: normal;
     padding: 0 5px 0 5px;
 }
 
 .divProductLine1 span:first-child{
+    display: block; /* Fallback for non-webkit */
+    display: -webkit-box;
+    max-width: 95%;
+    height: 28px; /* Fallback for non-webkit */
+    margin: 0 auto;
     font-size: 14px;
+    line-height: 1em;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .spanMoneyKM{
