@@ -136,7 +136,7 @@ for($i = 0; $i < 8; $i++){
 
         while($row_floor=mysql_fetch_assoc($product_floor)){
         ?>
-        <div class="divProductLine1" style="background-image: url('<?php echo $linkrootshop.'/web/'.$row_floor['image'] ?>'); background-size: cover" onmouseover="$('.img-rounded').attr('src', '<?php echo $linkrootshop.'/web/'.$row_floor['image'] ?>');">
+        <div class="divProductLine1" style="background-image: url('<?php echo $linkrootshop.'/web/'.$row_floor['image'] ?>'); background-size: cover" onmouseover="$('.img-rounded').attr('src', '<?php echo $linkrootshop.'/web/'.$row_floor['image'] ?>');" onclick="window.open('<?php echo $linkrootshop;?>/<?php echo $row_floor['subject'];?>.html', 'new_window')">
             <div class="divProductOverlay1" onmouseover="this.style.backgroundColor = '<?php echo $myArr3[$i] ?>'; $('.img-rounded').attr('src', '<?php echo $linkrootshop.'/web/'.$row_floor['image'] ?>');"
                  onmouseout="this.style.backgroundColor = 'white'" onclick="window.open('<?php echo $linkrootshop;?>/<?php echo $row_floor['subject'];?>.html', 'new_window')">
                 <span onmouseover="$('.img-rounded').attr('src', '<?php echo $linkrootshop.'/web/'.$row_floor['image'] ?>');"><?php echo $row_floor['name'] ?></span><br/><br/>
