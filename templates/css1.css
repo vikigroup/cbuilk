@@ -1400,4 +1400,6 @@ label{
     color: white;
     text-transform: uppercase;
     cursor: pointer;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
