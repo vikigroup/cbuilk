@@ -161,13 +161,15 @@
         var myArr = link.split("/");
         var page = myArr[5].substr(0,1);
         var pageNum = "<?php echo $pageNum ?>";
-//        var getPage = myArr[2].substr(1, myArr[2].length);
         var linkAfter = myArr[0]+"/"+myArr[1]+"/"+myArr[2]+"/"+myArr[3]+"html?page="+page;
         $('.PageNum a').attr('href', linkAfter);
         $('.PageNum').find('span').remove();
         var firstPage = myArr[0]+"/"+myArr[1]+"/"+myArr[2]+"/"+myArr[3]+"html?page=1";
         var previous =  myArr[0]+"/"+myArr[1]+"/"+myArr[2]+"/"+myArr[3]+"html?page="+(pageNum-1);
-//
+        if(pageNum-1 == 0){
+            previous = 1;
+        }
+
         $('.PageNum').prepend("<a href="+firstPage+">1</a>");
         $('.PageNum').prepend("<a href="+previous+">&lsaquo;</a>");
         $('.PageNum').prepend("<a href="+firstPage+">&#171;</a>");
