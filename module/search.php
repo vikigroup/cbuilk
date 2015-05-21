@@ -82,17 +82,10 @@
                
         <section class="filter-Prod">
             <h4 class="t-Pnb">
-                <ul class="ul-fP">
-                    <li <?php if($kkk==1) echo 'class="act"';?>><a href="<?php echo $linkrootshop;?>module/process.php?filter1=1">Mới nhất</a></li>
-                    <li>|</li>
-                    <li <?php if($kkk==1) echo 'class="act"';?>><a href="<?php echo $linkrootshop;?>module/process.php?filter1=2">Giá thấp nhất</a></li>
-                    <li>|</li>
-                    <li <?php if($kkk==1) echo 'class="act"';?>><a href="<?php echo $linkrootshop;?>module/process.php?filter1=3">Giá cao nhất</a></li>
-                </ul>
                 <div class="clear"></div>
                 <div class="f-sty-P">
                     <ul>
-                        <li><a class="f-sty-P1 atc" href="javascript:void(0)" onclick="$('label').width('100%');"></a></li>
+                        <li><a class="f-sty-P1" href="javascript:void(0)" onclick="$('label').width('100%');"></a></li>
                         <li><a class="f-sty-P2" href="javascript:void(0)" onclick="$('label').width('inherit');"></a></li>
                     </ul>
                     <div class="clear"></div>
@@ -149,7 +142,7 @@
         <div class="frame_phantrang">
             <div class="PageNum">
 					<?php  
-                        echo pagesLinks_new_full_2013($totalRows, $pageSize , $linkroot,"p","page-tu-khoa-tim/".$_GET['tukhoa']."/".$_GET['loai']);
+                        echo pagesLinks_new_full_2013($totalRows, $pageSize , "","","tu-khoa-tim/".$_GET['loai']."/".$_GET['tukhoa']);
                         ?>
 
             </div>
@@ -160,5 +153,23 @@
     
     <div class="clear"></div>
 </section><!-- End .f-ct -->	
-    
- 
+
+<script>
+    $(function(){
+        $('.f-sty-P1').trigger('click');
+        var link = $('.PageNum a').attr('href');
+        var myArr = link.split("/");
+        var page = myArr[5].substr(0,1);
+        var pageNum = "<?php echo $pageNum ?>";
+//        var getPage = myArr[2].substr(1, myArr[2].length);
+        var linkAfter = myArr[0]+"/"+myArr[1]+"/"+myArr[2]+"/"+myArr[3]+"html?page="+page;
+        $('.PageNum a').attr('href', linkAfter);
+        $('.PageNum').find('span').remove();
+        var firstPage = myArr[0]+"/"+myArr[1]+"/"+myArr[2]+"/"+myArr[3]+"html?page=1";
+        var previous =  myArr[0]+"/"+myArr[1]+"/"+myArr[2]+"/"+myArr[3]+"html?page="+(pageNum-1);
+//
+        $('.PageNum').prepend("<a href="+firstPage+">1</a>");
+        $('.PageNum').prepend("<a href="+previous+">&lsaquo;</a>");
+        $('.PageNum').prepend("<a href="+firstPage+">&#171;</a>");
+    });
+</script>
