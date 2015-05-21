@@ -811,9 +811,9 @@ else{
         var firstPage = "/"+myArr[1]+"?filter1="+filter+"&"+getPage+1;
         var previous =  "/"+myArr[1]+"?filter1="+filter+"&"+getPage+(pageNum-1);
         if(pageNum-1 == 0){
-            previous = 1;
+            previous = "/"+myArr[1]+"?filter1="+filter+"&"+getPage+1;
         }
-        
+
         $('.PageNum').prepend("<a href="+firstPage+">1</a>");
         $('.PageNum').prepend("<a href="+previous+">&lsaquo;</a>");
         $('.PageNum').prepend("<a href="+firstPage+">&#171;</a>");

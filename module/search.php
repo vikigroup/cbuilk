@@ -167,7 +167,7 @@
         var firstPage = myArr[0]+"/"+myArr[1]+"/"+myArr[2]+"/"+myArr[3]+"html?page=1";
         var previous =  myArr[0]+"/"+myArr[1]+"/"+myArr[2]+"/"+myArr[3]+"html?page="+(pageNum-1);
         if(pageNum-1 == 0){
-            previous = 1;
+            previous = myArr[0]+"/"+myArr[1]+"/"+myArr[2]+"/"+myArr[3]+"html?page=1";
         }
 
         $('.PageNum').prepend("<a href="+firstPage+">1</a>");
