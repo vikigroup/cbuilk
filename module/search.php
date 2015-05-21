@@ -120,7 +120,7 @@
                         <?php if($row_new['idshop'] != 0){ ?>
                         <a class="s-Pnb" href="http://<?php echo $shop['subject'];?>.<?php echo $sub;?>"><label><i class="icon-shopping-cart"></i><?php echo $shop['subject'];?></label></a>
                         <?php } else{ ?>
-                        <a class="s-Pnb" href="http://<?php echo $linkrootshop ;?>.<?php echo $sub;?>"><label><i class="icon-shopping-cart"></i><?php echo $subname ;?></label></a>
+                        <a class="s-Pnb" href="http://<?php echo $linkrootshop ;?>"><label><i class="icon-shopping-cart"></i><?php echo $subname ;?></label></a>
                         <?php } ?>
                     </div><!-- End .prod_row1 -->
                     <div class="prod_row2">
