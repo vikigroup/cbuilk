@@ -32,7 +32,7 @@
 <article class="l-tool-ct primary-category">
     <ul class="ul-ltct">
         <?php $video=getRecord('tbl_shop_category', "id=390"); ?>
-        <li><a class="btn-gh3" href="<?php echo $linkrootshop; ?>/<?php echo $news['subject']; ?>.html"><?php echo $video['name']; ?></a></li>
+        <li><a class="btn-gh3" href="<?php echo $linkrootshop; ?>/<?php echo $video['subject']; ?>.html"><?php echo $video['name']; ?></a></li>
     </ul>
     <div class="clear"></div>
 </article><!-- End .l-tool-ct -->
@@ -40,7 +40,7 @@
 <article class="l-tool-ct primary-category">
     <ul class="ul-ltct">
         <?php $note=getRecord('tbl_shop_category', "id=391"); ?>
-        <li><a class="btn-gh3" href="<?php echo $linkrootshop; ?>/<?php echo $news['subject']; ?>.html"><?php echo $note['name']; ?></a></li>
+        <li><a class="btn-gh3" href="<?php echo $linkrootshop; ?>/<?php echo $note['subject']; ?>.html"><?php echo $note['name']; ?></a></li>
     </ul>
     <div class="clear"></div>
 </article><!-- End .l-tool-ct -->
