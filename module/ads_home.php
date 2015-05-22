@@ -26,7 +26,7 @@
     $total1 = 0;
     while($row1=mysql_fetch_assoc($adv_top_center1)){
         if($row1['image'] != ''){
-            echo '<a class="ads-logo push" href="'.$row1['link'].'" target="_blank"><img src="../web/'.$row1['image'].'" alt="'.$row1['name'].'"></a>';
+            echo '<a class="ads-logo hvr-push" href="'.$row1['link'].'" target="_blank"><img src="../web/'.$row1['image'].'" alt="'.$row1['name'].'"></a>';
         }
         else{
             echo '<a class="ads-logo push" href="'.$row1['link'].'" target="_blank"><img src="http://placehold.it/90x45&text=No Image" alt="'.$row1['name'].'"></a>';
