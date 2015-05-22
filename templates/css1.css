@@ -121,8 +121,8 @@ span.hotline { margin: 10px 30px 10px 30px !important;}
 
 .img-right{width: 168px; height: 481px;}
 .ads-home{float:left; width: 830px; height: 330px !important; overflow: hidden;}
-.ads-logo{width: 136px; background-color: white; float: left; padding: 18px 0 18px 0; text-align: center; border: 1px solid #F5F5F5}
-.ads-logo img{width: 90px; height: 45px; display: inline}
+.ads-logo{width: 136px; background-color: white; float: left; padding: 18px 0 18px 0; text-align: center; border: 1px solid #F5F5F5;}
+.ads-logo img{width: 90px; max-height: 45px; display: inline}
 .ads-article article{}
 .ads-top-left-right{
     width: 190px !important;
@@ -863,7 +863,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     display: block; /* Fallback for non-webkit */
     display: -webkit-box;
     max-width: 95%;
-    height: 28px; /* Fallback for non-webkit */
+    height: 29px; /* Fallback for non-webkit */
     margin: 0 auto;
     font-size: 14px;
     line-height: 1em;
