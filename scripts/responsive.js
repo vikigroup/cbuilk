@@ -103,7 +103,7 @@ function autoHome(){
         $('.prod_row1').css('width', 'inherit');
         $('.t-Pnb').css('width', windowSize - 412);
         $('.content').css('width', windowSize - 350);
-        $('#slider').css('left', (windowSize - 1210) / 2 - 15);
+        $('#slider').css('left', (windowSize - 1210) / 2);
 
         for(var i = 0; i < 8; i++){
             if($('#aCategoryName'+i).height() > 14){
