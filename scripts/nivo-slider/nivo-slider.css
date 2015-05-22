@@ -10,10 +10,8 @@
 /* The Nivo Slider styles */
 .nivoSlider {
 	position:absolute;
-	width:100%;
 	height:auto;
 	overflow: hidden;
-    max-width: 1349px;
 }
 .nivoSlider img {
     position:absolute;
@@ -27,6 +25,7 @@
 	display: block !important;
 	position: relative !important; 
 	width: 100% !important;
+    max-width: 1210px !important;
 }
 
 /* If an image is wrapped in a link */
@@ -44,17 +43,18 @@
 	background:white; 
 	filter:alpha(opacity=0); 
 	opacity:0;
+    max-width: 1210px;
 }
 /* The slices and boxes in the Slider */
 .nivo-slice {
-	display:block;
+	display:none;
 	position:absolute;
 	z-index:5;
 	height:100%;
 	top:0;
 }
 .nivo-box {
-	display:block;
+	display:none;
 	position:absolute;
 	z-index:5;
 	overflow:hidden;
