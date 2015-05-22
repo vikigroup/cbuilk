@@ -117,7 +117,9 @@ span.hotline { margin: 10px 30px 10px 30px !important;}
     height: 100%;
 }
 .dmsp4-3 {float: left; max-width: 630px; height: 420px; overflow: hidden; background-color: #ffffff;}
-
+.dmsp4-1, .dmsp4-2, .dmsp4-3{
+    box-shadow: 0 1px 2px rgba(0,0,0,.1); box-sizing: border-box;
+}
 .img-right{width: 168px; height: 481px;}
 .ads-home{float:left; width: 830px; height: 330px !important; overflow: hidden;}
 .ads-logo{width: 136px; background-color: white; float: left; padding: 18px 0 18px 0; text-align: center; border: 1px solid #F5F5F5;}
