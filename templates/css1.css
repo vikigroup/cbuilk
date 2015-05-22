@@ -841,6 +841,10 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     cursor: pointer;
 }
 
+.divProductLine1:hover{
+    opacity: 0.85;
+}
+
 .divProductLine1:first-child, .divProductLine1:nth-child(4){
     margin-left: 5px;
 }
