@@ -68,7 +68,7 @@ function autoHome(){
         $('.sli-fcon-1').css('width', windowSize - 2);
         $('.li-Pc1').css('width', windowSize/2 - 23);
         $('.ul-ifoot li, .menu').css('width', '100%');
-        $('.arrowCategory').css('width', windowSize - 52);
+        $('.arrowCategory').css('width', windowSize - 54);
         $('.t-Pnb').css('max-width', windowSize - 2);
         $('.hotline').attr('style', 'margin: 0 0 0 5px !important;');
         $('.dmsp4-3').css('max-width', windowSize);
