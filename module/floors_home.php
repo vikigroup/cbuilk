@@ -154,6 +154,7 @@ for($i = 0; $i < 8; $i++){
     </article>
 </section><!-- End .Prod-nb -->
 <?php } ?>
+<div class="clear"></div>
 
 <script>
     $(document).ready(function(){
