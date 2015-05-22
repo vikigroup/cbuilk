@@ -117,8 +117,15 @@ span.hotline { margin: 10px 30px 10px 30px !important;}
     height: 100%;
 }
 .dmsp4-3 {float: left; max-width: 630px; height: 420px; overflow: hidden; background-color: #ffffff;}
-.dmsp4-1, .dmsp4-2, .dmsp4-3{
+.dmsp4-1, .dmsp4-2, .dmsp4-3, .divAds, .ads-floors a img{
     box-shadow: 0 1px 2px rgba(0,0,0,.1); box-sizing: border-box;
+}
+.divAds{
+    margin: 0 1px 0 1px;
+    background-color: white;
+}
+.bx-wrapper .bx-viewport{
+    background-color: transparent !important;
 }
 .img-right{width: 168px; height: 481px;}
 .ads-home{float:left; width: 830px; height: 330px !important; overflow: hidden;}
@@ -139,7 +146,10 @@ span.hotline { margin: 10px 30px 10px 30px !important;}
 
 #slider img {width: 770px; height: 312px;}
 
-.slide a img{width: 190px; height: 67px;}
+.slide a{
+    text-align: center;
+}
+.slide a img{max-width: 190px; max-height: 67px; width: 187px;}
 
 .mn-dm {
 	border: 1px solid #dbdbdb;
@@ -804,7 +814,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 .divSubCategory{
     clear: both;
     background-color: #ffffff;
-    height: 176px;
+    height: 180px;
 }
 
 .aSubCategory{
