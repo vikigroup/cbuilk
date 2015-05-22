@@ -85,7 +85,7 @@ BEGIN CONTAINER
 
 .tool-ct {height: 34px; line-height: 34px; font-size: 11px;}
 /*background: url(../imgs/layout/tool-ct.png) repeat-x bottom; padding-bottom: 4px;*/
-.l-tool-ct {float: left;}
+.l-tool-ct {float: left; margin-left: 31px;}
 .l-tool-ct ul.ul-ltct > li {float: left; text-transform: capitalize !important;}
 span.hotline { margin: 10px 30px 10px 30px !important;}
 .l-tool-ct ul.ul-ltct > li span.support {background: url(../imgs/layout/support.png) no-repeat left; padding-left: 22px; display: block;}
@@ -220,7 +220,7 @@ ul.ul-dm > li:hover > .sub-menu {display: block;}
 	display: none;
 	position: absolute;
 	left: 178px;
-	width: 808px;
+	width: 937px;
     height: 460px;
 	background: #fff;
 	border: 1px solid #dbdbdb;
@@ -991,26 +991,19 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 .left-home{
     display: none;
     z-index: 100;
+    margin-left: 31px;
 }
 
 .primary-category{
-    width: 140px;
+    width: 120px;
     margin-left: 2%;
     display: none;
-}
-
-.primary-category:first-child{
-    margin-left: 5%;
-}
-
-.primary-category:last-child{
-    margin-right: 5%;
 }
 
 .primary-category .ul-ltct li a.btn-gh3{
     background-color: transparent;
     color: #000000 !important;
-    width: 140px;
+    width: 120px;
 }
 
 .fix_main{
