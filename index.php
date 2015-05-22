@@ -96,52 +96,24 @@ require("module/box_device.php");
     </section><!-- End .tool-ct -->
 </div><!-- End .m-wrap -->
 
-<div class="m-wrap menu-responsive">
-    <section class="top-ct">
-        <article class="dmsp2">
-            <nav id="nav-wrap">
-                <ul id="nav">
-                    <?php
-                    $cate=get_records("tbl_shop_category","status=0 AND  parent=2"," "," "," ");
-                    $i=1;
-                    while($row_cate=mysql_fetch_assoc($cate)){
-                        ?>
-                        <li>
-                            <a href="<?php echo $linkrootshop?>/<?php echo $row_cate['subject'];?>.html"><?php echo $row_cate['name'];?></a>
-                        </li>
-                    <?php }?>
-                </ul>
-                <div class="clear"></div>
-                <script type="text/javascript">
-                    jQuery(document).ready(function($){
-                        /* prepend menu icon */
-                        $('#nav-wrap').prepend('<div id="menu-icon">Menu</div>');
-                        /* toggle nav */
-                        $("#menu-icon").on("click", function(){
-                            $("#nav").slideToggle();
-                            $(this).toggleClass("active");
-                        });
-                    });
-                </script>
-            </nav>
-        </article><!-- Responsive dmsp -->
-    </section><!-- End .top-ct -->
-</div><!-- End .m-wrap -->
-
 <?php if($frame==""){ ?>
 <div class="m-wrap">
     <?php include("module/menu_left_home.php") ;?>
 </div>
-
-<div id="slider">
-    <?php
-    $gt=get_records("tbl_slider","status=0 AND idshop=0"," ","0,20"," ");
-    while($row_slide=mysql_fetch_assoc($gt)){
-        ?>
-        <a href="#"><img src="<?php echo $linkroot ;?>/<?php echo $row_slide['image']?>" alt="" /></a>
-    <?php } ?>
-</div>
+<header class="m-slider">
+    <div id="slider">
+        <?php
+        $gt=get_records("tbl_slider","status=0 AND idshop=0"," ","0,20"," ");
+        $index = 0;
+        while($row_slide=mysql_fetch_assoc($gt)){
+            ?>
+            <a id="aSlider<?php echo $index ?>" href="#" style="background-color: <?php echo $row_slide['color']?>"><img src="<?php echo $linkroot ;?>/<?php echo $row_slide['image']?>" alt="" /></a>
+        <?php $index++; } ?>
+    </div>
+</header>
 <?php } ?>
+
+<div class="clear"></div>
 
 <section id="container" <?php if($frame == ''){echo 'class="fix_main"';} ?>>
     <div class="m-wrap">
@@ -330,115 +302,7 @@ require("module/box_device.php");
 <link rel="stylesheet" type="text/css" href="<?php echo $linkrootshop?>/scripts/nivo-slider/nivo-slider.css">
 <link rel="stylesheet" type="text/css" href="<?php echo $linkrootshop?>/scripts/nivo-slider/themes/default/default.css">
 <script type="text/javascript" src="<?php echo $linkrootshop?>/scripts/nivo-slider/jquery.nivo.slider.js"></script>
-<script type="text/javascript">
-    $('.mini-user').hover(function(){
-        $('.mini-login').show();
-        $('.mini-angle').show();
-    });
-
-    $('.mini-login').hover(
-        function(){
-            $('.mini-login').show(); $('.mini-angle').show();
-        },
-        function(){
-            $('.mini-login').hide(); $('.mini-angle').hide();
-        });
-
-    $(window).load(function() {
-        $('#slider').nivoSlider({
-            effect: 'random',
-            controlNav: false,
-            directionNav: false
-        });
-
-        var $document, didScroll, offset;
-        offset = $('.menu').position().top;
-        $document = $(document);
-        didScroll = false;
-        $(window).on('scroll touchmove', function() {
-            return didScroll = true;
-        });
-        var k = 0;
-        return setInterval(function() {
-            if (didScroll) {
-                $('.menu').toggleClass('fixed', $document.scrollTop() > offset);
-                if($document.scrollTop() == offset){
-                    $('.dmsp3').css('top', '119px');
-                }
-                else{
-                    $('.dmsp3').css('top', '37px');
-                }
-                if(k == 0){
-                    $( ".menu" ).fadeIn(3000);
-                    k++;
-                }
-                return didScroll = false;
-            }
-        }, 250);
-    });
-</script>
-
-<script>
-    window.onload = function(){
-        autoHome();
-        $(window).resize(function () {
-            autoHome();
-        });
-    };
-
-    function autoHome(){
-        var windowSize = $(window).width();
-        if($(window).width() < 992){
-            $('.m-wrap, .dmsp4-3, .ads-home, .btn-gh3, .form_dn, .form_dn ul li, .l-fcont, .r-fcont' +
-                ', .sli-fcon-1 .bx-wrapper .bx-viewport, .filter-Prod, .content').css('width', windowSize);
-            $('.divProductLine1, .divProductOverlay1').css('width', windowSize/2 - 2);
-            $('.sli-fcon-1').css('width', windowSize - 2);
-            $('.li-Pc1').css('width', windowSize/2 - 23);
-            $('.ul-ifoot li, .menu').css('width', '100%');
-            $('.arrowCategory').css('width', windowSize - 52);
-            $('.t-Pnb').css('max-width', windowSize - 2);
-            $('.hotline').attr('style', 'margin: 0 0 0 5px !important;');
-            $('.dmsp4-3').css('max-width', windowSize);
-            $('.prod_row1').css('width', windowSize/2 - 20);
-
-            for(var i = 0; i < 8; i++){
-                if($('#aCategoryName'+i).height() > 14){
-                    $('#divCategoryID'+i).css('padding', '5px 0 0 0');
-                }
-            }
-        }
-
-        if($(window).width() >= 992){
-            $('.m-wrap, .f-cont').css('max-width', 1210);
-            $('.m-wrap, .f-cont').css('width', '100%');
-            $('.menu').css('width', '100%');
-            $('.mini-bar').css('width', '3%');
-            $('.form_dn').css('width', windowSize - 139);
-            $('.dmsp4-3').css('width', windowSize - 190 - 390 - 139);
-            $('.ads-home').css('max-width', windowSize - 190 - 190 - 139);
-            $('.btn-gh3').css('width', 190);
-            $('.arrowCategory').css('width', 137);
-            $('.btn-gh3').css('width', 190);
-            $('.form_dn ul li').css('width', 480);
-            $('.divProductLine1, .divProductOverlay1').css('width', 198);
-            $('.ul-ifoot li').css('width', '25%');
-            $('.news li, .yahoo li').css('width', '100%');
-            $('.sli-fcon-1 .bx-wrapper .bx-viewport').css('width', '100%');
-            $('.t-Pnb, .filter-Prod, .content').css('max-width', 1000);
-            $('.li-Pc1').css('width', 173);
-            $('.hotline').attr('style', 'margin: 10px 30px 10px 30px !important;');
-            $('.prod_row1').css('width', 'inherit');
-            $('.t-Pnb').css('width', windowSize - 412);
-            $('.content').css('width', windowSize - 350);
-
-            for(var i = 0; i < 8; i++){
-                if($('#aCategoryName'+i).height() > 14){
-                    $('#divCategoryID'+i).css('padding', '5px 0 11px 0');
-                }
-            }
-        }
-    }
-</script>
+<script type="text/javascript"  src="<?php echo $linkrootshop?>/scripts/responsive.js"></script>
 </body>
 </html>
 
