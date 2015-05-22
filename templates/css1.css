@@ -1142,8 +1142,8 @@ ul.ul-fP li.atc a {color: #3ba11b;}
         padding: 0;
     }
 
-    #slider{
-        visibility: hidden;
+    .m-slider{
+        display: none;
     }
 
     .logo{
