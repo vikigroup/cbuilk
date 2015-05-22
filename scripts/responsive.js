@@ -24,6 +24,8 @@ $(window).load(function() {
         }
     });
 
+    $('.m-slider').css("background-color", $("#aSlider"+0).css('background-color'));
+
     var $document, didScroll, offset;
     offset = $('.menu').position().top;
     $document = $(document);
