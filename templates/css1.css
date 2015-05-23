@@ -1162,6 +1162,10 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     .s-Pnb, .prod_row2, .prod_row3{
         display: none !important;
     }
+
+    .l-tool-ct{
+        margin-top: 80px;
+    }
 }
 
 @media (min-width: 992px) and (max-width: 1008px) {
@@ -1208,7 +1212,10 @@ ul.ul-fP li.atc a {color: #3ba11b;}
         width: 600px !important;
     }
     .primary-category, .btn-category{
-        width: 100px !important;
+        width: 90px !important;
+    }
+    .menu-category{
+        display: none;
     }
 }
 
