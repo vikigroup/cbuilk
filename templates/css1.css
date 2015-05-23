@@ -85,7 +85,7 @@ BEGIN CONTAINER
 
 .tool-ct {height: 34px; line-height: 34px; font-size: 11px;}
 /*background: url(../imgs/layout/tool-ct.png) repeat-x bottom; padding-bottom: 4px;*/
-.l-tool-ct {float: left; margin-left: 31px;}
+.l-tool-ct {float: left;}
 .l-tool-ct ul.ul-ltct > li {float: left; text-transform: capitalize !important;}
 span.hotline { margin: 10px 30px 10px 30px !important;}
 .l-tool-ct ul.ul-ltct > li span.support {background: url(../imgs/layout/support.png) no-repeat left; padding-left: 22px; display: block;}
@@ -1005,7 +1005,6 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 .left-home{
     display: none;
     z-index: 100;
-    margin-left: 31px;
 }
 
 .primary-category{
@@ -1035,9 +1034,6 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 
     .main_f_dn{
         height: 433px;
-    }
-    .r-tool-ct{
-        margin-right: 31px;
     }
     .divProductLine1{
         margin: 0 5px 0 5px;
