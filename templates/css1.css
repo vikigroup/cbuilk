@@ -1207,6 +1207,9 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     .content, .t-Pnb{
         width: 600px !important;
     }
+    .primary-category, .btn-category{
+        width: 100px !important;
+    }
 }
 
 @media (min-width: 1009px) {
