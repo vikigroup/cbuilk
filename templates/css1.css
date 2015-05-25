@@ -1032,6 +1032,11 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     background-color: transparent !important;
 }
 
+.div404{
+    text-align: center;
+    padding: 10% 0;
+}
+
 @media (min-width: 992px) {
     .mini-bar{
         visibility: visible !important;
@@ -1197,6 +1202,9 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     .select_input_search{
         width: 61%;
         padding: 0 5px 0 6px;
+    }
+    .div404{
+        padding: 30% 0;
     }
 }
 
