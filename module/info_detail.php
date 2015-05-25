@@ -69,7 +69,7 @@ if($row_sanpham['id']=="")  echo  '<script>window.location="'.'404-page-not-foun
                                 <?php 
 								if($row_sanpham['type']==0){
 								?>
-                                <p><?php  if(preg_match ("/^([0-9]+)$/", $row_shop_product['price'])) echo number_format($row_shop_product['price'],0)."  VNĐ";else echo "Giá: Liên hệ"; ?></p>
+                                <p><?php  if($row_shop_product['pricekm'] > 0){echo number_format($row_shop_product['pricekm'],0)."  VNĐ";}else if($row_shop_product['price'] > 0){echo number_format($row_shop_product['price'],0)."  VNĐ";}else{echo "Giá: Liên hệ";} ?></p>
                                 <?php }else {?>
                                 <p style="font-size:12px; color:#000; margin-top:2px;">Số lần xem:<?php echo $row_shop_product['view'];?> </p>
                                 <p style="font-size:12px; color:#000;">Ngày đăng:<?php echo date("d-m-Y", strtotime($row_shop_product['date_added']))?></p>
