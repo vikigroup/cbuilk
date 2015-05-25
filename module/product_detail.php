@@ -799,21 +799,25 @@ else{
         var length = $('#divProductPag a').length;
         var link = $('#divProductPag a').attr('href');
         var myArr = link.split("/");
-        var page = myArr[5].substr(0,1);
+        var filter = "<?php echo $filter ?>";
         var pageNum = "<?php echo $pageNum ?>";
-        var linkAfter = myArr[0]+"/"+myArr[1]+"/"+myArr[2]+"/"+myArr[3].replace("-", "%20")+"html?page=";
+        if(filter == ''){
+            filter = 1;
+        }
+        var getPage = myArr[2].substr(1, myArr[2].length);
+        var linkAfter = "/"+myArr[1]+"?filter1="+filter+"&"+getPage;
         for(var i = 0; i < length - 1; i++){
             $('#divProductPag a:nth-child('+(i+1)+')').attr('href', linkAfter+(i+1));
         }
 
         $('#divProductPag').find('span').remove();
-        var firstPage = myArr[0]+"/"+myArr[1]+"/"+myArr[2]+"/"+myArr[3].replace("-", "%20")+"html?page=1";
-        var previous =  myArr[0]+"/"+myArr[1]+"/"+myArr[2]+"/"+myArr[3].replace("-", "%20")+"html?page="+(parseInt(pageNum)-1);
-        var next = myArr[0]+"/"+myArr[1]+"/"+myArr[2]+"/"+myArr[3].replace("-", "%20")+"html?page="+(parseInt(pageNum)+1);
-        var lastPage = myArr[0]+"/"+myArr[1]+"/"+myArr[2]+"/"+myArr[3].replace("-", "%20")+"html?page="+(length-1);
+        var firstPage = "/"+myArr[1]+"?filter1="+filter+"&"+getPage+1;
+        var previous = "/"+myArr[1]+"?filter1="+filter+"&"+getPage+(parseInt(pageNum)-1);
+        var next = "/"+myArr[1]+"?filter1="+filter+"&"+getPage+(parseInt(pageNum)+1);
+        var lastPage = "/"+myArr[1]+"?filter1="+filter+"&"+getPage+(length-1);
 
         if(pageNum-1 == 0){
-            previous = myArr[0]+"/"+myArr[1]+"/"+myArr[2]+"/"+myArr[3].replace("-", "%20")+"html?page=1";
+            previous = "/"+myArr[1]+"?filter1="+filter+"&"+getPage+1;
         }
 
         $('#divProductPag').prepend("<a href="+firstPage+">1</a>");
