@@ -1138,7 +1138,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
         width: 100% !important;
     }
 
-    .breacrum, .list-cate{
+    .list-cate{
         margin-top: 10px;
     }
 
@@ -1167,14 +1167,17 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     }
 
     .fix_main{
-        margin-top: 45px;
+        margin-top: 0;
     }
 
     .s-Pnb, .prod_row2, .prod_row3{
         display: none !important;
     }
     .breacrum{
-        margin-top: 40px;
+        padding-top: 0;
+    }
+    .ads-article{
+        margin-top: 0;
     }
 }
 
