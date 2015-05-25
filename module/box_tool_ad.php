@@ -12,7 +12,6 @@
         <?php }else{?>
             <li><a href="<?php echo $linkrootshop;?>/quan-ly.html">Xin chào ! <?php echo $_SESSION['kh_login_username'];?></a>
             <li>|</li>
-            </li>
             <li><a href="<?php echo $linkrootshop;?>/doi-mat-khau.html" title="">Đổi mật khẩu</a></li>
             <li>|</li>
             <li><a href="<?php echo $linkrootshop;?>/thoat.html" title="">Thoát</a></li>
