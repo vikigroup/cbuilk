@@ -47,7 +47,7 @@ function autoHome(){
         $('.hotline').attr('style', 'margin: 0 0 0 5px !important;');
         $('.dmsp4-3').css('max-width', windowSize);
         $('.prod_row1').css('width', windowSize/2 - 20);
-        $('.menu .m-wrap').css('max-width', '100%');
+        $('.menu .m-wrap').css('max-width', '%');
 
         for(var i = 0; i < 8; i++){
             if($('#aCategoryName'+i).height() > 14){
