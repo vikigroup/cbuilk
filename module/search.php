@@ -1,7 +1,6 @@
 <?php
 	if(isset($_GET['tukhoa'])) {$tukhoa=$_GET['tukhoa'];if($tukhoa=="tat-ca") $tukhoa="";$_SESSION['kh_tukhoa']=$tukhoa;}
- 
- 	$tukhoa = str_replace(".", "", $tukhoa);
+    $tukhoa = str_replace(".", "", $tukhoa);
 	if(isset($_GET['loai'])) { if($_GET['loai']=="tat-ca") $parent1=2;else $parent1=$_GET['loai'];settype($parent1,"int");$_SESSION['kh_theloai']=$parent1;}
 	 
 	$parent=getParent("tbl_shop_category",$parent1);
@@ -129,9 +128,9 @@
         </section><!-- End .Prod-cate -->
         
         <div class="frame_phantrang">
-            <div class="PageNum">
+            <div class="PageNum" id="divSearchPag">
 					<?php  
-                        echo pagesLinks_new_full_2013($totalRows, $pageSize , "","","tu-khoa-tim/".$_GET['loai']."/".$_GET['tukhoa']);
+                        echo pagesLinks_new_full_2013($totalRows, $pageSize , "","","tu-khoa-tim/".$_GET['loai']."/".str_replace(" ", "-", $_GET['tukhoa']));
                         ?>
 
             </div>
@@ -146,22 +145,31 @@
 <script>
     $(function(){
         $('.f-sty-P1').trigger('click');
-        var link = $('.PageNum a').attr('href');
-        alert(link);
+        var length = $('#divSearchPag a').length;
+        var link = $('#divSearchPag a').attr('href');
         var myArr = link.split("/");
         var page = myArr[5].substr(0,1);
         var pageNum = "<?php echo $pageNum ?>";
-        var linkAfter = myArr[0]+"/"+myArr[1]+"/"+myArr[2]+"/"+myArr[3]+"html?page="+page;
-        $('.PageNum a').attr('href', linkAfter);
-        $('.PageNum').find('span').remove();
-        var firstPage = myArr[0]+"/"+myArr[1]+"/"+myArr[2]+"/"+myArr[3]+"html?page=1";
-        var previous =  myArr[0]+"/"+myArr[1]+"/"+myArr[2]+"/"+myArr[3]+"html?page="+(pageNum-1);
-        if(pageNum-1 == 0){
-            previous = myArr[0]+"/"+myArr[1]+"/"+myArr[2]+"/"+myArr[3]+"html?page=1";
+        var linkAfter = myArr[0]+"/"+myArr[1]+"/"+myArr[2]+"/"+myArr[3].replace("-", "%20")+"html?page=";
+        for(var i = 0; i < length - 1; i++){
+            $('#divSearchPag a:nth-child('+(i+1)+')').attr('href', linkAfter+(i+1));
         }
 
-        $('.PageNum').prepend("<a href="+firstPage+">1</a>");
-        $('.PageNum').prepend("<a href="+previous+">&lsaquo;</a>");
-        $('.PageNum').prepend("<a href="+firstPage+">&#171;</a>");
+        $('#divSearchPag').find('span').remove();
+        var firstPage = myArr[0]+"/"+myArr[1]+"/"+myArr[2]+"/"+myArr[3].replace("-", "%20")+"html?page=1";
+        var previous =  myArr[0]+"/"+myArr[1]+"/"+myArr[2]+"/"+myArr[3].replace("-", "%20")+"html?page="+(parseInt(pageNum)-1);
+        var next = myArr[0]+"/"+myArr[1]+"/"+myArr[2]+"/"+myArr[3].replace("-", "%20")+"html?page="+(parseInt(pageNum)+1);
+        var lastPage = myArr[0]+"/"+myArr[1]+"/"+myArr[2]+"/"+myArr[3].replace("-", "%20")+"html?page="+(length-1);
+
+        if(pageNum-1 == 0){
+            previous = myArr[0]+"/"+myArr[1]+"/"+myArr[2]+"/"+myArr[3].replace("-", "%20")+"html?page=1";
+        }
+
+        $('#divSearchPag').prepend("<a href="+firstPage+">1</a>");
+        $('#divSearchPag').prepend("<a href="+previous+">&lsaquo;</a>");
+        $('#divSearchPag').prepend("<a href="+firstPage+">&#171;</a>");
+
+        $('#divSearchPag a:nth-child('+(length+2)+')').attr('href', next);
+        $('#divSearchPag a:nth-child('+(length+3)+')').attr('href', lastPage);
     });
 </script>
