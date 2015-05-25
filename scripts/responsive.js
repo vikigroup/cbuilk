@@ -47,6 +47,7 @@ function autoHome(){
         $('.hotline').attr('style', 'margin: 0 0 0 5px !important;');
         $('.dmsp4-3').css('max-width', windowSize);
         $('.prod_row1').css('width', windowSize/2 - 20);
+        $('.menu').css('right', '0');
 
         for(var i = 0; i < 8; i++){
             if($('#aCategoryName'+i).height() > 14){
@@ -63,8 +64,8 @@ function autoHome(){
         $('.m-wrap, .f-cont').css('max-width', 1210);
         $('.m-wrap, .f-cont').css('width', '100%');
         $('.menu').css('width', '100%');
-        $('.mini-bar').css('width', '3%');
         $('.menu').css('right', '3%');
+        $('.mini-bar').css('width', '3%');
         $('.form_dn').css('width', windowSize - 139);
         $('.dmsp4-3').css('width', windowSize - 190 - 390 - 139);
         $('.ads-home').css('max-width', windowSize - 190 - 190 - 139);
