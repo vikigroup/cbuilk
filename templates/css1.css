@@ -1086,7 +1086,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
         margin-bottom: 5px;
     }
 
-    .container-fluid, .ads-top, .ads-floors, .divAds, .dmsp4-2, .divCategory, .divSubCategory, #topcontrol, .l-tool-ct{
+    .container-fluid, .ads-top, .ads-floors, .divAds, .dmsp4-2, .divCategory, .divSubCategory, #topcontrol, .l-tool-ct, .r-tool-ct{
         display: none;
     }
 
@@ -1172,6 +1172,9 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 
     .s-Pnb, .prod_row2, .prod_row3{
         display: none !important;
+    }
+    .breacrum{
+        margin-top: 40px;
     }
 }
 
