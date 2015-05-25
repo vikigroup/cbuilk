@@ -49,7 +49,7 @@ if($row_sanpham['id']=="")  echo  '<script>window.location="'.'404-page-not-foun
                 <div class="main_prod_other">
                     <ul>
                     <?php 
-					$shop_product=get_records("tbl_item","status=0","id DESC","0,5"," ");
+					$shop_product=get_records("tbl_item","status=0 and style=0","date_added DESC","0,10"," ");
 					while($row_shop_product=mysql_fetch_assoc($shop_product)){
 					?>
                         <li>
