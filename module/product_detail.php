@@ -815,7 +815,9 @@ else{
         var previous = "/"+myArr[1]+"?filter1="+filter+"&"+getPage+(parseInt(pageNum)-1);
         var next = "/"+myArr[1]+"?filter1="+filter+"&"+getPage+(parseInt(pageNum)+1);
         var lastPage = "/"+myArr[1]+"?filter1="+filter+"&"+getPage+(length-1);
-
+        if(pageNum == length - 1){
+            next = lastPage;
+        }
         if(pageNum-1 == 0){
             previous = "/"+myArr[1]+"?filter1="+filter+"&"+getPage+1;
         }
