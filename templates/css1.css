@@ -1069,15 +1069,6 @@ ul.ul-fP li.atc a {color: #3ba11b;}
         top: 130px;
     }
 
-    .r-box-tool{
-        margin-top: 55px;
-        width: 100%;
-        padding: 30px 0 30px 0;
-        border-bottom: 1px solid #dbdbdb;
-        margin-bottom: 5px;
-        margin-right: 0;
-    }
-
     .menu, .r-box-tool, .search_top_header{
         margin-left: -1px !important;
     }
@@ -1088,6 +1079,16 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 
     .container-fluid, .ads-top, .ads-floors, .divAds, .dmsp4-2, .divCategory, .divSubCategory, #topcontrol, .l-tool-ct, .r-tool-ct{
         display: none;
+    }
+
+    .r-box-tool{
+        margin-top: 55px;
+        width: 100%;
+        padding: 30px 0 30px 0;
+        border-bottom: 1px solid #dbdbdb;
+        margin-bottom: 5px;
+        margin-right: 0;
+        display: block;
     }
 
     .dmsp4-1{
