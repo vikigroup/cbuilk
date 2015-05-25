@@ -58,7 +58,7 @@ require("module/box_device.php");
     <link rel="shortcut icon" href="imgs/layout/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" type="text/css" href="<?php echo $linkrootshop?>/templates/css.css">
     <script type="text/javascript" src="<?php echo $linkrootshop?>/scripts/jquery.js"></script>
-    <link rel="stylesheet" type="text/css" href="<?php echo $linkrootshop?>/scripts/bxslider/jquery.bxslider.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo $linkrootshop?>/scripts/bxslider/jquery.bxslider.css" media="screen and (min-width: 991px)">
     <script type="text/javascript" src="<?php echo $linkrootshop?>/scripts/bxslider/jquery.bxslider.js"></script>
     <script type="text/javascript" src="<?php echo $linkrootshop?>/scripts/scrolltopcontrol.js"></script>
 
@@ -73,11 +73,13 @@ require("module/box_device.php");
     <link href="<?php echo $linkrootshop?>/templates/hover.css" rel="stylesheet" />
 
     <link href="<?php echo $linkrootshop?>/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="<?php echo $linkrootshop?>/jquery.bxslider/jquery.bxslider.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo $linkrootshop?>/jquery.bxslider/jquery.bxslider.css" media="screen and (min-width: 991px)">
     <script type="text/javascript" src="<?php echo $linkrootshop?>/jquery.bxslider/jquery.bxslider.min.js"></script>
     <script type="text/javascript" src="<?php echo $linkrootshop?>/jquery.bxslider/plugins/jquery.easing.1.3.js"></script>
     <script type="text/javascript" src="<?php echo $linkrootshop?>/jquery.bxslider/plugins/jquery.fitvids.js"></script>
 
+    <link rel="stylesheet" href="<?php echo $linkrootshop?>/lib/SlickNav/slicknav.css" media="screen and (max-width: 991px)"/>
+    <script src="<?php echo $linkrootshop?>/lib/SlickNav/jquery.slicknav.js"></script>
 </head>
 <body>
 <div id="closed"></div>
@@ -299,8 +301,8 @@ require("module/box_device.php");
 
 <?php require("common_end.php");?>
 
-<link rel="stylesheet" type="text/css" href="<?php echo $linkrootshop?>/scripts/nivo-slider/nivo-slider.css">
-<link rel="stylesheet" type="text/css" href="<?php echo $linkrootshop?>/scripts/nivo-slider/themes/default/default.css">
+<link rel="stylesheet" type="text/css" href="<?php echo $linkrootshop?>/scripts/nivo-slider/nivo-slider.css" media="screen and (min-width: 991px)">
+<link rel="stylesheet" type="text/css" href="<?php echo $linkrootshop?>/scripts/nivo-slider/themes/default/default.css" media="screen and (min-width: 991px)">
 <script type="text/javascript" src="<?php echo $linkrootshop?>/scripts/nivo-slider/jquery.nivo.slider.js"></script>
 <script type="text/javascript"  src="<?php echo $linkrootshop?>/scripts/responsive.js"></script>
 </body>
