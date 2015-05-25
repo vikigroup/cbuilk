@@ -17,7 +17,7 @@ if($filterCache != ''){
 
 if($pageName == ''){
     $pageName = $_GET['tenthongtin'];
-    $page = "thong-tin/".$pageName.".html";
+    $page = "thong-tin-".$pageName.".html";
 }
 
 /* Define path and name of cached file */
