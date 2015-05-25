@@ -972,13 +972,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 
 .menu {
     background: #ffffff;
-    top: 5px;
-    z-index: 1001;
-}
-
-.fixed {
     position: fixed;
-    top: 0;
     z-index: 1002;
 }
 
@@ -1025,6 +1019,10 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 
 .slicknav_menu{
     background-color: #669AD3 !important;
+}
+
+.slicknav_collapsed{
+    background-color: transparent !important;
 }
 
 @media (min-width: 992px) {
@@ -1168,17 +1166,19 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     }
 
     .fix_main{
-        margin-top: 50px;
+        margin-top: 0;
     }
 
     .s-Pnb, .prod_row2, .prod_row3{
         display: none !important;
     }
-    .breacrum{
-        padding-top: 0;
-    }
+
     .ads-article{
         margin-top: 0;
+    }
+
+    #container{
+        margin-top: 50px;
     }
 }
 
