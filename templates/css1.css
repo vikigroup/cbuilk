@@ -1191,6 +1191,9 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     #container{
         margin-top: 50px;
     }
+    .menu{
+        height: 160px;
+    }
 }
 
 @media (min-width: 992px) and (max-width: 1008px) {
