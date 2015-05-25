@@ -13,7 +13,7 @@ iframe { max-width:100% !important; max-height: 100% !important; }
 BEGIN HEADER
 *************************************************************************************/
 
-header {border-bottom: 1px solid #dbdbdb; height: 80px; background-color: #ffffff;}
+header {border-bottom: 1px solid #dbdbdb; background-color: #ffffff;}
 header .m-wrap {position: fixed;}
 
 .logo {position: absolute; top: 0; left: 0;}
@@ -91,7 +91,7 @@ span.hotline { margin: 10px 30px 10px 30px !important;}
 .l-tool-ct ul.ul-ltct > li span.support {background: url(../imgs/layout/support.png) no-repeat left; padding-left: 22px; display: block;}
 .l-tool-ct ul.ul-ltct > li + li {padding-left: 20px;}
 
-.r-box-tool{margin: 15px 15px 0 0;}
+.r-box-tool{margin: 15px 15px 0 0; background-color: transparent !important;}
 .r-box-tool ul li{
      margin-top: 25px;
  }
@@ -974,6 +974,13 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     background: #ffffff;
     position: fixed;
     z-index: 1002;
+    height: 80px;
+    overflow: hidden;
+    top: 0;
+}
+
+.menu-wrap{
+    margin-top: 80px;
 }
 
 #imgPreviewWithStyles {
