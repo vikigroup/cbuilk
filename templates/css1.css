@@ -91,7 +91,7 @@ span.hotline { margin: 10px 30px 10px 30px !important;}
 .l-tool-ct ul.ul-ltct > li span.support {background: url(../imgs/layout/support.png) no-repeat left; padding-left: 22px; display: block;}
 .l-tool-ct ul.ul-ltct > li + li {padding-left: 20px;}
 
-.r-box-tool{margin: 15px 15px 0 0; background-color: transparent !important;}
+.r-box-tool{margin: 15px 15px 0 0;}
 .r-box-tool ul li{
      margin-top: 25px;
  }
@@ -1056,6 +1056,9 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     .menu-category, .slicknav_menu, #menu li{
         display: none;
     }
+    .r-box-tool{
+        background-color: transparent !important;
+    }
 }
 
 @media (max-width: 991px) {
@@ -1094,6 +1097,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
         margin-bottom: 5px;
         margin-right: 0;
         display: block;
+        background-color: #ffffff !important;
     }
 
     .dmsp4-1{
