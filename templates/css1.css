@@ -51,7 +51,7 @@ a.btn-gh3 i{margin-right: 5px;}
 	cursor: pointer;
 	overflow: visible;
 }
-.select_input_search {overflow: hidden; padding: 0 10px; margin-right: 28px; z-index: 20; position: relative; display: inline-block;}
+.select_input_search {overflow: hidden; padding: 0 10px; width: 330px; z-index: 20; position: relative; display: inline-block;}
 .ipt_s{
 	height: 30px; width: 100%;
 	border: none;
@@ -1195,9 +1195,8 @@ ul.ul-fP li.atc a {color: #3ba11b;}
         height: 154px;
     }
     .select_input_search{
-        margin-right: 0;
-        width: 64%;
-        padding: 0 5px;
+        width: 61%;
+        padding: 0 5px 0 6px;
     }
 }
 
