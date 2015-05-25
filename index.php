@@ -9,10 +9,15 @@ $pageNumCache = $myPage[1];
 
 /* Assign your dynamically generated page to $page */
 $pageName = $_GET['tensanpham'];
-
 $page = $pageName.".html";
+
 if($filterCache != ''){
     $page .= "?filter1=".$filterCache."&page=".$pageNumCache;
+}
+
+if($pageName == ''){
+    $pageName = $_GET['tenthongtin'];
+    $page = "thong-tin/".$pageName.".html";
 }
 
 /* Define path and name of cached file */
