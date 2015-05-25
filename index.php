@@ -91,7 +91,7 @@ require("module/box_device.php");
     </div><!-- End .m-wrap -->
 </header>
 
-<div class="m-wrap">
+<div class="m-wrap menu-wrap">
     <section class="tool-ct">
         <?php include("module/box_support.php") ;?>
         <?php include("module/info_user.php") ;?>
