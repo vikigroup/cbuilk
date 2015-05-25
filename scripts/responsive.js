@@ -89,30 +89,5 @@ function autoHome(){
                 $('#divCategoryID'+i).css('padding', '5px 0 11px 0');
             }
         }
-
-        var $document, didScroll, offset;
-        offset = $('.menu').position().top;
-        $document = $(document);
-        didScroll = false;
-        $(window).on('scroll touchmove', function() {
-            return didScroll = true;
-        });
-        var k = 0;
-        return setInterval(function() {
-            if (didScroll) {
-                $('.menu').toggleClass('fixed', $document.scrollTop() > offset);
-                if($document.scrollTop() == offset){
-                    $('.dmsp3').css('top', '119px');
-                }
-                else{
-                    $('.dmsp3').css('top', '37px');
-                }
-                if(k == 0){
-                    $( ".menu" ).fadeIn(3000);
-                    k++;
-                }
-                return didScroll = false;
-            }
-        }, 250);
     }
 }
