@@ -10,7 +10,7 @@
 		$tukhoa=$_POST['keyword'];
 		$loai=$_POST['loai'];
 		$_SESSION['kt_tukhoa']=$_POST['keyword'];
-		$back=$linkrootshop.'/tu-khoa-tim/'.$loai.'/'.$tukhoa.'.html';
+		$back=$linkrootshop.'/tu-khoa-tim/'.$loai.'/'.str_replace(" ", "-", $tukhoa).'.html';
 		header("location: $back");
 	}else{
 		header("location: $linkrootshop");

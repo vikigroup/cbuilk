@@ -147,6 +147,7 @@
     $(function(){
         $('.f-sty-P1').trigger('click');
         var link = $('.PageNum a').attr('href');
+        alert(link);
         var myArr = link.split("/");
         var page = myArr[5].substr(0,1);
         var pageNum = "<?php echo $pageNum ?>";
