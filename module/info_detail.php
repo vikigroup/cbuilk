@@ -41,7 +41,7 @@ if($row_sanpham['id']=="")  header("Location: ".$linkrootshop."/404-page-not-fou
             <div class="f_prod_other">
                 
                 <h1 class="title_prod_other">
-                     <?php if($row_sanpham['cate']==0) echo "sản phẩm";else echo "Dịch vụ"?> của chúng tôi
+                     <?php if($row_sanpham['cate']==0) echo "Sản phẩm";else echo "Dịch vụ"?> của chúng tôi
                 </h1><!-- End .title_prod_other -->
                 
                 <div class="main_prod_other">
