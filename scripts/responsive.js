@@ -51,6 +51,7 @@ function autoHome(){
         $('.menu').css('width', '97%');
         $('.menu .m-wrap').css('max-width', '97%');
         $('.mini-bar').css('width', '3%');
+        $('.select_input_search').css('width', '52%');
         $('.form_dn').css('width', windowSize - 139);
         $('.dmsp4-3').css('width', windowSize - 190 - 390 - 139);
         $('.ads-home').css('max-width', windowSize - 190 - 190 - 139);
