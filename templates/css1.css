@@ -24,7 +24,7 @@ header .m-wrap {position: fixed;}
 span.sp-gh1 {position: relative; font-size: 11px; color: #fff; text-align: center;  top: 0; left: 8px; background: url(../imgs/layout/sp-gh1.png) no-repeat; width: 19px; height: 20px; padding: 5px;}
 a.btn-gh1 {background: url(../imgs/layout/btn-gh1.png) no-repeat 0px 0px; display: block; width: 98px; height: 32px;}
 a.btn-gh2 {background: url(../imgs/layout/btn-gh2.png) no-repeat 0px 0px; display: block; width: 164px; height: 32px;}
-a.btn-gh3 {background-color: #669AD3; display: block; color: #ffffff !important; text-align: center; padding: 0 0 10px 0; width: 190px; height: 23px; cursor: pointer; font-size: 14px !important;}
+a.btn-gh3 {background-color: #2A70D2; display: block; color: #ffffff !important; text-align: center; padding: 0 0 10px 0; width: 190px; height: 23px; cursor: pointer; font-size: 14px !important;}
 a.btn-gh3:hover{text-decoration: underline;}
 a.btn-gh3 i{margin-right: 5px;}
 .btn-gh ul li a.btn-gh1:hover , .btn-gh ul li a.btn-gh2:hover {background-position: 0px -32px;}
@@ -1028,11 +1028,16 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 }
 
 .slicknav_menu{
-    background-color: #669AD3 !important;
+    background-color: #2A70D2 !important;
+    margin-right: 1px;
 }
 
 .slicknav_collapsed{
     background-color: transparent !important;
+}
+
+.slicknav_open{
+    background-color: #004481 !important;
 }
 
 .div404{
