@@ -51,7 +51,10 @@ a.btn-gh3 i{margin-right: 5px;}
 	cursor: pointer;
 	overflow: visible;
 }
-.select_input_search {overflow: hidden; padding: 0 10px; width: 330px; z-index: 20; position: relative; display: inline-block;}
+.select_input_search {overflow: hidden; z-index: 20; position: relative; display: inline-block;}
+.select_input_search input{
+    padding: 0 10px;
+}
 .ipt_s{
 	height: 30px; width: 100%;
 	border: none;
