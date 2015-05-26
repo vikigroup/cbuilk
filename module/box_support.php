@@ -37,22 +37,14 @@
     <div class="clear"></div>
 </article><!-- End .l-tool-ct -->
 
-<article class="l-tool-ct primary-category">
-    <ul class="ul-ltct">
-        <?php $note=getRecord('tbl_shop_category', "id=391"); ?>
-        <li><a class="btn-gh3 btn-category" href="<?php echo $linkrootshop; ?>/<?php echo $note['subject']; ?>.html"><?php echo $note['name']; ?></a></li>
-    </ul>
-    <div class="clear"></div>
-</article><!-- End .l-tool-ct -->
-
 <article class="l-tool-ct primary-category menu-category">
     <ul class="ul-ltct">
         <ul id="menu">
             <li><a href="<?php echo $linkrootshop?>/xem-tat-ca.html">Danh mục sản phẩm</a></li>
+            <li><a href="<?php echo $linkrootshop?>/<?php echo $old['subject']; ?>.html"><?php echo $old['name']; ?></a></li>
             <li><a href="<?php echo $linkrootshop?>/<?php echo $rent['subject']; ?>.html"><?php echo $rent['name']; ?></a></li>
             <li><a href="<?php echo $linkrootshop; ?>/<?php echo $news['subject']; ?>.html"><?php echo $news['name']; ?></a></li>
             <li><a href="<?php echo $linkrootshop; ?>/<?php echo $video['subject']; ?>.html"><?php echo $video['name']; ?></a></li>
-            <li><a href="<?php echo $linkrootshop; ?>/<?php echo $note['subject']; ?>.html"><?php echo $note['name']; ?></a></li>
             <li><a href="<?php echo $linkrootshop?>/dang-ky-gian-hang.html">Mở gian hàng miễn phí</a></li>
         </ul>
     </ul>
