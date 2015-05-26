@@ -27,6 +27,7 @@ function autoHome(){
         $('.sli-fcon-1').css('width', windowSize - 2);
         $('.li-Pc1').css('width', windowSize/2 - 23);
         $('.ul-ifoot li, .menu').css('width', '100%');
+        $('.select_input_search').css('width', $('.search_top_header form').width() - 128);
         $('.arrowCategory').css('width', windowSize - 54);
         $('.t-Pnb').css('max-width', windowSize - 2);
         $('.hotline').attr('style', 'margin: 0 0 0 5px !important;');
@@ -51,7 +52,7 @@ function autoHome(){
         $('.menu').css('width', '97%');
         $('.menu .m-wrap').css('max-width', '97%');
         $('.mini-bar').css('width', '3%');
-        $('.select_input_search').css('width', '52%');
+        $('.select_input_search').css('width', $('.search_top_header form').width() - 118);
         $('.form_dn').css('width', windowSize - 139);
         $('.dmsp4-3').css('width', windowSize - 190 - 390 - 139);
         $('.ads-home').css('max-width', windowSize - 190 - 190 - 139);
