@@ -230,7 +230,6 @@ if( $errMsg !=""){
                                             <option value="<?php echo $row['id']; ?>" <?php if($parent==$row['id']) echo 'selected="selected"';?> ><?php echo $row['name']; ?></option>
                                         <?php } ?>
                                     </select></td>
-
                             </tr>
 
                             <tr>
