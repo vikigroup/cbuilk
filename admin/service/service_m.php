@@ -45,8 +45,9 @@ if (isset($_POST['btnSave'])){
 	$price         = isset($_POST['txtPrice']) ? trim($_POST['txtPrice']) : '';
 	$pricekm       = isset($_POST['txtPricekm']) ? trim($_POST['txtPricekm']) : '';
     $loaihinh      = isset($_POST['loaihinh']) ? trim($_POST['loaihinh']) : '1';
-	
-	$parent        = $_POST['ddCat'];
+    $description   = isset($_POST['description']) ? trim($_POST['description']) : '';
+
+    $parent        = $_POST['ddCat'];
 	$parent1       = $_POST['ddCatch'];
 	
 	if($parent1==-1) $parent1=$parent;
@@ -57,7 +58,9 @@ if (isset($_POST['btnSave'])){
 	$link          = isset($_POST['link']) ? trim($_POST['link']) : '';
 	$sort          = isset($_POST['txtSort']) ? trim($_POST['txtSort']) : 0;
 	$status        = $_POST['chkStatus']!='' ? 1 : 0;
-	
+    $title         = isset($_POST['title']) ? trim($_POST['title']) : '';
+    $keyword       = isset($_POST['keyword']) ? trim($_POST['keyword']) : '';
+
 	$catInfo       = getRecord('tbl_item', 'id='.$parent);
 	if(!$multiLanguage){
 		$lang      = $catInfo['lang'];
@@ -72,9 +75,9 @@ if (isset($_POST['btnSave'])){
 	if ($errMsg==''){
 		if (!empty($_POST['id'])){
 			$oldid = $_POST['id'];
-			$sql = "update tbl_item set name='".$name."',parent1='".$parent1."',detail='".$detail."',type='".$loaihinh."',price='".$price."',pricekm='".$pricekm."',sort='".$sort."', status='".$status."',last_modified=now() where id='".$oldid."'";
+			$sql = "update tbl_item set name='".$name."',parent1='".$parent1."',detail='".$detail."',type='".$loaihinh."',price='".$price."',pricekm='".$pricekm."',sort='".$sort."', status='".$status."',title='".$title."',description='".$description."',keyword='".$keyword."',last_modified=now() where id='".$oldid."'";
 		}else{
-			$sql = "insert into tbl_item (name, parent, parent1 , detail, type , price , pricekm , sort, status,  date_added, last_modified  ) values ('".$name."','".$parent."','".$parent1."','".$detail."','".$loaihinh."','".$price."','".$pricekm."','".$sort."','1',now(),now())";
+			$sql = "insert into tbl_item (name, parent, parent1 , detail, type , price , pricekm , sort, status,  date_added, last_modified, style, title, description, keyword  ) values ('".$name."','".$parent."','".$parent1."','".$detail."','".$loaihinh."','".$price."','".$pricekm."','".$sort."','1',now(),now(),'0','".$title."','".$description."','".$keyword."')";
 		} 
 		if (mysql_query($sql,$conn)){
 			if(empty($_POST['id'])) $oldid = mysql_insert_id();
@@ -156,6 +159,9 @@ if (isset($_POST['btnSave'])){
 			$sort          = $row['sort'];
 			$status        = $row['status'];
 			$date_added    = $row['date_added'];
+            $title         = $row['title'];
+            $description   = $row['description'];
+            $keyword       = $row['keyword'];
 			$last_modified = $row['last_modified'];
 		}
 	}
@@ -250,7 +256,7 @@ $(document).ready(function() {
                     </tr>
 
                     <tr>
-                      <td height="31" valign="middle" class="table_chu">Danh mục con</td>
+                      <td height="31" valign="middle" class="table_chu"></td>
                       <td valign="middle"> 
                         <select name="ddCatch" id="ddCatch" class="table_list">
                           <?php if($_POST['ddCatch']!=NULL && $_POST['ddCatch']!=-1 ){ ?>
@@ -338,7 +344,7 @@ $(document).ready(function() {
 
                         <td valign="middle" width="30%">
 
-                           Thứ tự sắp xếp<span class="sao_bb">*</span>
+                           Thứ tự sắp xếp
 
                         </td>
 
@@ -378,7 +384,7 @@ $(document).ready(function() {
 
                         <td valign="middle" width="30%">
 
-                            title  <span class="sao_bb">*</span>
+                            Tiêu đề  <span class="sao_bb">*</span>
 
                         </td>
 
@@ -394,7 +400,7 @@ $(document).ready(function() {
 
                         <td valign="middle" width="30%">
 
-                            description  <span class="sao_bb">*</span>
+                            Mô tả  <span class="sao_bb">*</span>
 
                         </td>
 
@@ -410,7 +416,7 @@ $(document).ready(function() {
 
                         <td valign="middle" width="30%">
 
-                            keyword  <span class="sao_bb">*</span>
+                            kTừ khóa tìm kiếm  <span class="sao_bb">*</span>
 
                         </td>
 
@@ -430,7 +436,7 @@ $(document).ready(function() {
 
                         <td valign="middle" width="70%">
 
-                            <input type="checkbox" name="chkStatus" value="on" <? if ($status>0) echo 'checked' ?>>
+                            <input type="checkbox" name="chkStatus" value="<?php if($status>0){echo $status;}else{echo 0;} ?>" <? if ($status>0) echo 'checked' ?> onchange="if($(this).is(':checked')){this.value = 1;}else{this.value = 0;}">
 
                         </td>
 
