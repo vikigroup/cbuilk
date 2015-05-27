@@ -1,49 +1,49 @@
 <?php
 if(isset($frame)==true){
-	check_permiss($_SESSION['kt_login_id'],11,'admin.php');
+    check_permiss($_SESSION['kt_login_id'],11,'admin.php');
 }else{
-	header("location: ../admin.php");
+    header("location: ../admin.php");
 }
 ?>
 
 <script language="javascript">
-function btnSave_onclick(){
-    if($('#txtName').val() == ''){
-        alert('Bạn chưa nhập "tên" !');
-        $('#txtName').focus();
-        return false;
-    }
+    function btnSave_onclick(){
+        if($('#txtName').val() == ''){
+            alert('Bạn chưa nhập "tên" !');
+            $('#txtName').focus();
+            return false;
+        }
 
-    if($('#ddCat').val() == -1){
-        alert('Bạn chưa chọn "danh mục"');
-        $('#ddCat').focus();
-        return false;
-    }
+        if($('#ddCat').val() == -1){
+            alert('Bạn chưa chọn "danh mục"');
+            $('#ddCat').focus();
+            return false;
+        }
 
-    if($('#title').val() == ''){
-        alert('Bạn chưa nhập "tiêu đề"');
-        $('#title').focus();
-        return false;
-    }
+        if($('#title').val() == ''){
+            alert('Bạn chưa nhập "tiêu đề"');
+            $('#title').focus();
+            return false;
+        }
 
-    if($('#description').val() == ''){
-        alert('Bạn chưa nhập "mô tả"');
-        $('#description').focus();
-        return false;
-    }
+        if($('#description').val() == ''){
+            alert('Bạn chưa nhập "mô tả"');
+            $('#description').focus();
+            return false;
+        }
 
-    if($('#keyword').val() == ''){
-        alert('Bạn chưa nhập "từ khóa tìm kiếm"');
-        $('#keyword').focus();
-        return false;
+        if($('#keyword').val() == ''){
+            alert('Bạn chưa nhập "từ khóa tìm kiếm"');
+            $('#keyword').focus();
+            return false;
+        }
+
+        //document.forms.frmForm.elements.txtSubject.value = oEdit0.getHTMLBody();
+        document.frmForm.txtDetailShort.focus();
+        document.forms.frmForm.elements.txtDetail.value = oEdit2.getHTMLBody();
+
+        return true;
     }
-	
-	//document.forms.frmForm.elements.txtSubject.value = oEdit0.getHTMLBody();
-    document.frmForm.txtDetailShort.focus();
-	document.forms.frmForm.elements.txtDetail.value = oEdit2.getHTMLBody();
-	
-	return true;
-}
 </script>
 
 
@@ -54,432 +54,415 @@ function btnSave_onclick(){
 $path = "../web/images/gianhang/item";
 $pathdb = "images/gianhang/item";
 if (isset($_POST['btnSave'])){
-	echo $code          = isset($_POST['txtCode']) ? trim($_POST['txtCode']) : '';
-	$name          = isset($_POST['txtName']) ? trim($_POST['txtName']) : '';
-	$price         = isset($_POST['txtPrice']) ? trim($_POST['txtPrice']) : '';
-	$pricekm       = isset($_POST['txtPricekm']) ? trim($_POST['txtPricekm']) : '';
-    $loaihinh      = isset($_POST['loaihinh']) ? trim($_POST['loaihinh']) : '1';
+    $code          = isset($_POST['txtCode']) ? trim($_POST['txtCode']) : '';
+    $name          = isset($_POST['txtName']) ? trim($_POST['txtName']) : '';
+    $price         = isset($_POST['txtPrice']) ? trim($_POST['txtPrice']) : '';
+    $pricekm       = isset($_POST['txtPricekm']) ? trim($_POST['txtPricekm']) : '';
+    $loaihinh      = isset($_POST['loaihinh']) ? trim($_POST['loaihinh']) : '';
     $description   = isset($_POST['description']) ? trim($_POST['description']) : '';
 
     $parent        = $_POST['ddCat'];
-	$parent1       = $_POST['ddCatch'];
-	
-	if($parent1==-1) $parent1=$parent;
-	
-	$subject       = vietdecode($name);
-	$detail_short  = isset($_POST['txtDetailShort']) ? trim($_POST['txtDetailShort']) : '';
-	$detail        = isset($_POST['txtDetail']) ? trim($_POST['txtDetail']) : '';
-	$link          = isset($_POST['link']) ? trim($_POST['link']) : '';
-	$sort          = isset($_POST['txtSort']) ? trim($_POST['txtSort']) : 0;
-	$status        = $_POST['chkStatus']!='' ? 1 : 0;
+    $parent1       = $_POST['ddCatch'];
+
+    if($parent1==-1) $parent1=209;
+
+    $subject       = vietdecode($name);
+    $detail_short  = isset($_POST['txtDetailShort']) ? trim($_POST['txtDetailShort']) : '';
+    $detail        = isset($_POST['txtDetail']) ? trim($_POST['txtDetail']) : '';
+    $link          = isset($_POST['link']) ? trim($_POST['link']) : '';
+    $sort          = isset($_POST['txtSort']) ? trim($_POST['txtSort']) : 0;
+    $status        = $_POST['chkStatus'];
     $title         = isset($_POST['title']) ? trim($_POST['title']) : '';
     $keyword       = isset($_POST['keyword']) ? trim($_POST['keyword']) : '';
 
-	$catInfo       = getRecord('tbl_item', 'id='.$parent);
-	if(!$multiLanguage){
-		$lang      = $catInfo['lang'];
-	}else{
-		$lang      = $catInfo['lang'] != '' ? $catInfo['lang'] : $_POST['cmbLang'];
-	}
+    $catInfo       = getRecord('tbl_item', 'id='.$parent);
+    if(!$multiLanguage){
+        $lang      = $catInfo['lang'];
+    }else{
+        $lang      = $catInfo['lang'] != '' ? $catInfo['lang'] : $_POST['cmbLang'];
+    }
 
-	if ($name=="") $errMsg .= "Hãy nhập tên danh mục !<br>";
-	$errMsg .= checkUpload($_FILES["txtImage"],".jpg;.gif;.bmp;.png",500*1024,0);
-	$errMsg .= checkUpload($_FILES["txtImageLarge"],".jpg;.gif;.bmp;.png",500*1024,0);
+    if ($name=="") echo $errMsg .= "Hãy nhập tên danh mục !<br>";
+    $errMsg .= checkUpload($_FILES["txtImage"],".jpg;.gif;.bmp;.png",500*1024,0);
+    $errMsg .= checkUpload($_FILES["txtImageLarge"],".jpg;.gif;.bmp;.png",500*1024,0);
 
-	if ($errMsg==''){
-		if (!empty($_POST['id'])){
-			$oldid = $_POST['id'];
-			$sql = "update tbl_item set name='".$name."',parent1='".$parent1."',detail='".$detail."',type='".$loaihinh."',price='".$price."',pricekm='".$pricekm."',sort='".$sort."', status='".$status."',title='".$title."',description='".$description."',keyword='".$keyword."',last_modified=now() where id='".$oldid."'";
-		}else{
-			$sql = "insert into tbl_item (name, parent, parent1 , detail, type , price , pricekm , sort, status,  date_added, last_modified, style, title, description, keyword  ) values ('".$name."','".$parent."','".$parent1."','".$detail."','".$loaihinh."','".$price."','".$pricekm."','".$sort."','1',now(),now(),'0','".$title."','".$description."','".$keyword."')";
-		} 
-		if (mysql_query($sql,$conn)){
-			if(empty($_POST['id'])) $oldid = mysql_insert_id();
-			$r = getRecord("tbl_item","id=".$oldid);
-		
-			$arrField = array(
-			"subject"          => "'".vietdecode($name).$oldid."'"
-			);// ko them id vao cuoi cho dep
-			$result = update("tbl_item",$arrField,"id=".$oldid);
-			
-			$sqlUpdateField = "";
-			
-			if ($_POST['chkClearImg']==''){
-				$extsmall=getFileExtention($_FILES['txtImage']['name']);
-				if (makeUpload($_FILES['txtImage'],"$path/items$oldid$extsmall")){
-					@chmod("$path/items$oldid$extsmall", 0777);
-					$sqlUpdateField = " image='$pathdb/items$oldid$extsmall' ";
-				}
-			}else{
-				if(file_exists('../web/'.$r['image'])) @unlink('../web/'.$r['image']);
-				$sqlUpdateField = " image='' ";
-			}
-			
-			if ($_POST['chkClearImgLarge']==''){
-				$extlarge=getFileExtention($_FILES['txtImageLarge']['name']);
-				if (makeUpload($_FILES['txtImageLarge'],"$path/item_l$oldid$extlarge")){
-					@chmod("$path/item_l$oldid$extlarge", 0777);
-					if($sqlUpdateField != "") $sqlUpdateField .= ",";
-					$sqlUpdateField .= " image_large='$pathdb/item_l$oldid$extlarge' ";
-				}
-			}else{
-				if(file_exists('../web/'.$r['image_large'])) @unlink('../web/'.$r['image_large']);
-				if($sqlUpdateField != "") $sqlUpdateField .= ",";
-				$sqlUpdateField .= " image_large='' ";
+    if ($errMsg==''){
+        if (!empty($_POST['id'])){
+            $oldid = $_POST['id'];
+            $sql = "update tbl_item set name='".$name."',parent='".$parent."',parent1='".$parent1."',detail='".$detail."',type='".$loaihinh."',price='".$price."',pricekm='".$pricekm."',sort='".$sort."',status='".$status."',title='".$title."',description='".$description."',keyword='".$keyword."',last_modified=now() where id='".$oldid."'";
+        }else{
+            $sql = "insert into tbl_item (name, parent, parent1 , detail, type , price , pricekm , sort, status,  date_added, last_modified, style, title, description, keyword  ) values ('".$name."','".$parent."','".$parent1."','".$detail."','".$loaihinh."','".$price."','".$pricekm."','".$sort."','".$status."',now(),now(),'2','".$title."','".$description."','".$keyword."')";
+        }
+        if (mysql_query($sql,$conn)){
+            if(empty($_POST['id'])) $oldid = mysql_insert_id();
+            $r = getRecord("tbl_item","id=".$oldid);
 
-			}
-			
-			if($sqlUpdateField!='')	{
-				$sqlUpdate = "update tbl_item set $sqlUpdateField where id='".$oldid."'";
-				mysql_query($sqlUpdate,$conn);
-			}
-		}else{
-			$errMsg = "Không thể cập nhật !";
-		}
-	}
+            $arrField = array(
+                "subject"          => "'".vietdecode($name)."'"
+            );// ko them id vao cuoi cho dep
+            $result = update("tbl_item",$arrField,"id=".$oldid);
 
-	if ($errMsg == ''){
-		if($r['type']=="0") echo '<script>window.location="admin.php?act=service&cat='.$_REQUEST['cat'].'&page='.$_REQUEST['page'].'&code=1"</script>';
-		else  echo '<script>window.location="admin.php?act=service&cat='.$_REQUEST['cat'].'&page='.$_REQUEST['page'].'&code=1"</script>';
-	}
+            $sqlUpdateField = "";
+
+            if ($_POST['chkClearImg']==''){
+                $extsmall=getFileExtention($_FILES['txtImage']['name']);
+                if (makeUpload($_FILES['txtImage'],"$path/items$oldid$extsmall")){
+                    @chmod("$path/items$oldid$extsmall", 0777);
+                    $sqlUpdateField = " image='$pathdb/items$oldid$extsmall' ";
+                }
+            }else{
+                if(file_exists('../web/'.$r['image'])) @unlink('../web/'.$r['image']);
+                $sqlUpdateField = " image='' ";
+            }
+
+            if ($_POST['chkClearImgLarge']==''){
+                $extlarge=getFileExtention($_FILES['txtImageLarge']['name']);
+                if (makeUpload($_FILES['txtImageLarge'],"$path/item_l$oldid$extlarge")){
+                    @chmod("$path/item_l$oldid$extlarge", 0777);
+                    if($sqlUpdateField != "") $sqlUpdateField .= ",";
+                    $sqlUpdateField .= " image_large='$pathdb/item_l$oldid$extlarge' ";
+                }
+            }else{
+                if(file_exists('../web/'.$r['image_large'])) @unlink('../web/'.$r['image_large']);
+                if($sqlUpdateField != "") $sqlUpdateField .= ",";
+                $sqlUpdateField .= " image_large='' ";
+
+            }
+
+            if($sqlUpdateField!='')	{
+                $sqlUpdate = "update tbl_item set $sqlUpdateField where id='".$oldid."'";
+                mysql_query($sqlUpdate,$conn);
+            }
+        }else{
+            $errMsg = "Không thể cập nhật !";
+        }
+    }
+
+    if ($errMsg == ''){
+        if($r['type']=="0") echo '<script>window.location="admin.php?act=newuser&cat='.$_REQUEST['cat'].'&page='.$_REQUEST['page'].'&code=1"</script>';
+        else  echo '<script>window.location="admin.php?act=newuser&cat='.$_REQUEST['cat'].'&page='.$_REQUEST['page'].'&code=1"</script>';
+    }
 }else{
-	if (isset($_GET['id'])){
-		$oldid=$_GET['id'];
-		$page = $_GET['page'];
-		$sql = "select * from tbl_item where id='".$oldid."'";
-		if ($result = mysql_query($sql,$conn)) {
-			$row=mysql_fetch_array($result);
-			$code          = $row['code'];
-			$name          = $row['name'];
+    if (isset($_GET['id'])){
+        $oldid=$_GET['id'];
+        $page = $_GET['page'];
+        $sql = "select * from tbl_item where id='".$oldid."'";
+        if ($result = mysql_query($sql,$conn)) {
+            $row=mysql_fetch_array($result);
+            $code          = $row['code'];
+            $name          = $row['name'];
 
             $parent1        = $row['parent1'];
             $parent         = $row['parent'];
-			
-			if($parent==2) {
-				$parent=$parent1;
-				$parent1=-1;
-			}
-			
-			$subject       = $row['subject'];
-			$price         = $row['price'];
-			$pricekm       = $row['pricekm'];
-			$subject       = $row['subject'];
-			$detail_short  = $row['detail_short'];
-			$link          = $row['link'];
-			$loaihinh      = $row['type'];
-			$detail        = $row['detail'];
-			$image         = $row['image'];
-			$image_large   = $row['image_large'];
-			$sort          = $row['sort'];
-			$status        = $row['status'];
-			$date_added    = $row['date_added'];
+
+            if($parent==2) {
+                $parent=$parent1;
+                $parent1=-1;
+            }
+            $idshop        = $row['idshop'];
+            $subject       = $row['subject'];
+            $price         = $row['price'];
+            $pricekm       = $row['pricekm'];
+            $subject       = $row['subject'];
+            $detail_short  = $row['detail_short'];
+            $link          = $row['link'];
+            $loaihinh      = $row['type'];
+            $detail        = $row['detail'];
+            $image         = $row['image'];
+            $image_large   = $row['image_large'];
+            $sort          = $row['sort'];
+            $status        = $row['status'];
+            $date_added    = $row['date_added'];
             $title         = $row['title'];
             $description   = $row['description'];
             $keyword       = $row['keyword'];
-			$last_modified = $row['last_modified'];
-		}
-	}
+            $last_modified = $row['last_modified'];
+        }
+    }
 }
 
 ?>
 
 <?php
-	if( $errMsg !=""){ 
-?>
-<div class="alert alert-block no-radius fade in">
-    <button type="button" class="close" data-dismiss="alert"><span class="mini-icon cross_c"></span></button>
-    <h4>Warning!</h4>
-     <? $errMsg =''?>
-</div>
+if( $errMsg !=""){
+    ?>
+    <div class="alert alert-block no-radius fade in">
+        <button type="button" class="close" data-dismiss="alert"><span class="mini-icon cross_c"></span></button>
+        <? $errMsg =''?>
+    </div>
 <?php }?>
 <script>
-$(document).ready(function() {
-	$("#ddCat").change(function(){ 
-		var id=$(this).val();//val(1) gan vao gia tri 1 dung trong form
-		var table="tbl_shop_category";
-		$("#ddCatch").load("getChild.php?table="+ table + "&id=" +id); //alert(idthanhpho)
-	});
-});
+    $(document).ready(function() {
+        $("#ddCat").change(function(){
+            var id=$(this).val();//val(1) gan vao gia tri 1 dung trong form
+            var table="tbl_shop_category";
+            $("#ddCatch").load("getChild.php?table="+ table + "&id=" +id); //alert(idthanhpho)
+        });
+    });
 </script>
 <script type="text/javascript" src="../lib/ckeditor/ckeditor.js"></script>
 <script type="text/javascript" src="../lib/ckfinder/ckfinder.js"></script>
 <div class="row-fluid">
-    <div class="span12">
-        <div class="box-widget">
-             
-            <div class="widget-container">
-                <div class="widget-block">
-                    
-                   <form method="post" name="frmForm" enctype="multipart/form-data" action="admin.php?act=service_m">
-
-
-
-            
-
-            <input type="hidden" name="act" value="service_m">
-
-            <input type="hidden" name="id" value="<?=$_REQUEST['id']?>">
+<div class="span12">
+<div class="box-widget">
 
-            <input type="hidden" name="page" value="<?=$_REQUEST['page']?>">
+<div class="widget-container">
+<div class="widget-block">
 
-            <div> <? if($errMsg!=''){echo '<p align=center class="err">'.$errMsg.'<br></p>';}?>  </div>
+<form method="post" name="frmForm" enctype="multipart/form-data" action="admin.php?act=newuser_m">
 
-                 <table  class="table_chinh">
 
-                    <tr>
-                      <td class="table_chu_tieude_them" colspan="2" align="center" valign="middle"  >DỊCH VỤ</td>
-                  </tr>
-                    <tr>
-                      <td valign="middle"  class="table_chu">&nbsp;</td>
-                      <td valign="middle">&nbsp;</td>
-                    </tr>
-                    <tr>
 
-                        <td valign="middle" width="30%">
 
-                            Tên  <span class="sao_bb">*</span>
 
-                        </td>
+<input type="hidden" name="act" value="newuser_m">
 
-                        <td valign="middle" width="70%">
+<input type="hidden" name="id" value="<?=$_REQUEST['id']?>">
 
-                            <input name="txtName" type="text" class="table_khungnho" id="txtName" value="<?=$name?>"/>
+<input type="hidden" name="page" value="<?=$_REQUEST['page']?>">
 
-                        </td>
+<div> <? if($errMsg!=''){echo '<p align=center class="err">'.$errMsg.'<br></p>';}?>  </div>
 
-                    </tr>
-                    <tr>
-			
-                      <td valign="middle"  class="table_chu">Danh mục<span class="sao_bb">*</span></td>
+<table  class="table_chinh">
 
-                      <td valign="middle"><select name="ddCat" id="ddCat" class="table_list">
-                        <?php if($_POST['ddCat']!=NULL){ ?>
-                        <option value="<?php echo $idtheloaic=$_POST['ddCat'] ; ?>"><?php echo get_field('tbl_shop_category','id',$parent,'name'); ?></option>
-                        <?php }?>
-                        <?php if($parent!=-1 && $parent!=""){?>
-                         <option value="<?php echo $parent ?>"><?php echo get_field('tbl_shop_category','id',$parent,'name'); ?></option>
-                         <?php }?>
-                        <option value="-1" <?php if($parent==-1) echo 'selected="selected"';?> > Chọn danh mục </option>
-						<?php   
-                        $gt=get_records("tbl_shop_category","parent=2 and status=0 and id != 211","id DESC"," "," ");
-                        while($row=mysql_fetch_assoc($gt)){?>
-                        <option value="<?php echo $row['id']; ?>" <?php if($parent==$row['id']) echo 'selected="selected"';?> ><?php echo $row['name']; ?></option>
-                        <?php } ?>
-                      </select></td>
+<tr>
+    <td class="table_chu_tieude_them" colspan="2" align="center" valign="middle"  >DỊCH VỤ</td>
+</tr>
+<tr>
+    <td valign="middle"  class="table_chu">&nbsp;</td>
+    <td valign="middle">&nbsp;</td>
+</tr>
+<tr>
 
-                    </tr>
+    <td valign="middle" width="30%">
 
-                    <tr>
-                      <td height="31" valign="middle" class="table_chu"></td>
-                      <td valign="middle"> 
-                        <select name="ddCatch" id="ddCatch" class="table_list">
-                          <?php if($_POST['ddCatch']!=NULL && $_POST['ddCatch']!=-1 ){ ?>
-                          <option value="<?php echo $parent1=$_POST['ddCatch'] ; ?>"><?php echo get_field('tbl_shop_category','id',$parent1,'name'); ?></option>
-                          <?php }?>
-                           <?php if($parent1!=-1 && $parent1!=""){?>
-                          <option value="<?php echo $parent1 ?>"><?php echo get_field('tbl_shop_category','id',$parent1,'name'); ?></option>
-                          <?php }?>
-                          <option value="-1"> Chọn danh mục con </option> 
-                        </select>
-                       </td>
-                    </tr>
+        Tên  <span class="sao_bb">*</span>
 
-                    
+    </td>
 
-<!--                    <tr>-->
-<!--                      <td valign="middle">&nbsp;</td>-->
-<!--                      <td valign="middle"><select id="loaihinh" name="loaihinh"  class="table_list" >-->
-<!--                        <option value="0" --><?php //if($loaihinh==0) echo 'selected="selected"';?><!-- > Sản phẩm </option>-->
-<!--                        <option value="1" --><?php //if($loaihinh==1 || $_GET['act'] == "service_m") echo 'selected="selected"';?><!-- > Dịch vụ </option>-->
-<!--                      </select></td>-->
-<!--                    </tr>-->
-                    <tr>
-                      <td valign="middle"> Giá<span class="sao_bb"></span></td>
-                      <td valign="middle"><input name="txtPrice" type="text" class="table_khungnho" id="txtPrice" value="<?=$price;?>"/></td>
-                    </tr>
-                    <tr>
-                      <td valign="middle"> Giá khuyến mãi<span class="sao_bb"></span></td>
-                      <td valign="middle"><input name="txtPricekm" type="text" class="table_khungnho" id="txtPricekm" value="<?=$pricekm;?>"/></td>
-                    </tr>
-                    <tr>
+    <td valign="middle" width="70%">
 
-                      <td valign="middle">Tóm tắt</td>
+        <input name="txtName" type="text" class="table_khungnho" id="txtName" value="<?=$name?>"/>
 
-                      <td valign="middle">&nbsp;</td>
+    </td>
 
-                    </tr>
+</tr>
+<tr>
 
-                    <tr>
+    <td valign="middle"  class="table_chu">Danh mục<span class="sao_bb">*</span></td>
 
-                      <td colspan="2" valign="middle"><textarea name="txtDetailShort"  style="width:780px; height:150px;" id="txtDetailShort"><?php echo $detail_short;?></textarea>
-                      </td>
+    <td valign="middle"><select name="ddCat" id="ddCat" class="table_list">
+            <?php if($_POST['ddCat']!=NULL){ ?>
+                <option value="<?php echo $idtheloaic=$_POST['ddCat'] ; ?>"><?php echo get_field('tbl_shop_category','id',$parent,'name'); ?></option>
+            <?php }?>
+            <?php if($parent!=-1 && $parent!=""){?>
+                <option value="<?php echo $parent ?>"><?php echo get_field('tbl_shop_category','id',$parent,'name'); ?></option>
+            <?php }?>
+            <option value="-1" <?php if($parent==-1) echo 'selected="selected"';?> > Chọn danh mục </option>
+            <?php
+            $gt=get_records("tbl_shop_category","parent=209 and status=0 ","id DESC"," "," "); //and (idshop='{$idshop}' or '{$idshop}'=-1)
+            while($row=mysql_fetch_assoc($gt)){?>
+                <option value="<?php echo $row['id']; ?>" <?php if($parent==$row['id']) echo 'selected="selected"';?> ><?php echo $row['name']; ?></option>
+            <?php } ?>
+        </select></td>
 
-                    </tr>
+</tr>
 
-                    <tr>
+<tr>
+    <td height="31" valign="middle" class="table_chu"></td>
+    <td valign="middle">
+        <select name="ddCatch" id="ddCatch" class="table_list">
+            <?php if($_POST['ddCatch']!=NULL && $_POST['ddCatch']!=-1 ){ ?>
+                <option value="<?php echo $parent1=$_POST['ddCatch'] ; ?>"><?php echo get_field('tbl_shop_category','id',$parent1,'name'); ?></option>
+            <?php }?>
+            <?php if($parent1!=-1 && $parent1!=""){?>
+                <option value="<?php echo $parent1 ?>"><?php echo get_field('tbl_shop_category','id',$parent1,'name'); ?></option>
+            <?php }?>
+            <option value="-1"> Chọn danh mục con </option>
+        </select>
+    </td>
+</tr>
 
-                      <td valign="middle">Nội dung</td>
+<tr>
 
-                      <td valign="middle">&nbsp;</td>
+    <td valign="middle">Tóm tắt</td>
 
-                    </tr>
+    <td valign="middle">&nbsp;</td>
 
-                    <tr>
+</tr>
 
-                      <td colspan="2" valign="middle"><textarea name="txtDetail" class="txt" id="txtDetail"><?php echo $detail?></textarea>
+<tr>
 
-                          <script type="text/javascript">
+    <td colspan="2" valign="middle"><textarea name="txtDetailShort"  style="width:780px; height:150px;" id="txtDetailShort"><?php echo $detail_short;?></textarea></td>
 
-                              var editor = CKEDITOR.replace( 'txtDetail',
+</tr>
 
-                                  {
+<tr>
 
-                                      height:500,
+    <td valign="middle">Nội dung</td>
 
-                                      width:780,
+    <td valign="middle">&nbsp;</td>
 
-                                      filebrowserImageBrowseUrl : '../lib/ckfinder/ckfinder.html?Type=Images',
+</tr>
 
-                                      filebrowserFlashBrowseUrl : '../lib/ckfinder/ckfinder.html?Type=Flash',
+<tr>
 
-                                      filebrowserImageUploadUrl : '../lib/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
+    <td colspan="2" valign="middle"><textarea name="txtDetail" class="txt" id="txtDetail"><?php echo $detail?></textarea>
 
-                                      filebrowserFlashUploadUrl : '../lib/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash',
+        <script type="text/javascript">
 
-                                      fullPage : true
+            var editor = CKEDITOR.replace( 'txtDetail',
 
-                                  });
+                {
 
-                          </script>
+                    height:500,
 
-                    </tr>
+                    width:780,
 
-                    <tr>
+                    filebrowserImageBrowseUrl : '../lib/ckfinder/ckfinder.html?Type=Images',
 
-                        <td valign="middle" width="30%">
+                    filebrowserFlashBrowseUrl : '../lib/ckfinder/ckfinder.html?Type=Flash',
 
-                           Thứ tự sắp xếp
+                    filebrowserImageUploadUrl : '../lib/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
 
-                        </td>
+                    filebrowserFlashUploadUrl : '../lib/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash',
 
-                        <td valign="middle" width="70%">
+                    fullPage : true
 
-                            <input class="table_khungnho" value="<?=$sort?>" type="text" name="txtSort"  />
+                });
 
-                        </td>
+        </script>
 
-                    </tr>
+    </td>
 
-                    <tr>
+</tr>
 
-                        <td valign="middle" width="30%">
+<tr>
 
-                        Hình đại diện</td>
+    <td valign="middle" width="30%">
 
-                        <td valign="middle" width="70%">
+        Thứ tự sắp xếp
 
-                            <input type="file" name="txtImage" class="textbox" size="34">
+    </td>
 
-							<input type="checkbox" name="chkClearImg" value="on"> Xóa bỏ hình ảnh	 <br>
+    <td valign="middle" width="70%">
 
-							<? if ($image!=''){ echo '<img border="0" width="80" height="80" src="../web/'.$image.'"><br><br>Hình (kích thước nhỏ)';}?>&nbsp;&nbsp;
+        <input class="table_khungnho" value="<?=$sort?>" type="text" name="txtSort" id="txtSort"  />
 
-                            <?  if ($image_large!=''){ echo '<img border="0" src="../web/'.$image_large.'"><br><br>Hình (kích thước lớn)';}?>
+    </td>
 
-                     
+</tr>
 
-                            
+<tr>
 
-                        </td>
+    <td valign="middle" width="30%">
 
-                    </tr>
+        Hình đại diện</td>
 
-                    <tr>
+    <td valign="middle" width="70%">
 
-                        <td valign="middle" width="30%">
+        <input type="file" name="txtImage" class="textbox" size="34">
 
-                            Tiêu đề  <span class="sao_bb">*</span>
+        <input type="checkbox" name="chkClearImg" value="on"> Xóa bỏ hình ảnh	 <br>
 
-                        </td>
+        <? if ($image!=''){ echo '<img border="0" width="80" height="80" src="../web/'.$image.'"><br><br>Hình (kích thước nhỏ)';}?>&nbsp;&nbsp;
 
-                        <td valign="middle" width="70%">
+        <?  if ($image_large!=''){ echo '<img border="0" src="../web/'.$image_large.'"><br><br>Hình (kích thước lớn)';}?>
 
-                            <input name="title" type="text" class="table_khungnho" id="title" value="<?=$title?>"/>
 
-                        </td>
 
-                    </tr>
 
-                     <tr>
 
-                        <td valign="middle" width="30%">
+    </td>
 
-                            Mô tả  <span class="sao_bb">*</span>
+</tr>
 
-                        </td>
+<tr>
 
-                        <td valign="middle" width="70%">
+    <td valign="middle" width="30%">
 
-                            <input name="description" type="text" class="table_khungnho" id="description" value="<?=$description?>"/>
+        Tiêu đề  <span class="sao_bb">*</span>
 
-                        </td>
+    </td>
 
-                    </tr>
+    <td valign="middle" width="70%">
 
-                    <tr>
+        <input name="title" type="text" class="table_khungnho" id="title" value="<?=$title?>"/>
 
-                        <td valign="middle" width="30%">
+    </td>
 
-                            kTừ khóa tìm kiếm  <span class="sao_bb">*</span>
+</tr>
 
-                        </td>
+<tr>
 
-                        <td valign="middle" width="70%">
+    <td valign="middle" width="30%">
 
-                            <input name="keyword" type="text" class="table_khungnho" id="keyword" value="<?=$keyword?>"/>
+        Mô tả  <span class="sao_bb">*</span>
 
-                        </td>
+    </td>
 
-                    </tr>
+    <td valign="middle" width="70%">
 
-                    <tr>
+        <input name="description" type="text" class="table_khungnho" id="description" value="<?=$description?>"/>
 
-                        <td valign="top" width="30%">
+    </td>
 
-                            Không hiển thị</td>
+</tr>
 
-                        <td valign="middle" width="70%">
+<tr>
 
-                            <input type="checkbox" name="chkStatus" value="<?php if($status>0){echo $status;}else{echo 0;} ?>" <? if ($status>0) echo 'checked' ?> onchange="if($(this).is(':checked')){this.value = 1;}else{this.value = 0;}">
+    <td valign="middle" width="30%">
 
-                        </td>
+        Từ khóa tìm kiếm  <span class="sao_bb">*</span>
 
-                    </tr>
+    </td>
 
-                    <tr>
+    <td valign="middle" width="70%">
 
-                        <td valign="top" width="30%">&nbsp;
+        <input name="keyword" type="text" class="table_khungnho" id="keyword" value="<?=$keyword?>"/>
 
-                            
+    </td>
 
-                        </td>
+</tr>
 
-                        <td valign="middle" width="70%">
+<tr>
 
-                            <input type="submit" name="btnSave" VALUE="Cập nhật" class=button onclick="return btnSave_onclick()">
+    <td valign="top" width="30%">
 
-                            <input type="reset" class=button value="Nhập lại">	
+        Không hiển thị</td>
 
-                        </td>
+    <td valign="middle" width="70%">
 
-                    </tr>
+        <input type="checkbox" name="chkStatus" value="<?php if($status>0){echo $status;}else{echo 0;} ?>" <? if ($status>0) echo 'checked' ?> onchange="if($(this).is(':checked')){this.value = 1;}else{this.value = 0;}">
 
-                </table>
+    </td>
 
-                </form> 
+</tr>
 
-                </div>
-            </div>
-        </div>
-    </div>
+<tr>
+
+    <td valign="top" width="30%">&nbsp;
+
+
+
+    </td>
+
+    <td valign="middle" width="70%">
+
+        <input type="submit" name="btnSave" VALUE="Cập nhật" class=button onclick="return btnSave_onclick()">
+
+        <input type="reset" class=button value="Nhập lại">
+
+    </td>
+
+</tr>
+
+</table>
+
+</form>
+
+</div>
+</div>
+</div>
+</div>
 </div>
