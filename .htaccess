@@ -4,15 +4,15 @@ ErrorDocument 401 /403.shtml
 ErrorDocument 403 /403.shtml
 ErrorDocument 500 /500.shtml
 
-RewriteCond %{HTTP_HOST} !^cpcmart.com$ [NC]
+RewriteCond %{HTTP_HOST} !^cbuilk.com$ [NC]
 RewriteCond %{REQUEST_URI} !^/web/.*$ [NC]
 RewriteRule ^(.*)$ web/$1 [L]
 
 RewriteCond %{REQUEST_URI} !\.[^./]+$
 RewriteCond %{REQUEST_URI} !(.*)/$
-#RewriteRule ^(.*)$ http://cpcmart.com/$1.html [R=301,L]
+#RewriteRule ^(.*)$ http://cbuilk.com/$1.html [R=301,L]
 
-#RewriteRule ^(.*)/$ http://cpcmart.com/$1.html [R=301,L]
+#RewriteRule ^(.*)/$ http://cbuilk.com/$1.html [R=301,L]
 
 
 
