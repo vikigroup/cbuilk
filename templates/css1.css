@@ -870,13 +870,13 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 }
 
 .divProductLine1 span{
-    width: 95%;
     display: inline-block;
     font-weight: normal;
     padding: 0 5px 0 5px;
 }
 
 .divProductLine1 span:first-child{
+    width: 95%;
     display: block; /* Fallback for non-webkit */
     display: -webkit-box;
     max-width: 95%;
@@ -888,6 +888,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
+    color: #000000;
 }
 
 .spanMoneyKM{
