@@ -132,7 +132,7 @@ for($i = 0; $i < 8; $i++){
     <article class="dmsp4-3">
         <?php
         $parent_floor=getParent("tbl_shop_category",$myArrID[$i]);
-        $product_floor=get_records("tbl_item","status=0 AND type=0 AND parent1 in ({$parent_floor}) order by date_added limit 0,6"," "," "," ");
+        $product_floor=get_records("tbl_item","status=0 AND type=0 AND parent1 in ({$parent_floor})","date_added DESC","0,6"," ");
 
         while($row_floor=mysql_fetch_assoc($product_floor)){
         ?>
