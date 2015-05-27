@@ -38,7 +38,7 @@
             </li>
 
             <li>
-                <a href="#"> Quản lý sản phẩm &darr;</a>
+                <a href="#"> Sản phẩm &darr;</a>
                 <ul>
                     <li><a href="admin.php?act=shop_category">Danh mục sản phẩm</a> </li>
                     <li><a href="admin.php?act=itemuser">Tất cả sản phẩm</a></li>
@@ -47,7 +47,7 @@
             </li>
 
             <li>
-                <a href="#"> Quản lý máy cũ &darr;</a>
+                <a href="#"> Máy cũ &darr;</a>
                 <ul>
                     <li><a href="admin.php?act=shop_category">Danh mục máy cũ</a> </li>
                     <li><a href="admin.php?act=itemuser">Tất cả máy cũ</a></li>
@@ -65,7 +65,7 @@
             </li>
 
             <li>
-                <a href="#"> Quản lý tin tức &darr;</a>
+                <a href="#"> Tin tức &darr;</a>
                 <ul>
                     <li><a href="admin.php?act=news_category">Danh mục tin tức</a> </li>
                     <li><a href="admin.php?act=newuser">Tất cả tin tức</a></li>
@@ -74,7 +74,7 @@
             </li>
 
             <li>
-                <a href="#"> Quản lý video &darr;</a>
+                <a href="#"> Video &darr;</a>
                 <ul>
                     <li><a href="admin.php?act=shop_category">Danh mục video</a> </li>
                     <li><a href="admin.php?act=itemuser">Tất cả video</a></li>
