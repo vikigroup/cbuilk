@@ -34,9 +34,7 @@ switch ($frame){
  
 	// item
 	case "item"             : include("item/item.php");break;
-	case "service"          : include("service/service.php");break;
 	case "item_m"           : include("item/item_m.php");break;
-    case "service_m"        : include("service/service_m.php");break;
     case "itemsaleoff"      : include("item/itemsaleoff.php");break;
 	
 	//support
@@ -73,6 +71,11 @@ switch ($frame){
 	case "item_category_m"      : include("item_category/item_category_m.php");break;
     case "news_category"        : include("news_category/news_category.php");break;
     case "news_category_m"      : include("news_category/news_category_m.php");break;
+
+    case "service"              : include("service/service.php");break;
+    case "service_m"            : include("service/service_m.php");break;
+    case "service_category"     : include("service_category/service_category.php");break;
+    case "service_category_m"   : include("service_category/service_category_m.php");break;
 
     case "advuser"              : include("advuser/advuser.php");break;
 	case "advuser_m"            : include("advuser/advuser_m.php");break;
