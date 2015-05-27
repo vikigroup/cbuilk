@@ -60,7 +60,7 @@ if (isset($_POST['btnSave'])){
     $parent1       = $_POST['ddCatch'];
 
     if($parent1==-1) $parent1=$parent;
-    if($parent1==-1 && $parent==-1) $parent1=211;
+    if($parent1==-1 && $parent==-1) $parent1=209;
     $subject       = vietdecode($name);
     $detail_short  = isset($_POST['txtDetailShort']) ? trim($_POST['txtDetailShort']) : '';
     $detail        = isset($_POST['txtDetail']) ? trim($_POST['txtDetail']) : '';
@@ -206,7 +206,7 @@ if( $errMsg !=""){
                         <table  class="table_chinh">
 
                             <tr>
-                                <td class="table_chu_tieude_them" colspan="2" align="center" valign="middle"  >DANH MỤC TIN TỨC</td>
+                                <td class="table_chu_tieude_them" colspan="2" align="center" valign="middle"  >DANH MỤC DỊCH VỤ</td>
                             </tr>
                             <tr>
                                 <td valign="middle"  class="table_chu">&nbsp;</td>
@@ -225,7 +225,7 @@ if( $errMsg !=""){
                                         <?php }?>
                                         <option value="-1" <?php if($parent==-1) echo 'selected="selected"';?> > Chọn danh mục </option>
                                         <?php
-                                        $gt=get_records("tbl_shop_category","status=0 and parent=211","id DESC"," "," ");
+                                        $gt=get_records("tbl_shop_category","status=0 and parent=209","id DESC"," "," ");
                                         while($row=mysql_fetch_assoc($gt)){?>
                                             <option value="<?php echo $row['id']; ?>" <?php if($parent==$row['id']) echo 'selected="selected"';?> ><?php echo $row['name']; ?></option>
                                         <?php } ?>
