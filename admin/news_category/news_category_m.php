@@ -257,7 +257,7 @@ if( $errMsg !=""){
                             </tr>
                             <tr>
                                 <td valign="middle" width="30%">
-                                    Thứ tự sắp xếp<span class="sao_bb">*</span>
+                                    Thứ tự sắp xếp
                                 </td>
                                 <td valign="middle" width="70%">
                                     <input class="table_khungnho" value="<?=$sort?>" type="text" name="txtSort"  />
