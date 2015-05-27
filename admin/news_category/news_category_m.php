@@ -8,14 +8,33 @@ if(isset($frame)==true){
 
 <script language="javascript">
     function btnSave_onclick(){
-        if(test_empty(document.frmForm.txtName.value)){
-            alert('Hãy nhập "tên" !');
-            document.frmForm.txtName.focus();
+        if($('#ddCat').val() == -1){
+            alert('Bạn chưa chọn "danh mục"');
+            $('#ddCat').focus();
             return false;
         }
-        if(test_integer(document.frmForm.txtSort.value)){
-            alert('"Thứ tự sắp xếp" phải là số !');
-            document.frmForm.txtSort.focus();
+
+        if($('#txtName').val() == ''){
+            alert('Bạn chưa nhập "tên" !');
+            $('#txtName').focus();
+            return false;
+        }
+
+        if($('#title').val() == ''){
+            alert('Bạn chưa nhập "tiêu đề"');
+            $('#title').focus();
+            return false;
+        }
+
+        if($('#description').val() == ''){
+            alert('Bạn chưa nhập "mô tả"');
+            $('#description').focus();
+            return false;
+        }
+
+        if($('#keyword').val() == ''){
+            alert('Bạn chưa nhập "từ khóa tìm kiếm"');
+            $('#keyword').focus();
             return false;
         }
 
@@ -46,7 +65,7 @@ if (isset($_POST['btnSave'])){
     $detail_short  = isset($_POST['txtDetailShort']) ? trim($_POST['txtDetailShort']) : '';
     $detail        = isset($_POST['txtDetail']) ? trim($_POST['txtDetail']) : '';
     $sort          = isset($_POST['txtSort']) ? trim($_POST['txtSort']) : 0;
-    $status        = $_POST['chkStatus']!='' ? 1 : 0;
+    $status        = $_POST['chkStatus'];
 
     $title         = isset($_POST['title']) ? trim($_POST['title']) : "";
     $description   = isset($_POST['description']) ? trim($_POST['description']) : "";
@@ -66,9 +85,9 @@ if (isset($_POST['btnSave'])){
     if ($errMsg==''){
         if (!empty($_POST['id'])){
             $oldid = $_POST['id'];
-            $sql = "update tbl_shop_category set code='".$code."',name='".$name."', parent='".$parent1."',subject='".$subject."',detail_short='".$detail_short."',detail='".$detail."', sort='".$sort."', title='".$title."', description='".$description."', keyword='".$keyword."', status='".$status."',last_modified=now(), lang='".$lang."' where id='".$oldid."'";
+            $sql = "update tbl_shop_category set code='".$code."',name='".$name."', parent='".$parent1."', subject='".$subject."', detail_short='".$detail_short."', detail='".$detail."', sort='".$sort."', title='".$title."', description='".$description."', keyword='".$keyword."', status='".$status."', last_modified=now(), lang='".$lang."' where id='".$oldid."'";
         }else{
-            echo $sql = "insert into tbl_shop_category (code, name, parent, subject, detail_short, detail, title , description , keyword , sort, status,  date_added, last_modified, lang, cate) values ('".$code."','".$name."','".$parent1."','".$subject."','".$detail_short."','".$detail."','".$title."','".$description."','".$keyword."','".$sort."','1',now(),now(),'".$lang."','1')";
+            echo $sql = "insert into tbl_shop_category (code, name, parent, subject, detail_short, detail, title , description , keyword , sort, status, date_added, last_modified, lang, cate) values ('".$code."','".$name."','".$parent1."','".$subject."','".$detail_short."','".$detail."','".$title."','".$description."','".$keyword."','".$sort."','".$status."',now(),now(),'".$lang."','1')";
         }
         if (mysql_query($sql,$conn)){
             if(empty($_POST['id'])) $oldid = mysql_insert_id();
@@ -215,7 +234,7 @@ if( $errMsg !=""){
                             </tr>
 
                             <tr>
-                                <td height="31" valign="middle" class="table_chu">Danh mục con</td>
+                                <td height="31" valign="middle" class="table_chu"></td>
                                 <td valign="middle">
                                     <select name="ddCatch" id="ddCatch" class="table_list">
                                         <?php if($_POST['ddCatch']!=NULL && $_POST['ddCatch']!=-1 ){ ?>
@@ -265,7 +284,7 @@ if( $errMsg !=""){
 
                                 <td valign="middle" width="30%">
 
-                                    title  <span class="sao_bb">*</span>
+                                    Tiêu đề  <span class="sao_bb">*</span>
 
                                 </td>
 
@@ -281,7 +300,7 @@ if( $errMsg !=""){
 
                                 <td valign="middle" width="30%">
 
-                                    description  <span class="sao_bb">*</span>
+                                    Mô tả  <span class="sao_bb">*</span>
 
                                 </td>
 
@@ -297,7 +316,7 @@ if( $errMsg !=""){
 
                                 <td valign="middle" width="30%">
 
-                                    keyword  <span class="sao_bb">*</span>
+                                    Từ khóa tìm kiếm  <span class="sao_bb">*</span>
 
                                 </td>
 
@@ -312,7 +331,7 @@ if( $errMsg !=""){
                                 <td valign="top" width="30%">
                                     Không hiển thị</td>
                                 <td valign="middle" width="70%">
-                                    <input type="checkbox" name="chkStatus" value="on" <? if ($status>0) echo 'checked' ?>>
+                                    <input type="checkbox" name="chkStatus" value="<?php if($status>0){echo $status;}else{echo 0;} ?>" <? if ($status>0) echo 'checked' ?> onchange="if($(this).is(':checked')){this.value = 1;}else{this.value = 0;}">
                                 </td>
                             </tr>
                             <tr>
