@@ -58,7 +58,7 @@
             <li>
                 <a href="admin.php?act=service">Dịch vụ &darr;</a>
                 <ul>
-                    <li><a href="admin.php?act=shop_category">Danh mục dịch vụ</a> </li>
+                    <li><a href="admin.php?act=service_category">Danh mục dịch vụ</a> </li>
                     <li><a href="admin.php?act=service">Tất cả dịch vụ</a></li>
                     <li><a href="admin.php?act=service_m">Tạo dịch vụ mới</a></li>
                 </ul>
@@ -74,7 +74,7 @@
             </li>
 
             <li>
-                <a href="#"> Quản lý video &darr;</a>
+                <a href="#"> Video &darr;</a>
                 <ul>
                     <li><a href="admin.php?act=shop_category">Danh mục video</a> </li>
                     <li><a href="admin.php?act=itemuser">Tất cả video</a></li>
