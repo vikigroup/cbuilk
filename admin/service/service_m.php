@@ -8,21 +8,35 @@ if(isset($frame)==true){
 
 <script language="javascript">
 function btnSave_onclick(){
-    if($('#ddCat').val() == -1){
-        alert('Hãy chọn "danh mục"');
+    if($('#txtName').val() == ''){
+        alert('Bạn chưa nhập "tên" !');
+        $('#txtName').focus();
         return false;
     }
 
-	if(test_empty(document.frmForm.txtName.value)){
-		alert('Hãy nhập "tên" !');
-		document.frmForm.txtName.focus();
-		return false;
-	}
-	if(test_integer(document.frmForm.txtSort.value)){
-		alert('"Thứ tự sắp xếp" phải là số !');
-		document.frmForm.txtSort.focus();
-		return false;
-	}
+    if($('#ddCat').val() == -1){
+        alert('Bạn chưa chọn "danh mục"');
+        $('#ddCat').focus();
+        return false;
+    }
+
+    if($('#title').val() == ''){
+        alert('Bạn chưa nhập "tiêu đề"');
+        $('#title').focus();
+        return false;
+    }
+
+    if($('#description').val() == ''){
+        alert('Bạn chưa nhập "mô tả"');
+        $('#description').focus();
+        return false;
+    }
+
+    if($('#keyword').val() == ''){
+        alert('Bạn chưa nhập "từ khóa tìm kiếm"');
+        $('#keyword').focus();
+        return false;
+    }
 	
 	//document.forms.frmForm.elements.txtSubject.value = oEdit0.getHTMLBody();
     document.frmForm.txtDetailShort.focus();
