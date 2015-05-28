@@ -1,30 +1,30 @@
 <?php
 if(isset($frame)==true){
-	check_permiss($_SESSION['kt_login_id'],1,'admin.php');
+    check_permiss($_SESSION['kt_login_id'],1,'admin.php');
 }else{
-	header("location: ../admin.php");
+    header("location: ../admin.php");
 }
 
 if (isset($_POST['tim'])==true)//isset kiem tra submit
 {
-	if($_POST['tukhoa']!=NULL && $_POST['tukhoa'] != 'Từ khóa...'){$tukhoa=$_POST['tukhoa'];}else {$tukhoa=-1;}
-	$_SESSION['kt_tukhoa_bignew']=$tukhoa;
-	$tukhoa = trim(strip_tags($tukhoa));
-	if (get_magic_quotes_gpc()==false)
-		{
-			$tukhoa = mysql_real_escape_string($tukhoa);
-		}
-	if($_POST['ddCat']!=NULL){$parent=$_POST['ddCat'];}else {$parent=-1;}
-	$_SESSION['kt_parent_bignew']=$parent;
+    if($_POST['tukhoa']!=NULL && $_POST['tukhoa'] != 'Từ khóa...'){$tukhoa=$_POST['tukhoa'];}else {$tukhoa=-1;}
+    $_SESSION['kt_tukhoa_bignew']=$tukhoa;
+    $tukhoa = trim(strip_tags($tukhoa));
+    if (get_magic_quotes_gpc()==false)
+    {
+        $tukhoa = mysql_real_escape_string($tukhoa);
+    }
+    if($_POST['ddCat']!=NULL){$parent=$_POST['ddCat'];}else {$parent=-1;}
+    $_SESSION['kt_parent_bignew']=$parent;
 
-	if($_POST['ddCatch']!=NULL){$parent1=$_POST['ddCatch'];}else {$parent1=-1;}
-	$_SESSION['kt_ddCatch_bignew']=$parent1;
+    if($_POST['ddCatch']!=NULL){$parent1=$_POST['ddCatch'];}else {$parent1=-1;}
+    $_SESSION['kt_ddCatch_bignew']=$parent1;
 }
 if (isset($_POST['reset'])==true) {
     $_POST['ddCatch'] = -1;
-	$_SESSION['kt_tukhoa_bignew']=-1;
-	$_SESSION['kt_parent_bignew']=-1;
-	$_SESSION['kt_ddCatch_bignew']=-1;
+    $_SESSION['kt_tukhoa_bignew']=-1;
+    $_SESSION['kt_parent_bignew']=-1;
+    $_SESSION['kt_ddCatch_bignew']=-1;
 }
 if($_SESSION['kt_tukhoa_bignew']==NULL){$tukhoa=-1;}
 if($_SESSION['kt_tukhoa_bignew']!=NULL){$tukhoa=$_SESSION['kt_tukhoa_bignew'];}
