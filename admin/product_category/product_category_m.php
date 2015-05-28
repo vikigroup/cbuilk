@@ -239,7 +239,7 @@ if (isset($_POST['btnSave'])){
                                   <td valign="middle"> 
                                     <select name="ddCatch" id="ddCatch" class="table_list">
                                       <?php if($_POST['ddCatch']!=NULL && $_POST['ddCatch']!=-1 ){ ?>
-                                      <option value="<?php echo $parent1=$_POST['ddCatch'] ; ?>"><?php echo get_field('tbl_shop_category','id',$parent1." ORDER BY name COLLATE utf8_unicode_ci",'name'); ?></option>
+                                      <option value="<?php echo $parent1=$_POST['ddCatch'] ; ?>"><?php echo get_field('tbl_shop_category','id',$parent1,'name'); ?></option>
                                       <?php }?>
                                        <?php if($parent1!=-1 && $parent1!=""){?>
                                       <option value="<?php echo $parent1 ?>"><?php echo get_field('tbl_shop_category','id',$parent1,'name'); ?></option>
