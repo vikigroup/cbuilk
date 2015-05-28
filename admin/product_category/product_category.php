@@ -217,7 +217,7 @@ $(document).ready(function() {
                                             
                                             <option value="-1" <?php if($parent==-1) echo 'selected="selected"';?> > Chọn danh mục </option> 
                                             <?php   
-											$gt=get_records("tbl_shop_category","parent=2 and status=0 and cate=0","id DESC"," "," ");
+											$gt=get_records("tbl_shop_category","parent=2 and status=0 and cate=0","name COLLATE utf8_unicode_ci"," "," ");
                                             while($row=mysql_fetch_assoc($gt)){?>
                                             <option value="<?php echo $row['id']; ?>"><?php echo $row['name']; ?></option> 
                                             <?php } ?>
@@ -337,7 +337,7 @@ $(document).ready(function() {
                         <tr>
                           <td  class="PageNext" colspan="10" align="center" valign="middle">
                           <div style="padding:5px;">
-                          <?php echo pagesLinks($totalRows,$pageSize);// Trang đầu,  Trang kế, tang trước, trang cuối ??>
+                          <?php echo pagesLinks($totalRows,$pageSize); ?>
                           </div>
                           </td>  							  
                         </tr>
