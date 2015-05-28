@@ -7,8 +7,8 @@ if(isset($frame)==true){
 
 if (isset($_POST['tim'])==true)//isset kiem tra submit
 {
-    if($_POST['tukhoa']!=NULL){$tukhoa=$_POST['tukhoa'];}else {$tukhoa=-1;}
-    $_SESSION['kt_tukhoa_cates']=$tukhoa;
+    if($_POST['tukhoa']!=NULL && $_POST['tukhoa'] != 'Từ khóa...'){$tukhoa=$_POST['tukhoa'];}else {$tukhoa=-1;}
+    $_SESSION['kt_tukhoa_bignew']=$tukhoa;
     $tukhoa = trim(strip_tags($tukhoa));
     if (get_magic_quotes_gpc()==false)
     {
@@ -21,11 +21,10 @@ if (isset($_POST['tim'])==true)//isset kiem tra submit
     $_SESSION['kt_ddCatch_bignew']=$parent1;
 }
 if (isset($_POST['reset'])==true) {
-
+    $_POST['ddCatch'] = -1;
     $_SESSION['kt_tukhoa_bignew']=-1;
     $_SESSION['kt_parent_bignew']=-1;
     $_SESSION['kt_ddCatch_bignew']=-1;
-
 }
 if($_SESSION['kt_tukhoa_bignew']==NULL){$tukhoa=-1;}
 if($_SESSION['kt_tukhoa_bignew']!=NULL){$tukhoa=$_SESSION['kt_tukhoa_bignew'];}
@@ -179,7 +178,7 @@ if($parent!=-1 || $parent1!=-1) {
 }
 else $where="1=1   and (id='{$tukhoa}' or name LIKE '%$tukhoa%' or '{$tukhoa}'=-1)";
 
-$where.=" AND ( status='{$anhien}' or '{$anhien}'=-1)  AND ( hot='{$noibat}' or '{$noibat}'=-1)";
+$where.=" AND ( status='{$anhien}' or '{$anhien}'=-1)  AND ( hot='{$noibat}' or '{$noibat}'=-1) AND cate=1";
 
 $MAXPAGE=1;
 $totalRows=countRecord("tbl_shop_category",$where);
@@ -217,11 +216,16 @@ if ($_REQUEST['cat']!='') $where="parent=".$_REQUEST['cat']; ?>
 
                 <option value="-1" <?php if($parent==-1) echo 'selected="selected"';?> > Chọn danh mục </option>
                 <?php
-                $gt=get_records("tbl_shop_category","parent=211 and status=0","id DESC"," "," ");
+                $gt=get_records("tbl_shop_category","parent=211 and status=0","name COLLATE utf8_unicode_ci"," "," ");
                 while($row=mysql_fetch_assoc($gt)){?>
                     <option value="<?php echo $row['id']; ?>"><?php echo $row['name']; ?></option>
                 <?php } ?>
-
+            </select>
+            <select name="ddCatch" id="ddCatch" class="list_tim_loc table_list">
+                <?php if($_POST['ddCatch']!=NULL && $_POST['ddCatch']!=-1 ){ ?>
+                    <option value="<?php echo $parent1=$_POST['ddCatch'] ; ?>"><?php echo get_field('tbl_shop_category','id',$parent1,'name'); ?> </option>
+                <?php }?>
+                <option value="-1"> Chọn danh mục con </option>
             </select>
             <input class="table_khungnho"  name="tukhoa" id="tukhoa" type="text" value="Từ khóa..." onfocus="if(this.value=='Từ khóa...') this.value='';" onblur="if(this.value=='') this.value='Từ khóa...';" />
             <input name="tim" type="submit" class="nut_table" id="tim" value="Tìm kiếm"/>
@@ -337,7 +341,7 @@ if ($_REQUEST['cat']!='') $where="parent=".$_REQUEST['cat']; ?>
     <tr>
         <td  class="PageNext" colspan="10" align="center" valign="middle">
             <div style="padding:5px;">
-                          <?php echo pagesLinks($totalRows,$pageSize);// Trang đầu,  Trang kế, tang trước, trang cuối ??>
+                          <?php echo pagesLinks($totalRows,$pageSize); ?>
                           </div>
                           </td>  							  
                         </tr>
