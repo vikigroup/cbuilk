@@ -8,12 +8,6 @@ if(isset($frame)==true){
 
 <script language="javascript">
     function btnSave_onclick(){
-        if($('#ddCat').val() == -1){
-            alert('Bạn chưa chọn "danh mục"');
-            $('#ddCat').focus();
-            return false;
-        }
-
         if($('#txtName').val() == ''){
             alert('Bạn chưa nhập "tên" !');
             $('#txtName').focus();
@@ -214,7 +208,7 @@ if( $errMsg !=""){
                             </tr>
                             <tr>
 
-                                <td valign="middle"  class="table_chu">Danh mục<span class="sao_bb">*</span></td>
+                                <td valign="middle"  class="table_chu">Danh mục</td>
 
                                 <td valign="middle"><select name="ddCat" id="ddCat" class="table_list">
                                         <?php if($_POST['ddCat']!=NULL){ ?>
@@ -225,7 +219,7 @@ if( $errMsg !=""){
                                         <?php }?>
                                         <option value="-1" <?php if($parent==-1) echo 'selected="selected"';?> > Chọn danh mục </option>
                                         <?php
-                                        $gt=get_records("tbl_shop_category","status=0 and parent=209","id DESC"," "," ");
+                                        $gt=get_records("tbl_shop_category","status=0 and parent=209","name COLLATE utf8_unicode_ci"," "," ");
                                         while($row=mysql_fetch_assoc($gt)){?>
                                             <option value="<?php echo $row['id']; ?>" <?php if($parent==$row['id']) echo 'selected="selected"';?> ><?php echo $row['name']; ?></option>
                                         <?php } ?>
