@@ -128,7 +128,7 @@ if (isset($_POST['btnSave'])){
     }
 
     if ($errMsg == '')
-        echo '<script>window.location="admin.php?act=news_category&cat='.$_REQUEST['cat'].'&page='.$_REQUEST['page'].'&code=1"</script>';
+        echo '<script>window.location="admin.php?act=service_category&cat='.$_REQUEST['cat'].'&page='.$_REQUEST['page'].'&code=1"</script>';
 }else{
     if (isset($_GET['id'])){
         $oldid=$_GET['id'];
@@ -188,12 +188,12 @@ if( $errMsg !=""){
             <div class="widget-container">
                 <div class="widget-block">
 
-                    <form method="post" name="frmForm" enctype="multipart/form-data" action="admin.php?act=news_category_m">
+                    <form method="post" name="frmForm" enctype="multipart/form-data" action="admin.php?act=service_category_m">
                         <input type="hidden" name="txtSubject" id="txtSubject">
                         <input type="hidden" name="txtDetailShort" id="txtDetailShort">
                         <input type="hidden" name="txtDetail" id="txtDetail">
 
-                        <input type="hidden" name="act" value="news_category_m">
+                        <input type="hidden" name="act" value="service_category_m">
                         <input type="hidden" name="id" value="<?=$_REQUEST['id']?>">
                         <input type="hidden" name="page" value="<?=$_REQUEST['page']?>">
 
