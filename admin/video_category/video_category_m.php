@@ -201,7 +201,7 @@ if (isset($_POST['btnSave'])){
                             <table  class="table_chinh">
                                 
                                  <tr>
-                                  <td class="table_chu_tieude_them" colspan="2" align="center" valign="middle"  >DANH MỤC SẢN PHẨM</td>
+                                  <td class="table_chu_tieude_them" colspan="2" align="center" valign="middle"  >DANH MỤC VIDEO</td>
                               	</tr>
                                 <tr>
                                   <td valign="middle"  class="table_chu">&nbsp;</td>
