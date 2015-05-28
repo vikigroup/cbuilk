@@ -1,4 +1,55 @@
-<?php require_once($_SERVER['DOCUMENT_ROOT']."/admin/header.php") ?>
+<?php
+if(isset($frame)==true){
+    check_permiss($_SESSION['kt_login_id'],1,'admin.php');
+}else{
+    header("location: ../admin.php");
+}
+
+if (isset($_POST['tim'])==true)//isset kiem tra submit
+{
+    if($_POST['tukhoa']!=NULL && $_POST['tukhoa'] != 'Từ khóa...'){$tukhoa=$_POST['tukhoa'];}else {$tukhoa=-1;}
+    $_SESSION['kt_tukhoa_bignew']=$tukhoa;
+    $tukhoa = trim(strip_tags($tukhoa));
+    if (get_magic_quotes_gpc()==false)
+    {
+        $tukhoa = mysql_real_escape_string($tukhoa);
+    }
+    if($_POST['ddCat']!=NULL){$parent=$_POST['ddCat'];}else {$parent=-1;}
+    $_SESSION['kt_parent_bignew']=$parent;
+
+    if($_POST['ddCatch']!=NULL){$parent1=$_POST['ddCatch'];}else {$parent1=-1;}
+    $_SESSION['kt_ddCatch_bignew']=$parent1;
+}
+if (isset($_POST['reset'])==true) {
+    $_POST['ddCatch'] = -1;
+    $_SESSION['kt_tukhoa_bignew']=-1;
+    $_SESSION['kt_parent_bignew']=-1;
+    $_SESSION['kt_ddCatch_bignew']=-1;
+}
+if($_SESSION['kt_tukhoa_bignew']==NULL){$tukhoa=-1;}
+if($_SESSION['kt_tukhoa_bignew']!=NULL){$tukhoa=$_SESSION['kt_tukhoa_bignew'];}
+if($_SESSION['kt_parent_bignew']==NULL){$parent=-1;}
+if($_SESSION['kt_parent_bignew']!=NULL){$parent=$_SESSION['kt_parent_bignew'];}
+
+if($_SESSION['kt_ddCatch_bignew']==NULL){$parent1=-1;}
+if($_SESSION['kt_ddCatch_bignew']!=NULL){$parent1=$_SESSION['kt_ddCatch_bignew'];}
+
+if($_GET['anhien']==NULL){$anhien=-1;$_SESSION['kt_anhien']=$anhien;}
+if($_GET['anhien']!=NULL){$anhien=$_GET['anhien'];$_SESSION['kt_anhien']=$anhien;}
+settype($anhien,"int");
+
+if($_GET['tang']==NULL){$tang=-1;$_SESSION['kt_tang']=$tang;}
+if($_GET['tang']!=NULL){$tang=$_GET['tang'];$_SESSION['kt_tang']=$tang;}
+settype($tang,"int");
+
+if($_GET['noibat']==NULL){$noibat=-1;$_SESSION['kt_noibat']=$noibat;}
+if($_GET['noibat']!=NULL){$noibat=$_GET['noibat'];$_SESSION['kt_noibat']=$noibat;}
+settype($noibat,"int");
+
+if($tang==0){$ks='ASC';}//0 tang
+elseif($tang==1){$ks='DESC';}//1 giam
+else $ks='DESC';
+?>
 <script>
 $(document).ready(function() {	  
 		//dao trang thai an hien
@@ -130,7 +181,7 @@ $(document).ready(function() {
 					$where.=" AND ( status='{$anhien}' or '{$anhien}'=-1)  AND ( hot='{$noibat}' or '{$noibat}'=-1)";
 				
                 $MAXPAGE=1;
-				$totalRows=countRecord("tbl_shop_category",$where);
+				$totalRows=countRecord("tbl_shop_category",$where) - 3;
 				
                 if ($_REQUEST['cat']!='') $where="parent=".$_REQUEST['cat']; ?>
                 <form method="POST" action="#" name="frmForm" enctype="multipart/form-data">
@@ -246,7 +297,7 @@ $(document).ready(function() {
 						if ($_REQUEST['sortby']!='') $sortby="order by ".(int)$_REQUEST['sortby'];
 						$direction=($_REQUEST['direction']==''||$_REQUEST['direction']=='0'?"desc":"");
 						
-						 $sql="select *,DATE_FORMAT(date_added,'%d/%m/%Y %h:%i') as dateAdd,DATE_FORMAT(last_modified,'%d/%m/%Y %h:%i') as dateModify from tbl_shop_category where $where and cate=0 and id not in ('1', '2', '3') $sortby   limit ".($startRow).",".$pageSize;
+						 $sql="select *,DATE_FORMAT(date_added,'%d/%m/%Y %h:%i') as dateAdd,DATE_FORMAT(last_modified,'%d/%m/%Y %h:%i') as dateModify from tbl_shop_category where $where and id not in ('1', '2', '3') $sortby   limit ".($startRow).",".$pageSize;
 						$result=mysql_query($sql,$conn);
 						$i=0;
 						while($row=mysql_fetch_array($result)){
