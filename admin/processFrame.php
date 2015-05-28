@@ -2,12 +2,17 @@
 $noimgs = "imgs/no_image.gif";
 switch ($frame){
 	
-	//  category shop
+	//  shop category
 	case "shop_category"    : include("shop_category/shop_category.php");break;
 	case "shop_category_m"  : include("shop_category/shop_category_m.php");break;
 
+    // product category
     case "product_category"    : include("product_category/product_category.php");break;
     case "product_category_m"  : include("product_category/product_category_m.php");break;
+
+    // video category
+    case "video_category"    : include("video_category/video_category.php");break;
+    case "video_category_m"  : include("video_category/video_category_m.php");break;
 
 	//  shop
 	case "shop"             : include("shop/shop.php");break;
