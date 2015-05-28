@@ -178,7 +178,7 @@ $(document).ready(function() {
 					}
                     else $where="1=1   and (id='{$tukhoa}' or name LIKE '%$tukhoa%' or '{$tukhoa}'=-1)";
 					
-					$where.=" AND ( status='{$anhien}' or '{$anhien}'=-1)  AND ( hot='{$noibat}' or '{$noibat}'=-1)";
+					$where.=" AND ( status='{$anhien}' or '{$anhien}'=-1)  AND ( hot='{$noibat}' or '{$noibat}'=-1) AND cate = 0";
 				
                 $MAXPAGE=1;
 				$totalRows=countRecord("tbl_shop_category",$where) - 3;
@@ -297,7 +297,7 @@ $(document).ready(function() {
 						if ($_REQUEST['sortby']!='') $sortby="order by ".(int)$_REQUEST['sortby'];
 						$direction=($_REQUEST['direction']==''||$_REQUEST['direction']=='0'?"desc":"");
 						
-						 $sql="select *,DATE_FORMAT(date_added,'%d/%m/%Y %h:%i') as dateAdd,DATE_FORMAT(last_modified,'%d/%m/%Y %h:%i') as dateModify from tbl_shop_category where $where and id not in ('1', '2', '3') $sortby   limit ".($startRow).",".$pageSize;
+						 $sql="select *,DATE_FORMAT(date_added,'%d/%m/%Y %h:%i') as dateAdd,DATE_FORMAT(last_modified,'%d/%m/%Y %h:%i') as dateModify from tbl_shop_category where $where and cate = 0 and id not in ('1', '2', '3') $sortby   limit ".($startRow).",".$pageSize;
 						$result=mysql_query($sql,$conn);
 						$i=0;
 						while($row=mysql_fetch_array($result)){
