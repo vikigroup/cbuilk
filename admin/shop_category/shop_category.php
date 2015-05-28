@@ -7,7 +7,7 @@ if(isset($frame)==true){
 
 if (isset($_POST['tim'])==true)//isset kiem tra submit
 {
-	if($_POST['tukhoa']!=NULL){$tukhoa=$_POST['tukhoa'];}else {$tukhoa=-1;}
+	if($_POST['tukhoa']!=NULL && $_POST['tukhoa'] != 'Từ khóa...'){$tukhoa=$_POST['tukhoa'];}else {$tukhoa=-1;}
 	$_SESSION['kt_tukhoa_bignew']=$tukhoa;
 	$tukhoa = trim(strip_tags($tukhoa));
 	if (get_magic_quotes_gpc()==false)
@@ -25,7 +25,6 @@ if (isset($_POST['reset'])==true) {
 	$_SESSION['kt_tukhoa_bignew']=-1;
 	$_SESSION['kt_parent_bignew']=-1;
 	$_SESSION['kt_ddCatch_bignew']=-1;
-
 }
 if($_SESSION['kt_tukhoa_bignew']==NULL){$tukhoa=-1;}
 if($_SESSION['kt_tukhoa_bignew']!=NULL){$tukhoa=$_SESSION['kt_tukhoa_bignew'];}
