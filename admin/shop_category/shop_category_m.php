@@ -8,12 +8,6 @@ if(isset($frame)==true){
 
 <script language="javascript">
 function btnSave_onclick(){
-    if($('#ddCat').val() == -1){
-        alert('Bạn chưa chọn "danh mục"');
-        $('#ddCat').focus();
-        return false;
-    }
-
     if($('#txtName').val() == ''){
         alert('Bạn chưa nhập "tên" !');
         $('#txtName').focus();
@@ -214,7 +208,7 @@ if (isset($_POST['btnSave'])){
                             <table  class="table_chinh">
                                 
                                  <tr>
-                                  <td class="table_chu_tieude_them" colspan="2" align="center" valign="middle"  >DANH MỤC SẢN PHẨM</td>
+                                  <td class="table_chu_tieude_them" colspan="2" align="center" valign="middle"  >DANH MỤC WEBSITE</td>
                               	</tr>
                                 <tr>
                                   <td valign="middle"  class="table_chu">&nbsp;</td>
@@ -222,7 +216,7 @@ if (isset($_POST['btnSave'])){
                                 </tr>
                                 <tr>
 
-                                  <td valign="middle"  class="table_chu">Danh mục<span class="sao_bb">*</span></td>
+                                  <td valign="middle"  class="table_chu">Danh mục</td>
             
                                   <td valign="middle"><select name="ddCat" id="ddCat" class="table_list">
                                     <?php if($_POST['ddCat']!=NULL){ ?>
@@ -233,7 +227,7 @@ if (isset($_POST['btnSave'])){
                                      <?php }?>
                                     <option value="-1" <?php if($parent==-1) echo 'selected="selected"';?> > Chọn danh mục </option>
                                     <?php   
-                                    $gt=get_records("tbl_shop_category","parent=2 and status=0 and cate=0","id DESC"," "," ");
+                                    $gt=get_records("tbl_shop_category","parent=2 and status=0","name COLLATE utf8_unicode_ci"," "," ");
                                     while($row=mysql_fetch_assoc($gt)){?>
                                     <option value="<?php echo $row['id']; ?>" <?php if($parent==$row['id']) echo 'selected="selected"';?> ><?php echo $row['name']; ?></option>
                                     <?php } ?>
@@ -339,7 +333,7 @@ if (isset($_POST['btnSave'])){
                                     <td valign="top" width="30%">
                                         Không hiển thị</td>
                                     <td valign="middle" width="70%">
-                                        <input type="checkbox" name="chkStatus" value="on" <? if ($status>0) echo 'checked' ?>>
+                                        <input type="checkbox" name="chkStatus" value="<?php if($status>0){echo $status;}else{echo 0;} ?>" <? if ($status>0) echo 'checked' ?> onchange="if($(this).is(':checked')){this.value = 1;}else{this.value = 0;}">
                                     </td>
                                 </tr>
                                 <tr>
