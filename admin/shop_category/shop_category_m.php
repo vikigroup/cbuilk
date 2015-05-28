@@ -71,6 +71,12 @@ if (isset($_POST['btnSave'])){
     if($parent == 209){
         $cate = 2;
     }
+    if($parent == 390){
+        $cate = 3;
+    }
+    if($parent == 210){
+        $cate = 4;
+    }
 
 	$catInfo       = getRecord('tbl_shop_category', 'id='.$parent);
 	if(!$multiLanguage){
