@@ -1,17 +1,13 @@
 <?php
 if(isset($frame)==true){
 	check_permiss($_SESSION['kt_login_id'],1,'admin.php');
-    $_POST['ddCatch'] = -1;
-    $_SESSION['kt_tukhoa_bignew']=-1;
-    $_SESSION['kt_parent_bignew']=-1;
-    $_SESSION['kt_ddCatch_bignew']=-1;
 }else{
 	header("location: ../admin.php");
 }
 
 if (isset($_POST['tim'])==true)//isset kiem tra submit
 {
-	if($_POST['tukhoa']!=NULL && $_POST['tukhoa'] != 'T? khóa...'){$tukhoa=$_POST['tukhoa'];}else {$tukhoa=-1;}
+	if($_POST['tukhoa']!=NULL && $_POST['tukhoa'] != 'Từ khóa...'){$tukhoa=$_POST['tukhoa'];}else {$tukhoa=-1;}
 	$_SESSION['kt_tukhoa_bignew']=$tukhoa;
 	$tukhoa = trim(strip_tags($tukhoa));
 	if (get_magic_quotes_gpc()==false)
