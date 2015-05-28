@@ -8,12 +8,6 @@ if(isset($frame)==true){
 
 <script language="javascript">
 function btnSave_onclick(){
-    if($('#ddCat').val() == -1){
-        alert('Bạn chưa chọn "danh mục"');
-        $('#ddCat').focus();
-        return false;
-    }
-
     if($('#txtName').val() == ''){
         alert('Bạn chưa nhập "tên" !');
         $('#txtName').focus();
