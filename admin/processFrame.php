@@ -10,6 +10,10 @@ switch ($frame){
     case "product_category"    : include("product_category/product_category.php");break;
     case "product_category_m"  : include("product_category/product_category_m.php");break;
 
+    // video category
+    case "video"    : include("video/video.php");break;
+    case "video_m"  : include("video/video_m.php");break;
+
 	//  shop
 	case "shop"             : include("shop/shop.php");break;
 	case "shop_m"           : include("shop/shop_m.php");break;
