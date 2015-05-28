@@ -1,13 +1,17 @@
 <?php
 if(isset($frame)==true){
 	check_permiss($_SESSION['kt_login_id'],1,'admin.php');
+    $_POST['ddCatch'] = -1;
+    $_SESSION['kt_tukhoa_bignew']=-1;
+    $_SESSION['kt_parent_bignew']=-1;
+    $_SESSION['kt_ddCatch_bignew']=-1;
 }else{
 	header("location: ../admin.php");
 }
 
 if (isset($_POST['tim'])==true)//isset kiem tra submit
 {
-	if($_POST['tukhoa']!=NULL && $_POST['tukhoa'] != 'Từ khóa...'){$tukhoa=$_POST['tukhoa'];}else {$tukhoa=-1;}
+	if($_POST['tukhoa']!=NULL && $_POST['tukhoa'] != 'T? khóa...'){$tukhoa=$_POST['tukhoa'];}else {$tukhoa=-1;}
 	$_SESSION['kt_tukhoa_bignew']=$tukhoa;
 	$tukhoa = trim(strip_tags($tukhoa));
 	if (get_magic_quotes_gpc()==false)
@@ -229,7 +233,7 @@ $(document).ready(function() {
                                       </select>
                                         <input class="table_khungnho"  name="tukhoa" id="tukhoa" type="text" value="Từ khóa..." onfocus="if(this.value=='Từ khóa...') this.value='';" onblur="if(this.value=='') this.value='Từ khóa...';" />
                                         <input name="tim" type="submit" class="nut_table" id="tim" value="Tìm kiếm"/>
-                                        <input type="submit" name="reset" class="nut_table" value="Reset" title=" Reset " />
+                                        <input type="submit" name="reset" id="reset" class="nut_table" value="Reset" title=" Reset " />
                                  
                                   
                                   </td>
