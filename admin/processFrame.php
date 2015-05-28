@@ -11,8 +11,8 @@ switch ($frame){
     case "product_category_m"  : include("product_category/product_category_m.php");break;
 
     // video category
-    case "video"    : include("video/video.php");break;
-    case "video_m"  : include("video/video_m.php");break;
+    case "video_category"    : include("video_category/video_category.php");break;
+    case "video_category_m"  : include("video_category/product_category_m.php");break;
 
 	//  shop
 	case "shop"             : include("shop/shop.php");break;
