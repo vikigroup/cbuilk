@@ -23,6 +23,7 @@
             <li>
                 <a href="#"> Quản lý website &darr;</a>
                 <ul>
+                    <li><a href="admin.php?act=shop_category">Tất cả danh mục</a> </li>
                     <li><a href="admin.php?act=config&id=2">Cấu hình</a>  </li>
                     <li><a href="admin.php?act=slider">Slide ảnh</a> </li> 
                     <li><a href="admin.php?act=jbstin">Thông tin</a> </li> 
@@ -40,7 +41,7 @@
             <li>
                 <a href="#"> Sản phẩm &darr;</a>
                 <ul>
-                    <li><a href="admin.php?act=shop_category">Danh mục sản phẩm</a> </li>
+                    <li><a href="admin.php?act=product_category">Danh mục sản phẩm</a> </li>
                     <li><a href="admin.php?act=itemuser">Tất cả sản phẩm</a></li>
                     <li><a href="admin.php?act=itemuser_m">Tạo sản phẩm mới</a></li>
                 </ul>

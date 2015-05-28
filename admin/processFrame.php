@@ -5,7 +5,10 @@ switch ($frame){
 	//  category shop
 	case "shop_category"    : include("shop_category/shop_category.php");break;
 	case "shop_category_m"  : include("shop_category/shop_category_m.php");break;
-	
+
+    case "product_category"    : include("product_category/product_category.php");break;
+    case "product_category_m"  : include("product_category/product_category_m.php");break;
+
 	//  shop
 	case "shop"             : include("shop/shop.php");break;
 	case "shop_m"           : include("shop/shop_m.php");break;

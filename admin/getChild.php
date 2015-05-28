@@ -17,7 +17,7 @@
 <?
 	$sql="SELECT *
 			FROM $table 
-			WHERE parent='{$id}'";
+			WHERE parent='{$id}' ORDER BY name COLLATE utf8_unicode_ci";
 	$con=mysql_query($sql) or die(mysql_error());
 	while ($row_con=mysql_fetch_assoc($con)){
 
