@@ -12,7 +12,7 @@ switch ($frame){
 
     // video category
     case "video_category"    : include("video_category/video_category.php");break;
-    case "video_category_m"  : include("video_category/product_category_m.php");break;
+    case "video_category_m"  : include("video_category/video_category_m.php");break;
 
 	//  shop
 	case "shop"             : include("shop/shop.php");break;
