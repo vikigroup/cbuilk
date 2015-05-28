@@ -87,7 +87,7 @@ if (isset($_POST['btnSave'])){
             $oldid = $_POST['id'];
             $sql = "update tbl_shop_category set code='".$code."',name='".$name."', parent='".$parent1."', subject='".$subject."', detail_short='".$detail_short."', detail='".$detail."', sort='".$sort."', title='".$title."', description='".$description."', keyword='".$keyword."', status='".$status."', last_modified=now(), lang='".$lang."' where id='".$oldid."'";
         }else{
-            echo $sql = "insert into tbl_shop_category (code, name, parent, subject, detail_short, detail, title , description , keyword , sort, status, date_added, last_modified, lang, cate) values ('".$code."','".$name."','".$parent1."','".$subject."','".$detail_short."','".$detail."','".$title."','".$description."','".$keyword."','".$sort."','".$status."',now(),now(),'".$lang."','1')";
+            echo $sql = "insert into tbl_shop_category (code, name, parent, subject, detail_short, detail, title , description , keyword , sort, status, date_added, last_modified, lang, cate) values ('".$code."','".$name."','".$parent1."','".$subject."','".$detail_short."','".$detail."','".$title."','".$description."','".$keyword."','".$sort."','".$status."',now(),now(),'".$lang."','2')";
         }
         if (mysql_query($sql,$conn)){
             if(empty($_POST['id'])) $oldid = mysql_insert_id();
