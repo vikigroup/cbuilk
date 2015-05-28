@@ -70,7 +70,14 @@ if (isset($_POST['btnSave'])){
 	$title         = isset($_POST['title']) ? trim($_POST['title']) : "";
 	$description   = isset($_POST['description']) ? trim($_POST['description']) : "";
 	$keyword       = isset($_POST['keyword']) ? trim($_POST['keyword']) : "";
-	
+	$cate          = 0;
+    if($parent == 211){
+        $cate = 1;
+    }
+    if($parent == 209){
+        $cate = 2;
+    }
+
 	$catInfo       = getRecord('tbl_shop_category', 'id='.$parent);
 	if(!$multiLanguage){
 		$lang      = $catInfo['lang'];
@@ -85,9 +92,9 @@ if (isset($_POST['btnSave'])){
 	if ($errMsg==''){
 		if (!empty($_POST['id'])){
 			$oldid = $_POST['id'];
-			$sql = "update tbl_shop_category set code='".$code."',name='".$name."', parent='".$parent1."',subject='".$subject."',detail_short='".$detail_short."',detail='".$detail."', sort='".$sort."', title='".$title."', description='".$description."', keyword='".$keyword."', status='".$status."',last_modified=now(), lang='".$lang."' where id='".$oldid."'";
+			$sql = "update tbl_shop_category set code='".$code."',name='".$name."', parent='".$parent1."',subject='".$subject."',detail_short='".$detail_short."',detail='".$detail."', sort='".$sort."', title='".$title."', description='".$description."', keyword='".$keyword."', status='".$status."',last_modified=now(), lang='".$lang."', cate='".$cate."' where id='".$oldid."'";
 		}else{
-			echo $sql = "insert into tbl_shop_category (code, name, parent, subject, detail_short, detail, title , description , keyword , sort, status,  date_added, last_modified, lang) values ('".$code."','".$name."','".$parent1."','".$subject."','".$detail_short."','".$detail."','".$title."','".$description."','".$keyword."','".$sort."','".$s."',now(),now(),'".$lang."')";
+			echo $sql = "insert into tbl_shop_category (code, name, parent, subject, detail_short, detail, title , description , keyword , sort, status,  date_added, last_modified, lang, cate) values ('".$code."','".$name."','".$parent1."','".$subject."','".$detail_short."','".$detail."','".$title."','".$description."','".$keyword."','".$sort."','".$status."',now(),now(),'".$lang."','".$cate."')";
 		}
 		if (mysql_query($sql,$conn)){
 			if(empty($_POST['id'])) $oldid = mysql_insert_id();
