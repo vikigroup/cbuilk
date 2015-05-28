@@ -8,24 +8,24 @@ if(isset($frame)==true){
 if (isset($_POST['tim'])==true)//isset kiem tra submit
 {
 	if($_POST['tukhoa']!=NULL){$tukhoa=$_POST['tukhoa'];}else {$tukhoa=-1;}
-	$_SESSION['kt_tukhoa_cates']=$tukhoa;
+	$_SESSION['kt_tukhoa_bignew']=$tukhoa;
 	$tukhoa = trim(strip_tags($tukhoa));
-	if (get_magic_quotes_gpc()==false) 
+	if (get_magic_quotes_gpc()==false)
 		{
 			$tukhoa = mysql_real_escape_string($tukhoa);
 		}
 	if($_POST['ddCat']!=NULL){$parent=$_POST['ddCat'];}else {$parent=-1;}
 	$_SESSION['kt_parent_bignew']=$parent;
-	
+
 	if($_POST['ddCatch']!=NULL){$parent1=$_POST['ddCatch'];}else {$parent1=-1;}
 	$_SESSION['kt_ddCatch_bignew']=$parent1;
 }
 if (isset($_POST['reset'])==true) {
-
+    $_POST['ddCatch'] = -1;
 	$_SESSION['kt_tukhoa_bignew']=-1;
 	$_SESSION['kt_parent_bignew']=-1;
-	$_SESSION['kt_ddCatch_bignew']=-1; 
-	
+	$_SESSION['kt_ddCatch_bignew']=-1;
+
 }
 if($_SESSION['kt_tukhoa_bignew']==NULL){$tukhoa=-1;}
 if($_SESSION['kt_tukhoa_bignew']!=NULL){$tukhoa=$_SESSION['kt_tukhoa_bignew'];}
@@ -46,7 +46,7 @@ settype($tang,"int");
 if($_GET['noibat']==NULL){$noibat=-1;$_SESSION['kt_noibat']=$noibat;}
 if($_GET['noibat']!=NULL){$noibat=$_GET['noibat'];$_SESSION['kt_noibat']=$noibat;}
 settype($noibat,"int");
- 
+
 if($tang==0){$ks='ASC';}//0 tang
 elseif($tang==1){$ks='DESC';}//1 giam
 else $ks='DESC';
@@ -95,7 +95,7 @@ $(document).ready(function() {
 $(document).ready(function() {
 	$("#ddCat").change(function(){ 
 		var id=$(this).val();//val(1) gan vao gia tri 1 dung trong form
-		var table="jbs_shop_category";
+		var table="tbl_shop_category";
 		$("#ddCatch").load("getChild.php?table="+ table + "&id=" +id); //alert(idthanhpho)
 	});
 });
@@ -171,10 +171,10 @@ $(document).ready(function() {
 				if (isset($_GET['pageNum'])==true) $pageNum = $_GET['pageNum'];
 				if ($pageNum<=0) $pageNum=1;
 				$startRow = ($pageNum-1) * $pageSize;
-			
+
                 if($parent!=-1 || $parent1!=-1) {
 						if($parent1!='-1') $parenstrt="$parent1";
-						else $parenstrt=getParent("jbs_news_category",$parent);
+						else $parenstrt=getParent("tbl_shop_category",$parent);
 						$where="1=1   and (id='{$tukhoa}' or name LIKE '%$tukhoa%' or '{$tukhoa}'=-1) and  (parent in ({$parenstrt}) or id=$parent)";
 					}
                     else $where="1=1   and (id='{$tukhoa}' or name LIKE '%$tukhoa%' or '{$tukhoa}'=-1)";
@@ -183,9 +183,9 @@ $(document).ready(function() {
 				
                 $MAXPAGE=1;
 				$totalRows=countRecord("tbl_shop_category",$where);
-				
+
                 if ($_REQUEST['cat']!='') $where="parent=".$_REQUEST['cat']; ?>
-                <form method="POST" action="#" name="frmForm" enctype="multipart/form-data">
+                <form method="POST" action="" name="frmForm" enctype="multipart/form-data">
                 <input type="hidden" name="page" value="<?=$page?>">
                 <input type="hidden" name="act" value="shop_category">
                 <?
@@ -219,10 +219,15 @@ $(document).ready(function() {
                                             <?php   
 											$gt=get_records("tbl_shop_category","parent=2 and status=0","name COLLATE utf8_unicode_ci"," "," ");
                                             while($row=mysql_fetch_assoc($gt)){?>
-                                            <option value="<?php echo $row['id']; ?>"><?php echo $row['name']; ?></option> 
+                                            <option value="<?php echo $row['id']; ?>"><?php echo $row['name']; ?></option>
                                             <?php } ?>
-                                        
                                         </select>
+                                      <select name="ddCatch" id="ddCatch" class="list_tim_loc table_list">
+                                          <?php if($_POST['ddCatch']!=NULL && $_POST['ddCatch']!=-1 ){ ?>
+                                              <option value="<?php echo $parent1=$_POST['ddCatch'] ; ?>"><?php echo get_field('tbl_shop_category','id',$parent1,'name'); ?> </option>
+                                          <?php }?>
+                                          <option value="-1"> Chọn danh mục con </option>
+                                      </select>
                                         <input class="table_khungnho"  name="tukhoa" id="tukhoa" type="text" value="Từ khóa..." onfocus="if(this.value=='Từ khóa...') this.value='';" onblur="if(this.value=='') this.value='Từ khóa...';" />
                                         <input name="tim" type="submit" class="nut_table" id="tim" value="Tìm kiếm"/>
                                         <input type="submit" name="reset" class="nut_table" value="Reset" title=" Reset " />
