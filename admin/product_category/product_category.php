@@ -1,56 +1,4 @@
-<?php
-if(isset($frame)==true){
-	check_permiss($_SESSION['kt_login_id'],1,'admin.php');
-}else{
-	header("location: ../admin.php");
-}
-
-if (isset($_POST['tim'])==true)//isset kiem tra submit
-{
-	if($_POST['tukhoa']!=NULL){$tukhoa=$_POST['tukhoa'];}else {$tukhoa=-1;}
-	$_SESSION['kt_tukhoa_cates']=$tukhoa;
-	$tukhoa = trim(strip_tags($tukhoa));
-	if (get_magic_quotes_gpc()==false) 
-		{
-			$tukhoa = mysql_real_escape_string($tukhoa);
-		}
-	if($_POST['ddCat']!=NULL){$parent=$_POST['ddCat'];}else {$parent=-1;}
-	$_SESSION['kt_parent_bignew']=$parent;
-	
-	if($_POST['ddCatch']!=NULL){$parent1=$_POST['ddCatch'];}else {$parent1=-1;}
-	$_SESSION['kt_ddCatch_bignew']=$parent1;
-}
-if (isset($_POST['reset'])==true) {
-
-	$_SESSION['kt_tukhoa_bignew']=-1;
-	$_SESSION['kt_parent_bignew']=-1;
-	$_SESSION['kt_ddCatch_bignew']=-1; 
-	
-}
-if($_SESSION['kt_tukhoa_bignew']==NULL){$tukhoa=-1;}
-if($_SESSION['kt_tukhoa_bignew']!=NULL){$tukhoa=$_SESSION['kt_tukhoa_bignew'];}
-if($_SESSION['kt_parent_bignew']==NULL){$parent=-1;}
-if($_SESSION['kt_parent_bignew']!=NULL){$parent=$_SESSION['kt_parent_bignew'];}
-
-if($_SESSION['kt_ddCatch_bignew']==NULL){$parent1=-1;}
-if($_SESSION['kt_ddCatch_bignew']!=NULL){$parent1=$_SESSION['kt_ddCatch_bignew'];}
-
-if($_GET['anhien']==NULL){$anhien=-1;$_SESSION['kt_anhien']=$anhien;}
-if($_GET['anhien']!=NULL){$anhien=$_GET['anhien'];$_SESSION['kt_anhien']=$anhien;}
-settype($anhien,"int");
-
-if($_GET['tang']==NULL){$tang=-1;$_SESSION['kt_tang']=$tang;}
-if($_GET['tang']!=NULL){$tang=$_GET['tang'];$_SESSION['kt_tang']=$tang;}
-settype($tang,"int");
-
-if($_GET['noibat']==NULL){$noibat=-1;$_SESSION['kt_noibat']=$noibat;}
-if($_GET['noibat']!=NULL){$noibat=$_GET['noibat'];$_SESSION['kt_noibat']=$noibat;}
-settype($noibat,"int");
- 
-if($tang==0){$ks='ASC';}//0 tang
-elseif($tang==1){$ks='DESC';}//1 giam
-else $ks='DESC';
-?>
+<?php require_once($_SERVER['DOCUMENT_ROOT']."/admin/header.php") ?>
 <script>
 $(document).ready(function() {	  
 		//dao trang thai an hien
@@ -95,7 +43,7 @@ $(document).ready(function() {
 $(document).ready(function() {
 	$("#ddCat").change(function(){ 
 		var id=$(this).val();//val(1) gan vao gia tri 1 dung trong form
-		var table="jbs_shop_category";
+		var table="tbl_shop_category";
 		$("#ddCatch").load("getChild.php?table="+ table + "&id=" +id); //alert(idthanhpho)
 	});
 });
@@ -174,7 +122,7 @@ $(document).ready(function() {
 			
                 if($parent!=-1 || $parent1!=-1) {
 						if($parent1!='-1') $parenstrt="$parent1";
-						else $parenstrt=getParent("jbs_news_category",$parent);
+						else $parenstrt=getParent("tbl_news_category",$parent);
 						$where="1=1   and (id='{$tukhoa}' or name LIKE '%$tukhoa%' or '{$tukhoa}'=-1) and  (parent in ({$parenstrt}) or id=$parent)";
 					}
                     else $where="1=1   and (id='{$tukhoa}' or name LIKE '%$tukhoa%' or '{$tukhoa}'=-1)";
@@ -221,11 +169,16 @@ $(document).ready(function() {
                                             while($row=mysql_fetch_assoc($gt)){?>
                                             <option value="<?php echo $row['id']; ?>"><?php echo $row['name']; ?></option> 
                                             <?php } ?>
-                                        
+                                        </select>
+                                        <select name="ddCatch" id="ddCatch" class="list_tim_loc table_list">
+                                          <?php if($_POST['ddCatch']!=NULL && $_POST['ddCatch']!=-1 ){ ?>
+                                              <option value="<?php echo $parent1=$_POST['ddCatch'] ; ?>"><?php echo get_field('tbl_shop_category','id',$parent1,'name'); ?> </option>
+                                          <?php }?>
+                                          <option value="-1"> Chọn danh mục con </option>
                                         </select>
                                         <input class="table_khungnho"  name="tukhoa" id="tukhoa" type="text" value="Từ khóa..." onfocus="if(this.value=='Từ khóa...') this.value='';" onblur="if(this.value=='') this.value='Từ khóa...';" />
                                         <input name="tim" type="submit" class="nut_table" id="tim" value="Tìm kiếm"/>
-                                        <input type="submit" name="reset" class="nut_table" value="Reset" title=" Reset " />
+                                        <input type="submit" name="reset" id="reset" class="nut_table" value="Reset" title=" Reset " />
                                  
                                   
                                   </td>
