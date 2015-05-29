@@ -14,6 +14,10 @@ switch ($frame){
     case "video_category"    : include("video_category/video_category.php");break;
     case "video_category_m"  : include("video_category/video_category_m.php");break;
 
+    // machine category
+    case "machine_category"    : include("machine_category/machine_category.php");break;
+    case "machine_category_m"  : include("machine_category/machine_category_m.php");break;
+    
 	//  shop
 	case "shop"             : include("shop/shop.php");break;
 	case "shop_m"           : include("shop/shop_m.php");break;
@@ -77,11 +81,13 @@ switch ($frame){
 	// category of user
 	case "item_category"        : include("item_category/item_category.php");break;
 	case "item_category_m"      : include("item_category/item_category_m.php");break;
+
     case "news_category"        : include("news_category/news_category.php");break;
     case "news_category_m"      : include("news_category/news_category_m.php");break;
 
     case "service"              : include("service/service.php");break;
     case "service_m"            : include("service/service_m.php");break;
+
     case "service_category"     : include("service_category/service_category.php");break;
     case "service_category_m"   : include("service_category/service_category_m.php");break;
 
