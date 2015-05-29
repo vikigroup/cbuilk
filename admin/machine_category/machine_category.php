@@ -200,7 +200,7 @@ if ($_REQUEST['cat']!='') $where="parent=".$_REQUEST['cat']; ?>
             <td valign="middle"  colspan="10">
                 <center>
                     <div class="table_chu_tieude">
-                        <strong>DANH MỤC DỊCH VỤ</strong>
+                        <strong>DANH MỤC MÁY CŨ</strong>
                     </div>
                 </center>
             </td>
