@@ -17,7 +17,7 @@ switch ($frame){
     // machine category
     case "machine_category"    : include("machine_category/machine_category.php");break;
     case "machine_category_m"  : include("machine_category/machine_category_m.php");break;
-    
+
 	//  shop
 	case "shop"             : include("shop/shop.php");break;
 	case "shop_m"           : include("shop/shop_m.php");break;
