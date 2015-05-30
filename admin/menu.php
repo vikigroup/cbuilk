@@ -42,8 +42,8 @@
                 <a href="#"> Sản phẩm &darr;</a>
                 <ul>
                     <li><a href="admin.php?act=product_category">Danh mục sản phẩm</a> </li>
-                    <li><a href="admin.php?act=itemuser">Tất cả sản phẩm</a></li>
-                    <li><a href="admin.php?act=itemuser_m">Tạo sản phẩm mới</a></li>
+                    <li><a href="admin.php?act=product">Tất cả sản phẩm</a></li>
+                    <li><a href="admin.php?act=product_m">Tạo sản phẩm mới</a></li>
                 </ul>
             </li>
 
