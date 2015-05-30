@@ -332,7 +332,7 @@ if ($_REQUEST['cat']!='') $where="parent=".$_REQUEST['cat']; ?>
             </td>
             <td align="center">
                 <a href="admin.php?act=news_category_m&cat=<?=$_REQUEST['cat']?>&page=<?=$_REQUEST['page']?>&id=<?=$row['id']?>"><img src="images/icon3.png"/></a>
-                <a  title="Xóa" href="admin.php?act=news_category&action=del&page=<?=$_REQUEST['page']?>&id=<?=$row['id']?>" onclick="return confirm('Bạn có muốn xoá luôn không ?');" ><img src="images/icon4.png" width="20" border="0" /></a>
+                <a  title="Xóa" href="admin.php?act=news_category&action=del&page=<?=$_REQUEST['page']?>&id=<?=$row['id']?>" onclick="return confirm('Bạn chắc chắn muốn xoá?');" ><img src="images/icon4.png" width="20" border="0" /></a>
             </td>
         </tr>
     <?php }?>
