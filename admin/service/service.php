@@ -125,7 +125,10 @@ else $ks='DESC';
 
         });
 
-
+        $("#chkall").click(function(){
+            var status=this.checked;
+            $("input[class='tai_c']").each(function(){this.checked=status;})
+        });
 
     });
 
@@ -377,7 +380,7 @@ if ($_REQUEST['cat']!='') $where="parent=".$_REQUEST['cat']; ?>
 
     <td align="center">
 
-        <input type="checkbox" name="chkall" onClick="chkallClick(this);"/>
+        <input type="checkbox" name="chkall" id="chkall" onClick="chkallClick(this);"/>
 
     </td>
 
@@ -440,7 +443,7 @@ while($row=mysql_fetch_array($result)){
 
         <td align="center">
 
-            <input type="checkbox" name="chk[]" value="<?=$row['id']?>"/>
+            <input type="checkbox" name="chk[]" value="<?=$row['id']?>"  class="tai_c" />
 
         </td>
 
