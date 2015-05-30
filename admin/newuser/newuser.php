@@ -380,7 +380,7 @@ if ($_REQUEST['cat']!='') $where="parent=".$_REQUEST['cat']; ?>
 
     <td align="center">
 
-        <input type="checkbox" name="chkall" onClick="chkallClick(this);"/>
+        <input type="checkbox" name="chkall" id="chkall" onClick="chkallClick(this);"/>
 
     </td>
 
