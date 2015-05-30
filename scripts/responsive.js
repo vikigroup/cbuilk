@@ -58,8 +58,7 @@ function autoHome(){
         $('.ads-home').css('max-width', windowSize - 190 - 190 - 139);
         $('.btn-gh3').css('width', 190);
         $('.arrowCategory').css('width', 135);
-        $('.primary-category, .btn-category').css('width', 100);
-        $('.btn-category').css('width', 70);
+        $('.primary-category, .btn-category').css('width', 130);
         $('.form_dn ul li').css('width', 480);
         $('.divProductLine1, .divProductOverlay1').css('width', 198);
         $('.ul-ifoot li').css('width', '25%');
