@@ -125,7 +125,10 @@ $(document).ready(function() {
 
 	});
 
-	
+    $("#chkall").click(function(){
+        var status=this.checked;
+        $("input[class='tai_c']").each(function(){this.checked=status;})
+    });
 
 });
 
@@ -262,11 +265,11 @@ $(document).ready(function() {
 					if($parent!=-1 || $parent1!=-1) {
 						if($parent1!='-1') $parenstrt="$parent1";
 						else $parenstrt=getParent("tbl_shop_category",$parent);
-						$where="1=1 and type=0 and cate=0 and (id='{$tukhoa}' or name LIKE '%$tukhoa%' or '{$tukhoa}'=-1) and  ( parent1 in ({$parenstrt}) or id=$parent)";
+						$where="id='{$tukhoa}' or name LIKE '%$tukhoa%' or '{$tukhoa}'=-1) and  ( parent1 in ({$parenstrt}) or id=$parent";
 					}
-                    else $where="1=1 and type=0 and cate=0 and (id='{$tukhoa}' or name LIKE '%$tukhoa%' or '{$tukhoa}'=-1)";
+                    else $where="id='{$tukhoa}' or name LIKE '%$tukhoa%' or '{$tukhoa}'=-1";
 					
-					$where.=" AND ( status='{$anhien}' or '{$anhien}'=-1)  AND ( hot='{$noibat}' or '{$noibat}'=-1)"; 
+					$where.=" AND ( status='{$anhien}' or '{$anhien}'=-1)  AND ( hot='{$noibat}' or '{$noibat}'=-1) and style=0";
     
                     
     
@@ -362,7 +365,7 @@ $(document).ready(function() {
                                 </tr>
                                <tr>
                                   <td align="center" colspan="2">
-                                  <input type="submit" value="Xóa chọn" name="btnDel" onClick="return confirm('Bạn có chắc chắn muốn xóa ?');" class="button">
+                                  <input type="submit" value="Xóa chọn" name="btnDel" onClick="return confirm('Bạn chắc chắn muốn xóa?');" class="button">
                                   </td>
                                   <td align="center" class="PageNum" colspan="7">
                                     	<?php echo pagesListLimit($totalRows,$pageSize);?>   
@@ -377,7 +380,7 @@ $(document).ready(function() {
     
                                     <td align="center">
     
-                                        <input type="checkbox" name="chkall" onClick="chkallClick(this);"/>
+                                        <input type="checkbox" name="chkall" id="chkall" onClick="chkallClick(this);"/>
     
                                     </td>
     
@@ -422,7 +425,7 @@ $(document).ready(function() {
     
                             
     
-                            $sql="select *,DATE_FORMAT(date_added,'%d/%m/%Y %h:%i') as dateAdd,DATE_FORMAT(last_modified,'%d/%m/%Y %h:%i') as dateModify from tbl_item where style=0 and $where $sortby  limit ".($startRow).",".$pageSize;
+                            $sql="select *,DATE_FORMAT(date_added,'%d/%m/%Y %h:%i') as dateAdd,DATE_FORMAT(last_modified,'%d/%m/%Y %h:%i') as dateModify from tbl_item where $where $sortby  limit ".($startRow).",".$pageSize;
     
                             $result=mysql_query($sql,$conn);
     
@@ -440,7 +443,7 @@ $(document).ready(function() {
     
                                     <td align="center">
     
-                                        <input type="checkbox" name="chk[]" value="<?=$row['id']?>"/>
+                                        <input type="checkbox" name="chk[]" value="<?=$row['id']?>" class="tai_c"/>
     
                                     </td>
     
@@ -497,7 +500,7 @@ $(document).ready(function() {
     
                                         <a href="admin.php?act=itemuser_m&cat=<?=$_REQUEST['cat']?>&page=<?=$_REQUEST['page']?>&id=<?=$row['id']?>"><img src="images/icon3.png"/></a>
     
-                                        <a  title="Xóa" href="admin.php?act=itemuser&action=del&page=<?=$_REQUEST['page']?>&id=<?=$row['id']?>" onclick="return confirm('Bạn có muốn xoá luôn không ?');" ><img src="images/icon4.png" width="20" border="0" /></a>
+                                        <a  title="Xóa" href="admin.php?act=itemuser&action=del&page=<?=$_REQUEST['page']?>&id=<?=$row['id']?>" onclick="return confirm('Bạn chắc chắn muốn xoá?');" ><img src="images/icon4.png" width="20" border="0" /></a>
     
                                     </td>
     
