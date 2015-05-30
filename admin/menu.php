@@ -51,8 +51,8 @@
                 <a href="#"> Máy cũ &darr;</a>
                 <ul>
                     <li><a href="admin.php?act=machine_category">Danh mục máy cũ</a> </li>
-                    <li><a href="admin.php?act=itemuser">Tất cả máy cũ</a></li>
-                    <li><a href="admin.php?act=itemuser_m">Tạo máy cũ</a></li>
+                    <li><a href="admin.php?act=machine">Tất cả máy cũ</a></li>
+                    <li><a href="admin.php?act=machine_m">Tạo máy cũ</a></li>
                 </ul>
             </li>
 

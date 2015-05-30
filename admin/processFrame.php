@@ -103,8 +103,8 @@ switch ($frame){
 	case "newuser"              : include("newuser/newuser.php");break;
 	case "newuser_m"            : include("newuser/newuser_m.php");break;
 	
-	case "itemuser"             : include("itemuser/itemuser.php");break;
-	case "itemuser_m"           : include("itemuser/itemuser_m.php");break;
+	case "product"             : include("product/product.php");break;
+	case "product_m"           : include("product/product_m.php");break;
 
 	case "video"            : include("video/video.php");break;
 	case "video_m"          : include("video/video_m.php");break;
