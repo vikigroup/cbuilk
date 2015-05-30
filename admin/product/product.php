@@ -28,7 +28,7 @@ if (isset($_POST['tim'])==true)//isset kiem tra submit
 }
 
 if (isset($_POST['reset'])==true) {
-
+    $_POST['ddCatch'] = -1;
 	$_SESSION['kt_tukhoa_bignew']=-1;
 	$_SESSION['kt_parent_bignew']=-1;
 	$_SESSION['kt_ddCatch_bignew']=-1; 
