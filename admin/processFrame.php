@@ -105,9 +105,9 @@ switch ($frame){
 	
 	case "itemuser"             : include("itemuser/itemuser.php");break;
 	case "itemuser_m"           : include("itemuser/itemuser_m.php");break;
-	
-	case "videouser"            : include("videouser/videouser.php");break;
-	case "videouser_m"          : include("videouser/videouser_m.php");break;
+
+	case "video"            : include("video/video.php");break;
+	case "video_m"          : include("video/video_m.php");break;
 		
 	case "login"          : include("login.php");break;
 	case "logout" :

@@ -78,8 +78,8 @@
                 <a href="#"> Video &darr;</a>
                 <ul>
                     <li><a href="admin.php?act=video_category">Danh mục video</a> </li>
-                    <li><a href="admin.php?act=itemuser">Tất cả video</a></li>
-                    <li><a href="admin.php?act=itemuser_m">Tạo video mới</a></li>
+                    <li><a href="admin.php?act=video">Tất cả video</a></li>
+                    <li><a href="admin.php?act=video_m">Tạo video mới</a></li>
                 </ul>
             </li>
             <?php }?>
