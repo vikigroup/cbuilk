@@ -262,11 +262,11 @@ $startRow = ($pageNum-1) * $pageSize;
 if($parent!=-1 || $parent1!=-1) {
     if($parent1!='-1') $parenstrt="$parent1";
     else $parenstrt=getParent("tbl_shop_category",$parent);
-    $where="1=1 and style=1 and (id='{$tukhoa}' or name LIKE '%$tukhoa%' or '{$tukhoa}'=-1) and  ( parent1 in ({$parenstrt}) or id=$parent)";
+    $where="1=1 and (id='{$tukhoa}' or name LIKE '%$tukhoa%' or '{$tukhoa}'=-1) and  ( parent1 in ({$parenstrt}) or id=$parent)";
 }
-else $where="1=1 and style=1 and (id='{$tukhoa}' or name LIKE '%$tukhoa%' or '{$tukhoa}'=-1)";
+else $where="1=1 and (id='{$tukhoa}' or name LIKE '%$tukhoa%' or '{$tukhoa}'=-1)";
 
-$where.=" AND ( status='{$anhien}' or '{$anhien}'=-1)  AND ( hot='{$noibat}' or '{$noibat}'=-1)";
+$where.=" AND ( status='{$anhien}' or '{$anhien}'=-1)  AND ( hot='{$noibat}' or '{$noibat}'=-1) and style=1";
 
 
 
@@ -316,7 +316,7 @@ if ($_REQUEST['cat']!='') $where="parent=".$_REQUEST['cat']; ?>
 
             <option value="-1" <?php if($parent==-1) echo 'selected="selected"';?> > Chọn danh mục </option>
             <?php
-            $gt=get_records("tbl_shop_category","parent=211 and status=0 ","id DESC"," "," ");
+            $gt=get_records("tbl_shop_category","parent=211 and status=0 ","name COLLATE utf8_unicode_ci"," "," ");
             while($row=mysql_fetch_assoc($gt)){?>
                 <option value="<?php echo $row['id']; ?>"><?php echo $row['name']; ?></option>
             <?php } ?>
@@ -497,7 +497,7 @@ while($row=mysql_fetch_array($result)){
 
             <a href="admin.php?act=newuser_m&cat=<?=$_REQUEST['cat']?>&page=<?=$_REQUEST['page']?>&id=<?=$row['id']?>"><img src="images/icon3.png"/></a>
 
-            <a  title="Xóa" href="admin.php?act=newuser&action=del&page=<?=$_REQUEST['page']?>&id=<?=$row['id']?>" onclick="return confirm('Bạn có muốn xoá luôn không ?');" ><img src="images/icon4.png" width="20" border="0" /></a>
+            <a  title="Xóa" href="admin.php?act=newuser&action=del&page=<?=$_REQUEST['page']?>&id=<?=$row['id']?>" onclick="return confirm('Bạn chắc chắn muốn xoá?');" ><img src="images/icon4.png" width="20" border="0" /></a>
 
         </td>
 
