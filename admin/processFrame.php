@@ -3,71 +3,71 @@ $noimgs = "imgs/no_image.gif";
 switch ($frame){
 	
 	//  shop category
-	case "shop_category"    : include("shop_category/shop_category.php");break;
-	case "shop_category_m"  : include("shop_category/shop_category_m.php");break;
+	case "shop_category"        : include("shop_category/shop_category.php");break;
+	case "shop_category_m"      : include("shop_category/shop_category_m.php");break;
 
     // product category
-    case "product_category"    : include("product_category/product_category.php");break;
-    case "product_category_m"  : include("product_category/product_category_m.php");break;
+    case "product_category"     : include("product_category/product_category.php");break;
+    case "product_category_m"   : include("product_category/product_category_m.php");break;
 
     // video category
-    case "video_category"    : include("video_category/video_category.php");break;
-    case "video_category_m"  : include("video_category/video_category_m.php");break;
+    case "video_category"       : include("video_category/video_category.php");break;
+    case "video_category_m"     : include("video_category/video_category_m.php");break;
 
     // machine category
-    case "machine_category"    : include("machine_category/machine_category.php");break;
-    case "machine_category_m"  : include("machine_category/machine_category_m.php");break;
+    case "machine_category"     : include("machine_category/machine_category.php");break;
+    case "machine_category_m"   : include("machine_category/machine_category_m.php");break;
 
 	//  shop
-	case "shop"             : include("shop/shop.php");break;
-	case "shop_m"           : include("shop/shop_m.php");break;
+	case "shop"                 : include("shop/shop.php");break;
+	case "shop_m"               : include("shop/shop_m.php");break;
 	
 	//  template
-	case "template"         : include("template/template.php");break;
-	case "template_m"       : include("template/template_m.php");break;
+	case "template"             : include("template/template.php");break;
+	case "template_m"           : include("template/template_m.php");break;
 	
 	//  user
-	case "user"             : include("user/user.php");break;
-	case "user_m"           : include("user/user_m.php");break;
-	case "user_permiss"     : include("user/user_permiss.php");break;
+	case "user"                 : include("user/user.php");break;
+	case "user_m"               : include("user/user_m.php");break;
+	case "user_permiss"         : include("user/user_permiss.php");break;
 	
 	
 	//  customer
-	case "customer"         : include("customer/customer.php");break;
-	case "customer_m"       : include("customer/customer_m.php");break;
+	case "customer"             : include("customer/customer.php");break;
+	case "customer_m"           : include("customer/customer_m.php");break;
 	
 	//  support
-	case "hotro"         	: include("hotro/hotro.php");break;
-	case "hotro_m"       	: include("hotro/hotro_m.php");break;
+	case "hotro"         	    : include("hotro/hotro.php");break;
+	case "hotro_m"       	    : include("hotro/hotro_m.php");break;
 	
 	//  slider
-	case "slider"           : include("slider/slider.php");break;
-	case "slider_m"         : include("slider/slider_m.php");break;
+	case "slider"               : include("slider/slider.php");break;
+	case "slider_m"             : include("slider/slider_m.php");break;
  
 	// item
-	case "item"             : include("item/item.php");break;
-	case "item_m"           : include("item/item_m.php");break;
-    case "itemsaleoff"      : include("item/itemsaleoff.php");break;
+	case "item"                 : include("item/item.php");break;
+	case "item_m"               : include("item/item_m.php");break;
+    case "itemsaleoff"          : include("item/itemsaleoff.php");break;
 	
 	//support
-	case "hotro"             : include("hotro/hotro.php");break;
-	case "hotro_m"           : include("hotro/hotro_m.php");break;
+	case "hotro"                : include("hotro/hotro.php");break;
+	case "hotro_m"              : include("hotro/hotro_m.php");break;
 	
 	//config
-	case "config"           : include("config/config.php");break;
+	case "config"               : include("config/config.php");break;
 	
  
 	 
 	//info page
-	case "jbstin"             : include("jbstin/jbstin.php");break;
-	case "jbstin_m"           : include("jbstin/jbstin_m.php");break;
+	case "jbstin"               : include("jbstin/jbstin.php");break;
+	case "jbstin_m"             : include("jbstin/jbstin_m.php");break;
 
-    case "jbsnews"             : include("jbsnews/jbsnews.php");break;
-    case "jbsnews_m"           : include("jbsnews/jbsnews_m.php");break;
+    case "jbsnews"              : include("jbsnews/jbsnews.php");break;
+    case "jbsnews_m"            : include("jbsnews/jbsnews_m.php");break;
 
 	//adv
-	case "adv"             : include("adv/adv.php");break;
-	case "adv_m"           : include("adv/adv_m.php");break;
+	case "adv"                  : include("adv/adv.php");break;
+	case "adv_m"                : include("adv/adv_m.php");break;
 	
 	case "comment"              : include("comment/comment.php");break;
 	case "comment_m"            : include("comment/comment_m.php");break;
@@ -100,16 +100,16 @@ switch ($frame){
 	case "hotrouser"            : include("hotrouser/hotrouser.php");break;
 	case "hotrouser_m"          : include("hotrouser/hotrouser_m.php");break;
 	
-	case "newuser"              : include("newuser/newuser.php");break;
-	case "newuser_m"            : include("newuser/newuser_m.php");break;
+	case "news"                 : include("news/news.php");break;
+	case "news_m"               : include("news/news_m.php");break;
 	
-	case "product"             : include("product/product.php");break;
-	case "product_m"           : include("product/product_m.php");break;
+	case "product"              : include("product/product.php");break;
+	case "product_m"            : include("product/product_m.php");break;
 
-	case "video"            : include("video/video.php");break;
-	case "video_m"          : include("video/video_m.php");break;
+	case "video"                : include("video/video.php");break;
+	case "video_m"              : include("video/video_m.php");break;
 		
-	case "login"          : include("login.php");break;
+	case "login"                : include("login.php");break;
 	case "logout" :
 		unset($_SESSION['kt_login_id']);
 		unset($_SESSION['kt_login_username']);
@@ -119,7 +119,7 @@ switch ($frame){
 		
 	//----------------------------------------------------------------------------------------------
 	
-	case "home"          : include("home.php");break;
-	default              : include("home.php");break;
+	case "home"                 : include("home.php");break;
+	default                     : include("home.php");break;
 }
 ?>
