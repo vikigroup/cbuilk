@@ -139,8 +139,8 @@ if (isset($_POST['btnSave'])){
 	}
 
 	if ($errMsg == ''){
-		if($r['type']=="0") echo '<script>window.location="admin.php?act=itemuser&cat='.$_REQUEST['cat'].'&page='.$_REQUEST['page'].'&code=1"</script>';
-		else  echo '<script>window.location="admin.php?act=itemuser&cat='.$_REQUEST['cat'].'&page='.$_REQUEST['page'].'&code=1"</script>';
+		if($r['type']=="0") echo '<script>window.location="admin.php?act=product&cat='.$_REQUEST['cat'].'&page='.$_REQUEST['page'].'&code=1"</script>';
+		else  echo '<script>window.location="admin.php?act=product&cat='.$_REQUEST['cat'].'&page='.$_REQUEST['page'].'&code=1"</script>';
 	}
 }else{
 	if (isset($_GET['id'])){
@@ -210,13 +210,13 @@ $(document).ready(function() {
             <div class="widget-container">
                 <div class="widget-block">
                     
-                   <form method="post" name="frmForm" enctype="multipart/form-data" action="admin.php?act=itemuser_m">
+                   <form method="post" name="frmForm" enctype="multipart/form-data" action="admin.php?act=product_m">
 
 
 
             
 
-            <input type="hidden" name="act" value="itemuser_m">
+            <input type="hidden" name="act" value="product_m">
 
             <input type="hidden" name="id" value="<?=$_REQUEST['id']?>">
 
@@ -250,7 +250,7 @@ $(document).ready(function() {
                     </tr>
                     <tr>
 			
-                      <td valign="middle"  class="table_chu">Danh mục<span class="sao_bb">*</span></td>
+                      <td valign="middle"  class="table_chu">Danh mục <span class="sao_bb">*</span></td>
 
                       <td valign="middle"><select name="ddCat" id="ddCat" class="table_list">
                         <?php if($_POST['ddCat']!=NULL){ ?>
@@ -279,7 +279,7 @@ $(document).ready(function() {
                            <?php if($parent1!=-1 && $parent1!=""){?>
                           <option value="<?php echo $parent1 ?>"><?php echo get_field('tbl_shop_category','id',$parent1,'name'); ?></option>
                           <?php }?>
-                          <option value="-1"> Chọn danh mục con </option> 
+                          <option value="-1"> Chọn danh mục con </option>
                         </select>
                        </td>
                     </tr>
@@ -294,11 +294,11 @@ $(document).ready(function() {
 <!--                      </select></td>-->
 <!--                    </tr>-->
                     <tr>
-                      <td valign="middle"> Giá<span class="sao_bb"></span></td>
+                      <td valign="middle"> Giá <span class="sao_bb"></span></td>
                       <td valign="middle"><input name="txtPrice" type="text" class="table_khungnho" id="txtPrice" value="<?=$price;?>"/></td>
                     </tr>
                     <tr>
-                      <td valign="middle"> Giá khuyến mãi<span class="sao_bb"></span></td>
+                      <td valign="middle"> Giá khuyến mãi <span class="sao_bb"></span></td>
                       <td valign="middle"><input name="txtPricekm" type="text" class="table_khungnho" id="txtPricekm" value="<?=$pricekm;?>"/></td>
                     </tr>
                     <tr>
