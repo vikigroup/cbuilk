@@ -69,8 +69,8 @@
                 <a href="#"> Tin tức &darr;</a>
                 <ul>
                     <li><a href="admin.php?act=news_category">Danh mục tin tức</a> </li>
-                    <li><a href="admin.php?act=newuser">Tất cả tin tức</a></li>
-                    <li><a href="admin.php?act=newuser_m">Tạo tin tức mới</a></li>
+                    <li><a href="admin.php?act=news">Tất cả tin tức</a></li>
+                    <li><a href="admin.php?act=news_m">Tạo tin tức mới</a></li>
                 </ul>
             </li>
 
