@@ -10,7 +10,7 @@ if (isset($_POST['tim'])==true)//isset kiem tra submit
     if($_POST['tukhoa']!=""){$tukhoa=$_POST['tukhoa'];}else {$tukhoa=-1;}
     if($tukhoa=="Từ khóa...") $tukhoa="";
     $_SESSION['kt_tukhoa_bignew']=$tukhoa;
-    echo $tukhoa = trim(strip_tags($tukhoa));
+    $tukhoa = trim(strip_tags($tukhoa));
     if (get_magic_quotes_gpc()==false)
     {
         $tukhoa = mysql_real_escape_string($tukhoa);
