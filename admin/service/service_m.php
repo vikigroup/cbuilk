@@ -139,8 +139,8 @@ if (isset($_POST['btnSave'])){
     }
 
     if ($errMsg == ''){
-        if($r['type']=="0") echo '<script>window.location="admin.php?act=newuser&cat='.$_REQUEST['cat'].'&page='.$_REQUEST['page'].'&code=1"</script>';
-        else  echo '<script>window.location="admin.php?act=newuser&cat='.$_REQUEST['cat'].'&page='.$_REQUEST['page'].'&code=1"</script>';
+        if($r['type']=="0") echo '<script>window.location="admin.php?act=service&cat='.$_REQUEST['cat'].'&page='.$_REQUEST['page'].'&code=1"</script>';
+        else  echo '<script>window.location="admin.php?act=service&cat='.$_REQUEST['cat'].'&page='.$_REQUEST['page'].'&code=1"</script>';
     }
 }else{
     if (isset($_GET['id'])){
@@ -209,13 +209,13 @@ if( $errMsg !=""){
 <div class="widget-container">
 <div class="widget-block">
 
-<form method="post" name="frmForm" enctype="multipart/form-data" action="admin.php?act=newuser_m">
+<form method="post" name="frmForm" enctype="multipart/form-data" action="admin.php?act=service_m">
 
 
 
 
 
-<input type="hidden" name="act" value="newuser_m">
+<input type="hidden" name="act" value="service_m">
 
 <input type="hidden" name="id" value="<?=$_REQUEST['id']?>">
 
@@ -260,7 +260,7 @@ if( $errMsg !=""){
             <?php }?>
             <option value="-1" <?php if($parent==-1) echo 'selected="selected"';?> > Chọn danh mục </option>
             <?php
-            $gt=get_records("tbl_shop_category","parent=209 and status=0 ","id DESC"," "," "); //and (idshop='{$idshop}' or '{$idshop}'=-1)
+            $gt=get_records("tbl_shop_category","parent=209 and status=0 ","name COLLATE utf8_unicode_ci"," "," "); //and (idshop='{$idshop}' or '{$idshop}'=-1)
             while($row=mysql_fetch_assoc($gt)){?>
                 <option value="<?php echo $row['id']; ?>" <?php if($parent==$row['id']) echo 'selected="selected"';?> ><?php echo $row['name']; ?></option>
             <?php } ?>
