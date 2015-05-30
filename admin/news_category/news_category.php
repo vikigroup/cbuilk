@@ -174,9 +174,9 @@ $startRow = ($pageNum-1) * $pageSize;
 if($parent!=-1 || $parent1!=-1) {
     if($parent1!='-1') $parenstrt="$parent1";
     else $parenstrt=getParent("tbl_shop_category",$parent);
-    $where="1=1   and (id='{$tukhoa}' or name LIKE '%$tukhoa%' or '{$tukhoa}'=-1) and  (parent in ({$parenstrt}) or id=$parent)";
+    $where="1=1  and (id='{$tukhoa}' or name LIKE '%$tukhoa%' or '{$tukhoa}'=-1) and  (parent in ({$parenstrt}) or id=$parent)";
 }
-else $where="1=1   and (id='{$tukhoa}' or name LIKE '%$tukhoa%' or '{$tukhoa}'=-1)";
+else $where="1=1  and (id='{$tukhoa}' or name LIKE '%$tukhoa%' or '{$tukhoa}'=-1)";
 
 $where.=" AND ( status='{$anhien}' or '{$anhien}'=-1)  AND ( hot='{$noibat}' or '{$noibat}'=-1) AND cate=1";
 
@@ -261,7 +261,7 @@ if ($_REQUEST['cat']!='') $where="parent=".$_REQUEST['cat']; ?>
     </tr>
     <tr>
         <td align="center" colspan="2">
-            <input type="submit" value="Xóa chọn" name="btnDel" onClick="return confirm('Bạn có chắc chắn muốn xóa ?');" class="button">
+            <input type="submit" value="Xóa chọn" name="btnDel" onClick="return confirm('Bạn chắc chắn muốn xóa ?');" class="button">
         </td>
         <td align="center" class="PageNum" colspan="7">
             <?php echo pagesListLimit($totalRows,$pageSize);?>
@@ -297,7 +297,7 @@ if ($_REQUEST['cat']!='') $where="parent=".$_REQUEST['cat']; ?>
     if ($_REQUEST['sortby']!='') $sortby="order by ".(int)$_REQUEST['sortby'];
     $direction=($_REQUEST['direction']==''||$_REQUEST['direction']=='0'?"desc":"");
 
-    $sql="select *,DATE_FORMAT(date_added,'%d/%m/%Y %h:%i') as dateAdd,DATE_FORMAT(last_modified,'%d/%m/%Y %h:%i') as dateModify from tbl_shop_category where cate=1 and $where $sortby   limit ".($startRow).",".$pageSize;
+    $sql="select *,DATE_FORMAT(date_added,'%d/%m/%Y %h:%i') as dateAdd,DATE_FORMAT(last_modified,'%d/%m/%Y %h:%i') as dateModify from tbl_shop_category where $where $sortby   limit ".($startRow).",".$pageSize;
     $result=mysql_query($sql,$conn);
     $i=0;
     while($row=mysql_fetch_array($result)){
