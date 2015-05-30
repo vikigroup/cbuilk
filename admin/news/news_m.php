@@ -249,7 +249,7 @@ $(document).ready(function() {
                     </tr>
                     <tr>
 			
-                      <td valign="middle"  class="table_chu">Danh mục<span class="sao_bb">*</span></td>
+                      <td valign="middle"  class="table_chu">Danh mục <span class="sao_bb">*</span></td>
 
                       <td valign="middle"><select name="ddCat" id="ddCat" class="table_list">
                         <?php if($_POST['ddCat']!=NULL){ ?>
