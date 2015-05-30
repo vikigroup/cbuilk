@@ -362,7 +362,7 @@ if ($_REQUEST['cat']!='') $where="parent=".$_REQUEST['cat']; ?>
 </tr>
 <tr>
     <td align="center" colspan="2">
-        <input type="submit" value="Xóa chọn" name="btnDel" onClick="return confirm('Bạn có chắc chắn muốn xóa ?');" class="button">
+        <input type="submit" value="Xóa chọn" name="btnDel" onClick="return confirm('Bạn chắc chắn muốn xóa?');" class="button">
     </td>
     <td align="center" class="PageNum" colspan="7">
         <?php echo pagesListLimit($totalRows,$pageSize);?>
