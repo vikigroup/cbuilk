@@ -226,7 +226,7 @@ if( $errMsg !=""){
 <table  class="table_chinh">
 
 <tr>
-    <td class="table_chu_tieude_them" colspan="2" align="center" valign="middle"  >DỊCH VỤ</td>
+    <td class="table_chu_tieude_them" colspan="2" align="center" valign="middle"  >VIDEO</td>
 </tr>
 <tr>
     <td valign="middle"  class="table_chu">&nbsp;</td>
