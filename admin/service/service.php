@@ -473,8 +473,8 @@ while($row=mysql_fetch_array($result)){
 
         <td align="left">
             <?=$row['name']?><br />
-            Thể loại: <?php echo get_field('tbl_shop_category','id',get_field('tbl_shop_category','id',$row['parent1'],'id'),'name');?> <br />
-            Loại: <?php echo get_field('tbl_shop_category','id',$row['parent'],'name');?>
+            Thể loại:<?php echo get_field('tbl_shop_category','id',get_field('tbl_shop_category','id',$row['parent1'],'id'),'name');?> <br />
+            Loại    :<?php echo get_field('tbl_shop_category','id',$row['parent'],'name');?>
         </td>
         <td align="center">
             <a href="http://<?php echo get_field('tbl_shop','id',$row['idshop'],'subject');?>.jbs.vn" target="_blank">	<?php echo get_field('tbl_shop','id',$row['idshop'],'name');?></a>
@@ -500,7 +500,7 @@ while($row=mysql_fetch_array($result)){
 
             <a href="admin.php?act=service_m&cat=<?=$_REQUEST['cat']?>&page=<?=$_REQUEST['page']?>&id=<?=$row['id']?>"><img src="images/icon3.png"/></a>
 
-            <a  title="Xóa" href="admin.php?act=service&action=del&page=<?=$_REQUEST['page']?>&id=<?=$row['id']?>" onclick="return confirm('Bạn chắc chắn muốn xoá??');" ><img src="images/icon4.png" width="20" border="0" /></a>
+            <a  title="Xóa" href="admin.php?act=service&action=del&page=<?=$_REQUEST['page']?>&id=<?=$row['id']?>" onclick="return confirm('Bạn chắc chắn muốn xoá?');" ><img src="images/icon4.png" width="20" border="0" /></a>
 
         </td>
 
