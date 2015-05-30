@@ -108,7 +108,10 @@ switch ($frame){
 
 	case "video"                : include("video/video.php");break;
 	case "video_m"              : include("video/video_m.php");break;
-		
+
+    case "machine"              : include("machine/machine.php");break;
+    case "machine_m"            : include("machine/machine_m.php");break;
+
 	case "login"                : include("login.php");break;
 	case "logout" :
 		unset($_SESSION['kt_login_id']);
