@@ -10,7 +10,7 @@ if (isset($_POST['tim'])==true)//isset kiem tra submit
 	if($_POST['tukhoa']!=""){$tukhoa=$_POST['tukhoa'];}else {$tukhoa=-1;}
 	if($tukhoa=="Từ khóa...") $tukhoa="";
 	$_SESSION['kt_tukhoa_bignew']=$tukhoa;
-	echo $tukhoa = trim(strip_tags($tukhoa));
+	$tukhoa = trim(strip_tags($tukhoa));
 	if (get_magic_quotes_gpc()==false) 
 	{
 		$tukhoa = mysql_real_escape_string($tukhoa);
@@ -265,9 +265,9 @@ $(document).ready(function() {
 					if($parent!=-1 || $parent1!=-1) {
 						if($parent1!='-1') $parenstrt="$parent1";
 						else $parenstrt=getParent("tbl_shop_category",$parent);
-						$where="id='{$tukhoa}' or name LIKE '%$tukhoa%' or '{$tukhoa}'=-1) and  ( parent1 in ({$parenstrt}) or id=$parent";
+						$where="1=1 and (id='{$tukhoa}' or name LIKE '%$tukhoa%' or '{$tukhoa}'=-1) and  ( parent1 in ({$parenstrt}) or id=$parent)";
 					}
-                    else $where="id='{$tukhoa}' or name LIKE '%$tukhoa%' or '{$tukhoa}'=-1";
+                    else $where="1=1 and (id='{$tukhoa}' or name LIKE '%$tukhoa%' or '{$tukhoa}'=-1)";
 					
 					$where.=" AND ( status='{$anhien}' or '{$anhien}'=-1)  AND ( hot='{$noibat}' or '{$noibat}'=-1) and style=0";
     
@@ -425,7 +425,7 @@ $(document).ready(function() {
     
                             
     
-                            $sql="select *,DATE_FORMAT(date_added,'%d/%m/%Y %h:%i') as dateAdd,DATE_FORMAT(last_modified,'%d/%m/%Y %h:%i') as dateModify from tbl_item where $where $sortby  limit ".($startRow).",".$pageSize;
+                            $sql="select *,DATE_FORMAT(date_added,'%d/%m/%Y %h:%i') as dateAdd,DATE_FORMAT(last_modified,'%d/%m/%Y %h:%i') as dateModify from tbl_item where style=0 and $where $sortby  limit ".($startRow).",".$pageSize;
     
                             $result=mysql_query($sql,$conn);
     
