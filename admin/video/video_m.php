@@ -64,7 +64,7 @@ if (isset($_POST['btnSave'])){
     $parent        = $_POST['ddCat'];
     $parent1       = $_POST['ddCatch'];
 
-    if($parent1==-1) $parent1=209;
+    if($parent1==-1) $parent1=390;
 
     $subject       = vietdecode($name);
     $detail_short  = isset($_POST['txtDetailShort']) ? trim($_POST['txtDetailShort']) : '';
@@ -91,7 +91,7 @@ if (isset($_POST['btnSave'])){
             $oldid = $_POST['id'];
             $sql = "update tbl_item set name='".$name."',parent='".$parent."',parent1='".$parent1."',detail='".$detail."',type='".$loaihinh."',price='".$price."',pricekm='".$pricekm."',sort='".$sort."',status='".$status."',title='".$title."',description='".$description."',keyword='".$keyword."',last_modified=now() where id='".$oldid."'";
         }else{
-            $sql = "insert into tbl_item (name, parent, parent1 , detail, type , price , pricekm , sort, status,  date_added, last_modified, style, title, description, keyword  ) values ('".$name."','".$parent."','".$parent1."','".$detail."','".$loaihinh."','".$price."','".$pricekm."','".$sort."','".$status."',now(),now(),'2','".$title."','".$description."','".$keyword."')";
+            $sql = "insert into tbl_item (name, parent, parent1 , detail, type , price , pricekm , sort, status,  date_added, last_modified, style, title, description, keyword  ) values ('".$name."','".$parent."','".$parent1."','".$detail."','".$loaihinh."','".$price."','".$pricekm."','".$sort."','".$status."',now(),now(),'3','".$title."','".$description."','".$keyword."')";
         }
         if (mysql_query($sql,$conn)){
             if(empty($_POST['id'])) $oldid = mysql_insert_id();
@@ -260,7 +260,7 @@ if( $errMsg !=""){
             <?php }?>
             <option value="-1" <?php if($parent==-1) echo 'selected="selected"';?> > Chọn danh mục </option>
             <?php
-            $gt=get_records("tbl_shop_category","parent=209 and status=0 ","name COLLATE utf8_unicode_ci"," "," "); //and (idshop='{$idshop}' or '{$idshop}'=-1)
+            $gt=get_records("tbl_shop_category","parent=390 and status=0 ","name COLLATE utf8_unicode_ci"," "," "); //and (idshop='{$idshop}' or '{$idshop}'=-1)
             while($row=mysql_fetch_assoc($gt)){?>
                 <option value="<?php echo $row['id']; ?>" <?php if($parent==$row['id']) echo 'selected="selected"';?> ><?php echo $row['name']; ?></option>
             <?php } ?>
