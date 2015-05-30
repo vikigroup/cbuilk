@@ -139,8 +139,8 @@ if (isset($_POST['btnSave'])){
 	}
 
 	if ($errMsg == ''){
-		if($r['type']=="0") echo '<script>window.location="admin.php?act=newuser&cat='.$_REQUEST['cat'].'&page='.$_REQUEST['page'].'&code=1"</script>';
-		else  echo '<script>window.location="admin.php?act=newuser&cat='.$_REQUEST['cat'].'&page='.$_REQUEST['page'].'&code=1"</script>'; 
+		if($r['type']=="0") echo '<script>window.location="admin.php?act=news&cat='.$_REQUEST['cat'].'&page='.$_REQUEST['page'].'&code=1"</script>';
+		else  echo '<script>window.location="admin.php?act=news&cat='.$_REQUEST['cat'].'&page='.$_REQUEST['page'].'&code=1"</script>';
 	}
 }else{
 	if (isset($_GET['id'])){
@@ -209,13 +209,13 @@ $(document).ready(function() {
             <div class="widget-container">
                 <div class="widget-block">
                     
-                   <form method="post" name="frmForm" enctype="multipart/form-data" action="admin.php?act=newuser_m">
+                   <form method="post" name="frmForm" enctype="multipart/form-data" action="admin.php?act=news_m">
 
 
 
             
 
-            <input type="hidden" name="act" value="newuser_m">
+            <input type="hidden" name="act" value="news_m">
 
             <input type="hidden" name="id" value="<?=$_REQUEST['id']?>">
 
