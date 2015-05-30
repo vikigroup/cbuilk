@@ -64,7 +64,7 @@ if (isset($_POST['btnSave'])){
     $parent        = $_POST['ddCat'];
     $parent1       = $_POST['ddCatch'];
 
-    if($parent1==-1) $parent1=390;
+    if($parent1==-1) $parent1=210;
 
     $subject       = vietdecode($name);
     $detail_short  = isset($_POST['txtDetailShort']) ? trim($_POST['txtDetailShort']) : '';
@@ -91,7 +91,7 @@ if (isset($_POST['btnSave'])){
             $oldid = $_POST['id'];
             $sql = "update tbl_item set name='".$name."',parent='".$parent."',parent1='".$parent1."',detail='".$detail."',type='".$loaihinh."',price='".$price."',pricekm='".$pricekm."',sort='".$sort."',status='".$status."',title='".$title."',description='".$description."',keyword='".$keyword."',last_modified=now() where id='".$oldid."'";
         }else{
-            $sql = "insert into tbl_item (name, parent, parent1 , detail, type , price , pricekm , sort, status,  date_added, last_modified, style, title, description, keyword  ) values ('".$name."','".$parent."','".$parent1."','".$detail."','".$loaihinh."','".$price."','".$pricekm."','".$sort."','".$status."',now(),now(),'3','".$title."','".$description."','".$keyword."')";
+            $sql = "insert into tbl_item (name, parent, parent1 , detail, type , price , pricekm , sort, status,  date_added, last_modified, style, title, description, keyword  ) values ('".$name."','".$parent."','".$parent1."','".$detail."','".$loaihinh."','".$price."','".$pricekm."','".$sort."','".$status."',now(),now(),'4','".$title."','".$description."','".$keyword."')";
         }
         if (mysql_query($sql,$conn)){
             if(empty($_POST['id'])) $oldid = mysql_insert_id();
@@ -139,8 +139,8 @@ if (isset($_POST['btnSave'])){
     }
 
     if ($errMsg == ''){
-        if($r['type']=="0") echo '<script>window.location="admin.php?act=video&cat='.$_REQUEST['cat'].'&page='.$_REQUEST['page'].'&code=1"</script>';
-        else  echo '<script>window.location="admin.php?act=video&cat='.$_REQUEST['cat'].'&page='.$_REQUEST['page'].'&code=1"</script>';
+        if($r['type']=="0") echo '<script>window.location="admin.php?act=machine&cat='.$_REQUEST['cat'].'&page='.$_REQUEST['page'].'&code=1"</script>';
+        else  echo '<script>window.location="admin.php?act=machine&cat='.$_REQUEST['cat'].'&page='.$_REQUEST['page'].'&code=1"</script>';
     }
 }else{
     if (isset($_GET['id'])){
@@ -209,13 +209,13 @@ if( $errMsg !=""){
 <div class="widget-container">
 <div class="widget-block">
 
-<form method="post" name="frmForm" enctype="multipart/form-data" action="admin.php?act=video_m">
+<form method="post" name="frmForm" enctype="multipart/form-data" action="admin.php?act=machine_m">
 
 
 
 
 
-<input type="hidden" name="act" value="video_m">
+<input type="hidden" name="act" value="machine_m">
 
 <input type="hidden" name="id" value="<?=$_REQUEST['id']?>">
 
@@ -226,7 +226,7 @@ if( $errMsg !=""){
 <table  class="table_chinh">
 
 <tr>
-    <td class="table_chu_tieude_them" colspan="2" align="center" valign="middle"  >VIDEO</td>
+    <td class="table_chu_tieude_them" colspan="2" align="center" valign="middle"  >MÁY CŨ</td>
 </tr>
 <tr>
     <td valign="middle"  class="table_chu">&nbsp;</td>
@@ -260,7 +260,7 @@ if( $errMsg !=""){
             <?php }?>
             <option value="-1" <?php if($parent==-1) echo 'selected="selected"';?> > Chọn danh mục </option>
             <?php
-            $gt=get_records("tbl_shop_category","parent=390 and status=0 ","name COLLATE utf8_unicode_ci"," "," "); //and (idshop='{$idshop}' or '{$idshop}'=-1)
+            $gt=get_records("tbl_shop_category","parent=210 and status=0 ","name COLLATE utf8_unicode_ci"," "," "); //and (idshop='{$idshop}' or '{$idshop}'=-1)
             while($row=mysql_fetch_assoc($gt)){?>
                 <option value="<?php echo $row['id']; ?>" <?php if($parent==$row['id']) echo 'selected="selected"';?> ><?php echo $row['name']; ?></option>
             <?php } ?>
