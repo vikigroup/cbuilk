@@ -82,17 +82,6 @@ if($ghinho==1){ // prodetail
                 </ul>
             </div>
 
-            <div id="sli-fcon-2">
-<!--				--><?php
-//                $hinh=get_records("tbl_ad","idshop='{$idshop}' AND name='' AND iditem=".$row_sanpham['id'],"id DESC","0,10"," ");
-//				$i=0;
-//                while($row_hinh=mysql_fetch_assoc($hinh)){
-//                ?>
-<!--                <a data-slide-index="--><?php //echo $i;?><!--" href=""><img src="--><?php //echo $linkroot;?><!--/--><?php //echo $row_hinh['image'];?><!--" /></a>-->
-<!--               	--><?php //$i++;}?>
-
-            </div>
-
             <div class="clear"></div>
 
             <script type="text/javascript">
@@ -174,7 +163,7 @@ if($ghinho==1){ // prodetail
                 <div class="popup-checkout">
                     <div class="popup-form">
                         <div class="input-group">
-                            <p><input type="text" id="txtNamePopup" placeholder="Tên người nhận"></p>
+                            <p><input type="text" id="txtNamePopup" placeholder="Tên người mua"></p>
                             <p><input type="text" id="txtPhonePopup" placeholder="Điện thoại (bắt buộc)"></p>
                             <p><input type="text" id="txtAddressPopup" placeholder="Địa chỉ"></p>
                             <p><input type="email" id="emailPopup" placeholder="Email (bắt buộc)"></p>
@@ -212,11 +201,10 @@ if($ghinho==1){ // prodetail
                     
                         <!-- AddToAny BEGIN -->
                         <div class="a2a_kit a2a_default_style">
-                            <a class="a2a_dd" href="https://www.addtoany.com/share_save">Share</a>
-                            <span class="a2a_divider"></span>
                             <a class="a2a_button_facebook"></a>
                             <a class="a2a_button_twitter"></a>
                             <a class="a2a_button_google_plus"></a>
+                            <a class="a2a_button_pinterest"></a>
                         </div>
                         <script type="text/javascript" src="//static.addtoany.com/menu/page.js"></script>
                         <!-- AddToAny END -->
@@ -262,47 +250,19 @@ if($ghinho==1){ // prodetail
                     <h4>Thông tin chi tiết</h4>
                     <ul class="f_iod">
                         <li>
-                        
                             <span class="s1_iod">Địa chỉ</span>
-
                             <span class="s2_iod"><?php if($row_sanpham['idshop'] == 0){ echo $row_config['dckh'];} else{echo $shop['address'];}?></span>
-                            
                             <div class="clear"></div>
-                        
                         </li>
                         <li>
-                        
                             <span class="s1_iod">Điện thoại</span>
-                            
                             <span class="s2_iod"><?php if($row_sanpham['idshop'] == 0){ echo $row_config['hotlinekh'];} else{echo $shop['mobile'];}?></span>
-                            
                             <div class="clear"></div>
-                        
                         </li>
                         <li>
-                        
                             <span class="s1_iod">Email</span>
-
                             <span class="s2_iod"><?php if($row_sanpham['idshop'] == 0){ echo $row_config['emailkh'];} else{echo $shop['email'];}?></span>
-                            
                             <div class="clear"></div>
-                        
-                        </li>
-                        <li>
-                        
-                            <span class="s1_iod">Hỗ trợ</span>
-
-                            <span class="s2_iod">
-                                <?php if($row_sanpham['idshop'] == 0){ ?>
-                                <img src='http://opi.yahoo.com/online?u=<?php echo $row_support['nickyahoo'];?>&m=g&t=5&l=vi' alt ='' />
-                                <a href='ymsgr:sendIM?<?php echo $row_support['nickyahoo'];?>'><?php echo $row_support['nickyahoo'];?></a>
-                                <?php }else{ ?>
-                                    <img src='http://opi.yahoo.com/online?u=<?php echo $shop['yahoo'];?>&m=g&t=5&l=vi' alt ='' />
-                                    <a href='ymsgr:sendIM?<?php echo $shop['yahoo'];?>'><?php echo $shop['yahoo'];?></a>
-                                <?php } ?>
-                            </span>
-                            <div class="clear"></div>
-                        
                         </li>
                     </ul><!-- End .f_iod -->
                 </div>
@@ -312,13 +272,10 @@ if($ghinho==1){ // prodetail
         </div><!-- End .block_prod_details -->
 
         <div class="block_prod_details">
-        
             <div class="f_prod_other">
-                
                 <h1 class="title_prod_other">
                      <?php if($row_sanpham['style'] == 1){echo "Tin xem nhiều nhất";} else if($row_sanpham['style'] == 0 || $row_sanpham['style'] == 4) echo "Sản phẩm xem nhiều nhất";else if($row_sanpham['style']==2) echo "Dịch vụ xem nhiều nhất";else echo "Video xem nhiều nhất";?>
                 </h1><!-- End .title_prod_other -->
-                
                 <div class="main_prod_other">
                     <ul>
                     <?php 
@@ -373,17 +330,13 @@ if($ghinho==1){ // prodetail
                 </div>
                 
             </div><!-- End .f_prod_other -->
-        
         </div><!-- End .block_prod_details -->
         
         <div class="block_prod_details">
-        
             <div class="f_prod_other">
-                
                 <h1 class="title_prod_other">
                     <?php if($row_sanpham['style'] == 1){echo "Tin tức liên quan";} else if($row_sanpham['style'] == 0 || $row_sanpham['style'] == 4){echo "Sản phẩm liên quan";}else if($row_sanpham['style'] == 2){echo "Dịch vụ liên quan";} else{echo "Video liên quan";}?>
                 </h1><!-- End .title_prod_other -->
-                
                 <div class="main_prod_other">
                     <ul>
                     <?php 
@@ -417,20 +370,11 @@ if($ghinho==1){ // prodetail
                        <?php }?>  
                     </ul>
                 </div><!-- End .main_prod_other -->
-                
-              
-                
             </div><!-- End .f_prod_other -->
-        
         </div><!-- End .block_prod_details -->
-        
     </div><!-- End .r-fcont -->
-    
-    <div class="clear"></div>                
+    <div class="clear"></div>
 </section><!-- End .f-cont -->
-
- 
-
 
 <?php }else {?>
 <?php
@@ -439,15 +383,6 @@ $pageNum = 1;
 $totalRows = 0;
 $xeptheo='id';
 $dem=1;
-
-//$kkk="1";
-//if(isset($_SESSION['filter1'])) {
-//	$sapxep=$_SESSION['filter1'];
-//	if($sapxep==" id DESC") $kkk="1";
-//	elseif($sapxep==" price ASC") $kkk="2";
-//	elseif($sapxep==" price DESC") $kkk="3";
-//}
-//else $sapxep="id DESC";
 
 $link = $_SERVER['REQUEST_URI'];
 $myLink = explode("?", $link);
@@ -522,9 +457,7 @@ else{
 </section><!-- End .breacrum -->
             
 <section class="f-ct">
-
     <div class="sidebar">
-        
         <div class="catelog">
             <h2 class="t-mn-dm">
 			<?php 
@@ -546,14 +479,12 @@ else{
                 <div class="clear"></div>
             </div><!-- End .m-cate -->
         </div><!-- End .catelog -->
-        
     </div><!-- End .sidebar -->
 
     <?php if($totalRows != 0){ ?>
     <div class="content">
         <?php if($row_category['id'] != 211 && $row_category['id'] != 390){ ?>
         <section class="Prod-nb">
-        
             <h4 class="t-Pnb">
                 <?php if($row_category['cate'] == 0 || $row_category['cate'] == 4){echo "Sản phẩm khuyến mãi";}
                 else if($row_category['cate'] == 2){echo "Dịch vụ khuyến mãi";}
@@ -561,7 +492,6 @@ else{
             </h4><!-- End .t-Pnb -->
             
             <article class="m-Pnb">
-            
                 <ul class="ul-Pnb">
 					<?php
                     $totalNews = countRecord("tbl_item","status=0 AND type=0 AND pricekm != 0 AND parent1 in ({$parent})");
@@ -582,7 +512,6 @@ else{
                         <span class="price-Pnb"><?php echo number_format($row_new['pricekm'],0)."  VNĐ"; ?></span>
                     </li>
                     <?php } } ?>
-                    
                 </ul>
                 
                 <div class="clear"></div>
@@ -658,11 +587,9 @@ else{
         </section><!-- End .filter-Prod -->
         
         <section class="Prod-cate">
-        
             <ul>
 				<?php
                 while($row_new=mysql_fetch_assoc($product)){
-
 			    $shop=getRecord('tbl_shop', "id=".$row_new['idshop']);
                 ?>
                 <li class="li-Pc1">
@@ -696,20 +623,16 @@ else{
                     <div class="clear"></div>
                 </li>
                 <?php }?>
-                
             </ul>
-            
             <div class="clear"></div>
-            
         </section><!-- End .Prod-cate -->
         
         <div class="frame_phantrang">
             <div class="PageNum" id="divProductPag">
-					<?php  
+					<?php
                     if(isset($_REQUEST['tensanpham'])){ echo pagesLinks_new_full_2013($totalRows, $pageSize , "", "?page=","".$_GET['tensanpham'].".html");}
                     else echo pagesLinks_new_full_2013($totalRows, $pageSize , "","p","page-danh-muc/".$_GET['tensanpham']."/");
                     ?>
-
             </div>
             <div class="clear"></div>
         </div><!-- End .frame_phantrang -->
@@ -718,7 +641,6 @@ else{
     <?php } ?>
     <div class="clear"></div>
 </section><!-- End .f-ct -->
-
 <?php }?>
 
 <script>
