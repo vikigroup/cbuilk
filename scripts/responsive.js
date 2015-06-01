@@ -67,7 +67,6 @@ function autoHome(){
         $('.sli-fcon-1 .bx-wrapper .bx-viewport').css('width', '100%');
         $('.t-Pnb, .filter-Prod, .content').css('max-width', 1000);
         $('.li-Pc1').css('width', 173);
-        $('.hotline').attr('style', 'margin: 10px 30px 10px 30px !important;');
         $('.prod_row1').css('width', 'inherit');
         $('.t-Pnb').css('width', windowSize - 412);
         $('.content').css('width', windowSize - 350);
