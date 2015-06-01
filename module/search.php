@@ -37,7 +37,7 @@
     <ul>
         <li><a href="<?php echo $linkrootshop;?>">Trang chủ</a></li>
         <li><a> Tìm kiếm</a></li>
-        <li><a href="#">Hiện có <strong><?php echo $totalRows;?></strong> kết quả </a></li>
+        <li style="float: right; margin-right: 35px;"><a>Hiện có <strong><?php echo $totalRows;?></strong> kết quả </a></li>
     </ul>
     <div class="clear"></div>
 </section><!-- End .breacrum -->
