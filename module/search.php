@@ -114,7 +114,7 @@
                         <br>
                         <?php echo $row_new['date_added'];?>
                     </div><!-- End .prod_row3 -->
-                    <?php if($row_new['style'] == 0){ ?>
+                    <?php if($row_new['style'] == 0 || $row_new['style'] == 2 || $row_new['style'] == 4){ ?>
                     <span class="price-Pnb"><?php  if($row_new['pricekm'] > 0){echo number_format($row_new['pricekm'],0)."  VNĐ";}else if($row_new['price'] > 0){echo number_format($row_new['price'],0)."  VNĐ";}else{echo "Giá: Liên hệ";} ?></span>
                     <?php } ?>
                     <div class="clear"></div>
