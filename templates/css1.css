@@ -1243,7 +1243,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     }
     .arrowCategory{
         width: 136px !important;
-        height: 25px !important;
+        height: auto !important;
     }
     .l-fcont, .bx-viewport{
         width: 60% !important;
@@ -1268,6 +1268,10 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     }
     .ads-home{
         width: 588px !important;
+    }
+    .slide{
+        max-width: 100% !important;
+        width: 100% !important;
     }
 }
 
