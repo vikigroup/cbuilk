@@ -59,7 +59,7 @@ function autoHome(){
         $('.btn-gh3').css('width', 190);
         $('.arrowCategory').css('width', 135);
         $('.primary-category, .btn-category').css('width', 140);
-        $('.primary-category:nth-child(5)').css('width', 130);
+        $('.primary-category:nth-child(5)').css('width', 110);
         $('.form_dn ul li').css('width', 480);
         $('.divProductLine1, .divProductOverlay1').css('width', 198);
         $('.ul-ifoot li').css('width', '25%');
