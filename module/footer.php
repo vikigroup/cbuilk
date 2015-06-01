@@ -1,6 +1,5 @@
 <footer>
 <div class="m-wrap">
-    
     <div class="i-foot">
         <div class="bg-ifoot">
             <ul class="ul-ifoot">
@@ -52,8 +51,6 @@
                                 <div class="clear"></div>
                             </li>
                        <?php }?>      
-                             
-                             
                         </ul>
                     </div><!-- End .m-ifoot -->
                 </li>
