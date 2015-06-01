@@ -1,5 +1,5 @@
 <article class="r-tool-ct r-box-tool">
-    <span class="hotline"><i class="fa fa-mobile fa-lg"></i> <?=$row_title_lap['hotlinekh'];?></span>
+    <span class="hotline">Liên hệ quảng cáo: </i> <?=$row_title_lap['hotlinekh'];?></span>
     <ul>
         <li>
 <!--            <span class="sp-gh1">0</span>-->
