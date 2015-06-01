@@ -7,7 +7,6 @@ body{
 .m-wrap, .container {max-width: 1210px; margin: 0 auto;}
 
 img { max-width:100% !important; height: auto !important; }
-iframe { max-width:100% !important; max-height: 100% !important; }
 
 /************************************************************************************
 BEGIN HEADER
@@ -848,10 +847,6 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     opacity: 0.85;
 }
 
-.divProductLine1:first-child, .divProductLine1:nth-child(4){
-    margin-left: 5px;
-}
-
 .divProductOverlay1{
     width: 200px;
     background-color: white;
@@ -1069,6 +1064,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     .r-box-tool{
         background-color: transparent !important;
     }
+    iframe { width:100% !important; height: 500px !important; }
 }
 
 @media (max-width: 991px) {
@@ -1210,6 +1206,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     .div404{
         padding: 35% 0;
     }
+    iframe { max-width:100% !important; max-height: 100% !important; }
 }
 
 @media (min-width: 992px) and (max-width: 1008px) {
