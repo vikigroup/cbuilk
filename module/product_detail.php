@@ -44,10 +44,6 @@ if($ghinho==1){ // prodetail
         <li><a href="<?php echo $linkrootshop;?>/<?php echo get_field('tbl_shop_category','id',$row_parent['parent'],'subject');?>.html"><?php echo get_field('tbl_shop_category','id',$row_parent['parent'],'name');?></a></li>
         <?php } ?>
         <?php
-        if($row_sanpham['style']==4){$row_old=getRecord('tbl_shop_category', "id=210");?>
-            <li><a href="<?php echo $linkrootshop;?>/<?php echo $row_old['subject'];?>.html"><?php echo $row_old['name'];?></a></li>
-        <?php } ?>
-        <?php
 		$cha=get_field('tbl_shop_category','id',get_field('tbl_shop_category','id',$row_sanpham['parent1'],'parent'),'parent');
         if($cha==2){
 		?>
@@ -111,9 +107,9 @@ if($ghinho==1){ // prodetail
 
         </div><!-- End .sli-lfcont -->
         
-        <?php if($row_sanpham['style']==0){?>
+        <?php if($row_sanpham['style']==0 || $row_sanpham['style']==4 || $row_sanpham['style']==2){?>
         <h4 class="t-ttct">
-            Thông tin chi tiết sản phẩm
+            Thông tin chi tiết
         </h4><!-- End .t-ttct -->
         <?php }else{?>
         <h4 class="t-ttct" style="padding-top:0px;">
@@ -138,32 +134,17 @@ if($ghinho==1){ // prodetail
     
     <div class="r-fcont">
         <?php $shop=getRecord('tbl_shop', "id='".$row_sanpham['idshop']."'");?>
-        <?php
-		if($row_sanpham['style']==0){
-		?>
+        <?php if($row_sanpham['style'] != 1 && $row_sanpham['style'] != 3){ ?>
         <div class="gbsp">
-            <span> <?php if($row_sanpham['type']==0){echo "Giá bán sản phẩm:";}else{echo "Giá dịch vụ:";} ?></span>
+            <span> <?php if($row_sanpham['style']==0 || $row_sanpham['style']==4){echo "Giá bán sản phẩm:";}else if($row_sanpham['style']==2){echo "Giá dịch vụ:";} ?></span>
             <h1><?php if($row_sanpham['pricekm'] > 0){echo number_format($row_sanpham['pricekm'],0)."  VNĐ";}else if($row_sanpham['price'] > 0){echo number_format($row_sanpham['price'],0)."  VNĐ";}else{echo "Giá: Liên hệ";} ?></h1>
         </div><!-- End .gbsp -->
-        
-<!--        <div class="slsp">-->
+        <?php } ?>
 
+        <input name="id" id="id" value="<?php echo $row_sanpham['id'];?>" type="hidden" />
+        <input name="name_shop" id="name_shop" value="<?php echo $shop['subject'];?>" type="hidden" />
 
-
-<!--                <span>Số lượng mua</span>-->
-                <input name="id" id="id" value="<?php echo $row_sanpham['id'];?>" type="hidden" />
-<!--                <input id="qty" name="qty" class="ipt_prod_details" type="text" value="1" onchange="setDefault(this.id); $('#qtyPopup').val(this.value); $('#qtyPopup').change();"/>-->
-                <input name="name_shop" id="name_shop" value="<?php echo $shop['subject'];?>" type="hidden" />
-<!--                <input class="btn_prod_details" type="submit" value="&#10009; THÊM VÀO GIỎ HÀNG"/>-->
-
-<!--                <div class="clear"></div>-->
-
-
-
-<!--        </div><!-- End .slsp -->
-        <?php }?>
-
-        <?php if($row_sanpham['style']==0){?>
+        <?php if($row_sanpham['style']==0 || $row_sanpham['style']==4 || $row_sanpham['style']==2){?>
         <a href="#popup" class="popup-link" onclick="$('.popup-container').show();">ĐẶT MUA</a>
         <div class="popup-wrapper" id="popup">
             <div class="popup-container"><!-- Popup Contents, just modify with your own -->
@@ -204,17 +185,11 @@ if($ghinho==1){ // prodetail
 
         <div class="clear"></div>
 
-        <?php if($row_sanpham['style']==0){?>
         <div class="info_prod_details">
         
             <ul>
-                <!--<li>
-                    <h4 class="l_ipd">Tình trạng sản phẩm</h4>
-                    <span class="r_ipd">Đã duyệt</span>
-                    <div class="clear"></div>
-                </li>-->
                 <li>
-                    <h4 class="l_ipd">Ngày đăng <?php if($row_sanpham['type']==0) echo "sản phẩm";?></h4>
+                    <h4 class="l_ipd">Ngày đăng </h4>
                     <span class="r_ipd"><?php echo $row_sanpham['date_added'];?></span>
                     <div class="clear"></div>
                 </li>
@@ -227,17 +202,17 @@ if($ghinho==1){ // prodetail
                     <h4 class="l_ipd">Chia sẻ</h4>
                     <span class="r_ipd">
                     
-                        <!-- Lockerz Share BEGIN -->
+                        <!-- AddToAny BEGIN -->
                         <div class="a2a_kit a2a_default_style">
-                        <a class="a2a_dd" href="http://www.addtoany.com/share_save">Share</a>
-                        <span class="a2a_divider"></span>
-                        <a class="a2a_button_facebook"></a>
-                        <a class="a2a_button_twitter"></a>
-                        <a class="a2a_button_email"></a>
+                            <a class="a2a_dd" href="https://www.addtoany.com/share_save">Share</a>
+                            <span class="a2a_divider"></span>
+                            <a class="a2a_button_facebook"></a>
+                            <a class="a2a_button_twitter"></a>
+                            <a class="a2a_button_google_plus"></a>
                         </div>
-                        <script type="text/javascript" src="<?php echo $linkrootshop?>/scripts/page.js"></script>
-                        <!-- Lockerz Share END -->
-                    
+                        <script type="text/javascript" src="//static.addtoany.com/menu/page.js"></script>
+                        <!-- AddToAny END -->
+
                     </span>
                     <div class="clear"></div>
                 </li>
@@ -248,7 +223,7 @@ if($ghinho==1){ // prodetail
         <div class="block_prod_details">
             
             <div class="info_gh">
-            
+                <?php if($row_sanpham['style'] != 1){ ?>
                 <div>
                     <div class="i_p_prod_details">
                         <?php if($row_sanpham['idshop'] == 0){ ?>
@@ -272,7 +247,9 @@ if($ghinho==1){ // prodetail
                     </div>
                     <div class="clear"></div>
                 </div>
-                
+                <?php } ?>
+
+                <?php if($row_sanpham['style'] != 1 && $row_sanpham['style'] != 3){?>
                 <div style="padding-top:10px;">
                     <h4>Thông tin chi tiết</h4>
                     <ul class="f_iod">
@@ -321,11 +298,10 @@ if($ghinho==1){ // prodetail
                         </li>
                     </ul><!-- End .f_iod -->
                 </div>
-            
+                <?php } ?>
             </div><!-- End .info_gh -->
             
         </div><!-- End .block_prod_details -->
-        <?php } ?>
 
         <div class="block_prod_details">
         
@@ -514,8 +490,8 @@ else{
         <li><a href="<?php echo $linkrootshop;?>/<?php echo $news_item['subject'];?>.html"><?php echo $news_item['name'];?></a></li>
         <?php } ?>
         <?php
-        if($row_category['cate']==4 && $row_category['id'] != 210){$machine_item=getRecord('tbl_shop_category', "id=210");?>
-            <li><a href="<?php echo $linkrootshop;?>/<?php echo $machine_item['subject'];?>.html"><?php echo $machine_item['name'];?></a></li>
+        if($row_category['cate']==3 && $row_category['id'] != 390){$video_item=getRecord('tbl_shop_category', "id=390");?>
+            <li><a href="<?php echo $linkrootshop;?>/<?php echo $video_item['subject'];?>.html"><?php echo $video_item['name'];?></a></li>
         <?php } ?>
         <?php
         $row_bc = getRecord('tbl_shop_category', "id=".$parent);
