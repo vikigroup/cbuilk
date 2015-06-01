@@ -61,7 +61,7 @@ function autoHome(){
         $('.primary-category, .btn-category').css('width', 140);
         $('.primary-category:nth-child(5)').css('width', 110);
         $('.form_dn ul li').css('width', 480);
-        $('.divProductLine1, .divProductOverlay1').css('width', 198);
+        $('.divProductLine1, .divProductOverlay1').css('width', 208);
         $('.ul-ifoot li').css('width', '25%');
         $('.news li, .yahoo li').css('width', '100%');
         $('.sli-fcon-1 .bx-wrapper .bx-viewport').css('width', '100%');
