@@ -823,6 +823,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     font-size: 13px;
     margin: 5px;
     overflow: hidden;
+    text-align: center;
 }
 
 .aSubCategory:first-child{
