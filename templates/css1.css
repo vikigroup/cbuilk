@@ -839,9 +839,9 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     float: left;
     width: 200px;
     height: 204px;
-    margin: 0 5px 0 5px;
     position: relative;
     cursor: pointer;
+    border: 1px solid #F5F5F5;
 }
 
 .divProductLine1:hover{
@@ -1056,9 +1056,6 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 
     .main_f_dn{
         height: 433px;
-    }
-    .divProductLine1{
-        margin: 0 5px 0 5px;
     }
     header .m-wrap .logo{
         margin-left: 55px;
