@@ -580,7 +580,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 
 .gbsp{padding:0 0 12px 12px;}
 .gbsp span{color:#4c4c4c; display:block; font-size:16px; padding:0 0 12px 0;}
-.gbsp h1{color:#3ca31b; font-size:40px; font-weight:normal;}
+.gbsp h1{color:#3ca31b; font-size:28px; font-weight:normal;}
 .title_dv_details{border-bottom:1px solid #f1f1f1; padding-bottom:1px !important;}
 
 .slsp{padding:10px 0; border-top:1px solid #f1f1f1; border-bottom:1px solid #f1f1f1; height:38px; line-height:38px; color:#4c4c4c;}
@@ -1289,6 +1289,7 @@ a.popup-link {
     border-radius: 3px;
     display: block;
     font-size: 16px;
+    display: none;
 }
 a.popup-link:hover {
     background-color: #ff9900;
