@@ -1242,7 +1242,8 @@ ul.ul-fP li.atc a {color: #3ba11b;}
         width: 3% !important;
     }
     .arrowCategory{
-        width: 137px !important;
+        width: 136px !important;
+        height: 25px !important;
     }
     .l-fcont, .bx-viewport{
         width: 60% !important;
@@ -1259,8 +1260,14 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     .content, .t-Pnb{
         width: 600px !important;
     }
-    .primary-category, .btn-category{
+    .btn-category{
         width: 90px !important;
+    }
+    .primary-category:first-child, .primary-category:nth-child(2), .primary-category:nth-child(3), .primary-category:nth-child(4), .primary-category:nth-child(5){
+        display: none !important;
+    }
+    .ads-home{
+        width: 588px !important;
     }
 }
 
