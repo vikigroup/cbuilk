@@ -1475,3 +1475,7 @@ label{
 }
 
 .fb-comments iframe { width:100% !important; height: 100% !important; }
+.s2_hotline{
+    font-size: 16px;
+    color: red;
+}
