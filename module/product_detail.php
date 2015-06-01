@@ -125,11 +125,19 @@ if($ghinho==1){ // prodetail
         </div><!-- End .f-ndct -->
         
         <div class="face-cmm">
-    
-            
-        
+            <div id="fb-root"></div>
+            <div class="fb-comments" data-href="<?php echo $linkrootshop;?>/<?php echo $row_sanpham['subject'];?>.html" data-numposts="5" data-width="inherit" data-colorscheme="light"></div>
         </div><!-- End .face-cmm -->
-        
+        <script>
+            (function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.0";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        </script>
+
     </div><!-- End .l-fcont -->
     
     <div class="r-fcont">
