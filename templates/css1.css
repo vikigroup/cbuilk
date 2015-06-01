@@ -89,7 +89,7 @@ BEGIN CONTAINER
 /*background: url(../imgs/layout/tool-ct.png) repeat-x bottom; padding-bottom: 4px;*/
 .l-tool-ct {float: left;}
 .l-tool-ct ul.ul-ltct > li {float: left; text-transform: capitalize !important;}
-span.hotline { margin: 10px 30px 10px 30px !important;}
+span.hotline { margin-left: 5px !important;}
 .l-tool-ct ul.ul-ltct > li span.support {background: url(../imgs/layout/support.png) no-repeat left; padding-left: 22px; display: block;}
 .l-tool-ct ul.ul-ltct > li + li {padding-left: 20px;}
 
@@ -1044,11 +1044,9 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     .mini-bar{
         visibility: visible !important;
     }
-
     .primary-category{
         display: block !important;
     }
-
     .main_f_dn{
         height: 433px;
     }
