@@ -293,7 +293,7 @@ if ($_REQUEST['cat']!='') $where="parent=".$_REQUEST['cat']; ?>
     </thead>
     <tbody>
     <?
-    $sortby="order by id $ks";
+    $sortby="order by sort $ks";
     if ($_REQUEST['sortby']!='') $sortby="order by ".(int)$_REQUEST['sortby'];
     $direction=($_REQUEST['direction']==''||$_REQUEST['direction']=='0'?"desc":"");
 
