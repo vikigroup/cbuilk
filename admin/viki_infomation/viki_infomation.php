@@ -315,7 +315,7 @@ $(document).ready(function() {
     
                                     <td align="center">
     
-                                        <input type="checkbox" name="chkall" onClick="chkallClick(this);"/>
+                                        <input type="checkbox" name="chkall" id="chkall" onClick="chkallClick(this);"/>
     
                                     </td>
     
@@ -376,7 +376,7 @@ $(document).ready(function() {
     
                                     <td align="center">
     
-                                        <input type="checkbox" name="chk[]" value="<?=$row['id']?>"/>
+                                        <input type="checkbox" name="chk[]" value="<?=$row['id']?>" class="tai_c"/>
     
                                     </td>
     
