@@ -247,7 +247,7 @@ $(document).ready(function() {
                                 </thead>
                                 <tbody>
                                 <?
-                                $sortby="order by id $ks";
+                                $sortby="order by sort $ks";
                                 if ($_REQUEST['sortby']!='') $sortby="order by ".(int)$_REQUEST['sortby'];
                                
                                 
