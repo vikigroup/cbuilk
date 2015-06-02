@@ -341,14 +341,14 @@ $(document).ready(function() {
     
                                     <td align="center"><span class="title"><a class="title" >Hình</a></span></td>
     
-                                    <td align="center"><a class="title" href="<?=getLinkSort(3)?>">Tên </a></td>
-                                    <td align="center"><a class="title" href="<?=getLinkSort(10)?>">Thứ tự sắp xếp</a></td>
+                                    <td align="center"><a class="title" href="<?=getLinkSortAdmin(3)?>">Tên </a></td>
+                                    <td align="center"><a class="title" href="<?=getLinkSortAdmin(10)?>">Thứ tự sắp xếp</a></td>
     
-                                    <td align="center"><a class="title" href="<?=getLinkSort(15)?>">Tiêu biểu</a></td>
+                                    <td align="center"><a class="title" href="<?=getLinkSortAdmin(15)?>">Tiêu biểu</a></td>
     
-                                    <td align="center"><span class="title"><a class="title" href="<?=getLinkSort(11)?>">Không hiển thị</a></span></td>
+                                    <td align="center"><span class="title"><a class="title" href="<?=getLinkSortAdmin(11)?>">Không hiển thị</a></span></td>
     
-                                    <td align="center"><a class="title" href="<?=getLinkSort(12)?>">Ngày tạo lập</a></td>                                        
+                                    <td align="center"><a class="title" href="<?=getLinkSortAdmin(12)?>">Ngày tạo lập</a></td>
     
                                     <td align="center">
     
