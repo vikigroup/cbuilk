@@ -116,7 +116,7 @@ require("module/box_device.php");
         $index = 0;
         while($row_slide=mysql_fetch_assoc($gt)){
             ?>
-            <a id="aSlider<?php echo $index ?>" href="#" style="background-color: <?php echo $row_slide['color']?>"><img src="<?php echo $linkroot ;?>/<?php echo $row_slide['image']?>" alt="" /></a>
+            <a id="aSlider<?php echo $index ?>" href="<?php echo $row_slide['link']; ?>" style="background-color: <?php echo $row_slide['color']?>"><img src="<?php echo $linkroot ;?>/<?php echo $row_slide['image']?>" alt="" /></a>
         <?php $index++; } ?>
     </div>
 </header>
