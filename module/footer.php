@@ -65,19 +65,3 @@
     
 </div><!-- End .m-wrap -->
 </footer>
-
-<script>
-    $(document).ready(function(){
-        var link2 = $('.m-wrap .breacrum ul li:nth-child(2) a').attr('href');
-        var linkAfter2 = insert(link2,17,'/');
-        $('.m-wrap .breacrum ul li:nth-child(2) a').attr('href', linkAfter2);
-
-        var link3 = $('.m-wrap .breacrum ul li:nth-child(3) a').attr('href');
-        var linkAfter3 = insert(link3,17,'/');
-        $('.m-wrap .breacrum ul li:nth-child(3) a').attr('href', linkAfter3);
-    });
-
-    function insert(str, index, value) {
-        return str.substr(0, index) + value + str.substr(index);
-    }
-</script>
