@@ -1,30 +1,41 @@
 <?php
 if(isset($frame)==true){
-	check_permiss($_SESSION['kt_login_id'],9,'index.php');
+    check_permiss($_SESSION['kt_login_id'],17,'admin.php');
 }else{
-	header("location: ../index.php");
+    header("location: ../admin.php");
 }
 
 if (isset($_POST['tim'])==true)//isset kiem tra submit
 {
-	if($_POST['tukhoa']!=NULL){$tukhoa=$_POST['tukhoa'];}else {$tukhoa=-1;}
-	$_SESSION['kt_tukhoa_cates']=$tukhoa;
-	$tukhoa = trim(strip_tags($tukhoa));
-	if (get_magic_quotes_gpc()==false) 
-		{
-			$tukhoa = mysql_real_escape_string($tukhoa);
-		}
-}
- 
-if (isset($_POST['reset'])==true) {
+    if($_POST['tukhoa']!=""){$tukhoa=$_POST['tukhoa'];}else {$tukhoa=-1;}
+    if($tukhoa=="Từ khóa...") $tukhoa="";
+    $_SESSION['kt_tukhoa_bignew']=$tukhoa;
+    $tukhoa = trim(strip_tags($tukhoa));
+    if (get_magic_quotes_gpc()==false)
+    {
+        $tukhoa = mysql_real_escape_string($tukhoa);
+    }
 
-	$_SESSION['kt_tukhoa_shop']=-1;
-	$_SESSION['kt_parent_bignew']=-1;
-	$_SESSION['kt_ddCatch_bignew']=-1; 
-	
+    if($_POST['ddCat']!=NULL){$parent=$_POST['ddCat'];}else {$parent=-1;}
+    $_SESSION['kt_parent_bignew']=$parent;
+
+    if($_POST['ddCatch']!=NULL){$parent1=$_POST['ddCatch'];}else {$parent1=-1;}
+    $_SESSION['kt_ddCatch_bignew']=$parent1;
+
+
+
+
 }
-if($_SESSION['kt_tukhoa_shop']==NULL){$tukhoa=-1;}
-if($_SESSION['kt_tukhoa_shop']!=NULL){$tukhoa=$_SESSION['kt_tukhoa_shop'];}
+
+if (isset($_POST['reset'])==true) {
+    $_POST['ddCatch'] = -1;
+    $_SESSION['kt_tukhoa_bignew']=-1;
+    $_SESSION['kt_parent_bignew']=-1;
+    $_SESSION['kt_ddCatch_bignew']=-1;
+
+}
+if($_SESSION['kt_tukhoa_bignew']==NULL){$tukhoa=-1;}
+if($_SESSION['kt_tukhoa_bignew']!=NULL){$tukhoa=$_SESSION['kt_tukhoa_bignew'];}
 if($_SESSION['kt_parent_bignew']==NULL){$parent=-1;}
 if($_SESSION['kt_parent_bignew']!=NULL){$parent=$_SESSION['kt_parent_bignew'];}
 
@@ -42,7 +53,7 @@ settype($tang,"int");
 if($_GET['noibat']==NULL){$noibat=-1;$_SESSION['kt_noibat']=$noibat;}
 if($_GET['noibat']!=NULL){$noibat=$_GET['noibat'];$_SESSION['kt_noibat']=$noibat;}
 settype($noibat,"int");
- 
+
 if($tang==0){$ks='ASC';}//0 tang
 elseif($tang==1){$ks='DESC';}//1 giam
 else $ks='DESC';
@@ -170,7 +181,7 @@ $(document).ready(function() {
                                    </td>
                                 </tr>
                                 <tr align="center" >
-                                  <td valign="middle" style="background-color:#F0F0F0; height:40px; padding-left:20px" colspan="8"><input class="table_khungnho"  name="tukhoa" id="tukhoa" type="text" value="<?=$tukhoa?>"  placeholder="Từ khóa" />
+                                  <td valign="middle" style="background-color:#F0F0F0; height:40px; padding-left:20px" colspan="8"><input class="table_khungnho"  name="tukhoa" id="tukhoa" type="text" value="Từ khóa..."  placeholder="Từ khóa" onfocus="if(this.value=='Từ khóa...') this.value='';" onblur="if(this.value=='') this.value='Từ khóa...';" />
                                         <input name="tim" type="submit" class="nut_table" id="tim" value="Tìm kiếm"/>
                                         <input type="submit" name="reset" class="nut_table" value="Reset" title=" Reset " />
                                  
@@ -217,7 +228,7 @@ $(document).ready(function() {
                                 </tr>
                                 <tr class="admin_tieude_table">
                                         <td width="4%" align="center">
-                                            <input type="checkbox" name="chkall" onClick="chkallClick(this);"/>
+                                            <input type="checkbox" name="chkall" id="chkall" onClick="chkallClick(this);"/>
                                         </td>
                                         <td width="6%" align="center">
                                             STT
@@ -248,7 +259,7 @@ $(document).ready(function() {
                                 ?>
                                     <tr>
                                         <td align="center">
-                                            <input type="checkbox" name="chk[]" value="<?=$row['id']?>"/>
+                                            <input type="checkbox" name="chk[]" value="<?=$row['id']?>" class="tai_c"/>
                                         </td>
                                         <td align="center">
                                             <?=$row['id']?>
@@ -277,13 +288,8 @@ $(document).ready(function() {
                                         <td colspan="8"> <center> <div class="PageNum"> <?php echo pagesListLimit($totalRows,$pageSize);?> </div> </center></td>
                                     </tr>
                                 </thead>
-                                
                             </table>
-                         
-                            <input type="submit" value="Xóa chọn" name="btnDel" onClick="return confirm('Bạn có chắc chắn muốn xóa ?');" class="button">
                         </form>
-                
-             
                 </div>
             </div>
         </div>
