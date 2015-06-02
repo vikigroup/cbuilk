@@ -24,7 +24,7 @@
 <article class="l-tool-ct primary-category">
     <ul class="ul-ltct">
         <?php $news=getRecord('tbl_shop_category', "id=211"); ?>
-        <li><a class="btn-gh3 btn-category btn-news" href="<?php echo $linkrootshop; ?>/<?php echo $news['subject']; ?>.html"><?php echo $news['name']; ?></a></li>
+        <li><a class="btn-gh3 btn-category" href="<?php echo $linkrootshop; ?>/<?php echo $news['subject']; ?>.html" style="background-color: #2A70D2; color: white !important;"><?php echo $news['name']; ?></a></li>
     </ul>
     <div class="clear"></div>
 </article><!-- End .l-tool-ct -->
