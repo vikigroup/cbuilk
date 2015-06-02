@@ -13,7 +13,7 @@ $pathdb = "images/adv";
 if (isset($_POST['btnSave'])){
 	$code          = isset($_POST['txtCode']) ? trim($_POST['txtCode']) : '';
 	$name          = isset($_POST['txtName']) ? trim($_POST['txtName']) : '';
-	$type          = isset($_POST['loai']) ? trim($_POST['loai']) : '';
+	$type          = $_POST['slType'];
 	$parent        = $_POST['ddCat'];
 	$subject       = vietdecode($name);
 	$detail_short  = isset($_POST['txtDetailShort']) ? trim($_POST['txtDetailShort']) : '';
@@ -48,7 +48,7 @@ if (isset($_POST['btnSave'])){
 			 $sql = "update tbl_adv set name='".$name."',type='".$type."',link='".$link."',sort='".$sort."', status='".$status."'
 			 ,main_position='".$mainPosition."',sub_position='".$subPosition."',start_banner='".$startDateTime."',finish_banner='".$endDateTime."',last_modified=now() where id='".$oldid."'";
 		}else{
-			 $sql = "insert into tbl_adv (name, type, link, sort, status,  date_added, last_modified, main_position, sub_position, start_banner, finish_banner) values ('".$name."'
+			 $sql = "insert into tbl_adv (name, style, link, sort, status,  date_added, last_modified, main_position, sub_position, start_banner, finish_banner) values ('".$name."'
 			 ,'".$type."','".$link."','".$sort."','1',now(),now(),'".$mainPosition."','".$subPosition."','".$startDateTime."','".$endDateTime."')";
 		}
 		if (mysql_query($sql,$conn)){
@@ -192,7 +192,8 @@ if (isset($_POST['btnSave'])){
                                  <option value="2" id="2">BÊN TRÊN</option>
                                  <option value="3" id="3">BÊN PHẢI</option>
                              </select>
-                             <select class="table_khungnho" id="slPageCreateAdminBanner" name="slPageCreateAdminBanner" value="<?=$subPosition?>"> </select>
+                             <input type="hidden" name="slType" id="slType" value="TOP (190x330)">
+                             <select class="table_khungnho" id="slPageCreateAdminBanner" name="slPageCreateAdminBanner" value="<?=$subPosition?>" onchange="$('#slType').val($('#slPageCreateAdminBanner option:selected').text());"> </select>
                          </td>
                      </tr>
                      <tr>

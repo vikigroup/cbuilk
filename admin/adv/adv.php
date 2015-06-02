@@ -295,7 +295,7 @@ $(document).ready(function() {
                                     <img src="../<?php echo $noimgs; ?>" width="80" height="80" border="0" class="hinh" />
                                   <?php }?>
                                 </td>
-                                <td align="center"><?php if($row['type']==1) echo "Sản phẩm";elseif($row['type']==2) echo "Khuyến mãi";?></td>
+                                <td align="center"><?php echo $row['style']; ?></td>
                                 <td align="center">
                                     <?=$row['name']?>
                                 </td>
