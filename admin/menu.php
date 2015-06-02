@@ -26,7 +26,7 @@
                     <li><a href="admin.php?act=shop_category">Tất cả danh mục</a> </li>
                     <li><a href="admin.php?act=config&id=2">Cấu hình</a>  </li>
                     <li><a href="admin.php?act=slider">Slide ảnh</a> </li> 
-                    <li><a href="admin.php?act=jbstin">Thông tin</a> </li> 
+                    <li><a href="admin.php?act=viki_infomation">Thông tin</a> </li>
                     <li><a href="admin.php?act=hotro">Hỗ trợ</a> </li> 
                     <li><a href="admin.php?act=adv">Quảng cáo</a> </li>
                     <li><a href="#"> Người dùng &darr;</a>

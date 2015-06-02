@@ -59,8 +59,8 @@ switch ($frame){
  
 	 
 	//info page
-	case "jbstin"               : include("jbstin/jbstin.php");break;
-	case "jbstin_m"             : include("jbstin/jbstin_m.php");break;
+	case "viki_infomation"      : include("viki_infomation/viki_infomation.php");break;
+	case "viki_infomation_m"             : include("viki_infomation/viki_infomation_m.php");break;
 
     case "jbsnews"              : include("jbsnews/jbsnews.php");break;
     case "jbsnews_m"            : include("jbsnews/jbsnews_m.php");break;
