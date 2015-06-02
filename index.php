@@ -84,6 +84,7 @@ require("module/box_device.php");
     <script type="text/javascript" src="<?php echo $linkrootshop?>/jquery.bxslider/jquery.bxslider.min.js"></script>
     <script type="text/javascript" src="<?php echo $linkrootshop?>/jquery.bxslider/plugins/jquery.easing.1.3.js"></script>
     <script type="text/javascript" src="<?php echo $linkrootshop?>/jquery.bxslider/plugins/jquery.fitvids.js"></script>
+    <script type="text/javascript"  src="<?php echo $linkrootshop?>/scripts/responsive.js"></script>
 
     <link rel="stylesheet" href="<?php echo $linkrootshop?>/lib/SlickNav/slicknav.css" media="screen and (max-width: 991px)"/>
     <script src="<?php echo $linkrootshop?>/lib/SlickNav/jquery.slicknav.js"></script>
@@ -307,7 +308,6 @@ require("module/box_device.php");
 <link rel="stylesheet" type="text/css" href="<?php echo $linkrootshop?>/scripts/nivo-slider/nivo-slider.css" media="screen and (min-width: 991px)">
 <link rel="stylesheet" type="text/css" href="<?php echo $linkrootshop?>/scripts/nivo-slider/themes/default/default.css" media="screen and (min-width: 991px)">
 <script type="text/javascript" src="<?php echo $linkrootshop?>/scripts/nivo-slider/jquery.nivo.slider.js"></script>
-<script type="text/javascript"  src="<?php echo $linkrootshop?>/scripts/responsive.js"></script>
 
 <?php include("module/footer.php") ;?>
 <?php require("common_end.php");?>
