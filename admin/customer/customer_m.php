@@ -157,7 +157,7 @@ if (isset($_POST['btnSave'])){
                                 <td valign="middle" width="70%"><input name="password" type="password" class="table_khungnho" id="password" value=""/></td>
                             </tr>
                             <tr>
-                              <td valign="middle">Re-password <span class="sao_bb">*</span></td>
+                              <td valign="middle">Re-password</td>
                               <td valign="middle"><input name="repassword" type="password" class="table_khungnho" id="repassword" value=""/></td>
                             </tr>
                             <tr>
