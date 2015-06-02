@@ -39,7 +39,7 @@ if($cache == 1){
             exit;
         }
     }
-    
+
     /* If no file or too old, render and capture HTML page. */
     ob_start();
 }
