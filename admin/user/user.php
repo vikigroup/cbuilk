@@ -208,7 +208,7 @@ $(document).ready(function() {
                                 </tr>
                                <tr>
                                   <td align="center" colspan="2">
-                                  <input type="submit" value="Xóa chọn" name="btnDel" onClick="return confirm('Bạn có chắc chắn muốn xóa ?');" class="button">
+                                  <input type="submit" value="Xóa chọn" name="btnDel" onClick="return confirm('Bạn chắc chắn muốn xóa?');" class="button">
                                   </td>
                                   <td align="center" class="PageNum" colspan="8">
                                     	<?php echo pagesListLimit($totalRows,$pageSize);?>   
@@ -296,7 +296,7 @@ $(document).ready(function() {
 											<td align="center"><span class="smallfont"><img src="images/anhien_<?=$row['status']?>.png" width="25" height="25" class="anhien" title="Ẩn hiện" value="<?=$row['id']?>" /></span></td>                                        
 											<td align="center">
 												<a href="admin.php?act=user_m&cat=<?=$_REQUEST['cat']?>&page=<?=$_REQUEST['page']?>&id=<?=$row['id']?>"><img src="images/icon3.png"/></a>
-												<a  title="Xóa" href="?act=user&action=del&page=<?=$_REQUEST['page']?>&id=<?=$row['id']?>" onclick="return confirm('Bạn có muốn xoá luôn không ?');" ><img src="images/icon4.png" width="20" border="0" /></a> 
+												<a  title="Xóa" href="?act=user&action=del&page=<?=$_REQUEST['page']?>&id=<?=$row['id']?>" onclick="return confirm('Bạn chắc chắn muốn xoá?');" ><img src="images/icon4.png" width="20" border="0" /></a>
 											</td>
 										</tr>
 									 <?php }?>  
