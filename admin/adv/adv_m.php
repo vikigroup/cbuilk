@@ -45,7 +45,7 @@ if (isset($_POST['btnSave'])){
 	if ($errMsg==''){
 		if (!empty($_POST['id'])){
 			$oldid = $_POST['id'];
-			 $sql = "update tbl_adv set name='".$name."',type='".$type."',link='".$link."',sort='".$sort."', status='".$status."'
+			 $sql = "update tbl_adv set name='".$name."',style='".$type."',link='".$link."',sort='".$sort."', status='".$status."'
 			 ,main_position='".$mainPosition."',sub_position='".$subPosition."',start_banner='".$startDateTime."',finish_banner='".$endDateTime."',last_modified=now() where id='".$oldid."'";
 		}else{
 			 $sql = "insert into tbl_adv (name, style, link, sort, status,  date_added, last_modified, main_position, sub_position, start_banner, finish_banner) values ('".$name."'
@@ -122,7 +122,8 @@ if (isset($_POST['btnSave'])){
             $subPosition   = $row['sub_position'];
             $startDateTime = $row['start_banner'];
             $endDateTime   = $row['finish_banner'];
-		}
+            $style   = $row['style'];
+        }
 	}
 }
 
@@ -192,7 +193,7 @@ if (isset($_POST['btnSave'])){
                                  <option value="2" id="2">BÊN TRÊN</option>
                                  <option value="3" id="3">BÊN PHẢI</option>
                              </select>
-                             <input type="hidden" name="slType" id="slType" value="TOP (190x330)">
+                             <input type="hidden" name="slType" id="slType" value="<?=$style?>">
                              <select class="table_khungnho" id="slPageCreateAdminBanner" name="slPageCreateAdminBanner" value="<?=$subPosition?>" onchange="$('#slType').val($('#slPageCreateAdminBanner option:selected').text());"> </select>
                          </td>
                      </tr>
