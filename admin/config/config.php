@@ -44,19 +44,20 @@ if (isset($_POST['btnSave'])){
 	$sort          = isset($_POST['txtSort']) ? trim($_POST['txtSort']) : 0;
 	$status        = $_POST['chkStatus']!='' ? 1 : 0;
 	
-	$copyright        = isset($_POST['copyright']) ? trim($_POST['copyright']) : '';
-	$tenkh        = isset($_POST['tenkh']) ? trim($_POST['tenkh']) : '';
-	$dckh        = isset($_POST['dckh']) ? trim($_POST['dckh']) : '';
-	$dtkh        = isset($_POST['dtkh']) ? trim($_POST['dtkh']) : '';
-	$hotlinekh        = isset($_POST['hotlinekh']) ? trim($_POST['hotlinekh']) : '';
-	$emailkh        = isset($_POST['emailkh']) ? trim($_POST['emailkh']) : '';
-	$faxkh        = isset($_POST['faxkh']) ? trim($_POST['faxkh']) : '';
+	$copyright     = isset($_POST['copyright']) ? trim($_POST['copyright']) : '';
+	$tenkh         = isset($_POST['tenkh']) ? trim($_POST['tenkh']) : '';
+	$dckh          = isset($_POST['dckh']) ? trim($_POST['dckh']) : '';
+	$dtkh          = isset($_POST['dtkh']) ? trim($_POST['dtkh']) : '';
+	$hotlinekh     = isset($_POST['hotlinekh']) ? trim($_POST['hotlinekh']) : '';
+	$emailkh       = isset($_POST['emailkh']) ? trim($_POST['emailkh']) : '';
+	$faxkh         = isset($_POST['faxkh']) ? trim($_POST['faxkh']) : '';
 	
-	$title        = isset($_POST['title']) ? trim($_POST['title']) : '';
-	$description        = isset($_POST['description']) ? trim($_POST['description']) : '';
-	$keywords        = isset($_POST['keywords']) ? trim($_POST['keywords']) : '';
-	
-	$cauhinh_mail_ten        = isset($_POST['cauhinh_mail_ten']) ? trim($_POST['cauhinh_mail_ten']) : '';
+	$title         = isset($_POST['title']) ? trim($_POST['title']) : '';
+	$description   = isset($_POST['description']) ? trim($_POST['description']) : '';
+	$keywords      = isset($_POST['keywords']) ? trim($_POST['keywords']) : '';
+    $cache         = $_POST['onoffswitch'];
+
+    $cauhinh_mail_ten        = isset($_POST['cauhinh_mail_ten']) ? trim($_POST['cauhinh_mail_ten']) : '';
 	$cauhinh_mail_mk        = isset($_POST['cauhinh_mail_mk']) ? trim($_POST['cauhinh_mail_mk']) : '';
 	
 	$catInfo       = getRecord('tbl_config', 'id='.$parent);
@@ -73,7 +74,7 @@ if (isset($_POST['btnSave'])){
 	if ($errMsg==''){
 		if (!empty($_POST['id'])){
 			$oldid = $_POST['id'];
-			$sql = "update tbl_config set copyright='".$copyright."',title='".$title."', description='".$description."',keywords='".$keywords."',tenkh='".$tenkh."',dckh='".$dckh."', dtkh='".$dtkh."', hotlinekh='".$hotlinekh."', emailkh='".$emailkh."', faxkh='".$faxkh."', note='".$detail."', cauhinh_mail_ten='".$cauhinh_mail_ten."', cauhinh_mail_mk='".$cauhinh_mail_mk."' where id='".$oldid."'";
+			$sql = "update tbl_config set copyright='".$copyright."',title='".$title."', description='".$description."',keywords='".$keywords."',tenkh='".$tenkh."',dckh='".$dckh."', dtkh='".$dtkh."', hotlinekh='".$hotlinekh."', emailkh='".$emailkh."', faxkh='".$faxkh."', note='".$detail."', cauhinh_mail_ten='".$cauhinh_mail_ten."', cauhinh_mail_mk='".$cauhinh_mail_mk."', cache='".$cache."' where id='".$oldid."'";
 		}
 		
 		if (mysql_query($sql,$conn)){
@@ -106,9 +107,11 @@ if (isset($_POST['btnSave'])){
 			$cauhinh_mail_ten    = $row['cauhinh_mail_ten'];
 			$cauhinh_mail_mk     = $row['cauhinh_mail_mk'];
 			$title         = $row['title'];
-			$description         = $row['description'];
-			$keywords         = $row['keywords'];
-		}
+			$description   = $row['description'];
+			$keywords      = $row['keywords'];
+            $cache         = $row['cache'];
+
+        }
 	}
 }
 
@@ -182,6 +185,19 @@ if (isset($_POST['btnSave'])){
                                 <tr>
                                   <td valign="middle">Fax khách hàng<span class="sao_bb">*</span></td>
                                   <td valign="middle"><input name="faxkh" type="text" class="table_khungnho" id="faxkh" value="<?=$faxkh?>"  /></td>
+                                </tr>
+                                <tr>
+                                    <td valign="middle">Chế độ cache</td>
+                                    <td valign="middle">
+                                        <div class="onoffswitch">
+                                            <input type="hidden" id="hiddenCache" value="1">
+                                            <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" value="<?php if($cache>0){echo $cache;}else{echo 0;} ?>" <? if ($cache>0) echo 'checked' ?> onchange="if($(this).is(':checked')){this.value = 1;}else{this.value = 0;}">
+                                            <label class="onoffswitch-label" for="myonoffswitch">
+                                                <span class="onoffswitch-inner"></span>
+                                                <span class="onoffswitch-switch"></span>
+                                            </label>
+                                        </div>
+                                    </td>
                                 </tr>
                                 <tr>
                                   <td colspan="2" valign="middle"><textarea name="txtDetail" class="txt" id="txtDetail"><?php echo $detail?></textarea>
