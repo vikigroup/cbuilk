@@ -54,7 +54,7 @@ if (isset($_POST['btnSave'])){
 	$detail        = isset($_POST['txtDetail']) ? trim($_POST['txtDetail']) : '';
 	$link          = isset($_POST['link']) ? trim($_POST['link']) : '';
 	$sort          = isset($_POST['txtSort']) ? trim($_POST['txtSort']) : 0;
-	$status        = $_POST['chkStatus']!='' ? 1 : 0;
+	$status        = $_POST['chkStatus'];
 	
 	$title         = isset($_POST['title']) ? trim($_POST['title']) : "";
 	$description   = isset($_POST['description']) ? trim($_POST['description']) : "";
@@ -76,7 +76,7 @@ if (isset($_POST['btnSave'])){
 			$oldid = $_POST['id'];
 			$sql = "update jbs_tin set name='".$name."',parent='".$parent."',detail='".$detail."',sort='".$sort."', status='".$status."', title='".$title."', description='".$description."', keyword='".$keyword."',last_modified=now() where id='".$oldid."'";
 		}else{
-			$sql = "insert into jbs_tin (name, parent , detail, title , description , keyword , sort, status,  date_added, last_modified  ) values ('".$name."','".$parent."','".$detail."','".$title."','".$description."','".$keyword."','".$sort."','1',now(),now())";
+			$sql = "insert into jbs_tin (name, parent , detail, title , description , keyword , sort, status,  date_added, last_modified  ) values ('".$name."','".$parent."','".$detail."','".$title."','".$description."','".$keyword."','".$sort."','".$status."',now(),now())";
 		}
 		if (mysql_query($sql,$conn)){
 			if(empty($_POST['id'])) $oldid = mysql_insert_id();
