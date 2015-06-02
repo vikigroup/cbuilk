@@ -21,10 +21,6 @@ if (isset($_POST['tim'])==true)//isset kiem tra submit
 
     if($_POST['ddCatch']!=NULL){$parent1=$_POST['ddCatch'];}else {$parent1=-1;}
     $_SESSION['kt_ddCatch_bignew']=$parent1;
-
-
-
-
 }
 
 if (isset($_POST['reset'])==true) {
@@ -99,10 +95,7 @@ $(document).ready(function() {
              
             <div class="widget-container">
                 <div class="widget-block">
-                    
-                    
 						<?
-                        
                         switch ($_GET['action']){ // luu y lai viec xoa user: hinh anh, cac du lieu ve shop
                             case 'del' :
                                 $id = $_GET['id'];
@@ -190,8 +183,8 @@ $(document).ready(function() {
                                         <div class="link_loc" style="width:80px;text-align:center; padding:3px; border:solid 1px #999; float:left; margin-right:5px;<?php if($anhien==1) echo 'background-color:#FF0; color:#000;';else echo 'background-color:#FFF; color:#FFF;"';?>">
                                         	<a href="admin.php?act=customer&tang=<?php echo $_SESSION['kt_tang'] ?>&anhien=1&noibat=<?php echo $_SESSION['kt_noibat'] ?>">  Kích hoạt</a>
                                         </div>
-                                         <div class="link_loc" style="width:80px;text-align:center; padding:3px; border:solid 1px #999; float:left; margin-right:5px;<?php if($anhien==0) echo 'background-color:#FF0; color:#000;';else echo 'background-color:#FFF; color:#FFF;"';?>">
-                                        	<a href="admin.php?act=customer&amp;tang=<?php echo $_SESSION['kt_tang'] ?>&amp;anhien=1&amp;noibat=<?php echo $_SESSION['kt_noibat'] ?>">Chưa</a> <a href="admin.php?act=customer&tang=<?php echo $_SESSION['kt_tang'] ?>&anhien=0&&noibat=<?php echo $_SESSION['kt_noibat'] ?>">Kích hoạt</a>
+                                         <div class="link_loc" style="width:100px;text-align:center; padding:3px; border:solid 1px #999; float:left; margin-right:5px;<?php if($anhien==0) echo 'background-color:#FF0; color:#000;';else echo 'background-color:#FFF; color:#FFF;"';?>">
+                                        	<a href="admin.php?act=customer&tang=<?php echo $_SESSION['kt_tang'] ?>&anhien=0&&noibat=<?php echo $_SESSION['kt_noibat'] ?>">Chưa kích hoạt</a>
                                         </div>
                                         <div class="link_loc" style="width:80px;text-align:center; padding:3px; border:solid 1px #999; float:left; margin-right:5px;<?php if($noibat==1) echo 'background-color:#FF0; color:#000;';else echo 'background-color:#FFF; color:#FFF;"';?>">
                                         	<a href="admin.php?act=customer&tang=<?php echo $_SESSION['kt_tang'] ?>&anhien=<?php echo $_SESSION['kt_anhien'] ?>&noibat=1">Nổi bật</a>
