@@ -220,22 +220,6 @@ require("module/box_device.php");
             header("location: $linkrootshop");
         }
         ?>
-        <script type="text/javascript">
-            $(document).ready(function() {
-                $("form[name=form1]").bind('submit',function(){
-                    var username=$("#username").val();
-                    var password=$("#password").val();
-                    if(username=="") {
-                        alert("Bạn chưa nhập tài khoản");
-                        return false;
-                    }
-                    if(password=="") {
-                        alert("Bạn chưa nhập mật khẩu");
-                        return false;
-                    }
-                });
-            });
-        </script>
     </div><!-- End .m-wrap -->
 </section><!-- End #container -->
 
