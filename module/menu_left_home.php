@@ -8,7 +8,7 @@
             <ul class="ul-dm">
                 <?php
                 $arrayID = array('209', '210', '211', '390');
-                $cate=get_records("tbl_shop_category","status=0 AND parent=2 AND id NOT IN ( '" . implode($arrayID, "', '"). "' )","sort","8,15"," ");
+                $cate=get_records("tbl_shop_category","status=0 AND parent=2 AND sort != 0 AND id NOT IN ( '" . implode($arrayID, "', '"). "' )","sort","8,15"," ");
                 $i=1;
                 while($row_cate=mysql_fetch_assoc($cate)){
                     ?>
