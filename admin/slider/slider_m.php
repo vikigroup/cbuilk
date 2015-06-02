@@ -168,7 +168,7 @@ if (isset($_POST['btnSave'])){
                     </tr>
                     <tr>
                       <td valign="middle">Link</td>
-                      <td valign="middle"><input name="link" type="text" class="table_khungnho" id="link" value="<?=$link;?>"  /></td>
+                      <td valign="middle"><input name="link" type="text" class="table_khungnho" id="link" value="<?=$link;?>" onchange="addhttp(this.value)"/></td>
                     </tr>
                     <tr>
                         <td valign="middle" width="30%">
@@ -223,3 +223,13 @@ if (isset($_POST['btnSave'])){
         </div>
     </div>
 </div>
+
+<script>
+    function addhttp(url) {
+        var pattern = /^((http|https):\/\/)/;
+        if(!pattern.test(url)) {
+            url = "http://" + url;
+        }
+        $('#link').val(url);
+    }
+</script>
