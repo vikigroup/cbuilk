@@ -21,12 +21,16 @@ if (isset($_POST['btnSave'])){
 	$address         = isset($_POST['address']) ? trim($_POST['address']) : '';
 	$cmnd          = isset($_POST['cmnd']) ? trim($_POST['cmnd']) : '';
 	$ghichu        = isset($_POST['ghichu']) ? trim($_POST['ghichu']) : '';
-	
+
+    if($password == ""){
+        $errMsg .= "Password không được để trống";
+    }
+
 	if($repassword!="")
 		if($password==$repassword){
 			$password=md5(md5(md5($password)));
 	
-		}else echo $errMsg.="Password phải nhâp giống nhau";
+		}else $errMsg.="Password phải nhâp giống nhau";
 	
 
 	$sort          = isset($_POST['txtSort']) ? trim($_POST['txtSort']) : 0;
@@ -133,7 +137,7 @@ if (isset($_POST['btnSave'])){
                               <td valign="middle">&nbsp;</td>
                             </tr>
                             <tr>
-                                <td valign="middle" width="30%">Tên người dùng<span class="sao_bb">*</span>
+                                <td valign="middle" width="30%">Tên người dùng
                                 </td>
                                 <td valign="middle" width="70%">
                                     <input name="name" type="text" class="table_khungnho" id="name" value="<?=$name?>"/>
@@ -148,16 +152,16 @@ if (isset($_POST['btnSave'])){
                                 </td>
                             </tr>
                             <tr>
-                                <td valign="middle" width="30%">Password<span class="sao_bb">*</span>
+                                <td valign="middle" width="30%">Password <span class="sao_bb">*</span>
                                 </td>
                                 <td valign="middle" width="70%"><input name="password" type="password" class="table_khungnho" id="password" value=""/></td>
                             </tr>
                             <tr>
-                              <td valign="middle">Repassword</td>
+                              <td valign="middle">Re-password <span class="sao_bb">*</span></td>
                               <td valign="middle"><input name="repassword" type="password" class="table_khungnho" id="repassword" value=""/></td>
                             </tr>
                             <tr>
-                                <td valign="middle" width="30%">Mobile<span class="sao_bb">*</span>
+                                <td valign="middle" width="30%">Mobile
                                 </td>
                                 <td valign="middle" width="70%">
                                     <input name="mobile" type="text" class="table_khungnho" id="mobile" value="<?=$mobile?>"/>
@@ -165,7 +169,7 @@ if (isset($_POST['btnSave'])){
                             </tr>
                             <tr>
                                 <td valign="middle" width="30%">
-                                    Email  <span class="sao_bb">*</span>
+                                    Email
                                 </td>
                                 <td valign="middle" width="70%">
                                     <input name="email" type="text" class="table_khungnho" id="email" value="<?=$email?>"/>
@@ -173,7 +177,7 @@ if (isset($_POST['btnSave'])){
                             </tr>
                              <tr>
                                 <td valign="middle" width="30%">
-                                    Địa chỉ  <span class="sao_bb">*</span>
+                                    Địa chỉ
                                 </td>
                                 <td valign="middle" width="70%">
                                     <input name="address" type="text" class="table_khungnho" id="address" value="<?=$address?>"/>
@@ -181,56 +185,34 @@ if (isset($_POST['btnSave'])){
                             </tr>
                             <tr>
                                 <td valign="middle" width="30%">
-                                    Số chứng minh  <span class="sao_bb">*</span>
+                                    Số chứng minh
                                 </td>
                                 <td valign="middle" width="70%">
                                     <input name="cmnd" type="text" class="btn_search" id="cmnd" value="<?=$cmnd?>"/>
                                 </td>
                             </tr>
                             <tr>
-
                                 <td valign="middle" width="30%">
-        
                                 Hình đại diện</td>
-        
                                 <td valign="middle" width="70%">
-        
                                     <input type="file" name="txtImage" class="textbox" size="34">
-        
                                     <input type="checkbox" name="chkClearImg" value="on"> Xóa bỏ hình ảnh	 <br>
-        
                                     <? if ($image!=''){ echo '<img border="0" width="80" height="80" src="../web/'.$image.'"><br><br>Hình (kích thước nhỏ)';}?>&nbsp;&nbsp;
-        
                                     <?  if ($image_large!=''){ echo '<img border="0" src="../web/'.$image_large.'"><br><br>Hình (kích thước lớn)';}?>
-        
-                             
-        
-                                    
-        
                                 </td>
-        
                             </tr>
                             <tr>
                                 <td valign="middle" width="30%">
-                                    Giới tính  <span class="sao_bb">*</span>
+                                    Giới tính
                                 </td>
                                 <td valign="middle" width="70%">
                                     <input name="status" type="checkbox"  id="gioitinh" value="1" <?php if($gioitinh==1) echo 'checked="checked"';?>  /> Nam
                                     <input name="status"  type="checkbox" id="gioitinh" value="0" <?php if($gioitinh==0) echo 'checked="checked"';?>/> Nữ
                                 </td>
                             </tr>
-                            <!--<tr>
-                                <td valign="middle" width="30%">
-                                    Hình đại diện  <span class="sao_bb">*</span>
-                                </td>
-                                <td valign="middle" width="70%">
-                                    <input name="txtImage" type="file" class="" id="txtImage"/><input type="checkbox" name="chkClearImg" value="on"> Xóa bỏ hình ảnh <br />
-                                    <img src="../<?=$image?>" width="100" height="100" />
-                                </td>
-                            </tr>-->
                             <tr>
                                 <td valign="top" width="30%">
-                                    Ghi chú  <span class="sao_bb">*</span>
+                                    Ghi chú
                                 </td>
                                 <td valign="middle" width="70%">
                                     <textarea name="ghichu" class="text_ghichu" id="ghichu"><?=$ghichu;?></textarea>
@@ -246,9 +228,7 @@ if (isset($_POST['btnSave'])){
                                 </td>
                             </tr>
                         </table>
-                            
-                     </form> 
-
+                     </form>
                 </div>
             </div>
         </div>
