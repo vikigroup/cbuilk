@@ -500,7 +500,7 @@ while($row=mysql_fetch_array($result)){
 
             <a href="admin.php?act=video_m&cat=<?=$_REQUEST['cat']?>&page=<?=$_REQUEST['page']?>&id=<?=$row['id']?>"><img src="images/icon3.png"/></a>
 
-            <a  title="Xóa" href="admin.php?act=video&action=del&page=<?=$_REQUEST['page']?>&id=<?=$row['id']?>" onclick="return confirm('Bạn chắc chắn muốn xoá??');" ><img src="images/icon4.png" width="20" border="0" /></a>
+            <a  title="Xóa" href="admin.php?act=video&action=del&page=<?=$_REQUEST['page']?>&id=<?=$row['id']?>" onclick="return confirm('Bạn chắc chắn muốn xoá?');" ><img src="images/icon4.png" width="20" border="0" /></a>
 
         </td>
 
