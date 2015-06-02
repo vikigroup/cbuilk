@@ -146,7 +146,7 @@ if (isset($_POST['btnSave'])){
                                 </td>
                             </tr>
                             <tr>
-                              <td valign="middle"> Nick yahoo<span class="sao_bb"></span></td>
+                              <td valign="middle"> Nick skype<span class="sao_bb"></span></td>
                               <td valign="middle"><input name="nickyahoo" type="text" class="table_khungnho" id="nickyahoo" value="<?=$nickyahoo?>"/></td>
                             </tr>
                              
