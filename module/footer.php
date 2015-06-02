@@ -44,10 +44,18 @@
                             <li>
 
                                 <div class="l-yahoo">
-                                    <a href="ymsgr:sendIM?<?=$row_slide['nickyahoo']?>"><?=$row_slide['name']?></a>
+                                    <span><?=$row_slide['name']?></span>
                                 </div>
-                                <div class="r-yahoo">
-                                    <a href="ymsgr:sendIM?<?=$row_slide['nickyahoo']?>"><img src='http://opi.yahoo.com/online?u=<?=$row_slide['nickyahoo']?>&m=g&t=1&l=vi' alt ='<?=$row_slide['name']?>' /></a>
+                                <script type="text/javascript" src="http://www.skypeassets.com/i/scom/js/skype-uri.js"></script>
+                                <div id="SkypeButton" class="r-yahoo">
+                                    <script type="text/javascript">
+                                        Skype.ui({
+                                            "name": "chat",
+                                            "element": "SkypeButton",
+                                            "participants": ["<?=$row_slide['nickyahoo']?>"],
+                                            "imageSize": 22
+                                        });
+                                    </script>
                                 </div>
                                 <div class="clear"></div>
                             </li>
