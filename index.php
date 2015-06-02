@@ -35,8 +35,6 @@ if($cache == 1){
     /* Is cache file still fresh? If so, serve it */
     if($pageName != ''){
         if (file_exists($cachefile) && time() - $cachetime < filemtime($cachefile)) {
-            echo time() - $cachetime."<br/>";
-            echo filemtime($cachefile);
             include($cachefile);
             exit;
         }
