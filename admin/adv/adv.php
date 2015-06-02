@@ -184,17 +184,9 @@ $(document).ready(function() {
                 <form method="POST" action="admin.php?act=adv" name="frmForm" enctype="multipart/form-data">
                 <input type="hidden" name="page" value="<?=$page?>">
                 <input type="hidden" name="act" value="adv">
-                <?
-               // $pageindex = createPage(countRecord("tbl_adv",$where),"./?act=shop_category&cat=".$_REQUEST['cat']."&page=",$MAXPAGE,$page)?>
-                <?php echo pagesLinks($totalRows,$pageSize);// Trang đầu,  Trang kế, tang trước, trang cuối ??>
                 <? if ($_REQUEST['code']==1) $errMsg = 'Cập nhật thành công.'?>
-                
-               
-                	 
                     <table width="100%"  class="admin_table">
-
                             <thead>
-    
                                 <tr align="center" >
                                   <td valign="middle"  colspan="10">
                                     <center>
