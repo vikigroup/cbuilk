@@ -437,7 +437,7 @@ footer {}
 .m-ifoot ul.news li a:hover {color: #3ba11b; text-decoration: underline;}
 
 .m-ifoot ul.yahoo li {height: 22px; line-height: 22px;}
-.l-yahoo {float: left; width: 50%;}
+.l-yahoo {float: left; width: 30%;}
 .r-yahoo {overflow: hidden; width: 100px; display: inline-block}
 .m-ifoot ul.yahoo li .l-yahoo a {color: #444; background: url(../imgs/layout/icon-ifoot.png) no-repeat left 5px; padding: 0 0 0 10px;}
 .m-ifoot ul.yahoo li .l-yahoo a:hover {color: #3ba11b; text-decoration: underline;}
@@ -1479,4 +1479,11 @@ label{
 .s2_hotline{
     font-size: 16px;
     color: red;
+}
+
+#SkypeButton_paraElement{
+    height: 22px;
+    padding: 0;
+    position: relative;
+    top: -10px;
 }
