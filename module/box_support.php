@@ -45,7 +45,7 @@
             <li><a href="<?php echo $linkrootshop?>/<?php echo $rent['subject']; ?>.html"><?php echo $rent['name']; ?></a></li>
             <li><a href="<?php echo $linkrootshop; ?>/<?php echo $news['subject']; ?>.html"><?php echo $news['name']; ?></a></li>
             <li><a href="<?php echo $linkrootshop; ?>/<?php echo $video['subject']; ?>.html"><?php echo $video['name']; ?></a></li>
-            <li><a href="<?php echo $linkrootshop?>/dang-ky-gian-hang.html">Mở gian hàng miễn phí</a></li>
+            <li><a href="<?php echo $linkrootshop?>/dang-ky-gian-hang.html" class="menu-shop">Mở gian hàng miễn phí</a></li>
         </ul>
     </ul>
     <div class="clear"></div>
