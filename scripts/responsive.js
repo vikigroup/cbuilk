@@ -11,12 +11,12 @@ $('.mini-login').hover(
         $('.mini-login').hide(); $('.mini-angle').hide();
     });
 
-window.onload = function(){
+$(function(){
     autoHome();
     $(window).resize(function () {
         autoHome();
     });
-};
+});
 
 function autoHome(){
     var windowSize = $(window).width();
