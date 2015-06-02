@@ -26,7 +26,7 @@ if (isset($_POST['btnSave'])){
 		if($password==$repassword){
 			$password=md5(md5(md5($password)));
 	
-		}else $errMsg.="Password phải nhâp giống nhau";
+		}else echo $errMsg.="Password phải nhâp giống nhau";
 	
 
 	$sort          = isset($_POST['txtSort']) ? trim($_POST['txtSort']) : 0;
@@ -48,7 +48,7 @@ if (isset($_POST['btnSave'])){
 			else $sql = "update tbl_customer set name='".$name."', username='".$username."', password='".$password."', mobile='".$mobile."',email='".$email."',address='".$address."',cmnd='".$cmnd."',ghichu='".$ghichu."',sex='".$gioitinh."',status='".$status."',last_modified=now() where id='".$oldid."'";
 			//echo $sql;
 		}else{
-			$sql = "insert into tbl_customer (name, username, password, mobile, email, adress , cmnd , ghichu , sex , active , status,  date_added, last_modified) values ('".$name."','".$username."','".$password."','".$mobile."','".$email."','".$address."','".$cmnd."','".$ghichu."','".$gioitinh."','1','1',now(),now())";
+			$sql = "insert into tbl_customer (name, username, password, mobile, email, address , cmnd , ghichu , sex , active , status,  date_added, last_modified) values ('".$name."','".$username."','".$password."','".$mobile."','".$email."','".$address."','".$cmnd."','".$ghichu."','".$gioitinh."','1','1',now(),now())";
 		}
 		if (mysql_query($sql,$conn)){
 			if(empty($_POST['id'])) $oldid = mysql_insert_id();
