@@ -19,7 +19,7 @@ if (isset($_POST['btnSave'])){
 	$detail_short  = isset($_POST['txtDetailShort']) ? trim($_POST['txtDetailShort']) : '';
 	$detail        = isset($_POST['txtDetail']) ? trim($_POST['txtDetail']) : '';
 	$sort          = isset($_POST['txtSort']) ? trim($_POST['txtSort']) : 0;
-	$status        = $_POST['chkStatus']!='' ? 1 : 0;
+	$status        = $_POST['chkStatus'];
 	
 	$catInfo       = getRecord('tbl_support', 'id='.$parent);
 	if(!$multiLanguage){
@@ -37,7 +37,7 @@ if (isset($_POST['btnSave'])){
 			$oldid = $_POST['id'];
 			$sql = "update tbl_support set name='".$name."' , nickyahoo='".$nickyahoo."' , sort='".$sort."', status='".$status."',last_modified=now() where id='".$oldid."'";
 		}else{
-			$sql = "insert into tbl_support (name, nickyahoo , sort, status,  date_added, last_modified) values ('".$name."','".$nickyahoo."','".$sort."','1',now(),now())";
+			$sql = "insert into tbl_support (name, nickyahoo , sort, status,  date_added, last_modified) values ('".$name."','".$nickyahoo."','".$sort."','".$status."',now(),now())";
 		}
 		if (mysql_query($sql,$conn)){
 			if(empty($_POST['id'])) $oldid = mysql_insert_id();
@@ -146,13 +146,13 @@ if (isset($_POST['btnSave'])){
                                 </td>
                             </tr>
                             <tr>
-                              <td valign="middle"> nick yahoo<span class="sao_bb"></span></td>
+                              <td valign="middle"> Nick yahoo<span class="sao_bb"></span></td>
                               <td valign="middle"><input name="nickyahoo" type="text" class="table_khungnho" id="nickyahoo" value="<?=$nickyahoo?>"/></td>
                             </tr>
                              
                              <tr>
                                 <td valign="middle" width="30%">
-                                   Thứ tự sắp xếp<span class="sao_bb">*</span>
+                                   Thứ tự sắp xếp
                                 </td>
                                 <td valign="middle" width="70%">
                                     <input class="table_khungnho" value="<?=$sort?>" type="text" name="txtSort"  />
@@ -162,7 +162,7 @@ if (isset($_POST['btnSave'])){
                                 <td valign="top" width="30%">
                                     Không hiển thị</td>
                                 <td valign="middle" width="70%">
-                                    <input type="checkbox" name="chkStatus" value="on" <? if ($status>0) echo 'checked' ?>>
+                                    <input type="checkbox" name="chkStatus" value="<?php if($status>0){echo $status;}else{echo 0;} ?>" <? if ($status>0) echo 'checked' ?> onchange="if($(this).is(':checked')){this.value = 1;}else{this.value = 0;}">
                                 </td>
                             </tr>
                              
