@@ -1032,7 +1032,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     background-color: transparent !important;
 }
 
-.slicknav_open, #menu li:last-child{
+.slicknav_open, .menu-shop{
     background-color: #004481 !important;
 }
 
