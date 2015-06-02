@@ -633,7 +633,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 .rm_prod_other:hover{text-decoration:underline;}
 
 
-.form_dn{padding-top:20px;}
+.form_dn{padding-top:20px; max-width: 1210px;}
 .form_dn ul li{float:left; width:480px;}
 .form_dn ul li:nth-child(1n){float:left; text-align: center;}
 .form_dn ul li:nth-child(2n){float:right;}
