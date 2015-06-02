@@ -6,6 +6,39 @@ if(isset($frame)==true){
 }
 ?>
 
+<script language="javascript">
+    function btnSave_onclick(){
+        if($('#txtName').val() == ''){
+            alert('Bạn chưa nhập "tên" !');
+            $('#txtName').focus();
+            return false;
+        }
+
+        if($('#title').val() == ''){
+            alert('Bạn chưa nhập "tiêu đề"');
+            $('#title').focus();
+            return false;
+        }
+
+        if($('#description').val() == ''){
+            alert('Bạn chưa nhập "mô tả"');
+            $('#description').focus();
+            return false;
+        }
+
+        if($('#keyword').val() == ''){
+            alert('Bạn chưa nhập "từ khóa tìm kiếm"');
+            $('#keyword').focus();
+            return false;
+        }
+
+        //document.forms.frmForm.elements.txtSubject.value = oEdit0.getHTMLBody();
+        document.frmForm.txtDetailShort.focus();
+        document.forms.frmForm.elements.txtDetail.value = oEdit2.getHTMLBody();
+
+        return true;
+    }
+</script>
 
 <? $errMsg =''?>
 <?
@@ -261,7 +294,7 @@ if (isset($_POST['btnSave'])){
 
                         <td valign="middle" width="30%">
 
-                            title  <span class="sao_bb">*</span>
+                            Tiêu đề  <span class="sao_bb">*</span>
 
                         </td>
 
@@ -277,7 +310,7 @@ if (isset($_POST['btnSave'])){
 
                         <td valign="middle" width="30%">
 
-                            description  <span class="sao_bb">*</span>
+                            Mô tả  <span class="sao_bb">*</span>
 
                         </td>
 
@@ -293,7 +326,7 @@ if (isset($_POST['btnSave'])){
 
                         <td valign="middle" width="30%">
 
-                            keyword  <span class="sao_bb">*</span>
+                            Từ khóa tìm kiếm  <span class="sao_bb">*</span>
 
                         </td>
 
