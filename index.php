@@ -1,49 +1,51 @@
 <?php
-$link = $_SERVER['REQUEST_URI'];
-$myLink = explode("?", $link);
-$myData = explode("&", $myLink[1]);
-$myFilter = explode("=", $myData[0]);
-$filterCache = $myFilter[1];
-$myPage = explode("=", $myData[1]);
-$pageNumCache = $myPage[1];
-
-/* Assign your dynamically generated page to $page */
-$pageName = $_GET['tensanpham'];
-$page = $pageName.".html";
-
-if($filterCache != ''){
-    $page .= "?filter1=".$filterCache."&page=".$pageNumCache;
-}
-
-if($pageName == ''){
-    $pageName = $_GET['tenthongtin'];
-    $page = "thong-tin-".$pageName.".html";
-}
-
-/* Define path and name of cached file */
-$cachefile = 'cache/' .$page;
-
-/* How long to keep cache file? */
-$cachetime = 300;
-
-/* Is cache file still fresh? If so, serve it */
-if($pageName != ''){
-    if (file_exists($cachefile) && time() - $cachetime < filemtime($cachefile)) {
-        include($cachefile);
-        exit;
-    }
-}
-
-
-/* If no file or too old, render and capture HTML page. */
-ob_start();
-?>
-
-<?php
 require("config.php");
 require("common_start.php");
 include("lib/func.lib.php");
 
+$cache = get_field('tbl_config','id','2','cache');
+if($cache == 1){
+    $link = $_SERVER['REQUEST_URI'];
+    $myLink = explode("?", $link);
+    $myData = explode("&", $myLink[1]);
+    $myFilter = explode("=", $myData[0]);
+    $filterCache = $myFilter[1];
+    $myPage = explode("=", $myData[1]);
+    $pageNumCache = $myPage[1];
+
+    /* Assign your dynamically generated page to $page */
+    $pageName = $_GET['tensanpham'];
+    $page = $pageName.".html";
+
+    if($filterCache != ''){
+        $page .= "?filter1=".$filterCache."&page=".$pageNumCache;
+    }
+
+    if($pageName == ''){
+        $pageName = $_GET['tenthongtin'];
+        $page = "thong-tin-".$pageName.".html";
+    }
+
+    /* Define path and name of cached file */
+    $cachefile = 'cache/' .$page;
+
+    /* How long to keep cache file? */
+    $cachetime = 300;
+
+    /* Is cache file still fresh? If so, serve it */
+    if($pageName != ''){
+        if (file_exists($cachefile) && time() - $cachetime < filemtime($cachefile)) {
+            include($cachefile);
+            exit;
+        }
+    }
+    
+    /* If no file or too old, render and capture HTML page. */
+    ob_start();
+}
+?>
+
+<?php
 if($frame!="login" && $frame!="register" && $frame!="changepass" && $frame!="changeinfo"){
     unset($_SESSION['back_raovat']);
 }
@@ -60,7 +62,7 @@ require("module/box_device.php");
     <meta name="robots" content="index, follow"/>
     <meta name="author" content="www.cbuilk.com"/>
     <meta content="vi-VN" itemprop="inLanguage" />
-    <link rel="shortcut icon" href="imgs/layout/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="imgs/layout/logo.ico" type="image/x-icon" />
     <link rel="stylesheet" type="text/css" href="<?php echo $linkrootshop?>/templates/css.css">
     <script type="text/javascript" src="<?php echo $linkrootshop?>/scripts/jquery.js"></script>
     <link rel="stylesheet" type="text/css" href="<?php echo $linkrootshop?>/scripts/bxslider/jquery.bxslider.css" media="screen and (min-width: 991px)">
@@ -330,13 +332,15 @@ require("module/box_device.php");
 </html>
 
 <?php
-/* Save the cached content to a file */
-if($pageName != ''){
-    $fp = fopen($cachefile, 'w');
-    fwrite($fp, ob_get_contents());
-    fclose($fp);
-}
+if($cache == 1){
+    /* Save the cached content to a file */
+    if($pageName != ''){
+        $fp = fopen($cachefile, 'w');
+        fwrite($fp, ob_get_contents());
+        fclose($fp);
+    }
 
-/* Send browser output */
-ob_end_flush();
+    /* Send browser output */
+    ob_end_flush();
+}
 ?>
