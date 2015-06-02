@@ -224,13 +224,13 @@ $(document).ready(function() {
                                         <td width="6%" align="center">
                                             STT
                                         </td>
-                                        <td width="12%" align="center"><span class="title"><a class="title" href="<?=getLinkSort(3)?>">Tên khách hàng</a></span></td>
-                                        <td width="9%" align="center"><a class="title" href="<?=getLinkSort(4)?>">Username</a></td>
-                                        <!--<td width="10%" align="center"><a class="title" href="<?=getLinkSort(10)?>">Hình ảnh</a></td>-->
+                                        <td width="12%" align="center"><span class="title"><a class="title" href="<?=getLinkSortAdmin(3)?>">Tên khách hàng</a></span></td>
+                                        <td width="9%" align="center"><a class="title" href="<?=getLinkSortAdmin(4)?>">Username</a></td>
+                                        <!--<td width="10%" align="center"><a class="title" href="<?=getLinkSortAdmin(10)?>">Hình ảnh</a></td>-->
                                         <td width="16%" align="center">Thông tin</td>
-                                        <td width="11%" align="center"><span class="title"><a class="title" href="<?=getLinkSort(11)?>"> Ngày vào</a></span></td>
-                                        <td width="13%" align="center"><a class="title" href="<?=getLinkSort(12)?>">Ngày tạo lập</a></td>
-                                        <td width="8%" align="center"><a class="title" href="<?=getLinkSort(12)?>"> Kích hoạt</a></td>                                        
+                                        <td width="11%" align="center"><span class="title"><a class="title" href="<?=getLinkSortAdmin(11)?>"> Ngày vào</a></span></td>
+                                        <td width="13%" align="center"><a class="title" href="<?=getLinkSortAdmin(12)?>">Ngày tạo lập</a></td>
+                                        <td width="8%" align="center"><a class="title" href="<?=getLinkSortAdmin(12)?>"> Kích hoạt</a></td>
                                         <td width="11%" align="center">
                                             Công cụ
                                         </td>
