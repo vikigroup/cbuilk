@@ -227,7 +227,7 @@ $(document).ready(function() {
                                         <!--<td width="10%" align="center"><a class="title" href="<?=getLinkSort(10)?>">Hình ảnh</a></td>-->
                                         <td width="11%" align="center"><span class="title"><a class="title" href="<?=getLinkSort(11)?>"> Ngày vào</a></span></td>
                                         <td width="13%" align="center"><a class="title" href="<?=getLinkSort(12)?>">Ngày tạo lập</a></td>
-                                        <td width="8%" align="center"><a class="title" href="<?=getLinkSort(12)?>"> Kích hoạt</a></td>                                        
+                                        <td width="8%" align="center"><a class="title" href="<?=getLinkSort(12)?>">Không hiển thị</a></td>
                                         <td width="11%" align="center">
                                             Công cụ
                                         </td>
