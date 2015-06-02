@@ -112,7 +112,7 @@ require("module/box_device.php");
 <header class="m-slider">
     <div id="slider">
         <?php
-        $gt=get_records("tbl_slider","status=0 AND idshop=0"," ","0,20"," ");
+        $gt=get_records("tbl_slider","status=0 AND idshop=0","sort","0,20"," ");
         $index = 0;
         while($row_slide=mysql_fetch_assoc($gt)){
             ?>
@@ -320,14 +320,13 @@ require("module/box_device.php");
     </div>
 </div>
 
-<?php include("module/footer.php") ;?>
-
-<?php require("common_end.php");?>
-
 <link rel="stylesheet" type="text/css" href="<?php echo $linkrootshop?>/scripts/nivo-slider/nivo-slider.css" media="screen and (min-width: 991px)">
 <link rel="stylesheet" type="text/css" href="<?php echo $linkrootshop?>/scripts/nivo-slider/themes/default/default.css" media="screen and (min-width: 991px)">
 <script type="text/javascript" src="<?php echo $linkrootshop?>/scripts/nivo-slider/jquery.nivo.slider.js"></script>
 <script type="text/javascript"  src="<?php echo $linkrootshop?>/scripts/responsive.js"></script>
+
+<?php include("module/footer.php") ;?>
+<?php require("common_end.php");?>
 </body>
 </html>
 
