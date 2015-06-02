@@ -346,7 +346,7 @@ if (isset($_POST['btnSave'])){
 
                         <td valign="middle" width="70%">
 
-                            <input type="checkbox" name="chkStatus" value="on" <? if ($status>0) echo 'checked' ?>>
+                            <input type="checkbox" name="chkStatus" value="<?php if($status>0){echo $status;}else{echo 0;} ?>" <? if ($status>0) echo 'checked' ?> onchange="if($(this).is(':checked')){this.value = 1;}else{this.value = 0;}">
 
                         </td>
 
