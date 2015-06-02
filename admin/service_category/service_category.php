@@ -280,12 +280,12 @@ if ($_REQUEST['cat']!='') $where="parent=".$_REQUEST['cat']; ?>
             STT
         </td>
         <td width="22%" align="center">Hình</td>
-        <td width="13%" align="center"><span class="title"><a class="title" href="<?=getLinkSort(3)?>">Tên danh mục</a></span></td>
-        <td width="12%" align="center"><a class="title" href="<?=getLinkSort(4)?>">Thuộc danh mục</a></td>
-        <td width="11%" align="center"><a class="title" href="<?=getLinkSort(10)?>">Thứ tự sắp xếp</a></td>
-        <td width="7%" align="center"><a class="title" href="<?=getLinkSort(15)?>">Tiêu biểu</a></td>
-        <td width="11%" align="center"><span class="title"><a class="title" href="<?=getLinkSort(11)?>">Không hiển thị</a></span></td>
-        <td width="10%" align="center"><a class="title" href="<?=getLinkSort(12)?>">Ngày tạo lập</a></td>
+        <td width="13%" align="center"><span class="title"><a class="title" href="<?=getLinkSortAdmin(3)?>">Tên danh mục</a></span></td>
+        <td width="12%" align="center"><a class="title" href="<?=getLinkSortAdmin(4)?>">Thuộc danh mục</a></td>
+        <td width="11%" align="center"><a class="title" href="<?=getLinkSortAdmin(10)?>">Thứ tự sắp xếp</a></td>
+        <td width="7%" align="center"><a class="title" href="<?=getLinkSortAdmin(15)?>">Tiêu biểu</a></td>
+        <td width="11%" align="center"><span class="title"><a class="title" href="<?=getLinkSortAdmin(11)?>">Không hiển thị</a></span></td>
+        <td width="10%" align="center"><a class="title" href="<?=getLinkSortAdmin(12)?>">Ngày tạo lập</a></td>
         <td width="7%" align="center">
             Công cụ
         </td>
