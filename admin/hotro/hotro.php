@@ -1,4 +1,5 @@
 <?php
+error_reporting(0);
 if(isset($frame)==true){
     check_permiss($_SESSION['kt_login_id'],17,'admin.php');
 }else{
