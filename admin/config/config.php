@@ -144,7 +144,7 @@ if (isset($_POST['btnSave'])){
                             <table  class="table_chinh">
                     			 <tr>
                                   <td class="table_chu_tieude_them" colspan="2" align="center" valign="middle"  style="text-transform:uppercase" > <?php $id=$_GET['id'];?>
-                                  CẤU HÌNH THÔNG TIN <?php if($id==1) echo "Thiết kế website";elseif($id==2) echo "Gian hàng";elseif($id==3) echo "Rao vặt";elseif($id=4) echo "Bất động sản";?>
+                                  CẤU HÌNH THÔNG TIN <?php if($id==1) echo "Thiết kế website";elseif($id==2) echo "Hệ thống";elseif($id==3) echo "Rao vặt";elseif($id=4) echo "Bất động sản";?>
                                   </td>
                               	</tr>
                                 <tr>
