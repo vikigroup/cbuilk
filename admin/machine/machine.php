@@ -417,7 +417,7 @@ if ($_REQUEST['cat']!='') $where="parent=".$_REQUEST['cat']; ?>
 
 <?
 
-$sortby="order by sort $ks";
+$sortby="order by id $ks";
 
 if ($_REQUEST['sortby']!='') $sortby="order by ".(int)$_REQUEST['sortby'];
 
