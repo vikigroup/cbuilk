@@ -42,11 +42,12 @@
 						while($row_slide=mysql_fetch_assoc($gt)){
 						?>
                             <li>
+
                                 <div class="l-yahoo">
                                     <a href="ymsgr:sendIM?<?=$row_slide['nickyahoo']?>"><?=$row_slide['name']?></a>
                                 </div>
                                 <div class="r-yahoo">
-                                    <a href="ymsgr:sendIM?<?=$row_slide['nickyahoo']?>"><img src='http://opi.yahoo.com/online?u=<?=$row_slide['name']?>&m=g&t=1&l=vi' alt ='<?=$row_slide['name']?>' /></a>
+                                    <a href="ymsgr:sendIM?<?=$row_slide['nickyahoo']?>"><img src='http://opi.yahoo.com/online?u=<?=$row_slide['nickyahoo']?>&m=g&t=1&l=vi' alt ='<?=$row_slide['name']?>' /></a>
                                 </div>
                                 <div class="clear"></div>
                             </li>
