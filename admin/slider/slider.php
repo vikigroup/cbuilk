@@ -276,7 +276,7 @@ $(document).ready(function() {
                         </thead>
                         <tbody>
                         <?
-						$sortby="order by date_added";
+						$sortby="order by sort";
 						if ($_REQUEST['sortby']!='') $sortby="order by ".(int)$_REQUEST['sortby'];
 						$direction=($_REQUEST['direction']==''||$_REQUEST['direction']=='0'?"desc":"");
 						
