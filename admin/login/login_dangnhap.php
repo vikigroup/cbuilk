@@ -137,10 +137,6 @@ if (isset($_POST['btn_dangnhap'])==true){
              Mật Khẩu:<br />  
 	   <input name="password" type="password" class="text" id="password" title="Nhập mật khẩu của bạn" value="<?php  echo $_COOKIE['pw'];?>"/>
 			<br /> <span class="coloi_hien"> <?php echo $error_password1;?></span><br />
-             Mã bảo mật:<br /> 
- 	  <input name="cap" type="text" class="text_qm" id="cap" title="Nhập mã số bảo mật" value="<?php echo $cap; ?>" />&nbsp;
-      <img src="../lib/capcha/dongian.php" align="absmiddle" class="img_cap" />
-            <br /> 
             <span class="coloi_hien"><?php echo $coloi_hien_cap ?></span><br />            
 	   <input title="Click để chấp nhận đăng nhập" type="submit" name="btn_dangnhap" class="nut_table" value="Đăng nhập"/>
             &nbsp;&nbsp;
