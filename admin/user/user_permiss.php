@@ -83,7 +83,7 @@ $(document).ready(function() {
                    <form action="" method="post" enctype="multipart/form-data" name=formdk id=formdk>
             <center>   
                 <div style="width:500px; height:auto; margin-left:auto; margin-right:auto; text-align:left"> 
-                <b>Giáo viên: </b> <?php echo $row_tbl_users['name'];?>
+                <b>Thành viên: </b> <?php echo $row_tbl_users['name'];?>
                 <hr />
                 <b>Chọn hết tất cả</b>:&nbsp;
                 <input type="checkbox" name="chonhet" id="chonhet"  />
