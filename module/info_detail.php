@@ -54,7 +54,7 @@ if($row_sanpham['id']=="")  header("Location: ".$linkrootshop."/404-page-not-fou
                             <span class="s1_po">
                                 <div>
                                     <span>
-                                        <a href="<?php echo $linkrootshop;?><?php echo $row_shop_product['subject'];?>.html" title="<?php echo $row_shop_product['name'];?>">
+                                        <a href="<?php echo $linkrootshop;?>/<?php echo $row_shop_product['subject'];?>.html" title="<?php echo $row_shop_product['name'];?>">
                                             <img src="<?php echo $linkroot?>/<?php echo $row_shop_product['image'];?>" alt=""/>
                                         </a>
                                     </span>
@@ -62,7 +62,7 @@ if($row_sanpham['id']=="")  header("Location: ".$linkrootshop."/404-page-not-fou
                             </span>
                             <span class="s2_po">
                                 <h4>
-                                    <a href="<?php echo $linkrootshop;?><?php echo $row_shop_product['subject'];?>.html" title="<?php echo $row_shop_product['name'];?>"><?php echo $row_shop_product['name'];?></a>
+                                    <a href="<?php echo $linkrootshop;?>/<?php echo $row_shop_product['subject'];?>.html" title="<?php echo $row_shop_product['name'];?>"><?php echo $row_shop_product['name'];?></a>
                                 </h4>
                                 <?php 
 								if($row_sanpham['type']==0){
