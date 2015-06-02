@@ -90,7 +90,7 @@ if (isset($_POST['btnSave'])){
 	}
 
 	if ($errMsg == '')
-		echo '<script>window.location="admin.php?act=jbstin&cat='.$_REQUEST['cat'].'&page='.$_REQUEST['page'].'&code=1"</script>';
+		echo '<script>window.location="admin.php?act=viki_infomation&cat='.$_REQUEST['cat'].'&page='.$_REQUEST['page'].'&code=1"</script>';
 }else{
 	if (isset($_GET['id'])){
 		$oldid=$_GET['id'];
@@ -138,13 +138,13 @@ if (isset($_POST['btnSave'])){
             <div class="widget-container">
                 <div class="widget-block">
                     
-                   <form method="post" name="frmForm" enctype="multipart/form-data" action="admin.php?act=jbstin_m">
+                   <form method="post" name="frmForm" enctype="multipart/form-data" action="admin.php?act=viki_infomation_m">
 
 
 
             
 
-            <input type="hidden" name="act" value="jbstin_m">
+            <input type="hidden" name="act" value="viki_infomation_m">
 
             <input type="hidden" name="id" value="<?=$_REQUEST['id']?>">
 

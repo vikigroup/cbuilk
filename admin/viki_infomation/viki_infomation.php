@@ -242,7 +242,7 @@ $(document).ready(function() {
     
                     <input type="hidden" name="page" value="<?=$page?>">
     
-                    <input type="hidden" name="act" value="jbstin">
+                    <input type="hidden" name="act" value="viki_infomation">
     
                     <?
     
@@ -276,25 +276,25 @@ $(document).ready(function() {
     							<tr >
                                   <td valign="middle" align="left" style="background-color:#F0F0F0; height:40px; padding-left:20px" colspan="10"> 
                                         <div class="link_loc" style="width:80px;text-align:center; padding:3px; border:solid 1px #999; float:left; margin-right:5px;<?php if($noibat==0  &&  $anhien==0) echo 'background-color:#FF0; color:#000;';else echo 'background-color:#FFF; color:#FFF;"';?>">
-                                       	  <a href="admin.php?act=jbstin&tang=1&anhien=-1&noibat=-1">Tất cả</a>
+                                       	  <a href="admin.php?act=viki_infomation&tang=1&anhien=-1&noibat=-1">Tất cả</a>
                                         </div>
                                         <div class="link_loc" style="width:80px; text-align:center; padding:3px; border:solid 1px #999; float:left; margin-right:5px;<?php if($tang==1) echo 'background-color:#FF0; color:#000;';else echo 'background-color:#FFF; color:#FFF;"';?>" >
-                                       	  <a href="admin.php?act=jbstin&tang=1&anhien=<?php echo $_SESSION['kt_anhien'] ?>&noibat=<?php echo $_SESSION['kt_noibat']?>">Tăng dần</a>
+                                       	  <a href="admin.php?act=viki_infomation&tang=1&anhien=<?php echo $_SESSION['kt_anhien'] ?>&noibat=<?php echo $_SESSION['kt_noibat']?>">Tăng dần</a>
                                         </div>
                                         <div class="link_loc" style="width:80px;text-align:center; padding:3px; border:solid 1px #999; float:left; margin-right:5px;<?php if($tang==0) echo 'background-color:#FF0; color:#000;';else echo 'background-color:#FFF; color:#FFF;"';?>">
-                                       	  <a href="admin.php?act=jbstin&tang=0&anhien=<?php echo $_SESSION['kt_anhien'] ?>&noibat=<?php echo $_SESSION['kt_noibat']?>">Giảm dần</a>
+                                       	  <a href="admin.php?act=viki_infomation&tang=0&anhien=<?php echo $_SESSION['kt_anhien'] ?>&noibat=<?php echo $_SESSION['kt_noibat']?>">Giảm dần</a>
                                         </div>
                                         <div class="link_loc" style="width:80px;text-align:center; padding:3px; border:solid 1px #999; float:left; margin-right:5px;<?php if($anhien==1) echo 'background-color:#FF0; color:#000;';else echo 'background-color:#FFF; color:#FFF;"';?>">
-                                       	  <a href="admin.php?act=jbstin&tang=<?php echo $_SESSION['kt_tang'] ?>&anhien=1&noibat=<?php echo $_SESSION['kt_noibat'] ?>"> Ẩn </a>
+                                       	  <a href="admin.php?act=viki_infomation&tang=<?php echo $_SESSION['kt_tang'] ?>&anhien=1&noibat=<?php echo $_SESSION['kt_noibat'] ?>"> Ẩn </a>
                                         </div>
                                          <div class="link_loc" style="width:80px;text-align:center; padding:3px; border:solid 1px #999; float:left; margin-right:5px;<?php if($anhien==0) echo 'background-color:#FF0; color:#000;';else echo 'background-color:#FFF; color:#FFF;"';?>">
-                                       	   <a href="admin.php?act=jbstin&tang=<?php echo $_SESSION['kt_tang'] ?>&anhien=0&&noibat=<?php echo $_SESSION['kt_noibat'] ?>">Hiện</a>
+                                       	   <a href="admin.php?act=viki_infomation&tang=<?php echo $_SESSION['kt_tang'] ?>&anhien=0&&noibat=<?php echo $_SESSION['kt_noibat'] ?>">Hiện</a>
                                         </div>
                                         <div class="link_loc" style="width:80px;text-align:center; padding:3px; border:solid 1px #999; float:left; margin-right:5px;<?php if($noibat==1) echo 'background-color:#FF0; color:#000;';else echo 'background-color:#FFF; color:#FFF;"';?>">
-                                       	  <a href="admin.php?act=jbstin&tang=<?php echo $_SESSION['kt_tang'] ?>&anhien=<?php echo $_SESSION['kt_anhien'] ?>&noibat=1">Nổi bật</a>
+                                       	  <a href="admin.php?act=viki_infomation&tang=<?php echo $_SESSION['kt_tang'] ?>&anhien=<?php echo $_SESSION['kt_anhien'] ?>&noibat=1">Nổi bật</a>
                                         </div>
                                          <div class="link_loc" style="width:80px;text-align:center; padding:3px; border:solid 1px #999; float:left; margin-right:5px;<?php if($noibat==0) echo 'background-color:#FF0; color:#000;';else echo 'background-color:#FFF; color:#FFF;"';?>">
-                                       	   <a href="admin.php?act=jbstin&tang=<?php echo $_SESSION['kt_tang'] ?>&anhien=<?php echo $_SESSION['kt_anhien'] ?>&noibat=0">ko nổi bật</a>
+                                       	   <a href="admin.php?act=viki_infomation&tang=<?php echo $_SESSION['kt_tang'] ?>&anhien=<?php echo $_SESSION['kt_anhien'] ?>&noibat=0">ko nổi bật</a>
                                         </div>
                                   </td>
                                 </tr>
@@ -307,7 +307,7 @@ $(document).ready(function() {
                                   </td>
                                   
                                  <td width="80" align="center" colspan="1">
-                                  <div><a href="admin.php?act=jbstin_m">
+                                  <div><a href="admin.php?act=viki_infomation_m">
                                   <img width="48" height="48" border="0" src="images/them.png">
                                   </a></div></td>
                                 </tr>
@@ -423,9 +423,9 @@ $(document).ready(function() {
     
                                     <td align="center">
     
-                                        <a href="admin.php?act=jbstin_m&cat=<?=$_REQUEST['cat']?>&page=<?=$_REQUEST['page']?>&id=<?=$row['id']?>"><img src="images/icon3.png"/></a>
+                                        <a href="admin.php?act=viki_infomation_m&cat=<?=$_REQUEST['cat']?>&page=<?=$_REQUEST['page']?>&id=<?=$row['id']?>"><img src="images/icon3.png"/></a>
     
-                                        <a  title="Xóa" href="admin.php?act=jbstin&action=del&page=<?=$_REQUEST['page']?>&id=<?=$row['id']?>" onclick="return confirm('Bạn có muốn xoá luôn không ?');" ><img src="images/icon4.png" width="20" border="0" /></a>
+                                        <a  title="Xóa" href="admin.php?act=viki_infomation&action=del&page=<?=$_REQUEST['page']?>&id=<?=$row['id']?>" onclick="return confirm('Bạn có muốn xoá luôn không ?');" ><img src="images/icon4.png" width="20" border="0" /></a>
     
                                     </td>
     
@@ -435,7 +435,7 @@ $(document).ready(function() {
                              <tr>
                               <td  class="PageNext" colspan="10" align="center" valign="middle">
 							  <div style="padding:5px;">
-							  <?php echo pagesLinks($totalRows,$pageSize);// Trang đầu,  Trang kế, tang trước, trang cuối ??>
+							  <?php echo pagesLinks($totalRows,$pageSize); ?>
                               </div>
                               </td>  							  
                             </tr>
