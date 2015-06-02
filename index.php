@@ -30,11 +30,13 @@ if($cache == 1){
     $cachefile = 'cache/' .$page;
 
     /* How long to keep cache file? */
-    $cachetime = 300;
+    $cachetime = 18000;
 
     /* Is cache file still fresh? If so, serve it */
     if($pageName != ''){
         if (file_exists($cachefile) && time() - $cachetime < filemtime($cachefile)) {
+            echo time() - $cachetime."<br/>";
+            echo filemtime($cachefile);
             include($cachefile);
             exit;
         }
