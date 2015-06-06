@@ -187,7 +187,7 @@ $(document).ready(function() {
                              Mật khẩu
                         </div>
                         <div class="r_f_tt">
-                            <input required class="ipt_f_tt" type="password" name="matkhau" /> <!-- value="<?php echo $password; ?>" -->
+                            <input required class="ipt_f_tt" type="password" name="matkhau" id="password"/>
                             <span class="star_style">*</span>
                         </div>
                         <div class="clear"></div>
@@ -198,7 +198,7 @@ $(document).ready(function() {
                              Nhập lại mật khẩu
                         </div>
                         <div class="r_f_tt">
-                            <input required class="ipt_f_tt" type="password" name="golaimatkhau" value="<?php echo $golaimatkhau; ?>"   />
+                            <input required class="ipt_f_tt" type="password" name="golaimatkhau" id="golaimatkhau"/>
                             <span class="star_style">*</span>
                         </div>
                         <div class="clear"></div>
