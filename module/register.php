@@ -1,4 +1,4 @@
-<?php  
+<?php
 if (isset($_POST['btn_dangky'])==true)//isset kiem tra submit
 	{
 		
@@ -29,58 +29,16 @@ if (isset($_POST['btn_dangky'])==true)//isset kiem tra submit
 				$dienthoai = mysql_real_escape_string($dienthoai);
 			}
 		
-		$coloi=false;		
-		if ($tendk == NULL){$coloi=true; $coloi_hien_tendk = "Bạn chưa nhập tên đăng nhập (>=4 ký tự)";} 
-		if ($matkhau == NULL){$coloi=true; $coloi_hien_matkhau = "Bạn chưa nhập mật khẩu (>=6 ký tự)";}
-		if ($golaimatkhau == NULL){$coloi=true; $coloi_hien_golaimatkhau = "Bạn chưa nhập lại mật khẩu";}
-		if ($hoten == NULL){$coloi=true; $coloi_hien_hoten = "Bạn chưa nhập họ tên";}
-		if ($email == NULL){$coloi=true; $coloi_hien_email= "Bạn chưa nhập email";}
-/*		if ($dienthoai == NULL){$coloi=true; $coloi_hien_dienthoai= "<br />Bạn chưa nhập số điện thoại";}*/
-		if ($cap == NULL){$coloi=true; $coloi_hien_cap= "Bạn chưa nhập ký tự giống trong hình ";} 
-
-		
-		if($tendk!=NULL){
-			if (strlen($tendk)<4){$coloi=true; $coloi_hien_tendk = "Tên đăng nhập (>=4 ký tự)";}
-		}
-
-/*		if($dienthoai!=NULL){
-			if (!is_numeric($dienthoai)){$coloi=true; $coloi_hien_dienthoai = "Số điện thoại phải là số";}
-		}*/
-		
-		if($matkhau!=NULL){
-			if (strlen($matkhau)<6 ){$coloi=true; $coloi_hien_matkhau = "Mật khẩu (>=6 ký tự)";}
-		}
-		if($golaimatkhau!=NULL){	
-			if ($matkhau != $golaimatkhau ){$coloi=true; $coloi_hien_golaimatkhau = "Mật khẩu lần 2 không giống lần 1";} 
-		}
+		$coloi=false;
 		
 /*		if($email!=NULL){
 			if (filter_var($email,FILTER_VALIDATE_EMAIL)==FALSE){$coloi=true; $coloi_hien_email= "Bạn nhập email không đúng kiểu ( email@yahoo.com )";	
 			}
 		}*/
-		
-		if($tendk!=NULL){	
-			if (check_table('tbl_customer','username='."'".$tendk."'",'id')==false) {$coloi=true; $error_login = "Tên đăng nhập này đã có người dùng";}
-  
-		}
-		
 	
-		
-		if($email!=NULL){
-			if (check_table('tbl_customer','email='."'".$email."'",'id')==false) {$coloi=true; $error_login = "Địa chỉ mail này đã có người dùng";}  
-		}
-		
-		
-		
-/*		if($dienthoai!=NULL){
-			if (check_table('tbl_customer','mobile='."'".$dienthoai."'",'id')==false) {$coloi=true; $coloi_hien_dienthoai = "Số điện thoại này đã có người dùng";}
-		}*/
-	
-		/*if ($cap!=NULL){
-			if ($_SESSION['captcha_code'] != $cap) {$coloi=true; $coloi_hien_cap="Bạn nhập sai mã số trong hình rồi";}
-		}*/
+        if ($_SESSION['captcha_code'] != $cap) {$coloi=true; $loi = "Mã bảo mật chưa đúng";}
 
-		if ($loi!="") {$coloi=true; $error_hien_filechon = $loi;}
+		if ($loi!="") {$coloi=true; $error_login = $loi;}
 
 		if ($coloi==FALSE) 
 		{  
@@ -116,44 +74,45 @@ $(document).ready(function() {
 	   var strlen=val.length;
 	   if(strlen>=4) $("#error").load("<?php echo $linkrootshop;?>/module/username.php?user="+val); 
 	});
-	
-	$("form[id=form1]").bind('submit',function(){
-		var tendk=$("#tendk").val();
-		var password=$("#password").val();  
-		var golaimatkhau=$("#golaimatkhau").val(); 
-		var hoten=$("#hoten").val();
-		var email=$("#email").val();
-		var cap=$("#cap").val();
-		if(tendk=="") {
-			alert("Bạn chưa nhập tên đăng ký");
-			return false;
-		}
-		if(password=="") {
-			alert("Bạn phải nhập mật khẩu");
-			return false;
-		}
-		if(golaimatkhau=="") {
-			alert("Bạn phải nhập xác nhận mật khẩu");
-			return false;
-		}
-		if(hoten=="") {
-			alert("Bạn phải nhập tên");
-			return false;
-		} 
-		if(email=="") {
-			alert("Bạn phải nhập email");
-			return false;
-		} 
-		if(cap=="") {
-			alert("Bạn chưa nhập mã bảo mật");
-			return false;
-		}
-	})
-	
-});
-	
-	
 
+    $('#btn_dangky').click(function(){
+		var tendk = $("#tendk").val();
+		var password = $("#password").val();
+		var golaimatkhau = $("#golaimatkhau").val();
+		var hoten = $("#hoten").val();
+		var email = $("#email").val();
+		var cap = $("#cap").val();
+		if(tendk.length < 4) {
+			alert("Tên đăng nhập phải >= 4 ký tự!");
+		}
+		else if(password.length < 6) {
+			alert("Mật khẩu phải >= 6 ký tự!");
+		}
+		else if(golaimatkhau != password) {
+			alert("Mật khẩu nhập lại chưa khớp!");
+		}
+		else if(hoten=="") {
+			alert("Bạn chưa nhập họ và tên!");
+		}
+		else if(email=="") {
+			alert("Bạn chưa nhập email!");
+		}
+        else if(isValidEmailAddress(email) == false){
+            alert("Email không đúng định dạng!")
+        }
+		else if(cap=="") {
+			alert("Bạn chưa nhập mã bảo mật!");
+		}
+        else{
+            $('#form1').submit();
+        }
+	});
+
+    function isValidEmailAddress(emailAddress) {
+        var regex = /\S+@\S+\.\S+/;
+        return regex.test(emailAddress);
+    }
+});
 </script>
   
     <ul>
@@ -167,7 +126,6 @@ $(document).ready(function() {
                 <h1 class="title_f_tt"> Đăng ký</h1>
                 <form id="form1" name="form1" method="post" action="#">
                 <div class="main_f_tt">
-                
                     <div class="module_ftt">
                         <div class="l_f_tt">
                             Tên đăng nhập
@@ -181,7 +139,6 @@ $(document).ready(function() {
                         </div>
                         <div class="clear"></div>
                     </div><!-- End .module_ftt -->
-                    
                     <div class="module_ftt">
                         <div class="l_f_tt">
                              Mật khẩu
@@ -192,7 +149,6 @@ $(document).ready(function() {
                         </div>
                         <div class="clear"></div>
                     </div><!-- End .module_ftt -->
-                    
                     <div class="module_ftt">
                         <div class="l_f_tt">
                              Nhập lại mật khẩu
@@ -203,70 +159,60 @@ $(document).ready(function() {
                         </div>
                         <div class="clear"></div>
                     </div><!-- End .module_ftt -->
-                    
                     <div class="module_ftt">
                         <div class="l_f_tt">
                              Họ và tên
                         </div>
                         <div class="r_f_tt">
-                            <input required class="ipt_f_tt" type="text" name="hoten"  value="<?php echo $hoten; ?>"  />
+                            <input required class="ipt_f_tt" type="text" name="hoten" id="hoten"  value="<?php echo $hoten; ?>"  />
                             <span class="star_style">*</span>
                         </div>
                         <div class="clear"></div>
                     </div><!-- End .module_ftt -->
-                    
                     <div class="module_ftt">
                         <div class="l_f_tt">
                              Email
                         </div>
                         <div class="r_f_tt">
-                            <input required class="ipt_f_tt" type="text" name="email"  value="<?php echo $email; ?>"  />
+                            <input required class="ipt_f_tt" type="text" name="email" id="email"  value="<?php echo $email; ?>"  />
                             <span class="star_style">*</span>
                         </div>
                         <div class="clear"></div>
                     </div><!-- End .module_ftt -->
-                    
                     <div class="module_ftt">
                         <div class="l_f_tt">
                                Nhập mã xác nhận
                         </div>
                         <div class="r_f_tt">
-                            <input style="width:200px; " required  name="cap" value="<?php echo $cap; ?>" class="ipt_f_tt" type="text"/>
-                                <div class="img_capcha" style="width:80px; padding-left:0px;">
-                                    <img  class="img_cap" align="absmiddle" src="<?php echo $linkrootshop;?>/scripts/capcha/dongian.php" alt=""><span class="star_style">*</span>
-                                </div>
-                            
+                            <input style="width:200px; " required id="cap"  name="cap" value="<?php echo $cap; ?>" class="ipt_f_tt" type="text"/>
+                            <div class="img_capcha" style="width:80px; padding-left:0px;">
+                                <img  class="img_cap" align="absmiddle" src="<?php echo $linkrootshop;?>/scripts/capcha/dongian.php" alt=""><span class="star_style">*</span>
+                        </div>
                         </div>
                         <div class="clear"></div>
                     </div><!-- End .module_ftt -->
-                    
                     <div class="module_ftt">
                         <div class="l_f_tt">
                            &nbsp;
                         </div>
                         <div class="r_f_tt">
                             <div style="padding-bottom:15px;">
-                            <input name="btn_dangky" class="btn_dk" type="submit" value="&nbsp;"/>
+                            <input id="btn_dangky" name="btn_dangky" class="btn_dk" type="submit" value="&nbsp;"/>
                             </div>
                         </div>
                         <div class="clear"></div>
-                    </div><!-- End .module_ftt --> 
+                    </div><!-- End .module_ftt -->
                     <div class="module_ftt"style="text-align:center; color:#F00; padding:5px;">
-                         
-                         	<?php echo $error_login;?>
-                          
-                         
+                        <?php echo $error_login;?>
                     </div>
                     <div class="info_f_tt">
                         Đăng nhập bây giờ để quá trình mua hàng diễn ra nhanh chóng. Bạn cũng có thể xem chi tiết lịch sử giao dịch & tình trạng đơn hàng trong tài khoản của bạn.
                     </div><!-- End .info_f_tt -->
-                    
                 </div><!-- End .main_f_tt -->
                 </form>
             </div><!-- End .main_f_dn -->
         </li>
     </ul>
-    
     <div class="clear"></div>
-
 </div>
+
