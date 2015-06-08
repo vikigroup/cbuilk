@@ -30,13 +30,12 @@ if (isset($_POST['btn_dangky'])==true)//isset kiem tra submit
 			}
 		
 		$coloi=false;
-		
-/*		if($email!=NULL){
-			if (filter_var($email,FILTER_VALIDATE_EMAIL)==FALSE){$coloi=true; $coloi_hien_email= "Bạn nhập email không đúng kiểu ( email@yahoo.com )";	
-			}
-		}*/
-	
-        if ($_SESSION['captcha_code'] != $cap) {$coloi=true; $loi = "Mã bảo mật chưa đúng";}
+
+        if(get_field("tbl_customer","username",$tendk,"id")!="") {$coloi=true; $loi = "Tên đăng nhập này đã được đăng ký!<br/>";}
+
+        if(get_field("tbl_customer","email",$email,"id")!="") {$coloi=true; $loi .= "Email này đã được đăng ký! <a href='".$linkrootshop."/quen-mat-khau.html'>Nhấn vào đây</a> để lấy lại mật khẩu <br/>";}
+
+        if ($_SESSION['captcha_code'] != $cap) {$coloi=true; $loi .= "Mã bảo mật chưa đúng!";}
 
 		if ($loi!="") {$coloi=true; $error_login = $loi;}
 
@@ -54,8 +53,7 @@ if (isset($_POST['btn_dangky'])==true)//isset kiem tra submit
 			
 			$_SESSION['register_re']="1";
 
-			header("location: ".$linkrootshop."/dang-nhap.html"); 
-			
+            echo "<script>alert('Bạn đã đăng ký thành công!'); window.location.href = '".$linkrootshop."/dang-nhap.html'</script>";
 		}
 }
 
@@ -82,29 +80,41 @@ $(document).ready(function() {
 		var hoten = $("#hoten").val();
 		var email = $("#email").val();
 		var cap = $("#cap").val();
+        var check = 0;
 		if(tendk.length < 4) {
-			alert("Tên đăng nhập phải >= 4 ký tự!");
+            check = 1;
+            alert("Tên đăng nhập phải >= 4 ký tự!");
 		}
 		else if(password.length < 6) {
-			alert("Mật khẩu phải >= 6 ký tự!");
+            check = 1;
+            alert("Mật khẩu phải >= 6 ký tự!");
 		}
 		else if(golaimatkhau != password) {
-			alert("Mật khẩu nhập lại chưa khớp!");
+            check = 1;
+            alert("Mật khẩu nhập lại chưa khớp!");
 		}
 		else if(hoten=="") {
-			alert("Bạn chưa nhập họ và tên!");
+            check = 1;
+            alert("Bạn chưa nhập họ và tên!");
 		}
 		else if(email=="") {
-			alert("Bạn chưa nhập email!");
+            check = 1;
+            alert("Bạn chưa nhập email!");
 		}
         else if(isValidEmailAddress(email) == false){
+            check = 1;
             alert("Email không đúng định dạng!")
         }
 		else if(cap=="") {
-			alert("Bạn chưa nhập mã bảo mật!");
+            check = 1;
+            alert("Bạn chưa nhập mã bảo mật!");
 		}
-        else{
+
+        if(check == 0){
             $('#form1').submit();
+        }
+        else{
+            return false;
         }
 	});
 
@@ -124,7 +134,7 @@ $(document).ready(function() {
         <li>
             <div class="main_f_dn">
                 <h1 class="title_f_tt"> Đăng ký</h1>
-                <form id="form1" name="form1" method="post" action="#">
+                <form id="form1" name="form1" method="post">
                 <div class="main_f_tt">
                     <div class="module_ftt">
                         <div class="l_f_tt">
@@ -134,7 +144,7 @@ $(document).ready(function() {
                             <div style="position:relative;">
                             	<input required class="ipt_f_tt" type="text" id="tendk" name="tendk" value="<?php echo $tendk; ?>" />
                             	<span id="error" style="position:absolute; top:7px; right:41px;" >  </span>
-                            	<span class="star_style">*</span>
+                            	<span class="star_style">* (Tối thiểu 4 ký tự)</span>
                             </div>
                         </div>
                         <div class="clear"></div>
@@ -145,7 +155,7 @@ $(document).ready(function() {
                         </div>
                         <div class="r_f_tt">
                             <input required class="ipt_f_tt" type="password" name="matkhau" id="password"/>
-                            <span class="star_style">*</span>
+                            <span class="star_style">* (Tối thiểu 6 ký tự)</span>
                         </div>
                         <div class="clear"></div>
                     </div><!-- End .module_ftt -->
