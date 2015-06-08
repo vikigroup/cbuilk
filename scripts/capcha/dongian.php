@@ -1,7 +1,7 @@
 <?php    // File: capcha.php
 header("Content-Type: image/jpeg");
 header("Pragma: No-cache");
-header("Cache-Control:No-cache, Must-revalidate"); 
+header("Cache-Control:No-cache, Must-revalidate");
 
 $sokytu=5;  $width = 60; 	$height = 30; 
 
@@ -11,8 +11,8 @@ $mauchu = ImageColorAllocate($img, 255, 255, 255);
 $vien = ImageColorAllocate($img, 127, 127, 127); 
 
 $str= md5(rand(0,9999)); 
-$str = strtoupper(substr($str, 10, $sokytu)); 
-session_start(); $_SESSION['captcha_code'] = $str; 
+$str = strtoupper(substr($str, 10, $sokytu));
+session_start(); $_SESSION['captcha_code'] = $str;
 
 ImageFill($img, 0, 0, $nen); //tô nền 
 
@@ -34,5 +34,5 @@ while ($i++<=400){
 
 ImageString($img, 5, 8, 8, $str, $mauchu);  //vẽ chuỗi số
 ImageJPEG($img); //xuất hình ra browser
-ImageDestroy($img); 
+ImageDestroy($img);
 ?>
