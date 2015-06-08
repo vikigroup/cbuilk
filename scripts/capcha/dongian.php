@@ -3,14 +3,14 @@ header("Content-Type: image/jpeg");
 header("Pragma: No-cache");
 header("Cache-Control:No-cache, Must-revalidate");
 
-$sokytu=5;  $width = 60; 	$height = 30; 
+$sokytu=5;  $width = 60; 	$height = 30;
 
 $img = ImageCreate($width, $height); 
 $nen = ImageColorAllocate($img, 0, 51, 0); // tạo các màu cần dùng
 $mauchu = ImageColorAllocate($img, 255, 255, 255); 
 $vien = ImageColorAllocate($img, 127, 127, 127); 
 
-$str= md5(rand(0,9999)); 
+$str= md5(rand(0,9999));
 $str = strtoupper(substr($str, 10, $sokytu));
 session_start(); $_SESSION['captcha_code'] = $str;
 
