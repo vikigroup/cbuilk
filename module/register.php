@@ -53,8 +53,12 @@ if (isset($_POST['btn_dangky'])==true)//isset kiem tra submit
 			
 			$_SESSION['register_re']="1";
 
-            echo "<script>alert('Bạn đã đăng ký thành công!'); window.location.href = '".$linkrootshop."/dang-nhap.html'</script>";
-		}
+            echo("<script>if(confirm('Xin chúc mừng bạn đã đăng ký thành công! Chỉ còn một bước nữa thôi là có thể mở gian hàng')){
+                window.location='".$linkrootshop."/dang-ky-gian-hang.html';
+             } else {
+                window.location='".$linkrootshop."';
+             };</script>");
+        }
 }
 
 	$username = $_SESSION['kh_login_username'];
@@ -66,8 +70,8 @@ if (isset($_POST['btn_dangky'])==true)//isset kiem tra submit
 ?>
 <div class="form_dn">
   <script>
-$(document).ready(function() {	
-	$("#tendk").keyup(function(){  
+$(document).ready(function() {
+	$("#tendk").keyup(function(){
 	   var val=this.value;
 	   var strlen=val.length;
 	   if(strlen>=4) $("#error").load("<?php echo $linkrootshop;?>/module/username.php?user="+val); 
@@ -225,4 +229,3 @@ $(document).ready(function() {
     </ul>
     <div class="clear"></div>
 </div>
-
