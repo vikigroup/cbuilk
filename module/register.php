@@ -87,9 +87,9 @@ $(document).ready(function() {
 		var email = $("#email").val();
 		var cap = $("#cap").val();
         var check = 0;
-		if(tendk.length < 4) {
+		if(tendk.length < 2) {
             check = 1;
-            alert("Tên đăng nhập phải >= 4 ký tự!");
+            alert("Tên đăng nhập phải >= 2 ký tự!");
 		}
 		else if(password.length < 6) {
             check = 1;
@@ -150,7 +150,7 @@ $(document).ready(function() {
                             <div style="position:relative;">
                             	<input required class="ipt_f_tt" type="text" id="tendk" name="tendk" value="<?php echo $tendk; ?>" />
                             	<span id="error" style="position:absolute; top:7px; right:41px;" >  </span>
-                            	<span class="star_style">* (Tối thiểu 4 ký tự)</span>
+                            	<span class="star_style">* (Tối thiểu 2 ký tự)</span>
                             </div>
                         </div>
                         <div class="clear"></div>

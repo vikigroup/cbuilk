@@ -100,14 +100,14 @@ $(document).ready(function() {
         var tenmien = $("#tenmien").val();
         var cap = $("#cap").val();
         var check = 0;
-        if(tenshop.length < 4) {
+        if(tenshop.length < 2) {
             check = 1;
-            alert("Tên gian hàng phải >= 4 ký tự!");
+            alert("Tên gian hàng phải >= 2 ký tự!");
             $('#tenshop').focus();
         }
-        else if(tenmien.length < 6) {
+        else if(tenmien.length < 2) {
             check = 1;
-            alert("Ten miền phải >= 6 ký tự!");
+            alert("Ten miền phải >= 2 ký tự!");
             $('#tenmien').focus();
         }
         else if(cap=="") {

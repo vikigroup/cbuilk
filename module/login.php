@@ -1,5 +1,4 @@
 <?php  
- 
 if (isset($_POST['btn_dangnhap_in'])==true){
 	$username= $_POST['username'];
 	$password= md5(md5(md5($_POST['password'])));// md5()
@@ -46,7 +45,6 @@ if (isset($_POST['btn_dangnhap_in'])==true){
 
 							if(check_table('tbl_shop',"iduser='".$row_user['id']."'",'id')==false){
 								$shop=getRecord('tbl_shop', "iduser='".$row_user['id']."'");
-                                echo '<script>alert("ok");</script>';
 								echo '<script>window.location="http://'.$shop['subject'].'.'.$sub.'/quantri.html"</script>';
 							}
 							else echo '<script>window.location="'.$linkrootshop.'/dang-ky-gian-hang.html'.'"</script>';
@@ -58,6 +56,9 @@ if (isset($_POST['btn_dangnhap_in'])==true){
 				  	}	
 			}//else
 	 }//if ($coloi==FALSE)
+    else{
+        echo '<script>alert("ok");</script>';
+    }
 }// if isset
 	if (isset($_POST['quayra'])==true) {
 
