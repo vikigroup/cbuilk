@@ -91,9 +91,9 @@ $(document).ready(function() {
             check = 1;
             alert("Tên đăng nhập phải >= 2 ký tự!");
 		}
-		else if(password.length < 6) {
+		else if(password.length < 3) {
             check = 1;
-            alert("Mật khẩu phải >= 6 ký tự!");
+            alert("Mật khẩu phải >= 3 ký tự!");
 		}
 		else if(golaimatkhau != password) {
             check = 1;
@@ -161,7 +161,7 @@ $(document).ready(function() {
                         </div>
                         <div class="r_f_tt">
                             <input required class="ipt_f_tt" type="password" name="matkhau" id="password"/>
-                            <span class="star_style">* (Tối thiểu 6 ký tự)</span>
+                            <span class="star_style">* (Tối thiểu 3 ký tự)</span>
                         </div>
                         <div class="clear"></div>
                     </div><!-- End .module_ftt -->
