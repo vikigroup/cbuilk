@@ -43,21 +43,10 @@ if (isset($_POST['btn_dangnhap_in'])==true){
 								setcookie("un", $_POST['username'], time()-1);
 								setcookie("pw", $_POST['password'], time()-1);
 							}
-							
-							if(isset($_SESSION['kh_login_username'])){  
-								$row_user  = getRecord('tbl_customer', "username='".$_SESSION['kh_login_username']."'");
-							 
-								if($row_user['mobile']=="" || $row_user['address']=="") {
-									header("location: ".$linkrootshop."/quan-ly.html");
-								}
-							}
-																
-									
-							if(isset($_SESSION['back_raovat'])) echo '<script>window.location="'.$_SESSION['back_raovat'].'"</script>';
-							if(isset($_SESSION['back_bds'])) echo '<script>window.location="'.$_SESSION['back_bds'].'"</script>';
-							
+
 							if(check_table('tbl_shop',"iduser='".$row_user['id']."'",'id')==false){
 								$shop=getRecord('tbl_shop', "iduser='".$row_user['id']."'");
+                                echo '<script>alert("ok");</script>';
 								echo '<script>window.location="http://'.$shop['subject'].'.'.$sub.'/quantri.html"</script>';
 							}
 							else echo '<script>window.location="'.$linkrootshop.'/dang-ky-gian-hang.html'.'"</script>';
@@ -102,10 +91,8 @@ if (isset($_POST['btn_dangnhap_in'])==true){
 		 
 	});				
 </script>          
-     <div style="padding:5px;   color:#F00; padding-bottom:10px;">
-     	<center>
-        	<?php if($_SERVER['HTTP_REFERER']=="http://shop.jbs.vn/dang-ky.html" && $_SESSION['register_re']==1)echo "Bạn vừa đăng ký thành công tài khoản ";?>
-        </center>
+     <div style="padding:5px 10px 5px 5px;   color:#F00; text-align: center;">
+        	<?php if($_SERVER['HTTP_REFERER']== "http://".$linkrootshop."/dang-ky.html" && $_SESSION['register_re']==1)echo "Bạn vừa đăng ký thành công tài khoản ";?>
      </div>
     <ul>
         <li>
@@ -114,7 +101,7 @@ if (isset($_POST['btn_dangnhap_in'])==true){
         <li>
             <div class="main_f_dn">
                 <h1 class="title_f_tt"> Đăng nhập </h1>
-                <form id="form1" name="form1" method="post" action="#">
+                <form id="form1" name="form1" method="post">
                 <div class="main_f_tt">
                 
                     <div class="module_ftt">
