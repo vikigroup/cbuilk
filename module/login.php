@@ -2,8 +2,8 @@
 if (isset($_POST['btn_dangnhap_in'])==true){
 	$username= $_POST['username'];
 	$password= md5(md5(md5($_POST['password'])));// md5()
-	
-	if (get_magic_quotes_gpc()== false) 
+
+	if (get_magic_quotes_gpc()== false)
 	 {
 		$username=trim(mysql_real_escape_string($username));
 		$password=trim(mysql_real_escape_string($password));
@@ -11,59 +11,52 @@ if (isset($_POST['btn_dangnhap_in'])==true){
 	 $coloi=false;
 	 if ($username == NULL) {$coloi=true; $error_username_in = "Bạn chưa nhập tên đăng nhập";}
 	 elseif ($_POST['password'] == NULL) {$coloi=true; $error_password_in = "Bạn chưa nhập password";}
-	 
 	 if ($coloi==FALSE) {
-		 
+
 		 $sql = sprintf("SELECT * FROM tbl_customer WHERE username='%s'", $username);
-		 $user = mysql_query($sql);	
+		 $user = mysql_query($sql);
 		 $row_user=mysql_fetch_assoc($user);
 		 if (check_table('tbl_customer',"username='".$username."' AND password='".$password."'",'id')==true)
 			{ $coloi=true;  $error_login="Tài khoản hoặc mật khẩu không đúng, vui lòng đăng nhập lại";}
 		 elseif($row_user['active']==0)
 		 	{ $error_login="Bạn chưa kích hoạt tài khoản, vui lòng kích hoạt mới đăng nhập tiếp";}
 		 elseif($row_user['status']==0)
-		 	{ location($linkrootshop.'dang-nhap.html');$error_login="Tài khoản của bạn đã bị khóa, vui lòng liên hệ Admin để biết thêm chi tiếp";}
-		 
-			   else {	//check neu dung chay
-					$sql = sprintf("SELECT * FROM tbl_customer WHERE username='%s' AND password ='%s'",$username, $password);
-					$user = mysql_query($sql);	
-					if (mysql_num_rows($user)==1) {//Thành công	
-					  $row_user = mysql_fetch_assoc($user);
-					  $_SESSION['kh_login_id'] = $row_user['id'];
-					  $_SESSION['kh_login_username'] = $row_user['username'];
-				/*	  chinh_table('tbl_customer',$row_user['id'],'xem=xem+1',' ',' ');*/
-					  
-					  	//luu usernam va pass words
-							if (isset($_POST['nho'])== true){
-								setcookie("un", $_POST['username'], time() + 60*60*24*7 );
-								setcookie("pw", $_POST['password'], time() + 60*60*24*7 );
-							} else 
-							{
-								setcookie("un", $_POST['username'], time()-1);
-								setcookie("pw", $_POST['password'], time()-1);
-							}
+		 	{ location($linkrootshop.'/dang-nhap.html');$error_login="Tài khoản của bạn đã bị khóa, vui lòng liên hệ Admin để biết thêm chi tiếp";}
+         else {	//check neu dung chay
+              $sql = sprintf("SELECT * FROM tbl_customer WHERE username='%s' AND password ='%s'",$username, $password);
+              $user = mysql_query($sql);
+              if (mysql_num_rows($user)==1) {//Thành công
+                  $row_user = mysql_fetch_assoc($user);
+                  $_SESSION['kh_login_id'] = $row_user['id'];
+                  $_SESSION['kh_login_username'] = $row_user['username'];
+            /*	  chinh_table('tbl_customer',$row_user['id'],'xem=xem+1',' ',' ');*/
 
-							if(check_table('tbl_shop',"iduser='".$row_user['id']."'",'id')==false){
-								$shop=getRecord('tbl_shop', "iduser='".$row_user['id']."'");
-								echo '<script>window.location="http://'.$shop['subject'].'.'.$sub.'/quantri.html"</script>';
-							}
-							else echo '<script>window.location="'.$linkrootshop.'/dang-ky-gian-hang.html'.'"</script>';
-							
-							echo '<script>window.location="'.$linkrootshop.''.'"</script>';
-				
-					}else{ //Thất bại
-						header("location: $linkrootshop");
-				  	}	
-			}//else
+                //luu usernam va pass words
+                    if (isset($_POST['nho'])== true){
+                        setcookie("un", $_POST['username'], time() + 60*60*24*7 );
+                        setcookie("pw", $_POST['password'], time() + 60*60*24*7 );
+                    } else
+                    {
+                        setcookie("un", $_POST['username'], time()-1);
+                        setcookie("pw", $_POST['password'], time()-1);
+                    }
+
+                    if(check_table('tbl_shop',"iduser='".$row_user['id']."'",'id')==false){
+                        $shop=getRecord('tbl_shop', "iduser='".$row_user['id']."'");
+                        echo '<script>window.location="http://'.$shop['subject'].'.'.$sub.'/quantri.html"</script>';
+                    }
+                    else{
+                        echo '<script>window.location="'.$linkrootshop.'/dang-ky-gian-hang.html'.'"</script>';
+                    }
+
+                    echo '<script>window.location="'.$linkrootshop.''.'"</script>';
+
+                }else{ //Thất bại
+                    header("location: $linkrootshop");
+                }
+        }//else
 	 }//if ($coloi==FALSE)
-    else{
-        echo '<script>alert("ok");</script>';
-    }
 }// if isset
-	if (isset($_POST['quayra'])==true) {
-
-		header("location: $linkrootshop");
-	}
 ?>
 <div class="form_dn">
    <script type="text/javascript">  
@@ -91,7 +84,7 @@ if (isset($_POST['btn_dangnhap_in'])==true){
 		 
 		 
 	});				
-</script>          
+</script>
      <div style="padding:5px 10px 5px 5px;   color:#F00; text-align: center;">
         	<?php if($_SERVER['HTTP_REFERER']== "http://".$linkrootshop."/dang-ky.html" && $_SESSION['register_re']==1)echo "Bạn vừa đăng ký thành công tài khoản ";?>
      </div>
