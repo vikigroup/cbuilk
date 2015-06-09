@@ -60,13 +60,6 @@ if (isset($_POST['btn_dangky'])==true)//isset kiem tra submit
              };</script>");
         }
 }
-
-	$username = $_SESSION['kh_login_username'];
-	if (isset($_POST['quayra'])==true) {
-
-		header("location: $linkrootshop");
-	}
-
 ?>
 <div class="form_dn">
   <script>
