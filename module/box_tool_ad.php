@@ -11,7 +11,7 @@
             <li><a href="<?php echo $linkrootshop;?>/dang-ky.html">Đăng ký</a></li>
         <?php }else{$id = get_field("tbl_customer","username",$_SESSION['kh_login_username'],"id"); $domain = get_field("tbl_shop","iduser",$id,"subject");?>
             <?php if($domain != ""){ ?>
-            <li><a href="http://<?php echo $domain ?>.<?php echo $sub ?>/quantri.html">Trang quản trị</a></li>
+            <li><a onclick="if($(window).width() > 991){window.location.href = 'http://<?php echo $domain ?>.<?php echo $sub ?>/quantri.html';} else{alert('Chức năng này chỉ dành cho phiên bản đầy đủ...');}">Trang quản trị</a></li>
             <?php }else{ ?>
             <li>Xin chào ! <?php echo $_SESSION['kh_login_username'];?></li>
             <?php } ?>
