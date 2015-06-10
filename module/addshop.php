@@ -92,7 +92,7 @@ $(document).ready(function() {
 	$("#tenmien").keyup(function(){  
 	   var val=this.value;
 	   var strlen=val.length;
-	   if(strlen>=4) $("#baoloi").load("<?php echo $linkrootshop;?>/module/tenmien.php?tenmien="+val); 
+	   if(strlen>=2) $("#baoloi").load("<?php echo $linkrootshop;?>/module/tenmien.php?tenmien="+val);
 	});
 
     $('#btn_dangky').click(function(){
