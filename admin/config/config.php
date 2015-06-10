@@ -226,15 +226,15 @@ if (isset($_POST['btnSave'])){
                                   <td valign="middle"><input name="cauhinh_mail_mk" type="password" class="table_khungnho" id="cauhinh_mail_mk" value="<?=$cauhinh_mail_mk;?>"  /></td>
                                 </tr>
                                 <tr>
-                                  <td valign="middle">Title <span class="sao_bb">*</span></td>
+                                  <td valign="middle">Tiêu đề<span class="sao_bb">*</span></td>
                                   <td valign="middle"><input name="title" type="text" class="table_khungnho" id="title" value="<?=$title?>"  /></td>
                                 </tr>
                                 <tr>
-                                  <td valign="middle">Description<span class="sao_bb">*</span></td>
+                                  <td valign="middle">Mô tả<span class="sao_bb">*</span></td>
                                   <td valign="middle"><input name="description" type="text" class="table_khungnho" id="description" value="<?=$description?>"  /></td>
                                 </tr>
                                 <tr>
-                                  <td valign="middle">Keywords<span class="sao_bb">*</span></td>
+                                  <td valign="middle">Từ khóa tìm kiếm<span class="sao_bb">*</span></td>
                                   <td valign="middle"><input name="keywords" type="text" class="table_khungnho" id="keywords" value="<?=$keywords?>"  /></td>
                                 </tr>
                                 <tr>
