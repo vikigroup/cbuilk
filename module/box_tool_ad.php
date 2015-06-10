@@ -13,7 +13,7 @@
             <?php if($domain != ""){ ?>
             <li><a onclick="if($(window).width() > 991){window.location.href = 'http://<?php echo $domain ?>.<?php echo $sub ?>/quantri.html';} else{alert('Chức năng này chỉ dành cho phiên bản đầy đủ...');}">Trang quản trị</a></li>
             <?php }else{ ?>
-            <li>Xin chào ! <?php echo $_SESSION['kh_login_username'];?></li>
+            <li>Xin chào, <?php echo $_SESSION['kh_login_username'];?></li>
             <?php } ?>
             <li>|</li>
             <li><a href="<?php echo $linkrootshop;?>/doi-mat-khau.html" title="">Đổi mật khẩu</a></li>
