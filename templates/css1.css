@@ -101,7 +101,7 @@ span.hotline { margin-left: 5px !important;}
     margin-top: 0;
 }
 .r-tool-ct {float: right; background-color: #ffffff;}
-.r-tool-ct ul li {float: left; text-transform: capitalize;}
+.r-tool-ct ul li {float: left; cursor: pointer;}
 .r-tool-ct ul li + li {padding-left: 5px;}
 .r-tool-ct ul li a {color: #444;}
 .r-tool-ct ul li a:hover {color: #3ba11b; text-decoration: underline;}
