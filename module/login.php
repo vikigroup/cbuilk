@@ -57,6 +57,9 @@ if (isset($_POST['btn_dangnhap_in'])==true){
         }//else
 	 }//if ($coloi==FALSE)
 }// if isset
+if (isset($_POST['quayra'])==true) {
+    header("location: $linkrootshop");
+}
 ?>
 <div class="form_dn">
    <script type="text/javascript">  

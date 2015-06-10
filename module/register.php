@@ -52,8 +52,6 @@ if (isset($_POST['btn_dangky'])==true)//isset kiem tra submit
 			insert_table('tbl_customer',$vale1,$vale2,$hinh);
 			
 			$_SESSION['register_re']="1";
-            $_SESSION['kh_login_id'] = get_field("tbl_customer","username",$tendk,"id");
-            $_SESSION['kh_login_username'] = $tendk;
 
             echo("<script>if(confirm('Xin chúc mừng bạn đã đăng ký thành công! Chỉ còn một bước nữa thôi là có thể mở gian hàng')){
                 window.location='".$linkrootshop."/dang-ky-gian-hang.html';
