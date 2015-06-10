@@ -69,7 +69,10 @@
     </div><!-- End .i-foot -->
     
     <div class="text-foot">
-        Bản quyền © 2015  <b> <?php echo   str_replace("http://", "", $linkrootshop);?>
+        <span>Bản quyền © 2015  <b> <?php echo   str_replace("http://", "", $linkrootshop);?></span><br/>
+        <span><?php echo get_field('tbl_config','id',2,'tenkh'); ?></span><br/>
+        <span>Địa chỉ: <?php echo get_field('tbl_config','id',2,'dckh'); ?></span><br/>
+        <span>Số ĐKKD: <?php echo get_field('tbl_config','id',2,'faxkh'); ?></span><br/>
     </div><!-- End .text-foot -->
     
 </div><!-- End .m-wrap -->
