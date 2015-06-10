@@ -29,6 +29,7 @@ $linkroot='http://'.$_SERVER['HTTP_HOST'];
 $linkroot=$linkroot.$root_file;
 
 $linkrootshop=$linkroot;
+$shophomepage = $linkrootshop;
 $linkroot=$linkrootshop."/web";
 
 
