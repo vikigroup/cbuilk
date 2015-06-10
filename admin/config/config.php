@@ -153,33 +153,33 @@ if (isset($_POST['btnSave'])){
                                 </tr>
                                 <tr>
                                     <td valign="middle" width="30%">
-                                        Tên  copyright<span class="sao_bb">*</span>
+                                        Tên bản quyền<span class="sao_bb">*</span>
                                     </td>
                                     <td valign="middle" width="70%">
                                         <input name="copyright" type="text" class="table_khungnho" id="copyright" value="<?=$copyright?>"/>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td valign="middle" width="30%">Tên khách hàng<span class="sao_bb">*</span>
+                                    <td valign="middle" width="30%">Tên công ty<span class="sao_bb">*</span>
                                     </td>
                                     <td valign="middle" width="70%">
                                         <input name="tenkh" type="text" class="table_khungnho" id="tenkh" value="<?=$tenkh?>"  />
                                     </td>
                                 </tr>
                                 <tr>
-                                  <td valign="middle">Địa chỉ khách hàng<span class="sao_bb">*</span></td>
+                                  <td valign="middle">Địa chỉ<span class="sao_bb">*</span></td>
                                   <td valign="middle"><input name="dckh" type="text" class="table_khungnho" id="dckh" value="<?=$dckh?>"  /></td>
                                 </tr>
                                 <tr>
-                                  <td valign="middle">Điện thoại khách hàng<span class="sao_bb">*</span></td>
+                                  <td valign="middle">Điện thoại<span class="sao_bb">*</span></td>
                                   <td valign="middle"><input name="dtkh" type="text" class="table_khungnho" id="dtkh" value="<?=$dtkh?>"  /></td>
                                 </tr>
                                 <tr>
-                                  <td valign="middle">Hotline khách hàng<span class="sao_bb">*</span></td>
+                                  <td valign="middle">Hotline<span class="sao_bb">*</span></td>
                                   <td valign="middle"><input name="hotlinekh" type="text" class="table_khungnho" id="hotlinekh" value="<?=$hotlinekh?>"  /></td>
                                 </tr>
                                 <tr>
-                                  <td valign="middle">Email khách hàng<span class="sao_bb">*</span></td>
+                                  <td valign="middle">Email<span class="sao_bb">*</span></td>
                                   <td valign="middle"><input name="emailkh" type="text" class="table_khungnho" id="emailkh" value="<?=$emailkh?>"  /></td>
                                 </tr>
                                 <tr>
