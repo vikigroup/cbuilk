@@ -76,7 +76,7 @@ $(document).ready(function() {
 	$("#tendk").keyup(function(){
 	   var val=this.value;
 	   var strlen=val.length;
-	   if(strlen>=4) $("#error").load("<?php echo $linkrootshop;?>/module/username.php?user="+val); 
+	   if(strlen>=2) $("#error").load("<?php echo $linkrootshop;?>/module/username.php?user="+val);
 	});
 
     $('#btn_dangky').click(function(){
