@@ -41,6 +41,14 @@ if (isset($_POST['btn_dangnhap_in'])==true){
                         setcookie("pw", $_POST['password'], time()-1);
                     }
 
+                    if(check_table('tbl_shop',"iduser='".$row_user['id']."'",'id')==false){
+                        $shop=getRecord('tbl_shop', "iduser='".$row_user['id']."'");
+                        echo '<script>window.location="http://'.$shop['subject'].'.'.$sub.'/quantri.html"</script>';
+                    }
+                    else{
+                        echo '<script>window.location="'.$linkrootshop.'/dang-ky-gian-hang.html'.'"</script>';
+                    }
+
                     echo '<script>window.location="'.$linkrootshop.''.'"</script>';
 
                 }else{ //Thất bại
