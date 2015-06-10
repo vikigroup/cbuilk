@@ -237,7 +237,7 @@ $(document).ready(function() {
                     <div class="module_ftt">
                         <div class="r_f_tt">
                             <input id="thoathuan" name="thoathuan" type="checkbox" value="<?php if($status>0){echo $status;}else{echo 0;} ?>" <? if ($status>0) echo 'checked' ?> onchange="if($(this).is(':checked')){this.value = 1;}else{this.value = 0;}"/>
-                                <a href="#" title="" style="padding-left:5px;">Tôi đồng ý với thỏa thuận sử dụng</a>
+                                <a href="http://<?php echo $sub; ?>/thong-tin/qui-che-hoat-dong.html" title="" style="padding-left:5px;">Tôi đồng ý với thõa thuận sử dụng của <?php echo $sub; ?></a>
                             <span class="star_style">*</span>
                         </div>
                         <div class="clear"></div>
