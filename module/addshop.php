@@ -66,12 +66,13 @@ if (isset($_POST['btn_dangky'])==true)//isset kiem tra submit
 			$_SESSION['kh_login_username'] = $row_user['username'];
 
             echo("<script>if(confirm('Xin chúc mừng bạn đã mở gian hàng thành công! Vào trang quản trị ngay')){
-                window.location='".$tenmien.".".$sub."/quantri.html';
+                window.location='http://".$tenmien.".".$sub."/quantri.html';
              } else {
                 window.location='".$linkrootshop."';
              };</script>");
 		}
 }
+$username = $_SESSION['kh_login_username'];
 ?>
 <script>
 $(document).ready(function() {
