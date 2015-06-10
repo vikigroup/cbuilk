@@ -183,7 +183,7 @@ if (isset($_POST['btnSave'])){
                                   <td valign="middle"><input name="emailkh" type="text" class="table_khungnho" id="emailkh" value="<?=$emailkh?>"  /></td>
                                 </tr>
                                 <tr>
-                                  <td valign="middle">Fax khách hàng<span class="sao_bb">*</span></td>
+                                  <td valign="middle">Số ĐKKD<span class="sao_bb">*</span></td>
                                   <td valign="middle"><input name="faxkh" type="text" class="table_khungnho" id="faxkh" value="<?=$faxkh?>"  /></td>
                                 </tr>
                                 <tr>
