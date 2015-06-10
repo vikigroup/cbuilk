@@ -43,7 +43,7 @@ if (isset($_POST['btn_dangnhap_in'])==true){
 
                     if(check_table('tbl_shop',"iduser='".$row_user['id']."'",'id')==false){
                         $shop=getRecord('tbl_shop', "iduser='".$row_user['id']."'");
-                        echo '<script>window.location="http://'.$shop['subject'].'.'.$sub.'/quantri.html"</script>';
+                        echo '<script>window.location="http://'.$_SESSION['kh_login_username'].'.'.$sub.'/quantri.html"</script>';
                     }
                     else{
                         echo '<script>window.location="'.$linkrootshop.'/dang-ky-gian-hang.html'.'"</script>';
