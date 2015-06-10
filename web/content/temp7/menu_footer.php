@@ -14,5 +14,5 @@
 </div><!-- End .menu_f -->
 
 <div class="info_f">
-    Copyright © <?php echo $row_shop['name'];?>. All rights reserved. Design by <a href="http://jbs.vn" title="" target="_blank">JBS.vn</a>
+    Copyright © <?php echo $row_shop['name'];?>. All rights reserved. Design by <a href="http://<?php echo $sub; ?>/" title="" target="_blank">cbuilk.com</a>
 </div><!-- End .info_f -->
