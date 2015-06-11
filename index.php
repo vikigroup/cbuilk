@@ -149,7 +149,7 @@ require("module/box_device.php");
 
 <div class="mini-bar">
     <div class="mini-shopping">
-        <a href="#">
+        <a href="#" onclick="alert('Chức năng hiện đang được hoàn thiện...');">
             <p><i class="fa fa-shopping-cart fa-lg"></i></p>
             <p>Giỏ hàng</p>
         </a>
