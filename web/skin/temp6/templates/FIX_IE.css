@@ -1,0 +1,19 @@
+/**************************************** BEGIN IE6 ****************************************/
+*html body{behavior: url(scripts/whateverhover.htc);}
+*html .input_contact_new{width:98%;}
+*html .PageNum a, *html .PageNum span{display:inline-block;}
+/**************************************** END IE6 ****************************************/
+
+/**************************************** BEGIN IE7 ****************************************/
+*+html .input_contact_new{width:98%;}
+*+html .frame_hotline_sow{width:148px;}
+*+html .menu_w ul li ul.mn_children{top:14px;}
+*+html .PageNum{padding-bottom:3px;}
+*+html .PageNum a, *+html .PageNum span{display:inline-block;}
+/**************************************** END IE7 ****************************************/
+
+/**************************************** BEGIN IE8 ****************************************/
+@media \0screen {
+	.frame_hotline_sow{width:148px;}
+}
+/**************************************** END IE8 ****************************************/
