@@ -1,0 +1,40 @@
+.ul_menu{position:absolute; height:34px; bottom:0; right:0;}
+.ulmn li{float:left; position:relative; z-index:99999; margin-right:3px;}
+.ulmn li:last-child{margin-right:0;}
+.ulmn li a{
+	display:inline-block;
+	padding:0 0 0 14px;
+	color:#fff;
+	font-size:13px;
+	font-weight:bold;
+	text-transform:capitalize;
+	line-height:34px;
+	background:url(../imgs/layout/mn_left.png) no-repeat top left;
+}
+.ulmn li a span{
+	display:block;
+	padding:0 14px 0 0;
+	background:url(../imgs/layout/mn_right.png) no-repeat top right;
+}
+
+.ulmn li:hover a, .ulmn li.atv_mn a{cursor:pointer; background:url(../imgs/layout/mn_left_hover.png) no-repeat top left;}
+.ulmn li:hover a span, .ulmn li.atv_mn a span{cursor:pointer; background:url(../imgs/layout/mn_right_hover.png) no-repeat top right;}
+
+.ulmn li:hover ul.mn_child{display:block;}
+.ulmn li ul.mn_child{
+	display:none;
+	position:absolute;
+	z-index:99998;
+	width:200px;
+	background:#353535;
+	top:34px; left:0;
+	-webkit-border-bottom-right-radius: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+	-moz-border-radius-bottomright: 5px;
+	-moz-border-radius-bottomleft: 5px;
+	border-bottom-right-radius: 5px;
+	border-bottom-left-radius: 5px;
+}
+.ulmn li ul.mn_child li{float:none;}
+.ulmn li ul.mn_child li a{background:none; line-height:24px;}
+.ulmn li ul.mn_child li a:hover{color:#FF6403;}
