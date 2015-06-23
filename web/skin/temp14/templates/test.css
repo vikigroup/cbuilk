@@ -1,0 +1,5138 @@
+
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, button, textarea, p, blockquote, th, td, a {
+    margin: 0;
+    padding: 0;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+fieldset, img {
+    border: 0 none;
+    display: block;
+}
+address, caption, cite, code, dfn, th, var, optgroup {
+    font-style: inherit;
+    font-weight: inherit;
+}
+del, ins {
+    text-decoration: line-through;
+}
+li {
+    list-style: none outside none;
+}
+caption, th {
+    text-align: left;
+}
+q:before, q:after {
+    content: "";
+}
+abbr, acronym {
+    border: 0 none;
+    font-variant: normal;
+}
+sup {
+    vertical-align: super;
+}
+sub {
+    vertical-align: sub;
+}
+legend {
+    color: #000000;
+}
+input, button, textarea, select, optgroup, option {
+    font-family: inherit;
+    font-size: inherit;
+    font-style: inherit;
+    font-weight: inherit;
+}
+sup, sub {
+    line-height: 0;
+}
+input[type="checkbox"], input[type="radio"] {
+    padding: 0 1px;
+}
+strong {
+    font-weight: 700;
+}
+em, i {
+    font-style: normal;
+}
+textarea {
+    overflow: auto;
+}
+header, nav, footer, section, figure, aside, hgroup, session {
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+center {
+    text-align: left;
+}
+a {
+    color: #CB0424;
+    outline: medium none;
+    text-decoration: none;
+}
+h1, h2, h3, h4, h5, h6, p {
+    font-weight: normal;
+    margin: 0;
+    padding: 0;
+}
+hr {
+    width: 0;
+}
+.hide {
+    display: none;
+}
+.clear {
+    clear: both;
+}
+input:focus {
+    outline: medium none;
+}
+textarea:focus {
+    outline: medium none;
+}
+textarea {
+    resize: none;
+}
+select:focus {
+    outline: medium none;
+}
+@font-face {
+    font-family: "NhomMuaBold";
+    font-style: normal;
+    font-weight: bold;
+    src: url("http://www.nhommuahotdeals.net/font/nhom_mua-bold-webfont.eot?#iefix") format("embedded-opentype"), url("http://www.nhommua.com/font/nhom_mua-bold-webfont.woff") format("woff"), url("http://www.nhommuahotdeals.net/font/nhom_mua-bold-webfont.ttf") format("truetype"), url("http://www.nhommuahotdeals.net/font/nhom_mua-bold-webfont.svg#NhomMuaBold") format("svg");
+}
+@font-face {
+    font-family: "NhomMuaMedium";
+    font-style: normal;
+    font-weight: normal;
+    src: url("http://www.nhommuahotdeals.net/font/nhom_mua-md-webfont.eot?#iefix") format("embedded-opentype"), url("http://www.nhommua.com/font/nhom_mua-md-webfont.woff") format("woff"), url("http://www.nhommuahotdeals.net/font/nhom_mua-md-webfont.ttf") format("truetype"), url("http://www.nhommuahotdeals.net/font/nhom_mua-md-webfont.svg#NhomMuaMedium") format("svg");
+}
+@font-face {
+    font-family: "NhomMuaSmBd";
+    font-style: normal;
+    font-weight: normal;
+    src: url("http://www.nhommuahotdeals.net/font/nhom_mua-sb-webfont.eot?#iefix") format("embedded-opentype"), url("http://www.nhommua.com/font/nhom_mua-sb-webfont.woff") format("woff"), url("http://www.nhommuahotdeals.net/font/nhom_mua-sb-webfont.ttf") format("truetype"), url("http://www.nhommuahotdeals.net/font/nhom_mua-sb-webfont.svg#NhomMuaSmBd") format("svg");
+}
+@font-face {
+    font-family: "NhomMuaRegular";
+    font-style: normal;
+    font-weight: normal;
+    src: url("http://www.nhommuahotdeals.net/font/nhom_mua-rg-webfont.eot?#iefix") format("embedded-opentype"), url("http://www.nhommua.com/font/nhom_mua-rg-webfont.woff") format("woff"), url("http://www.nhommuahotdeals.net/font/nhom_mua-rg-webfont.ttf") format("truetype"), url("http://www.nhommuahotdeals.net/font/nhom_mua-rg-webfont.svg#NhomMuaRegular") format("svg");
+}
+#dcs_container {
+    max-height: 499px;
+    position: relative;
+    top: 10px;
+    width: 322px;
+}
+#dcs_container .customScrollBox {
+    float: left;
+    height: 100%;
+    max-height: 499px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+#dcs_container .customScrollBox .containerScroll {
+    float: left;
+    position: relative;
+    top: 0;
+    width: 100%;
+}
+#dcs_container .customScrollBox .content {
+    clear: both;
+}
+#dcs_container .dragger_container {
+    border-radius: 2px 2px 2px 2px;
+    cursor: s-resize;
+    height: 499px;
+    margin: 0;
+    position: absolute;
+    right: 5px;
+    top: 0;
+    width: 2px;
+}
+#dcs_container .dragger {
+    background: none repeat scroll 0 0 #5E5E5E;
+    border-radius: 2px 2px 2px 2px;
+    color: #666666;
+    cursor: pointer;
+    height: 60px;
+    line-height: 60px;
+    overflow: hidden;
+    position: absolute;
+    text-align: center;
+    width: 5px;
+}
+#dcs_container .dragger_pressed {
+    background: none repeat scroll 0 0 #999999;
+    border-radius: 4px 4px 4px 4px;
+    color: #666666;
+    cursor: s-resize;
+    height: 60px;
+    line-height: 60px;
+    margin-left: -1px;
+    overflow: hidden;
+    position: absolute;
+    text-align: center;
+    width: 4px;
+}
+#dcs_container .scrollUpBtn, #dcs_container .scrollDownBtn {
+    display: inline-block;
+    height: 15px;
+    margin-right: 12px;
+    opacity: 0.2;
+    position: absolute;
+    right: 0;
+    text-decoration: none;
+    width: 14px;
+}
+#dcs_container .scrollUpBtn {
+    background: url("mcs_btnUp.png") no-repeat scroll center center transparent;
+    top: 16px;
+}
+#dcs_container .scrollDownBtn {
+    background: url("mcs_btnDown.png") no-repeat scroll center center transparent;
+    bottom: 12px;
+}
+body {
+    background: none repeat scroll 0 0 #E5E5E5;
+    font-family: arial;
+    font-size: 0;
+    line-height: 1.231;
+    position: relative;
+}
+.container {
+    margin: 0 auto;
+    position: relative;
+    width: 1218px;
+}
+.wrapper {
+    position: relative;
+    width: 100%;
+}
+.tabs-header {
+    background: url("http://www.nhommuahotdeals.net/tp-ho-chi-minh-test/images_v4/bg_repeat.png") repeat-x scroll 0 -68px transparent;
+    height: 80px;
+    width: 100%;
+    z-index: 2;
+}
+.tabs-header-inner {
+    height: 51px;
+    margin: 0 auto;
+    position: relative;
+    width: 1218px;
+    z-index: 1;
+}
+.gr-tabs {
+    height: 27px;
+    margin: auto;
+    width: 1218px;
+}
+.gr-tabs p {
+    float: left;
+    font-size: 12px;
+    line-height: 22px;
+    position: relative;
+    text-align: right;
+}
+.gr-tabs a, .gr-tabs span {
+    color: #999999;
+    display: inline-block;
+}
+.gr-tabs a:hover {
+    color: #000000;
+}
+.gr-tabs span {
+    padding: 0 11px;
+}
+.gr-tabs a:hover {
+}
+.tabs-header-inner ul {
+    float: left;
+    left: 2px;
+    position: relative;
+}
+.tabs-header-inner li {
+    float: left;
+    margin-left: 1px;
+}
+.tabs-header-inner li a {
+    background-image: none;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    display: inline-block;
+    float: left;
+    padding-left: 7px;
+    width: 107px;
+}
+.tabs-header-inner li a.active, .tabs-header-inner li a:hover {
+    background-position: 0 -50px;
+}
+.tabs-header-inner li a i {
+    background-image: url("http://www.nhommuahotdeals.net/tp-ho-chi-minh-test/images_v4/gr-logo.png");
+    background-repeat: no-repeat;
+    display: block;
+    height: 30px;
+    margin: 4px auto auto;
+}
+.nhommua:hover i, .nhommua.active i {
+    background-position: 0 -135px;
+}
+.zap:hover i, .zap.active i {
+    background-position: 0 -180px;
+}
+.hungry:hover i, .hungry.active i {
+    background-position: 0 -225px;
+}
+.kay:hover i, .kay.active i {
+    background-position: 0 -323px;
+}
+.nhommua i {
+    background-position: 0 0;
+    width: 92px;
+}
+.zap i {
+    background-position: 0 -45px;
+    width: 57px;
+}
+.hungry i {
+    background-position: 0 -90px;
+    width: 85px;
+}
+.kay i {
+    background-position: 0 -272px;
+    width: 49px;
+}
+.gr-register {
+    float: left;
+    height: 23px;
+    position: absolute;
+    right: 2px;
+    top: 2px;
+}
+.gr-register .avatar {
+    border: 1px solid #000000;
+    display: block;
+    float: left;
+    margin-right: 12px;
+}
+.gr-register .avatar img {
+    border: 1px solid #FFFFFF;
+    border-radius: 0 0 0 0;
+    margin-right: 0;
+}
+.gr-register a, .gr-register span {
+    color: #FFFFFF;
+    display: inline-block;
+    float: left;
+    font-size: 12px;
+    line-height: 18px;
+}
+.gr-register span {
+    padding: 0 6px;
+}
+.gr-register .nick {
+    color: #469DDF;
+    font-weight: 700;
+}
+.gr-register a:hover {
+    text-decoration: none;
+}
+.gr-register a i {
+    color: #0095DA;
+    font-weight: 700;
+}
+.box-pay {
+    background-color: #FFFFFF;
+    border: 1px solid #B6B6B6;
+    border-radius: 4px 4px 4px 4px;
+    box-shadow: 0 6px 3px rgba(0, 0, 0, 0.27);
+    float: left;
+    height: 35px;
+    padding-left: 10px;
+}
+.box-pay .money {
+    background: url("http://www.nhommuahotdeals.net/tp-ho-chi-minh-test/images_v4/giohang.png") no-repeat scroll 0 2px transparent;
+    color: #676767;
+    float: left;
+    font-size: 14px;
+    font-weight: 700;
+    height: 19px;
+    margin-top: 10px;
+    padding-left: 27px;
+    padding-right: 22px;
+}
+.box-pay .money i {
+    font-size: 12px;
+    position: relative;
+    right: -2px;
+    text-decoration: underline;
+    top: -5px;
+}
+.gr-register .btn-pay {
+    background: -moz-linear-gradient(center top , #FF911A 1%, #E17500 100%) repeat scroll 0 0 transparent;
+    border: 1px solid #C76700;
+    border-radius: 4px 4px 4px 4px;
+    margin: 2px 3px 0 0;
+    padding: 0 11px;
+}
+.header-ddl p {
+    background-image: url("http://www.nhommuahotdeals.net/tp-ho-chi-minh-test/images_v4/navi.png");
+    background-position: -122px -100px;
+    display: block;
+    height: 27px;
+    margin-top: -1px;
+    width: 19px;
+}
+.amo-cart {
+    background-image: url("http://www.nhommuahotdeals.net/tp-ho-chi-minh-test/images_v4/bg_repeat.png");
+    background-position: 0 -153px;
+    border-radius: 8px 8px 8px 8px;
+    height: 42px;
+    position: relative;
+    top: -7px;
+    width: 242px;
+}
+.amo-cart a {
+    margin-top: 5px;
+}
+.amo-cart span {
+    margin-top: 6px;
+}
+.btn-pay i {
+    background: url("http://www.nhommuahotdeals.net/tp-ho-chi-minh-test/images_v4/giohang.png") no-repeat scroll right -21px transparent;
+    color: #FFFFFF;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 27px;
+    padding-right: 10px;
+    text-shadow: -1px -1px 1px rgba(199, 103, 0, 0.34);
+}
+.header-cart {
+    border-radius: 0 0 6px 6px;
+    float: right;
+    height: 67px;
+    margin-right: 0;
+    margin-top: -76px;
+    position: relative;
+    width: 325px;
+    z-index: 3;
+}
+.header-cart .text {
+    background: url("http://www.nhommuahotdeals.net/tp-ho-chi-minh-test/images_v4/header-cart.png") no-repeat scroll right 0 transparent;
+    color: #333333;
+    float: left;
+    font-size: 12px;
+    height: 37px;
+    line-height: 16px;
+    padding: 30px 14px 0 7px;
+    width: 68px;
+}
+.header-cart .bg-cart {
+    border-radius: 0 0 7px 0;
+    float: right;
+    height: 37px;
+    margin: auto 0 auto auto;
+    padding-top: 36px;
+    width: 242px;
+}
+.bg-cart .cart {
+    background: url("http://www.nhommuahotdeals.net/tp-ho-chi-minh-test/images_v4/header-cart.png") no-repeat scroll 4px -240px transparent;
+    color: #FFFF00;
+    float: left;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 37px;
+    margin-left: 14px;
+    padding-left: 20px;
+    padding-right: 8px;
+    position: relative;
+    text-align: right;
+    width: 96px;
+}
+.bg-cart .cart sup {
+    text-decoration: underline;
+}
+.bg-cart .cart:hover {
+    text-decoration: none;
+}
+.bg-cart .cart i {
+    color: #FFFF00;
+    font-size: 12px;
+    font-weight: 400;
+    height: 16px;
+    left: 7px;
+    line-height: 16px;
+    position: absolute;
+    text-align: center;
+    top: -2px;
+    width: 20px;
+}
+.bg-cart .line {
+    border-left: 1px solid #626060;
+    border-right: 1px solid #C1BFBE;
+    display: inline-block;
+    float: left;
+    height: 47px;
+    margin-left: 8px;
+    width: 0;
+}
+.btn-thanhtoan {
+    float: left;
+}
+.btn-thanhtoan a {
+    background: url("http://www.nhommuahotdeals.net/tp-ho-chi-minh-test/images_v4/bg_repeat.png") repeat-x scroll 0 -277px #5CB834;
+    border: 1px solid #47880C;
+    border-radius: 4px 4px 4px 4px;
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.35);
+    color: #FFFFFF;
+    display: block;
+    height: 27px;
+    width: 92px;
+}
+.btn-thanhtoan a i {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 27px;
+    text-align: center;
+    text-shadow: -1px 1px 1px rgba(56, 159, 47, 0.34);
+}
+.header-ddl {
+    clear: both;
+    float: left;
+    height: 27px;
+    position: relative;
+    top: 11px;
+    z-index: 1;
+}
+.header-ddl p {
+    color: #333333;
+    float: left;
+    font-size: 13px;
+    line-height: 27px;
+}
+.header-select {
+    float: left;
+    height: 23px;
+    margin-left: 0;
+    margin-top: 5px;
+}
+.header-select .text {
+    color: #000000;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: bold;
+    height: 18px;
+    line-height: 19px;
+    padding: 0 21px 0 7px;
+    position: relative;
+    text-transform: uppercase;
+    width: 87px;
+}
+.header-select .text i {
+    background: url("http://www.nhommuahotdeals.net/tp-ho-chi-minh-test/images_v4/header-cart.png") repeat scroll 0 -282px transparent;
+    cursor: pointer;
+    display: block;
+    height: 16px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 21px;
+    z-index: 1;
+}
+.header-select .toggle {
+    border: 1px solid #FFFFFF;
+    padding-top: 21px;
+    position: relative;
+    top: -21px;
+    width: 113px;
+}
+.header-select .toggle ul {
+    background-color: #FFFFFF;
+    left: 0;
+    margin-left: -1px;
+}
+.header-select .toggle li {
+    border-top: 1px solid #CCCCCC;
+    color: #000000;
+    cursor: pointer;
+    float: left;
+    font-size: 13px;
+    line-height: 24px;
+    text-transform: uppercase;
+    width: 114px;
+}
+.header-select .toggle li:hover {
+    background-color: #CCCCCC;
+}
+.bg-footer {
+    background-color: #121212;
+    clear: both;
+    color: #666666;
+    font-size: 13px;
+    line-height: 20px;
+    width: 100%;
+}
+.bg-footer .container {
+    overflow: hidden;
+    padding: 29px 0 15px;
+    width: 1180px;
+}
+.bg-footer .line {
+    display: inline-block;
+    font-size: 0;
+    height: 0;
+    margin: 6px 0 8px;
+}
+.bg-footer .col-l {
+    float: left;
+    margin-right: 53px;
+    width: 275px;
+}
+.bg-footer .col-l p {
+    clear: both;
+    text-align: right;
+}
+.bg-footer .col-l a {
+    color: #666666;
+}
+.bg-footer .col-l a:hover {
+    color: #0095DA;
+    text-decoration: underline;
+}
+.bg-footer .col-r {
+    float: left;
+    margin-top: -9px;
+    width: 840px;
+}
+.bg-footer .col-r h6 {
+    border-bottom: 1px solid #333333;
+    color: #FFFFFF;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 28px;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+}
+.bg-footer .col-r li {
+    float: left;
+}
+.bg-footer .col-r li a, .bg-footer .col-r li span {
+    color: #666666;
+    display: block;
+    line-height: 20px;
+    transition: all 0.2s ease-in 0s;
+}
+.bg-footer .col-r li a:hover {
+    color: #FFFFFF;
+    text-decoration: underline;
+}
+.bg-footer-b {
+    background-color: #FFFFFF;
+    clear: left;
+    overflow: hidden;
+    width: 100%;
+}
+.bg-footer-b p {
+    color: #333333;
+    line-height: 27px;
+    margin: 0 auto;
+    text-align: right;
+    width: 1218px;
+}
+.bg-footer-b p span {
+    float: left;
+    text-align: left;
+}
+.gr-register .taikhoan {
+    float: left;
+    text-align: right;
+}
+.taikhoan span {
+    clear: both;
+    color: #333333;
+    display: block;
+    line-height: 18px;
+}
+.taikhoan span i {
+    font-size: 10px;
+    position: relative;
+    top: -4px;
+}
+.shadows {
+    background: none repeat scroll 0 0 #000000;
+    display: none;
+    height: 100%;
+    left: 0;
+    opacity: 0.85;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 11;
+}
+.logos {
+    background: url("http://www.nhommuahotdeals.net/tp-ho-chi-minh-test/images_v4/bg-footer.png") repeat-x scroll 0 0 transparent;
+    height: 59px;
+    overflow: hidden;
+    width: 100%;
+}
+.logos-inner {
+    background: url("http://www.nhommuahotdeals.net/tp-ho-chi-minh-test/images_v4/logo-footer.png") no-repeat scroll 0 -210px transparent;
+    height: 41px;
+    margin: 9px auto 0;
+    padding-left: 60px;
+    width: 1120px;
+}
+.logos a {
+    background-image: url("http://www.nhommuahotdeals.net/tp-ho-chi-minh-test/images_v4/logo-footer.png");
+    background-repeat: no-repeat;
+    display: inline-block;
+    float: left;
+    height: 27px;
+    margin: 7px 22px 0;
+}
+.logos .hungry {
+    background-position: 0 0;
+    width: 89px;
+}
+.logos .zap {
+    background-position: 0 -30px;
+    width: 54px;
+}
+.logos .diadiem {
+    background-position: 0 -60px;
+    width: 79px;
+}
+.logos .nhommua {
+    background-position: 0 -90px;
+    width: 105px;
+}
+.logos .twomedia {
+    background-position: 0 -120px;
+    width: 28px;
+}
+.logos .two {
+    background-position: 0 -150px;
+    width: 55px;
+}
+.logos .yume {
+    background-position: 0 -180px;
+    width: 103px;
+}
+.footer-share {
+    left: -7px;
+    position: relative;
+    top: 6px;
+    width: 280px;
+}
+.footer-share a {
+    background-image: url("http://www.nhommuahotdeals.net/tp-ho-chi-minh-test/images_v4/share.png");
+    background-repeat: no-repeat;
+    display: inline-block;
+    float: left;
+    height: 29px;
+    margin: 0 3px;
+    width: 29px;
+}
+.footer-share .facebook {
+    background-position: 0 0;
+}
+.footer-share .twitter {
+    background-position: -40px 0;
+}
+.footer-share .in {
+    background-position: -80px 0;
+}
+.footer-share .t {
+    background-position: -120px 0;
+}
+.footer-share .youtube {
+    background-position: -160px 0;
+}
+.footer-share .e {
+    background-position: -200px 0;
+}
+.footer-share .g {
+    background-position: -240px 0;
+}
+.footer-share .zing {
+    background-position: -280px 0;
+}
+.footer-share .yume {
+    background-position: -320px 0;
+}
+.fo-hunry .col-l a:hover {
+    color: #FF3300;
+}
+.fo-zap .col-l a:hover {
+    color: #66CC33;
+}
+.fo-zap .col-r li .viewmore {
+    display: inline-block;
+    position: relative;
+}
+.fo-zap .col-r li .viewmore:hover {
+    color: #66CC33;
+}
+.viewmore i {
+    display: none;
+    position: absolute;
+    right: -20px;
+    top: 0;
+}
+.viewmore:hover i {
+    display: block;
+}
+.mod-innerHeader {
+    height: 100%;
+    margin: auto;
+    position: relative;
+    width: 1218px;
+}
+.header-select .text {
+    color: #0095DA;
+}
+.hightlight-products h1 i {
+    margin-top: 4px;
+}
+.gr-tabs {
+    height: 27px;
+    margin: auto;
+    width: 1218px;
+}
+.gr-tabs p {
+    float: left;
+    font-size: 12px;
+    line-height: 27px;
+    position: relative;
+    text-align: right;
+}
+.gr-tabs a, .gr-tabs span {
+    color: #FFFFFF;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: bold;
+}
+.gr-tabs a:hover {
+    color: #FFFFFF;
+}
+.gr-tabs span {
+    padding: 0 7px;
+}
+.gr-tabs a:hover {
+}
+.header-select .toggle {
+    display: block;
+    opacity: 0;
+    transition: all 0.3s linear 0s;
+    visibility: hidden;
+}
+.header-select:hover .toggle {
+    opacity: 1;
+    visibility: visible;
+}
+.order-detail a {
+    cursor: pointer;
+}
+.contact-footer {
+    float: right !important;
+    width: 270px;
+}
+.help-footer {
+    padding-left: 116px;
+}
+section {
+    position: relative;
+}
+.sectionBody {
+    position: relative;
+}
+.tabs-header-inner li a.active, .tabs-header-inner li a:hover {
+    transition: height 0.5s ease 0s;
+}
+.header-select .text {
+    color: #0095DA;
+}
+.hightlight-products h1 i {
+    margin-top: 4px;
+}
+.tabs-header {
+}
+.bg-footer {
+}
+.col-r {
+    float: left;
+}
+.sectionEmail {
+    background-color: #0095DA;
+    background-image: url("http://www.nhommuahotdeals.net/tp-ho-chi-minh-test/images_v4/bg_repeat.png");
+    background-repeat: repeat-x;
+}
+.secttion-bg-header {
+    background-image: url("http://www.nhommuahotdeals.net/images_v3/bg.gif");
+    height: 63px;
+    width: 100%;
+}
+.bg-header {
+    background: url("http://www.nhommuahotdeals.net/images_v3/bg-header.png") repeat-y scroll center top transparent;
+    height: 60px;
+}
+.logo {
+    border: medium none;
+    clear: left;
+    float: left;
+    margin-left: -5px;
+    margin-top: 15px;
+    padding: 0;
+    position: relative;
+}
+.sub-nav-inner {
+    float: left;
+    margin-top: 15px;
+    padding-left: 5px;
+    width: 900px;
+}
+.sub-nav-inner li {
+    float: left;
+    position: relative;
+    z-index: 2;
+}
+.sub-nav-inner a {
+    color: #FFFFFF;
+    float: left;
+    height: 35px;
+    line-height: 35px;
+    padding: 0 10px;
+}
+.sub-nav-inner a em {
+    font-family: arial;
+    font-size: 14px;
+    font-weight: bold;
+}
+.sub-nav-inner a:hover em {
+    color: #0095DA;
+    text-shadow: 0 1px 2px #C1C0C0;
+}
+.hotline {
+    float: left;
+    margin: 17px 0 0 20px;
+}
+.hotline p, .hotline a {
+    float: left;
+}
+.hotline p {
+    color: #333333;
+    font-size: 13px;
+    margin-right: 10px;
+}
+.hotline .yahoo {
+    float: left;
+}
+.hotline img {
+    border-radius: 4px 4px 4px 4px;
+    box-shadow: 1px 2px 3px #666666;
+    float: left;
+    margin-right: 7px;
+    padding-right: 0;
+}
+.gr-deal-o {
+    float: left;
+    height: 424px;
+    margin-right: 21px;
+    position: relative;
+    width: 598px;
+}
+.gr-deal-o section a h1 img {
+    border: 1px solid #FEFEFE;
+}
+.offer-detail {
+    height: 110px;
+    margin: auto;
+    position: relative;
+    top: -110px;
+    width: 254px;
+}
+.topdeal-o {
+    background-image: url("http://www.nhommuahotdeals.net/tp-ho-chi-minh-test/images_v4/shadow-deal.png?v=2");
+    background-position: -394px -210px;
+    display: block;
+    height: 76px;
+    left: -4px;
+    position: absolute;
+    top: -4px;
+    width: 76px;
+}
+.meta-offer {
+    background-image: url("http://www.nhommuahotdeals.net/images_v2/bg-title-travel.png");
+    display: block;
+    height: 30px;
+    margin: auto;
+    width: 174px;
+}
+.meta-offer {
+    background-image: url("http://www.nhommuahotdeals.net/images_v2/bg-title-travel.png");
+    display: block;
+    height: 26px;
+    margin: auto;
+    transition: all 0.7s ease-out 0s;
+    width: 174px;
+}
+.meta-offer a {
+    color: White;
+    display: block;
+    float: left;
+    font-size: 12px;
+    height: 21px;
+    line-height: 21px;
+    width: 174px;
+}
+.meta-offer a sup {
+    font-size: 12px;
+}
+.price-offer {
+    border-left: 1px solid #FFFFFF;
+    border-right: medium none !important;
+    color: #FFFF00;
+    font-weight: bold;
+    width: 93px !important;
+}
+.meta-offer a span {
+    display: block;
+    float: left;
+    font-size: 17px;
+    height: 23px;
+    padding-top: 4px;
+    text-align: center;
+    width: 93px;
+}
+.info-offer {
+    background-color: white;
+    border-bottom: 1px solid #666666;
+    border-left: 1px solid #DFDEDE;
+    border-right: 1px solid #DFDEDE;
+    box-shadow: 0 1px 4px #999999;
+    display: table-cell;
+    float: left;
+    height: 83px;
+    width: 462px;
+}
+.info-offer .aTitleDeal, .info-offer .aTitle_more {
+    color: Black;
+    height: 30px;
+    margin: auto;
+    text-align: center;
+    width: 213px;
+}
+.offer-desc {
+    color: #000000;
+    display: block;
+    font-size: 13px;
+    line-height: 15px;
+    padding: 0 10px;
+    text-align: center;
+}
+.offer-detail .h2.offer-desc:before {
+    border-bottom: 1px solid #CCCCCC;
+    content: "";
+    display: block;
+    height: 0;
+    margin: 0 auto 12px;
+    width: 120px;
+}
+.info-offer .aTitleDeal h1 {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+}
+.offer-detail h1 {
+    padding: 0 10px 10px;
+}
+.offer-detail .info-offer a {
+    color: #333333;
+    text-align: center;
+}
+.offer-detail .info-offer a h1 {
+    font-weight: bold;
+}
+.offer-detail .info-offer .oneline-offer {
+    padding-top: 10px;
+}
+.offer-detail .moreline-offer .h2.offer-desc:before {
+    margin: 0 auto 3px;
+}
+.h2 {
+    font-size: 12px;
+    height: 33px;
+    overflow: hidden;
+}
+.gr-deal-focus .deliver-icon, .gr-deal-o .deliver-icon, .list-deal-o .deliver-icon, .travel-o .deliver-icon {
+    background: none repeat scroll 0 0 rgba(0, 149, 218, 0.7);
+    height: 16px;
+    padding: 5px;
+
+    right: 1px;
+    top: 1px;
+    transition: all 0.2s linear 0s;
+}
+.moreline-offer a h1 {
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+.offer-detail .info-offer a h1 {
+    text-align: center;
+}
+.sectionSlideDeal {
+    float: left;
+    margin-bottom: 20px;
+    position: relative;
+    width: 100%;
+    z-index: 4;
+}
+.deal-focus-o {
+    float: left;
+    height: 298px;
+    margin-bottom: 30px;
+    margin-left: 5px;
+    width: 792px;
+}
+.banner-news-deal-o {
+    background-image: url("http://www.nhommuahotdeals.net/tp-ho-chi-minh-test/images_v4/dealmoi-o.png");
+    height: 74px;
+    width: 74px;
+}
+.infoFocus-offer {
+    background-image: url("http://www.nhommuahotdeals.net/tp-ho-chi-minh-test/images_v4/shadow-new.png");
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 247px;
+}
+.wrapper-offer .btn {
+    margin-top: 30px;
+}
+.wrapper-offer {
+    padding: 35px 0 0 30px;
+    width: 190px;
+}
+.wrapper-offer h1 {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+}
+.wrapper-offer p {
+    color: White;
+    font-size: 13px;
+    line-height: 18px;
+    padding-top: 20px;
+}
+.list-deal-o {
+    float: left;
+    height: 400px;
+    margin-bottom: 30px;
+    margin-right: 22px !important;
+    position: relative;
+    width: 237px !important;
+}
+.top-deal .list-deal-o .deal-img a h1 img {
+    border: 1px solid #D1D1D1;
+}
+.list-deal-o section {
+    float: left;
+    height: 416px;
+    width: 238px;
+}
+.list-deal-o .offer-detail {
+    width: 220px;
+}
+.list-deal-o .deliver-icon {
+    right: 1px;
+}
+.list-deal-o .offer-detail .info-offer {
+    width: 218px;
+}
+.moreline-offer h1 {
+    height: 32px;
+    overflow: hidden;
+    text-align: center;
+}
+.oneline-offer h1 {
+    height: 17px;
+    text-align: center;
+}
+.list-deal-o .info-offer {
+    width: 222px;
+}
+.gr-deal-o section {
+    height: 287px;
+}
+.list-deal-o section a h1 img {
+    border: 1px solid white;
+    height: 347px;
+    width: 236px;
+}
+.deal-img:hover .meta-offer {
+    background: none repeat scroll 0 0 rgba(0, 149, 218, 0.8);
+}
+.lifestyle-offer:hover .meta-offer {
+    background: none repeat scroll 0 0 rgba(0, 149, 218, 0.8);
+}
+.travel-offer:hover .meta-offer {
+    background: none repeat scroll 0 0 rgba(0, 149, 218, 0.8);
+}
+.product-offer:hover .meta-offer {
+    background: none repeat scroll 0 0 rgba(0, 149, 218, 0.8);
+}
+.coffee-offer:hover .meta-offer {
+    background: none repeat scroll 0 0 rgba(0, 149, 218, 0.8);
+}
+.spa-offer:hover .meta-offer {
+    background: none repeat scroll 0 0 rgba(0, 149, 218, 0.8);
+}
+.topdeal-offer:hover .meta-offer {
+    background: none repeat scroll 0 0 rgba(0, 149, 218, 0.8);
+}
+.dTopDeal {
+    float: left;
+    margin-bottom: 10px;
+    position: relative;
+}
+.hgroup {
+    width: 100%;
+}
+.top-deal .deal .sub-menuNew .sub-nav-inner {
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+}
+.top-deal .deal .sub-menuNew .sub-nav-inner a {
+    height: 36px;
+    padding-top: 0;
+}
+.sub-menuNew {
+    margin: 0;
+    width: 820px;
+}
+.top-deal .deal .sub-menuNew .sub-nav-inner a i, .top-deal .deal .sub-menuNew .sub-nav-inner a p {
+    background-repeat: no-repeat;
+    float: left;
+}
+.top-deal .deal .sub-menuNew .sub-nav-inner a i {
+    margin-top: 5px;
+}
+.top-deal .deal .sub-menuNew .sub-nav-inner a p {
+    color: #333333 !important;
+    font-family: Arial;
+    font-size: 13px;
+    font-weight: normal !important;
+    margin: 10px 0 0 5px;
+}
+.sub-menuNew, .sub-menuNew nav ul, .sub-menuNew nav ul li {
+    height: 38px !important;
+}
+.sub-menuNew {
+    margin-bottom: 15px;
+}
+.sub-nav-inner a {
+    z-index: 10;
+}
+.sub-nav-inner #selected a em {
+    color: #0095DA;
+    text-shadow: 0 1px 2px #C1C0C0;
+}
+.sectionSubMenu {
+    background-image: url("http://www.nhommuahotdeals.net/tp-ho-chi-minh-test/images_v4/bg-subMenu.gif");
+    float: left;
+    height: 39px;
+    width: 100%;
+}
+.deliver-icon {
+    height: 26px !important;
+    opacity: 1;
+    overflow: hidden;
+    padding: 0 !important;
+}
+.deal-img:hover .deliver-icon {
+    height: 26px !important;
+    opacity: 1;
+    transition: all 0.25s linear 0s;
+}
+.deliver-icon span {
+    background-repeat: no-repeat;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    padding-right: 5px;
+}
+.deliver-icon p {
+    margin-top: 7px;
+    padding-left: 5px;
+}
+.slide-img {
+    position: relative;
+}
+.prev, .next {
+    background-image: url("http://www.nhommuahotdeals.net/images_v3/detail.png");
+    background-repeat: no-repeat;
+    cursor: pointer;
+    display: block;
+    height: 47px;
+    position: absolute;
+    top: 190px;
+    width: 47px;
+}
+.prev {
+    background-position: 0 0;
+    left: 0;
+}
+.next {
+    background-position: -50px 0;
+    right: 0;
+}
+.viewby {
+    background-image: url("http://www.nhommuahotdeals.net/tp-ho-chi-minh-test/images_v4/navi.png");
+    background-position: -2px -342px;
+    float: left;
+    height: 22px;
+    margin-top: 9px;
+    width: 50px;
+}
+.viewby i {
+    cursor: pointer;
+    display: block;
+    float: left;
+    height: 20px;
+    margin: 0;
+    width: 22px;
+}
+.bygrid {
+    background-image: url("http://www.nhommuahotdeals.net/tp-ho-chi-minh-test/images_v4/navi.png");
+    background-position: -53px -342px;
+}
+.bylist {
+    background-image: url("http://www.nhommuahotdeals.net/tp-ho-chi-minh-test/images_v4/navi.png");
+    background-position: -78px -342px;
+    margin-left: 5px !important;
+}
+.offer-detail .info-offer a h1 {
+    font-size: 14px;
+    line-height: 18px;
+    text-align: center;
+    text-transform: uppercase;
+}
+.sectionBody {
+    display: block;
+    min-height: 488px;
+    position: relative;
+    z-index: 1;
+}
+.viewType {
+    float: right;
+    margin-right: 10px;
+}
+.dTopdeal {
+    clear: both;
+    display: block;
+    height: auto;
+    margin: 0 auto;
+    position: relative;
+    width: 1218px;
+}
+.gr-deal-focus {
+    float: left;
+    height: 432px;
+    margin-bottom: 23px;
+    position: relative;
+    width: 1218px;
+}
+.gr-deal-focus section a h1 img {
+    height: 432px;
+    width: 1218px;
+}
+.gr-deal-focus section {
+    position: relative;
+}
+.info-dealFocus .amo-focus {
+    height: 220px;
+    margin: 80px auto auto;
+    width: 270px;
+}
+.amo-focus h1 {
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+    height: 61px;
+    line-height: 31px;
+    overflow: hidden;
+    width: 270px;
+}
+.amo-focus p {
+    color: White;
+    font-size: 14px;
+    height: 58px;
+    line-height: 20px;
+    overflow: hidden;
+    padding-top: 20px;
+    width: 270px;
+}
+.info-dealFocus {
+    background-image: url("http://www.nhommuahotdeals.net/tp-ho-chi-minh-test/images_v4/shadow-new.png");
+    height: 432px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 288px;
+}
+.gr-deal-o section a h1 img {
+    height: 368px;
+    width: 596px;
+}
+.gr-deal-o section .offer-detail {
+    height: 110px;
+    width: 476px;
+}
+.gr-deal-o section .info-offer {
+    margin-left: 6px;
+}
+.gr-deal-o .offer-detail .info-offer a h1 {
+    font-size: 16px !important;
+}
+.gr-deal-fix {
+    margin-right: 0;
+}
+.deliver-icon p {
+    float: left;
+    font-size: 11px;
+    font-style: italic;
+}
+.deliver-icon .countBuy {
+    background-position: left center;
+    display: block;
+    float: left;
+    height: 26px;
+    line-height: 26px;
+    margin-top: 0;
+    padding-top: 7px;
+}
+.deliver-icon span {
+    background-image: url("http://www.nhommuahotdeals.net/images_v3/icon-deliver.png");
+    float: left;
+    height: 15px;
+    margin-left: 5px;
+    width: 20px;
+}
+.deliver-icon .deli-freeship {
+    background-position: 0 -22px;
+    display: block;
+    height: 15px;
+}
+.deliver-icon .deli-voucher {
+    background-position: 0 -43px;
+    display: block;
+    height: 16px;
+}
+.deliver-icon .deli-nhomMua {
+    background-position: 0 0;
+    display: block;
+    height: 15px;
+}
+.deliver-icon {
+    color: #FFFFFF;
+    opacity: 1;
+    position: absolute;
+    z-index: 3;
+}
+.shadow-offer {
+    background-image: url("http://www.nhommuahotdeals.net/tp-ho-chi-minh-test/images_v4/shadow-deal.png?v=2");
+    background-position: 0 0;
+    display: block;
+    height: 54px;
+    margin: auto;
+    width: 476px;
+}
+.sectionSubMenu {
+    background-image: url("http://www.nhommuahotdeals.net/tp-ho-chi-minh-test/images_v4/bg-subMenu.gif");
+    height: 39px;
+    width: 100%;
+}
+.sectionSubMenu .sub-menuNew .sub-nav-inner a i {
+    background-image: url("http://www.nhommuahotdeals.net/tp-ho-chi-minh-test/images_v4/icon-orga.png");
+    display: block;
+    float: left;
+    height: 22px;
+    left: 0;
+    margin-top: 8px;
+    position: relative;
+    top: 0;
+    width: 22px;
+}
+.sectionSubMenu .sub-menuNew .sub-nav-inner .hotTime i {
+    background-position: -73px 0;
+    margin-top: 9px;
+}
+.sectionSubMenu .sub-menuNew .sub-nav-inner .hotPrice i {
+    background-position: -118px 1px;
+}
+.sectionSubMenu .sub-menuNew .sub-nav-inner .hotCompa i {
+    background-position: -114px -32px;
+}
+.sectionSubMenu .sub-menuNew .sub-nav-inner .active.hotTime i {
+    background-position: -50px 0;
+}
+.sectionSubMenu .sub-menuNew .sub-nav-inner .active.hotPrice i {
+    background-position: -95px 0;
+    margin: 9px 0 0;
+}
+.sectionSubMenu .sub-menuNew .sub-nav-inner .active.hotCompa i {
+    background-position: -114px 0;
+}
+.sectionSubMenu .sub-menuNew .sub-nav-inner a.hotTime:hover i {
+    background-position: -50px 0;
+}
+.sectionSubMenu .sub-menuNew .sub-nav-inner a.hotPrice:hover i {
+    background-position: -95px 0;
+    margin: 9px 0 0;
+}
+.sectionSubMenu .sub-menuNew .sub-nav-inner a.hotCompa:hover i {
+    background-position: -119px 0;
+}
+.sectionSubMenu .sub-menuNew .sub-nav-inner .active.dealToday i {
+    background-position: 0 0;
+    height: 23px !important;
+    margin-top: 8px;
+    width: 23px !important;
+}
+.sectionSubMenu .sub-menuNew .sub-nav-inner a.dealToday:hover i {
+    background-position: 0 0;
+    height: 23px !important;
+    margin-top: 8px;
+    width: 23px !important;
+}
+.sectionSubMenu .sub-menuNew .sub-nav-inner .dealToday i {
+    background-position: -25px 1px;
+    height: 23px !important;
+    width: 23px !important;
+}
+.cate-1 {
+    width: 102px;
+}
+.cate-2 {
+    width: 129px;
+}
+.sectionSubMenu .sub-menuNew nav {
+    float: left;
+    height: 38px;
+    margin: auto;
+    width: 590px;
+}
+.sectionSubMenu .sub-menuNew .sub-nav-inner li .subMN-sp {
+    background-color: #CCCCCC;
+    display: block;
+    float: left;
+    height: 38px;
+    margin-top: 0;
+    width: 1px;
+}
+.sectionSubMenu .sub-nav-inner a .active .subMN-sp, .sectionSubMenu .sub-nav-inner a:hover .subMN-sp {
+    display: none;
+}
+.sectionSubMenu .sub-nav-inner {
+    margin: auto;
+    padding: 0;
+    position: relative;
+    width: 590px;
+}
+.sectionSubMenu .sub-menuNew {
+    height: 38px;
+    margin: auto;
+    width: 1180px;
+}
+.sectionSubMenu .sub-nav-inner a {
+    background-color: Transparent;
+    border-left: 1px solid #5FAFD5;
+    border-radius: 0 0 0 0;
+    border-right: 1px solid #168EC6;
+    height: 36px;
+}
+.sectionSubMenu .sub-menuNew nav ul li {
+    height: 38px !important;
+}
+.sectionSubMenu .sub-menuNew .sub-nav-inner a p {
+    color: #A4CDE9 !important;
+    float: left;
+    font-family: Arial;
+    font-size: 12px;
+    font-weight: bold !important;
+    margin: 3px 0 0 5px;
+}
+.sectionSubMenu .sub-menuNew .sub-nav-inner li .subMN-sp {
+    background-color: #999999;
+    display: block;
+    float: left;
+    height: 38px;
+    margin-top: 0;
+    width: 1px;
+}
+.sectionSubMenu .sub-nav-inner a.active, .sectionSubMenu .sub-nav-inner a:hover {
+    border-bottom: 2px solid #1A4F68;
+}
+.sectionListDeal {
+    display: block;
+    float: left;
+    padding-bottom: 0;
+    position: relative;
+    width: 100%;
+}
+.mod-inner-list, .dListDeal {
+    display: block;
+    margin: auto;
+    position: relative;
+    width: 1180px;
+}
+.dListDeal {
+    float: left;
+}
+.dv-banner {
+    float: left;
+    height: 90px;
+    margin: 10px 0;
+    width: 1180px;
+}
+.inner-listDeal {
+    clear: both;
+    float: left;
+    width: 1180px;
+}
+.shadow-list {
+    background-image: url("http://www.nhommuahotdeals.net/tp-ho-chi-minh-test/images_v4/shadow-deal.png");
+    background-position: 0 -505px;
+    display: block;
+    height: 49px;
+    margin: auto;
+    width: 232px;
+}
+.header {
+    height: 63px;
+    margin: auto;
+    position: relative;
+    width: 1218px;
+}
+.dealTravel {
+    clear: both;
+    display: block;
+    margin: auto;
+    position: relative;
+    width: 1180px;
+}
+.dealTravel h1 i {
+    border-top: 1px solid #666666;
+    display: block;
+    font-size: 0;
+    position: relative;
+    top: 20px;
+    width: 100%;
+    z-index: 1;
+}
+.dealTravel h1 span {
+    background: none repeat scroll 0 0 #E5E5E5;
+    color: #333333;
+    display: inline-block;
+    float: left;
+    font-size: 22px;
+    padding-right: 8px;
+    position: absolute;
+    z-index: 2;
+}
+.dealTravel h1 {
+    height: 23px;
+    position: relative;
+}
+.inner-travel {
+    float: left;
+    width: 1180px;
+}
+.inner-travel {
+    float: left;
+    margin-top: 18px;
+    width: 100%;
+}
+.travel-o section {
+    clear: both;
+}
+.travel-o, .travel-o section {
+    float: left;
+    height: 311px;
+    position: relative;
+    width: 579px;
+}
+.travel-o {
+    margin-bottom: 20px;
+    margin-right: 22px;
+}
+.travel-none {
+    margin-right: 0;
+}
+.dTime {
+    background: none repeat scroll 0 0 #0095DA;
+    float: left;
+    height: 38px;
+    margin: auto;
+    position: relative;
+    right: 0;
+    top: 0;
+    width: 577px;
+}
+.travel-o section a h1 img {
+    height: 219px;
+    width: 577px;
+}
+.amo-deal {
+    border: 1px solid white;
+    height: 256px;
+    width: 577px;
+}
+.deal-rate {
+    float: right;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+.iconTime {
+    background-image: url("http://www.nhommuahotdeals.net/tp-ho-chi-minh-test/images_v4/navi.png");
+    background-position: -150px -273px;
+    float: left;
+    height: 13px;
+    margin: 12px 5px 0 0;
+    width: 13px;
+}
+.dTime span {
+    color: white;
+    float: left;
+    font-size: 11px;
+    margin-top: 13px;
+}
+.deal-rate ul li {
+    background: url("http://www.nhommuahotdeals.net/tp-ho-chi-minh-test/images_v4/navi.png") no-repeat scroll -129px -273px transparent;
+    display: block;
+    float: left;
+    height: 14px;
+    margin-left: 2px;
+    width: 12px;
+}
+.deal-rate ul {
+    display: inline-block;
+    margin: 2px 3px 0 0;
+    padding-left: 5px;
+}
+.travel-o section .imgTravel {
+    clear: both;
+    display: block;
+    float: left;
+    height: 220px;
+    width: 577px;
+}
+.travel-o section .offer-detail .info-offer h1 {
+    height: 17px;
+}
+.shadow-travel {
+    background-image: url("http://www.nhommuahotdeals.net/tp-ho-chi-minh-test/images_v4/shadow-travel.png");
+    clear: both;
+    display: block;
+    height: 53px;
+    margin: auto;
+    width: 476px;
+}
+.travel-o section .offer-detail {
+    width: 460px;
+}
+.travel-o section .offer-detail .info-offer {
+    width: 458px;
+}
+.travel-o .deliver-icon {
+    background: none repeat scroll 0 0 transparent;
+    float: left;
+    height: 30px;
+    margin-left: 8px;
+    position: relative;
+    top: 6px;
+}
+.travel-o .deal-img:hover .deliver-icon {
+    height: 30px !important;
+}
+.travel-o .deliver-icon span {
+    margin-top: 5px;
+}
+.travel-o .deliver-icon p {
+    border-left: 1px solid white;
+}
+.btn {
+    background-image: url("http://www.nhommuahotdeals.net/tp-ho-chi-minh-test/images_v4/button/button.png");
+    cursor: pointer;
+    display: block;
+}
+.btnRead {
+    background-position: 0 0;
+    height: 50px;
+    left: -5px;
+    margin-top: 24px;
+    position: relative;
+    width: 107px;
+}
+.btnRead:hover {
+    background-position: 0 -64px;
+}
+.btnRead:active {
+    background-position: 0 -129px;
+}
+.share {
+    left: -40px;
+    padding: 0;
+    position: absolute;
+    top: 15px;
+    width: 36px;
+}
+.module {
+    clear: left;
+}
+.share a {
+    background-image: url("http://www.nhommuahotdeals.net/images_v3/ico.png");
+    background-repeat: no-repeat;
+    display: inline-block;
+    float: left;
+    height: 26px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    transition: background 0.2s linear 0s;
+    width: 26px;
+}
+.share .pin {
+    background-position: -154px -290px;
+}
+.share .twitter {
+    background-position: -123px -290px;
+}
+.share .google {
+    background-position: -62px -290px;
+}
+.share .yume {
+    background-position: -31px -290px;
+}
+.share .zing {
+    background-position: -92px -290px;
+}
+.share .facebook {
+    background-position: 0 -290px;
+}
+.share .pin:hover, .share .pin.active {
+    background-position: -154px -330px;
+}
+.share .twitter:hover, .share .twitter.active {
+    background-position: -123px -330px;
+}
+.share .google:hover, .share .google.active {
+    background-position: -62px -330px;
+}
+.share .yume:hover, .share .yume.active {
+    background-position: -31px -330px;
+}
+.share .zing:hover, .share .zing.active {
+    background-position: -92px -330px;
+}
+.share .facebook:hover, .share .facebook.active {
+    background-position: 0 -330px;
+}
+.listVDeal {
+    border-bottom: 1px solid #E2E7E9;
+    height: 270px;
+    margin: 25px auto auto;
+    width: 100%;
+}
+.infoListVDeal .imgLV {
+    background-color: White;
+    border: 1px solid #CCCCCC;
+    box-shadow: 2px 2px 5px #CCCCCC;
+    display: block;
+    float: left;
+    height: 245px;
+    width: 389px;
+}
+.infoListVDeal a h1 img {
+    padding: 3px 0 0 3px;
+}
+.infoListVDeal {
+    float: left;
+    height: 246px;
+    position: relative;
+    width: 730px;
+    z-index: 2;
+}
+.amo-listVDeal {
+    float: left;
+    margin: 45px 0 0 55px;
+    position: relative;
+    text-align: center;
+    width: 238px;
+    z-index: 2;
+}
+.ttListVDeal {
+    float: left;
+    height: 155px;
+    margin-left: 16px;
+    margin-top: 55px;
+    overflow: hidden;
+    position: relative;
+    width: 240px;
+}
+.ttListVDeal h1 {
+    color: #333333;
+    font-family: Arial;
+    font-size: 16px;
+    font-weight: bold;
+    max-height: 40px;
+    overflow: hidden;
+    padding-top: 35px;
+    text-transform: uppercase;
+}
+.desLVDeal {
+    color: #333333;
+    font-family: Arial;
+    font-size: 13px;
+    line-height: 18px;
+    max-height: 54px;
+    overflow: hidden;
+    padding-top: 15px;
+}
+.navi-lv {
+    background-image: url("http://www.nhommuahotdeals.net/images_v3/navi-lv.png");
+    display: block;
+    height: 20px;
+    position: absolute;
+    right: -10px;
+    top: 88px;
+}
+.amo-listVDeal .pPriceLV {
+    color: #333333;
+    font-size: 13px;
+    padding-top: 7px;
+}
+.countLV span {
+    background-image: url("http://www.nhommuahotdeals.net/tp-ho-chi-minh-test/images_v4/navi.png");
+    background-position: 0 -323px;
+    background-repeat: no-repeat;
+    color: #666666;
+    font-size: 12px;
+    height: 13px;
+    padding-left: 18px;
+}
+.amo-listVDeal .pSalePriceLV {
+    color: #0095DA;
+    font-family: Arial;
+    font-size: 32px;
+    padding-top: 3px;
+}
+.countLV {
+    padding-top: 15px;
+}
+.amo-listVDeal .pPriceLV sup {
+    font-size: 11px;
+}
+.btnReadNow {
+    background-image: url("http://www.nhommuahotdeals.net/tp-ho-chi-minh-test/images_v4/button/btnReadnow.png");
+    display: block;
+    height: 62px;
+    margin: 8px auto auto;
+    width: 237px;
+}
+.btnReadNow:hover {
+    background-position: 0 -80px;
+}
+.btnReadNow:active {
+    background-position: 0 -160px;
+}
+.infoListVDeal .deliver-icon {
+    color: #333333;
+    height: auto !important;
+    opacity: 1;
+    right: 0;
+    top: 0;
+}
+.infoListVDeal .deliver-icon span {
+    background-image: url("http://www.nhommuahotdeals.net/images_v3/ico-deli-lv.png");
+}
+.infoListVDeal .deliver-icon p {
+    color: #666666;
+}
+.infoListVDeal a img {
+    height: 233px;
+    padding: 6px 0 0 6px;
+    width: 377px;
+}
+.pSalePriceLV sup {
+    font-size: 22px;
+}
+.infoListVDeal {
+    margin-left: 78px;
+}
+.line-list {
+    background: url("http://www.nhommuahotdeals.net/tp-ho-chi-minh-test/images_v4/line-list.png") repeat scroll 0 0 transparent;
+    display: block;
+    height: 162px;
+    position: absolute;
+    right: 0;
+    top: 50px;
+    width: 11px;
+}
+.dSlideTop3Deal_Cont {
+    height: 445px;
+    overflow: hidden;
+    position: relative;
+    width: 1218px;
+}
+.dSlideTop3Deal {
+    width: 7500px;
+}
+.hotline p {
+    font-weight: bold;
+}
+.gold-deal-list {
+    background: url("http://www.nhommuahotdeals.net/tp-ho-chi-minh-test/images_v4/bg-gold-deal.png") repeat scroll 0 0 transparent;
+}
+.listVDeal {
+    margin: 0 auto auto;
+    padding-top: 25px;
+    position: relative;
+}
+.gold-deal-list .gold-list {
+    background: url("http://www.nhommuahotdeals.net/tp-ho-chi-minh-test/images_v4/gold_list.png") repeat scroll 0 0 transparent;
+    display: block;
+    height: 288px;
+    left: 46px;
+    position: absolute;
+    top: -2px;
+    width: 1100px;
+}
+.amo-deal {
+    height: 311px;
+    width: 577px;
+}
+.travel-o section .offer-detail {
+    height: 119px;
+    top: -120px;
+    width: 100%;
+}
+.travel-o section .offer-detail .info-offer {
+    height: 93px;
+    width: 100%;
+}
+.travel-o section .offer-detail .meta-offer {
+    float: right !important;
+    margin-left: 0 !important;
+    margin-right: 1px !important;
+}
+.travel-o section .offer-detail .info-offer {
+    border: medium none;
+    box-shadow: none;
+}
+.infoTravel {
+    border-bottom: 1px solid #CCCCCC;
+    height: 60px;
+    width: 100%;
+}
+.info-offer .infoTravel h1, .info-offer .infoTravel p {
+    color: #333333;
+    font-size: 15px;
+    font-weight: bold;
+    overflow: hidden;
+    padding: 10px 15px;
+    text-overflow: ellipsis;
+    text-transform: uppercase;
+    white-space: nowrap;
+    width: 95%;
+}
+.info-offer .infoTravel p {
+    font-size: 12px;
+    font-weight: normal;
+    padding: 0 15px;
+    text-transform: none;
+}
+.dTime span {
+    color: #333333 !important;
+    float: right;
+    margin-right: 8px;
+    margin-top: 11px;
+}
+.dTime {
+    background: none repeat scroll 0 0 transparent;
+    height: 32px;
+}
+.iconTime {
+    float: right;
+    margin-top: 10px;
+}
+.deal-rate {
+    border-left: 1px solid #999999;
+    margin-right: 5px;
+    margin-top: 8px;
+}
+.travel-o .deliver-icon .deli-voucher {
+    background-image: url("http://www.nhommuahotdeals.net/tp-ho-chi-minh-test/images_v4/deli-detail.png");
+    background-position: 0 -105px;
+    float: left;
+    margin-left: 10px;
+    margin-right: 0;
+    padding-right: 0;
+}
+.travel-o .deliver-icon {
+    height: 26px !important;
+    opacity: 1 !important;
+    position: relative !important;
+    top: 4px;
+}
+.travel-o .deliver-icon p {
+    padding-left: 2px;
+}
+.deal-img .imgTravel h1 {
+    background: url("http://www.nhommuahotdeals.net/tp-ho-chi-minh-test/images_v4/loader.gif") no-repeat scroll center center transparent;
+}
+.travel-o .deliver-icon .deli-nhommua {
+    background-image: url("http://www.nhommuahotdeals.net/tp-ho-chi-minh-test/images_v4/deli-detail.png");
+    background-position: 0 -62px;
+    float: left;
+    margin-left: 10px;
+    margin-right: 0;
+    padding-right: 0;
+}
+.travel-o .deliver-icon .deli-freeship {
+    background-image: url("http://www.nhommuahotdeals.net/tp-ho-chi-minh-test/images_v4/deli-detail.png");
+    background-position: 0 -84px;
+    float: left;
+    margin-left: 10px;
+    margin-right: 0;
+    padding-right: 0;
+}
+.sectionSubMenu .sub-menuNew {
+    background: url("http://www.nhommuahotdeals.net/tp-ho-chi-minh-test/images_v4/bg_repeat.png") repeat scroll 0 -234px transparent;
+}
+.sectionSubMenu {
+    background: none repeat scroll 0 0 transparent;
+}
+.sub-nav-inner a em {
+    font-family: NhomMuaSmBd;
+    font-size: 15px;
+    font-weight: normal;
+}
+.meta-offer, .meta-offer a {
+    width: 190px;
+}
+.dShare-social {
+    background-color: #E5E5E5;
+    background-image: url("http://www.nhommuahotdeals.net/tp-ho-chi-minh-test/images_v4/bg-share.png");
+    border-radius: 0 5px 5px 0;
+    box-shadow: 3px 0 2px rgba(0, 0, 0, 0.3);
+    left: 0;
+    padding: 5px 0;
+    position: fixed;
+    text-align: center;
+    top: 248px;
+    width: 64px;
+    z-index: 6;
+}
+.share-google, .share-yume {
+    clear: left;
+    display: block;
+    float: left;
+    height: 62px;
+    margin: 5px 0 2px 7px;
+    width: 50px;
+}
+.share-pin a {
+    top: 9px;
+}
+.share-pin {
+    height: 50px;
+}
+.share-yume {
+    margin: 2px 0 2px 5px !important;
+}
+.facebook-share {
+    margin: auto;
+    width: 29px;
+}
+.facebook-share img {
+    margin: auto;
+}
+.iline-share {
+    border-bottom: 1px solid white;
+    border-top: 1px solid #CCCCCC;
+    clear: both;
+    display: block;
+    margin-bottom: 2px;
+    margin-top: 1px;
+}
+.share-zing {
+    background-image: url("http://www.nhommuahotdeals.net/images_v3/zing.png");
+    display: block;
+    height: 35px;
+    margin: auto;
+    width: 35px;
+}
+.like-facebook {
+    clear: left;
+    display: block;
+    float: left;
+    height: 62px;
+    margin: 0 0 0 6px;
+    width: 50px;
+}
+.hori-line {
+    background: none repeat scroll 0 0 #CCCCCC;
+    display: block;
+    height: 1px;
+    margin: 10px auto 15px;
+    width: 222px;
+}
+.pop-up .success span.pop-up-img {
+    background: url("http://www.nhommuahotdeals.net/images_v2/pop-up-success.png") no-repeat scroll 0 0 transparent;
+    width: 20px;
+}
+.pop-up .success span {
+    color: #006699;
+}
+.pop-up span.pop-up-img {
+    background: url("http://www.nhommuahotdeals.net/images_v2/pop-up.png") no-repeat scroll 0 0 transparent;
+    display: inline-block;
+    height: 20px;
+    margin: 16px 16px 0 0;
+    width: 19px;
+}
+.pop-up {
+    background-color: White;
+    box-shadow: 0 1px 3px #666666 !important;
+    clear: both;
+    color: #FF6600;
+    font-family: Arial;
+    font-size: 22px;
+    height: 67px;
+    overflow: hidden;
+    text-align: center;
+    width: 100%;
+}
+.popup-error-text {
+    display: inline-block;
+    margin-top: -2px;
+    padding-top: 15px;
+    vertical-align: top;
+}
+.btn-Slide {
+    clear: both;
+    float: left;
+    left: 25px;
+    position: relative;
+    text-align: left;
+    top: -50px;
+    width: 90%;
+}
+.gr-deal-focus {
+    margin-bottom: 13px;
+}
+.btn-Slide #thumbs {
+    display: inline-block;
+    overflow: hidden;
+}
+.btn-Slide #thumbs li {
+    display: inline-block;
+    float: left;
+    margin-left: 0;
+}
+.btn-Slide li a {
+    background: url("http://www.nhommuahotdeals.net/tp-ho-chi-minh-test/images_v4/navi.png") no-repeat scroll -76px -233px transparent;
+    color: #000000;
+    cursor: pointer;
+    display: block;
+    font-family: Arial;
+    font-size: 14px;
+    font-weight: bold;
+    height: 22px;
+    line-height: 22px;
+    margin: 2px auto auto;
+    text-align: center;
+    width: 22px;
+}
+.btn-Slide .activeSlide a, .btn-Slide li a:hover {
+    background-position: -48px -231px;
+    color: white;
+    font-size: 18px;
+    height: 27px;
+    line-height: 27px;
+    margin-top: 0 !important;
+    text-align: center;
+    width: 27px;
+}
+.btn-Slide #thumbs li p {
+    float: left;
+    margin-right: 3px;
+    width: 27px;
+}
+.header-cart {
+    position: relative;
+    z-index: 2;
+}
+.newSP-cart {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 0 5px #666666;
+    height: 167px;
+    overflow: hidden;
+    position: absolute;
+    right: 1px;
+    top: 69px;
+    width: 241px;
+    z-index: 1;
+}
+.moveCart {
+    position: fixed;
+    right: 8%;
+    top: 0;
+}
+.alertCart {
+    border-bottom: 1px solid #B2B2B2;
+    height: 40px;
+    width: 100%;
+}
+.checkCart {
+    color: #999999;
+    float: left;
+    font-size: 14px;
+    font-style: italic;
+    margin-top: 14px;
+    padding-left: 10px;
+}
+.checkCart i {
+    background: url("http://www.nhommuahotdeals.net/tp-ho-chi-minh-test/images_v4/navi.png") repeat scroll -103px -245px transparent;
+    display: inline-block;
+    float: left;
+    height: 12px;
+    margin-top: 6px;
+    width: 12px;
+}
+.closeCart {
+    color: #000000;
+    cursor: pointer;
+    float: right;
+    font-size: 12px;
+    margin: 17px 5px 0;
+}
+.closeCart i {
+    background: url("http://www.nhommuahotdeals.net/tp-ho-chi-minh-test/images_v4/navi.png") repeat scroll -96px -196px transparent;
+    display: inline-block;
+    float: left;
+    height: 9px;
+    margin-right: 3px;
+    margin-top: 3px;
+    width: 9px;
+}
+.moveCart .checkCart {
+    margin-top: 10px;
+}
+.moveCart .closeCart {
+    margin-top: 13px;
+}
+.infoDealCart {
+    border-bottom: 1px solid #B2B2B2;
+    height: 97px;
+    width: 100%;
+}
+.infoDealCart h1 {
+    color: #0095DA;
+    font-size: 15px;
+    font-weight: bold;
+    height: 16px;
+    overflow: hidden;
+    padding: 10px 0 0 10px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 220px;
+}
+.countCart {
+    margin-top: 5px;
+}
+.countCart a {
+    float: left;
+    margin-left: 10px;
+}
+.countCart p {
+    float: left;
+    font-size: 15px;
+    line-height: 20px;
+    margin: 19px 0 0 6px;
+}
+.deliverCart {
+    background: none repeat scroll 0 0 #888888;
+    border-radius: 0 0 8px 8px;
+    height: 26px;
+    margin: 1px auto auto;
+    width: 239px;
+}
+.deliverCart .deliver-icon {
+    float: right !important;
+    height: 26px !important;
+    opacity: 1 !important;
+    position: relative !important;
+}
+.dBannerTabMenu {
+    clear: both;
+    margin: auto auto 20px;
+    width: 1218px;
+}
+.dListDealCate .dBannerTabMenu {
+    margin-left: 12px;
+}
+.dTopdeal, .dv-banner {
+    width: 978px;
+}
+.sectionSlideDeal {
+    float: none;
+    margin: auto;
+    width: 978px;
+}
+.logos-inner {
+    width: 940px;
+}
+.gr-tabs {
+    height: 29px;
+    margin: auto;
+    width: 978px;
+}
+.tabs-header-inner {
+    width: 978px;
+}
+.dv-banner {
+    overflow: hidden;
+}
+.mod-innerHeader {
+    height: 100%;
+    margin: auto;
+    position: relative;
+    width: 978px;
+}
+.sectionSubMenu {
+    margin-top: 20px;
+}
+.header {
+    height: 63px;
+    margin: auto;
+    position: relative;
+    width: 978px;
+}
+.container {
+    width: 978px;
+}
+.bg-footer .container {
+    width: 978px;
+}
+.sub-nav-inner {
+    padding-left: 5px;
+    width: 800px;
+}
+.sub-nav-inner a em {
+    font-size: 15px;
+}
+.sub-nav-inner a {
+    padding: 0 9px;
+}
+.gr-deal-focus {
+    float: left;
+    height: 347px;
+    margin: 0 auto 13px;
+    width: 978px;
+}
+.gr-deal-focus section a h1 img {
+    height: 347px;
+    width: 978px;
+}
+.info-dealFocus {
+    height: 347px;
+    width: 305px;
+}
+.info-dealFocus .amo-focus {
+    margin-top: 70px;
+}
+.sectionSubMenu .sub-menuNew, .bg-footer-b p {
+    margin: auto;
+    width: 978px;
+}
+.gr-deal-o {
+    height: 351px;
+    margin-right: 14px;
+    margin-top: 20px;
+    width: 482px;
+}
+.gr-deal-o section a h1 img {
+    height: 297px;
+    width: 480px;
+}
+.gr-deal-fix {
+    margin-right: 0;
+}
+.mod-inner-list, .dListDeal, .dealTravel, .inner-travel, .inner-listDeal {
+    width: 978px;
+}
+.list-deal-o {
+    margin-left: 0;
+    margin-right: 10px !important;
+}
+.travel-o section a h1 img {
+    height: 183px;
+    width: 480px;
+}
+.travel-o, .travel-o section {
+    height: 269px;
+    width: 482px;
+}
+.dTime {
+    width: 480px;
+}
+.travel-o section .imgTravel {
+    height: 183px;
+    width: 480px;
+}
+.amo-deal {
+    height: 275px;
+    width: 480px;
+}
+.travel-o {
+    margin-bottom: 20px;
+    margin-right: 14px;
+}
+.travel-none {
+    margin-right: 0;
+}
+.bg-footer .col-l {
+    width: 185px;
+}
+.bg-footer .col-r {
+    width: 734px;
+}
+.help-footer {
+    padding-left: 50px;
+}
+.contact-footer {
+    padding-left: 45px;
+}
+.sectionEmail, .bg-footer, .tabs-header, .mod-innerHeader, .sectionSubMenu {
+    min-width: 978px;
+}
+.listVDeal {
+    width: 100%;
+}
+.infoListVDeal .imgLV {
+    height: 226px;
+    width: 359px;
+}
+.infoListVDeal a img {
+    height: 216px;
+    padding: 5px 0 0 5px;
+    width: 349px;
+}
+.infoListVDeal {
+    width: 678px;
+}
+.listVDeal, .infoListVDeal {
+    height: 253px;
+}
+.amo-listVDeal {
+    margin-left: 13px;
+}
+.infoListVDeal {
+    margin-left: 24px;
+}
+
+.dSlideTop3Deal_Cont {
+    height: 347px;
+    overflow: hidden;
+    position: relative;
+    width: 978px;
+}
+.dSlideTop3Deal {
+    width: 7500px;
+}
+.gr-deal-o {
+    margin-top: 0;
+}
+.gold-deal-list .gold-list {
+    background: url("http://www.nhommuahotdeals.net/tp-ho-chi-minh-test/images_v4/gold_list.png") repeat scroll 0 -294px transparent;
+    display: block;
+    height: 278px;
+    left: 2px;
+    position: absolute;
+    top: 0;
+    width: 978px;
+}
+.btn-Slide {
+    top: -40px;
+}
+.info-dealFocus .amo-focus {
+    margin-top: 40px;
+}
+.dBannerTabMenu {
+    clear: both;
+    margin: auto auto 20px;
+    width: 978px;
+}
+.dListDealCate .dBannerTabMenu {
+    margin-left: 0;
+}
+.sub-nav-inner {
+    padding-left: 25px;
+    width: 775px;
+}
+.no-deal {
+    font-size: 18px;
+    margin: 20px 0;
+    text-align: center;
+}
+#sgd {
+    height: 62px !important;
+    width: 96px !important;
+}
+.sharegoogle {
+    opacity: 0;
+}
+.header-select .toggle li a {
+    display: block;
+}
+.secEmail-bot {
+    background: url("http://www.nhommuahotdeals.net/tp-ho-chi-minh-test/images_v4/bgt-email.png") repeat scroll 0 0 transparent;
+    bottom: 0;
+    height: 42px;
+    left: 0;
+    position: fixed;
+    width: 100%;
+    z-index: 8;
+}
+.inner-EmailBot {
+    height: 30px;
+    margin: 6px auto auto;
+    width: 755px;
+}
+.inner-EmailBot span, .inner-EmailBot div {
+    float: left;
+}
+.inner-EmailBot span {
+    color: #8C8B8B;
+    font-size: 14px;
+    margin: 6px 15px 0 0;
+}
+.inner-EmailBot div {
+    background: none repeat scroll 0 0 #5C5C5C;
+    border-radius: 0 5px 5px 0;
+    height: 30px;
+    position: relative;
+    width: 306px;
+}
+.inputEmail .green {
+    border-radius: 5px 5px 5px 5px;
+    display: block;
+    float: right;
+    height: 30px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 50px;
+}
+.green span {
+    color: #FFFFFF;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 27px;
+    margin: 0;
+    padding: 2px 13px 0;
+    text-shadow: 0 0 1px rgba(56, 159, 47, 0.34);
+}
+.ipEmail {
+    background: none repeat scroll 0 0 transparent;
+    border: medium none;
+    color: white;
+    font-size: 13px;
+    height: 20px;
+    margin-top: 5px;
+    padding-left: 34px;
+    width: 216px;
+}
+.inputEmail {
+    position: relative;
+}
+.iconInput {
+    background: url("http://www.nhommuahotdeals.net/tp-ho-chi-minh-test/images_v4/navi.png") repeat scroll 0 -80px transparent;
+    height: 13px;
+    left: 10px;
+    position: absolute;
+    top: 9px;
+    width: 16px;
+}
+.green {
+    background: -moz-linear-gradient(center top , #6DBF49 1%, #52A32E 100%) repeat scroll 0 0 transparent;
+}
+.gold-deal .info-offer {
+    background: url("http://www.nhommuahotdeals.net/tp-ho-chi-minh-test/images_v4/bg-gold-deal.png") repeat scroll 0 0 transparent;
+    border-bottom: 1px solid #D1D128;
+    border-left: 1px solid #D1D128;
+    border-right: 1px solid #D1D128;
+}
+.gold-deal .offer-detail .h2.offer-desc:before {
+    border-bottom: 1px solid #B8B84A;
+}
+.gold-deal .info-dealFocus .btnRead {
+    background-position: -323px 0;
+    height: 60px;
+    left: -12px;
+    margin-top: 0;
+    position: relative;
+    top: 14px;
+    width: 137px;
+}
+.scrollMenu {
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 5;
+}
+.tabs-header-inner .feed {
+    background-image: none;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    width: 51px !important;
+}
+.feed {
+    position: relative;
+    width: 54px;
+}
+.feed .count-feed {
+    background-color: Red;
+    border-radius: 2px 2px 2px 2px;
+    color: White;
+    font-size: 10px;
+    height: 13px;
+    position: absolute;
+    right: 8px;
+    text-align: center;
+    top: 6px;
+    width: 20px;
+}
+.feed i {
+    background-position: -81px -326px;
+    margin-left: 10px !important;
+    margin-top: 10px !important;
+    width: 26px;
+}
+#secEmail_Bot {
+    display: none;
+    height: 42px;
+    position: relative;
+    width: 100%;
+    z-index: 5;
+
+}
+.hotline p {
+    font-weight: bold;
+}
+.deal-img .aImgDeal h1 {
+    background: url("http://www.nhommuahotdeals.net/tp-ho-chi-minh-test/images_v4/loader.gif") no-repeat scroll center center transparent;
+}
+.infoListVDeal .imgLV {
+    background: url("http://www.nhommuahotdeals.net/tp-ho-chi-minh-test/images_v4/loader.gif") no-repeat scroll center center transparent;
+    float: left;
+}
+.div-shadow {
+    background: none repeat scroll 0 0 #000000;
+    display: block;
+    height: 100%;
+    left: 0;
+    opacity: 0.8;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 6;
+}
+.errorEmail {
+    background: url("http://www.nhommuahotdeals.net/tp-ho-chi-minh-test/images_v4/shadow-deal.png?v=2") repeat scroll 0 -262px transparent;
+    height: 80px;
+    position: absolute;
+    right: 1px;
+    top: -80px;
+    width: 314px;
+}
+.errorEmail span {
+    color: #FF6600;
+    float: left;
+    font-family: Arial;
+    font-size: 19px;
+    margin: 22px 0 0;
+}
+.errorEmail i {
+    background: url("http://www.nhommuahotdeals.net/tp-ho-chi-minh-test/images_v4/navi.png") repeat scroll -47px -28px transparent;
+    display: block;
+    float: left;
+    height: 19px;
+    margin: 24px 5px 0 30px;
+    width: 19px;
+}
+.inner-EmailBot {
+    position: relative;
+}
+.h2 {
+    font-size: 13px;
+    height: 36px;
+    line-height: 16px;
+}
+.pastdeal .price-offer {
+    border-right: 1px solid #999999 !important;
+}
+.countBuy {
+    background-image: url("http://www.nhommuahotdeals.net/images_v3/icon/iconSLM.png");
+    background-repeat: no-repeat;
+    border-right: 1px solid #FFFFFF;
+    font-style: normal !important;
+    margin-left: 5px;
+    padding-left: 17px !important;
+    padding-right: 7px;
+    padding-top: 0 !important;
+}
+.travel-o .countBuy {
+    background-image: url("http://www.nhommuahotdeals.net/tp-ho-chi-minh-test/images_v4/navi.png");
+    background-position: 0 -213px;
+    border: medium none;
+    float: left;
+    font-size: 12px;
+    margin-left: 15px;
+    margin-top: 8px;
+}
+.travel-o .countBuy {
+    padding-left: 20px !important;
+    padding-top: 3px !important;
+}
+.backtotop {
+    bottom: 52px;
+    display: none;
+    position: fixed;
+    right: 10px;
+    z-index: 8;
+}
+.backtotop span {
+    background: url("http://www.nhommuahotdeals.net/tp-ho-chi-minh-test/images_v4/navi.png") no-repeat scroll -115px -343px transparent;
+    cursor: pointer;
+    display: inline-block;
+    height: 50px;
+    width: 50px;
+}
+.btnReadmore {
+    background-image: url("http://www.nhommuahotdeals.net/images_v3/btnRead.png");
+    clear: left;
+    display: block;
+    float: right;
+    height: 35px;
+    margin: 7px 15px auto auto;
+    width: 104px;
+}
+.btnReadmore:hover {
+    background-position: 0 -52px;
+}
+.btnReadmore:active {
+    background-position: 0 -103px;
+}
+.new-deal {
+    background-image: url("http://www.nhommuahotdeals.net/tp-ho-chi-minh-test/images_v4/shadow-deal.png?v=2");
+    display: block;
+    height: 75px;
+    left: -5px;
+    position: absolute;
+    top: -5px;
+    width: 75px;
+    z-index: 3;
+}
+.new-deal {
+    background-position: -394px -285px;
+}
+.dShare-point {
+    background: none repeat scroll 0 0 #0095DA;
+    bottom: 0;
+    height: 34px;
+    min-width: 865px;
+    position: fixed;
+    right: 0;
+    width: 100%;
+    z-index: 3;
+}
+.dShare-poiny span {
+    display: inline-block;
+}
+.mainContainerBox {
+    height: 34px;
+    margin: 0 auto;
+    position: relative;
+    text-align: left;
+    width: 100%;
+}
+.snapLogo {
+    background: url("http://www.nhommuahotdeals.net/tp-ho-chi-minh-test/images_v4/snapLogo.png") repeat scroll 0 0 transparent;
+    display: block;
+    float: left;
+    height: 51px;
+    margin-left: 22px;
+    position: relative;
+    top: -18px;
+    width: 146px;
+}
+.leftSnap {
+    float: left;
+}
+.flipCounterBox {
+    background: none repeat scroll 0 0 #0095DA;
+    border-radius: 5px 5px 0 0;
+    float: left;
+    height: 88px;
+    margin-left: 22px;
+    position: relative;
+    top: -26px;
+}
+.currentPoints {
+    color: White;
+    float: left;
+    font-size: 13px;
+    height: 34px;
+    line-height: 34px;
+    margin-left: 10px;
+}
+.rightSnap {
+    float: right;
+    height: 34px;
+}
+.pointCoun {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-radius: 3px 3px 3px 3px;
+    color: #000000;
+    display: block;
+    float: left;
+    font-family: NhomMuaSmBd;
+    font-size: 40px;
+    height: 43px;
+    line-height: 46px;
+    margin: 8px 0 0 8px;
+    text-align: center;
+    width: 35px;
+}
+.generalMsg {
+    color: white;
+    font-size: 13px;
+    line-height: 34px;
+    margin-right: 30px;
+}
+.generalMsg a {
+    color: white;
+    font-size: 12px;
+    font-style: italic;
+    text-decoration: underline;
+}
+.pointUint {
+    margin-left: 5px;
+    margin-right: 8px;
+}
+.logos .kay {
+    background-position: 0 -263px;
+    width: 53px;
+}
+.dSlideTop3Deal .gold-deal .info-dealFocus .btnRead {
+    top: 0;
+}
+.language {
+    background-image: url("http://www.nhommuahotdeals.net/tp-ho-chi-minh-test/images_v4/language.png");
+    background-repeat: no-repeat;
+    cursor: pointer;
+    display: none !important;
+    height: 20px;
+    margin: 4px 0 0 12px;
+    vertical-align: top;
+    width: 20px;
+}
+.language.en {
+    background-position: 0 0;
+}
+.language.vn {
+    background-position: -25px 0;
+}
+.feed:hover i, .feed.active i {
+    background-position: -115px -326px !important;
+}
+.thumbnail ul li {
+    font-size: 0;
+}
+.longSelect {
+    border: 1px solid #999999;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) inset;
+    display: block;
+    float: left;
+    font-size: 15px;
+    font-weight: bold;
+    height: 36px;
+    line-height: 36px;
+    margin-left: 0;
+    margin-top: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-top: 0;
+    text-align: center;
+    vertical-align: middle;
+    width: 360px;
+}
+.shortSelect {
+    border: 1px solid #999999;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) inset;
+    display: block;
+    float: none;
+    font-size: 15px;
+    font-weight: bold;
+    height: 36px;
+    line-height: 36px;
+    margin-left: 0;
+    margin-top: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-top: 0;
+    text-align: center;
+    vertical-align: middle;
+    width: 78px;
+}
+.ppIntCart {
+    background: none repeat scroll 0 0 #FFFFFF;
+    height: 692px;
+    left: 30%;
+    position: absolute;
+    top: 10%;
+    width: 748px;
+    z-index: 20;
+}
+.ppIntCart span {
+    background: url("http://www.nhommuahotdeals.net/tp-ho-chi-minh-test/images_v4/bgPPCart.jpg") repeat scroll 0 0 transparent;
+    box-shadow: 0 0 3px #666666;
+    display: block;
+    height: 580px;
+    position: relative;
+    width: 748px;
+}
+.btn-ppCart {
+    clear: left;
+    margin: 30px auto auto;
+    width: 364px;
+}
+.btn-ppCart a {
+    background: url("http://www.nhommuahotdeals.net/tp-ho-chi-minh-test/images_v4/button/button.png") repeat scroll 0 0 transparent;
+    cursor: pointer;
+    display: block;
+    float: left;
+    height: 50px;
+    width: 167px;
+}
+.btn-ppCart .btnLikeCart {
+    background-position: -133px -475px;
+}
+.btn-ppCart .btnLikeCart:hover {
+    background-position: -133px -555px;
+}
+.btn-ppCart .btnLikeCart:active {
+    background-position: -133px -634px;
+}
+.btn-ppCart .btnUnlikeCart {
+    background-position: -333px -530px;
+    margin-left: 28px;
+}
+.btn-ppCart .btnUnlikeCart:hover {
+    background-position: -333px -610px;
+}
+.btn-ppCart .btnUnlikeCart:active {
+    background-position: -333px -689px;
+}
+.closePopup {
+    background: url("http://www.nhommuahotdeals.net/tp-ho-chi-minh-test/images_v4/closePopup.png") repeat scroll 0 0 transparent;
+    cursor: pointer;
+    display: block;
+    height: 28px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 28px;
+}
+.icoppCart {
+    background: url("http://www.nhommuahotdeals.net/tp-ho-chi-minh-test/images_v4/icoAbCart.png") repeat scroll 0 0 transparent;
+    cursor: pointer;
+    display: none;
+    height: 66px;
+    position: absolute;
+    right: -80px;
+    top: 9px;
+    width: 86px;
+}
+.change-old-ver {
+    background-image: url("http://www.nhommuahotdeals.net/images_v2/bg-old-ver.png");
+    height: 89px;
+    position: fixed;
+    right: 0;
+    top: 260px;
+    width: 95px;
+    z-index: 20;
+}
+.change-old-ver .btn {
+    margin: auto;
+}
+.change-old-ver p {
+    color: white;
+    font-size: 12px;
+    margin: 6px 0 4px 1px;
+}
+.change-old-ver {
+    text-align: center;
+}
+.change-old-ver .btn {
+    border: 1px solid #47880C;
+    border-radius: 4px 4px 4px 4px;
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.35);
+    display: inline-block;
+    height: 27px;
+    text-align: center;
+    width: 80px;
+}
+.change-old-ver .btn.green {
+    background: -moz-linear-gradient(center top , #6DBF49 1%, #52A32E 100%) repeat scroll 0 0 transparent;
+}
+.change-old-ver .btn span {
+    color: #FFFFFF;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 27px;
+    text-shadow: 0 0 1px rgba(56, 159, 47, 0.34);
+}
+.deal-zap .new-deal {
+    background-image: url("http://localhost:50606/NhomMuaV4/images_v4/dealZap.png");
+    background-position: -6px -65px;
+}
+.deal-zap .ttListVDeal h1, .deal-zap .amo-listVDeal .pSalePriceLV {
+    color: #D51E24;
+}
+.deal-zap .btnReadNow {
+    background-image: url("http://localhost:50606/NhomMuaV4/images_v4/dealZap.png");
+}
+.deal-zap .btnReadNow:hover {
+    background-position: 0 0;
+}
+.deal-zap .btnReadNow:active {
+    background-position: 0 0;
+}
+.deal-zap .deliver-icon {
+    background: none repeat scroll 0 0 #CF272B;
+}
+.deal-zap:hover .meta-offer {
+    background: none repeat scroll 0 0 #CF272B;
+}
+.deal-zap .offer-detail .info-offer a h1 {
+    color: #D51E24;
+}
+.deal-zap .ttListVDeal .deliver-icon {
+    background-color: transparent;
+}
+.loadAjax {
+    background: url("http://www.nhommuahotdeals.net/tp-ho-chi-minh-test/images_v4/ajaxLoad.gif") no-repeat scroll center center rgba(0, 0, 0, 0.6);
+    display: block;
+    height: 638px;
+    position: absolute;
+    width: 100%;
+    z-index: 4;
+}
+.spnlin {
+    background: none repeat scroll 0 0 #ACACAC;
+    float: left;
+    height: 24px;
+    margin: 11px 0 0 14px;
+    width: 1px;
+}
+.list-deal-fix {
+    margin-right: 0 !important;
+}
+.sectionSubMenu .sub-menuNew .sub-nav-inner .active p {
+    color: #FFFFFF !important;
+}
+.bannerRight {
+    background-color: #0095DA;
+    height: 600px;
+    position: absolute;
+    right: -140px;
+    top: 20px;
+    width: 120px;
+}
+.dSlideTop3Deal .deliver-icon {
+    right: 0;
+    top: 0;
+}
+.showPf {
+    background-image: url("http://www.nhommuahotdeals.net/tp-ho-chi-minh-test/images_v4/navi.png");
+    background-position: -127px -142px;
+    height: 4px;
+    margin-left: 3px;
+    margin-top: 8px;
+    padding: 0 !important;
+    position: relative;
+    right: 0;
+    width: 8px;
+}
+.sectionSubMenu .sub-menuNew nav ul li:hover a p {
+    color: #FFFFFF !important;
+}
+.sectionSubMenu .menu-travel nav ul li:hover a p {
+    color: #0095DA !important;
+}
+.amo-focus p b {
+    color: #FFFF00;
+    font-size: 17px;
+}
+.amo-focus p span {
+    font-size: 14px;
+}
+.meta-offer a span del {
+    font-size: 14px;
+}
+.modACC {
+    background-color: #191919;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 2px 2px 3px #333333;
+    height: 126px;
+    position: absolute;
+    right: -2px;
+    top: 23px;
+    width: 177px;
+    z-index: 3;
+}
+.innerACC {
+    float: left;
+    margin: 15px auto auto 16px;
+    width: 150px;
+}
+.innerACC p {
+    clear: both;
+    color: #949494;
+    float: left;
+    font-size: 13px;
+    line-height: 24px;
+}
+.featureACC {
+    border-bottom: 1px solid #8C8C8C;
+    border-top: 1px solid #8C8C8C;
+    line-height: 20px !important;
+    padding: 3px 0;
+    width: 144px;
+}
+.featureACC a {
+    clear: left;
+    color: #CBCBCB;
+    float: left;
+    font-weight: bold;
+    margin-left: 10px;
+    width: 100px;
+}
+.logout {
+    color: #CBCBCB !important;
+    display: block;
+    font-size: 13px;
+    font-weight: bold;
+    margin-left: 10px;
+    margin-top: 4px;
+}
+.showgp {
+    background-image: url("http://www.nhommuahotdeals.net/tp-ho-chi-minh-test/images_v4/navi.png");
+    background-position: -147px -118px;
+    display: inline-block;
+    height: 6px;
+    margin-left: 6px;
+    padding: 0 !important;
+    width: 7px !important;
+}
+.contentEGP {
+    background-color: #191919;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 2px 2px 3px #333333;
+    height: 130px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 494px;
+    z-index: 3;
+}
+.innnerConnEGP {
+    height: 130px;
+    margin: auto;
+    position: relative;
+    width: 454px;
+}
+.innnerConnEGP h1 {
+    color: White;
+    font-size: 24px;
+    font-weight: bold;
+    padding-bottom: 10px;
+    padding-top: 28px;
+}
+.labelEGP span {
+    color: #FFFF00;
+    float: left;
+    font-size: 12px;
+}
+.boxEGP .header-ddl {
+    top: 2px;
+}
+.boxEGP .header-select .toggle li {
+    background: none repeat scroll 0 0 white;
+    width: 115px;
+}
+.boxEGP .header-select .toggle li a {
+    margin-left: 7px;
+    text-transform: capitalize;
+}
+.boxEGP .header-select .toggle {
+    top: -19px;
+}
+.boxEGP .header-select {
+    background: none repeat scroll 0 0 white;
+    box-shadow: 1px 1px 2px #666666 inset;
+}
+.boxEGP .header-select .text {
+    color: #333333;
+    margin-top: 3px;
+    text-transform: capitalize;
+}
+.boxEGP .header-select .toggle li:hover {
+    background: none repeat scroll 0 0 #CCCCCC;
+}
+.boxEGP .header-select .toggle {
+    border: medium none;
+}
+.boxEGP .header-select .toggle ul {
+    margin-left: 0;
+}
+.boxEGP .header-select .text i {
+    background: url("http://www.nhommuahotdeals.net/tp-ho-chi-minh-test/images_v4/navi.png") repeat scroll -158px -118px transparent;
+    height: 6px;
+    right: 10px;
+    top: 7px;
+    width: 9px;
+}
+.iptEGP {
+    background: none repeat scroll 0 0 white;
+    border: medium none;
+    box-shadow: 1px 1px 2px #666666 inset;
+    color: #666666;
+    float: left;
+    font-size: 14px;
+    height: 24px;
+    margin-left: 10px;
+    margin-top: 7px;
+    padding-left: 5px;
+    width: 227px;
+}
+.modACC {
+    display: block;
+    opacity: 0;
+    transition: all 0.3s linear 0s;
+    visibility: hidden;
+}
+.closeEGP {
+    color: white;
+    cursor: pointer;
+    font-size: 12px;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    z-index: 10;
+}
+.boxEGP .btn-thanhtoan a {
+    height: 24px;
+    line-height: 24px;
+    width: 83px;
+}
+.boxEGP .btn-thanhtoan a i {
+    line-height: 24px;
+}
+.boxEGP .btn-thanhtoan {
+    margin: 6px 0 0 10px;
+}
+.sectionSubMenu .sub-menuNew .sub-nav-inner a p, .gr-tabs a {
+    text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.4);
+}
+.sectionSubMenu .sub-menuNew .sub-nav-inner a p {
+    color: #CCE2F2 !important;
+}
+.timeout-deal {
+    background-image: url("http://www.nhommuahotdeals.net/tp-ho-chi-minh-test/images_v4/shadow-deal.png");
+    background-position: -394px -593px;
+    display: block;
+    height: 75px;
+    left: -5px;
+    position: absolute;
+    top: -5px;
+    width: 75px;
+    z-index: 3;
+}
+.dv-banner .bannerMid-1, .dv-banner .bannerMid-2, .dv-banner .bannerBot-1, .dv-banner .bannerBot-2 {
+    float: left;
+}
+.dv-banner {
+    margin: 15px 0;
+}
+.dv-banner .bannerMid-1 {
+    height: 90px;
+    margin: 0 14px 0 3px;
+    width: 728px;
+}
+.dv-banner .bannerMid-2 {
+    height: 90px;
+    width: 230px;
+}
+.banner-bot {
+    border-bottom: 1px solid #A5A5A5;
+    margin: 0 0 32px;
+}
+.dv-banner .bannerBot-1, .dv-banner .bannerBot-2 {
+    height: 60px;
+    width: 468px;
+}
+.dv-banner .bannerBot-1 {
+    margin: 0 11px 0 16px;
+}
+.showAll {
+    background-image: url("http://www.nhommuahotdeals.net/tp-ho-chi-minh-test/images_v4/navi.png") !important;
+    background-position: -122px -162px !important;
+    float: right;
+    font-size: 16px !important;
+    height: 20px;
+    padding: 0 !important;
+    position: relative;
+    right: 0;
+    width: 26px;
+}
+.viewAll {
+    color: #333333;
+    display: block;
+    float: right;
+    font-size: 16px;
+    margin-top: 3px;
+    position: relative;
+    right: 0;
+}
+.viewAll b {
+    float: left;
+    font-weight: normal;
+    padding-right: 35px;
+}
+.dvBrands {
+    clear: both;
+    margin: auto auto 13px;
+    position: relative;
+    width: 100%;
+}
+.listBrands {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 2px solid #D3D3D3;
+    border-radius: 6px 6px 0 0;
+    float: left;
+    height: 88px;
+    margin-left: 12px;
+    margin-top: 25px;
+    width: 951px;
+}
+.leftBrand, .rightBrand {
+    background: url("http://www.nhommuahotdeals.net/tp-ho-chi-minh-test/images_v4/navi.png") repeat scroll 0 0 transparent;
+    cursor: pointer;
+    height: 29px;
+    position: absolute;
+    top: 56px;
+    width: 27px;
+}
+.leftBrand {
+    background-position: 0 -369px;
+    left: -1px;
+}
+.rightBrand {
+    background-position: -27px -369px;
+    right: -1px;
+}
+.labelBrands {
+    background-color: #E5E5E5;
+    color: #4F83B5;
+    display: none;
+    font-family: NhomMuaMedium;
+    font-size: 18px;
+    left: 43%;
+    position: absolute;
+    text-align: center;
+    top: 10px;
+    width: 135px;
+}
+.showAllBrand {
+    color: #FF4800;
+    display: block;
+    float: right;
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 14px;
+    margin-top: 8px;
+    visibility: hidden;
+}
+.innerListBrand {
+    height: 52px;
+    margin: 19px auto auto;
+    overflow: hidden;
+    width: 924px;
+}
+.ulBrands {
+    float: left;
+    height: 52px;
+    width: 10000px;
+}
+.ulBrands li, .ulBrands li a {
+    float: left;
+    height: 50px;
+    width: 125px;
+}
+.ulBrands li {
+    margin-right: 35px;
+}
+.countOD {
+    background-image: url("http://www.nhommuahotdeals.net/tp-ho-chi-minh/images_v4/navi.png");
+    background-position: -157px -164px;
+    font-weight: bold;
+    height: 19px;
+    padding: 0 !important;
+    width: 29px;
+}
+.header-cart {
+    width: 440px;
+}
+.icoOD {
+    background-image: url("http://www.nhommuahotdeals.net/tp-ho-chi-minh-test/images_v4/navi.png");
+    background-position: -199px -105px;
+    height: 18px;
+    padding: 0 !important;
+    width: 20px;
+}
+.icoLK {
+    background-image: url("http://www.nhommuahotdeals.net/tp-ho-chi-minh-test/images_v4/navi.png");
+    background-position: -172px -134px;
+    height: 18px;
+    padding: 0 !important;
+    width: 20px;
+}
+.amo-brandText {
+    margin-top: 8px;
+}
+.amo-brandText, .amo-brandText p, .amo-brandText span, .amo-brandText p, .amo-brandText div, .amo-brandText a, .amo-brandText b, .amo-brandText {
+    color: #FFFFFF !important;
+    font: 13px/17px Arial,Helvetica,Geneva,sans-serif !important;
+    height: auto !important;
+}
+.amo-brandText b {
+    font-weight: bold;
+}
+.amo-brandText p {
+    padding-top: 0;
+}
+.dealBrand {
+    background: url("http://www.nhommuahotdeals.net/tp-ho-chi-minh-test/images_v4/bg_repeat.png") repeat scroll 0 -200px transparent;
+    bottom: 0;
+    height: 29px;
+    left: 0;
+    position: fixed;
+    width: 100%;
+    z-index: 5;
+}
+.dealBrand .logo {
+    border-right: 1px solid #CCEFF9;
+    height: 29px;
+    margin: 0;
+    width: 116px;
+}
+.dealBrand .logo img {
+    margin: 5px 0 0 12px;
+}
+.connDealBrand {
+    float: left;
+    height: 29px;
+    overflow: hidden;
+    width: 92.9%;
+}
+.innerDealBrand {
+    float: left;
+    height: 29px;
+    margin-left: -2.4px;
+    width: 30000px;
+}
+.innerDealBrand li {
+    border-right: 1px solid #FFFFFF;
+    float: left;
+    height: 15px;
+    margin-top: 8px;
+    padding: 0 10px;
+}
+.innerDealBrand li a {
+    color: White;
+    font-size: 12px;
+    font-weight: bold;
+}
+.bg-footer {
+    position: relative;
+    z-index: 2;
+}
+.dSocialNew {
+    height: auto;
+    left: -80px;
+    overflow: hidden;
+    position: absolute;
+    top: 63px;
+    width: 70px;
+}
+.titleSocial {
+    background: url("http://www.nhommuahotdeals.net/tp-ho-chi-minh/images_v4/bgShare_new.gif") repeat scroll 0 0 transparent;
+    color: #7E7E7E;
+    cursor: pointer;
+    display: block;
+    float: left;
+    font-size: 11px;
+    font-weight: bold;
+    height: 23px;
+    line-height: 24px;
+    margin-left: 5px;
+    position: relative;
+    text-align: center;
+    transition: all 0.4s linear 0s;
+    width: 60px;
+    z-index: 3;
+}
+.listSocial {
+    background: url("http://www.nhommuahotdeals.net/tp-ho-chi-minh/images_v4/bgShare_new.gif") repeat scroll 0 0 transparent;
+    border-radius: 0 0 7px 7px;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.5);
+    clear: left;
+    float: left;
+    height: auto;
+    left: 5px;
+    opacity: 1;
+    overflow: hidden;
+    padding-bottom: 1px;
+    padding-top: 30px;
+    position: relative;
+    top: -410px;
+    transition: all 0.5s linear 0s;
+    width: 60px;
+}
+.icoShareFB {
+    float: left;
+    margin: 0 0 3px 16px;
+}
+.connListSocial {
+    float: left;
+    height: 30px;
+    position: relative;
+    width: 67px;
+}
+#dTopSubMenu {
+    z-index: 5;
+}
+.dSocialNew_Horizontal {
+    float: right;
+    height: 28px;
+    margin-right: 10px;
+    min-width: 300px;
+}
+.dSocialNew_Horizontal .titleSocial {
+    background: none repeat scroll 0 0 transparent;
+    color: #7E7E7E;
+    cursor: pointer;
+    display: block;
+    float: left;
+    font-size: 11px;
+    font-weight: bold;
+    height: 23px;
+    line-height: 24px;
+    margin-left: 5px;
+    position: relative;
+    text-align: center;
+    transition: all 0.4s linear 0s;
+    z-index: 3;
+}
+.dSocialNew_Horizontal .listSocial {
+    background: none repeat scroll 0 0 transparent;
+    border-radius: 0 0 0 0;
+    box-shadow: none;
+    clear: left;
+    float: left;
+    height: 48px;
+    left: 0;
+    opacity: 1;
+    overflow: hidden;
+    padding-bottom: 1px;
+    padding-top: 10px;
+    position: relative;
+    top: 0;
+    transition: all 0.5s linear 0s;
+    width: 100%;
+}
+.dSocialNew_Horizontal .icoShareFB {
+    float: right;
+    height: 18px;
+    margin: 6px 5px 0;
+    width: 58px;
+}
+.dSocialNew_Horizontal .connListSocial {
+    float: right;
+    height: 48px;
+    margin-right: -10px;
+    margin-top: -15px;
+    position: relative;
+    width: 500px;
+}
+.titleSocial i {
+    background-image: url("http://www.nhommuahotdeals.net/tp-ho-chi-minh-test/images_v4/navi.png");
+    background-position: -171px -283px;
+    display: block;
+    height: 3px;
+    left: 27px;
+    position: absolute;
+    top: 19px;
+    width: 5px;
+}
+.bgTempSocial {
+    background: url("http://www.nhommuahotdeals.net/tp-ho-chi-minh/images_v4/bg.gif") repeat-x scroll 0 0 transparent;
+    height: 63px;
+    left: -80px;
+    position: absolute;
+    width: 80px;
+    z-index: 3;
+}
+.cool-deal {
+    background-image: url("http://www.nhommuahotdeals.net/tp-ho-chi-minh/images_v4/shadow-deal.png");
+    background-position: -394px -440px;
+    display: block;
+    height: 75px;
+    left: -5px;
+    position: absolute;
+    top: -5px;
+    width: 75px;
+    z-index: 3;
+}
+.bann8_3, .deal-304 {
+    background-image: url("http://www.nhommuahotdeals.net/tp-ho-chi-minh/images_v4/shadow-deal.png?v=1");
+    background-position: -394px -515px;
+    display: block;
+    height: 75px;
+    left: -5px;
+    position: absolute;
+    top: -5px;
+    width: 75px;
+    z-index: 3;
+}
+.deal-16 {
+    background: url("http://www.nhommuahotdeals.net/tp-ho-chi-minh/images_v4/shadow-deal.png?v=2") repeat scroll -290px -457px transparent;
+    height: 59px;
+    left: -10px;
+    position: absolute;
+    top: -16px;
+    width: 68px;
+    z-index: 3;
+}
+.cashback-3 {
+    background: url("http://www.nhommuahotdeals.net/tp-ho-chi-minh/images_v4/shadow-deal.png?v=3") repeat scroll -280px -520px transparent;
+    height: 80px;
+    left: -9px;
+    position: absolute;
+    top: -9px;
+    width: 80px;
+    z-index: 3;
+}
+.cashback-5 {
+    background: url("http://www.nhommuahotdeals.net/tp-ho-chi-minh/images_v4/shadow-deal.png?v=3") repeat scroll -280px -600px transparent;
+    height: 80px;
+    left: -9px;
+    position: absolute;
+    top: -9px;
+    width: 80px;
+    z-index: 3;
+}
+.advDeviceBanner {
+    bottom: 30px;
+    display: block;
+    height: 90px;
+    position: fixed;
+    right: 0;
+    width: 200px;
+    z-index: 10;
+}
+.aDeviceBann {
+    display: block;
+    float: left;
+    height: 90px;
+    left: 0;
+    overflow: hidden;
+    position: relative;
+    top: 0;
+    width: 200px;
+}
+.aDeviceBann img {
+    margin-top: -1px;
+    position: absolute;
+    z-index: 3;
+}
+.aDeviceBann span {
+    height: 90px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 200px;
+}
+.aShadDevBann {
+    background-image: url("http://www.nhommuahotdeals.net/tp-ho-chi-minh/images_v4/Bannerdownload_1.png");
+    z-index: 2;
+}
+.aCloseDevBann {
+    background-image: url("http://www.nhommuahotdeals.net/tp-ho-chi-minh/images_v4/Bannerdownload_2.png");
+    z-index: 4;
+}
+.aShadMidBann {
+    background-image: url("http://www.nhommuahotdeals.net/tp-ho-chi-minh/images_v4/Bannerdownload.png");
+    z-index: 1;
+}
+.deal-304 {
+    background-position: -394px -674px;
+}
+.gr-register p {
+    float: left;
+}
+.modBoxPF {
+    float: left;
+    position: relative;
+}
+.viewPF {
+    height: 25px;
+}
+.viewOD, .viewLK {
+    height: 23px;
+}
+.viewPF:hover .modACC {
+    opacity: 1;
+    visibility: visible;
+}
+.viewOD:hover .modBoxODLK {
+    opacity: 1;
+    visibility: visible;
+}
+.viewOD:hover .icoOD {
+    opacity: 1;
+}
+.viewLK:hover .modBoxODLK {
+    opacity: 1;
+    visibility: visible;
+}
+.viewLK:hover .icoLK {
+    opacity: 1;
+}
+.modBoxODLK {
+    background-color: #191919;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 2px 2px 3px #333333;
+    opacity: 0;
+    position: absolute;
+    right: -8px;
+    top: 23px;
+    transition: all 0.3s linear 0s;
+    visibility: hidden;
+    width: 350px;
+    z-index: 3;
+}
+.titleOD {
+    border-bottom: 1px solid #8C8C8C;
+    padding-bottom: 10px;
+    width: 97%;
+}
+.titleOD_bot {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: #8C8C8C -moz-use-text-color -moz-use-text-color;
+    border-image: none;
+    border-right: medium none;
+    border-style: solid none none;
+    border-width: 1px medium medium;
+    margin-top: 5px;
+    padding: 10px 0 0;
+    width: 97%;
+}
+.innerBoxODLK {
+    float: left;
+    margin: 20px 0 20px 20px;
+    max-height: 565px;
+    width: 320px;
+}
+.innerBoxODLK p, .detailDealOD p {
+    color: #949494;
+    font-size: 13px;
+}
+.dealOD {
+    border-bottom: 1px solid #8C8C8C;
+    float: left;
+    height: 91px;
+    margin-bottom: 10px;
+    position: relative;
+    width: 310px;
+}
+.detailDealOD p font sup {
+    position: relative;
+    top: 3px;
+}
+.listDealOD {
+    clear: both;
+    float: left;
+    margin-top: 0;
+    width: 100%;
+}
+.listDealOD a {
+    float: left;
+}
+.detailDealOD {
+    float: left;
+    margin-left: 8px;
+    position: relative;
+    width: 246px;
+}
+.detailDealOD a {
+    color: #949494;
+    font-size: 13px;
+    font-weight: bold;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 215px;
+}
+.detailDealOD p {
+    clear: left;
+    font-size: 12px;
+    line-height: 15px;
+}
+.listDealOD a img {
+    border: 1px solid #EEEEEE;
+    border-radius: 2px 2px 2px 2px;
+}
+.detailDealOD .btn-thanhtoan, .detailDealOD .btn-thanhtoan a {
+    height: 25px;
+    padding: 0;
+    width: 61px;
+}
+.detailDealOD .btn-thanhtoan {
+    clear: left;
+    float: left;
+    margin-top: 5px;
+}
+.detailDealOD .btn-thanhtoan a i {
+    color: #FFFFFF;
+    font-size: 13px;
+    line-height: 24px;
+}
+.detailDealOD .countdownTime {
+    color: #0095DA;
+    float: right;
+    font-size: 12px;
+    font-style: italic;
+    margin: 10px 0 0;
+    padding: 0;
+    text-align: right;
+}
+.icoOD, .icoLK {
+    opacity: 0.3;
+    transition: all 0.2s linear 0s;
+}
+.countOD i {
+    color: white !important;
+    display: block;
+    float: left;
+    font-size: 12px;
+    height: 18px;
+    text-align: center;
+    width: 25px;
+}
+.delDeal {
+    background: url("http://www.nhommuahotdeals.net/tp-ho-chi-minh/images_v4/navi.png") repeat scroll -228px -109px transparent;
+    cursor: pointer;
+    height: 13px;
+    margin: 0 !important;
+    padding: 0 !important;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 13px;
+}
+.likeDeal {
+    background: url("http://www.nhommuahotdeals.net/tp-ho-chi-minh/images_v4/navi.png") repeat scroll -124px -234px transparent;
+    cursor: pointer;
+    display: block;
+    height: 30px;
+    position: absolute;
+    right: 5px;
+    top: 30px;
+    visibility: hidden;
+    width: 30px;
+    z-index: 3;
+}
+.likeDeal-focus, .likeDeal:hover {
+    background-position: -124px -190px;
+}
+.icoHeart {
+    background: url("http://www.nhommuahotdeals.net/tp-ho-chi-minh/images_v4/navi.png") repeat scroll -197px -140px transparent;
+    cursor: pointer;
+    display: block;
+    height: 15px;
+    position: absolute;
+    right: 9px;
+    top: 9px;
+    width: 15px;
+    z-index: 20;
+}
+.voucherOD {
+    float: left;
+    height: 30px;
+    margin: 5px 0;
+    width: 100%;
+}
+.voucherOD span {
+    background: url("http://www.nhommuahotdeals.net/tp-ho-chi-minh/images_v4/navi.png") repeat scroll -195px -169px transparent;
+    cursor: pointer;
+    display: block;
+    float: left;
+    height: 14px;
+    margin-right: 6px;
+    margin-top: 8px;
+    padding: 0 !important;
+    width: 14px;
+}
+.voucherOD p {
+    color: #CBCBCB;
+    float: left;
+    font-size: 14px;
+}
+.voucherOD p font {
+    float: left;
+    font-size: 12px;
+}
+.voucherOD p strong {
+    color: #CBCBCB;
+    float: left;
+    font-weight: bold;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 240px;
+}
+.voucherOD span:hover {
+    background-position: -212px -169px;
+}
+.infoListVDeal .likeDeal {
+    left: 320px;
+    top: 10px;
+}
+.travel-offer .likeDeal {
+    top: 5px;
+}
+.pagingOD {
+    clear: both;
+    float: left;
+    margin: 7px 0 3px;
+    width: 100%;
+}
+.pagingOD span, .pagingOD a {
+    color: #CBCBCB;
+    display: block;
+    float: left;
+    font-size: 12px;
+    padding: 0 4px;
+}
+.pagingOD i {
+    float: left;
+}
+.pagingOD p {
+    float: right;
+    margin-right: 5px;
+    text-align: center;
+}
+.pagingOD p span {
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+}
+.pagingOD a:hover {
+    color: white;
+    font-weight: bold;
+}
+.deal-img:hover .likeDeal {
+    visibility: visible;
+}
+.slide-img:hover .likeDeal {
+    visibility: visible;
+}
+.infoListVDeal:hover .likeDeal {
+    visibility: visible;
+}
+.div-shadow {
+    background: none repeat scroll 0 0 #000000;
+    display: block;
+    height: 100%;
+    left: 0;
+    opacity: 0.8;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 6;
+}
+.popup_KSilk {
+    background-image: url("http://www.nhommuahotdeals.net/tp-ho-chi-minh-test/landing/images_v4/popup_khaisilk1.png?v=1.0");
+    height: 601px;
+    left: 32%;
+    position: absolute;
+    top: 20%;
+    width: 625px;
+    z-index: 7;
+}
+.inner_popupKS {
+    float: left;
+    height: 601px;
+    position: relative;
+    width: 625px;
+}
+.close_KS {
+    background-image: url("http://www.nhommuahotdeals.net/tp-ho-chi-minh-test/landing/images_v4/image-khaisilk2.png");
+    background-position: -555px -390px;
+    cursor: pointer;
+    display: block;
+    height: 52px;
+    position: absolute;
+    right: 71px;
+    top: 50px;
+    width: 43px;
+}
+.comboDeal_popup {
+    background-image: url("http://www.nhommuahotdeals.net/tp-ho-chi-minh-test/landing/images_v4/popup-left-arrow.png");
+    display: block;
+    float: left;
+    height: 230px;
+    margin: 88px 0 0 38px;
+    width: 403px;
+}
+.btnBuyPopup {
+    background-image: url("http://www.nhommuahotdeals.net/tp-ho-chi-minh-test/landing/images_v4/image-khaisilk2.png");
+    background-position: -403px -641px;
+    display: block;
+    float: left;
+    height: 68px;
+    margin: 10px 0 0 92px;
+    width: 167px;
+}
+.btnBuyPopup:hover {
+    background-position: -403px -724px;
+}
+.btnBuyPopup:active {
+    background-position: -403px -807px;
+}
+.popup {
+    position: absolute;
+    z-index: 10;
+}
+.bg-popup-land {
+    clear: left;
+    float: left;
+    position: relative;
+    width: 792px;
+}
+.bg-popup-top, .bg-popup-bot {
+    clear: left;
+    float: left;
+    height: 25px;
+    width: 100%;
+}
+.bg-popup-top {
+    background: url("http://www.nhommuahotdeals.net/images_v2/landingpage/popup-top.png") no-repeat scroll 0 0 transparent;
+}
+.bg-popup-bot {
+    background: url("http://www.nhommuahotdeals.net/images_v2/landingpage/popup-bot.png") no-repeat scroll 0 0 transparent;
+}
+.close {
+    background: url("http://www.nhommuahotdeals.net/images_v2/landingpage/popup-close.png") no-repeat scroll 0 0 transparent;
+    cursor: pointer;
+    display: none;
+    height: 32px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 32px;
+}
+.bg-popup-cen {
+    background: url("http://www.nhommuahotdeals.net/images_v2/landingpage/popup-cen.png") repeat-y scroll 0 0 transparent;
+    clear: left;
+    float: left;
+    width: 100%;
+}
+.step-1 {
+    clear: left;
+}
+.step-1-left {
+}
+.step-1-left h1, .bg-popup-cen h1, .step-1-left h2, .bg-popup-cen h2 {
+    color: #0095DA;
+    font-size: 28px;
+    font-weight: 700;
+    margin-top: 25px;
+    padding-left: 42px;
+}
+.step-1-left p, .bg-popup-cen p {
+    color: #555555;
+    font-size: 18px;
+    line-height: 27px;
+    padding-left: 42px;
+}
+.step-1-left p a, .step-1-left p .spnDaSignUp {
+    color: #0095DA;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 15px;
+    text-decoration: underline;
+}
+.step-1-right {
+    position: absolute;
+    right: 42px;
+    top: 11px;
+}
+.step-1-right-mock1 {
+    top: 61px;
+}
+.step-1-right .thumnail {
+    width: 172px;
+}
+.step-1-right .thumnail ul {
+}
+.step-1-right .thumnail ul li {
+    height: 108px;
+    margin-bottom: 18px;
+    position: relative;
+    width: 172px;
+}
+.step-1-right .thumnail ul li a {
+}
+.step-1-right .thumnail ul li img {
+    border-radius: 6px 6px 6px 6px;
+}
+.step-1-right .thumnail ul li span {
+    background: url("http://www.nhommuahotdeals.net/images_v2/landingpage/trans_65.png") repeat scroll 0 0 transparent;
+    bottom: 0;
+    color: #FFFFFF;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 600;
+    height: 23px;
+    left: 0;
+    line-height: 23px;
+    position: absolute;
+    text-align: center;
+    width: 172px;
+    z-index: 1;
+}
+.gr-partner {
+    clear: left;
+}
+.gr-partner a, .gr-partner span {
+    display: inline-block;
+}
+.gr-partner img {
+    padding-right: 36px;
+}
+.bg-land-box {
+    background: url("http://www.nhommuahotdeals.net/images_v2/landingpage/bg-step1.png") no-repeat scroll 0 0 transparent;
+    height: 255px;
+    padding-top: 36px;
+    width: 576px;
+}
+.bg-land-box .row {
+    clear: left;
+    float: left;
+    margin-bottom: 16px;
+    position: relative;
+    width: 100%;
+}
+.bg-land-box .row .left {
+    color: #FFFFFF;
+    float: left;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 44px;
+    padding-right: 16px;
+    text-align: right;
+    width: 210px;
+}
+.bg-land-box .row .input-txt {
+    border: 2px solid #CCCCCC;
+    border-radius: 8px 8px 8px 8px;
+    float: left;
+    font-size: 18px;
+    height: 40px;
+    line-height: 40px;
+    padding-bottom: 0;
+    padding-left: 4px;
+    padding-top: 0;
+    width: 278px;
+}
+.bg-land-box .row .btn {
+    background: url("http://www.nhommuahotdeals.net/images_v2/landingpage/btn-dangky.png") no-repeat scroll 0 0 transparent;
+    display: inline-block;
+    height: 53px;
+    margin-top: 16px;
+    width: 458px;
+}
+.bg-land-box .dropdownlist {
+    float: left;
+    position: relative;
+}
+.dropdownlist .text {
+    background-color: #FFFFFF;
+    border: 2px solid #CCCCCC;
+    border-radius: 8px 8px 8px 8px;
+    height: 40px;
+    width: 282px;
+}
+.dropdownlist .text span {
+    color: #333333;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 40px;
+    padding-left: 11px;
+}
+.dropdownlist .text em {
+    background: url("http://www.nhommuahotdeals.net/images_v2/landingpage/btn-ddl.gif") no-repeat scroll 0 0 transparent;
+    border-radius: 0 6px 6px 0;
+    cursor: pointer;
+    display: inline-block;
+    height: 40px;
+    position: absolute;
+    right: 2px;
+    top: 2px;
+    width: 21px;
+}
+.dropdownlist .toggle {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 2px solid #CCCCCC;
+    border-radius: 8px 8px 8px 8px;
+    left: 0;
+    padding: 6px 0;
+    position: absolute;
+    top: 45px;
+}
+.dropdownlist .toggle span {
+    clear: left;
+    cursor: pointer;
+    float: left;
+    font-size: 24px;
+    line-height: 40px;
+    padding-left: 4px;
+    width: 278px;
+}
+.dropdownlist .toggle span:hover {
+    background: none repeat scroll 0 0 #0095DA;
+}
+.land-box {
+    left: -30px;
+    margin-top: 21px;
+    position: relative;
+}
+.step-2 {
+    clear: left;
+    float: left;
+    height: 478px;
+    width: 100%;
+}
+.step-2 .loading {
+    background: url("http://www.nhommuahotdeals.net/images_v2/landingpage/loading.gif") no-repeat scroll 0 0 transparent;
+    display: block;
+    height: 40px;
+    margin: 219px auto 0;
+    width: 40px;
+}
+.step-3 {
+}
+.step-3 h1, .step-3 h2 {
+    padding-left: 0;
+    text-align: center;
+}
+.step-3 h2 {
+    padding-left: 50px;
+}
+.step-3 p {
+    color: #6F6F6F;
+}
+.step-3-1 {
+    background: url("http://www.nhommuahotdeals.net/images_v2/landingpage/bg-step3.png") no-repeat scroll 0 0 transparent;
+    clear: left;
+    float: left;
+    left: 11px;
+    padding-bottom: 48px;
+    padding-left: 288px;
+    position: relative;
+}
+.step-3-1 .text {
+    clear: left;
+    float: left;
+    left: -26px;
+    margin-top: 15px;
+    padding-left: 65px;
+    position: relative;
+    width: 420px;
+}
+.step-3-1 .text h2 {
+    color: #3399FF;
+    float: left;
+    font-family: Conv_nhom_muasb;
+    font-size: 24px;
+    margin-top: 18px;
+}
+.step-3-1 .text h2 img {
+    float: left;
+    padding: 0 10px 0 0;
+    position: relative;
+    top: -6px;
+}
+.step-3-1 .dics {
+    background: url("http://www.nhommuahotdeals.net/images_v2/landingpage/dics.png") no-repeat scroll 0 0 transparent;
+    color: #FFFFFF;
+    display: inline-block;
+    float: left;
+    font-family: Conv_nhom_muasb;
+    font-size: 24px;
+    height: 40px;
+    left: 10px;
+    line-height: 40px;
+    margin-top: 13px;
+    padding-right: 25px;
+    position: relative;
+    text-align: center;
+    width: 40px;
+}
+.step-3-1 .text p {
+    clear: left;
+    color: #818181;
+    font-family: Conv_nhom_muarg;
+    font-size: 15px;
+    line-height: 20px;
+    padding-left: 65px;
+}
+.step-3-1 .text p a {
+    display: inline-block;
+    margin-right: 38px;
+}
+.step-3-1 .active {
+    background: url("http://www.nhommuahotdeals.net/images_v2/landingpage/bg-active.png") no-repeat scroll 0 0 transparent;
+}
+.step-3-1 .active h2 {
+    color: #FFFFFF;
+}
+.step-3-1 .active .dics {
+    background: url("http://www.nhommuahotdeals.net/images_v2/landingpage/dics.png") no-repeat scroll 0 -50px transparent;
+    color: #333333;
+}
+.step-3-1 .active p {
+    color: #FFFFFF;
+}
+.step-3-1 .text .gr-time {
+    clear: left;
+    float: left;
+    margin-top: 18px;
+    padding-left: 77px;
+}
+.gr-time span {
+    float: left;
+}
+.gr-time .left {
+    font-family: Conv_nhom_muarg;
+    font-size: 13px;
+    line-height: 21px;
+    padding-right: 8px;
+}
+.gr-time .time {
+    background: url("http://www.nhommuahotdeals.net/images_v2/landingpage/bg-time.gif") no-repeat scroll 0 0 transparent;
+    display: inline-block;
+}
+.gr-time .time em {
+    color: #FFFFFF;
+    display: inline-block;
+    font-weight: bold;
+    line-height: 21px;
+    text-align: center;
+    width: 44px;
+}
+.gr-time .time em i {
+    color: #333333;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 16px;
+    width: 44px;
+}
+.step-3-2 {
+    clear: left;
+    padding: 0 15px;
+}
+.step-3-2-inner {
+    background: none repeat scroll 0 0 #E5E5E5;
+    padding: 0 67px 16px;
+}
+.step-3-3-inner {
+    padding: 28px 21px 8px 36px;
+}
+.step-3-2 h6, .step-3-3 h6 {
+    clear: left;
+    color: #595858;
+    float: left;
+    font-size: 18px;
+    font-weight: 700;
+    margin: 12px 0;
+}
+.step-3-3 h6 {
+    font-size: 14px;
+}
+.step-3-2 p, .step-3-3 p {
+    clear: both;
+    color: #7C7C7C;
+    font-size: 14px;
+    line-height: 21px;
+    padding-left: 0;
+}
+.step-3-3 p {
+    clear: left;
+    font-size: 13px;
+}
+.step-3-3 p a {
+    color: #7C7C7C;
+    text-decoration: underline;
+}
+.landingpage-send {
+    padding-left: 30px;
+    width: 675px;
+}
+.landingpage-send p {
+    color: #6F6F6F;
+    font-size: 14px;
+    line-height: 22px;
+}
+.landingpage-send p a {
+    color: #6F6F6F;
+    font-weight: 700;
+}
+.landingpage-send p a:hover {
+    text-decoration: underline;
+}
+.landingpage-send p.intro {
+    padding-top: 10px;
+}
+.att-deals {
+    border: 1px solid #DBDBDB;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+    margin-left: 3px;
+    margin-top: 10px;
+    overflow: hidden;
+    padding: 11px 0 15px 9px;
+    width: 625px;
+}
+.att-deal-left {
+    float: left;
+    height: 235px;
+    width: 378px;
+}
+.att-deal-left img {
+    border: 1px solid #CCCCCC;
+    height: 233px;
+}
+.att-deal-right {
+    float: left;
+    margin-left: 21px;
+    width: 207px;
+}
+.att-deal-right .att-deal-price {
+    border: 1px solid #FF9800;
+}
+.att-deal-right .re-price {
+    color: #414141;
+    display: block;
+    font-size: 21px;
+    font-weight: 700;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+}
+.att-deal-right .re-price em {
+    font-size: 9px;
+}
+.att-deal-right .sal-price {
+    background: none repeat scroll 0 0 #FF9800;
+    height: 31px;
+}
+.att-deal-right .sal-price span {
+    color: #FFFFFF;
+    display: inline-block;
+    line-height: 31px;
+    text-align: center;
+}
+.att-deal-right .sal-price .sal-price-title {
+    font-size: 14px;
+    width: 101px;
+}
+.att-deal-right .sal-price .sal-price-percent {
+    font-size: 21px;
+    font-weight: 700;
+    width: 103px;
+}
+.att-deal-right p {
+    color: #878787;
+    font-size: 12px;
+    line-height: 17px;
+}
+.att-deal-right p.info {
+    padding: 12px 3px 0;
+}
+.att-deal-right p.btn {
+    padding: 18px 0 0;
+}
+.att-deal-btn {
+    background: url("http://www.nhommuahotdeals.net/images_v2/landingpage/btn-landingpage-xem.png") no-repeat scroll 0 0 transparent;
+    display: block;
+    height: 43px;
+    margin: 0 auto;
+    text-indent: -9999px;
+    width: 107px;
+}
+.sal-services {
+    padding: 20px 0 0;
+}
+.services {
+    overflow: hidden;
+}
+.service {
+    background: none repeat scroll 0 0 #000000;
+    border-radius: 5px 5px 5px 5px;
+    float: left;
+    height: 107px;
+    margin: 15px 0 0 32px;
+    position: relative;
+    width: 172px;
+}
+.service a {
+    display: block;
+}
+.service img {
+    border: medium none;
+    border-radius: 5px 5px 5px 5px;
+    display: block;
+    height: 107px;
+    width: 172px;
+}
+.service .service-title {
+    background: url("http://www.nhommuahotdeals.net/images_v2/landingpage/trans_65.png") repeat scroll 0 0 transparent;
+    border-radius: 0 0 5px 5px;
+    bottom: 0;
+    color: #FFFFFF;
+    font-size: 14px;
+    font-weight: 600;
+    height: 23px;
+    left: 0;
+    line-height: 23px;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+}
+.flash-plug {
+    padding-top: 5px;
+}
+.spanSelect {
+    clear: left;
+    cursor: pointer;
+    float: left;
+    font-size: 26px;
+    line-height: 40px;
+    padding-left: 4px;
+    width: 278px;
+}
+.spanSelect:hover {
+    background: none repeat scroll 0 0 #0095DA;
+}
+.popup-mockup {
+    height: 637px;
+    width: 980px;
+}
+.popup-mockup .bg-popup-top, .popup-mockup .bg-popup-bot {
+    display: none;
+}
+.popup-mockup .bg-popup-cen {
+    background: url("http://www.nhommuahotdeals.net/images_v2/landingpage/bg-popup.png") repeat scroll 0 0 transparent;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    clear: left;
+    float: left;
+    height: 100%;
+    width: 100%;
+}
+.popup-mockup .close {
+    right: -9px;
+    top: -11px;
+}
+.popup-mockup .step-1-left p {
+    padding-left: 34px;
+}
+.popup-mockup .step-1-left p a, .popup-mockup .step-1-left p .spnDaSignUp {
+    color: #959595;
+    font-weight: 700;
+    text-decoration: underline;
+}
+.popup-mockup .step-1-right .thumnail {
+    display: inline-block;
+    width: auto;
+}
+.popup-mockup .bg-land-box {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #CCCCCC;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.5);
+    height: 391px;
+    padding-top: 21px;
+    width: 442px;
+}
+.popup-mockup .bg-land-box .row h6 {
+    color: #343434;
+    float: left;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 24px;
+    padding-left: 24px;
+    padding-right: 10px;
+    text-align: left;
+}
+.popup-mockup .bg-land-box .row .left {
+    color: #343434;
+    font-size: 16px;
+    padding-right: 9px;
+    width: 143px;
+}
+.popup-mockup .bg-land-box .line {
+    background: url("http://www.nhommuahotdeals.net/images_v2/landingpage/line-hoz.png") no-repeat scroll 0 0 transparent;
+    display: inline-block;
+    font-size: 0;
+    height: 7px;
+    margin: 0 0 25px;
+    width: 442px;
+}
+.popup-mockup .bg-land-box .row .input-txt {
+    width: 268px;
+}
+.popup-mockup .bg-land-box .row .btn {
+    background: url("http://www.nhommuahotdeals.net/images_v2/landingpage/btn-xemgiatot.png") no-repeat scroll 0 0 transparent;
+    margin-top: 4px;
+    width: 297px;
+}
+.popup-mockup .dropdownlist .text {
+    width: 272px;
+}
+.popup-mockup .dropdownlist .toggle span {
+    width: 268px;
+}
+.popup-mockup .land-box {
+    left: 19px;
+    margin-top: -9px;
+}
+.popup-mockup .thumnail .photo {
+    border: 1px solid #CFCFCF;
+    display: inline-block;
+    float: left;
+    height: 297px;
+    width: 480px;
+}
+.popup-mockup .thumnail .photo img {
+    height: 297px;
+    width: 480px;
+}
+.popup-mockup .step-1-right {
+    right: 18px;
+    top: 40px;
+}
+.popup-mockup .step-1-right .thumnail {
+    float: left;
+}
+.popup-mockup .step-1-right .thumnail ul {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #FFFFFF;
+    border-color: #CFCFCF;
+    border-image: none;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    clear: left;
+    float: left;
+    height: 64px;
+    overflow: hidden;
+    width: 481px;
+}
+.popup-mockup .step-1-right .thumnail ul li {
+    border-left: 1px solid #CFCFCF;
+    float: left;
+    height: 64px;
+}
+.popup-mockup .step-1-right .thumnail ul li span {
+    background: none repeat scroll 0 0 transparent;
+    border-radius: 0 0 0 0;
+    bottom: auto;
+    color: #808080;
+    display: block;
+    font-size: 14px;
+    font-weight: 400;
+    height: 32px;
+    left: auto;
+    line-height: 32px;
+    position: static;
+    text-align: center;
+    width: auto;
+}
+.popup-mockup .step-1-right .thumnail ul li .bot {
+    color: #2B9FD5;
+    font-size: 22px;
+    font-weight: 700;
+}
+.popup-mockup .bg-gr-partner {
+    background: none repeat scroll 0 0 #9A9A9A;
+    clear: left;
+    height: 165px;
+    margin-top: 4px;
+    width: 100%;
+}
+.popup-mockup .step-1-left .gr-deal {
+    clear: left;
+    float: left;
+    margin-top: 17px;
+    padding-left: 38px;
+}
+.popup-mockup .step-1-left .gr-deal a, .popup-mockup .step-1-left .gr-deal .spnImgDeal {
+    border: 3px solid #FFFFFF;
+    border-radius: 10px 10px 10px 10px;
+    float: left;
+    font-weight: 400;
+    height: 126px;
+    margin-right: 22px;
+    overflow: hidden;
+    position: relative;
+    text-decoration: none;
+}
+.popup-mockup .gr-deal a img, .popup-mockup .gr-deal .spnImgDeal img {
+    border-radius: 10px 10px 10px 10px;
+    padding-right: 0;
+}
+.popup-mockup .save {
+    background: url("http://www.nhommuahotdeals.net/images_v2/landingpage/ico-save.png") no-repeat scroll 0 0 transparent;
+    border-radius: 0 9px 0 0;
+    color: #FFFFFF;
+    display: inline-block;
+    font-size: 12px;
+    height: 56px;
+    line-height: 18px;
+    padding: 4px 1px 0 14px;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 0;
+    width: 45px;
+}
+.popup-mockup .save em {
+    display: block;
+    font-size: 20px;
+    margin-top: 8px;
+}
+.popup-mockup .step-2 .loading {
+    margin-top: 288px;
+}
+.popup-mockup .step-3 {
+    clear: left;
+    float: left;
+    margin-top: 6px;
+}
+.popup-mockup .step-3-1 {
+    left: 0;
+    margin-top: 12px;
+    min-height: 408px;
+    padding-bottom: 0;
+}
+.popup-mockup .step-3-1 .text {
+    clear: none;
+    padding-left: 20px;
+    width: 290px;
+}
+.popup-mockup .step-3-1 .active {
+    background: url("http://www.nhommuahotdeals.net/images_v2/landingpage/bg-acive-mockup.png") no-repeat scroll 0 0 transparent;
+    min-height: 116px;
+    padding-left: 65px;
+    width: 292px;
+}
+.popup-mockup .step-3-1 .active .dics {
+    background: url("http://www.nhommuahotdeals.net/images_v2/landingpage/dics.png") no-repeat scroll 0 -150px transparent;
+}
+.popup-mockup .step-3-1 .dics {
+    background: url("http://www.nhommuahotdeals.net/images_v2/landingpage/dics.png") no-repeat scroll 0 -100px transparent;
+}
+.popup-mockup .step-3-1 .text .gr-time {
+    padding-left: 63px;
+    position: relative;
+    width: 240px;
+}
+.popup-mockup .step-3-2 {
+    float: left;
+    left: 288px;
+    margin-top: -112px;
+    position: relative;
+}
+.popup-mockup .step-3-2-inner {
+    background: none repeat scroll 0 0 transparent;
+    padding: 0 0 0 26px;
+    width: 700px;
+}
+.popup-mockup .gr-time .time {
+    position: absolute;
+    right: -5px;
+    top: 0;
+}
+.popup-mockup .step-3-3 {
+    clear: left;
+    float: left;
+    width: 100%;
+}
+.popup-mockup .step-3-3-inner {
+    padding-top: 41px;
+}
+.landingpage-send.mockup .att-deals {
+    box-shadow: none;
+    padding: 0;
+    width: 640px;
+}
+.landingpage-send.mockup .att-deal-left {
+    height: 297px;
+    width: 480px;
+}
+.landingpage-send.mockup .att-deal-left img {
+    border: medium none;
+    height: 297px;
+    width: 480px;
+}
+.landingpage-send.mockup .att-deal-right {
+    border-left: 1px solid #CCCCCC;
+    height: 297px;
+    margin: 0;
+    text-align: center;
+    width: 159px;
+}
+.landingpage-send.mockup span {
+    color: #808080;
+    display: block;
+    font-size: 14px;
+    text-align: center;
+}
+.landingpage-send.mockup span.title {
+    height: 22px;
+    padding-top: 25px;
+}
+.landingpage-send.mockup .att-deal-price {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: -moz-use-text-color -moz-use-text-color #CFCFCF;
+    border-image: none;
+    border-style: none none solid;
+    border-width: medium medium 1px;
+    height: 97px;
+    width: 100%;
+}
+.landingpage-send.mockup span.price {
+    color: #2B9FD5;
+    font-size: 24px;
+    font-weight: 700;
+}
+.landingpage-send.mockup em {
+    font-size: 14px;
+}
+.landingpage-send.mockup .att-deal-save {
+    border-bottom: 1px solid #CFCFCF;
+    height: 89px;
+    width: 100%;
+}
+.landingpage-send.mockup .att-deal-time {
+}
+.landingpage-send.mockup span.time {
+    background-image: -moz-linear-gradient(center top , #40A9D9 10%, #2B91C0 100%);
+    color: #FFFFFF;
+    font-size: 24px;
+    font-weight: 700;
+    height: 62px;
+    line-height: 62px;
+    width: 100%;
+}
+.landingpage-send.mockup .service {
+    border-radius: 9px 9px 9px 9px;
+    height: 126px;
+    margin: 15px 19px 0 0;
+    overflow: hidden;
+    width: 204px;
+}
+.landingpage-send.mockup .service img {
+    border-radius: 9px 9px 9px 9px;
+    height: 126px;
+    width: 204px;
+}
+.landingpage-send.mockup .service span {
+    color: #FFFFFF;
+}
+.landingpage-send.mockup .service-save {
+    background: url("http://www.nhommuahotdeals.net/images_v2/landingpage/ico-save.png") no-repeat scroll 0 0 transparent;
+    border-radius: 0 9px 0 0;
+    height: 56px;
+    padding: 4px 1px 0 14px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 45px;
+}
+.landingpage-send.mockup .service-save em {
+    display: block;
+    font-size: 12px;
+}
+.landingpage-send.mockup .service-save span {
+    font-size: 20px;
+    font-weight: 700;
+}
+.landingpage-send.mockup .service-save span em {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 0;
+}
+.bg-photo {
+    left: 0;
+    position: absolute;
+    top: 0;
+}
+.step-4 .land-box {
+    left: 38px;
+}
+.step-4 .step-1-left p {
+    padding-left: 53px;
+}
+.step-4 .bg-gr-partner {
+    margin-top: 0;
+}
+#dLadingPage_3 .close {
+    display: block;
+}
+.popup-mockup .step-1-left .gr-deal {
+    width: 100%;
+}
+.step-1-left p a, .step-1-left p .spnDaSignUp {
+    font-size: 15px;
+}
+.dPopupAvia {
+    background: url("http://www.nhommuahotdeals.net/tp-ho-chi-minh/landing/images_v4/bg_ppAvia.jpg") repeat scroll 0 0 transparent;
+    height: 450px;
+    left: 30%;
+    position: absolute;
+    top: 250px;
+    width: 650px;
+    z-index: 7;
+}
+.innerPopupAvia {
+    height: 450px;
+    position: relative;
+    width: 650px;
+}
+.topPopupAvia {
+    float: left;
+    height: 40px;
+    margin: 10px 0;
+    width: 650px;
+}
+.topPopupAvia span {
+    color: White;
+    cursor: pointer;
+    display: block;
+    float: left;
+    font-size: 12px;
+    margin-left: 15px;
+    margin-top: 3px;
+}
+.topPopupAvia a {
+    display: block;
+    float: right;
+    height: 37px;
+    width: 94px;
+}
+.viewAvia {
+    background-image: url("http://www.nhommuahotdeals.net/tp-ho-chi-minh/landing/images_v4/icoLandingAvia.png?v=1");
+    background-position: -488px -852px;
+    bottom: 100px;
+    display: block;
+    height: 50px;
+    position: absolute;
+    right: 20px;
+    width: 167px;
+}
+#container {
+    margin: 100px auto;
+    width: 1200px;
+}
+ul, li {
+    margin: 0;
+    padding: 0;
+}
+#blob {
+    background: none repeat scroll 0 0 white;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 1px 1px 2px #666666 inset;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+}
+#nav {
+    background: none repeat scroll 0 0 #292929;
+    float: left;
+    position: relative;
+}
+#nav li {
+    border-left: 1px solid black;
+    border-right: 1px solid #4A4A4A;
+    float: left;
+    list-style: none outside none;
+}
+#nav li a {
+    color: #E3E3E3;
+    float: left;
+    font-family: helvetica,arial,sans-serif;
+    font-size: 30px;
+    padding: 30px 45px;
+    position: relative;
+    text-decoration: none;
+    z-index: 2;
+}

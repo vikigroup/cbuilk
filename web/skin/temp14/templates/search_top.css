@@ -1,0 +1,32 @@
+/* all form DIVs have position property set to relative so we can easily position newly created SPAN */
+form div{position:relative;} 
+
+/* setting the width and height of the SELECT element to match the replacing graphics */
+select.select{
+	position:relative;
+	z-index:10;
+	width:81px !important;
+	height:24px !important;
+	line-height:24px;
+	color:#aaa;	
+}
+
+@media all and (-webkit-min-device-pixel-ratio:10000), not all and (-webkit-min-device-pixel-ratio:0)
+{
+	head~body .select.select {opacity:0.4;}
+}
+
+/* dynamically created SPAN, placed below the SELECT */
+span.select{
+	position:absolute;
+	bottom:0; left:0;
+	width:71px; height:24px;
+	padding:0 15px 0 5px;
+	line-height:24px;
+	background:url(../imgs/layout/span_select.png) no-repeat 0 0;
+	cursor:default;
+	z-index:1;
+	text-align:center;
+	color:#aaa;
+	overflow:hidden;
+}

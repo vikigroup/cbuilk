@@ -1,0 +1,20 @@
+/**************************************** BEGIN IE6 ****************************************/
+*html body{behavior: url(scripts/whateverhover.htc);}
+*html .PageNum a, *html .PageNum span{display:inline-block;}
+
+/**************************************** END IE6 ****************************************/
+
+/**************************************** BEGIN IE7 ****************************************/
+*+html .PageNum a, *+html .PageNum span{display:inline-block;}
+*+html .main_container_jbs{overflow:hidden;}
+*+html .ul_mnsp li{display:inline-block;}
+*+html .ipt_f_tt, *+html .ipt_mxn{line-height:27px;}
+
+/**************************************** END IE7 ****************************************/
+
+/**************************************** BEGIN IE8 ****************************************/
+@media \0screen {
+	.ul_mnsp li{font-size:13px;}
+	.ipt_f_tt, .ipt_mxn{line-height:27px;}
+}
+/**************************************** END IE8 ****************************************/
