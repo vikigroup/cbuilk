@@ -1,0 +1,22 @@
+.slider{}
+.slider ul li{}
+
+/*pager links*/
+.bx-pager a {
+	margin-right: 5px;
+	width:10px; height:10px;
+	zoom:1;
+	background: url(../imgs/layout/btn_click_slider.png) no-repeat top;
+	display:block;
+	float:left;
+	text-indent:-99999px;
+}
+/*pager links hover and active states*/
+.bx-pager .pager-active,
+.bx-pager a:hover{background-position: bottom; color:#fff;}
+/*pager wrapper*/
+.bx-pager{
+	position:absolute;
+	left:5px; bottom:5px;
+	z-index:999;
+}

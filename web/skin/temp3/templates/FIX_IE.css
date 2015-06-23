@@ -1,0 +1,20 @@
+/**************************************** BEGIN IE6 ****************************************/
+*html body{behavior: url(scripts/whateverhover.htc);}
+*html .menu_w ul li, *html .news_frame ul li{display:inline-block;}
+*html .menu_w ul li a:hover, *html .menu_w ul li.active_menu a{color:#FFC;}
+*html .PageNum a, *html .PageNum span{display:inline-block;}
+*html .input_contact_new{width:98%;}
+/**************************************** END IE6 ****************************************/
+
+/**************************************** BEGIN IE7 ****************************************/
+*+html .input_contact_new{width:98%;}
+*+html .news_frame ul li{padding-bottom:0; display:inline-block;}
+*+html .menu_w ul li a:hover, *+html .menu_w ul li.active_menu a{color:#FFC;}
+*+html .PageNum a, *+html .PageNum span{display:inline-block;}
+/**************************************** END IE7 ****************************************/
+
+/**************************************** BEGIN IE8 ****************************************/
+@media \0screen {
+	.menu_w ul li a:hover, .menu_w ul li.active_menu a{color:#FFC;}
+}
+/**************************************** END IE8 ****************************************/
