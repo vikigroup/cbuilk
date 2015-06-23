@@ -1,0 +1,45 @@
+.menu_w ul.main_menu{height:32px; background:url(../imgs/layout/menu_w_ul.jpg) repeat-x;}
+.menu_w ul.main_menu li{float:left; position:relative; z-index:999999; font-size:15px; text-transform:capitalize;}
+.menu_w ul.main_menu li a{
+	line-height:32px;
+	color:#fff;
+	padding:0 20px;
+	display:block;
+}
+.menu_w ul.main_menu li.active_menu_w a{background:url(../imgs/layout/active_menu_w.jpg) repeat-x;}
+.menu_w ul.main_menu li:hover a{background:url(../imgs/layout/active_menu_w.jpg) repeat-x;}
+.menu_w ul.main_menu li:hover ul.menu_w_children{display:block;}
+.menu_w ul.main_menu li ul.menu_w_children{
+	position:absolute;
+	display:none;
+	z-index:999999;
+	width:200px;
+	border-bottom:5px solid #222;
+	background:#222;
+}
+.menu_w ul.main_menu li ul.menu_w_children li{float:none;}
+.menu_w ul.main_menu li ul.menu_w_children li a{
+	background:#222;
+	line-height:20px;
+	font-size:12px;
+}
+.menu_w ul.main_menu li ul.menu_w_children li a:hover{color:#C16B38;}
+
+.bootom_mw{height:2px; background:url(../imgs/layout/bootom_mw.png) repeat-x; overflow:hidden;}
+
+
+.menu_w ul li ul li:hover ul.menu_2_child{display:block;}
+.menu_w ul li ul li ul.menu_2_child{
+	position:absolute;
+	top:1px; left:180px;
+	width:300px;
+	display:none;
+	z-index:999999;
+	background:#2a2122;
+	-webkit-border-bottom-right-radius: 3px;
+	-webkit-border-bottom-left-radius: 3px;
+	-moz-border-radius-bottomright: 3px;
+	-moz-border-radius-bottomleft: 3px;
+	border-bottom-right-radius: 3px;
+	border-bottom-left-radius: 3px;
+}

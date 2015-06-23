@@ -1,0 +1,26 @@
+.slider_w{height:300px; width:100%; background:#eee; position:relative;}
+.mask_slider_w{
+	position:absolute; 
+	background:url(../imgs/layout/mask_slider_w.png) no-repeat; 
+	width:930px; height:300px; 
+	top:0; left:0; right:0;
+	z-index:1000;
+}
+#i_slider_w li img{width:930px; height:300px;}
+
+/*pager links*/
+.bx-pager{z-index:999999; position:absolute; left:433px; bottom:8px;}
+.bx-pager a {
+	margin-right: 5px;
+	color: #000;
+	width:9px; height:9px;
+	zoom:1;
+	background:url(../imgs/layout/slide_btn.png) no-repeat 0px 0px;
+	display:block;
+	float:left;
+	text-indent:-99999px;
+	cursor:pointer;
+}
+/*pager links hover and active states*/
+.bx-pager .pager-active,
+.bx-pager a:hover{background-position: 0px -9px;}

@@ -1,0 +1,22 @@
+/**************************************** BEGIN IE6 ****************************************/
+*html body{behavior: url(scripts/whateverhover.htc);}
+*html .main_f_sb_cate ul li, *html .news_frame ul li, *html .menu_w ul.main_menu li ul.menu_w_children li, *html .main_rso ul li{display:inline-block;}
+*html .bx-pager a{overflow:hidden;}
+*html .btn_s_m{top:3px;}
+*html .my_card_w a{display:inline-block;}
+*html .input_contact_new{width:98%;}
+*html .PageNum a, *html .PageNum span{display:inline-block;}
+/**************************************** END IE6 ****************************************/
+
+/**************************************** BEGIN IE7 ****************************************/
+*+html #footer_w{overflow:hidden;}
+*+html .input_contact_new{width:98%;}
+*+html .news_frame ul li{padding-bottom:0; display:inline-block;}
+*+html .PageNum a, *+html .PageNum span{display:inline-block;}
+/**************************************** END IE7 ****************************************/
+
+/**************************************** BEGIN IE8 ****************************************/
+@media \0screen {
+	
+}
+/**************************************** END IE8 ****************************************/
