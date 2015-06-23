@@ -1,0 +1,57 @@
+#login_num{background:#FBFBFB; width:100%; height:100%;}
+#login_num table, #login_num table tr {width:100%; height:100%;}
+#login_num table tr td{text-align:center; vertical-align:middle;}
+.main_login_num{
+	color:#777;
+	border:1px solid #e1e1e1;
+	background:#fff;
+	box-shadow:0px 0px 10px #dedede;
+	-moz-box-shadow:0px 0px 10px #dedede;
+	width:300px;
+	padding:20px;
+	margin:0 auto;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	text-align:left;
+}
+.name_log{padding-bottom:5px; display:block; font-size:14px;}
+.ipt_log{
+	background:#FBFBFB;
+    border: 1px solid #E5E5E5;
+    box-shadow: 1px 1px 2px rgba(200, 200, 200, 0.2) inset;
+    font-size: 24px;
+    font-weight: 200;
+	padding:3px;
+	width:97%;	
+	color:#777;	
+	font:Arial, Helvetica, sans-serif;
+}
+.pad_style{padding-bottom:10px;}
+.btn_sub_log{
+	color:#fff;
+	border:1px solid #206c90;
+	text-shadow: 0px -1px 0px #1b5977;
+	font-size:13px;
+	font:Arial, Helvetica, sans-serif;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	padding:2px 4px 4px 4px;
+	background:#298cba;
+	cursor:pointer;
+}
+.btn_sub_log:focus, .btn_sub_log:hover{border:1px solid #012536;}
+
+.f_error{
+	background:#FFEBE8;
+	border:1px solid #CC0000;	
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	width:320px;
+	padding:10px;
+	margin:20px auto;
+	text-align:left;
+	color:#333;
+}

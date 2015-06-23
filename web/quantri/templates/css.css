@@ -1,0 +1,52 @@
+@charset "utf-8";
+@import url("reset.css");
+@import url("num_ad_menu.css");
+@import url("num_ad_content.css");
+@import url("login.css");
+
+body{color:#333; font-family:Arial, Helvetica, sans-serif; font-size:13px; background:#fff; height:100%;}
+#num_ad_wrap{width:100%; position:relative; min-height:100%; height:auto;}
+
+.clear{clear:both;}
+.clear2{clear:both; float:none;}
+
+/************************************** BEGIN PHAN TRANG ************************************/
+.phantrang_num{padding:20px 0 10px 0; text-align:center; font-size:12px;}
+.PageNum a{
+	background:#fff;
+	padding:2px 7px;
+	height:17px;
+	border:1px solid #ccc;
+	color:#333;
+	margin-right:3px;
+}
+.PageNum a:hover{color:#000;}
+.PageNum span{
+	background:#e8e8e8;
+	padding:2px 7px;
+	height:17px;
+	border:1px solid #ccc;
+	color:#333;
+	font-weight:bold;
+	margin-right:3px;
+}
+/************************************** END PHAN TRANG **************************************/
+
+.clickSHmenu{
+	background:url(../imgs/layout/hide_menu.png) no-repeat 0 0px;
+	position:fixed;
+	width:19px; height:20px;
+	bottom:25px; left:127px;
+	z-index:999999;
+	cursor:pointer;
+}
+.clickSHmenu:hover{background-position:0 -20px;}
+.clickSHmenu2{
+	background:url(../imgs/layout/hide_menu.png) no-repeat 0 -40px;
+	position:fixed;
+	width:19px; height:20px;
+	bottom:25px; left:0;
+	z-index:999999;
+	cursor:pointer;		
+}
+.clickSHmenu2:hover{background-position:0 -60px;}
