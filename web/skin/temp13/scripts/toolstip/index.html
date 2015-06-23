@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Error</title>
+<style type="text/css">
+<!--
+body {
+	padding: 0px;
+}
+#main {
+	height: 418px;
+	width: 401px;
+	margin-top: 0px;
+	margin-right: auto;
+	margin-bottom: 0px;
+	margin-left: auto;
+	text-align: center;
+	background-color: #36F;
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-left-width: 0px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+}
+#login_thanhcong a {
+	text-decoration: none;
+	color: #00F;
+}
+#login_thanhcong a:hover {
+	text-decoration: none;
+	color: #C00;
+}
+.chu_thanhcong {
+	font-size: 18px;
+	font-weight: bold;
+	background-color: #2290FF;
+	color: #FFF;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+#sogiay {
+	color: #00F;
+	font-size: 36px;
+	font-weight: bold;
+}
+-->
+</style>
+<script>
+s=3; 
+setTimeout("document.location='../../index.php'",s*1000); 
+setInterval("document.getElementById('sogiay').innerHTML=s--;",1000);
+</script> 
+</head>
+
+<body>
+<div id="main">
+		<img src="../../imgs/404.gif" width="401" height="418" />
+</div>
+<div style="float:none; clear:both; width:401px; margin-left:auto; margin-right:auto; text-align:center; padding-top:0px; padding-bottom:20px">
+    <p id="login_thanhcong">
+        <a title="Bấm vào quay lại trang chủ ngay" href=../../index.php>Link quay lại trang chủ ngay</a>.
+    </p>
+Sẽ quay lại trang chủ sau.<br />
+<span id=sogiay></span>
+</div>
+</body>
+</html>
