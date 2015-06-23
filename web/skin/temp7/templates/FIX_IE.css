@@ -1,0 +1,26 @@
+/**************************************** BEGIN IE6 ****************************************/
+
+*html body{behavior: url(scripts/whateverhover.htc);}
+*html .menu_main ul li ul.menu_child li{display:inline-block;}
+*html .main_sport{display:inline-block;}
+*html .arrown_bottom, *html .arrown_bottom2{bottom:-15px;}
+*html .frame_dt{display:inline-block;}
+*html .menu_main ul{width:100%;}
+*html .input_contact_new{width:98%;}
+*html .news_frame ul li{padding-bottom:0; display:inline-block;}
+
+/**************************************** END IE6 ****************************************/
+
+/**************************************** BEGIN IE7 ****************************************/
+
+*+html .main_sport{display:inline-block;}
+*+html .input_contact_new{width:98%;}
+*+html .news_frame ul li{padding-bottom:0; display:inline-block;}
+
+/**************************************** END IE7 ****************************************/
+
+/**************************************** BEGIN IE8 ****************************************/
+@media \0screen {
+	
+}
+/**************************************** END IE8 ****************************************/
