@@ -1,0 +1,60 @@
+/**************************************** BEGIN IE6 ****************************************/
+*html body{behavior: url(scripts/whateverhover.htc);}
+*html .nav_menu_mau_gh li{z-index:99999;}
+*html .submenu li, *html .news_other_mau_gh ul li, *html .main_f_p_m_gh, *html .tag-pos{display:inline-block;}
+*html .img_gy_news img{display:block;}
+*html ..bx-pager a{overflow:hidden;}
+*html .inputsearch_mau_gh, *html .inputgiatu_mau_gh, *html .inputgiaden_mau_gh{line-height:22px;}
+*html .tktc_mau_gh ul li{border-top:expression(this.previousSibling==null?'none':'-');}
+*html .icon_shop_2 span{display:inline-block;}
+
+*html .canh_css_frame img{width:760px;}
+*html .frame_img_dm img{width:164px;height:150px;}
+*html .sp_xn_style td img{width:188px; height:165px;}
+*html .banner_mau_gh img{height:250px;}
+*html .qc_mau_gh ul li img, *html .sp_mau_gh img{width:188px;}
+*html .img_gy_news img{width:157px; height:134px;}
+
+*html .title_tls{color:#333; padding:7px 0;}
+*html .price_tls{color:#C00; padding-top:7px;}
+*html .tomtat_tls{padding:4px 0 7px 0;}
+*html .main_img_tls{text-align:center;}
+*html .main_img_tls img{width:250px; max-height:250px;}
+
+*html .main_img_tls img{width:250px; max-height:250px;}
+*html .left_news_tls{width:80px; float:left; padding-right:10px;}
+*html .left_news_tls img{width:80px; height:80px;}
+*html .main_news_tls{padding-bottom:10px;}
+
+/**************************************** END IE6 ****************************************/
+
+/**************************************** END IE7 ****************************************/
+*+html .nav_menu_mau_gh li{z-index:99999;}
+*+html .main_f_p_m_gh, *+html .tag-pos{display:inline-block;}
+*+html .inputsearch_mau_gh, *+html .inputgiatu_mau_gh, *+html .inputgiaden_mau_gh{line-height:22px;}
+
+*+html .title_tls{color:#333; padding:7px 0;}
+*+html .price_tls{color:#C00; padding-top:7px;}
+*+html .tomtat_tls{padding:4px 0 7px 0;}
+*+html .main_img_tls{text-align:center;}
+*+html .main_img_tls img{width:250px; max-height:250px;}
+
+*+html .main_img_tls img{width:250px; max-height:250px;}
+*+html .left_news_tls{width:80px; float:left; padding-right:10px;}
+*+html .left_news_tls img{width:80px; height:80px;}
+*+html .main_news_tls{padding-bottom:10px;}
+	
+/**************************************** BEGIN IE8 ****************************************/
+@media \0screen {
+	.inputsearch_mau_gh, .inputgiatu_mau_gh, .inputgiaden_mau_gh{line-height:22px;}
+	.title_tls{color:#333; padding:7px 0;}
+	.price_tls{color:#C00; padding-top:7px;}
+	.tomtat_tls{padding:4px 0 7px 0;}
+	.main_img_tls{text-align:center;}
+	.main_img_tls img{width:250px; max-height:250px;}
+	.left_news_tls{width:80px; float:left; padding-right:10px;}
+	.left_news_tls img{width:80px; height:80px;}
+	.main_news_tls{padding-bottom:10px;}
+	.frame_img_dm img{width:164px;}
+}
+/**************************************** END IE8 ****************************************/
