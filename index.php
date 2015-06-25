@@ -1,6 +1,5 @@
 <?php
 error_reporting(0);
-echo "123";
 require("config.php");
 require("common_start.php");
 include("lib/func.lib.php");
