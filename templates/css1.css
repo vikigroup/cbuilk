@@ -600,8 +600,8 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 
 .i_p_prod_details{float:left; width:90px; padding-right:10px;}
 .i_p_prod_details img{padding:3px; background:#fff; border:1px solid #e2e2e2; width:82px; height:78px;}
-.i_gh_details{overflow:hidden; font-size:11px; color:#666;}
-.i_gh_details h3 a{color:#222;}
+.i_gh_details{overflow:hidden; font-size:11px; color:#666; background-color: #2A70D2; text-align: center; padding: 0 5px;}
+.i_gh_details h3 a{color:white;}
 .i_gh_details h3 a:hover{text-decoration:underline;}
 .f_iod li{padding-top:5px; font-size:11px;}
 .f_iod li span{display:block;}
