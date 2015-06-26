@@ -235,7 +235,7 @@ if($ghinho==1){ // prodetail
                     <div class="i_gh_details">
                         <?php if($row_sanpham['idshop'] == 0){ ?>
                         <h3>
-                            <a href="http://<?php echo $shop['subject'];?>.<?php echo $sub;?>" title="<?php echo $shop['title'];?>">Tất cả các sản phẩm <?php echo $shop['name'];?></a>
+                            <a href="http://<?php echo $shop['subject'];?>.<?php echo $sub;?>" title="<?php echo $shop['title'];?>">Tất cả các sản phẩm <?php echo $row_sanpham['name'];?></a>
                         </h3>
                         <?php } else{ ?>
                         <h3>
