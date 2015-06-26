@@ -222,7 +222,7 @@ if($ghinho==1){ // prodetail
                 <?php if($row_sanpham['style'] != 1){ ?>
                 <div>
                     <div class="i_p_prod_details">
-                        <?php if($row_sanpham['idshop'] == 0){ echo "ok"; ?>
+                        <?php if($row_sanpham['idshop'] == 0){ ?>
                         <a href="http://<?php echo $root;?>" title="<?php echo $row_sanpham['title'];?>">
                             <img src="<?php echo $root;?>/imgs/layout/logo.png" alt="<?php echo $row_sanpham['title'];?>"/>
                         </a>
@@ -233,13 +233,15 @@ if($ghinho==1){ // prodetail
                         <?php } ?>
                     </div>
                     <div class="i_gh_details">
+                        <?php if($row_sanpham['idshop'] == 0){ ?>
                         <h3>
-                            <a href="http://<?php echo $shop['subject'];?>.<?php echo $sub;?>" title="<?php echo $shop['title'];?>"><?php echo $shop['name'];?></a>
+                            <a href="http://<?php echo $shop['subject'];?>.<?php echo $sub;?>" title="<?php echo $shop['title'];?>">Tất cả các sản phẩm <?php echo $shop['name'];?></a>
                         </h3>
-                        <?php if($row_sanpham['idshop'] != 0){ ?>
-                        <p>Ngày mở shop: <?php echo $shop['date_added'];?></p>
+                        <?php } else{ ?>
+                        <h3>
+                            <a href="http://<?php echo $shop['subject'];?>.<?php echo $sub;?>" title="<?php echo $shop['title'];?>">Tất cả các sản phẩm <?php echo $shop['name'];?></a>
+                        </h3>
                         <?php } ?>
-                        <!--<span>Chủ shop: Lê Thu Thúy</span>-->
                     </div>
                     <div class="clear"></div>
                 </div>
