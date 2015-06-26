@@ -226,7 +226,7 @@ if($ghinho==1){ // prodetail
                         <a href="http://<?php echo $root;?>" title="<?php echo $row_sanpham['title'];?>">
                             <img src="<?php echo $root;?>/imgs/layout/logo.png" alt="<?php echo $row_sanpham['title'];?>"/>
                         </a>
-                        <?php } else{ ?>
+                        <?php } else{ echo "ok"; ?>
                         <a href="http://<?php echo $shop['subject'];?>.<?php echo $sub;?>" title="<?php echo $shop['title'];?>">
                             <img src="<?php echo $linkroot?>/<?php echo $shop['logo'];?>" alt="<?php echo $shop['title'];?>"/>
                         </a>
