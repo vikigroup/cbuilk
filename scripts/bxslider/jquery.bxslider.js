@@ -72,7 +72,7 @@
 		// CAROUSEL
 		minSlides: 1,
 		maxSlides: 1,
-		moveSlides: 0,
+		moveSlides: 1,
 		slideWidth: 0,
 
 		// CALLBACKS
