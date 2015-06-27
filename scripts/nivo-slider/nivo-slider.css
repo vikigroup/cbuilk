@@ -10,7 +10,6 @@
 /* The Nivo Slider styles */
 .nivoSlider {
     position:absolute;
-    position: relative;
     height:auto;
     overflow: hidden;
 }
