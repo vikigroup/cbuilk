@@ -1172,13 +1172,13 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     .filter-Prod .t-Pnb{
         padding: 0;
     }
-    /*****************************************************/
-    .m-slider
-    {
-        display: block;
-        margin:0px;
+
+    .m-slider{
+        display:block;
     }
-    /*****************************************************/
+    /*them code nay*/
+    /*#slider{display: block; height: auto;}*/
+
     .logo{
         left: 20%;
     }
