@@ -726,6 +726,9 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 
 .menu-responsive{display: none;}
 
+
+/* nhan dien thiet bi truy cap voi chieu rong max 992px*/
+
 @media (max-width: 992) {
     .menu-responsive{
         display: block;
@@ -1163,6 +1166,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 
     .f-ct .sidebar{
         width: 100% !important;
+
     }
 
     .filter-Prod .t-Pnb{
@@ -1170,8 +1174,11 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     }
 
     .m-slider{
-        display: none;
+        display:none;
+        height: auto;
     }
+    /*them code nay*/
+    /*#slider{display: block; height: auto;}*/
 
     .logo{
         left: 20%;
