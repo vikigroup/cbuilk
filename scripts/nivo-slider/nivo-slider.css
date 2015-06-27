@@ -11,7 +11,7 @@
 .nivoSlider {
     position:absolute;
     height:auto;
-    overflow: hidden;
+    overflow:hidden;
 }
 .nivoSlider img {
     position:absolute;
@@ -27,14 +27,13 @@
     width: 100% !important;
     max-width: 1210px !important;
 }
-
 /* If an image is wrapped in a link */
 .nivoSlider a.nivo-imageLink {
     position:absolute;
     top:0px;
     left:0px;
     width:100%;
-    height:100%;
+    height:auto;
     border:0;
     padding:0;
     margin:0;
