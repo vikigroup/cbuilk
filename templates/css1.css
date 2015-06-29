@@ -1177,6 +1177,32 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     .m-slider
     {
         display:block;
+        animation: myAnimation 5s ease-out infinite;
+        -moz-animation: myAnimation 5s ease-out infinite;
+        -webkit-animation: myAnimation 5s ease-out infinite;
+        -o-animation: myAnimation 5s ease-out infinite;
+    }
+    @keyframes myAnimation {
+        from {left: 0px;}
+        to {left: 200px;}
+    }
+
+    /* Hien thi cho Firefox */
+    @-moz-keyframes myAnimation {
+        from {left: 0px;}
+        to {left: 200px;}
+    }
+
+    /* Hien thi cho Safari and Chrome */
+    @-webkit-keyframes myAnimation {
+        from {left: 0px;}
+        to {left: 200px;}
+    }
+
+    /* Hien thi cho Opera */
+    @-o-keyframes myAnimation {
+        from {left: 0px;}
+        to {left: 200px;}
     }
 
 
