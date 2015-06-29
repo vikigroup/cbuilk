@@ -237,20 +237,38 @@ if($ghinho==1){ // prodetail
                         <h3>
                             <a href="http://<?php echo $shop['subject'];?>.<?php echo $sub;?>" title="<?php echo $shop['title'];?>">...</a>
                             <?php if($_SESSION['kt_login_level'] == 3){ ?>
-                            <button class="button-warning pure-button btn-edit" title="Nhấn để chỉnh sửa"><i class="fa fa-pencil"></i></button>
+                            <a href="#fadeandscale" class="pure-button btn-edit initialism fadeandscale_open " title="Nhấn để chỉnh sửa"><i class="fa fa-pencil"></i></a>
+
+                                <!-- Fade & scale -->
+                                <div id="fadeandscale" class="well">
+                                    <h4>Fade &amp; scale example</h4>
+                                    <pre class="prettyprint">
+                                    <code>$('#fadeandscale').popup({
+                                        transition: 'all 0.3s'
+                                        });</code>
+                                    </pre>
+                                    <pre class="prettyprint">
+                                    <code>#fadeandscale {
+                                        transform: scale(0.8);
+                                        }
+                                        .popup_visible #fadeandscale {
+                                        transform: scale(1);
+                                        }</code>
+                                    </pre>
+                                    <button class="fadeandscale_close slide_open btn btn-default">Next example</button>
+                                    <button class="fadeandscale_close btn btn-default">Close</button>
+                                </div>
+
+                                <script>
+                                    $(document).ready(function () {
+                                        $('#fadeandscale').popup({
+                                            pagecontainer: '.container',
+                                            transition: 'all 0.3s'
+                                        });
+                                    });
+                                </script>
                             <?php } ?>
                         </h3>
-
-                        <!-- Modal -->
-                        <div id="dialog" title="Basic dialog">
-                            <p>This is the default dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the 'x' icon.</p>
-                        </div><div id="dialog" title="Basic dialog">
-                            <p>This is the default dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the 'x' icon.</p>
-                        </div><div id="dialog" title="Basic dialog">
-                            <p>This is the default dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the 'x' icon.</p>
-                        </div>
-                    <!-- /Modal -->
-
                     </div>
                     <?php } ?>
                     <div class="clear"></div>
