@@ -1562,7 +1562,7 @@ label{
     top: -10px;
 }
 
-.btn-edit {
+.btn-edit{
     background: rgb(223, 117, 20) !important;
     float: right;
     display: none;
