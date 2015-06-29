@@ -1179,7 +1179,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
         display:block;
     }
 
-    a.nivo-imageLink {
+    a .nivo-imageLink {
         position:absolute;
         left:0px;
         width:100%;
