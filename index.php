@@ -94,6 +94,7 @@ require("module/box_device.php");
     <script src="<?php echo $linkrootshop?>/lib/SlickNav/jquery.slicknav.js"></script>
 
     <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+    <script src="<?php echo $linkrootshop?>/scripts/jquery.popupoverlay.js"></script>
 </head>
 <body>
 <div id="closed"></div>
