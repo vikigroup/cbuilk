@@ -1560,7 +1560,6 @@ label{
 }
 
 .btn-edit{
-    background: rgb(223, 117, 20) !important;
     float: right;
 }
 
@@ -1569,6 +1568,9 @@ label{
     -moz-transform: scale(0.8);
     -ms-transform: scale(0.8);
     transform: scale(0.8);
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px;
 }
 .popup_visible #fadeandscale {
     -webkit-transform: scale(1);
@@ -1590,4 +1592,29 @@ pre.prettyprint {
     font-weight: bold;
     letter-spacing: 1px;
     font-size: 12px;
+}
+
+.button-success,
+.button-error,
+.button-warning,
+.button-secondary {
+    color: white !important;
+    border-radius: 4px !important;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2) !important;
+}
+
+.button-success {
+    background: rgb(28, 184, 65) !important; /* this is a green */
+}
+
+.button-error {
+    background: rgb(202, 60, 60) !important; /* this is a maroon */
+}
+
+.button-warning {
+    background: rgb(223, 117, 20) !important; /* this is an orange */
+}
+
+.button-secondary {
+    background: rgb(66, 184, 221) !important; /* this is a light blue */
 }
