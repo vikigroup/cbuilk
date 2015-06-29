@@ -15,12 +15,12 @@
 }
 .nivoSlider img {
     position:absolute;
-    top:0px;
-    left:0px;
+    top:0;
+    left:0;
     display:none;
     width: 100%;
-   /*height: 482px !important;*/
-    height: auto !important;
+    height: 482px !important;
+
 }
 .nivo-main-image {
     display: block !important;
@@ -31,10 +31,10 @@
 /* If an image is wrapped in a link */
 .nivoSlider a.nivo-imageLink {
     position:absolute;
-    top:0px;
-    left:0px;
+    top:0;
+    left:0;
     width:100%;
-    height:100%;
+    height:auto;
     border:0;
     padding:0;
     margin:0;
