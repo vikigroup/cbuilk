@@ -1176,10 +1176,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     /**************************************/
     .m-slider
     {
-        display:block;
-        height:auto !important;
-        margin: 0;
-        padding: 0;
+        display:none;
     }
 
 
