@@ -1181,7 +1181,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     }
     .nivoSlider
     {
-        position:absolute;
+        position:relative;
         height:auto !important;
         overflow:hidden;
     }
