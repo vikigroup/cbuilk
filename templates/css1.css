@@ -1181,7 +1181,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     }
     .nivoSlider
     {
-        position:relative;
+        position:absolute;
         height:auto;
         overflow:hidden;
     }
@@ -1231,9 +1231,9 @@ ul.ul-fP li.atc a {color: #3ba11b;}
         display: none;
         -moz-opacity: 0.8;
         filter:alpha(opacity=8);
-        -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-        -moz-box-sizing: border-box;    /* Firefox, other Gecko */
-        box-sizing: border-box;         /* Opera/IE 8+ */
+        -webkit-box-sizing: border-box; /
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
     }
     .nivo-caption p {
         padding:5px;
@@ -1245,11 +1245,6 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     .nivo-html-caption {
         display:none;
     }
-
-
-
-
-
     /****************************************/
     .logo{
         left: 20%;
