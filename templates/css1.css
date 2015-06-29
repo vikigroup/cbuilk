@@ -1210,8 +1210,8 @@ ul.ul-fP li.atc a {color: #3ba11b;}
         left:0px;
         width:100%;
         height:auto;
-        border:0;
-        padding:30;
+        border:30px;
+        padding:30px;
         margin:0;
         z-index:6;
         display:none;
