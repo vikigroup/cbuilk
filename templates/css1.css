@@ -1177,10 +1177,6 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     .m-slider
     {
         display:block;
-        animation: myAnimation 5s ease-out infinite;
-        -moz-animation: myAnimation 5s ease-out infinite;
-        -webkit-animation: myAnimation 5s ease-out infinite;
-        -o-animation: myAnimation 5s ease-out infinite;
     }
     @keyframes myAnimation {
         from {left: 0px;}
