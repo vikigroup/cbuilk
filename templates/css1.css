@@ -1178,28 +1178,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     {
         display:block;
     }
-    @keyframes myAnimation {
-        from {left: 0px;}
-        to {left: 200px;}
-    }
 
-    /* Hien thi cho Firefox */
-    @-moz-keyframes myAnimation {
-        from {left: 0px;}
-        to {left: 200px;}
-    }
-
-    /* Hien thi cho Safari and Chrome */
-    @-webkit-keyframes myAnimation {
-        from {left: 0px;}
-        to {left: 200px;}
-    }
-
-    /* Hien thi cho Opera */
-    @-o-keyframes myAnimation {
-        from {left: 0px;}
-        to {left: 200px;}
-    }
     a.nivo-imageLink {
         position:absolute;
         left:0px;
