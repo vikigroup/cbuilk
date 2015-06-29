@@ -1563,3 +1563,27 @@ label{
     background: rgb(223, 117, 20) !important;
     float: right;
 }
+
+#slide_background {
+    -webkit-transition: all 0.3s 0.3s;
+    -moz-transition: all 0.3s 0.3s;
+    transition: all 0.3s 0.3s;
+}
+#slide,
+#slide_wrapper {
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+}
+#slide {
+    -webkit-transform: translateX(0) translateY(-40%);
+    -moz-transform: translateX(0) translateY(-40%);
+    -ms-transform: translateX(0) translateY(-40%);
+    transform: translateX(0) translateY(-40%);
+}
+.popup_visible #slide {
+    -webkit-transform: translateX(0) translateY(0);
+    -moz-transform: translateX(0) translateY(0);
+    -ms-transform: translateX(0) translateY(0);
+    transform: translateX(0) translateY(0);
+}
