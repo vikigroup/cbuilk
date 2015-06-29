@@ -232,17 +232,27 @@ if($ghinho==1){ // prodetail
                         </a>
                         <?php } ?>
                     </div>
+                    <?php if($row_sanpham['idshop'] == 0){ ?>
                     <div class="i_gh_details">
-                        <?php if($row_sanpham['idshop'] == 0){ ?>
                         <h3>
-                            <a href="http://<?php echo $shop['subject'];?>.<?php echo $sub;?>" title="<?php echo $shop['title'];?>">Tất cả các sản phẩm <?php echo $row_sanpham['name'];?></a>
+                            <a href="http://<?php echo $shop['subject'];?>.<?php echo $sub;?>" title="<?php echo $shop['title'];?>">...</a>
+                            <?php if($_SESSION['kt_login_level'] == 3){ ?>
+                            <button class="button-warning pure-button btn-edit" title="Nhấn để chỉnh sửa"><i class="fa fa-pencil"></i></button>
+                            <?php } ?>
                         </h3>
-                        <?php } else{ ?>
-                        <h3>
-                            <a href="http://<?php echo $shop['subject'];?>.<?php echo $sub;?>" title="<?php echo $shop['title'];?>">Tất cả các sản phẩm <?php echo $shop['name'];?></a>
-                        </h3>
-                        <?php } ?>
+
+                        <!-- Modal -->
+                        <div id="dialog" title="Basic dialog">
+                            <p>This is the default dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the 'x' icon.</p>
+                        </div><div id="dialog" title="Basic dialog">
+                            <p>This is the default dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the 'x' icon.</p>
+                        </div><div id="dialog" title="Basic dialog">
+                            <p>This is the default dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the 'x' icon.</p>
+                        </div>
+                    <!-- /Modal -->
+
                     </div>
+                    <?php } ?>
                     <div class="clear"></div>
                 </div>
                 <?php } ?>
@@ -659,7 +669,7 @@ else{
         var idProduct = $("#id").val();
         var amount = $('#qtyPopup').val();
         var unit = "<?php echo $row_sanpham['price'] ?>";
-        var idShop = "<?php echo $row_sanpham['idshop']; ?>"
+        var idShop = "<?php echo $row_sanpham['idshop']; ?>";
         var total = amount*unit;
         var idCustomer = "<?php echo $idKH=$_SESSION['kh_login_id']; ?>";
 
@@ -756,3 +766,9 @@ else{
         $('#divProductPag a:nth-child('+(length+3)+')').attr('href', lastPage);
     });
 </script>
+
+<?php if($_SESSION['kt_login_level'] == 3){ ?>
+<script>
+
+</script>
+<?php } ?>
