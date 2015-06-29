@@ -1184,12 +1184,13 @@ ul.ul-fP li.atc a {color: #3ba11b;}
         width:100%;
         overflow: hidden;
         margin: 0px auto;
-        top:0px;
+        top:10px;
         left:0px;
         width:100%;
         border:0;
         padding:0;
         margin:0;
+        bottom: auto;
     }
     .nivoSlider a.nivo-imageLink
     {
