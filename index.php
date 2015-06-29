@@ -66,7 +66,7 @@ require("module/box_device.php");
     <link rel="shortcut icon" href="imgs/layout/logo.ico" type="image/x-icon" />
     <link rel="stylesheet" type="text/css" href="<?php echo $linkrootshop?>/templates/css.css">
     <script type="text/javascript" src="<?php echo $linkrootshop?>/scripts/jquery.js"></script>
-    <link rel="stylesheet" type="text/css" href="<?php echo $linkrootshop?>/scripts/bxslider/jquery.bxslider.css" media="all">
+    <link rel="stylesheet" type="text/css" href="<?php echo $linkrootshop?>/scripts/bxslider/jquery.bxslider.css" media="all and (max-width:991px)"/>
     <!--media="screen and (max-width: 991px)"----->
     <script type="text/javascript" src="<?php echo $linkrootshop?>/scripts/bxslider/jquery.bxslider.js"></script>
     <script type="text/javascript" src="<?php echo $linkrootshop?>/scripts/scrolltopcontrol.js"></script>
@@ -82,7 +82,7 @@ require("module/box_device.php");
     <link href="<?php echo $linkrootshop?>/templates/hover.css" rel="stylesheet" />
 
     <link href="<?php echo $linkrootshop?>/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="<?php echo $linkrootshop?>/jquery.bxslider/jquery.bxslider.css" media="all">
+    <link rel="stylesheet" type="text/css" href="<?php echo $linkrootshop?>/jquery.bxslider/jquery.bxslider.css" media="all and (min-width:992px)"/>
     <!-- media="screen and (min-width: 992px)"--->
     <script type="text/javascript" src="<?php echo $linkrootshop?>/jquery.bxslider/jquery.bxslider.min.js"></script>
     <script type="text/javascript" src="<?php echo $linkrootshop?>/jquery.bxslider/plugins/jquery.easing.1.3.js"></script>
