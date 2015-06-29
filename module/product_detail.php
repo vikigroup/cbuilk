@@ -237,26 +237,44 @@ if($ghinho==1){ // prodetail
                         <h3>
                             <a href="http://<?php echo $shop['subject'];?>.<?php echo $sub;?>" title="<?php echo $shop['title'];?>">...</a>
                             <?php if($_SESSION['kt_login_level'] == 3){ ?>
-                            <a href="#fadeandscale" class="pure-button btn-edit initialism fadeandscale_open " title="Nhấn để chỉnh sửa"><i class="fa fa-pencil"></i></a>
+                            <a href="#fadeandscale" class="initialism fadeandscale_open btn-edit button-warning pure-button" title="Nhấn để chỉnh sửa"><i class="fa fa-pencil"></i></a>
 
                                 <!-- Fade & scale -->
                                 <div id="fadeandscale" class="well">
-                                    <h4>Fade &amp; scale example</h4>
-                                    <pre class="prettyprint">
-                                    <code>$('#fadeandscale').popup({
-                                        transition: 'all 0.3s'
-                                        });</code>
-                                    </pre>
-                                    <pre class="prettyprint">
-                                    <code>#fadeandscale {
-                                        transform: scale(0.8);
-                                        }
-                                        .popup_visible #fadeandscale {
-                                        transform: scale(1);
-                                        }</code>
-                                    </pre>
-                                    <button class="fadeandscale_close slide_open btn btn-default">Next example</button>
-                                    <button class="fadeandscale_close btn btn-default">Close</button>
+                                    <h4>Chỉnh sửa thương hiệu</h4>
+                                        <form class="pure-form pure-form-aligned">
+                                            <fieldset>
+                                                <div class="pure-control-group">
+                                                    <label for="name">Username</label>
+                                                    <input id="name" type="text" placeholder="Username">
+                                                </div>
+
+                                                <div class="pure-control-group">
+                                                    <label for="password">Password</label>
+                                                    <input id="password" type="password" placeholder="Password">
+                                                </div>
+
+                                                <div class="pure-control-group">
+                                                    <label for="email">Email Address</label>
+                                                    <input id="email" type="email" placeholder="Email Address">
+                                                </div>
+
+                                                <div class="pure-control-group">
+                                                    <label for="foo">Supercalifragilistic Label</label>
+                                                    <input id="foo" type="text" placeholder="Enter something here...">
+                                                </div>
+
+                                                <div class="pure-controls">
+                                                    <label for="cb" class="pure-checkbox">
+                                                        <input id="cb" type="checkbox"> I've read the terms and conditions
+                                                    </label>
+
+                                                    <button type="submit" class="pure-button pure-button-primary">Submit</button>
+                                                </div>
+                                            </fieldset>
+                                        </form>
+                                    <button class="fadeandscale_close button-success pure-button">Hoàn tất</button>
+                                    <button class="fadeandscale_close button-error pure-button">Đóng</button>
                                 </div>
 
                                 <script>
