@@ -1178,6 +1178,8 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     {
         display:block;
         height:auto !important;
+        margin: 0;
+        padding: 0;
     }
 
 
