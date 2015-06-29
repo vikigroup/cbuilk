@@ -35,6 +35,8 @@ function autoHome(){
         $('.prod_row1').css('width', windowSize/2 - 20);
         $('.menu .m-wrap').css('max-width', '%');
 
+        $('div#slider').css('height','auto');
+
         for(var i = 0; i < 8; i++){
             if($('#aCategoryName'+i).height() > 14){
                 $('#divCategoryID'+i).css('padding', '5px 0 0 0');
