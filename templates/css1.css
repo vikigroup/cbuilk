@@ -1179,8 +1179,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
         display:block;
         height: auto !important;
     }
-    .nivoSlider
-    {
+    .nivoSlider {
         position:absolute;
         height:auto;
         overflow:hidden;
@@ -1190,7 +1189,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
         position:absolute;
         top:0;
         left:0;
-        width:100%;
+        width:auto;
         height:auto;
         border:0;
         padding:0;
