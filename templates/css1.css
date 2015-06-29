@@ -1186,10 +1186,10 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     }
     .nivoSlider a.nivo-imageLink {
         position:absolute;
-        top:40px;
+        top:0px;
         left:0px;
         width:100%;
-        height:auto;
+
         border:0px;
         padding-top:30px;
         margin:0;
