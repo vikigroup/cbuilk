@@ -1206,12 +1206,12 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     }
     a.nivo-imageLink {
         position:absolute;
-        top:30px;
+        top:0px;
         left:0px;
         width:100%;
         height:auto;
         border:0;
-        padding:0;
+        padding:30;
         margin:0;
         z-index:6;
         display:none;
