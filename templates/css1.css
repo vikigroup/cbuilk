@@ -1179,25 +1179,13 @@ ul.ul-fP li.atc a {color: #3ba11b;}
         display:block;
     }
     .nivoSlider {
-        position:absolute;
+        position:relative;
         width:100%;
         height:auto;
         overflow: hidden;
     }
-    .nivoSlider img {
-        position:absolute;
-        top:0px;
-        left:0px;
-        max-width: none;
-    }
-    .nivo-main-image {
-        display: block !important;
-        position: relative !important;
-        width: 100% !important;
-    }
-
-
-    .nivoSlider a.nivo-imageLink {
+    .nivoSlider a.nivo-imageLink
+    {
         position:absolute;
         top:0px;
         left:0px;
