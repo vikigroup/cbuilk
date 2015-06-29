@@ -66,7 +66,7 @@ require("module/box_device.php");
     <link rel="shortcut icon" href="imgs/layout/logo.ico" type="image/x-icon" />
     <link rel="stylesheet" type="text/css" href="<?php echo $linkrootshop?>/templates/css.css">
     <script type="text/javascript" src="<?php echo $linkrootshop?>/scripts/jquery.js"></script>
-    <link rel="stylesheet" type="text/css" href="<?php echo $linkrootshop?>/scripts/bxslider/jquery.bxslider.css"/>
+    <link rel="stylesheet" type="text/css" href="<?php echo $linkrootshop?>/scripts/bxslider/jquery.bxslider.css" media="screen and (max-width:991px)"/>
     <!--media="screen and (max-width: 991px)"----->
     <script type="text/javascript" src="<?php echo $linkrootshop?>/scripts/bxslider/jquery.bxslider.js"></script>
     <script type="text/javascript" src="<?php echo $linkrootshop?>/scripts/scrolltopcontrol.js"></script>
