@@ -1215,8 +1215,6 @@ ul.ul-fP li.atc a {color: #3ba11b;}
         overflow:hidden;
     }
     .nivo-box img { display:block; }
-
-
     .nivo-caption {
         position:absolute;
         left:0px;
@@ -1246,29 +1244,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
         display:none;
     }
 
-    .nivo-directionNav a {
-        position:absolute;
-        top:45%;
-        z-index:9;
-        cursor:pointer;
-    }
-    .nivo-prevNav {
-        left:0px;
-    }
-    .nivo-nextNav {
-        right:0px;
-    }
 
-    .nivo-controlNav {
-        text-align:center;
-        padding: 15px 0;
-    }
-    .nivo-controlNav a {
-        cursor:pointer;
-    }
-    .nivo-controlNav a.active {
-        font-weight:bold;
-    }
 
 
 
