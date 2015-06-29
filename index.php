@@ -92,6 +92,8 @@ require("module/box_device.php");
     <link rel="stylesheet" href="<?php echo $linkrootshop?>/lib/SlickNav/slicknav.css"/>
     <!--media="screen and (max-width: 991px)"--->
     <script src="<?php echo $linkrootshop?>/lib/SlickNav/jquery.slicknav.js"></script>
+
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
 </head>
 <body>
 <div id="closed"></div>
