@@ -34,7 +34,7 @@ function autoHome(){
         $('.dmsp4-3').css('max-width', windowSize);
         $('.prod_row1').css('width', windowSize/2 - 20);
         $('.menu .m-wrap').css('max-width', '%');
-        $('.nivoSlider').css('Height','auto');
+
 
 
 
