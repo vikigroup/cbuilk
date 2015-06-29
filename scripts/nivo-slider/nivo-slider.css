@@ -9,7 +9,7 @@
 
 /* The Nivo Slider styles */
 .nivoSlider {
-    position:relative;
+    position:absolute;
     height:auto;
     overflow:hidden;
 }
