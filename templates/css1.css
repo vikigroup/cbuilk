@@ -183,6 +183,10 @@ span.hotline { margin-left: 5px !important;}
 .m-mn-dm {}
 .readmore {font-size: 10px; text-transform: uppercase; color: #333; background: url(../imgs/layout/icon_rm.png) no-repeat 10px 9px; padding: 6px 0 6px 24px; display: block;}
 .readmore:hover {color: #3ba11b;}
+
+
+/*---------------------------dinh dang icon category------------------*/
+
 ul.ul-dm > li {border-bottom: 1px solid #eee; position: relative; z-index: 999;}
 ul.ul-dm > li > span.icon-dm {background: #fff; width: 24px; height: 32px; position: absolute; top: 0; left: 0;}
 ul.ul-dm > li > span.icon-dm img {width: 16px; height: 16px; position: absolute; top: 7px; left: 0;}
@@ -226,7 +230,7 @@ ul.ul-dm > li:hover > a {
 /*Sub menu*/
 
 ul.ul-dm > li:hover > .sub-menu {display: block;}
-
+/*****************************************************end#icon#category*/
 .sub-menu {
 	padding: 10px;
 	display: none;
@@ -713,7 +717,8 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 	-moz-border-radius: 3px;
 	border-radius: 3px;
 }
-.f-list {padding: 10px 0;}
+/***********************************************************************/
+.f-list {padding: 20px 0;} /*thay doi top, bottom tu 10 len 20*/
 .f-list ul.ul-list > li {float: left; width: 20%;}
 .f-list ul.ul-list > li + li + li + li + li + li {margin-top: 20px;}
 .f-list ul.ul-list > li:nth-child(6), .f-list ul.ul-list > li:nth-child(11), .f-list ul.ul-list > li:nth-child(16), .f-list ul.ul-list > li:nth-child(21), .f-list ul.ul-list > li:nth-child(26), .f-list ul.ul-list > li:nth-child(31) {clear: both;}
@@ -723,7 +728,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 .f-list ul.ul-list > li > ul > li {line-height: 21px;}
 .f-list ul.ul-list > li > ul > li > a {padding-left: 20px; color: #666; background: url(../imgs/layout/icon-list.png) no-repeat 10px 4px;  display: block; padding-right: 10px; overflow: hidden; white-space: nowrap; height: 21px; text-overflow: ellipsis;}
 .f-list ul.ul-list > li > ul > li > a:hover {color: #3ba11b; text-decoration: underline;}
-
+/**********************************************************************/
 .menu-responsive{display: none;}
 
 
