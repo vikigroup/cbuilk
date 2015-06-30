@@ -363,16 +363,16 @@ if($ghinho==1){ // prodetail
                 </div><!-- End .main_prod_other -->
                 
                 <div style="text-align:right;">
-                    <?php if($row_sanpham['style'] == 1){$news=getRecord('tbl_shop_category', "id=211");?>
-                        <a class="rm_prod_other" href="<?php echo $root ;?>/<?php echo $news['subject']; ?>.html"  target="_blank" title="<?php echo $news['title']; ?>">Xem thêm tin tức</a>
-                    <?php } else if($row_sanpham['style'] == 2){$rent=getRecord('tbl_shop_category', "id=209");?>
-                        <a class="rm_prod_other" href="<?php echo $root ;?>/<?php echo $rent['subject']; ?>.html"  target="_blank" title="<?php echo $rent['title']?>">Xem thêm dịch vụ</a>
-                    <?php } else if($row_sanpham['style'] == 0){ ?>
-                        <a class="rm_prod_other" href="<?php echo $root ;?>"  target="_blank" title="<?php echo $row['copyright']?>">Xem thêm sản phẩm</a>
-                    <?php } else if($row_sanpham['style'] == 4){$old=getRecord('tbl_shop_category', "id=210");?>
-                        <a class="rm_prod_other" href="<?php echo $root ;?>/<?php echo $old['subject']; ?>.html"  target="_blank" title="<?php echo $old['title']?>">Xem thêm sản phẩm</a>
-                    <?php } else if($row_sanpham['style'] == 3){$video=getRecord('tbl_shop_category', "id=390");?>
-                    <a class="rm_prod_other" href="<?php echo $root ;?>/<?php echo $video['subject']; ?>.html"  target="_blank" title="<?php echo $video['title']?>">Xem thêm video</a>
+                    <?php if($row_sanpham['style'] == 1){$news = getRecord('tbl_shop_category', "id=211"); ?>
+                        <a class="rm_prod_other" href="<?php echo $root ;?>/<?php echo $news['subject']; ?>.html" title="<?php echo $news['title']; ?>">Xem thêm tin tức</a>
+                    <?php } else if($row_sanpham['style'] == 2){$rent=getRecord('tbl_shop_category', "id=209"); ?>
+                        <a class="rm_prod_other" href="<?php echo $root ;?>/<?php echo $rent['subject']; ?>.html" title="<?php echo $rent['title']; ?>">Xem thêm dịch vụ</a>
+                    <?php } else if($row_sanpham['style'] == 0){$allProducts = getRecord('tbl_shop_category', "id=457"); ?>
+                        <a class="rm_prod_other" href="<?php echo $root ;?>/<?php echo $allProducts['subject']; ?>.html" title="<?php echo $allProducts['title']; ?>">Xem thêm sản phẩm</a>
+                    <?php } else if($row_sanpham['style'] == 4){$old=getRecord('tbl_shop_category', "id=210"); ?>
+                        <a class="rm_prod_other" href="<?php echo $root ;?>/<?php echo $old['subject']; ?>.html" title="<?php echo $old['title']; ?>">Xem thêm sản phẩm</a>
+                    <?php } else if($row_sanpham['style'] == 3){$video=getRecord('tbl_shop_category', "id=390"); ?>
+                    <a class="rm_prod_other" href="<?php echo $root ;?>/<?php echo $video['subject']; ?>.html" title="<?php echo $video['title']; ?>">Xem thêm video</a>
                     <?php } ?>
                 </div>
                 
@@ -455,7 +455,18 @@ if ($pageNum<=0) $pageNum=1;
 $startRow = ($pageNum-1) * $pageSize;
 //echo "status=0 AND parent='{$parent}' limit ".$startRow.",".$pageSize;
 $style = 0;
-if($row_category['id'] == 211){
+if($row_category['id'] == 457){
+    $dataAP = get_records('tbl_shop_category', "cate=0", " ", " ", " ");
+    $parent = "";
+    while($row_dataAP = mysql_fetch_assoc($dataAP)){
+        $parent .= $row_dataAP['id'].",";
+    }
+    $parent = substr($parent, 0, -1);
+    $totalRows = countRecord("tbl_item","status=0 AND type=0 AND style = ".$style." AND (parent1 in ({$parent}) OR parent in ({$parent}))");
+    $product = get_records("tbl_item", "status=0 AND type=0 AND style = ".$style." AND (parent1 in ({$parent}) OR parent in ({$parent})) order by $sapxep limit ".$startRow.",".$pageSize," "," "," ");
+    if($hot == 1){$product=get_records("tbl_item", "status=0 AND type=0 AND style = ".$style." AND (parent1 in ({$parent}) OR parent in ({$parent})) AND hot=1  order by $sapxep limit ".$startRow.",".$pageSize," "," "," ");}
+}
+else if($row_category['id'] == 211){
     $parent = substr($parent, 0, -5);
     $style = 1;
     $totalRows = countRecord("tbl_item","status=0 AND type=0 AND style = ".$style." AND (parent1 in ({$parent}) OR parent in ({$parent}))");
@@ -507,7 +518,7 @@ else{
     <div class="sidebar">
         <div class="catelog">
             <h2 class="t-mn-dm">
-			<?php 
+			<?php
 				echo get_field('tbl_shop_category','subject',$danhmuc,'name');
 				if(countRecord("tbl_shop_category","parent='".$parent1."'")>0)   get_field('tbl_shop_category','subject',$tensanpham,'parent');
 					else   get_field('tbl_shop_category','id',get_field('tbl_shop_category','subject',$tensanpham,'parent'),'name');
@@ -517,7 +528,7 @@ else{
                 <ul>
                     <?php
 					if(countRecord("tbl_shop_category","parent='".$parent1."'")>0)  $cate1=get_records("tbl_shop_category","status=0 AND parent='".$parent1."'","name COLLATE utf8_unicode_ci"," "," ");
-					else  $cate1=get_records("tbl_shop_category","status=0 AND parent='".get_field('tbl_shop_category','subject',$danhmuc,'parent')."'"," "," "," ");
+					else  $cate1=get_records("tbl_shop_category","status=0 AND cate NOT IN (1,2,3,4) AND id != 457 AND parent='".get_field('tbl_shop_category','subject',$danhmuc,'parent')."'"," "," "," ");
 					while($row_cate1=mysql_fetch_assoc($cate1)){
 					?>
 						<li><a href="<?php echo $linkrootshop?>/<?php echo $row_cate1['subject'];?>.html" title="<?php echo $row_cate1['title']?>"><?php echo $row_cate1['name']?></a></li>
