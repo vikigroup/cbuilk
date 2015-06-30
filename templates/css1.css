@@ -765,6 +765,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     background: #fff;
     text-overflow: ellipsis;
     font-size: 12px;
+    padding: 0px 10px;
 }
 .f-list ul.ul-list > li > a>img
 {
