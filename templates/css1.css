@@ -773,7 +773,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     padding-left: 20px;
     color: #666;
     background: url(../imgs/layout/icon2.png) no-repeat 10px 4px;
-    display: inline;
+    display:block;
     padding-right: 10px;
     overflow: hidden;
     white-space: nowrap;
