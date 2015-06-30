@@ -235,46 +235,28 @@ if($ghinho==1){ // prodetail
                     <?php if($row_sanpham['idshop'] == 0){ ?>
                     <div class="i_gh_details">
                         <h3>
-                            <a href="http://<?php echo $shop['subject'];?>.<?php echo $sub;?>" title="<?php echo $shop['title'];?>">...</a>
+                            <a href="<?php echo $row_sanpham['brand_link']; ?>" title="<?php echo $row_sanpham['brand_name']; ?>" id="aBrand"><?php echo $row_sanpham['brand_name']; ?></a>
                             <?php if($_SESSION['kt_login_level'] == 3){ ?>
                             <a href="#fadeandscale" class="initialism fadeandscale_open btn-edit button-warning pure-button" title="Nhấn để chỉnh sửa"><i class="fa fa-pencil"></i></a>
 
                                 <!-- Fade & scale -->
                                 <div id="fadeandscale" class="well">
                                     <h4>Chỉnh sửa thương hiệu</h4>
-                                        <form class="pure-form pure-form-aligned">
-                                            <fieldset>
-                                                <div class="pure-control-group">
-                                                    <label for="name">Username</label>
-                                                    <input id="name" type="text" placeholder="Username">
-                                                </div>
+                                    <form class="pure-form pure-form-aligned" id="popBrandForm" action="#">
+                                        <fieldset>
+                                            <div class="pure-control-group">
+                                                <label for="popBrandName">Tên thương hiệu</label>
+                                                <input id="popBrandName" type="text" value="<?php echo $row_sanpham['brand_name']; ?>" required>
+                                            </div>
 
-                                                <div class="pure-control-group">
-                                                    <label for="password">Password</label>
-                                                    <input id="password" type="password" placeholder="Password">
-                                                </div>
-
-                                                <div class="pure-control-group">
-                                                    <label for="email">Email Address</label>
-                                                    <input id="email" type="email" placeholder="Email Address">
-                                                </div>
-
-                                                <div class="pure-control-group">
-                                                    <label for="foo">Supercalifragilistic Label</label>
-                                                    <input id="foo" type="text" placeholder="Enter something here...">
-                                                </div>
-
-                                                <div class="pure-controls">
-                                                    <label for="cb" class="pure-checkbox">
-                                                        <input id="cb" type="checkbox"> I've read the terms and conditions
-                                                    </label>
-
-                                                    <button type="submit" class="pure-button pure-button-primary">Submit</button>
-                                                </div>
-                                            </fieldset>
-                                        </form>
-                                    <button class="fadeandscale_close button-success pure-button">Hoàn tất</button>
-                                    <button class="fadeandscale_close button-error pure-button">Đóng</button>
+                                            <div class="pure-control-group">
+                                                <label for="popBrandLink">Đường dẫn</label>
+                                                <input id="popBrandLink" type="text" value="<?php echo $row_sanpham['brand_link']; ?>" required onchange="addhttp(this.id, this.value)">
+                                            </div>
+                                        </fieldset>
+                                        <button type="submit" class="button-success pure-button" id="popBrandSubmit">Hoàn tất</button>
+                                        <button class="fadeandscale_close button-error pure-button" id="popBrandClose">Đóng</button>
+                                    </form>
                                 </div>
 
                                 <script>
@@ -805,6 +787,40 @@ else{
 
 <?php if($_SESSION['kt_login_level'] == 3){ ?>
 <script>
+    $("#popBrandForm").on('submit',function(e) {
+        e.preventDefault();
+    });
 
+    $("#popBrandSubmit").click(function(){
+        var popBrandID = "<?php echo $row_sanpham['id'] ?>";
+        var popBrandName = $("#popBrandName").val();
+        var popBrandLink = $("#popBrandLink").val();
+        var dataString = "popBrandID="+popBrandID+"&popBrandName="+popBrandName+"&popBrandLink="+popBrandLink+"&functionName="+"updateBrand";
+        $.ajax({
+            type: "POST",
+            url: "lib/functions.php",
+            data: dataString,
+            success: function(x){
+                if(x == 1){
+                    alert("Cập nhật thành công!");
+                    $('#aBrand').attr("href", popBrandLink);
+                    $('#aBrand').attr("title", popBrandName);
+                    $('#aBrand').html(popBrandName);
+                    $('#popBrandClose').click();
+                }
+                else{
+                    alert("Lỗi! Xin vui lòng tải lại trang và thử lại...");
+                }
+            }
+        });
+    });
+
+    function addhttp(id, url) {
+        var pattern = /^((http|https):\/\/)/;
+        if(!pattern.test(url)) {
+            url = "http://" + url;
+        }
+        $('#'+id).val(url);
+    }
 </script>
 <?php } ?>
