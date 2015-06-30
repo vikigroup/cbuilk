@@ -10,6 +10,10 @@
         insertOrder();
     }
 
+    if($functionName == "updateBrand"){
+        updateBrand();
+    }
+
     function connect(){
         // Create connection
         $conn = new mysqli($GLOBALS['servername'], $GLOBALS['username'], $GLOBALS['password'], $GLOBALS['dbname']);
@@ -61,6 +65,25 @@
             return $row["maxID"];
         }
         close($conn);
+    }
+
+    function updateBrand(){
+        $dt = date("Y-m-d H:i:s");
+        $brandID = filter_input(INPUT_POST, 'popBrandID');
+        $brandName = filter_input(INPUT_POST, 'popBrandName');
+        $brandLink = filter_input(INPUT_POST, 'popBrandLink');
+        echo update("tbl_item", "last_modified = '".$dt."', brand_name = '".$brandName."', brand_link = '".$brandLink."'", "id = '".$brandID."'");
+    }
+
+    function update($table, $field, $condition){
+        $conn = connect();
+        $sql = "UPDATE ".$table." SET ".$field." WHERE ".$condition;
+        if ($conn->query($sql) === TRUE) {
+            return 1;
+        } else {
+            return "Error updating record: " . $conn->error;
+        }
+        $conn->close();
     }
 
     function close($conn){
