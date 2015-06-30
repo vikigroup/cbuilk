@@ -242,7 +242,7 @@ if($ghinho==1){ // prodetail
                                 <!-- Fade & scale -->
                                 <div id="fadeandscale" class="well">
                                     <h4>Chỉnh sửa thương hiệu</h4>
-                                    <form class="pure-form pure-form-aligned" id="popBrandForm" action="#">
+                                    <form class="pure-form pure-form-aligned" id="popBrandForm">
                                         <fieldset>
                                             <div class="pure-control-group">
                                                 <label for="popBrandName">Tên thương hiệu</label>
@@ -792,27 +792,29 @@ else{
     });
 
     $("#popBrandSubmit").click(function(){
-        var popBrandID = "<?php echo $row_sanpham['id'] ?>";
         var popBrandName = $("#popBrandName").val();
         var popBrandLink = $("#popBrandLink").val();
-        var dataString = "popBrandID="+popBrandID+"&popBrandName="+popBrandName+"&popBrandLink="+popBrandLink+"&functionName="+"updateBrand";
-        $.ajax({
-            type: "POST",
-            url: "lib/functions.php",
-            data: dataString,
-            success: function(x){
-                if(x == 1){
-                    alert("Cập nhật thành công!");
-                    $('#aBrand').attr("href", popBrandLink);
-                    $('#aBrand').attr("title", popBrandName);
-                    $('#aBrand').html(popBrandName);
-                    $('#popBrandClose').click();
+        if(popBrandName != '' && popBrandLink != ''){
+            var popBrandID = "<?php echo $row_sanpham['id'] ?>";
+            var dataString = "popBrandID="+popBrandID+"&popBrandName="+popBrandName+"&popBrandLink="+popBrandLink+"&functionName="+"updateBrand";
+            $.ajax({
+                type: "POST",
+                url: "lib/functions.php",
+                data: dataString,
+                success: function(x){
+                    if(x == 1){
+                        alert("Cập nhật thành công!");
+                        $('#aBrand').attr("href", popBrandLink);
+                        $('#aBrand').attr("title", popBrandName);
+                        $('#aBrand').html(popBrandName);
+                        $('#popBrandClose').click();
+                    }
+                    else{
+                        alert("Lỗi! Xin vui lòng tải lại trang và thử lại...");
+                    }
                 }
-                else{
-                    alert("Lỗi! Xin vui lòng tải lại trang và thử lại...");
-                }
-            }
-        });
+            });
+        }
     });
 
     function addhttp(id, url) {
