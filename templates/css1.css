@@ -717,7 +717,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 	-moz-border-radius: 3px;
 	border-radius: 3px;
 }
-/***********************************************************************/
+/****************************alldanhmuc*******************************************/
 .f-list
 {
     padding: 10px 0;
@@ -735,6 +735,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 {
     clear: both;
 }
+/***********
 .f-list ul.ul-list > li > a
 {
     color: #333; background: url(../imgs/layout/icon-ifoot.png) no-repeat 0px 5px;
@@ -746,6 +747,11 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     height: 21px;
     text-overflow: ellipsis;
     font-weight: bold;
+}
+*///////////////////////////
+.f-list ul.ul-list > li > a
+{
+
 }
 .f-list ul.ul-list > li > a:hover
 {
@@ -777,7 +783,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 .menu-responsive{display: none;}
 
 
-/* nhan dien thiet bi truy cap voi chieu rong max 992px*/
+/********************** nhan dien thiet bi truy cap voi chieu rong max 992px********************/
 
 @media (max-width: 992) {
     .menu-responsive{
