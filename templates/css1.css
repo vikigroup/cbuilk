@@ -726,6 +726,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 {
     float: left;
     width: 20%;
+    list-style-image: url("../imgs/layout/icon1.jpg");
 }
 .f-list ul.ul-list > li + li + li + li + li + li
 {
