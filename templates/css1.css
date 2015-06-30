@@ -718,7 +718,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 	border-radius: 3px;
 }
 /***********************************************************************/
-.f-list {padding: 20px 0;} /*thay doi top, bottom tu 10 len 20*/
+.f-list {padding: 20px 0;} /*thay doi top, bottom tu 10 len 20px*/
 .f-list ul.ul-list > li {float: left; width: 20%;}
 .f-list ul.ul-list > li + li + li + li + li + li {margin-top: 20px;}
 .f-list ul.ul-list > li:nth-child(6), .f-list ul.ul-list > li:nth-child(11), .f-list ul.ul-list > li:nth-child(16), .f-list ul.ul-list > li:nth-child(21), .f-list ul.ul-list > li:nth-child(26), .f-list ul.ul-list > li:nth-child(31) {clear: both;}
