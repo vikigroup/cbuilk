@@ -604,8 +604,8 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 
 .i_p_prod_details{float:left; width:90px; padding-right:10px;}
 .i_p_prod_details img{padding:3px; background:#fff; border:1px solid #e2e2e2; width:82px; height:78px;}
-.i_gh_details{overflow:hidden; font-size:11px; color:#666; border: 1px solid #2A70D2; text-align: center; padding: 5px;}
-.i_gh_details h3 a{color:#666;}
+.i_gh_details{overflow:hidden; font-size:11px; text-align: center; padding: 5px; background-color: #000000; box-shadow: 0 1px 2px rgba(0,0,0,.1); box-sizing: border-box;}
+.i_gh_details h3 a{color: #ffffff;}
 .i_gh_details h3 a:hover{text-decoration:underline;}
 .f_iod li{padding-top:5px; font-size:11px;}
 .f_iod li span{display:block;}
