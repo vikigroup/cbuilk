@@ -2,6 +2,10 @@
 $tensanpham=$_GET['tensanpham'];
 $row_sanpham   = getRecord('tbl_item', "subject='".$tensanpham."'");
 $row_category  = getRecord('tbl_shop_category', "subject='".$tensanpham."'");
+$brand_style = explode(",", $row_sanpham['brand_style']);
+$brand_background = $brand_style[0];
+$brand_color = $brand_style[1];
+
 if($row_sanpham['id']!="")   {
 	$sql = "update tbl_item set view=view+1 where id='".$row_sanpham['id']."'";
 	mysql_query($sql);
@@ -233,9 +237,9 @@ if($ghinho==1){ // prodetail
                         <?php } ?>
                     </div>
                     <?php if($row_sanpham['idshop'] == 0){ ?>
-                    <div class="i_gh_details">
+                    <div id="divBrand" class="i_gh_details" <?php if($brand_background != ''){echo "style='background-color: ".$brand_background."'";} ?>>
                         <h3>
-                            <a href="<?php echo $row_sanpham['brand_link']; ?>" title="<?php echo $row_sanpham['brand_name']; ?>" id="aBrand"><?php echo $row_sanpham['brand_name']; ?></a>
+                            <a href="<?php echo $row_sanpham['brand_link']; ?>" title="<?php echo $row_sanpham['brand_name']; ?>" id="aBrand" <?php if($brand_color != ''){echo "style='color: ".$brand_color."'";} ?>><?php echo $row_sanpham['brand_name']; ?></a>
                             <?php if($_SESSION['kt_login_level'] == 3){ ?>
                             <a href="#fadeandscale" class="initialism fadeandscale_open btn-edit button-warning pure-button" title="Nhấn để chỉnh sửa"><i class="fa fa-pencil"></i></a>
 
@@ -248,11 +252,19 @@ if($ghinho==1){ // prodetail
                                                 <label for="popBrandName">Tên thương hiệu</label>
                                                 <input id="popBrandName" type="text" value="<?php echo $row_sanpham['brand_name']; ?>" required>
                                             </div>
-
                                             <div class="pure-control-group">
                                                 <label for="popBrandLink">Đường dẫn</label>
                                                 <input id="popBrandLink" type="text" value="<?php echo $row_sanpham['brand_link']; ?>" required onchange="addhttp(this.id, this.value)">
                                             </div>
+                                            <div class="pure-control-group">
+                                                <label for="popBrandBG">Màu nền</label>
+                                                <input type="text" id="popBrandBG" value="<?php if($brand_background != ''){echo $brand_background;}else{echo "#000000";} ?>" onchange="$('#popColorBG').val($('#popBrandBG').val());"/>
+                                                <input type="color" id="popColorBG" value="<?php if($brand_background != ''){echo $brand_background;}else{echo "#000000";} ?>" onchange="$('#popBrandBG').val(this.value);">
+                                            </div>
+                                            <div class="pure-control-group">
+                                                <label for="popBrandFC">Màu chữ</label>
+                                                <input type="text" id="popBrandFC" value="<?php if($brand_color != ''){echo $brand_color;}else{echo "#ffffff";} ?>" onchange="$('#popColorFC').val($('#popBrandFC').val());"/>
+                                                <input type="color" id="popColorFC" value="<?php if($brand_color != ''){echo $brand_color;}else{echo "#ffffff";} ?>" onchange="$('#popBrandFC').val(this.value);">                                            </div>
                                         </fieldset>
                                         <button type="submit" class="button-success pure-button" id="popBrandSubmit">Hoàn tất</button>
                                         <button class="fadeandscale_close button-error pure-button" id="popBrandClose">Đóng</button>
@@ -796,7 +808,11 @@ else{
         var popBrandLink = $("#popBrandLink").val();
         if(popBrandName != '' && popBrandLink != ''){
             var popBrandID = "<?php echo $row_sanpham['id'] ?>";
-            var dataString = "popBrandID="+popBrandID+"&popBrandName="+popBrandName+"&popBrandLink="+popBrandLink+"&functionName="+"updateBrand";
+            var popBrandBG = $("#popBrandBG").val();
+            var popBrandFC = $("#popBrandFC").val();
+            var popBrandStyle = popBrandBG+","+popBrandFC;
+
+            var dataString = "popBrandID="+popBrandID+"&popBrandName="+popBrandName+"&popBrandLink="+popBrandLink+"&popBrandStyle="+popBrandStyle+"&functionName="+"updateBrand";
             $.ajax({
                 type: "POST",
                 url: "lib/functions.php",
@@ -807,6 +823,8 @@ else{
                         $('#aBrand').attr("href", popBrandLink);
                         $('#aBrand').attr("title", popBrandName);
                         $('#aBrand').html(popBrandName);
+                        $('#divBrand').css("background-color", popBrandBG);
+                        $('#aBrand').css("color", popBrandFC);
                         $('#popBrandClose').click();
                     }
                     else{
