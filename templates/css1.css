@@ -740,20 +740,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 {
     clear: both;
 }
-/************************
-.f-list ul.ul-list > li > a
-{
-    color: #333; background: url(../imgs/layout/icon-ifoot.png) no-repeat 0px 5px;
-    padding-left: 10px;
-    display: block;
-    padding-right: 10px;
-    overflow: hidden;
-    white-space: nowrap;
-    height: 21px;
-    text-overflow: ellipsis;
-    font-weight: bold;
-}
-****************************/
+
 .f-list ul.ul-list > li > a
 {
     color: #0033CC;
@@ -764,6 +751,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     line-height: 20px;
     text-overflow: ellipsis;
     font-size: 12px;
+    padding-top: 20px;
 
 }
 .f-list ul.ul-list > li > a> img
@@ -782,20 +770,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 {
     line-height: 21px;
 }
-/*****************
-.f-list ul.ul-list > li > ul > li > a
-{
-    padding-left: 20px;
-    color: #666;
-    background: url(../imgs/layout/icon-list.png) no-repeat 10px 4px;
-    display:block;
-    padding-right: 10px;
-    overflow: hidden;
-    white-space: nowrap;
-    height: 21px;
-    text-overflow: ellipsis;
-}
-******************************/
+
 .f-list ul.ul-list > li > ul > li > a
 {
     padding-left: 20px;
@@ -806,6 +781,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     white-space: nowrap;
     height: 21px;
     text-overflow: ellipsis;
+    padding-top: 20px;
 }
 .f-list ul.ul-list > li >ul >li > a> img
 {
@@ -814,13 +790,14 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     float:left;
     clear: both;
 }
-
-
 .f-list ul.ul-list > li > ul > li > a:hover
 {
     color: #3ba11b; text-decoration: underline;
 }
-/**********************************************************************/
+
+
+/*****************************end#all*****************************************/
+
 .menu-responsive{display: none;}
 
 
