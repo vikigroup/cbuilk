@@ -24,7 +24,9 @@
                         while($row_cate1=mysql_fetch_assoc($cate1)){
                             ?>
                             <li>
-                                <a href="<?php echo $linkrootshop?>/<?php echo $row_cate1['subject'];?>.html" title=""><?php echo $row_cate1['name'];?></a>
+                                <a href="<?php echo $linkrootshop?>/<?php echo $row_cate1['subject'];?>.html" title=""><?php echo $row_cate1['name'];?>
+                                    <img class="imgAllProduct1" src="<?php echo $linkrootshop?>/web/<?php echo $row_cate1['image']; ?>"> <?php echo $row_cate1['name'];?>
+                                </a>
                             </li>
                         <?php }?>
                     </ul>
