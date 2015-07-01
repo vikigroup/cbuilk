@@ -13,13 +13,21 @@
             $n=1;
             while($row_cate=mysql_fetch_assoc($cate)){
                 ?>
-                <li class="fix-box-sizing"><a href="<?php echo $linkrootshop?>/<?php echo $row_cate['subject'];?>.html"  title="<?php echo $row_cate['name'];?>"> <?php echo $row_cate['name'];?> </a>
+                <li class="fix-box-sizing">
+
+                    <a href="<?php echo $linkrootshop?>/<?php echo $row_cate['subject'];?>.html"  title="<?php echo $row_cate['name'];?>">
+                       <img class="imgAllProduct" src="<?php echo $linkrootshop?>/web/<?php echo $row_cate['image']; ?>"> <?php echo $row_cate['name'];?>
+                    </a>
                     <ul>
                         <?php
                         $cate1=get_records("tbl_shop_category","status=0 AND parent='".$row_cate['id']."'","sort DESC"," "," ");
                         while($row_cate1=mysql_fetch_assoc($cate1)){
                             ?>
-                            <li><a href="<?php echo $linkrootshop?>/<?php echo $row_cate1['subject'];?>.html" title=""><?php echo $row_cate1['name'];?> </a></li>
+                            <li>
+                                <a href="<?php echo $linkrootshop?>/<?php echo $row_cate1['subject'];?>.html" title=""><?php echo $row_cate1['name'];?>
+                                    <img class="imgAllProduct" src="<?php echo $linkrootshop?>/web/<?php echo $row_cate1['image']; ?>"> <?php echo $row_cate1['name'];?>
+                                </a>
+                            </li>
                         <?php }?>
                     </ul>
                 </li>
