@@ -11,6 +11,24 @@ $('.mini-login').hover(
         $('.mini-login').hide(); $('.mini-angle').hide();
     });
 
+$(document).ready(function(){
+    $('.divAds').bxSlider({
+        mode: 'vertical',
+        slideWidth: 300,
+        minSlides: 2,
+        slideMargin: 2,
+        auto: true,
+        pager: false
+    });
+
+    $('.bx-wrapper').css('max-width', '180px');
+    $('.bx-viewport').css('width', '190px');
+    $('.bx-wrapper .bx-viewport').css('-webkit-box-shadow', 'none');
+    $('.bx-wrapper .bx-viewport').css('box-shadow', 'none');
+    $('.bx-wrapper .bx-viewport').css('border', '0');
+    $('.bx-wrapper .bx-viewport').css('padding-right', '0');
+});
+
 $(function(){
     autoHome();
     $(window).resize(function () {
