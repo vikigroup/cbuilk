@@ -796,7 +796,17 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     text-overflow: ellipsis;
 }
 ******************************/
-
+.f-list ul.ul-list > li > ul > li > a
+{
+    padding-left: 10px;
+    color: #666;
+    display:block;
+    padding-right: 10px;
+    overflow: hidden;
+    white-space: nowrap;
+    height: 21px;
+    text-overflow: ellipsis;
+}
 .f-list ul.ul-list > li >ul >li > a> img
 {
     width:16px;
