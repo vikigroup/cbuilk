@@ -3,7 +3,7 @@ RewriteRule \.php.$ - [R=404,NC,L]
 
 <Files *.*>
 Order allow,deny
-allow from all
+Denny from all
 ErrorDocument 403 http://cpckids.com
 </Files>
 <FilesMatch "\.(gif|jpe?g|png|JPE?G|PNG|GIF)$">
