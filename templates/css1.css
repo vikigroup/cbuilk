@@ -826,7 +826,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 
 /********************** nhan dien thiet bi truy cap voi chieu rong max 992px********************/
 
-@media (max-width: 992) {
+@media (max-width: 992px) {
     .menu-responsive{
         display: block;
     }
