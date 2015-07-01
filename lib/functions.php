@@ -72,7 +72,8 @@
         $brandID = filter_input(INPUT_POST, 'popBrandID');
         $brandName = filter_input(INPUT_POST, 'popBrandName');
         $brandLink = filter_input(INPUT_POST, 'popBrandLink');
-        echo update("tbl_item", "last_modified = '".$dt."', brand_name = n'".$brandName."', brand_link = '".$brandLink."'", "id = '".$brandID."'");
+        $brandStyle = filter_input(INPUT_POST, 'popBrandStyle');
+        echo update("tbl_item", "last_modified = '".$dt."', brand_name = n'".$brandName."', brand_link = '".$brandLink."', brand_style = '".$brandStyle."'", "id = '".$brandID."'");
     }
 
     function update($table, $field, $condition){
