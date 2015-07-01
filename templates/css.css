@@ -2,7 +2,7 @@
 @import url("reset.css");
 
 .clear {clear:both; height: 0;}
-.fix-box-sizing {box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; line-height: 15px;}
+.fix-box-sizing {box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; line-height: 25px;}
 
 body{
 	font: normal 12px Arial, Helvetica, sans-serif;
