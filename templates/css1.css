@@ -811,6 +811,8 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 {
     width:16px;
     height: 10px;
+    float:left;
+    clear: both;
 }
 
 
