@@ -65,8 +65,6 @@ require("module/box_device.php");
     <link rel="shortcut icon" href="imgs/layout/logo.ico" type="image/x-icon" />
     <link rel="stylesheet" type="text/css" href="<?php echo $linkrootshop?>/templates/css.css">
     <script type="text/javascript" src="<?php echo $linkrootshop?>/scripts/jquery.js"></script>
-    <link rel="stylesheet" type="text/css" href="<?php echo $linkrootshop?>/scripts/bxslider/jquery.bxslider.css"/>
-    <script type="text/javascript" src="<?php echo $linkrootshop?>/scripts/bxslider/jquery.bxslider.js"></script>
     <script type="text/javascript" src="<?php echo $linkrootshop?>/scripts/scrolltopcontrol.js"></script>
 
     <!--[if lt IE 9]>
@@ -113,33 +111,7 @@ require("module/box_device.php");
 <div class="m-wrap">
     <?php include("module/menu_left_home.php") ;?>
 </div>
-<header class="m-slider">
-    <div id="slider">
-        <?php
-        $gt=get_records("tbl_slider","status=0 AND idshop=0","sort","0,20"," ");
-        $index = 0;
-        while($row_slide=mysql_fetch_assoc($gt)){
-            ?>
-            <a id="aSlider<?php echo $index ?>" target="_blank" href="<?php echo $row_slide['link']; ?>" style="background-color: <?php echo $row_slide['color']?>"><img src="<?php echo $linkroot ;?>/<?php echo $row_slide['image']?>" alt="" /></a>
-        <?php $index++; } ?>
-    </div>
-</header>
-<script>
-    $(function() {
-        $('#slider').nivoSlider({
-            effect: 'random',
-            controlNav: false,
-            directionNav: false,
-            control: false,
-            afterChange: function(){
-                var totalSlides = $('#slider a img').length;
-                var currentSlide = $('#slider').data('nivo:vars').currentSlide;
-                $('.m-slider').css("background-color", $("#aSlider"+currentSlide).css('background-color'));
-            }
-        });
-        $('.m-slider').css("background-color", $("#aSlider"+0).css('background-color'));
-    });
-</script>
+<?php include("module/slider.php") ;?>
 <?php } ?>
 
 <div class="clear"></div>

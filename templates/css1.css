@@ -4,7 +4,7 @@ body{
     background-color: #F5F5F5;
 }
 
-.m-wrap, .container {max-width: 1210px; margin: 0 auto;}
+.m-wrap, .container {max-width: 1210px; margin: 0 auto; width: 100%;}
 
 img { max-width:100% !important; height: auto !important; }
 
@@ -28,22 +28,23 @@ a.btn-gh3:hover{text-decoration: underline;}
 a.btn-gh3 i{margin-right: 5px;}
 .btn-gh ul li a.btn-gh1:hover , .btn-gh ul li a.btn-gh2:hover {background-position: 0px -32px;}
 
-.search_top_header {position: absolute; top: 24px; left: 211px; width: 35%; height: 30px; border: 1px solid #ddd; background: #fff;}
+.search_top_header {position: absolute; top: 24px; height: 30px; border: 1px solid #ddd; background: #fff;}
 
 .select_item_search {
+    width: 95px;
 	height: 30px;
 	background: url(../imgs/layout/select_item_search.png) repeat-x;
 	float: left;
 	font-size: 11px;
 	border-right: 1px solid #ddd;
 }
-.select22 {position: absolute; z-index: 10; cursor: pointer; height: 30px; top: 0px; visibility: visible;}
+.select22 {position: absolute; z-index: 10; cursor: pointer; width: 95px; height: 30px; top: 0px; visibility: visible;}
 .sp1_select {display: block; position: relative; padding: 0 10px 0 0;}
 .sp2_select {
 	display: block;
 	line-height: 30px;
 	padding: 0 15px 0 10px;
-	color: #707070;	
+	color: #707070;
 	background: url(../imgs/layout/arrown_select.png) no-repeat right;
 	position: relative;
 	top: 0px; left: 0;
@@ -93,7 +94,7 @@ span.hotline { margin-left: 5px !important;}
 .l-tool-ct ul.ul-ltct > li span.support {background: url(../imgs/layout/support.png) no-repeat left; padding-left: 22px; display: block;}
 .l-tool-ct ul.ul-ltct > li + li {padding-left: 20px;}
 
-.r-box-tool{margin: 15px 15px 0 0;}
+.r-box-tool{margin: 15px 70px 0 0;}
 .r-box-tool ul li{
      margin-top: 25px;
  }
@@ -144,6 +145,8 @@ span.hotline { margin-left: 5px !important;}
 
 #slider{
     z-index: 99;
+    visibility:hidden;
+    overflow: hidden;
 }
 
 #slider img {width: 770px; height: 312px;}
@@ -992,6 +995,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 }
 
 .mini-bar{
+    visibility: visible;
     background-color: #000000;
     position: fixed;
     right: 0;
@@ -1000,7 +1004,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     overflow: hidden;
     z-index: 100;
     padding: 250px 0 250px 0;
-    visibility: hidden;
+    width: 3%;
 }
 
 .mini-user{
@@ -1055,6 +1059,10 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     top: 0;
 }
 
+.menu .m-wrap{
+    max-width: 100% !important;
+}
+
 .menu-wrap{
     margin-top: 80px;
 }
@@ -1085,7 +1093,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 }
 
 .primary-category{
-    width: 120px;
+    width: 140px;
     margin-left: 2%;
     display: none;
 }
@@ -1093,7 +1101,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 .primary-category .ul-ltct li a.btn-gh3{
     background-color: transparent;
     color: #000000 !important;
-    width: 120px;
+    width: 140px;
 }
 
 .fix_main{
@@ -1119,9 +1127,6 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 }
 
 @media (min-width: 992px) {
-    .mini-bar{
-        visibility: visible !important;
-    }
     .primary-category{
         display: block !important;
     }
@@ -1129,7 +1134,11 @@ ul.ul-fP li.atc a {color: #3ba11b;}
         margin-left: 55px;
     }
     .search_top_header{
+        width: 475px;
         left: 266px;
+    }
+    .select_input_search{
+        width: 352px;
     }
     .menu-category, .slicknav_menu, #menu li{
         display: none;
@@ -1137,7 +1146,15 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     .r-box-tool{
         background-color: transparent !important;
     }
-    iframe { width:100% !important; height: 500px !important; }
+    iframe {
+        width:100% !important; height: 500px !important;
+    }
+    .sli-fcon-1{
+        width: 100% !important;
+    }
+    .menu{
+        width: 97% !important;
+    }
 }
 
 @media (max-width: 991px)
@@ -1340,6 +1357,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
         margin-top: 50px;
     }
     .menu{
+        width: 100% !important;
         height: 154px;
     }
     .select_input_search{
@@ -1349,7 +1367,13 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     .div404{
         padding: 35% 0;
     }
-    iframe { max-width:100% !important; max-height: 100% !important; }
+    iframe {
+        max-width:100% !important;
+        max-height: 100% !important;
+    }
+    .mini-bar{
+        visibility: hidden;
+    }
 }
 
 @media (min-width: 992px) and (max-width: 1008px)

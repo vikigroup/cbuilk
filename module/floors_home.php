@@ -155,3 +155,22 @@ for($i = 0; $i < 8; $i++){
 </section><!-- End .Prod-nb -->
 <?php } ?>
 <div class="clear"></div>
+<script>
+    $(function() {
+        $('.divAds').bxSlider({
+            mode: 'vertical',
+            slideWidth: 300,
+            minSlides: 2,
+            slideMargin: 2,
+            auto: true,
+            pager: false
+        });
+
+        $('.bx-wrapper').css('max-width', '180px');
+        $('.bx-viewport').css('width', '190px');
+        $('.bx-wrapper .bx-viewport').css('-webkit-box-shadow', 'none');
+        $('.bx-wrapper .bx-viewport').css('box-shadow', 'none');
+        $('.bx-wrapper .bx-viewport').css('border', '0');
+        $('.bx-wrapper .bx-viewport').css('padding-right', '0');
+    });
+</script>
