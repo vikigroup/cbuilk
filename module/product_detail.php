@@ -241,7 +241,7 @@ if($ghinho==1){ // prodetail
                         <h3>
                             <a href="<?php echo $row_sanpham['brand_link']; ?>" title="<?php echo $row_sanpham['brand_name']; ?>" id="aBrand" <?php if($brand_color != ''){echo "style='color: ".$brand_color."'";} ?>><?php echo $row_sanpham['brand_name']; ?></a>
                             <?php if($_SESSION['kt_login_level'] == 3){ ?>
-                            <a href="#fadeandscale" class="initialism fadeandscale_open btn-edit button-warning pure-button" title="Nhấn để chỉnh sửa"><i class="fa fa-pencil"></i></a>
+                            <a href="#fadeandscale" class="initialism fadeandscale_open btn-edit button-transparent pure-button" title="Nhấn để chỉnh sửa"><i class="fa fa-pencil"></i></a>
 
                                 <!-- Fade & scale -->
                                 <div id="fadeandscale" class="well">

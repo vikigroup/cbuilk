@@ -2,8 +2,6 @@
     <span class="hotline">Liên hệ quảng cáo: </i> <?=$row_title_lap['hotlinekh'];?></span>
     <ul>
         <li>
-<!--            <span class="sp-gh1">0</span>-->
-<!--            <a class="btn-gh1" href="#"></a>-->
         </li>
         <?php if($_SESSION['kh_login_username']==""){?>
             <li><a href="<?php echo $linkrootshop;?>/dang-nhap.html">Đăng nhập</a></li>
@@ -21,5 +19,4 @@
             <li><a href="<?php echo $linkrootshop;?>/thoat.html" title="">Thoát</a></li>
         <?php }?>
     </ul>
-    <!--    <div class="clear"></div>-->
 </article><!-- End .r-tool-ct -->
