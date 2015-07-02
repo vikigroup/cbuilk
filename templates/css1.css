@@ -1716,3 +1716,7 @@ pre.prettyprint {
 .button-secondary {
     background: rgb(66, 184, 221) !important; /* this is a light blue */
 }
+
+.button-transparent {
+    background: transparent !important; /* this is a green */
+}
