@@ -1,7 +1,17 @@
 CKFinder Changelog
 ==================
-http://ckfinder.com
-Copyright (C) 2007-2012, CKSource - Frederico Knabben. All rights reserved.
+http://cksource.com/ckfinder
+Copyright (C) 2007-2013, CKSource - Frederico Knabben. All rights reserved.
+
+### Version 2.3.1
+Security Release:
+It was possible to perform DOS attack by users authorized to use the sever connector and with permissions to upload files (ASP, PHP, ColdFusion).
+It was possible to cause Denial of Service to files and folders on certain servers (like Apache) by users authorized to use the sever connector and with permissions to create folders. The attack was possible only inside a folder to which user had create folder permissions.
+- Added new translation: Serbian.
+- Updated translations: Catalan, Chinese, Japanese.
+- Folders that start with a dot character are now disallowed by default.
+- Fixed auto-renaming of files with multiple extensions: foo.tar.gz will be renamed to foo(1).tar.gz on second upload.
+- Maximize did not work when CKFinder was added with appendTo()
 
 ### Version 2.3
 - Added the new Maximize plugin.
@@ -31,9 +41,8 @@ Copyright (C) 2007-2012, CKSource - Frederico Knabben. All rights reserved.
 - Fixed: Layout may appear broken after upload.
 - Fixed: IE 10: Compatibility with latest beta version.
 - Fixed: Thumbnails were left in the old location when files were moved.
-[ASP.NET] - Fixed: SelectFunctionData and SelectThumbnailFunctionData properties were not available.
-[ASP.NET] - Fixed: Corrected the ASP.NET source code folder structure for included plugins.
-[ASP.NET] - Fixed: ArrayIndexOutOfBounds was sometimes thrown when file was uploaded.
+[PHP] - Added a new Zip plugin, that can create and extract zip archives and allows to download a folder or multiple files as a zip package.
+[PHP] - Dropped support for PHP 4.x.
 
 ### Version 2.2.2
 - Fixed: The new Chrome 20 is again causing issues with finder.popup(). The new fix should work for all future versions of Chrome.
@@ -64,6 +73,8 @@ Security Release: fixed filtering of unsafe characters for IIS6 web server.
 - Fixed: IE8: Selecting a file requires a double click instead of a single one.
 - Fixed High Contrast mode detection.
 - Fixed: Flash uploader is unable to deal with unexpected errors.
+[PHP] - Fixed: Incorrect encoding of file names returned after the file upload.
+[PHP] - Added: Support full URLs in resolveUrl() to resolve to correct $baseDir.
 
 ### Version 2.1.1
 - Sorting by file extension is now available.
@@ -86,6 +97,9 @@ Security Release: fixed filtering of unsafe characters for IIS6 web server.
 - Fixed: [IE, Chrome] Focus is lost after closing a dialog window.
 - Fixed: The startupPath option did not work.
 - Fixed: Unable to use CKFinder inside modal dialogs due to inability to properly destroy the previous instance.
+[PHP] - Fixed: When cookie contains an array, clicking the Upload button resulted in an error.
+[PHP] - Fixed: The Watermark plugin (and the AfterFileUpload hook) did not work.
+[PHP] - Fixed: Uploading files did not work when memory_limit was set to -1.
 
 ### Version 2.1
 - Added support for multiple uploads using the Flash component.
@@ -113,8 +127,8 @@ Security Release: fixed filtering of unsafe characters for IIS6 web server.
 - Fixed: CKFinder was sometimes throwing an "Object doesn't support this property or method" error in Internet Explorer.
 - Fixed: Thumbnails were not created if a folder or file name contains a single quote character.
 - Fixed: Disable upload button for iOS.
-[ASP.NET]- Fixed: Incompatibility with FIPS-compliant servers.
-[ASP.NET]- Fixed: Out of memory error when creating thumbnails.
+[PHP] - Modified the default settings in the configuration file for the Images resource type.
+[PHP] - Fixed: CKFinder did not work in Internet Explorer when there was a file with a name that contained some strange characters.
 
 ### Version 2.0.2
 - Added a way to programmatically close a popup window: closePopup().
@@ -129,6 +143,8 @@ Security Release: fixed filtering of unsafe characters for IIS6 web server.
 - Fixed: Download does not work in IE8 in a popup window.
 - Fixed: It is impossible to upload a file when CKFinder is running in a popup window.
 - Fixed: File editor does not work in a popup window.
+[PHP] - Fixed: CKFinder loses PNG image transparency on thumbnails.
+[PHP] - Fixed: thumbnails are corrupted when files calling ob_start() are included in config.php.
 
 ### Version 2.0.1
 - Default view settings are now configurable.
@@ -154,8 +170,6 @@ Security Release: fixed filtering of unsafe characters for IIS6 web server.
 - Fixed: context menu in Firefox on a Mac does not work.
 - Fixed: changing file extension caused issues with renaming file for the second time.
 - Fixed issue with caching thumbnails.
-[ASP_NET] - Fixed: AfterFileUpload event was not available in ASP.NET
-[ASP_NET] - Fixed session dependency bug (CKFinder will now work fine when session state is not enabled).
 
 ### Version 2.0
 - First public release of 2.x version of CKFinder.
