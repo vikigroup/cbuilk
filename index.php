@@ -65,7 +65,6 @@ require("module/box_device.php");
     <link rel="shortcut icon" href="imgs/layout/logo.ico" type="image/x-icon" />
     <link rel="stylesheet" type="text/css" href="<?php echo $linkrootshop?>/templates/css.css">
     <script type="text/javascript" src="<?php echo $linkrootshop?>/scripts/jquery.js"></script>
-    <script type="text/javascript" src="<?php echo $linkrootshop?>/scripts/scrolltopcontrol.js"></script>
 
     <!--[if lt IE 9]>
     <script type="text/javascript" src="<?php echo $linkrootshop?>/scripts/css3-mediaqueries.js"></script>
@@ -88,7 +87,9 @@ require("module/box_device.php");
     <script src="<?php echo $linkrootshop?>/lib/SlickNav/jquery.slicknav.js"></script>
 
     <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
-    <script src="<?php echo $linkrootshop?>/scripts/jquery.popupoverlay.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="<?php echo $linkrootshop?>/scripts/nivo-slider/nivo-slider.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo $linkrootshop?>/scripts/nivo-slider/themes/default/default.css">
 </head>
 <body>
 <div id="closed"></div>
@@ -131,8 +132,8 @@ require("module/box_device.php");
     </div>
 </div>
 
-<link rel="stylesheet" type="text/css" href="<?php echo $linkrootshop?>/scripts/nivo-slider/nivo-slider.css">
-<link rel="stylesheet" type="text/css" href="<?php echo $linkrootshop?>/scripts/nivo-slider/themes/default/default.css">
+<script type="text/javascript" src="<?php echo $linkrootshop?>/scripts/scrolltopcontrol.js"></script>
+<script src="<?php echo $linkrootshop?>/scripts/jquery.popupoverlay.js"></script>
 <script type="text/javascript" src="<?php echo $linkrootshop?>/scripts/nivo-slider/jquery.nivo.slider.js"></script>
 
 <?php include("module/footer.php") ;?>
