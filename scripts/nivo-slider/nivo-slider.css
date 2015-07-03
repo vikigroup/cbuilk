@@ -26,7 +26,6 @@
     overflow:hidden;
     margin-top: 40px !important;
     margin-bottom: 0px !important;
-    height: 482px;
     padding: 0px;
 }
 .nivoSlider img {
@@ -35,7 +34,7 @@
     left:0;
     display:none;
     width: 100%;
-    height:auto !important;
+    height:482px;
 
 }
 .nivo-main-image {
