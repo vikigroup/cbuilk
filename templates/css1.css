@@ -1713,24 +1713,31 @@ label
     box-sizing: border-box;
 }
 
-.fb-comments iframe { width:100% !important; height: 100% !important; }
-.s2_hotline{
+.fb-comments iframe
+{
+    width:100% !important; height: 100% !important;
+}
+.s2_hotline
+{
     font-size: 16px;
     color: red;
 }
 
-#SkypeButton_paraElement{
+#SkypeButton_paraElement
+{
     height: 22px;
     padding: 0;
     position: relative;
     top: -10px;
 }
 
-.btn-edit{
+.btn-edit
+{
     float: right;
 }
 
-#fadeandscale {
+#fadeandscale
+{
     -webkit-transform: scale(0.8);
     -moz-transform: scale(0.8);
     -ms-transform: scale(0.8);
@@ -1739,23 +1746,27 @@ label
     border-radius: 5px;
     padding: 10px;
 }
-.popup_visible #fadeandscale {
+.popup_visible #fadeandscale
+{
     -webkit-transform: scale(1);
     -moz-transform: scale(1);
     -ms-transform: scale(1);
     transform: scale(1);
 }
 
-.well {
+.well
+{
     box-shadow: 0 0 10px rgba(0,0,0,0.3);
     display:none;
     margin:1em;
 }
-pre.prettyprint {
+pre.prettyprint
+{
     padding: 9px 14px;
 }
 
-.initialism {
+.initialism
+{
     font-weight: bold;
     letter-spacing: 1px;
     font-size: 12px;
@@ -1764,28 +1775,34 @@ pre.prettyprint {
 .button-success,
 .button-error,
 .button-warning,
-.button-secondary {
+.button-secondary
+{
     color: white !important;
     border-radius: 4px !important;
     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2) !important;
 }
 
-.button-success {
+.button-success
+{
     background: rgb(28, 184, 65) !important; /* this is a green */
 }
 
-.button-error {
+.button-error
+{
     background: rgb(202, 60, 60) !important; /* this is a maroon */
 }
 
-.button-warning {
+.button-warning
+{
     background: rgb(223, 117, 20) !important; /* this is an orange */
 }
 
-.button-secondary {
+.button-secondary
+{
     background: rgb(66, 184, 221) !important; /* this is a light blue */
 }
 
-.button-transparent {
+.button-transparent
+{
     background: transparent !important; /* this is a green */
 }
