@@ -1310,6 +1310,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
         filter:alpha(opacity=1);
         opacity:1;
         max-width: 1210px;
+        background: none;
     }
     .nivoSlider a.nivo-imageLink img
     {
