@@ -1351,6 +1351,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     .nivoSlider
     {
         margin-top: 30px;
+        margin-bottom: -20px;
         height: 482px;
         width: 100%;
         padding:0px;
