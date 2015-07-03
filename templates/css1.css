@@ -806,8 +806,10 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 
 /********************** nhan dien thiet bi truy cap voi chieu rong max 992px********************/
 
-@media (max-width: 992px) {
-    .menu-responsive{
+@media (max-width: 992px)
+{
+    .menu-responsive
+    {
         display: block;
     }
 }
@@ -847,16 +849,19 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     cursor: pointer;
 }
 
-.arrowCategory a{
+.arrowCategory a
+{
     color: white !important;
 }
 
-.divCategory{
+.divCategory
+{
     clear: both;
     height: 68px;
 }
 
-.divContent{
+.divContent
+{
     float: left;
     width: 92px;
     text-align: center;
@@ -865,24 +870,29 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     cursor: pointer;
 }
 
-.divContent img{
+.divContent img
+{
     width: 25px;
     height: 25px;
 }
 
-.divContent p a{
+.divContent p a
+{
     color: #ffffff !important;
 }
 
-.a-subName{
+.a-subName
+{
     color: #3E3E3E !important;
 }
 
-.a-subName:hover{
+.a-subName:hover
+{
     color: #365DB5 !important;
 }
 
-.sep{
+.sep
+{
     width: 1px;
     height: 31px;
     background-color: #ffffff;
@@ -893,29 +903,34 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     box-shadow: 8px 0 10px -6px #ffffff;
 }
 
-.divSubCategory{
+.divSubCategory
+{
     clear: both;
     background-color: #ffffff;
     height: 180px;
 }
 
-.aSubCategory{
+.aSubCategory
+{
     font-size: 13px;
     margin: 5px;
     overflow: hidden;
     text-align: center;
 }
 
-.aSubCategory:first-child{
+.aSubCategory:first-child
+{
     margin-top: 0;
 }
 
-.aSubCategory a{
+.aSubCategory a
+{
     width: 190px;
     overflow: hidden;
 }
 
-.divProductLine1{
+.divProductLine1
+{
     float: left;
     width: 200px;
     height: 209px;
@@ -924,11 +939,13 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     border: 1px solid #F5F5F5;
 }
 
-.divProductLine1:hover{
+.divProductLine1:hover
+{
     opacity: 0.85;
 }
 
-.divProductOverlay1{
+.divProductOverlay1
+{
     width: 200px;
     background-color: white;
     opacity: 0.9;
@@ -939,19 +956,22 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     text-align: center;
 }
 
-.divProductOverlay1:hover{
+.divProductOverlay1:hover
+{
     color: #000000;
     cursor: pointer;
     text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
 }
 
-.divProductLine1 span{
+.divProductLine1 span
+{
     display: inline-block;
     font-weight: normal;
     padding: 0 5px 0 5px;
 }
 
-.divProductLine1 span:first-child{
+.divProductLine1 span:first-child
+{
     width: 95%;
     display: block; /* Fallback for non-webkit */
     display: -webkit-box;
@@ -967,34 +987,40 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     color: #000000;
 }
 
-.spanMoneyKM{
+.spanMoneyKM
+{
     font-size: 14px;
     color: #C31213;
     font-weight: bold !important;
 }
 
-.spanMoney{
+.spanMoney
+{
     font-size: 14px;
     text-decoration: line-through ;
 }
 
-.divProductLine2{
+.divProductLine2
+{
     float: left;
     width: 210px;
     height: 164px;
 }
 
-.ads-floors{
+.ads-floors
+{
     clear:both;
     padding-top: 30px;
     text-align: center;
 }
-.ads-floors a img{
+.ads-floors a img
+{
     width: 1210px;
     height: 60px;
 }
 
-.mini-bar{
+.mini-bar
+{
     visibility: visible;
     background-color: #000000;
     position: fixed;
@@ -1007,17 +1033,20 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     width: 3%;
 }
 
-.mini-user{
+.mini-user
+{
     color: #ffffff;
     text-align: center;
 }
 
-.mini-user:hover, .mini-shopping:hover{
+.mini-user:hover, .mini-shopping:hover
+{
     background-color: #AB4040;
     cursor: pointer;
 }
 
-.mini-login{
+.mini-login
+{
     position: fixed;
     right: 40px;
     top: 250px;
@@ -1027,15 +1056,18 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     z-index: 100;
 }
 
-.mini-login .main_f_dn #form1 .main_f_tt .module_ftt .r_f_tt #username, #password{
+.mini-login .main_f_dn #form1 .main_f_tt .module_ftt .r_f_tt #username, #password
+{
     width: 125px;
 }
 
-.mini-remember{
+.mini-remember
+{
     width: 80%;
 }
 
-.mini-angle{
+.mini-angle
+{
     position: fixed;
     right: 33px;
     top: 250px;
@@ -1045,12 +1077,14 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     z-index: 9999;
 }
 
-.mini-shopping, .mini-shopping a{
+.mini-shopping, .mini-shopping a
+{
     color: #ffffff !important;
     text-align: center;
 }
 
-.menu {
+.menu
+{
     background: #ffffff;
     position: fixed;
     z-index: 1002;
@@ -1059,15 +1093,18 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     top: 0;
 }
 
-.menu .m-wrap{
+.menu .m-wrap
+{
     max-width: 100% !important;
 }
 
-.menu-wrap{
+.menu-wrap
+{
     margin-top: 80px;
 }
 
-#imgPreviewWithStyles {
+#imgPreviewWithStyles
+{
     z-index: 999;
     border: none;
     background-color: #ffffff;
@@ -1075,59 +1112,71 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     display: inline-block;
 }
 /* Text below image */
-#imgPreviewWithStyles span {
+#imgPreviewWithStyles span
+{
     color: white;
     text-align: center;
     display: block;
     padding: 10px 0 3px 0;
 }
 
-.img-rounded{
+.img-rounded
+{
     width: 100%;
     height: 100%;
 }
 
-.left-home{
+.left-home
+{
     display: none;
     z-index: 100;
 }
 
-.primary-category{
+.primary-category
+{
     width: 140px;
     margin-left: 2%;
     display: none;
 }
 
-.primary-category .ul-ltct li a.btn-gh3{
+.primary-category .ul-ltct li a.btn-gh3
+{
     background-color: transparent;
     color: #000000 !important;
     width: 140px;
 }
 
-.fix_main{
+.fix_main
+{
     margin-top: 20px;
 }
 
-.slicknav_menu{
+.slicknav_menu
+{
     background-color: #2A70D2 !important;
     margin-right: 1px;
 }
 
-.slicknav_collapsed{
+.slicknav_collapsed
+{
     background-color: transparent !important;
 }
 
-.slicknav_open, .menu-shop{
+.slicknav_open, .menu-shop
+{
     background-color: #004481 !important;
 }
 
-.div404{
+.div404
+{
     text-align: center;
     padding: 10% 0;
 }
-
-@media (min-width: 992px) {
-    .primary-category{
+/**************************************************Kich thuoc tu 992 tro len********************/
+@media (min-width: 992px)
+{
+    .primary-category
+    {
         display: block !important;
     }
     header .m-wrap .logo{
@@ -1156,37 +1205,44 @@ ul.ul-fP li.atc a {color: #3ba11b;}
         width: 97% !important;
     }
 }
-
+/*******************************************************kich thuoc nho hon 991px*****************************************/
 @media (max-width: 991px)
 {
-    .container .m-wrap{
+    .container .m-wrap
+    {
         margin: 60px 0  60px 0;
     }
 
-    .search_top_header{
+    .search_top_header
+    {
         top: 70px !important;
         left: 0 !important;
         width: 100%;
     }
 
-    .hotline{
+    .hotline
+    {
         position: absolute;
         top: 130px;
     }
 
-    .menu, .r-box-tool, .search_top_header{
+    .menu, .r-box-tool, .search_top_header
+    {
         margin-left: -1px !important;
     }
 
-    .btn-gh3{
+    .btn-gh3
+    {
         margin-bottom: 5px;
     }
 
-    .container-fluid, .ads-top, .ads-floors, .divAds, .dmsp4-2, .divCategory, .divSubCategory, #topcontrol, .l-tool-ct, .r-tool-ct{
+    .container-fluid, .ads-top, .ads-floors, .divAds, .dmsp4-2, .divCategory, .divSubCategory, #topcontrol, .l-tool-ct, .r-tool-ct
+    {
         display: none;
     }
 
-    .r-box-tool{
+    .r-box-tool
+    {
         margin-top: 55px;
         width: 100%;
         padding: 30px 0 30px 0;
@@ -1197,89 +1253,102 @@ ul.ul-fP li.atc a {color: #3ba11b;}
         background-color: #ffffff !important;
     }
 
-    .dmsp4-1{
+    .dmsp4-1
+    {
         width: 100%;
         height: auto;
     }
 
-    .dmsp4-1 .bx-wrapper{
+    .dmsp4-1 .bx-wrapper
+    {
         margin: 0 0 0 0 !important;
         max-width: 52px !important;
     }
 
-    .dmsp4-1 .bx-wrapper .bx-viewport{
+    .dmsp4-1 .bx-wrapper .bx-viewport
+    {
         height: 0 !important;
     }
 
-    .divProductLine1:first-child, .menu{
+    .divProductLine1:first-child, .menu
+    {
         margin-left: 0;
     }
 
 
-    .divProductLine1:nth-child(1), .divProductLine1:nth-child(3), .divProductLine1:nth-child(5){
+    .divProductLine1:nth-child(1), .divProductLine1:nth-child(3), .divProductLine1:nth-child(5)
+    {
         margin-left: 0;
     }
 
-    .divProductLine1:nth-child(2), .divProductLine1:nth-child(4), .divProductLine1:nth-child(6){
+    .divProductLine1:nth-child(2), .divProductLine1:nth-child(4), .divProductLine1:nth-child(6)
+    {
         margin-left: 0;
         margin-right: 0;
     }
 
-    .dmsp4-3{
+    .dmsp4-3
+    {
         overflow: visible;
         height: auto;
         margin-bottom: 10px;
     }
 
-    .form_dn{
+    .form_dn
+    {
         margin-top: 0;
         padding-top: 0;
     }
 
-    .ipt_f_tt{
+    .ipt_f_tt
+    {
         width: 180px !important;
     }
 
-    .form_dn ul li:nth-child(1n) img, .fix-box-sizing{
+    .form_dn ul li:nth-child(1n) img, .fix-box-sizing
+    {
         width: 100% !important;
     }
 
-    .list-cate{
+    .list-cate
+    {
         margin-top: 10px;
     }
 
-    .r-fcont{
+    .r-fcont
+    {
         float: left;
     }
 
-    .bx-prev, .bx-next{
+    .bx-prev, .bx-next
+    {
         display: none;
     }
 
-    .f-ct .sidebar{
+    .f-ct .sidebar
+    {
         width: 100% !important;
 
     }
 
-    .filter-Prod .t-Pnb{
+    .filter-Prod .t-Pnb
+    {
         padding: 0;
     }
-    /**************************************/
+    /****************chinh_sua_slide voi kich thuoc thu nho duoi 991**********************/
     .m-slider
     {
         display:block;
-
     }
-    /***********************
+
     .nivoSlider
     {
         position:relative;
         overflow:hidden;
         padding: 0px;
         margin-top: 40px !important;
-        height: auto !important;
     }
-
+    /***********************
     .nivoSlider a.nivo-imageLink
     {
 
@@ -1391,7 +1460,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
         visibility: hidden;
     }
 }
-
+/**************************************Tu 992 den 1008****************************************************************/
 @media (min-width: 992px) and (max-width: 1008px)
 {
     .fixed{
@@ -1451,7 +1520,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
         width: 100% !important;
     }
 }
-
+/************************************* man hinh lon tu 1009 tro len******************************************************/
 @media (min-width: 1009px) {
     .dmsp4-2{
         width: 390px !important;
@@ -1489,7 +1558,8 @@ a.popup-link:hover {
     margin-top: -200px;
     height: 190px;
 }
-#popup:target {
+#popup:target
+{
     visibility:visible;
     opacity: 1;
     background-color: rgba(0,0,0,0.7);
@@ -1504,7 +1574,10 @@ a.popup-link:hover {
     -moz-transition:all 1s;
     transition:all 1s;
     height: auto;
-}@media (min-width: 768px){
+}
+
+/***************************tu 768 den 991********************************************************/
+@media (min-width: 768px){
     .popup-container {
         width:757px;
     }
@@ -1517,6 +1590,9 @@ a.popup-link:hover {
         height: 100%;
     }
 }
+
+
+/**************************nho hon 767**************************************************/
 @media (max-width: 767px){
     .popup-image{
         display: none;
@@ -1651,7 +1727,7 @@ label{
     overflow: hidden;
     text-overflow: ellipsis;
 }
-
+/******************************************chinh_sua_slide_voi_kich_thuoc_nho_hon_767**********************/
 .m-slider{
     background-color: #FFffff;
     width: 100%;
