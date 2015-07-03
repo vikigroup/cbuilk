@@ -1345,7 +1345,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     }
     .nivoSlider {
         position:relative;
-        height:auto;
+        height:auto !important;
         overflow:hidden;
     }
     .nivoSlider img {
@@ -1354,7 +1354,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
         left:0;
         display:none;
         width: 100%;
-        height:auto !important;
+        height:200px;
 
     }
     .nivo-main-image {
@@ -1369,7 +1369,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
         top:0;
         left:0;
         width:100%;
-        height:auto;
+        height:200px;
         border:0;
         padding:0;
         margin:0;
