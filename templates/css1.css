@@ -1352,22 +1352,18 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     {
         margin-top: 50px;
         height: 482px;
+        width: 100%;
+        padding: 0px;
     }
 
     .nivoSlider a.nivo-imageLink
     {
-         top:0;
-         left:0;
-         width:100%;
-         border:0;
-         padding:0px !important;
-         margin:0;
-     }
+
+    }
 
     .nivoSlider a.nivo-imageLink img
     {
-        height:300px !important;
-        padding: 0px !important;
+
     }
 
 
