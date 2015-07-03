@@ -21,7 +21,7 @@
 */
 
 .nivoSlider {
-    position:absolute;
+    position:relative;
     height:auto;
     overflow:hidden;
     margin-top: 40px !important;
