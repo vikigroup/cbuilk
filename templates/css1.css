@@ -1550,8 +1550,10 @@ a.popup-link:hover
     .m-slider
     {
         display:block;
+        position:relative;
         height: 200px !important;
     }
+
     /*******************end*****************************/
 }
 .popup-container
