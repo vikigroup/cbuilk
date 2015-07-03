@@ -1304,6 +1304,9 @@ ul.ul-fP li.atc a {color: #3ba11b;}
         top: 0px;
         left: 0px;
         width: 100%;
+        border: 0px;
+        padding: 0px;
+        margin: 0px;
         height: auto;
     }
     .nivoSlider a.nivo-imageLink img
