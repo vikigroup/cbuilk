@@ -1340,7 +1340,6 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     {
         display:block;
     }
-
     .nivoSlider
     {
         position:relative;
@@ -1348,7 +1347,6 @@ ul.ul-fP li.atc a {color: #3ba11b;}
         padding: 0px;
         margin-top: 40px !important;
     }
-
     .nivoSlider a.nivo-imageLink
     {
 
@@ -1361,52 +1359,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
         margin: 0px;
         height: auto;
     }
-
-    /***********************
-    .nivo-slice {
-        display:block;
-        position:absolute;
-        z-index:5;
-        height:100%;
-        top:0;
-    }
-    .nivo-box {
-        display:block;
-        position:absolute;
-        z-index:5;
-        overflow:hidden;
-    }
-    .nivo-box img { display:block; }
-    .nivo-caption {
-        position:absolute;
-        left:0px;
-        bottom:0px;
-        background:#000;
-        color:#fff;
-        width:100%;
-        z-index:8;
-        padding: 5px 10px;
-        opacity: 0.8;
-        overflow: hidden;
-        display: none;
-        -moz-opacity: 0.8;
-        filter:alpha(opacity=8);
-        -webkit-box-sizing: border-box; /
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;
-    }
-    .nivo-caption p {
-        padding:5px;
-        margin:0;
-    }
-    .nivo-caption a {
-        display:inline !important;
-    }
-    .nivo-html-caption {
-        display:none;
-    }
-    */
-    /****************************************/
+    /*********************************************end*********************************************/
     .logo{
         left: 20%;
     }
@@ -1445,7 +1398,8 @@ ul.ul-fP li.atc a {color: #3ba11b;}
         visibility: hidden;
     }
 }
-/**************************************Tu 992 den 1008****************************************************************/
+/**************************************kich thuoc tu 992 den 1008******************************************/
+
 @media (min-width: 992px) and (max-width: 1008px)
 {
     .fixed{
@@ -1494,7 +1448,12 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     .btn-category{
         width: 90px !important;
     }
-    .primary-category:first-child, .primary-category:nth-child(2), .primary-category:nth-child(3), .primary-category:nth-child(4), .primary-category:nth-child(5){
+    .primary-category:first-child,
+    .primary-category:nth-child(2),
+    .primary-category:nth-child(3),
+    .primary-category:nth-child(4),
+    .primary-category:nth-child(5)
+    {
         display: none !important;
     }
     .ads-home{
@@ -1505,17 +1464,19 @@ ul.ul-fP li.atc a {color: #3ba11b;}
         width: 100% !important;
     }
 }
-/************************************* man hinh lon tu 1009 tro len******************************************************/
-@media (min-width: 1009px) {
-    .dmsp4-2{
+/************************************* kich thuoc tu 1009 tro len******************************/
+@media (min-width: 1009px)
+{
+    .dmsp4-2
+    {
         width: 390px !important;
     }
-    /*.dmsp4-3{*/
-        /*width: 350px !important;*/
-    /*}*/
 }
 
-a.popup-link {
+/******************************************************************************************/
+
+a.popup-link
+{
     padding:17px 0;
     text-align: center;
     position: relative;
@@ -1529,7 +1490,8 @@ a.popup-link {
     font-size: 16px;
     display: none;
 }
-a.popup-link:hover {
+a.popup-link:hover
+{
     background-color: #ff9900;
     box-shadow: 0 3px 0px 0px #eea900;
     -webkit-transition:all 1s;
@@ -1537,7 +1499,8 @@ a.popup-link:hover {
     transition:all 1s;
 }
 /* end link popup*//*style untuk popup */
-#popup {
+#popup
+{
     visibility: hidden;
     opacity: 0;
     margin-top: -200px;
@@ -1561,16 +1524,20 @@ a.popup-link:hover {
     height: auto;
 }
 
-/***************************tu 768 den 991********************************************************/
-@media (min-width: 768px){
-    .popup-container {
+/***************************kich thuoc tu 768 den 991********************************************************/
+@media (min-width: 768px)
+{
+    .popup-container
+    {
         width:757px;
     }
-    .popup-image{
+    .popup-image
+    {
         width: 240px;
         height: 260px;
     }
-    .popup-checkout{
+    .popup-checkout
+    {
         width: 450px;
         height: 100%;
     }
@@ -1578,15 +1545,19 @@ a.popup-link:hover {
 
 
 /**************************nho hon 767**************************************************/
-@media (max-width: 767px){
-    .popup-image{
+@media (max-width: 767px)
+{
+    .popup-image
+    {
         display: none;
     }
-    .popup-container, .popup-checkout{
+    .popup-container, .popup-checkout
+    {
         width:100%;
     }
 }
-.popup-container {
+.popup-container
+{
     position: relative;
     margin: 7% auto;
     padding: 30px 0 50px 0;
@@ -1595,7 +1566,9 @@ a.popup-link:hover {
     border-radius: 7px;
     height: 388px;
     display: none;
-}a.popup-close {
+}
+a.popup-close
+{
      position: absolute;
      top:10px;
      right:10px;
@@ -1607,18 +1580,23 @@ a.popup-link:hover {
      color:grey;
     border: 1px solid grey;
     border-radius: 50%;
- }/* style untuk isi popup */.popup-form {
-                                 margin:10px auto;
-                             }
-.popup-form h2 {
+ }/* style untuk isi popup */
+.popup-form
+{
+    margin:10px auto;
+}
+.popup-form h2
+{
     margin-bottom: 5px;
     font-size: 37px;
     text-transform: uppercase;
 }
-.popup-form .input-group {
+.popup-form .input-group
+{
     margin:10px auto;
 }
-.popup-form .input-group input {
+.popup-form .input-group input
+{
     padding:5px;
     text-align: left;
     margin: 0 0 10px 10px;
@@ -1627,13 +1605,16 @@ a.popup-link:hover {
     display: block;
     width: 90%;
 }
-.popup-form .input-group input:focus {
+.popup-form .input-group input:focus
+{
     outline-color:#FB8833;
 }
-.popup-form .input-group input[type="email"] {
+.popup-form .input-group input[type="email"]
+{
     position: relative;
 }
-.popup-form .input-group input[type="button"] {
+.popup-form .input-group input[type="button"]
+{
     background-color: #FB8833;
     color: #fff;
     border: 0;
@@ -1641,39 +1622,46 @@ a.popup-link:hover {
     padding: 17px;
     text-align: center;
 }
-.popup-form .input-group input[type="button"]:focus {
+.popup-form .input-group input[type="button"]:focus
+{
     box-shadow: inset 0 3px 7px 3px #ea7722;
 }
 
-.popup-image{
+.popup-image
+{
     float: left;
     background-color: inherit;
     padding: 0 10px 0 10px;
 }
 
-.popup-image img{
+.popup-image img
+{
     max-width: 100%;
     max-height: 100%;
 }
 
-.popup-image h1{
+.popup-image h1
+{
     font-weight: normal;
     margin-top: 10px;
 }
 
-.popup-checkout{
+.popup-checkout
+{
     float: right;
     background-color: inherit;
 }
 
-.popup-price{
+.popup-price
+{
     color: #FB8833;
     font-weight: bold !important;
     font-size: 16px;
     padding-bottom: 10px;
 }
 
-.popup-footer {
+.popup-footer
+{
     background: #f3f3f3;
     -moz-border-radius: 0 0 5px 5px;
     -webkit-border-radius: 0 0 5px 5px;
@@ -1684,23 +1672,27 @@ a.popup-link:hover {
     line-height: 25px;
 }
 
-#qtyPopup {
+#qtyPopup
+{
     width: 50px;
     float: left;
     padding: 5px;
 }
 
-.popup-image span{
+.popup-image span
+{
     padding: 5px 0 5px 0;
     width: 100px;
     float: left;
 }
 
-.nivo-imageLink img{
+.nivo-imageLink img
+{
     width: 1210px !important;
 }
 
-label{
+label
+{
     display: inline-block;
     width: 100%;
     background-color: #7AB893;
@@ -1712,11 +1704,11 @@ label{
     overflow: hidden;
     text-overflow: ellipsis;
 }
-/******************************************chinh_sua_slide_voi_kich_thuoc_nho_hon_767**********************/
+/******************************************m-slider toan trang**********************/
 .m-slider{
     background-color: #FFffff;
     width: 100%;
-    height: 483px;
+    height:auto !important;
     box-shadow: 0 1px 2px rgba(0,0,0,.1);
     box-sizing: border-box;
 }
