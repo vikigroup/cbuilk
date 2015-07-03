@@ -1268,21 +1268,22 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     .m-slider
     {
         display:block;
+
     }
     #slider
     {
-
+        height: auto !important;
     }
     .nivoSlider
     {
         position:relative;
         overflow:hidden;
         padding: 0px;
-        margin-top: 40px !important;
+        margin-top: 80px !important;
     }
     .nivoSlider a.nivo-imageLink
     {
-        height: auto !important;
+
 
     }
 
