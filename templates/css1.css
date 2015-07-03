@@ -1367,6 +1367,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
         overflow:hidden;
         margin-top: 50px;
     }
+    /*
     .nivoSlider a.nivo-imageLink
     {
          position:absolute;
@@ -1384,6 +1385,11 @@ ul.ul-fP li.atc a {color: #3ba11b;}
          opacity:0;
          max-width: 1210px;
      }
+     */
+    .nivo-imageLink img
+    {
+        height: 200px !important;
+    }
 
 
 
