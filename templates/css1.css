@@ -1279,6 +1279,34 @@ ul.ul-fP li.atc a {color: #3ba11b;}
         height: auto !important;
     }
 
+    .nivoSlider a.nivo-imageLink
+    {
+        /*
+        position:absolute;
+        top:0;
+        left:0;
+        width:100%;
+        height:100%;
+        border:0;
+        padding:0;
+        margin:0;
+        z-index:6;
+        display:none;
+        background:white;
+        filter:alpha(opacity=0);
+        opacity:0;
+        max-width: 1210px;
+        */
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        border: 0px;
+        padding: 0px;
+        margin: 0px;
+        height: auto;
+    }
+
 
     .nivo-slice {
         display:block;
@@ -1625,7 +1653,7 @@ label{
 .m-slider{
     background-color: #FFffff;
     width: 100%;
-    height:auto;
+    height: 483px;
     box-shadow: 0 1px 2px rgba(0,0,0,.1);
     box-sizing: border-box;
 }
