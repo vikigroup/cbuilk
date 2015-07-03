@@ -1343,6 +1343,12 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     {
         display:block;
     }
+    .nivoSlider
+    {
+        position:absolute;
+        height:auto;
+        overflow:hidden;
+    }
 
 
 
