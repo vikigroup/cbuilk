@@ -20,7 +20,9 @@ switch ($frame){
 	
 	case "addshop"                 : include("module/addshop.php");;break;
 	case "page404"                 : include("module/page404.php");;break;
-	
+
+    case "browser"                 : include("lib/ckfinder/ckfinder.html");;break;
+
 	case "logout"              	   : 
 									{
 									unset($_SESSION['kh_login_username']);

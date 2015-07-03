@@ -308,21 +308,31 @@ $(document).ready(function() {
                     <tr>
 
                       <td colspan="2" valign="middle"><textarea name="txtDetail" class="txt" id="txtDetail"><?php echo $detail?></textarea>
+
                           <script type="text/javascript">
+
                               var editor = CKEDITOR.replace( 'txtDetail',
+
                                   {
+
                                       height:500,
+
                                       width:780,
-                                      filebrowserBrowseUrl : '../lib/ckfinder/ckfinder.html',
+
                                       filebrowserImageBrowseUrl : '../lib/ckfinder/ckfinder.html?Type=Images',
+
                                       filebrowserFlashBrowseUrl : '../lib/ckfinder/ckfinder.html?Type=Flash',
-                                      filebrowserUploadUrl : '../lib/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
+
                                       filebrowserImageUploadUrl : '../lib/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
+
                                       filebrowserFlashUploadUrl : '../lib/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash',
+
                                       fullPage : true
 
                                   });
+
                           </script>
+
                       </td>
 
                     </tr>
