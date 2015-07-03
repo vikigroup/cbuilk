@@ -1545,15 +1545,6 @@ a.popup-link:hover
     {
         width:100%;
     }
-    /***********************hien thi slide tren didong*/
-
-    .m-slider
-    {
-        display:block;
-        position:relative;
-        height: 200px !important;
-        margin-bottom: -30px;
-    }
 
     /*******************end*****************************/
 }
