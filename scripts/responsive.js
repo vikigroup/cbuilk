@@ -77,3 +77,12 @@ function autoHome(){
         }
     }
 }
+
+function addhttp(id, url) {
+    var pattern = /^((http|https):\/\/)/;
+    if(!pattern.test(url)) {
+        url = "http://" + url;
+    }
+    $('#'+id).val(url);
+}
+

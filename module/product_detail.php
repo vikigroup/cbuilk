@@ -29,9 +29,15 @@ if($row_sanpham['idshop'] == 0){
 if($ghinho==1){ // prodetail
 
 ?>
+<input id="customerID" value="<?php echo $idKH=$_SESSION['kh_login_id']; ?>" type="hidden"/>
+<input name="id" id="id" value="<?php echo $row_sanpham['id'];?>" type="hidden"/>
+<input name="name_shop" id="name_shop" value="<?php echo $shop['subject'];?>" type="hidden"/>
+<input id="hiddenProductPrice" type="hidden" value="<?php echo $row_sanpham['price']; ?>">
+<input id="hiddenShopID" type="hidden" value="<?php echo $row_sanpham['idshop']; ?>">
+
 <script type="text/javascript" >
 	$(document).ready(function() {
-		$(".btn_prod_details").click(function(){;
+		$(".btn_prod_details").click(function(){
 			var sl=$("#qty").val();
 			var nameshop=$("#name_shop").val();
 			var id=$("#id").val();	
@@ -118,19 +124,26 @@ if($ghinho==1){ // prodetail
         </div><!-- End .f-ndct -->
         
         <div class="face-cmm">
-            <div id="fb-root"></div>
             <div class="fb-comments" data-href="<?php echo $linkrootshop;?>/<?php echo $row_sanpham['subject'];?>.html" data-numposts="5" data-width="inherit" data-colorscheme="light"></div>
         </div><!-- End .face-cmm -->
+        <div id="fb-root"></div>
         <script>
-            (function(d, s, id) {
+            window.fbAsyncInit = function() {
+                FB.init({
+                    appId      : '1460618637571000',
+                    xfbml      : true,
+                    version    : 'v2.3'
+                });
+            };
+
+            (function(d, s, id){
                 var js, fjs = d.getElementsByTagName(s)[0];
-                if (d.getElementById(id)) return;
+                if (d.getElementById(id)) {return;}
                 js = d.createElement(s); js.id = id;
-                js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.0";
+                js.src = "//connect.facebook.net/en_US/sdk.js";
                 fjs.parentNode.insertBefore(js, fjs);
             }(document, 'script', 'facebook-jssdk'));
         </script>
-
     </div><!-- End .l-fcont -->
     
     <div class="r-fcont">
@@ -141,9 +154,6 @@ if($ghinho==1){ // prodetail
             <h1><?php if($row_sanpham['pricekm'] > 0){echo number_format($row_sanpham['pricekm'],0)."  VNĐ";}else if($row_sanpham['price'] > 0){echo number_format($row_sanpham['price'],0)."  VNĐ";}else{echo "Giá: Liên hệ";} ?></h1>
         </div><!-- End .gbsp -->
         <?php } ?>
-
-        <input name="id" id="id" value="<?php echo $row_sanpham['id'];?>" type="hidden" />
-        <input name="name_shop" id="name_shop" value="<?php echo $shop['subject'];?>" type="hidden" />
 
         <?php if($row_sanpham['style']==0 || $row_sanpham['style']==4 || $row_sanpham['style']==2){?>
         <a href="#popup" class="popup-link" onclick="$('.popup-container').show();">ĐẶT MUA</a>
@@ -484,6 +494,8 @@ else{
     }
 }
 ?>
+<input id="hiddenProductPageFilter" value="<?php if($filter == ''){echo 1;}else{echo $filter;}; ?>" type="hidden"/>
+<input id="hiddenProductPageNum" value="<?php if($pageNum == ''){echo 1;}else{echo $pageNum;}; ?>" type="hidden"/>
 <section class="breacrum">
     <ul>
         <?php
@@ -573,7 +585,7 @@ else{
                 </ul>
                 
                 <div class="clear"></div>
-                
+
                 <script type="text/javascript">
                     $(document).ready(function(){
                         $('.ul-Pnb').bxSlider({
@@ -687,10 +699,10 @@ else{
         
         <div class="frame_phantrang">
             <div class="PageNum" id="divProductPag">
-					<?php
-                    if(isset($_REQUEST['tensanpham'])){ echo pagesLinks_new_full_2013($totalRows, $pageSize , "", "?page=","".$_GET['tensanpham'].".html");}
-                    else echo pagesLinks_new_full_2013($totalRows, $pageSize , "","p","page-danh-muc/".$_GET['tensanpham']."/");
-                    ?>
+                <?php
+                if(isset($_REQUEST['tensanpham'])){ echo pagesLinks_new_full_2013($totalRows, $pageSize , "", "?page=","".$_GET['tensanpham'].".html");}
+                else echo pagesLinks_new_full_2013($totalRows, $pageSize , "","p","page-danh-muc/".$_GET['tensanpham']."/");
+                ?>
             </div>
             <div class="clear"></div>
         </div><!-- End .frame_phantrang -->
@@ -700,158 +712,3 @@ else{
     <div class="clear"></div>
 </section><!-- End .f-ct -->
 <?php }?>
-
-<script>
-    $('#btnConfirmPopup').click(function(){
-        var name = $('#txtNamePopup').val();
-        var phone = $('#txtPhonePopup').val();
-        var address = $('#txtAddressPopup').val();
-        var email = $('#emailPopup').val();
-        var idProduct = $("#id").val();
-        var amount = $('#qtyPopup').val();
-        var unit = "<?php echo $row_sanpham['price'] ?>";
-        var idShop = "<?php echo $row_sanpham['idshop']; ?>";
-        var total = amount*unit;
-        var idCustomer = "<?php echo $idKH=$_SESSION['kh_login_id']; ?>";
-
-        if(phone == '' || email == ''){
-            alert("Điện thoại và email là các thông tin bắc buộc. Xin vui lòng không được để trống...");
-        }
-        else if($('#popupAccept').is(':checked') == false){
-            alert("Bạn chưa đồng ý với chính sách của chúng tôi...");
-        }
-        else{
-            var dataString = "name="+name+"&phone="+phone+"&address="+address+"&email="+email+"&idProduct="+idProduct+"&amount="+amount+"&unit="+unit
-                +"&idShop="+idShop+"&total="+total+"&idCustomer="+idCustomer;
-            insertOrder(dataString);
-        }
-    });
-
-    function setMoney(){
-        var money = $('#qtyPopup').val();
-        if(money < 1){
-            $('.popup-price').html("<?php echo number_format($row_sanpham['price'],0).' VND'; ?>");
-            $('#qtyPopup').val('1');
-        }else{
-            money = (money * '<?php echo $row_sanpham['price'] ?>').toCurrencyString();
-            $('.popup-price').html(money + ' VND');
-        }
-    }
-
-    Number.prototype.toCurrencyString=function(){
-        return this.toFixed(0).replace(/(\d)(?=(\d{3})+\b)/g,'$1,');
-    }
-
-    function setDefault(id){
-        if($('#'+id).val() < 1){
-            $('#'+id).val(1);
-        }
-    }
-
-    function insertOrder(dataString){
-        var dataString = dataString+"&functionName="+"insertOrder";
-//        alert(dataString);
-
-        $.ajax({
-            type: "POST",
-            url: "lib/functions.php",
-            data: dataString,
-            success: function(x){
-//                alert(x);
-                if(x == 1){
-                    alert("Cám ơn bạn đã đặt mua. Chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất.");
-                    window.location.href = "#closed";
-                }
-                else{
-                    alert("Lỗi! Xin vui lòng tải lại trang và thử lại...");
-                }
-            }
-        });
-    }
-</script>
-
-<script>
-    $(function(){
-        $('.f-sty-P1').trigger('click');
-        var length = $('#divProductPag a').length;
-        var link = $('#divProductPag a').attr('href');
-        var myArr = link.split("/");
-        var filter = "<?php echo $filter ?>";
-        var pageNum = "<?php echo $pageNum ?>";
-        if(filter == ''){
-            filter = 1;
-        }
-        var getPage = myArr[2].substr(1, myArr[2].length);
-        var linkAfter = "/"+myArr[1]+"?filter1="+filter+"&"+getPage;
-        for(var i = 0; i < length - 1; i++){
-            $('#divProductPag a:nth-child('+(i+1)+')').attr('href', linkAfter+(i+1));
-        }
-
-        $('#divProductPag').find('span').remove();
-        var firstPage = "/"+myArr[1]+"?filter1="+filter+"&"+getPage+1;
-        var previous = "/"+myArr[1]+"?filter1="+filter+"&"+getPage+(parseInt(pageNum)-1);
-        var next = "/"+myArr[1]+"?filter1="+filter+"&"+getPage+(parseInt(pageNum)+1);
-        var lastPage = "/"+myArr[1]+"?filter1="+filter+"&"+getPage+(length-1);
-        if(pageNum == length - 1){
-            next = lastPage;
-        }
-        if(pageNum-1 == 0){
-            previous = "/"+myArr[1]+"?filter1="+filter+"&"+getPage+1;
-        }
-
-        $('#divProductPag').prepend("<a href="+firstPage+">1</a>");
-        $('#divProductPag').prepend("<a href="+previous+">&lsaquo;</a>");
-        $('#divProductPag').prepend("<a href="+firstPage+">&#171;</a>");
-
-        $('#divProductPag a:nth-child('+(length+2)+')').attr('href', next);
-        $('#divProductPag a:nth-child('+(length+3)+')').attr('href', lastPage);
-    });
-</script>
-
-<?php if($_SESSION['kt_login_level'] == 3){ ?>
-<script>
-    $("#popBrandForm").on('submit',function(e) {
-        e.preventDefault();
-    });
-
-    $("#popBrandSubmit").click(function(){
-        var popBrandName = $("#popBrandName").val();
-        var popBrandLink = $("#popBrandLink").val();
-        if(popBrandName != '' && popBrandLink != ''){
-            var popBrandID = "<?php echo $row_sanpham['id'] ?>";
-            var popBrandBG = $("#popBrandBG").val();
-            var popBrandFC = $("#popBrandFC").val();
-            var popBrandStyle = popBrandBG+","+popBrandFC;
-
-            var dataString = "popBrandID="+popBrandID+"&popBrandName="+popBrandName+"&popBrandLink="+popBrandLink+"&popBrandStyle="+popBrandStyle+"&functionName="+"updateBrand";
-            $.ajax({
-                type: "POST",
-                url: "lib/functions.php",
-                data: dataString,
-                success: function(x){
-                    if(x == 1){
-                        alert("Cập nhật thành công!");
-                        $('#aBrand').attr("href", popBrandLink);
-                        $('#aBrand').attr("title", popBrandName);
-                        $('#aBrand').html(popBrandName);
-                        $('#divBrand').css("background-color", popBrandBG);
-                        $('#aBrand').css("color", popBrandFC);
-                        $('#popBrandClose').click();
-                    }
-                    else{
-                        alert("Lỗi! Xin vui lòng tải lại trang và thử lại...");
-                    }
-                }
-            });
-        }
-    });
-
-    function addhttp(id, url) {
-        var pattern = /^((http|https):\/\/)/;
-        if(!pattern.test(url)) {
-            url = "http://" + url;
-        }
-        $('#'+id).val(url);
-    }
-</script>
-<?php } ?>

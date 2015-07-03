@@ -1,8 +1,11 @@
 <?php
 error_reporting(0);
+header('Content-Type: text/html; charset=utf-8');
 require("config.php");
 require("common_start.php");
 include("lib/func.lib.php");
+
+$myProduct   = getRecord('tbl_item', "subject='".$_GET['tensanpham']."'");
 
 $cache = get_field('tbl_config','id','2','cache');
 if($cache == 1){
@@ -50,19 +53,30 @@ if($cache == 1){
 if($frame!="login" && $frame!="register" && $frame!="changepass" && $frame!="changeinfo"){
     unset($_SESSION['back_raovat']);
 }
-
 require("module/box_device.php");
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "hrvp://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="hrvp://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:og="http://ogp.me/ns#"
+      xmlns:fb="http://www.facebook.com/2008/fbml">
 <head>
+    <?php include("module/title.php") ;?>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <?php include("module/title.php") ;?>
     <meta name="robots" content="index, follow"/>
     <meta name="author" content="www.cbuilk.com"/>
-    <meta content="vi-VN" itemprop="inLanguage" />
+    <meta property="fb:app_id" content="146061863757100"/>
+    <meta property="fb:admins" content="100009718393773"/>
+    <meta property="fb:admins" content="100009190135848"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:site_name" content="<?php echo $title_t; ?>"/>
+    <meta property="og:url" content="http://<?php echo $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']; ?>" />
+    <meta property="og:title" content="<?php echo $title_t; ?>" />
+    <meta property="og:description" content="<?php echo $description_t; ?>" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image" content="<?php if($myProduct['image'] != ''){echo $linkroot;?>/<?php echo $myProduct['image'];}else{echo $root.'/imgs/layout/logo.png';} ?>" />
+
     <link rel="shortcut icon" href="imgs/layout/logo.ico" type="image/x-icon" />
     <link rel="stylesheet" type="text/css" href="<?php echo $linkrootshop?>/templates/css.css">
     <script type="text/javascript" src="<?php echo $linkrootshop?>/scripts/jquery.js"></script>
@@ -78,6 +92,7 @@ require("module/box_device.php");
     <link href="<?php echo $linkrootshop?>/templates/hover.css" rel="stylesheet" />
 
     <link href="<?php echo $linkrootshop?>/lib/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="<?php echo $linkrootshop?>/lib/jquery.bxslider/jquery.bxslider.css"/>
     <link rel="stylesheet" type="text/css" href="<?php echo $linkrootshop?>/lib/jquery.bxslider/jquery.bxslider.css"
     <script type="text/javascript" src="<?php echo $linkrootshop?>/lib/jquery.bxslider/jquery.bxslider.min.js"></script>
     <script type="text/javascript" src="<?php echo $linkrootshop?>/lib/jquery.bxslider/plugins/jquery.easing.1.3.js"></script>
@@ -85,10 +100,11 @@ require("module/box_device.php");
     <script type="text/javascript"  src="<?php echo $linkrootshop?>/scripts/responsive.js"></script>
 
     <link rel="stylesheet" href="<?php echo $linkrootshop?>/lib/SlickNav/slicknav.css" media="screen and (max-width: 991px)"/>
-    <script src="<?php echo $linkrootshop?>/lib/SlickNav/jquery.slicknav.js"></script>
+    <script type="text/javascript" src="<?php echo $linkrootshop?>/lib/SlickNav/jquery.slicknav.js"></script>
 
     <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
 
+    <link rel="stylesheet" type="text/css" href="<?php echo $linkrootshop?>/scripts/nivo-slider/nivo-slider.css"/>
     <link rel="stylesheet" type="text/css" href="<?php echo $linkrootshop?>/scripts/nivo-slider/nivo-slider.css"  />
     <link rel="stylesheet" type="text/css" href="<?php echo $linkrootshop?>/scripts/nivo-slider/themes/default/default.css">
 </head>
@@ -134,7 +150,8 @@ require("module/box_device.php");
 </div>
 
 <script type="text/javascript" src="<?php echo $linkrootshop?>/scripts/scrolltopcontrol.js"></script>
-<script src="<?php echo $linkrootshop?>/scripts/jquery.popupoverlay.js"></script>
+<script type="text/javascript" src="<?php echo $linkrootshop?>/scripts/jquery.popupoverlay.js"></script>
+<script type="text/javascript"  src="<?php echo $linkrootshop?>/scripts/resolve.js"></script>
 <script type="text/javascript" src="<?php echo $linkrootshop?>/scripts/nivo-slider/jquery.nivo.slider.js"></script>
 
 <?php include("module/footer.php") ;?>
