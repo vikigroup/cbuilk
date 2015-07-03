@@ -74,11 +74,11 @@ require("module/box_device.php");
     <script type="text/javascript" src="<?php echo $linkrootshop?>/scripts/selectivizr-min.js"></script>
     <![endif]-->
 
-    <link href="<?php echo $linkrootshop?>/templates/css1.css" rel="stylesheet" />
+    <link href="<?php echo $linkrootshop?>/templates/css1.css" rel="stylesheet"  media="screen and (max-width:991px)" />
     <link href="<?php echo $linkrootshop?>/templates/hover.css" rel="stylesheet" />
 
     <link href="<?php echo $linkrootshop?>/lib/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="<?php echo $linkrootshop?>/lib/jquery.bxslider/jquery.bxslider.css" />
+    <link rel="stylesheet" type="text/css" href="<?php echo $linkrootshop?>/lib/jquery.bxslider/jquery.bxslider.css" media="scree and (min-width:992px)" />
     <script type="text/javascript" src="<?php echo $linkrootshop?>/lib/jquery.bxslider/jquery.bxslider.min.js"></script>
     <script type="text/javascript" src="<?php echo $linkrootshop?>/lib/jquery.bxslider/plugins/jquery.easing.1.3.js"></script>
     <script type="text/javascript" src="<?php echo $linkrootshop?>/lib/jquery.bxslider/plugins/jquery.fitvids.js"></script>
