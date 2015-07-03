@@ -102,7 +102,7 @@ require("module/box_device.php");
     <script type="text/javascript" src="<?php echo $linkrootshop?>/lib/SlickNav/jquery.slicknav.js"></script>
 
     <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
-
+    <link rel="stylesheet" type="text/css" href="<?php echo $linkrootshop?>/scripts/nivo-slider/nivo-slider.css"  media="screen and (max-width:991px)" />
     <link rel="stylesheet" type="text/css" href="<?php echo $linkrootshop?>/scripts/nivo-slider/nivo-slider.css"/>
     <link rel="stylesheet" type="text/css" href="<?php echo $linkrootshop?>/scripts/nivo-slider/nivo-slider.css"  />
     <link rel="stylesheet" type="text/css" href="<?php echo $linkrootshop?>/scripts/nivo-slider/themes/default/default.css">
