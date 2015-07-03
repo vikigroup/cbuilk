@@ -1341,7 +1341,13 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     /****************chinh_sua_slide voi kich thuoc thu nho duoi 991**********************/
     .m-slider
     {
-        display:none;
+        display:block;
+    }
+    .nivoSlider
+    {
+        position:absolute;
+        height:auto;
+        overflow:hidden;
     }
 
 
