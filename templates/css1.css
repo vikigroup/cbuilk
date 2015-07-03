@@ -1351,11 +1351,12 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     }
     .nivoSlider img
     {
-        position:absolute;
+        /*position:absolute;*/
         margin-top: 50px;
         left:0;
         padding: 0px;
     }
+
 
 
     /*********************************************end*********************************************/
