@@ -1357,7 +1357,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     }
     .nivoSlider a.nivo-imageLink
     {
-        height: auto !important;
+        height: 200px !important;
         /*
         position:absolute;
         top:0;
