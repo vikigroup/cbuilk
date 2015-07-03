@@ -1348,7 +1348,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     {
         position:relative;
         overflow:hidden;
-        height:200px !important;
+        height:auto !important;
         margin-top: 50px;
     }
 
