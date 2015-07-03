@@ -1274,24 +1274,12 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     {
         position:relative;
         height: inherit;
+        margin: 20px 0px;
         overflow:hidden;
     }
     .nivoSlider a.nivo-imageLink
     {
-        position:absolute;
-        top:0;
-        left:0;
-        width:100%;
-        height:auto;
-        border:0;
-        padding:0;
-        margin-top:20px;
-        z-index:6;
-        display:none;
-        background:white;
-        filter:alpha(opacity=0);
-        opacity:0;
-        max-width: 1210px;
+
     }
 
     .nivo-slice {
