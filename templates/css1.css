@@ -1342,29 +1342,8 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     .m-slider
     {
         display:block;
-        height: 200px !important;
     }
-    .nivoSlider
-    {
-        position:relative;
-        overflow:hidden;
-    }
-    .nivoSlider a.nivo-imageLink {
-        position:absolute;
-        top:0;
-        left:0;
-        width:100%;
-        height:auto;
-        border:0;
-        padding:0;
-        margin:0;
-        z-index:6;
-        display:none;
-        background:white;
-        filter:alpha(opacity=0);
-        opacity:0;
-        max-width: 1210px;
-    }
+
 
 
 
