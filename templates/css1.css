@@ -810,6 +810,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     .menu-responsive
     {
         display: block;
+        position: absolute !important;
     }
 }
 
