@@ -1270,6 +1270,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
         display:block;
 
     }
+    /***********************
     .nivoSlider
     {
         position:relative;
@@ -1281,7 +1282,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 
     .nivoSlider a.nivo-imageLink
     {
-        /*
+
         position:absolute;
         top:0;
         left:0;
@@ -1296,7 +1297,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
         filter:alpha(opacity=0);
         opacity:0;
         max-width: 1210px;
-        */
+
         position: absolute;
         top: 0px;
         left: 0px;
@@ -1350,6 +1351,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     .nivo-html-caption {
         display:none;
     }
+    */
     /****************************************/
     .logo{
         left: 20%;
