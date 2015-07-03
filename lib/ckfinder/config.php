@@ -1,4 +1,10 @@
 <?php
+session_start();
+/////////////////////////////////////////////////////////////////
+
+$linkroot2='/web/images/noidung/';// /web1/demo/uploads/noidung/
+
+/////////////////////////////////////////////////////////////////
 /*
  * ### CKFinder : Configuration File - Basic Instructions
  *
@@ -60,7 +66,7 @@ Examples:
 
 ATTENTION: The trailing slash is required.
 */
-$baseUrl = 'http://localhost/ckeditor-ckfinder-integration/uploads/';
+$baseUrl = 'http://'.$_SERVER['HTTP_HOST'].$linkroot2;
 $enabled = true;
 /*
 $baseDir : the path to the local directory (in the server) which points to the
@@ -79,7 +85,7 @@ Examples:
 
 ATTENTION: The trailing slash is required.
 */
-$baseDir = resolveUrl($baseUrl);
+$baseDir = $_SERVER['DOCUMENT_ROOT'].'/'.$linkroot2;
 
 /*
  * ### Advanced Settings
