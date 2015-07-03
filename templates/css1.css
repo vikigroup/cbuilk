@@ -1281,6 +1281,15 @@ ul.ul-fP li.atc a {color: #3ba11b;}
         padding: 0px;
         margin-top: 40px !important;
     }
+    .nivoSlider img {
+        position:absolute;
+        top:0;
+        left:0;
+        display:none;
+        width: 100%;
+        height: auto !important;
+
+    }
     .nivoSlider a.nivo-imageLink
     {
 
