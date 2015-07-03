@@ -804,7 +804,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 .menu-responsive{display: none;}
 
 
-/********************** nhan dien thiet bi truy cap voi chieu rong max 992px********************/
+/**********************reponsive menu khi kich thuoc nho hon 992px********************/
 
 @media (max-width: 992px)
 {
@@ -814,6 +814,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     }
 }
 
+/***************************************************end*******************************/
 .arrowLine
 {
     float: left;
@@ -836,7 +837,8 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     float:left;
 }
 
-.arrowCategory{
+.arrowCategory
+{
     float: left;
     text-transform: uppercase;
     color: white !important;
@@ -1339,6 +1341,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     .m-slider
     {
         display:block;
+        height: auto !important;
     }
     .nivoSlider
     {
@@ -1712,7 +1715,7 @@ label
     box-shadow: 0 1px 2px rgba(0,0,0,.1);
     box-sizing: border-box;
 }
-
+/***********************************************************************************/
 .fb-comments iframe
 {
     width:100% !important; height: 100% !important;
