@@ -1353,7 +1353,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     {
         /*position:absolute;*/
         margin-top: 50px;
-        padding: 0px;
+        padding: 0px !important;
     }
 
 
