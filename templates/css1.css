@@ -1352,7 +1352,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     }
     .nivoSlider a.nivo-imageLink
     {
-
+        height: auto !important;
     }
 
 
