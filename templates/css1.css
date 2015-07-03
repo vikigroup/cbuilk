@@ -1343,6 +1343,23 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     {
         display:block;
     }
+    #aSlider3
+    {
+        height: auto !important;
+    }
+    #aSlider2
+    {
+        height: auto !important;
+    }
+    #aSlider1
+    {
+        height: auto !important;
+    }
+    #aSlider4
+    {
+        height: auto !important;
+    }
+
     .nivoSlider
     {
         position:absolute;
