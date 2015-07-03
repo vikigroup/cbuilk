@@ -1342,9 +1342,9 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     .m-slider
     {
         display:block;
-        background-color: #FFffff;
+        background-color: #FFffff !important;
         width: 100%;
-        height:auto !important;
+        height:483px;
         box-shadow: 0 1px 2px rgba(0,0,0,.1);
         box-sizing: border-box;
     }
@@ -1374,7 +1374,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
         top:0;
         left:0;
         width:100%;
-        height:auto;
+        height:100%;
         border:0;
         padding:0;
         margin:0;
