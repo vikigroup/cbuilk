@@ -66,7 +66,6 @@ require("module/box_device.php");
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta name="robots" content="index, follow"/>
     <meta name="author" content="www.cbuilk.com"/>
-    <meta property="fb:app_id" content="146061863757100"/>
     <meta property="fb:admins" content="100009718393773"/>
     <meta property="fb:admins" content="100009190135848"/>
     <meta property="og:type" content="website"/>
