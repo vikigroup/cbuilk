@@ -1681,7 +1681,7 @@ a.popup-close
 .nivo-imageLink img
 {
     width: 1210px !important;
-    height: auto;
+    height:200px;
 }
 
 label
