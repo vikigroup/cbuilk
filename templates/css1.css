@@ -1268,6 +1268,9 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     .m-slider
     {
         display:block;
+    }
+    #slider
+    {
         margin: 0px;
         padding: 0px;
     }
@@ -1276,7 +1279,6 @@ ul.ul-fP li.atc a {color: #3ba11b;}
         position:relative;
         margin-top: 40px;
         padding-top: 0px;
-        ;
         overflow:hidden;
     }
     .nivoSlider a.nivo-imageLink
