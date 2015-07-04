@@ -45,8 +45,6 @@ function autoHome(){
         });
 
         $(".nivo-main-image, .m-slider").attr("style", "height: auto !important; margin-top: 20px;");
-        $(".nivoSlider").css('position','relative');
-        $(".nivoSlider").css('margin-bottom','-30px !important');
     }
     if($(window).width() >= 992){
         $('.m-wrap, .f-cont').css('max-width', 1210);
