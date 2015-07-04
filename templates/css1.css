@@ -797,7 +797,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 }
 .f-list ul.ul-list > li > ul > li > a:hover
 {
-    color:#770088;
+    color:red;
     text-decoration: underline;
 }
 
