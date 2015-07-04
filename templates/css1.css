@@ -728,18 +728,26 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 .f-list ul.ul-list > li
 {
     float: left;
-    width: 40%;
+    width: 25%;
 }
 .f-list ul.ul-list > li + li + li + li + li + li
 {
     margin-top: 20px ;
 }
+/*
 .f-list ul.ul-list > li:nth-child(6),
 .f-list ul.ul-list > li:nth-child(11),
 .f-list ul.ul-list > li:nth-child(16),
 .f-list ul.ul-list > li:nth-child(21),
 .f-list ul.ul-list > li:nth-child(26),
 .f-list ul.ul-list > li:nth-child(31)
+*/
+.f-list ul.ul-list > li:nth-child(6),
+.f-list ul.ul-list > li:nth-child(6),
+.f-list ul.ul-list > li:nth-child(6),
+.f-list ul.ul-list > li:nth-child(6),
+.f-list ul.ul-list > li:nth-child(6),
+.f-list ul.ul-list > li:nth-child(6)
 {
     clear: both;
 }
