@@ -776,7 +776,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 
 .f-list ul.ul-list > li > ul > li
 {
-    line-height: 25px;
+    line-height: 22px;
 }
 
 .f-list ul.ul-list > li > ul > li > a
@@ -786,8 +786,8 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     display:block;
     overflow: hidden;
     white-space: nowrap;
-    height: 21px;
-    line-height:21px ;
+    height: 20px;
+    line-height:20px ;
     text-overflow: ellipsis;
     font-size: 12px;
 
