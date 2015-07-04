@@ -47,6 +47,7 @@ function autoHome(){
         $(".nivo-main-image, .m-slider").attr("style", "height:100px !important;margin: 0px !important;");
         $(".nivoSlider").css('position','relative');
         $(".nivoSlider").css('margin-top','40px');
+        $("#container").css('margin-top','0px');
     }
     if($(window).width() >= 992){
         $('.m-wrap, .f-cont').css('max-width', 1210);
