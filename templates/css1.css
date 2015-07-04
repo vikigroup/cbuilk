@@ -749,8 +749,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 {
     color:red;
     background-color:#3399ff;
-    background-size: auto;
-    border-radius: 15px;
+    border-radius: 30px;
     font-weight:bold;
     overflow: hidden;
     white-space: nowrap;
