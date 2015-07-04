@@ -748,7 +748,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 .f-list ul.ul-list > li > a
 {
     color:red;
-    font-weight: bold;
+    font-weight:normal;
     overflow: hidden;
     white-space: nowrap;
     height: 22px;
