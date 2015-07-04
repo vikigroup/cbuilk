@@ -756,6 +756,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     text-overflow: ellipsis;
     font-size: 15px;
     padding-top: 0px;
+    text-align: center;
 
 }
 .f-list ul.ul-list > li > a> img
@@ -793,7 +794,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 {
     width:20px;
     height:20px;
-    padding-right: 4px;
+    padding-right: 6px;
     padding-top: 2px;
     float:left;
     clear: both;
