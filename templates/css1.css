@@ -1268,14 +1268,14 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     .m-slider
     {
         display:block;
-        height: 380px;
+        height:auto !important;
     }
     .nivoSlider
     {
         position:relative;
         height:auto !important;
         overflow:hidden;
-        margin-top: 53px !important;
+        margin-top:0px !important;
         padding: 0px !important;
         border:0px;
         background:white!important;
