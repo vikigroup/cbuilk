@@ -749,7 +749,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 {
     color:red;
     background-color:#00a8ff;
-    border-radius: 10px;
+    border-radius: 5px;
     font-weight:bold;
     overflow: hidden;
     white-space: nowrap;
@@ -762,8 +762,8 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 }
 .f-list ul.ul-list > li > a> img
 {
-    width: 30px;
-    height:25px;
+    width:20px;
+    height:15px;
 }
 
 .f-list ul.ul-list > li > a:hover
