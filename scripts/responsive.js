@@ -44,7 +44,7 @@ function autoHome(){
             prependTo:'#container'
         });
 
-        $(".nivo-main-image, .m-slider").attr("style", "height: auto !important; margin: 20px 0;");
+        $(".nivo-main-image, .m-slider").attr("style", "height: auto !important; margin-top: 30px;");
         $(".nivoSlider").css('position','relative');
 
 
