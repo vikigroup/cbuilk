@@ -1272,27 +1272,20 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     .nivoSlider
     {
         position:relative;
-        height:auto;
+        height:auto !important;
         overflow:hidden;
-        margin-top: 50px !important;
+        margin-top: 53px !important;
         padding: 0px !important;
+        border:0px;
+        background:white!important;
+
     }
     .nivoSlider a.nivo-imageLink
     {
         position:absolute;
-        top:0px;
-        left:0;
         width:100%;
-        height:auto !important;
-        border:0;
-        padding:0;
-        margin:0;
-        z-index:6;
+        height:100%
         display:none;
-        background:white;
-        filter:alpha(opacity=0);
-        opacity:0;
-        max-width: 1210px;
     }
 
     .nivo-slice {
