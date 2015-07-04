@@ -785,7 +785,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     height: 21px;
     text-overflow: ellipsis;
     padding-top: 5px;
-    background-image: url("imgs/layout/icon-list.png");
+    background-image: url("./imgs/layout/icon-list.png");
 }
 /*
 .f-list ul.ul-list > li >ul >li > a> img
