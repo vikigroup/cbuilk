@@ -44,7 +44,7 @@ function autoHome(){
             prependTo:'#container'
         });
 
-        $(".nivo-main-image, .m-slider").attr("style", "height: auto !important; margin: 0px !important;padding: 0px !important; border: 0px !important;");
+        $(".nivo-main-image, .m-slider").attr("style", "height: auto !important; margin-top: 20px;");
         $(".nivoSlider").css('position','relative');
         /*
         $(".nivo-main-image, .m-slider").attr("style", "height: auto !important; margin-top: 20px;  ");
@@ -57,47 +57,6 @@ function autoHome(){
 
 
     }
-    if($(window).width() <767)
-    {
-        $('.m-wrap, .dmsp4-3, .ads-home, .btn-gh3, .form_dn, .form_dn ul li, .l-fcont, .r-fcont' +
-        ', .sli-fcon-1 .bx-wrapper .bx-viewport, .filter-Prod, .content').css('width', windowSize);
-        $('.divProductLine1, .divProductOverlay1').css('width', windowSize/2 - 2);
-        $('.sli-fcon-1').css('width', windowSize - 2);
-        $('.li-Pc1').css('width', windowSize/2 - 23);
-        $('.ul-ifoot li, .menu').css('width', '100%');
-        $('.select_input_search').css('width', $('.search_top_header form').width() - 130);
-        $('.arrowCategory').css('width', windowSize - 54);
-        $('.t-Pnb').css('max-width', windowSize - 2);
-        $('.hotline').attr('style', 'margin: 0 0 0 5px !important;');
-        $('.dmsp4-3').css('max-width', windowSize);
-        $('.prod_row1').css('width', windowSize/2 - 20);
-
-        for(var i = 0; i < 8; i++){
-            if($('#aCategoryName'+i).height() > 14){
-                $('#divCategoryID'+i).css('padding', '5px 0 0 0');
-            }
-        }
-
-        $('#menu').slicknav({
-            prependTo:'#container'
-        });
-
-        $(".nivo-main-image, .m-slider").attr("style", "height: auto !important; margin: 0px !important;padding: 0px !important; border: 0px !important;");
-        $(".nivoSlider").css('position','relative');
-        $(".nivoSlider").css('margin-bottom','-10px');
-        /*
-         $(".nivo-main-image, .m-slider").attr("style", "height: auto !important; margin-top: 20px;  ");
-         $(".nivoSlider").css('position','relative');
-         $(".nivoSlider").css('margin-bottom','-30px');
-         $(".m-slider").css('padding','0px !important');
-         $(".m-slider").css('border','0px !important');
-         */
-
-
-
-    }
-
-
     if($(window).width() >= 992){
         $('.m-wrap, .f-cont').css('max-width', 1210);
         $('.m-wrap, .f-cont').css('width', '100%');
