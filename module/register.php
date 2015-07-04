@@ -50,7 +50,7 @@ if (isset($_POST['btn_dangky'])==true)//isset kiem tra submit
 			$vale2="'".$tendk."','".$password."','".$hoten."','".$dienthoai."','".$email."','".$ngay."','"
 			.$ngay."','".$kichhoatx."','".$khoa."','".$randomkey."'";
 			insert_table('tbl_customer',$vale1,$vale2,$hinh);
-			
+
 			$_SESSION['register_re']="1";
 
             echo("<script>if(confirm('Xin chúc mừng bạn đã đăng ký thành công! Chỉ còn một bước nữa thôi là có thể mở gian hàng')){

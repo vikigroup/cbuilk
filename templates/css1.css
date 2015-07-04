@@ -1264,73 +1264,12 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     .filter-Prod .t-Pnb{
         padding: 0;
     }
-    /***********************************************************************************************************/
+
     .m-slider
     {
         display:block;
         clear: both;
     }
-    .nivoSlider
-    {
-        position:relative;
-        height:auto !important;
-        overflow:hidden;
-        margin-top:20px !important;
-        padding: 0px !important;
-        border:0px;
-        background:white!important;
-
-    }
-    .nivoSlider a.nivo-imageLink
-    {
-        position:absolute;
-        width:100%;
-        height:100%;
-        display:none;
-    }
-    .nivo-slice {
-        display:block;
-        position:absolute;
-        z-index:5;
-        height:100%;
-        top:0;
-    }
-    .nivo-box {
-        display:block;
-        position:absolute;
-        z-index:5;
-        overflow:hidden;
-    }
-    .nivo-box img { display:block; }
-    .nivo-caption {
-        position:absolute;
-        left:0px;
-        bottom:0px;
-        background:#000;
-        color:#fff;
-        width:100%;
-        z-index:8;
-        padding: 5px 10px;
-        opacity: 0.8;
-        overflow: hidden;
-        display: none;
-        -moz-opacity: 0.8;
-        filter:alpha(opacity=8);
-        -webkit-box-sizing: border-box; /
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;
-    }
-    .nivo-caption p {
-        padding:5px;
-        margin:0;
-    }
-    .nivo-caption a {
-        display:inline !important;
-    }
-    .nivo-html-caption {
-        display:none;
-    }
-    /*********************----------------------------------------end#sile---------------*******************/
     .logo{
         left: 20%;
     }
@@ -1371,7 +1310,6 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     .mini-bar{
         visibility: hidden;
     }
-
 }
 
 @media (min-width: 992px) and (max-width: 1008px)
@@ -1714,4 +1652,8 @@ pre.prettyprint {
 
 .button-secondary {
     background: rgb(66, 184, 221) !important; /* this is a light blue */
+}
+
+.button-transparent {
+    background: transparent !important; /* this is a green */
 }

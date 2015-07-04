@@ -43,6 +43,8 @@ function autoHome(){
         $('#menu').slicknav({
             prependTo:'#container'
         });
+
+        $(".nivo-main-image, .m-slider").attr("style", "height: auto !important; margin: 50px 0;");
     }
 
     if($(window).width() >= 992){
