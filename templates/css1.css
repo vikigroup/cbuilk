@@ -721,9 +721,10 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     border-radius: 3px;
 }
 /****************************alldanhmuc*******************************************/
+
 .f-list
 {
-    padding: 30px;
+    padding: 30px ;
 }
 .f-list ul.ul-list > li
 {
@@ -759,7 +760,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 }
 .f-list ul.ul-list > li > a> img
 {
-    width: 16px;
+    width: 20px;
     height: 10px;
 }
 
@@ -796,6 +797,16 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 .f-list ul.ul-list > li > ul > li > a:hover
 {
     color: #3ba11b; text-decoration: underline;
+}
+
+.imgAllProduct1
+{
+
+}
+
+.imgAllProduct
+{
+
 }
 
 
