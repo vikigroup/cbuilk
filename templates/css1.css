@@ -1367,9 +1367,9 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     .div404{
         padding: 35% 0;
     }
-<<<<<<< .mine
-        iframe { max-width:100% !important; max-heigh:auto !important; }
-=======
+
+    iframe { max-width:100% !important; max-heigh:auto !important; }
+
     iframe {
         max-width:100% !important;
         max-height: 100% !important;
@@ -1377,7 +1377,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     .mini-bar{
         visibility: hidden;
     }
->>>>>>> .r1222
+
 }
 
 @media (min-width: 992px) and (max-width: 1008px)
