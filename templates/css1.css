@@ -732,7 +732,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 }
 .f-list ul.ul-list > li + li + li + li + li + li
 {
-    margin-top: 20px ;
+    margin: 20px !important; ;
 }
 /*
 .f-list ul.ul-list > li:nth-child(6),
@@ -754,7 +754,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 
 .f-list ul.ul-list > li > a
 {
-    color: #0033CC;
+    color: red;
     font-weight: bold;
     overflow: hidden;
     white-space: nowrap;
