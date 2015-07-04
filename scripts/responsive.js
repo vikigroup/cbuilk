@@ -45,12 +45,6 @@ function autoHome(){
         });
 
         $(".nivo-main-image, .m-slider").attr("style", "height: auto !important; margin: 0px;");
-        $(".nivoSlider").css('position','relative');
-
-        $(".m-slider").css('padding','0px !important');
-        $(".m-slider").css('border','0px !important');
-
-
 
 
     }
