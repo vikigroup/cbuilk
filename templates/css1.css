@@ -1269,46 +1269,6 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     {
         display:block;
     }
-    .nivoSlider
-    {
-        position:relative;
-        height:auto;
-        overflow:hidden;
-    }
-    /*
-    .nivoSlider img {
-        position:relative;
-        top:0;
-        left:0;
-        display:none;
-        width: 100%;
-        height: 482px !important;
-
-    }
-    .nivo-main-image {
-        display: block !important;
-        position: relative !important;
-        width: 100% !important;
-        max-width: 1210px !important;
-    }
-
-    .nivoSlider a.nivo-imageLink {
-        position:absolute;
-        top:0;
-        left:0;
-        width:100%;
-        height:auto;
-        border:0;
-        padding:0;
-        margin:0;
-        z-index:6;
-        display:none;
-        background:white;
-        filter:alpha(opacity=0);
-        opacity:0;
-        max-width: 1210px;
-    }
-    */
 
     /*******************************/
     .logo{
