@@ -7,7 +7,7 @@
     <div class="f-list">
         <ul class="ul-list">
             <?php
-            $cate=get_records("tbl_shop_category","status=0 AND  parent=2","sort ASC LIMIT 0, 6"," "," ");
+            $cate=get_records("tbl_shop_category","status=0 AND  parent=2","sort ASC "," "," ");
             //$cate=get_records("tbl_shop_category","status=0 AND  parent=2","sort ASC"," "," ");
             //$sql = 'SELECT * FROM product where p_trangthaisp=1 ORDER BY p_ban DESC  LIMIT 0 , 12';
             $t=mysql_num_rows($cate);
