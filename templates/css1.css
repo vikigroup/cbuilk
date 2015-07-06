@@ -775,7 +775,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 
 .f-list ul.ul-list > li > ul > li
 {
-    padding-top:0px
+    margin-bottom: 25px;
 }
 
 .f-list ul.ul-list > li > ul > li > a
