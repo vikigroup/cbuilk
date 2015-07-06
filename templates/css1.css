@@ -731,11 +731,11 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 .f-list ul.ul-list > li
 {
     float: left;
-    width: 24%;
+    width: 25%;
 }
 .f-list ul.ul-list > li + li + li + li + li + li
 {
-    margin-top: 25px ;
+    margin-top: 0px ;
 }
 .f-list ul.ul-list > li:nth-child(5),
 .f-list ul.ul-list > li:nth-child(9),
