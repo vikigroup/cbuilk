@@ -1,47 +1,4 @@
-<?php include("module/addcart.php") ?>
-<div class="form_dn">
-    <style>
-        .sty_table_rv{
-            border-right:1px solid #ccc;
-            border-top:1px solid #ccc;
-        }
-        .sty_table_rv td{
-            border-left:1px solid #ccc;
-            border-bottom:1px solid #ccc;
-
-            padding:5px;
-        }
-    </style>
-    <script type="text/javascript">
-        $(document).ready(function() {
-
-            $(".click_cardt").click(function(){;
-                alert(" Sửa giỏ hàng thành công");;
-                var a;
-                a=$(this).attr("value");
-                var idtin=$("#idtin"+a).val();;
-                var sl=$("#qty"+a).val();;
-                var pri=$("#price"+a).val();;
-                $(".main_card").load("<?php echo $host_link_full;?>/content/temp<?php echo $url;?>/add_ajax.php?idtin="+idtin+"&sl="+sl+"&update=1",function() {
-                    window.location.reload();
-                });;
-            });;
-            $(".deletet").click(function(){;
-                alert(" Xóa sản phẩm thành công");;
-                var a;
-                a=$(this).attr("value");
-                var idtin=$("#idtin"+a).val();;
-                var sl=$("#qty"+a).val();;
-                var pri=$("#price"+a).val();;
-                $(".main_card").load("<?php echo $host_link_full;?>/content/temp<?php echo $url;?>/delete_ajax.php?idtin="+idtin,function() {
-                    window.location.reload();
-                });;
-            });;
-
-        });
-
-    </script>
-    <div class="content_w">
+<div class="content_w">
 
         <div class="title_frame_main_text">
 <!--            --><?php //echo module_keyword($mang11,$mang22,"viewcart");?>
@@ -128,7 +85,7 @@
                     else { ?>
                         <br />
                         <center>
-                            Chưa có sản phẩm nào trong giỏ!
+                            Chua co san pham nao trong gio hang!
                         </center>
                         <br />
                         <br />
