@@ -53,11 +53,18 @@ if (isset($_POST['btn_dangky'])==true)//isset kiem tra submit
 
 			$_SESSION['register_re']="1";
 
-            echo("<script>if(confirm('Xin chúc mừng bạn đã đăng ký thành công! Chỉ còn một bước nữa thôi là có thể mở gian hàng')){
-                window.location='".$linkrootshop."/dang-ky-gian-hang.html';
-             } else {
-                window.location='".$linkrootshop."';
-             };</script>");
+            echo("<script>
+                $('#aConfirm').click();
+                var dataString = 'email=".$email."&hoten=".$hoten."';
+                $.ajax({
+                    type: 'POST',
+                    url: 'lib/phpmailer/external/register_member.php',
+                    data: dataString,
+                    success: function(x){
+
+                    }
+                });
+            </script>");
         }
 }
 
@@ -69,7 +76,7 @@ if (isset($_POST['btn_dangky'])==true)//isset kiem tra submit
 
 ?>
 <div class="form_dn">
-  <script>
+<script>
 $(document).ready(function() {
 	$("#tendk").keyup(function(){
 	   var val=this.value;
@@ -128,12 +135,9 @@ $(document).ready(function() {
     }
 });
 </script>
-  
     <ul>
-        <li>
-            <center>
-                <img src="<?php echo $linkrootshop;?>/imgs/layout/LoginRed.jpg" alt=""/>
-            </center>
+        <li style="text-align: center;">
+            <img src="<?php echo $linkrootshop;?>/imgs/layout/LoginRed.jpg" alt=""/>
         </li>
         <li>
             <div class="main_f_dn">
@@ -227,5 +231,30 @@ $(document).ready(function() {
             </div><!-- End .main_f_dn -->
         </li>
     </ul>
+
+    <a href="#popconfirm" class="initialism popconfirm_open" id="aConfirm"></a>
+    <!-- Fade & scale -->
+    <div id="popconfirm" class="well">
+        <h4>XÁC NHẬN</h4>
+        <img src="../imgs/load.gif">
+        <h4>...đang xử lý. Xin vui lòng đợi trong giây lát...</h4>
+
+        <button type="submit" class="button-success pure-button" id="popBrandSubmit">Hoàn tất</button>
+        <button class="popconfirm_close button-error pure-button" id="popBrandClose">Đóng</button>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $('#popconfirm').popup({
+                pagecontainer: '.container',
+                transition: 'all 0.3s'
+            });
+        });
+    </script>
     <div class="clear"></div>
 </div>
+<script>
+    window.onload = function(){
+        $("#aConfirm").click();
+    }
+</script>

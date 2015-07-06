@@ -1606,7 +1606,7 @@ label{
     float: right;
 }
 
-#fadeandscale {
+#fadeandscale, #popconfirm {
     -webkit-transform: scale(0.8);
     -moz-transform: scale(0.8);
     -ms-transform: scale(0.8);
@@ -1615,7 +1615,7 @@ label{
     border-radius: 5px;
     padding: 10px;
 }
-.popup_visible #fadeandscale {
+.popup_visible #fadeandscale, .popup_visible #popconfirm{
     -webkit-transform: scale(1);
     -moz-transform: scale(1);
     -ms-transform: scale(1);
