@@ -725,7 +725,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 
 .f-list
 {
-    margin: 0px 10px;
+    margin: 10px 10px;
     padding:0px 10px;
 }
 .f-list ul.ul-list > li
@@ -735,7 +735,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 }
 .f-list ul.ul-list > li + li + li + li + li + li
 {
-    margin-top: 0px ;
+    margin-top: 10px ;
 }
 .f-list ul.ul-list > li:nth-child(5),
 .f-list ul.ul-list > li:nth-child(9),
@@ -775,7 +775,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 
 .f-list ul.ul-list > li > ul > li
 {
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 .f-list ul.ul-list > li > ul > li > a
