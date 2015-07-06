@@ -762,9 +762,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 }
 .f-list ul.ul-list > li > a> img
 {
-    width:45px;
-    height:50px;
-    padding-right:10px ;
+
 
 }
 
@@ -794,12 +792,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 }
 .f-list ul.ul-list > li >ul >li > a> img
 {
-    width:20px;
-    height:20px;
-    padding-right: 20px;
-    padding-left: 3px;
-    padding-top: 1px;
-    float:left;
+
 }
 .f-list ul.ul-list > li > ul > li > a:hover
 {
@@ -809,13 +802,19 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 
 .f-list ul.ul-list > li >ul >li > a> img .imgAllProduct1
 {
-    widows: 30px;
-    height: 20px !important;
+    width:20px;
+    height:20px;
+    padding-right: 20px;
+    padding-left: 3px;
+    padding-top: 1px;
+    float:left;
 }
 
-.imgAllProduct
+.f-list ul.ul-list > li > a> img .imgAllProduct
 {
-
+    width:45px;
+    height:50px;
+    padding-right:10px ;
 }
 
 
