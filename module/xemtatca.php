@@ -1,5 +1,5 @@
 <section class="list-cate">
-
+    <!-----
     <h2 class="t-mn-dm">
         Tất cả danh mục
     </h2><!-- End .t-mn-dm -->
