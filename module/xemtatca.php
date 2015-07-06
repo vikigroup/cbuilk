@@ -7,7 +7,7 @@
     <div class="f-list">
         <ul class="ul-list">
             <?php
-            $cate=get_records("tbl_shop_category","status=0 AND  parent=2","sort ASC"," "," ");
+            $cate=get_records("tbl_shop_category","status=0 AND  parent=2","sort DESC"," "," ");
             $t=mysql_num_rows($cate);
             $k=1;
             $n=1;
