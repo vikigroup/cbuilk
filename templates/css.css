@@ -7,8 +7,10 @@
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
-    line-height: 15px;
-    padding-top: 10px;
+    line-height: 20px;
+    padding: 20px;
+    margin-top: 0px !important;
+    height:auto;
 }
 
 body{
