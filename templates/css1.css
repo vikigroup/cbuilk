@@ -799,7 +799,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     padding-right: 20px;
     padding-left: 3px;
     padding-top: 1px;
-    /*float:left;*/
+    float:left;
 }
 .f-list ul.ul-list > li > ul > li > a:hover
 {
