@@ -807,9 +807,10 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     text-decoration: underline;
 }
 
-.imgAllProduct1
+.f-list ul.ul-list > li >ul >li > a> img .imgAllProduct1
 {
-
+    widows: 30px;
+    height: 20px !important;
 }
 
 .imgAllProduct
