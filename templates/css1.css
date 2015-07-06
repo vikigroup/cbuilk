@@ -793,8 +793,8 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 }
 .f-list ul.ul-list > li >ul >li > a> img
 {
-    width:20px;
-    height:20px;
+    width:25px;
+    height:30px;
     padding-right: 20px;
     padding-left: 3px;
     padding-top: 1px;
@@ -805,17 +805,6 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     color:red;
     text-decoration: underline;
 }
-
-.imgAllProduct1
-{
-
-}
-
-.imgAllProduct
-{
-
-}
-
 
 /*****************************end#all*****************************************/
 
