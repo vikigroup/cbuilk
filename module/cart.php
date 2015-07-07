@@ -85,7 +85,7 @@
                     else { ?>
                         <br />
                         <center>
-                            Chua co san pham nao trong gio hang!
+                            Chua co san pham nao trong !
                         </center>
                         <br />
                         <br />
