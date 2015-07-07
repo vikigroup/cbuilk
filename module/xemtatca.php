@@ -1,13 +1,3 @@
-<?php require('data.php'); ?>
-<style type="text/css">
-    .button{
-        display: inline-block;
-        background: blue;
-        padding: 5px 10px;
-        color:#FFF;
-        margin: 20px;
-    }
-</style>
 
 <section class="list-cate">
     <!-----
@@ -41,7 +31,7 @@
                                     <img class="imgAllProduct1" src="<?php echo $linkrootshop?>/web/<?php echo $row_cate1['image']; ?>"?>
                                 </a>
                                 <!------them load more---------->
-                                <a href="#" class="button" id="load_more"> + </a>
+
                             </li>
                         <?php }?>
                     </ul>
@@ -53,5 +43,3 @@
 
 </section>
 
-
-<a href="#" class="button" id="load_more">LOAD MORE</a>
