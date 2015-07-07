@@ -1,3 +1,14 @@
+<?php require('data.php'); ?>
+<style type="text/css">
+    .button{
+        display: inline-block;
+        background: blue;
+        padding: 5px 10px;
+        color:#FFF;
+        margin: 20px;
+    }
+</style>
+
 <section class="list-cate">
     <!-----
     <h2 class="t-mn-dm">
@@ -7,7 +18,7 @@
     <div class="f-list">
         <ul class="ul-list">
             <?php
-            $cate=get_records("tbl_shop_category","status=0 AND  parent=2","sort ASC Limit 2,30"," "," ");
+            $cate=get_records("tbl_shop_category","status=0 AND  parent=2","sort ASC Limit 2,32"," "," ");
             //$cate=get_records("tbl_shop_category","status=0 AND  parent=2","sort ASC"," "," ");
             //$sql = 'SELECT * FROM product where p_trangthaisp=1 ORDER BY p_ban DESC  LIMIT 0 , 12';
             $t=mysql_num_rows($cate);
@@ -23,12 +34,15 @@
                     <ul>
                         <?php
                         $cate1=get_records("tbl_shop_category","status=0 AND parent='".$row_cate['id']."'","sort DESC"," "," ");
-                        while($row_cate1=mysql_fetch_assoc($cate1)){
+                        while($row_cate1=mysql_fetch_assoc($cate1))
+                        {
                             ?>
                             <li>
                                 <a href="<?php echo $linkrootshop?>/<?php echo $row_cate1['subject'];?>.html" title=""><?php echo $row_cate1['name'];?>
                                     <img class="imgAllProduct1" src="<?php echo $linkrootshop?>/web/<?php echo $row_cate1['image']; ?>"?>
                                 </a>
+                                <!------them load more---------->
+                                <a href="#" class="button" id="load_more"> + </a>
                             </li>
                         <?php }?>
                     </ul>
@@ -39,3 +53,6 @@
     </div><!-- End .f-list -->
 
 </section>
+
+
+<a href="#" class="button" id="load_more">LOAD MORE</a>
