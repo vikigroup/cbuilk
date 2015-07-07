@@ -137,7 +137,7 @@ $(document).ready(function() {
 </script>
     <ul>
         <li style="text-align: center;">
-            <img src="<?php echo $linkrootshop;?>/imgs/layout/LoginRed.jpg" alt=""/>
+            <img src="<?php echo $linkrootshop;?>/imgs/layout/LoginRed.png" alt=""/>
         </li>
         <li>
             <div class="main_f_dn">
@@ -232,29 +232,20 @@ $(document).ready(function() {
         </li>
     </ul>
 
-    <a href="#popconfirm" class="initialism popconfirm_open" id="aConfirm"></a>
-    <!-- Fade & scale -->
-    <div id="popconfirm" class="well">
-        <h4>XÁC NHẬN</h4>
-        <img src="../imgs/load.gif">
-        <h4>...đang xử lý. Xin vui lòng đợi trong giây lát...</h4>
-
-        <button type="submit" class="button-success pure-button" id="popBrandSubmit">Hoàn tất</button>
-        <button class="popconfirm_close button-error pure-button" id="popBrandClose">Đóng</button>
-    </div>
-
-    <script>
-        $(document).ready(function () {
-            $('#popconfirm').popup({
-                pagecontainer: '.container',
-                transition: 'all 0.3s'
-            });
-        });
-    </script>
     <div class="clear"></div>
 </div>
+
+<div class="light" id="lightConfirm" style="width: 400px; height: 200px; top: 30%; left: 35%; border: 1px solid #000">
+    <div style="background-color: orange; font-weight: bolder; font-size: 20px; margin: 10px; padding: 10px; color: white; text-align: center"><span style="padding: 20px">THÔNG BÁO</span></div>
+    <p style="text-align: center; color: darkgreen; font-weight: bold">Sự kiện quảng cáo đã được tạo thành công!</p>
+    <div class="row" style="text-align: center">
+        <span style="padding: 10px; width: 500px; background-color: darkorange; color: white; font-size: 18px; cursor: pointer; margin: 30px" onclick="lightbox_close('lightAdminAdsConfirm', 'fadeAdminAdsConfirm');">Đóng cửa sổ</span>
+    </div>
+</div>
+<div class="fade" id="fadeConfirm"></div>
+
 <script>
     window.onload = function(){
-        $("#aConfirm").click();
+        lightbox_open("lightConfirm", "fadeConfirm");
     }
 </script>

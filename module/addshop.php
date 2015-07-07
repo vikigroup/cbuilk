@@ -133,7 +133,7 @@ $(document).ready(function() {
     <ul>
         <li id="gif_slide_frame"  >
             <center>
-                <img src="<?php echo $linkrootshop;?>/imgs/layout/LoginRed.jpg" alt=""/>
+                <img src="<?php echo $linkrootshop;?>/imgs/layout/LoginRed.png" alt=""/>
             </center>
         </li>
         <li>

@@ -133,3 +133,14 @@ $("#popBrandSubmit").click(function(){
         });
     }
 });
+
+function lightbox_open(idLight, idFade){
+    window.scrollTo(0,0);
+    document.getElementById(idLight).style.display='block';
+    document.getElementById(idFade).style.display='block';
+}
+
+function lightbox_close(idLight, idFade){
+    document.getElementById(idLight).style.display='none';
+    document.getElementById(idFade).style.display='none';
+}

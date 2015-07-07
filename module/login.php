@@ -100,7 +100,7 @@ if (isset($_POST['quayra'])==true) {
     </div>
     <ul>
         <li>
-            <img src="<?php echo $linkrootshop;?>/imgs/layout/LoginRed.jpg" alt=""/>
+            <img src="<?php echo $linkrootshop;?>/imgs/layout/LoginRed.png" alt=""/>
         </li>
         <li>
             <div class="main_f_dn">

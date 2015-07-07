@@ -88,7 +88,7 @@
     <ul>
         <li>
             <center>
-                <img src="<?php echo $linkrootshop;?>/imgs/layout/LoginRed.jpg" alt=""/>
+                <img src="<?php echo $linkrootshop;?>/imgs/layout/LoginRed.png" alt=""/>
             </center>
         </li>
         <li>
