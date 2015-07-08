@@ -1,4 +1,3 @@
-<body>
 <div class="container">
 <div class="row" style="margin-top: 20%; margin-bottom: 20%;">
     <div class="col-lg-3 col-xs-12"></div>
@@ -17,7 +16,6 @@
     <div class="col-lg-3 col-xs-12"></div>
 </div>
 </div>
-</body>
 
 <script>
     $(document).ready(function () {

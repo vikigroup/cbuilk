@@ -31,7 +31,7 @@ $body = '<div class="container-fluid" style="background: #8DCAE9; padding: 5px; 
                     <p>Mật khẩu: <b>'.$_POST['matkhau'].'</b></p>
                 </div>
                 <p>Vui lòng nhấn vào đường dẫn dưới đây để hoàn tất việc đăng ký.</p>
-                <p><a href="'.$root.'/active.html?key='.$_POST['key'].'">Kích hoạt</a></p>
+                <p><a href="'.$root.'/kich-hoat.html?key='.$_POST['key'].'">Kích hoạt</a></p>
                 <p>Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi.</p>
                 <p>Trân trọng,</p>
             </div>
