@@ -14,6 +14,10 @@
         updateBrand();
     }
 
+    if($functionName == "updateCustomerActive"){
+        updateCustomerActive();
+    }
+
     function connect(){
         // Create connection
         $conn = new mysqli($GLOBALS['servername'], $GLOBALS['username'], $GLOBALS['password'], $GLOBALS['dbname']);
@@ -76,6 +80,23 @@
         echo update("tbl_item", "last_modified = '".$dt."', brand_name = n'".$brandName."', brand_link = '".$brandLink."', brand_style = '".$brandStyle."'", "id = '".$brandID."'");
     }
 
+    function updateCustomerActive(){
+        $key = filter_input(INPUT_POST, 'activeKey');
+        $isExist = selectCondition("tbl_customer", "randomkey='".$key."'");
+        if($isExist == 1){
+            $check = selectField("tbl_customer", "active", "randomkey='".$key."'");
+            if($check == 0){
+                echo update("tbl_customer", "active = '1'", "randomkey = '".$key."'");
+            }
+            else{
+                echo 0;
+            }
+        }
+        else{
+            echo 0;
+        }
+    }
+
     function update($table, $field, $condition){
         $conn = connect();
         $sql = "UPDATE ".$table." SET ".$field." WHERE ".$condition;
@@ -83,6 +104,40 @@
             return 1;
         } else {
             return "Error updating record: " . $conn->error;
+        }
+        $conn->close();
+    }
+
+    //select with a specified field
+    function selectField($table, $field, $condition){
+        $conn = connect();
+        if($condition != ""){
+            $sql = "SELECT * FROM ".$table." WHERE ".$condition;
+        }
+        else{
+            $sql = "SELECT * FROM ".$table;
+        }
+
+        $result = $conn->query($sql);
+        if ($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()) {
+                return $row[$field];
+            }
+        } else {
+            return "0 results";
+        }
+        $conn->close();
+    }
+
+    //select with a specified condition (check existence)
+    function selectCondition($table, $condition){
+        $conn = connect();
+        $sql = "SELECT * FROM ".$table." WHERE ".$condition;
+        $result = $conn->query($sql);
+        if ($result->num_rows > 0) {
+            return 1;
+        } else {
+            return 0;
         }
         $conn->close();
     }
