@@ -1434,7 +1434,8 @@ a.popup-link:hover {
     -moz-transition:all 1s;
     transition:all 1s;
     height: auto;
-}@media (min-width: 768px){
+}
+@media (min-width: 768px){
     .popup-container {
         width:757px;
     }
@@ -1668,6 +1669,18 @@ pre.prettyprint {
     background: transparent !important; /* this is a green */
 }
 
+.success {
+    color: rgb(28, 184, 65) !important; /* this is a green */
+}
+
+.error {
+    color: rgb(202, 60, 60) !important; /* this is a maroon */
+}
+
+.warning {
+    color: rgb(223, 117, 20) !important; /* this is an orange */
+}
+
 .fade{
     display: none;
     position: fixed;
@@ -1681,16 +1694,87 @@ pre.prettyprint {
     filter: alpha(opacity=70);
     background: #000;
 }
+
 .light{
     display: none;
     position: absolute;
-    top: 15%;
-    left: 10%;
-    width: 1000px;
-    height: 500px;
     padding: 5px;
-    border: 2px solid #FFF;
-    background: #F1F1F1;
+    background: #8DCAE9;
     z-index:1002;
     overflow:visible;
+    width: 35%;
+    height: auto;
+    top: 30%;
+    left: 35%;
+    border-radius: 8px;
 }
+
+.lightTitle{
+    background-color: #ffffff;
+    color: #355F77;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.pTitle{
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+#divConfirm{
+    font-size: 14px;
+}
+
+.pCloseConfirm{
+    padding: 20px;
+    cursor: pointer;
+    display: none;
+}
+
+@media (max-width: 991px){
+    .light{
+        left: 1%;
+        width: 94%;
+    }
+}
+
+menu{
+    margin: 40px auto;
+    border-radius: 4px;
+    max-width: 480px;
+    overflow: hidden
+}
+
+menu li{
+    position: relative;
+    list-style: none;
+    display: inline-block;
+    padding: 10px 4px 10px 20px;
+    line-height: 20px;
+    margin: 0;
+    box-shadow: -2px 0 0 orange;
+    background-color: orange;
+    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+    color: white;
+}
+
+menu li:before, menu li:after{
+    content: '';
+    position: absolute;
+    top: -2px;
+    border-bottom: 22px solid transparent;
+    border-top: 22px solid transparent
+}
+menu li:before{
+    border-left: 20px solid #ccc;
+    left: 100%;
+}
+
+menu li:after{
+    border-left: 20px solid orange;
+    left: 98%;
+}
+
+menu li:nth-child(1){z-index: 2}
+menu li:nth-child(2){z-index: 1}

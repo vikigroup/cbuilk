@@ -32,8 +32,7 @@ if (isset($_POST['btn_dangky'])==true)//isset kiem tra submit
 		$coloi=false;
 
         if(get_field("tbl_customer","username",$tendk,"id")!="") {$coloi=true; $loi = "Tên đăng nhập này đã được đăng ký!<br/>";}
-
-        if(get_field("tbl_customer","email",$email,"id")!="") {$coloi=true; $loi .= "Email này đã được đăng ký! <a href='".$linkrootshop."/quen-mat-khau.html'>Nhấn vào đây</a> để lấy lại mật khẩu <br/>";}
+        else if(get_field("tbl_customer","email",$email,"id")!="") {$coloi=true; $loi .= "Email này đã được đăng ký!<br/>";}
 
         if ($_SESSION['captcha_code'] != $cap) {$coloi=true; $loi .= "Mã bảo mật chưa đúng!";}
 
@@ -45,7 +44,7 @@ if (isset($_POST['btn_dangky'])==true)//isset kiem tra submit
 			$password=md5(md5(md5($matkhau)));
 			$randomkey=chuoingaunhien(50);
 			$khoa=1;
-			$kichhoatx=1;
+			$kichhoatx=0;
 			$vale1='username,password,name,mobile,email,date_added,last_modified,active,status,randomkey';
 			$vale2="'".$tendk."','".$password."','".$hoten."','".$dienthoai."','".$email."','".$ngay."','"
 			.$ngay."','".$kichhoatx."','".$khoa."','".$randomkey."'";
@@ -54,16 +53,21 @@ if (isset($_POST['btn_dangky'])==true)//isset kiem tra submit
 			$_SESSION['register_re']="1";
 
             echo("<script>
-                $('#aConfirm').click();
-                var dataString = 'email=".$email."&hoten=".$hoten."';
-                $.ajax({
-                    type: 'POST',
-                    url: 'lib/phpmailer/external/register_member.php',
-                    data: dataString,
-                    success: function(x){
-
-                    }
-                });
+                window.onload = function(){
+                    $('#divConfirm').html('<img src=".'../imgs/load.gif'."><p>Đang xử lý, xin vui lòng chờ...</p>');
+                    lightbox_open('lightConfirm', 'fadeConfirm');
+                    var dataString = 'email=".$email."&hoten=".$hoten."&tendk=".$tendk."&matkhau=".$matkhau."&key=".$randomkey."';
+                    $.ajax({
+                        type: 'POST',
+                        url: 'lib/phpmailer/external/register_member.php',
+                        data: dataString,
+                        success: function(x){
+                            $('#divConfirm').html('<menu><li class=".'success'.">Nhập thông tin</li><li class=".'success'.">Hệ thống kiểm tra</li><li class=".'error'.">Xác thực</li></menu>');
+                            $('#divConfirm').append('Đường dẫn kích hoạt tài khoản của bạn đã được gửi qua email, vui lòng kiểm tra và làm theo hướng dẫn.');
+                            $('.pCloseConfirm').show();
+                        }
+                    });
+                }
             </script>");
         }
 }
@@ -234,18 +238,3 @@ $(document).ready(function() {
 
     <div class="clear"></div>
 </div>
-
-<div class="light" id="lightConfirm" style="width: 400px; height: 200px; top: 30%; left: 35%; border: 1px solid #000">
-    <div style="background-color: orange; font-weight: bolder; font-size: 20px; margin: 10px; padding: 10px; color: white; text-align: center"><span style="padding: 20px">THÔNG BÁO</span></div>
-    <p style="text-align: center; color: darkgreen; font-weight: bold">Sự kiện quảng cáo đã được tạo thành công!</p>
-    <div class="row" style="text-align: center">
-        <span style="padding: 10px; width: 500px; background-color: darkorange; color: white; font-size: 18px; cursor: pointer; margin: 30px" onclick="lightbox_close('lightAdminAdsConfirm', 'fadeAdminAdsConfirm');">Đóng cửa sổ</span>
-    </div>
-</div>
-<div class="fade" id="fadeConfirm"></div>
-
-<script>
-    window.onload = function(){
-        lightbox_open("lightConfirm", "fadeConfirm");
-    }
-</script>

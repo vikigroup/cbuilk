@@ -23,7 +23,7 @@ if($row_sanpham['id']!="")   {
 
 if($row_sanpham['idshop'] == 0){
     $row_support   = getRecord('tbl_support', "idshop=0");
-    $row_config   = getRecord('tbl_config', "copyright='cbuilk'");
+    $row_config   = getRecord('tbl_config', "id='2'");
 }
 
 if($ghinho==1){ // prodetail

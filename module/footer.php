@@ -1,3 +1,12 @@
+<div class="light" id="lightConfirm">
+    <div class="lightTitle">
+        <p class="pTitle">THÔNG BÁO</p>
+        <div id="divConfirm"></div>
+    </div>
+    <p class="pCloseConfirm" onclick='lightbox_close("lightConfirm", "fadeConfirm");'>Đóng cửa sổ</p>
+</div>
+<div class="fade" id="fadeConfirm"></div>
+
 <footer>
 <div class="m-wrap">
     <div class="i-foot">
