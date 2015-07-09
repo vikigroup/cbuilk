@@ -2,16 +2,7 @@
 	//ob_start('ob_gzhandler');
 	ob_start();
 
-
-$hostname     = "localhost";
-
-$databasename = "cbuilk_2015";
-
-$username     = "cbuilk_2015";
-
-$password     = "123456P";
-
-
+require("database.php");
 
 $visitorTimeout = 900; //=15 * 60
 
@@ -35,10 +26,7 @@ $linkroot=$linkrootshop."/web";
 
 $noimgs="images/noimage.png";
 
-$root     ="http://cbuilk.com";
-$sub      ="cbuilk.com";
-$subname  ="cbuilk";
-
+require("website.php");
 
 ini_set('suhosin.session.cryptdocroot', 0);
 
