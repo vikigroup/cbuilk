@@ -16,7 +16,7 @@ require_once('../class.phpmailer.php');
 $mail             = new PHPMailer();
 $mail->CharSet = "UTF-8";
 $row_config   = getRecord('tbl_config', "id='2'");
-$row_customer   = getRecord('tbl_customer', "email=".$_POST['email']);
+$row_customer   = getRecord('tbl_customer', "email='".$_POST['email']."'");
 
 $body = '<div class="container-fluid" style="background: #8DCAE9; padding: 5px; border-radius: 8px;">
             <div style="background-color: #ffffff; color: #355F77; padding: 20px; border-radius: 8px;">
@@ -27,7 +27,7 @@ $body = '<div class="container-fluid" style="background: #8DCAE9; padding: 5px; 
                     <img src="'.$root.'/imgs/layout/logo.png" alt="" width="190" height="80">
                     <p>Xin chào '.$row_customer['name'].',</p>
                 </div>
-                <p>Chúng tôi nhận được yêu cầu kích hoạt lại tài khoản đăng ký thành viên trên hệ thống '.strtoupper($subname).'</p>
+                <p>Chúng tôi nhận được yêu cầu kích hoạt lại tài khoản đăng ký thành viên trên hệ thống '.strtoupper($subname).' của bạn.</p>
                 <p><b>Xin vui lòng <a href="'.$root.'/kich-hoat.html?key='.$row_customer['randomkey'].'">[nhấn vào đây]</a> để hoàn thành thủ tục này.</b></p>
                 <p>Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi.</p>
                 <p>Trân trọng,</p>

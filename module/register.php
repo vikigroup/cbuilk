@@ -63,7 +63,7 @@ if (isset($_POST['btn_dangky'])==true)//isset kiem tra submit
                         data: dataString,
                         success: function(x){
                             $('#divConfirm').html('<menu><li class=".'success'.">Nhập thông tin</li><li class=".'success'.">Hệ thống kiểm tra</li><li class=".'error'.">Xác thực</li></menu>');
-                            $('#divConfirm').append('<p>Đường dẫn kích hoạt tài khoản của bạn đã được gửi qua <b>".$email."</b>, vui lòng kiểm tra và làm theo hướng dẫn.</p>');
+                            $('#divConfirm').append('<p>Đường dẫn kích hoạt tài khoản của bạn đã được gửi qua email <b>".$email."</b>, vui lòng kiểm tra và làm theo hướng dẫn.</p>');
                             $('#divConfirm').append('<p>Nhấn <a class=".'aResendActiveLink'." onclick = ".'resendActiveLink("'.$email.'");'.">vào đây</a> để hệ thống gửi lại đường dẫn kích hoạt nếu bạn chưa nhận được. Hãy chắc chắn rằng bạn đã kiểm tra tất cả bao gồm hộp thư đến, thư rác, thùng rác, v.v.</p>');
                             $('.pCloseConfirm').show();
                         }
