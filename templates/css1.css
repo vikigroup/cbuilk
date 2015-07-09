@@ -1778,3 +1778,8 @@ menu li:after{
 
 menu li:nth-child(1){z-index: 2}
 menu li:nth-child(2){z-index: 1}
+
+.aResendActiveLink{
+    cursor: pointer;
+    text-decoration: underline;
+}

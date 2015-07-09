@@ -144,3 +144,18 @@ function lightbox_close(idLight, idFade){
     document.getElementById(idLight).style.display='none';
     document.getElementById(idFade).style.display='none';
 }
+
+function resendActiveLink(email){
+    $('#divConfirm').html('<img src="../imgs/load.gif"><p>Đang xử lý, xin vui lòng chờ...</p>');
+    lightbox_open('lightConfirm', 'fadeConfirm');
+    var email = email;
+    var dataString = "email="+email+"&functionName="+"checkAccountExistence";
+    $.ajax({
+        type: "POST",
+        url: "lib/phpmailer/external/register_resend.php",
+        data: dataString,
+        success: function(x){
+            $('#divConfirm').html('<p>Hệ thống đã gửi lại đường dẫn kích hoạt qua <b>'+email+'</b>, vui lòng kiểm tra email và làm theo hướng dẫn.</p>');
+        }
+    });
+}
