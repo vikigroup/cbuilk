@@ -10,8 +10,8 @@ if (isset($_POST['btn_dangnhap_in'])==true){
         $password=trim(mysql_real_escape_string($password));
     }
     $coloi=false;
-    if ($username == NULL) {$coloi=true; $error_username_in = "Bạn chưa nhập tên đăng nhập";}
-    elseif ($_POST['password'] == NULL) {$coloi=true; $error_password_in = "Bạn chưa nhập password";}
+    if ($username == NULL) {$coloi=true; $error_username_in = "Bạn chưa nhập tên đăng nhập!";}
+    elseif ($_POST['password'] == NULL) {$coloi=true; $error_password_in = "Bạn chưa nhập mật khẩu!";}
 
     if ($coloi==FALSE) {
 
@@ -21,9 +21,9 @@ if (isset($_POST['btn_dangnhap_in'])==true){
         if (check_table('tbl_customer',"username='".$username."' AND password='".$password."'",'id')==true)
         { $coloi=true;  $error_login="Tài khoản hoặc mật khẩu không đúng, vui lòng đăng nhập lại";}
         elseif($row_user['active']==0)
-        { $error_login="Bạn chưa kích hoạt tài khoản, vui lòng kích hoạt mới đăng nhập tiếp";}
+        { $error_login="<input id='hiddenLoginUserName' type='hidden' value='".$username."'>Bạn chưa kích hoạt tài khoản! <br/>Vui lòng nhấn vào đường dẫn hệ thống đã gửi cho bạn qua email bạn đã đăng ký <br/>hoặc có thể nhấn <a class='aResendActiveLink' id='aResend'>vào đây</a> để hệ thống gửi lại đường dẫn kích hoạt cho bạn.";}
         elseif($row_user['status']==0)
-        { location($linkrootshop.'dang-nhap.html');$error_login="Tài khoản của bạn đã bị khóa, vui lòng liên hệ Admin để biết thêm chi tiếp";}
+        { location($linkrootshop.'dang-nhap.html');$error_login="Tài khoản của bạn đã bị khóa, vui lòng liên hệ Quản trị viên để biết thêm chi tiếp!";}
 
         else {	//check neu dung chay
             $sql = sprintf("SELECT * FROM tbl_customer WHERE username='%s' AND password ='%s'",$username, $password);
@@ -68,36 +68,21 @@ if (isset($_POST['quayra'])==true) {
 ?>
 <div class="form_dn">
     <script type="text/javascript">
-
         $(document).ready(function() {
-
             $("form[name=form1]").bind('submit',function(){
-
-
                 var username=$("#username").val();
                 var password=$("#password").val();
-
                 if(username=="") {
-                    alert("Bạn chưa nhập tài khoản");
+                    alert("Bạn chưa nhập tài khoản!");
                     return false;
                 }
                 if(password=="") {
-                    alert("Bạn chưa nhập mật khẩu");
+                    alert("Bạn chưa nhập mật khẩu!");
                     return false;
                 }
-
-
             });
-
-
-
         });
     </script>
-    <div style="padding:5px;   color:#F00; padding-bottom:10px;">
-        <center>
-            <?php if($_SERVER['HTTP_REFERER']=="http://shop.jbs.vn/dang-ky.html" && $_SESSION['register_re']==1)echo "Bạn vừa đăng ký thành công tài khoản ";?>
-        </center>
-    </div>
     <ul>
         <li>
             <img src="<?php echo $linkrootshop;?>/imgs/layout/LoginRed.png" alt=""/>
@@ -136,7 +121,7 @@ if (isset($_POST['quayra'])==true) {
                             </div>
                             <div class="r_f_tt">
                                 <input type="checkbox"  name="nho" />
-                                <span style="padding-left:5px;">Nhớ mật khẩu</span> | <a href="<?php echo $linkrootshop?>/quen-mat-khau.html" title="">Quên mật khẩu</a>
+                                <span style="padding-left:5px;">Ghi nhớ</span> | <a href="<?php echo $linkrootshop?>/quen-mat-khau.html" title="">Quên mật khẩu</a>
                             </div>
                             <div class="clear"></div>
                         </div><!-- End .module_ftt -->
@@ -158,7 +143,7 @@ if (isset($_POST['quayra'])==true) {
                         </div><!-- End .module_ftt -->
 
                         <div class="info_f_tt">
-                            Đăng nhập bây giờ để quá trình mua hàng diễn ra nhanh chóng. Bạn cũng có thể xem chi tiết lịch sử giao dịch & tình trạng đơn hàng trong tài khoản của bạn.
+                            Đăng nhập bây giờ để có thể sử dụng các dịch vụ của chúng tôi.
                         </div><!-- End .info_f_tt -->
 
                     </div><!-- End .main_f_tt -->

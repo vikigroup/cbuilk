@@ -18,6 +18,10 @@
         updateCustomerActive();
     }
 
+    if($functionName == "selectUserEmail"){
+        selectUserEmail();
+    }
+
     function connect(){
         // Create connection
         $conn = new mysqli($GLOBALS['servername'], $GLOBALS['username'], $GLOBALS['password'], $GLOBALS['dbname']);
@@ -28,6 +32,12 @@
         else{
             return $conn;
         }
+    }
+
+    function selectUserEmail(){
+        $userName = filter_input(INPUT_POST, 'userName');
+        $email = selectField("tbl_customer", "email", "username='".$userName."'");
+        echo $email;
     }
 
     function insertOrder(){

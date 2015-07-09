@@ -145,6 +145,24 @@ function lightbox_close(idLight, idFade){
     document.getElementById(idFade).style.display='none';
 }
 
+$("#aResend").click(function(){
+    $('.pCloseConfirm').hide();
+    $('#divConfirm').html('<img src="../imgs/load.gif"><p>Đang kiểm tra thông tin...</p>');
+    lightbox_open('lightConfirm', 'fadeConfirm');
+    window.setTimeout(function () {
+        var userName = $("#hiddenLoginUserName").val();
+        var dataString = "userName="+userName+"&functionName="+"selectUserEmail";
+        $.ajax({
+            type: "POST",
+            url: "lib/functions.php",
+            data: dataString,
+            success: function(x){
+                resendActiveLink(x);
+            }
+        });
+    }, 2000)
+});
+
 function resendActiveLink(email){
     $('.pCloseConfirm').hide();
     $('#divConfirm').html('<img src="../imgs/load.gif"><p>Đang xử lý, xin vui lòng chờ...</p>');
