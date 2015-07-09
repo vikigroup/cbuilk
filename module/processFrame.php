@@ -1,6 +1,5 @@
 <?php 
 switch ($frame){
-	
 	case "products"                : include("module/products.php");break;
 	case "xemtatca"                : include("module/xemtatca.php");break;
 	case "search"                  : include("module/search.php");break;

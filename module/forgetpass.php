@@ -1,5 +1,4 @@
 <?php
-
 	include "mail_gmail/class.phpmailer.php"; 
 	include "mail_gmail/class.smtp.php"; 
 	
@@ -9,7 +8,6 @@
 
 		$email = trim(strip_tags($email));
 
-	
 		if (get_magic_quotes_gpc()==false) 
 				{
 					$email = mysql_real_escape_string($email);
@@ -85,10 +83,8 @@
 <div class="form_dn">
     
     <ul>
-        <li>
-            <center>
-                <img src="<?php echo $linkrootshop;?>/imgs/layout/LoginRed.png" alt=""/>
-            </center>
+        <li style="text-align: center;">
+            <img src="<?php echo $linkrootshop;?>/imgs/layout/LoginRed.png" alt=""/>
         </li>
         <li>
             <div class="main_f_dn">
