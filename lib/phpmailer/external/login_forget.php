@@ -21,16 +21,16 @@ $row_customer   = getRecord('tbl_customer', "email='".$_POST['email']."'");
 $body = '<div class="container-fluid" style="background: #8DCAE9; padding: 5px; border-radius: 8px;">
             <div style="background-color: #ffffff; color: #355F77; padding: 20px; border-radius: 8px; font-size: 14px;">
                 <div class="row" style="font-size: 24px; font-weight: bold; margin-bottom: 20px; text-transform: uppercase;">
-                    <p class="btn btn-info"><b>Thông báo kích hoạt tài khoản</b></p>
+                    <p class="btn btn-info"><b>Thông báo cài đặt lại mật khẩu</b></p>
                 </div>
                 <div class="row" style="margin: 5px;">
                     <img src="'.$root.'/imgs/layout/logo.png" alt="" width="190" height="80">
                     <p><b>Xin chào '.$row_customer['name'].',</b></p>
                 </div>
-                <p>Chúng tôi nhận được yêu cầu kích hoạt tài khoản đăng ký thành viên trên hệ thống '.ucfirst($subname).' của bạn.</p>
-                <p>Xin vui lòng nhấn vào đường dẫn dưới đây để hoàn thành thủ tục này.</p>
-                <p style="margin: 10px 0;"><a href="'.$root.'/kich-hoat.html?key='.$row_customer['randomkey'].'" style="background-color: #2A70D2; padding: 10px; color: #ffffff; text-decoration: none; border-radius: 5px;">Kích Hoạt</a></p>
-                <p>Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi.</p>
+                <p>Ai đó vừa yêu cầu cài đặt lại mật khẩu '.ucfirst($subname).' của bạn.</p>
+                <p>Hoặc, bạn có thể cài đặt lại mật khẩu bằng cách nhấn vào đường dẫn bên dưới:</p>
+                <p style="margin: 10px 0;"><a href="'.$root.'/cai-dat-mat-khau.html?key='.$row_customer['randomkey'].'" style="background-color: #2A70D2; padding: 10px; color: #ffffff; text-decoration: none; border-radius: 5px;">Cài Đặt Mật Khẩu</a></p>
+                <p>Nếu bạn đã không yêu cầu một mật khẩu mới - chúng tôi xin lỗi. Bạn có thể bỏ qua tin nhắn này.</p>
                 <p>Trân trọng,</p>
             </div>
             <p>--</p>
@@ -55,7 +55,7 @@ $mail->Password   = decryptIt($row_config['cauhinh_mail_mk']);        // SMTP ac
 
 $mail->SetFrom($row_config['cauhinh_mail_ten'], strtoupper($row_config['copyright']));
 
-$mail->Subject    = "Yêu cầu kích hoạt tài khoản trên hệ thống ".ucfirst($subname);
+$mail->Subject    = "Ai đó đã yêu cầu một mật khẩu mới cho tài khoản ".ucfirst($subname)." của bạn";
 
 $mail->AltBody    = "To view the message, please use an HTML compatible email viewer!"; // optional, comment out and test
 

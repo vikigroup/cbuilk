@@ -19,6 +19,10 @@ if($functionName == "selectUserEmail"){
     selectUserEmail();
 }
 
+if($functionName == "checkUserEmail"){
+    checkUserEmail();
+}
+
 function connect(){
     // Create connection
     $conn = new mysqli($GLOBALS['hostname'], $GLOBALS['username'], $GLOBALS['password'], $GLOBALS['databasename']);
@@ -35,6 +39,23 @@ function selectUserEmail(){
     $userName = filter_input(INPUT_POST, 'userName');
     $email = selectField("tbl_customer", "email", "username='".$userName."'");
     echo $email;
+}
+
+function checkUserEmail(){
+    $email = filter_input(INPUT_POST, 'email');
+    $isExist = selectCondition("tbl_customer", "email='".$email."'");
+    if($isExist == 1){
+        $active = selectField("tbl_customer", "active", "email='".$email."'");
+        if($active == 0){
+            echo 2;
+        }
+        else{
+            echo 1;
+        }
+    }
+    else{
+        echo 0;
+    }
 }
 
 function insertOrder(){

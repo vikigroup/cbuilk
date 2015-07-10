@@ -146,9 +146,7 @@ function lightbox_close(idLight, idFade){
 }
 
 $("#aResend").click(function(){
-    $('.pCloseConfirm').hide();
-    $('#divConfirm').html('<img src="../imgs/load.gif"><p>Đang kiểm tra thông tin...</p>');
-    lightbox_open('lightConfirm', 'fadeConfirm');
+    openConfirmPopup('<p>Đang kiểm tra thông tin...</p>');
     window.setTimeout(function () {
         var userName = $("#hiddenLoginUserName").val();
         var dataString = "userName="+userName+"&functionName="+"selectUserEmail";
@@ -164,9 +162,7 @@ $("#aResend").click(function(){
 });
 
 function resendActiveLink(email){
-    $('.pCloseConfirm').hide();
-    $('#divConfirm').html('<img src="../imgs/load.gif"><p>Đang xử lý, xin vui lòng chờ...</p>');
-    lightbox_open('lightConfirm', 'fadeConfirm');
+    openConfirmPopup('<p>Đang xử lý, xin vui lòng chờ...</p>');
     var email = email;
     var dataString = "email="+email;
     $.ajax({
@@ -174,8 +170,65 @@ function resendActiveLink(email){
         url: "lib/phpmailer/external/register_resend.php",
         data: dataString,
         success: function(x){
-            $('#divConfirm').html('<p>Hệ thống đã gửi lại đường dẫn kích hoạt qua <b>'+email+'</b>, vui lòng kiểm tra email và làm theo hướng dẫn.</p>');
-            $('.pCloseConfirm').show();
+            closeConfirmPopup('<p>Hệ thống đã gửi lại đường dẫn kích hoạt qua <b>'+email+'</b>, vui lòng kiểm tra email và làm theo hướng dẫn.</p>');
         }
     });
+}
+
+$('#btn_doipass').click(function(){
+    var email = $("#txtFPEmail").val();
+    if(email == ""){
+        alert("Bạn chưa nhập email!");
+    }
+    else{
+        openConfirmPopup('<p>Đang kiểm tra thông tin...</p>');
+        window.setTimeout(function () {
+            var dataString = "email="+email+"&functionName="+"checkUserEmail";
+            $.ajax({
+                type: "POST",
+                url: "lib/functions.php",
+                data: dataString,
+                success: function(x){
+                    if(x == 2) {
+                        closeConfirmPopup('<p>Tài khoản đăng ký qua <b>'+email+'</b> của bạn chưa được kích hoạt.<br/>' +
+                        'Vui lòng kiểm tra email và nhấn vào đường dẫn chúng tôi đã gửi cho bạn trong lúc đăng ký.<br/> Hoặc, bạn có thể nhấn <a class="aResendActiveLink" id="aResendFP">vào đây</a> để hệ thống gửi lại đường dẫn kích hoạt cho bạn.</p>');
+                        $("#aResendFP").click(function(){
+                            resendActiveLink(email);
+                        });
+                    }else if(x == 1){
+                        resendChangePassLink(email);
+                    }
+                    else{
+                        closeConfirmPopup('<p>Hệ thống không thể xác thực được email <b>'+email+'</b> của bạn.<br/> Hãy chắc chắn rằng email này đã được đăng ký!<br/> Vui lòng kiểm tra và thử lại.</p>');
+                    }
+                }
+            });
+        }, 2000)
+    }
+});
+
+function resendChangePassLink(email){
+    openConfirmPopup('<p>Đang xử lý, xin vui lòng chờ...</p>');
+    var email = email;
+    var dataString = "email="+email;
+    $.ajax({
+        type: "POST",
+        url: "lib/phpmailer/external/login_forget.php",
+        data: dataString,
+        success: function(x){
+            closeConfirmPopup('<p>Hệ thống đã gửi đường dẫn cài đặt lại mật khẩu qua <b>'+email+'</b>, vui lòng kiểm tra email và làm theo hướng dẫn.</p>');
+        }
+    });
+}
+
+function openConfirmPopup(message){
+    $('.pCloseConfirm').hide();
+    $('#divConfirm').html('<img src="../imgs/load.gif"><p');
+    $('#divConfirm').append(message);
+    lightbox_open('lightConfirm', 'fadeConfirm');
+}
+
+function closeConfirmPopup(message){
+    $('#divConfirm').html(message);
+    $('.pCloseConfirm').show();
 }

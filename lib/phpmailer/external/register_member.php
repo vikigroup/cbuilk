@@ -17,21 +17,21 @@ $mail             = new PHPMailer();
 $mail->CharSet = "UTF-8";
 $row_config   = getRecord('tbl_config', "id='2'");
 $body = '<div class="container-fluid" style="background: #8DCAE9; padding: 5px; border-radius: 8px;">
-            <div style="background-color: #ffffff; color: #355F77; padding: 20px; border-radius: 8px;">
+            <div style="background-color: #ffffff; color: #355F77; padding: 20px; border-radius: 8px; font-size: 14px;">
                 <div class="row" style="font-size: 24px; font-weight: bold; margin-bottom: 20px; text-transform: uppercase;">
                     <p class="btn btn-info"><b>Thông báo về việc đăng ký trên hệ thống '.$subname.'</b></p>
                 </div>
                 <div class="row" style="margin: 5px;">
                     <img src="'.$root.'/imgs/layout/logo.png" alt="" width="190" height="80">
-                    <p>Xin chào '.$_POST['hoten'].',</p>
+                    <p><b>Xin chào '.$_POST['hoten'].',</b></p>
                     <p style="text-decoration: underline;">Tài khoản của bạn đã được tạo với nội dung như sau:</p><br/>
                 </div>
                 <div class="row" style="padding: 10px;">
                     <p>Tên đăng nhập: <b>'.$_POST['tendk'].'</b></p>
                     <p>Mật khẩu: <b>'.$_POST['matkhau'].'</b></p>
                 </div>
-                <p><b>Vui lòng nhấn vào đường dẫn dưới đây để hoàn tất việc đăng ký.</b></p>
-                <p><a href="'.$root.'/kich-hoat.html?key='.$_POST['key'].'"><b>[Kích hoạt]</b></a></p>
+                <p>Vui lòng nhấn vào đường dẫn dưới đây để hoàn tất việc đăng ký.</p>
+                <p style="margin: 10px 0;"><a href="'.$root.'/kich-hoat.html?key='.$_POST['key'].'" style="background-color: #2A70D2; padding: 10px; color: #ffffff; text-decoration: none; border-radius: 5px;">Kích Hoạt</a></p>
                 <p>Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi.</p>
                 <p>Trân trọng,</p>
             </div>
@@ -57,7 +57,7 @@ $mail->Password   = decryptIt($row_config['cauhinh_mail_mk']);        // SMTP ac
 
 $mail->SetFrom($row_config['cauhinh_mail_ten'], strtoupper($row_config['copyright']));
 
-$mail->Subject    = "Xác thực về việc đăng ký trên hệ thống ".$sub;
+$mail->Subject    = "Xác thực về việc đăng ký trên hệ thống ".ucfirst($sub);
 
 $mail->AltBody    = "To view the message, please use an HTML compatible email viewer!"; // optional, comment out and test
 

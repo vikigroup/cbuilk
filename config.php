@@ -1,19 +1,16 @@
 <?php
-	//ob_start('ob_gzhandler');
-	ob_start();
-
+ob_start();
+date_default_timezone_set('Asia/Ho_Chi_Minh');
+$ngay = date("Y-m-d H:i:s");
 require("database.php");
 
 $visitorTimeout = 900; //=15 * 60
-
-$ngay = date("Y-m-d H:i:s");
 $MAXPAGE = 30;
 $multiLanguage = 1;//0 : single  ;  1 : multi
 $arrLanguage = array(
 	array('vn','Việt Nam'),
 	array('en','English')
 );
-
 
 $root_file='';
 $linkroot='http://'.$_SERVER['HTTP_HOST'];
