@@ -52,8 +52,8 @@ $mail->SMTPDebug  = 2;                     // enables SMTP debug information (fo
 $mail->SMTPAuth   = true;                  // enable SMTP authentication
 $mail->Host       = "ssl://smtp.googlemail.com"; // sets the SMTP server
 $mail->Port       = 465;                    // set the SMTP port for the GMAIL server
-$mail->Username   = "vikigroup2015@gmail.com"; // SMTP account username
-$mail->Password   = "Vk03062015";        // SMTP account password
+$mail->Username   = $row_config['cauhinh_mail_ten']; // SMTP account username
+$mail->Password   = decryptIt($row_config['cauhinh_mail_mk']);        // SMTP account password
 
 $mail->SetFrom($row_config['cauhinh_mail_ten'], strtoupper($row_config['copyright']));
 

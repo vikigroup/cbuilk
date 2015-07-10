@@ -28,7 +28,7 @@
 				echo '<script type="text/javascript"> window.location = ""; </script>';
 			}else{
 			
-				$rowmail=getRecord("tbl_config", "id=1");
+				$rowmail=getRecord("tbl_config", "id=2");
 				
 				$noidung_Body_full=$noidung_AltBody
 				.'<strong>website : </strong>'.$row_shop['name'].'<br />'

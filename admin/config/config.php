@@ -74,7 +74,7 @@ if (isset($_POST['btnSave'])){
 	if ($errMsg==''){
 		if (!empty($_POST['id'])){
 			$oldid = $_POST['id'];
-			$sql = "update tbl_config set copyright='".$copyright."',title='".$title."', description='".$description."',keywords='".$keywords."',tenkh='".$tenkh."',dckh='".$dckh."', dtkh='".$dtkh."', hotlinekh='".$hotlinekh."', emailkh='".$emailkh."', faxkh='".$faxkh."', note='".$detail."', cauhinh_mail_ten='".$cauhinh_mail_ten."', cauhinh_mail_mk='".$cauhinh_mail_mk."', cache='".$cache."' where id='".$oldid."'";
+			$sql = "update tbl_config set copyright='".$copyright."',title='".$title."', description='".$description."',keywords='".$keywords."',tenkh='".$tenkh."',dckh='".$dckh."', dtkh='".$dtkh."', hotlinekh='".$hotlinekh."', emailkh='".$emailkh."', faxkh='".$faxkh."', note='".$detail."', cauhinh_mail_ten='".$cauhinh_mail_ten."', cauhinh_mail_mk='".encryptIt($cauhinh_mail_mk)."', cache='".$cache."' where id='".$oldid."'";
 		}
 		
 		if (mysql_query($sql,$conn)){
@@ -105,7 +105,7 @@ if (isset($_POST['btnSave'])){
 			$emailkh       = $row['emailkh'];
 			$faxkh         = $row['faxkh'];
 			$cauhinh_mail_ten    = $row['cauhinh_mail_ten'];
-			$cauhinh_mail_mk     = $row['cauhinh_mail_mk'];
+			$cauhinh_mail_mk     = decryptIt($row['cauhinh_mail_mk']);
 			$title         = $row['title'];
 			$description   = $row['description'];
 			$keywords      = $row['keywords'];
@@ -131,12 +131,9 @@ if (isset($_POST['btnSave'])){
 <div class="row-fluid">
     <div class="span12">
         <div class="box-widget">
-             
             <div class="widget-container">
                 <div class="widget-block">
-                    
                    <form method="post" name="frmForm" enctype="multipart/form-data" action="admin.php?act=config">
-            
                         <input type="hidden" name="act" value="config">
                         <input type="hidden" name="id" value="<?php echo $_GET['id'];?>">
                         <input type="hidden" name="page" value="<?=$_REQUEST['page']?>">
@@ -183,7 +180,7 @@ if (isset($_POST['btnSave'])){
                                   <td valign="middle"><input name="emailkh" type="text" class="table_khungnho" id="emailkh" value="<?=$emailkh?>"  /></td>
                                 </tr>
                                 <tr>
-                                  <td valign="middle">Số ĐKKD<span class="sao_bb">*</span></td>
+                                  <td valign="middle">Giấy phép ĐKKD<span class="sao_bb">*</span></td>
                                   <td valign="middle"><input name="faxkh" type="text" class="table_khungnho" id="faxkh" value="<?=$faxkh?>"  /></td>
                                 </tr>
                                 <tr>
@@ -218,11 +215,11 @@ if (isset($_POST['btnSave'])){
                                    </td>
                                 </tr>
                                 <tr>
-                                  <td valign="middle">Mail gửi<span class="sao_bb">*</span></td>
+                                  <td valign="middle">Tài khoản gửi mail<span class="sao_bb">*</span></td>
                                   <td valign="middle"><input name="cauhinh_mail_ten" type="text" class="table_khungnho" id="cauhinh_mail_ten" value="<?=$cauhinh_mail_ten?>"  /></td>
                                 </tr>
                                 <tr>
-                                  <td valign="middle">Mật khẩu<span class="sao_bb">*</span></td>
+                                  <td valign="middle">Mật khẩu truy cập<span class="sao_bb">*</span></td>
                                   <td valign="middle"><input name="cauhinh_mail_mk" type="password" class="table_khungnho" id="cauhinh_mail_mk" value="<?=$cauhinh_mail_mk;?>"  /></td>
                                 </tr>
                                 <tr>
@@ -242,17 +239,14 @@ if (isset($_POST['btnSave'])){
                                   <td valign="middle">&nbsp;</td>
                                 </tr>
                                 <tr>
-                                    <td valign="top" width="30%">&nbsp;
-                                        
-                                    </td>
+                                    <td valign="top" width="30%">&nbsp;</td>
                                     <td valign="middle" width="70%">
                                         <input type="submit" name="btnSave" VALUE="Cập nhật" class=button onclick="return btnSave_onclick()">
                                         <input type="reset" class=button value="Nhập lại">	
                                     </td>
                                 </tr>
                             </table>
-                            </form> 
-
+                    </form>
                 </div>
             </div>
         </div>
