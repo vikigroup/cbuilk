@@ -3,7 +3,7 @@ $myArr1 = array('#DBA5EE', '#C14150', '#66E4E6', '#965BB9', '#FF8BCF', '#D3CFCA'
 $myArr2 = array('#DDADEE', '#C65461', '#75E5E7', '#A06BBF', '#FE96D3', '#D6D3CE', '#70A7D2', '#A3BB65');
 $myArr3 = array('#E1B6F0', '#CC6672', '#84E8EA', '#AA7BC6', '#FEA1D7', '#DBD7D3', '#80B0D7', '#ADC375');
 
-$cate_floor = get_records("tbl_shop_category","status=0 AND parent=2 AND sort != 0","sort, date_added DESC","0,8"," ");
+$cate_floor = get_records("tbl_shop_category","status=0 AND parent=457 AND sort != 0","sort, date_added DESC","0,8"," ");
 $myArrID = array();
 $myArrName = array();
 $myArrPrimarySubject = array();
