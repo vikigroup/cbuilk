@@ -10,7 +10,6 @@ switch ($frame){
 	case "new_detail"              : include("module/new_detail.php");break;
 	
 	case "register"                : include("module/register.php");break;
-	case "registersuccess"         : include("module/registersuccess.php");break;
 	case "login"                   : include("module/login.php");break;
 	case "changepass"              : include("module/changepass.php");break;
 	case "changeinfo"              : include("module/changeinfo.php");break;
