@@ -3,7 +3,7 @@ $myArr1 = array('#DBA5EE', '#C14150', '#66E4E6', '#965BB9', '#FF8BCF', '#D3CFCA'
 $myArr2 = array('#DDADEE', '#C65461', '#75E5E7', '#A06BBF', '#FE96D3', '#D6D3CE', '#70A7D2', '#A3BB65');
 $myArr3 = array('#E1B6F0', '#CC6672', '#84E8EA', '#AA7BC6', '#FEA1D7', '#DBD7D3', '#80B0D7', '#ADC375');
 
-$cate_floor = get_records("tbl_shop_category","status=0 AND parent=2 AND sort != 0","sort","0,8"," ");
+$cate_floor = get_records("tbl_shop_category","status=0 AND parent=2 AND sort != 0","sort, date_added DESC","0,8"," ");
 $myArrID = array();
 $myArrName = array();
 $myArrPrimarySubject = array();
@@ -19,7 +19,7 @@ for($i = 0; $i < 8; $i++){
 <section class="Adv ads-floors">
     <?php
     $dt = date("Y-m-d");
-    $adv_floor = "SELECT *, COUNT(id) AS amount FROM tbl_adv WHERE status = 0 AND start_banner <= '".$dt."' AND '".$dt."' <= finish_banner AND main_position = 2 AND sub_position = '".($i+1)."' ORDER BY sort LIMIT 1";
+    $adv_floor = "SELECT *, COUNT(id) AS amount FROM tbl_adv WHERE status = 0 AND start_banner <= '".$dt."' AND '".$dt."' <= finish_banner AND main_position = 2 AND sub_position = '".($i+1)."' ORDER BY sort, date_added DESC LIMIT 1";
     if ($result_floor = mysql_query($adv_floor,$conn)) {
         $row_floor=mysql_fetch_array($result_floor);
         if($row_floor['amount'] > 0){
@@ -46,7 +46,7 @@ for($i = 0; $i < 8; $i++){
         </div>
         <div class="divCategory" style="background-color: <?php echo $myArr3[$i]; ?>; border-top: 1px solid <?php echo $myArr1[$i]; ?>">
             <?php
-            $sub_cate_floor1=get_records("tbl_shop_category","status=0 AND parent='".$myArrID[$i]."' AND hot=1","sort","2"," ");
+            $sub_cate_floor1=get_records("tbl_shop_category","status=0 AND parent='".$myArrID[$i]."' AND hot=1","sort, date_added DESC","2"," ");
             $myArrSubName = array();
             $myArrSubject = array();
             $myArrImage = array();
@@ -56,7 +56,7 @@ for($i = 0; $i < 8; $i++){
                 array_push($myArrImage, $row_sub_cate1['image']);
             }
 
-            $sub_cate_floor2=get_records("tbl_shop_category","status=0 AND parent='".$myArrID[$i]."' AND hot=0","sort","6"," ");
+            $sub_cate_floor2=get_records("tbl_shop_category","status=0 AND parent='".$myArrID[$i]."' AND hot=0","sort, date_added DESC","6"," ");
             while($row_sub_cate2=mysql_fetch_assoc($sub_cate_floor2)){
                 array_push($myArrSubName, $row_sub_cate2['name']);
                 array_push($myArrSubject, $row_sub_cate2['subject']);
@@ -89,7 +89,7 @@ for($i = 0; $i < 8; $i++){
         </div>
         <div class="divAds">
             <?php
-            $adv_floor1=get_records("tbl_adv","status = 0 AND start_banner <= '".$dt."' AND '".$dt."' <= finish_banner AND main_position = 0 AND sub_position = '".($i+1)."'","sort"," "," ");
+            $adv_floor1=get_records("tbl_adv","status = 0 AND start_banner <= '".$dt."' AND '".$dt."' <= finish_banner AND main_position = 0 AND sub_position = '".($i+1)."'","sort, date_added DESC"," "," ");
             $total_adv1 = 0;
             while($row_floor1=mysql_fetch_assoc($adv_floor1)){
                 if($row_floor1['image'] != ''){
@@ -112,7 +112,7 @@ for($i = 0; $i < 8; $i++){
     </article>
     <article class="dmsp4-2">
         <?php
-        $adv_floor = "SELECT *, COUNT(id) AS amount FROM tbl_adv WHERE status = 0 AND start_banner <= '".$dt."' AND '".$dt."' <= finish_banner AND main_position = 1 AND sub_position = '".($i+1)."' ORDER BY sort LIMIT 1";
+        $adv_floor = "SELECT *, COUNT(id) AS amount FROM tbl_adv WHERE status = 0 AND start_banner <= '".$dt."' AND '".$dt."' <= finish_banner AND main_position = 1 AND sub_position = '".($i+1)."' ORDER BY sort, date_added DESC LIMIT 1";
         if ($result_floor = mysql_query($adv_floor,$conn)) {
             $row_floor=mysql_fetch_array($result_floor);
             if($row_floor['amount'] > 0){
@@ -132,13 +132,13 @@ for($i = 0; $i < 8; $i++){
     <article class="dmsp4-3">
         <?php
         $parent_floor=getParent("tbl_shop_category",$myArrID[$i]);
-        $product_floor=get_records("tbl_item","status=0 AND type=0 AND parent1 in ({$parent_floor})","sort","0,6"," ");
+        $product_floor=get_records("tbl_item","status=0 AND type=0 AND parent1 in ({$parent_floor})","sort, date_added DESC","0,6"," ");
 
         while($row_floor=mysql_fetch_assoc($product_floor)){
         ?>
-        <div class="divProductLine1" style="background-image: url('<?php echo $linkrootshop.'/web/'.$row_floor['image'] ?>'); background-size: cover" onclick="window.open('<?php echo $linkrootshop;?>/<?php echo $row_floor['subject'];?>.html', 'new_window')">
+        <div class="divProductLine1" style="background-image: url('<?php echo $linkrootshop.'/web/'.$row_floor['image'] ?>'); background-size: cover;" onclick="window.location.href = '<?php echo $linkrootshop;?>/<?php echo $row_floor['subject'];?>.html';">
             <div class="divProductOverlay1" onmouseover="this.style.backgroundColor = '<?php echo $myArr3[$i] ?>';"
-                 onmouseout="this.style.backgroundColor = 'white'" onclick="window.open('<?php echo $linkrootshop;?>/<?php echo $row_floor['subject'];?>.html', 'new_window')">
+                 onmouseout="this.style.backgroundColor = 'white'" onclick="window.location.href = '<?php echo $linkrootshop;?>/<?php echo $row_floor['subject'];?>.html';">
                 <span><?php echo $row_floor['name'] ?></span>
                 <?php if($row_floor['price'] == 0 && $row_floor['pricekm'] == 0){ ?>
                 <span class="spanMoneyKM">Giá liên hệ</span>

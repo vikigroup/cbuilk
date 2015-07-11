@@ -19,11 +19,11 @@ if (isset($_POST['btn_dangnhap_in'])==true){
         $user = mysql_query($sql);
         $row_user=mysql_fetch_assoc($user);
         if (check_table('tbl_customer',"username='".$username."' AND password='".$password."'",'id')==true)
-        { $coloi=true;  $error_login="Tài khoản hoặc mật khẩu không đúng, vui lòng đăng nhập lại";}
+        { $coloi=true; $error_login="Tài khoản hoặc mật khẩu không đúng, vui lòng đăng nhập lại";}
         elseif($row_user['active']==0)
         { $error_login="<input id='hiddenLoginUserName' type='hidden' value='".$username."'>Bạn chưa kích hoạt tài khoản! <br/>Vui lòng nhấn vào đường dẫn hệ thống đã gửi cho bạn qua email bạn đã đăng ký <br/>hoặc có thể nhấn <a class='aResendActiveLink' id='aResend'>vào đây</a> để hệ thống gửi lại đường dẫn kích hoạt cho bạn.";}
         elseif($row_user['status']==0)
-        { location($linkrootshop.'dang-nhap.html');$error_login="Tài khoản của bạn đã bị khóa, vui lòng liên hệ Quản trị viên để biết thêm chi tiếp!";}
+        { $coloi=true; $error_login="Tài khoản của bạn đã bị khóa, vui lòng liên hệ Quản trị viên để biết thêm chi tiếp!";}
 
         else {	//check neu dung chay
             $sql = sprintf("SELECT * FROM tbl_customer WHERE username='%s' AND password ='%s'",$username, $password);

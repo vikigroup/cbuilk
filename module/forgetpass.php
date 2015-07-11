@@ -12,7 +12,7 @@
                             Email
                         </div>
                         <div class="r_f_tt">
-                            <input class="ipt_f_tt" type="text" name="email" id="txtFPEmail"/>
+                            <input class="ipt_f_tt" type="text" name="email" id="txtFPEmail" placeholder="bob@example.com"/>
                             <span class="star_style">*</span>
                         </div>
                         <div class="clear"></div>

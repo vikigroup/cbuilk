@@ -1,5 +1,6 @@
 <?php
 require("../database.php");
+session_start();
 
 $functionName = filter_input(INPUT_POST, 'functionName');
 
@@ -50,6 +51,9 @@ function checkUserEmail(){
             echo 2;
         }
         else{
+            $key = substr(str_shuffle(implode(array_merge(range(0,9), range('A', 'Z'), range('a', 'z')))), 0, 50); //change randomkey in database
+            $_SESSION['keyFP'] = $key;
+            update("tbl_customer", "randomkey = '".$key."'", "email = '".$email."'");
             echo 1;
         }
     }

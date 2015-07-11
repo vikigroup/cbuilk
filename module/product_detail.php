@@ -299,7 +299,7 @@ if($ghinho==1){ // prodetail
 
                 <?php if($row_sanpham['style'] != 1 && $row_sanpham['style'] != 3){?>
                 <div style="padding-top:10px;">
-                    <h4>Thông tin chi tiết</h4>
+                    <h4><b>Thông tin chi tiết</b></h4>
                     <ul class="f_iod">
                         <li>
                             <span class="s1_iod">Địa chỉ</span>

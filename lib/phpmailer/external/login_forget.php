@@ -29,7 +29,7 @@ $body = '<div class="container-fluid" style="background: #8DCAE9; padding: 5px; 
                 </div>
                 <p>Ai đó vừa yêu cầu cài đặt lại mật khẩu '.ucfirst($subname).' của bạn.</p>
                 <p>Hoặc, bạn có thể cài đặt lại mật khẩu bằng cách nhấn vào đường dẫn bên dưới:</p>
-                <p style="margin: 10px 0;"><a href="'.$root.'/cai-dat-mat-khau.html?key='.$row_customer['randomkey'].'" style="background-color: #2A70D2; padding: 10px; color: #ffffff; text-decoration: none; border-radius: 5px;">Cài Đặt Mật Khẩu</a></p>
+                <p style="margin: 10px 0;"><a href="'.$root.'/cai-dat-mat-khau.html?key='.$_SESSION['keyFP'].'" style="background-color: #2A70D2; padding: 10px; color: #ffffff; text-decoration: none; border-radius: 5px;">Cài Đặt Mật Khẩu</a></p>
                 <p>Nếu bạn đã không yêu cầu một mật khẩu mới - chúng tôi xin lỗi. Bạn có thể bỏ qua tin nhắn này.</p>
                 <p>Trân trọng,</p>
             </div>

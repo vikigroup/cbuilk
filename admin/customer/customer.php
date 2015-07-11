@@ -218,9 +218,9 @@ $(document).ready(function() {
                                         <td width="9%" align="center"><a class="title" href="<?=getLinkSortAdmin(4)?>">Username</a></td>
                                         <!--<td width="10%" align="center"><a class="title" href="<?=getLinkSortAdmin(10)?>">Hình ảnh</a></td>-->
                                         <td width="16%" align="center">Thông tin</td>
-                                        <td width="11%" align="center"><span class="title"><a class="title" href="<?=getLinkSortAdmin(11)?>"> Ngày vào</a></span></td>
+                                        <td width="11%" align="center"><span class="title"><a class="title" href="<?=getLinkSortAdmin(11)?>">Ngày vào</a></span></td>
                                         <td width="13%" align="center"><a class="title" href="<?=getLinkSortAdmin(12)?>">Ngày tạo lập</a></td>
-                                        <td width="8%" align="center"><a class="title" href="<?=getLinkSortAdmin(12)?>"> Kích hoạt</a></td>
+                                        <td width="8%" align="center"><a class="title" href="<?=getLinkSortAdmin(12)?>">Tài khoản</a></td>
                                         <td width="11%" align="center">
                                             Công cụ
                                         </td>
@@ -261,7 +261,7 @@ $(document).ready(function() {
                                         <td align="center">
                                             <?=$row['dateAdd']?>
                                         </td>
-                                        <td align="center"><span class="smallfont"><img src="images/anhien_<?=$row['status']?>.png" width="25" height="25" class="anhien" title="Ẩn hiện" value="<?=$row['id']?>" /></span></td>                                        
+                                        <td align="center"><span class="smallfont"><img src="images/anhien_<?=$row['status']?>.png" width="25" height="25" class="anhien" title="Khóa/Mở" value="<?=$row['id']?>" /></span></td>
                                         <td align="center">
                                             <a href="admin.php?act=customer_m&cat=<?=$_REQUEST['cat']?>&page=<?=$_REQUEST['page']?>&id=<?=$row['id']?>"><img src="images/icon3.png"/></a>
                                             <a  title="Xóa" href="admin.php?act=customer&action=del&page=<?=$_REQUEST['page']?>&id=<?=$row['id']?>" onclick="return confirm('Bạn chắc chắn muốn xoá?');" ><img src="images/icon4.png" width="20" border="0" /></a><!--./?act=shop_category&action=del&page=<?=$_REQUEST['page']?>&id=<?=$row['id']?>-->

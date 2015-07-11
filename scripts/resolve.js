@@ -175,10 +175,23 @@ function resendActiveLink(email){
     });
 }
 
+$('#txtFPEmail').keypress(function(e) {
+    if (e.which == 13) {
+        forgetPassword();
+    }
+});
+
 $('#btn_doipass').click(function(){
+    forgetPassword();
+});
+
+function forgetPassword(){
     var email = $("#txtFPEmail").val();
     if(email == ""){
         alert("Bạn chưa nhập email!");
+    }
+    else if(isValidEmailAddress(email) == false){
+        alert("Địa chỉ email bạn vừa nhập không đúng định dạng!");
     }
     else{
         openConfirmPopup('<p>Đang kiểm tra thông tin...</p>');
@@ -205,7 +218,7 @@ $('#btn_doipass').click(function(){
             });
         }, 2000)
     }
-});
+}
 
 function resendChangePassLink(email){
     openConfirmPopup('<p>Đang xử lý, xin vui lòng chờ...</p>');
@@ -231,4 +244,9 @@ function openConfirmPopup(message){
 function closeConfirmPopup(message){
     $('#divConfirm').html(message);
     $('.pCloseConfirm').show();
+}
+
+function isValidEmailAddress(emailAddress) {
+    var regex = /\S+@\S+\.\S+/;
+    return regex.test(emailAddress);
 }
