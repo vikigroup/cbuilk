@@ -92,7 +92,6 @@ if (isset($_POST['quayra'])==true) {
                 <h1 class="title_f_tt"> Đăng nhập </h1>
                 <form id="form1" name="form1" method="post" action="#">
                     <div class="main_f_tt">
-
                         <div class="module_ftt">
                             <div class="l_f_tt">
                                 Tên đăng nhập
@@ -103,7 +102,6 @@ if (isset($_POST['quayra'])==true) {
                             </div>
                             <div class="clear"></div>
                         </div><!-- End .module_ftt -->
-
                         <div class="module_ftt">
                             <div class="l_f_tt">
                                 Mật khẩu
@@ -125,11 +123,9 @@ if (isset($_POST['quayra'])==true) {
                             </div>
                             <div class="clear"></div>
                         </div><!-- End .module_ftt -->
-
                         <div class="module_ftt" style="color:#F00; text-align:center;">
                             <?php echo $error_login;?>
                         </div>
-
                         <div class="module_ftt">
                             <div class="l_f_tt">
                                 &nbsp;
@@ -141,11 +137,9 @@ if (isset($_POST['quayra'])==true) {
                             </div>
                             <div class="clear"></div>
                         </div><!-- End .module_ftt -->
-
                         <div class="info_f_tt">
                             Đăng nhập bây giờ để có thể sử dụng các dịch vụ của chúng tôi.
                         </div><!-- End .info_f_tt -->
-
                     </div><!-- End .main_f_tt -->
                 </form>
             </div><!-- End .main_f_dn -->

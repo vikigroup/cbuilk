@@ -184,4 +184,9 @@ function decryptIt( $q ) {
     $qDecoded      = rtrim( mcrypt_decrypt( MCRYPT_RIJNDAEL_256, md5( $cryptKey ), base64_decode( $q ), MCRYPT_MODE_CBC, md5( md5( $cryptKey ) ) ), "\0");
     return( $qDecoded );
 }
+
+function randomKey($lenght){
+    $key = substr(str_shuffle(implode(array_merge(range(0,9), range('A', 'Z'), range('a', 'z')))), 0, $lenght);
+    return $key;
+}
 ?>

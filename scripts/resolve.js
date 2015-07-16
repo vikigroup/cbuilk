@@ -62,6 +62,7 @@ function insertOrder(dataString){
     });
 }
 
+//dinh dang lai duong dan trang chi tiet
 $(function(){
     $('.f-sty-P1').trigger('click');
     var length = $('#divProductPag a').length;
@@ -96,7 +97,46 @@ $(function(){
 
     $('#divProductPag a:nth-child('+(length+2)+')').attr('href', next);
     $('#divProductPag a:nth-child('+(length+3)+')').attr('href', lastPage);
+
+    $('#divProductPag a:nth-child('+(pageNum+2)+')').css('color', '#ffffff');
+    $('#divProductPag a:nth-child('+(pageNum+2)+')').css('background-color', '#F96D29');
 });
+
+//dinh dang lai duong dan trang tim kiem
+window.onload = function(){
+    $('.f-sty-P1').trigger('click');
+    var length = $('#divSearchPag a').length;
+    var link = $('#divSearchPag a').attr('href');
+    var myArr = link.split("/");
+    var page = myArr[5].substr(0,1);
+    var pageNum = parseInt($('#hiddenSearchPageNum').val());
+    var linkAfter = myArr[0]+"/"+myArr[1]+"/"+myArr[2]+"/"+myArr[3].replace("-", "%20")+"html?page=";
+    for(var i = 0; i < length - 1; i++){
+        $('#divSearchPag a:nth-child('+(i+1)+')').attr('href', linkAfter+(i+1));
+    }
+
+    $('#divSearchPag').find('span').remove();
+    var firstPage = myArr[0]+"/"+myArr[1]+"/"+myArr[2]+"/"+myArr[3].replace("-", "%20")+"html?page=1";
+    var previous =  myArr[0]+"/"+myArr[1]+"/"+myArr[2]+"/"+myArr[3].replace("-", "%20")+"html?page="+(parseInt(pageNum)-1);
+    var next = myArr[0]+"/"+myArr[1]+"/"+myArr[2]+"/"+myArr[3].replace("-", "%20")+"html?page="+(parseInt(pageNum)+1);
+    var lastPage = myArr[0]+"/"+myArr[1]+"/"+myArr[2]+"/"+myArr[3].replace("-", "%20")+"html?page="+(length-1);
+    if(pageNum == length - 1){
+        next = lastPage;
+    }
+    if(pageNum-1 == 0){
+        previous = myArr[0]+"/"+myArr[1]+"/"+myArr[2]+"/"+myArr[3].replace("-", "%20")+"html?page=1";
+    }
+
+    $('#divSearchPag').prepend("<a href="+firstPage+">1</a>");
+    $('#divSearchPag').prepend("<a href="+previous+">&lsaquo;</a>");
+    $('#divSearchPag').prepend("<a href="+firstPage+">&#171;</a>");
+
+    $('#divSearchPag a:nth-child('+(length+2)+')').attr('href', next);
+    $('#divSearchPag a:nth-child('+(length+3)+')').attr('href', lastPage);
+
+    $('#divSearchPag a:nth-child('+(pageNum+2)+')').css('color', '#ffffff');
+    $('#divSearchPag a:nth-child('+(pageNum+2)+')').css('background-color', '#F96D29');
+}
 
 $("#popBrandForm").on('submit',function(e) {
     e.preventDefault();
@@ -229,9 +269,152 @@ function resendChangePassLink(email){
         url: "lib/phpmailer/external/login_forget.php",
         data: dataString,
         success: function(x){
-            closeConfirmPopup('<p>Hệ thống đã gửi đường dẫn cài đặt lại mật khẩu qua <b>'+email+'</b>, vui lòng kiểm tra email và làm theo hướng dẫn.</p>');
+            closeConfirmPopup('<p>Kiểm tra hộp thư của bạn. Chúng tôi đã gửi cho bạn một đoạn mã với 6 chữ số xác nhận. Nhập nó vào khung bên dưới để tiếp tục cài đặt lại mật khẩu.</p>' +
+            '<p><input type="text" class="input-text" placeholder="Nhập mã xác nhận (6 chữ số ######)" id="txtCodeFP"></p>' +
+            '<p><span class="error hidden" id="spanInputCodeFP"></span></p>' +
+            '<p><span class="button-warning pure-button" onclick="checkCode();">Tiếp tục</span></p>');
         }
     });
+}
+
+function checkCode(){
+    $("#spanInputCodeFP").addClass("hidden");
+    $("#spanInputCodeFP").html("");
+    var email = $("#txtFPEmail").val();
+    var code = $("#txtCodeFP").val();
+    var dataString = "email="+email+"&code="+code+"&functionName="+"checkCodeFP";
+    $.ajax({
+        type: "POST",
+        url: "lib/functions.php",
+        data: dataString,
+        success: function(x){
+            if(x == 0){
+                $("#spanInputCodeFP").removeClass("hidden");
+                $("#spanInputCodeFP").html("Mã xác nhận không đúng!<br/> Xin vui lòng kiểm tra và thử lại.");
+            }
+            else{
+                closeConfirmPopup('<p>Cài đặt Mật khẩu mới</p>' +
+                '<p>Mật khẩu mạnh là mật khẩu bao gồm các chữ cái và dấu chấm câu. Nó phải có ít nhất 6 ký tự.<br/>(ví dụ: 4pRte!ai@3)</p>' +
+                '<p><input type="password" class="input-text" placeholder="Nhập mật khẩu mới" id="txtPassWordFP" onkeypress="getPassWordStrength();"></p>' +
+                '<p><span id="strength_human"></span></p>' +
+                '<p><input type="password" class="input-text" placeholder="Xác nhận mật khẩu" id="txtRePassWordFP"></p>' +
+                '<p><span class="error hidden" id="spanCheckCodeFP"></span></p>' +
+                '<p><span class="button-warning pure-button" onclick="changePassWord();">Đổi mật khẩu</span></p>');
+            }
+        }
+    });
+}
+
+function changePassWord(){
+    $("#spanCheckCodeFP").addClass("hidden");
+    $("#spanCheckCodeFP").html("");
+    var passWord = $("#txtPassWordFP").val();
+    var rePassWord = $("#txtRePassWordFP").val();
+    if(passWord.length < 6){
+        $("#spanCheckCodeFP").removeClass("hidden");
+        $("#spanCheckCodeFP").html("Mật khẩu phải có ít nhất 6 ký tự!");
+    }
+    else if(rePassWord == ""){
+        $("#spanCheckCodeFP").removeClass("hidden");
+        $("#spanCheckCodeFP").html("Bạn chưa xác nhận mật khẩu!");
+    }
+    else if(rePassWord != passWord){
+        $("#spanCheckCodeFP").removeClass("hidden");
+        $("#spanCheckCodeFP").html("Mật khẩu xác nhận không khớp!");
+    }
+    else{
+        var email = $("#txtFPEmail").val();
+        var dataString = "email="+email+"&passWord="+passWord+"&functionName="+"changePassWord";
+        $.ajax({
+            type: "POST",
+            url: "lib/functions.php",
+            data: dataString,
+            success: function(x){
+                if(x == 0){
+                    $("#spanCheckCodeFP").removeClass("hidden");
+                    $("#spanCheckCodeFP").html("Đã xảy ra lỗi!<br/>Xin vui lòng tải lại trang và thử lại.");
+                }else{
+                    openConfirmPopup('<p>Đang cập nhật thông tin...</p>');
+                    var dataString = "email="+email+"&key="+x;
+                    $.ajax({
+                        type: "POST",
+                        url: "lib/phpmailer/external/password_change.php",
+                        data: dataString,
+                        success: function(y){
+                            closeConfirmPopup('<p>Cài đặt mật khẩu mới thành công! <br/>Hệ thống đang chuyển về trang đăng nhập hoặc nhấn <a class="aResendActiveLink" onclick="backLoginPage();">vào đây</a></p>');
+                            $('.pCloseConfirm').hide();
+                            window.setTimeout(function () {
+                                location.href = $("#hiddenHomeLink").val()+"/dang-nhap.html";
+                            }, 10000)
+                        }
+                    });
+                }
+            }
+        });
+    }
+}
+
+function backLoginPage(){
+    var homeLink = $("#hiddenHomeLink").val();
+    window.location.href = homeLink+"/dang-nhap.html";
+}
+
+function getPassWordStrength(){
+    var pass = $("#txtPassWordFP").val();
+    var strength = checkPassStrength(pass);
+    if(strength == ""){
+        $("#strength_human").html('<p style="color: orange;">Độ mạnh: '+strength+'</p>');
+    }
+    if(strength == "yếu"){
+        $("#strength_human").html('<p style="color: gray;">Độ mạnh: '+strength+'</p>');
+    }
+    if(strength == "tốt"){
+        $("#strength_human").html('<p style="color: blue;">Độ mạnh: '+strength+'</p>');
+    }
+    if(strength == "mạnh"){
+        $("#strength_human").html('<p style="color: green;">Độ mạnh: '+strength+'</p>');
+    }
+}
+
+function scorePassword(pass) {
+    var score = 0;
+    if (!pass)
+        return score;
+
+    // award every unique letter until 5 repetitions
+    var letters = new Object();
+    for (var i=0; i<pass.length; i++) {
+        letters[pass[i]] = (letters[pass[i]] || 0) + 1;
+        score += 5.0 / letters[pass[i]];
+    }
+
+    // bonus points for mixing it up
+    var variations = {
+        digits: /\d/.test(pass),
+        lower: /[a-z]/.test(pass),
+        upper: /[A-Z]/.test(pass),
+        nonWords: /\W/.test(pass)
+    }
+
+    variationCount = 0;
+    for (var check in variations) {
+        variationCount += (variations[check] == true) ? 1 : 0;
+    }
+    score += (variationCount - 1) * 10;
+
+    return parseInt(score);
+}
+
+function checkPassStrength(pass) {
+    var score = scorePassword(pass);
+    if (score > 80)
+        return "mạnh";
+    if (score > 60)
+        return "tốt";
+    if (score >= 30)
+        return "yếu";
+
+    return "";
 }
 
 function openConfirmPopup(message){
@@ -250,3 +433,21 @@ function isValidEmailAddress(emailAddress) {
     var regex = /\S+@\S+\.\S+/;
     return regex.test(emailAddress);
 }
+
+window.fbAsyncInit = function() {
+    FB.init({
+        appId      : '1460618637571000',
+        xfbml      : true,
+        version    : 'v2.3'
+    });
+    };
+
+(function(d, s, id){
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) {return;}
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+
+!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');

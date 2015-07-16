@@ -1,10 +1,3 @@
-<?php
-$activeLink = $_SERVER['REQUEST_URI'];
-$myActiveLink = explode("?", $activeLink);
-$myLinkData = explode("=", $myActiveLink[1]);
-$myActiveKey = $myLinkData[1];
-?>
-
 <script>
     $(document).ready(function () {
         $('#divConfirm').html('<img src="../imgs/load.gif"><p>Đang xử lý, xin vui lòng chờ...</p>');

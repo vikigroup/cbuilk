@@ -21,16 +21,16 @@ $row_customer   = getRecord('tbl_customer', "email='".$_POST['email']."'");
 $body = '<div class="container-fluid" style="background: #8DCAE9; padding: 5px; border-radius: 8px;">
             <div style="background-color: #ffffff; color: #355F77; padding: 20px; border-radius: 8px; font-size: 14px;">
                 <div class="row" style="font-size: 24px; font-weight: bold; margin-bottom: 20px; text-transform: uppercase;">
-                    <p class="btn btn-info"><b>Thông báo cài đặt lại mật khẩu</b></p>
+                    <p class="btn btn-info"><b>Thông báo thay đổi mật khẩu</b></p>
                 </div>
                 <div class="row" style="margin: 5px;">
                     <img src="'.$root.'/imgs/layout/logo.png" alt="" width="190" height="80">
                     <p><b>Xin chào '.$row_customer['name'].',</b></p>
                 </div>
-                <p>Ai đó vừa yêu cầu cài đặt lại mật khẩu '.ucfirst($subname).' của bạn.</p>
-                <p>Hoặc, bạn có thể nhập mã cài đặt lại mật khẩu sau:</p>
-                <p style="margin: 10px 0; background-color: #2A70D2; padding: 10px; color: #ffffff; text-decoration: none; border-radius: 5px; width: 70px; height: auto; text-align: center; font-size: 18px;">'.$row_customer['randomcode'].'</p>
-                <p>Nếu bạn đã không yêu cầu một mật khẩu mới, chúng tôi xin lỗi. Bạn có thể bỏ qua tin nhắn này.</p>
+                <p>Mật khẩu '.ucfirst($subname).' của bạn gần đây đã bị thay đổi.</p>
+                <p>Nếu bạn làm điều này, bạn có thể yên tâm bỏ qua email này một cách an toàn.</p>
+                <p>Nếu bạn đã không tự thay đổi, tài khoản của bạn đã bị xâm nhập. Bạn cần khôi phục lại mật khẩu bằng cách nhấn vào đường dẫn dưới đây.</p>
+                <p style="margin: 10px 0;"><a href="'.$root.'/khoi-phuc-mat-khau.html?key='.$_POST['key'].'" style="background-color: #2A70D2; padding: 10px; color: #ffffff; text-decoration: none; border-radius: 5px;">Khôi Phục Mật Khẩu</a></p>
                 <p>Trân trọng,</p>
             </div>
             <p>--</p>
@@ -55,7 +55,7 @@ $mail->Password   = decryptIt($row_config['cauhinh_mail_mk']);        // SMTP ac
 
 $mail->SetFrom($row_config['cauhinh_mail_ten'], strtoupper($row_config['copyright']));
 
-$mail->Subject    = "Ai đó đã yêu cầu một mật khẩu mới cho tài khoản ".ucfirst($subname)." của bạn";
+$mail->Subject    = "Mật khẩu ".ucfirst($subname)." đã thay đổi";
 
 $mail->AltBody    = "To view the message, please use an HTML compatible email viewer!"; // optional, comment out and test
 

@@ -45,9 +45,10 @@ if (isset($_POST['btn_dangky'])==true)//isset kiem tra submit
 			$randomkey=chuoingaunhien(50);
 			$khoa=1;
 			$kichhoatx=0;
-			$vale1='username,password,name,mobile,email,date_added,last_modified,active,status,randomkey';
+            $expired_key = date( "Y-m-d H:i:s", strtotime( "$ngay +2 day" ) ); //cong them 2 ngay
+			$vale1='username,password,name,mobile,email,date_added,last_modified,active,status,randomkey,key_expiration';
 			$vale2="'".$tendk."','".$password."','".$hoten."','".$dienthoai."','".$email."','".$ngay."','"
-			.$ngay."','".$kichhoatx."','".$khoa."','".$randomkey."'";
+			.$ngay."','".$kichhoatx."','".$khoa."','".$randomkey."','".$expired_key."'";
 			insert_table('tbl_customer',$vale1,$vale2,$hinh);
 
 			$_SESSION['register_re']="1";
@@ -101,9 +102,9 @@ $(document).ready(function() {
             check = 1;
             alert("Tên đăng nhập phải >= 2 ký tự!");
 		}
-		else if(password.length < 3) {
+		else if(password.length < 6) {
             check = 1;
-            alert("Mật khẩu phải >= 3 ký tự!");
+            alert("Mật khẩu phải >= 6 ký tự!");
 		}
 		else if(golaimatkhau != password) {
             check = 1;
@@ -168,7 +169,7 @@ $(document).ready(function() {
                         </div>
                         <div class="r_f_tt">
                             <input required class="ipt_f_tt" type="password" name="matkhau" id="password"/>
-                            <span class="star_style">* (Tối thiểu 3 ký tự)</span>
+                            <span class="star_style">* (Tối thiểu 6 ký tự)</span>
                         </div>
                         <div class="clear"></div>
                     </div><!-- End .module_ftt -->

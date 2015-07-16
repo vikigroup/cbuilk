@@ -150,6 +150,8 @@ require("module/box_device.php");
 <script type="text/javascript" src="<?php echo $linkrootshop?>/scripts/scrolltopcontrol.js"></script>
 <script type="text/javascript" src="<?php echo $linkrootshop?>/scripts/jquery.popupoverlay.js"></script>
 <script type="text/javascript"  src="<?php echo $linkrootshop?>/scripts/resolve.js"></script>
+<script src="https://apis.google.com/js/platform.js"></script>
+<script type="text/javascript" async defer src="//assets.pinterest.com/js/pinit.js"></script>
 <script type="text/javascript" src="<?php echo $linkrootshop?>/scripts/nivo-slider/jquery.nivo.slider.js"></script>
 
 <?php include("module/footer.php") ;?>

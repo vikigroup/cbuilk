@@ -117,33 +117,17 @@ if($ghinho==1){ // prodetail
         <?php }?>
 
         <div class="f-ndct">
-        
-           <?php echo $row_sanpham['detail'];?> 
-        
+           <?php echo $row_sanpham['detail'];?>
             <div class="clear"></div>
         </div><!-- End .f-ndct -->
-        
         <div class="face-cmm">
+            <a href="//www.pinterest.com/pin/create/button/" data-pin-do="buttonBookmark" data-pin-color="red"><img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_red_28.png" /></a>
+            <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
+            <div class="g-plusone" data-size="medium" data-href="<?php echo $linkrootshop;?>/<?php echo $row_sanpham['subject'];?>.html"></div>
+            <div class="fb-like" data-href="<?php echo $linkrootshop;?>/<?php echo $row_sanpham['subject'];?>.html" data-layout="standard" data-action="like" data-show-faces="false" data-share="false"></div>
             <div class="fb-comments" data-href="<?php echo $linkrootshop;?>/<?php echo $row_sanpham['subject'];?>.html" data-numposts="5" data-width="inherit" data-colorscheme="light"></div>
+            <div id="fb-root"></div>
         </div><!-- End .face-cmm -->
-        <div id="fb-root"></div>
-        <script>
-            window.fbAsyncInit = function() {
-                FB.init({
-                    appId      : '1460618637571000',
-                    xfbml      : true,
-                    version    : 'v2.3'
-                });
-            };
-
-            (function(d, s, id){
-                var js, fjs = d.getElementsByTagName(s)[0];
-                if (d.getElementById(id)) {return;}
-                js = d.createElement(s); js.id = id;
-                js.src = "//connect.facebook.net/en_US/sdk.js";
-                fjs.parentNode.insertBefore(js, fjs);
-            }(document, 'script', 'facebook-jssdk'));
-        </script>
     </div><!-- End .l-fcont -->
     
     <div class="r-fcont">
@@ -196,6 +180,20 @@ if($ghinho==1){ // prodetail
 
         <div class="clear"></div>
 
+        <div class="i_p_prod_details">
+            <?php if($row_sanpham['idshop'] == 0){ ?>
+                <a href="http://<?php echo $root;?>" title="<?php echo $row_sanpham['title'];?>">
+                    <img src="<?php echo $root;?>/imgs/layout/logo.png" alt="<?php echo $row_sanpham['title'];?>"/>
+                </a>
+            <?php } else{ ?>
+                <a href="http://<?php echo $shop['subject'];?>.<?php echo $sub;?>" title="<?php echo $shop['title'];?>">
+                    <img src="<?php echo $linkroot?>/<?php echo $shop['logo'];?>" alt="<?php echo $shop['title'];?>"/>
+                </a>
+            <?php } ?>
+        </div>
+
+        <div class="clear"></div>
+
         <div class="info_prod_details">
         
             <ul>
@@ -209,23 +207,6 @@ if($ghinho==1){ // prodetail
                     <span class="r_ipd"><?php echo $row_sanpham['view'];?></span>
                     <div class="clear"></div>
                 </li>
-                <li>
-                    <h4 class="l_ipd">Chia sẻ</h4>
-                    <span class="r_ipd">
-                    
-                        <!-- AddToAny BEGIN -->
-                        <div class="a2a_kit a2a_default_style">
-                            <a class="a2a_button_facebook"></a>
-                            <a class="a2a_button_twitter"></a>
-                            <a class="a2a_button_google_plus"></a>
-                            <a class="a2a_button_pinterest"></a>
-                        </div>
-                        <script type="text/javascript" src="//static.addtoany.com/menu/page.js"></script>
-                        <!-- AddToAny END -->
-
-                    </span>
-                    <div class="clear"></div>
-                </li>
             </ul>	
         
         </div><!-- End .info_prod_details -->
@@ -235,21 +216,10 @@ if($ghinho==1){ // prodetail
             <div class="info_gh">
                 <?php if($row_sanpham['style'] != 1){ ?>
                 <div>
-                    <div class="i_p_prod_details">
-                        <?php if($row_sanpham['idshop'] == 0){ ?>
-                        <a href="http://<?php echo $root;?>" title="<?php echo $row_sanpham['title'];?>">
-                            <img src="<?php echo $root;?>/imgs/layout/logo.png" alt="<?php echo $row_sanpham['title'];?>"/>
-                        </a>
-                        <?php } else{ ?>
-                        <a href="http://<?php echo $shop['subject'];?>.<?php echo $sub;?>" title="<?php echo $shop['title'];?>">
-                            <img src="<?php echo $linkroot?>/<?php echo $shop['logo'];?>" alt="<?php echo $shop['title'];?>"/>
-                        </a>
-                        <?php } ?>
-                    </div>
                     <?php if($row_sanpham['idshop'] == 0){ ?>
                     <div id="divBrand" class="i_gh_details" <?php if($brand_background != ''){echo "style='background-color: ".$brand_background."'";} ?>>
                         <h3>
-                            <a href="<?php echo $row_sanpham['brand_link']; ?>" title="<?php echo $row_sanpham['brand_name']; ?>" id="aBrand" <?php if($brand_color != ''){echo "style='color: ".$brand_color."'";} ?>><?php echo $row_sanpham['brand_name']; ?></a>
+                            <a href="<?php echo $row_sanpham['brand_link']; ?>" title="<?php echo $row_sanpham['brand_name']; ?>" id="aBrand" <?php if($brand_color != ''){echo "style='color: ".$brand_color."'";} ?>><?php if($row_sanpham['brand_name'] != ''){echo $row_sanpham['brand_name'];}else{echo get_field('tbl_shop_category','id',$row_sanpham['parent1'],'name');} ?></a>
                             <?php if($_SESSION['kt_login_level'] == 3){ ?>
                             <a href="#fadeandscale" class="initialism fadeandscale_open btn-edit button-transparent pure-button" title="Nhấn để chỉnh sửa"><i class="fa fa-pencil"></i></a>
 
@@ -374,15 +344,15 @@ if($ghinho==1){ // prodetail
                 
                 <div style="text-align:right;">
                     <?php if($row_sanpham['style'] == 1){$news = getRecord('tbl_shop_category', "id=211"); ?>
-                        <a class="rm_prod_other" href="<?php echo $root ;?>/<?php echo $news['subject']; ?>.html" title="<?php echo $news['title']; ?>">Xem thêm tin tức</a>
+                        <a class="rm_prod_other hvr-icon-wobble-horizontal" href="<?php echo $root ;?>/<?php echo $news['subject']; ?>.html" title="<?php echo $news['title']; ?>">Xem thêm tin tức</a>
                     <?php } else if($row_sanpham['style'] == 2){$rent=getRecord('tbl_shop_category', "id=209"); ?>
-                        <a class="rm_prod_other" href="<?php echo $root ;?>/<?php echo $rent['subject']; ?>.html" title="<?php echo $rent['title']; ?>">Xem thêm dịch vụ</a>
+                        <a class="rm_prod_other hvr-icon-wobble-horizontal" href="<?php echo $root ;?>/<?php echo $rent['subject']; ?>.html" title="<?php echo $rent['title']; ?>">Xem thêm dịch vụ</a>
                     <?php } else if($row_sanpham['style'] == 0){$allProducts = getRecord('tbl_shop_category', "id=457"); ?>
-                        <a class="rm_prod_other" href="<?php echo $root ;?>/<?php echo $allProducts['subject']; ?>.html" title="<?php echo $allProducts['title']; ?>">Xem thêm sản phẩm</a>
+                        <a class="rm_prod_other hvr-icon-wobble-horizontal" href="<?php echo $root ;?>/<?php echo $allProducts['subject']; ?>.html" title="<?php echo $allProducts['title']; ?>">Xem thêm sản phẩm</a>
                     <?php } else if($row_sanpham['style'] == 4){$old=getRecord('tbl_shop_category', "id=210"); ?>
-                        <a class="rm_prod_other" href="<?php echo $root ;?>/<?php echo $old['subject']; ?>.html" title="<?php echo $old['title']; ?>">Xem thêm sản phẩm</a>
+                        <a class="rm_prod_other hvr-icon-wobble-horizontal" href="<?php echo $root ;?>/<?php echo $old['subject']; ?>.html" title="<?php echo $old['title']; ?>">Xem thêm sản phẩm</a>
                     <?php } else if($row_sanpham['style'] == 3){$video=getRecord('tbl_shop_category', "id=390"); ?>
-                    <a class="rm_prod_other" href="<?php echo $root ;?>/<?php echo $video['subject']; ?>.html" title="<?php echo $video['title']; ?>">Xem thêm video</a>
+                    <a class="rm_prod_other hvr-icon-wobble-horizontal" href="<?php echo $root ;?>/<?php echo $video['subject']; ?>.html" title="<?php echo $video['title']; ?>">Xem thêm video</a>
                     <?php } ?>
                 </div>
                 
@@ -435,7 +405,7 @@ if($ghinho==1){ // prodetail
 
 <?php }else {?>
 <?php
-$pageSize = 20;
+$pageSize = 25;
 $pageNum = 1;
 $totalRows = 0;
 $xeptheo='id';
@@ -662,7 +632,7 @@ else{
                 while($row_new=mysql_fetch_assoc($product)){
 			    $shop=getRecord('tbl_shop', "id=".$row_new['idshop']);
                 ?>
-                <li class="li-Pc1">
+                <li class="li-Pc1 hvr-glow">
                     <div class="i-Pnb">
                         <a href="<?php echo $linkrootshop;?>/<?php echo $row_new['subject'];?>.html" title="<?php echo $row_new['title'];?>">
                         	<img src="<?php echo $linkroot?>/<?=$row_new['image']?>" alt="<?php echo $row_new['title'];?>"/>

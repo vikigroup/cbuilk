@@ -1,6 +1,8 @@
 <?php
 require("../database.php");
 session_start();
+date_default_timezone_set('Asia/Ho_Chi_Minh');
+$dt = date("Y-m-d H:i:s");
 
 $functionName = filter_input(INPUT_POST, 'functionName');
 
@@ -24,6 +26,14 @@ if($functionName == "checkUserEmail"){
     checkUserEmail();
 }
 
+if($functionName == "checkCodeFP"){
+    checkCodeFP();
+}
+
+if($functionName == "changePassWord"){
+    changePassWord();
+}
+
 function connect(){
     // Create connection
     $conn = new mysqli($GLOBALS['hostname'], $GLOBALS['username'], $GLOBALS['password'], $GLOBALS['databasename']);
@@ -38,27 +48,57 @@ function connect(){
 
 function selectUserEmail(){
     $userName = filter_input(INPUT_POST, 'userName');
-    $email = selectField("tbl_customer", "email", "username='".$userName."'");
+    $email = selectField("tbl_customer", "email", "username = '".$userName."'");
     echo $email;
 }
 
 function checkUserEmail(){
     $email = filter_input(INPUT_POST, 'email');
-    $isExist = selectCondition("tbl_customer", "email='".$email."'");
+    $isExist = selectCondition("tbl_customer", "email = '".$email."'");
     if($isExist == 1){
-        $active = selectField("tbl_customer", "active", "email='".$email."'");
+        $active = selectField("tbl_customer", "active", "email = '".$email."'");
         if($active == 0){
             echo 2;
         }
         else{
-            $key = substr(str_shuffle(implode(array_merge(range(0,9), range('A', 'Z'), range('a', 'z')))), 0, 50); //change randomkey in database
-            $_SESSION['keyFP'] = $key;
-            update("tbl_customer", "randomkey = '".$key."'", "email = '".$email."'");
-            echo 1;
+            $code = mt_rand(100000, 999999); //random 1 chuoi gom 6 ky tu so
+            $check = update("tbl_customer", "randomcode = '".$code."', last_modified = '".$GLOBALS['dt']."'", "email = '".$email."'");
+            if($check != 1){
+                echo 0;
+            }
+            else{
+                echo 1;
+            }
         }
     }
     else{
         echo 0;
+    }
+}
+
+function checkCodeFP(){
+    $email = filter_input(INPUT_POST, 'email');
+    $code = filter_input(INPUT_POST, 'code');
+    $check = selectCondition("tbl_customer", "email = '".$email."' AND randomcode = '".$code."'");
+    echo $check;
+}
+
+function changePassWord(){
+    $email = filter_input(INPUT_POST, 'email');
+    $pass = md5(md5(md5(filter_input(INPUT_POST, 'passWord'))));
+    $result = update("tbl_customer", "password = '".$pass."'", "email = '".$email."'");
+    if($result != 1){
+        echo 0;
+    }
+    else{
+        $key = substr(str_shuffle(implode(array_merge(range(0,9), range('A', 'Z'), range('a', 'z')))), 0, 50);
+        $check = update("tbl_customer", "randomkey = '".$key."'", "email = '".$email."'");
+        if($check != 1){
+            echo 0;
+        }
+        else{
+            echo $key;
+        }
     }
 }
 
@@ -114,9 +154,9 @@ function updateBrand(){
 
 function updateCustomerActive(){
     $key = filter_input(INPUT_POST, 'activeKey');
-    $isExist = selectCondition("tbl_customer", "randomkey='".$key."'");
+    $isExist = selectCondition("tbl_customer", "randomkey = '".$key."'");
     if($isExist == 1){
-        $check = selectField("tbl_customer", "active", "randomkey='".$key."'");
+        $check = selectField("tbl_customer", "active", "randomkey = '".$key."'");
         if($check == 0){
             echo update("tbl_customer", "active = '1'", "randomkey = '".$key."'");
         }

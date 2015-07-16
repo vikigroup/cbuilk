@@ -1,4 +1,5 @@
 <div class="form_dn">
+    <input type="hidden" id="hiddenHomeLink" value="<?php echo $root; ?>">
     <ul>
         <li style="text-align: center;">
             <img src="<?php echo $linkrootshop;?>/imgs/layout/LoginRed.png" alt=""/>

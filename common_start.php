@@ -1,4 +1,4 @@
-<?
+<?php
 	$conn = @mysql_connect($hostname, $username, $password) or 
 	die("Can't connect to database");
 	mysql_select_db($databasename);
@@ -34,4 +34,9 @@ $frame=$_REQUEST['act'];
 //----------------------------------------------------------------------------------------------
 
 //$_lang="vn";
+
+$activeLink = $_SERVER['REQUEST_URI'];
+$myActiveLink = explode("?", $activeLink);
+$myLinkData = explode("=", $myActiveLink[1]);
+$myActiveKey = $myLinkData[1];
 ?>
