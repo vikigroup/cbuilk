@@ -13,7 +13,7 @@
     $myPage = explode("=", $myLink[1]);
     $pageNum = $myPage[1];
 
-	$pageSize = 20;
+	$pageSize = 25;
 	$totalRows = 0;
 	$xeptheo='id';
 	$dem=1;
@@ -33,6 +33,7 @@
 	$product=get_records("tbl_item","status=0 AND cate=0 $str_tim AND (  name LIKE '%$tukhoa%' or detail_short LIKE '%$tukhoa%' or detail LIKE '%$tukhoa%'  or title LIKE '%$tukhoa%' or keyword LIKE '%$tukhoa%') order by $sapxep limit ".$startRow.",".$pageSize," "," "," ");
 ?>
 
+<input type="hidden" id="hiddenSearchPageNum" value="<?php echo $pageNum; ?>">
 <section class="breacrum">
     <ul>
         <li><a href="<?php echo $linkrootshop;?>">Trang chủ</a></li>
@@ -141,37 +142,3 @@
     
     <div class="clear"></div>
 </section><!-- End .f-ct -->	
-
-<script>
-    $(function(){
-        $('.f-sty-P1').trigger('click');
-        var length = $('#divSearchPag a').length;
-        var link = $('#divSearchPag a').attr('href');
-        var myArr = link.split("/");
-        var page = myArr[5].substr(0,1);
-        var pageNum = "<?php echo $pageNum ?>";
-        var linkAfter = myArr[0]+"/"+myArr[1]+"/"+myArr[2]+"/"+myArr[3].replace("-", "%20")+"html?page=";
-        for(var i = 0; i < length - 1; i++){
-            $('#divSearchPag a:nth-child('+(i+1)+')').attr('href', linkAfter+(i+1));
-        }
-
-        $('#divSearchPag').find('span').remove();
-        var firstPage = myArr[0]+"/"+myArr[1]+"/"+myArr[2]+"/"+myArr[3].replace("-", "%20")+"html?page=1";
-        var previous =  myArr[0]+"/"+myArr[1]+"/"+myArr[2]+"/"+myArr[3].replace("-", "%20")+"html?page="+(parseInt(pageNum)-1);
-        var next = myArr[0]+"/"+myArr[1]+"/"+myArr[2]+"/"+myArr[3].replace("-", "%20")+"html?page="+(parseInt(pageNum)+1);
-        var lastPage = myArr[0]+"/"+myArr[1]+"/"+myArr[2]+"/"+myArr[3].replace("-", "%20")+"html?page="+(length-1);
-        if(pageNum == length - 1){
-            next = lastPage;
-        }
-        if(pageNum-1 == 0){
-            previous = myArr[0]+"/"+myArr[1]+"/"+myArr[2]+"/"+myArr[3].replace("-", "%20")+"html?page=1";
-        }
-
-        $('#divSearchPag').prepend("<a href="+firstPage+">1</a>");
-        $('#divSearchPag').prepend("<a href="+previous+">&lsaquo;</a>");
-        $('#divSearchPag').prepend("<a href="+firstPage+">&#171;</a>");
-
-        $('#divSearchPag a:nth-child('+(length+2)+')').attr('href', next);
-        $('#divSearchPag a:nth-child('+(length+3)+')').attr('href', lastPage);
-    });
-</script>

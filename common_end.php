@@ -1,2 +1,3 @@
-<? mysql_close($conn);
+<?php
+mysql_close($conn);
 ?>
