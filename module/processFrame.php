@@ -21,6 +21,7 @@ switch ($frame){
 
     case "browser"                 : include("lib/ckfinder/ckfinder.html");break;
     case "active"                  : include("module/active_information.php");break;
+    case "restorepassword"         : include("module/restore_password.php");break;
 
 	case "logout"              	   : {
                                         unset($_SESSION['kh_login_username']);

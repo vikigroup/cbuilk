@@ -29,7 +29,6 @@
 	$startRow = ($pageNum-1) * $pageSize;
 
     $totalRows = countRecord("tbl_item","status=0  AND cate=0 $str_tim  AND (  name LIKE '%$tukhoa%' or detail_short LIKE '%$tukhoa%' or detail LIKE '%$tukhoa%'  or title LIKE '%$tukhoa%' )"); 
-	 //echo "status=0 AND type=0 AND cate=0 $str_tim  AND (  name LIKE '%$tukhoa%' or detail_short LIKE '%$tukhoa%' or detail LIKE '%$tukhoa%'  or title LIKE '%$tukhoa%' ) order by $sapxep limit ".$startRow.",".$pageSize;
 	$product=get_records("tbl_item","status=0 AND cate=0 $str_tim AND (  name LIKE '%$tukhoa%' or detail_short LIKE '%$tukhoa%' or detail LIKE '%$tukhoa%'  or title LIKE '%$tukhoa%' or keyword LIKE '%$tukhoa%') order by $sapxep limit ".$startRow.",".$pageSize," "," "," ");
 ?>
 
@@ -44,9 +43,7 @@
 </section><!-- End .breacrum -->
             
 <section class="f-ct">
-
     <div class="sidebar">
-        
         <div class="catelog">
             <h2 class="t-mn-dm">
 			 Danh mục
@@ -54,21 +51,17 @@
             <div class="m-cate">
                 <ul>
                     <?php
-				   $cate1=get_records("tbl_shop_category","status=0 AND parent='2'","name COLLATE utf8_unicode_ci"," "," ");
-					 
-					while($row_cate1=mysql_fetch_assoc($cate1)){
-					?>
-						<li><a href="<?php echo $linkrootshop?>/<?php echo $row_cate1['subject'];?>.html" title=""><?php echo $row_cate1['name']?></a></li>
-					<?php }?> 
+                       $cate1=get_records("tbl_shop_category","status=0 AND parent='2'","name COLLATE utf8_unicode_ci"," "," ");
+                        while($row_cate1=mysql_fetch_assoc($cate1)){?>
+                            <li><a href="<?php echo $linkrootshop?>/<?php echo $row_cate1['subject'];?>.html" title=""><?php echo $row_cate1['name']?></a></li>
+                    <?php }?>
                 </ul>
                 <div class="clear"></div>
             </div><!-- End .m-cate -->
         </div><!-- End .catelog -->
-        
     </div><!-- End .sidebar -->
     
     <div class="content">
-               
         <section class="filter-Prod">
             <h4 class="t-Pnb">
                 <div class="clear"></div>
@@ -85,7 +78,6 @@
         </section><!-- End .filter-Prod -->
         
         <section class="Prod-cate">
-        
             <ul>
 				<?php 
                 while($row_new=mysql_fetch_assoc($product)){
@@ -121,24 +113,18 @@
                     <div class="clear"></div>
                 </li>
                 <?php }?>
-                
             </ul>
-            
             <div class="clear"></div>
-            
         </section><!-- End .Prod-cate -->
         
         <div class="frame_phantrang">
             <div class="PageNum" id="divSearchPag">
-					<?php  
-                        echo pagesLinks_new_full_2013($totalRows, $pageSize , "","","tu-khoa-tim/".$_GET['loai']."/".str_replace(" ", "-", $_GET['tukhoa']));
-                        ?>
-
+                <?php
+                    echo pagesLinks_new_full_2013($totalRows, $pageSize , "","","tu-khoa-tim/".$_GET['loai']."/".str_replace(" ", "-", $_GET['tukhoa']));
+                ?>
             </div>
             <div class="clear"></div>
         </div><!-- End .frame_phantrang -->
-        
     </div><!-- End .content -->
-    
     <div class="clear"></div>
 </section><!-- End .f-ct -->	
