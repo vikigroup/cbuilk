@@ -75,6 +75,8 @@ require("module/box_device.php");
     <meta property="og:description" content="<?php echo $description_t; ?>" />
     <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image" content="<?php if($myProduct['image'] != ''){echo $linkroot;?>/<?php echo $myProduct['image'];}else{echo $root.'/imgs/layout/logo.png';} ?>" />
+    <meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id" content="449603416239-5bbvg0ekokijdhas8p8rmtjhbde6cg67.apps.googleusercontent.com"
 
     <link rel="shortcut icon" href="imgs/layout/logo.ico" type="image/x-icon" />
     <link rel="stylesheet" type="text/css" href="<?php echo $linkrootshop?>/templates/css.css">
@@ -151,7 +153,7 @@ require("module/box_device.php");
 <script type="text/javascript" src="<?php echo $linkrootshop?>/scripts/scrolltopcontrol.js"></script>
 <script type="text/javascript" src="<?php echo $linkrootshop?>/scripts/jquery.popupoverlay.js"></script>
 <script type="text/javascript"  src="<?php echo $linkrootshop?>/scripts/resolve.js"></script>
-<script src="https://apis.google.com/js/platform.js"></script>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
 <script type="text/javascript" async defer src="//assets.pinterest.com/js/pinit.js"></script>
 <script type="text/javascript" src="<?php echo $linkrootshop?>/scripts/nivo-slider/jquery.nivo.slider.js"></script>
 

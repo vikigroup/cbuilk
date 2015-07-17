@@ -43,11 +43,6 @@ function autoHome(){
         $('#menu').slicknav({
             prependTo:'#container'
         });
-
-        $(".nivo-main-image, .m-slider").attr("style", "height:300px !important;margin: 0px !important;");
-        $(".nivoSlider").css('position','relative');
-        $(".nivoSlider").css('margin-top','40px');
-        $("#container").css('margin-top','0px');
     }
 
     if($(window).width() >= 992){

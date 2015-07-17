@@ -1136,6 +1136,13 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     padding: 10% 0;
 }
 
+.m-slider{
+    background-color: #FFffff;
+    width: 100%;
+    box-shadow: 0 1px 2px rgba(0,0,0,.1);
+    box-sizing: border-box;
+}
+
 @media (min-width: 992px) {
     .primary-category{
         display: block !important;
@@ -1165,37 +1172,36 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     .menu{
         width: 97% !important;
     }
+    .m-slider{
+        height: 483px !important;
+    }
+    .nivoSlider img{
+        height: 482px !important;
+    }
 }
 
-@media (max-width: 991px)
-{
+@media (max-width: 991px){
     .container .m-wrap{
         margin: 60px 0  60px 0;
     }
-
     .search_top_header{
         top: 70px !important;
         left: 0 !important;
         width: 100%;
     }
-
     .hotline{
         position: absolute;
         top: 130px;
     }
-
     .menu, .r-box-tool, .search_top_header{
         margin-left: -1px !important;
     }
-
     .btn-gh3{
         margin-bottom: 5px;
     }
-
     .container-fluid, .ads-top, .ads-floors, .divAds, .dmsp4-2, .divCategory, .divSubCategory, #topcontrol, .l-tool-ct, .r-tool-ct{
         display: none;
     }
-
     .r-box-tool{
         margin-top: 55px;
         width: 100%;
@@ -1206,66 +1212,51 @@ ul.ul-fP li.atc a {color: #3ba11b;}
         display: block;
         background-color: #ffffff !important;
     }
-
     .dmsp4-1{
         width: 100%;
         height: auto;
     }
-
     .dmsp4-1 .bx-wrapper{
         margin: 0 0 0 0 !important;
         max-width: 52px !important;
     }
-
     .dmsp4-1 .bx-wrapper .bx-viewport{
         height: 0 !important;
     }
-
     .divProductLine1:first-child, .menu{
         margin-left: 0;
     }
-
-
     .divProductLine1:nth-child(1), .divProductLine1:nth-child(3), .divProductLine1:nth-child(5){
         margin-left: 0;
     }
-
     .divProductLine1:nth-child(2), .divProductLine1:nth-child(4), .divProductLine1:nth-child(6){
         margin-left: 0;
         margin-right: 0;
     }
-
     .dmsp4-3{
         overflow: visible;
         height: auto;
         margin-bottom: 10px;
     }
-
     .form_dn{
         margin-top: 0;
         padding-top: 0;
     }
-
     .ipt_f_tt{
         width: 180px !important;
     }
-
     .form_dn ul li:nth-child(1n) img, .fix-box-sizing{
         width: 100% !important;
     }
-
     .list-cate{
         margin-top: 10px;
     }
-
     .r-fcont{
         float: left;
     }
-
     .bx-prev, .bx-next{
         display: none;
     }
-
     .f-ct .sidebar{
         width: 100% !important;
 
@@ -1273,30 +1264,18 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     .filter-Prod .t-Pnb{
         padding: 0;
     }
-
-/*********************************/
-    .m-slider
-    {
-        display:block;
-    }
-
-    /*******************************/
     .logo{
         left: 20%;
     }
-
     .fix_main{
-        margin-top: 0;
+        margin-top: 0 !important;
     }
-
     .s-Pnb, .prod_row2, .prod_row3{
         display: none !important;
     }
-
     .ads-article{
         margin-top: 0;
     }
-
     #container{
         margin-top: 50px;
     }
@@ -1311,15 +1290,26 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     .div404{
         padding: 35% 0;
     }
-
-    iframe { max-width:100% !important; max-heigh:auto !important; }
-
+    iframe {
+        max-width:100% !important;
+        max-heigh:auto !important;
+    }
     iframe {
         max-width:100% !important;
         max-height: 100% !important;
     }
     .mini-bar{
         visibility: hidden;
+    }
+    .nivoSlider{
+        left: 0 !important;
+    }
+    .m-slider{
+        height: 383px !important;
+        margin: 50px 0 10px 0 !important;
+    }
+    .nivoSlider img{
+        height: 382px !important;
     }
 }
 
@@ -1390,9 +1380,15 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     .dmsp4-2{
         width: 390px !important;
     }
-    /*.dmsp4-3{*/
-    /*width: 350px !important;*/
-    /*}*/
+}
+
+@media (max-width: 768px) {
+    .m-slider{
+        height: 183px !important;
+    }
+    .nivoSlider img{
+        height: 182px !important;
+    }
 }
 
 a.popup-link {
@@ -1586,14 +1582,6 @@ label{
     cursor: pointer;
     overflow: hidden;
     text-overflow: ellipsis;
-}
-
-.m-slider{
-    background-color: #FFffff;
-    width: 100%;
-    height: 483px;
-    box-shadow: 0 1px 2px rgba(0,0,0,.1);
-    box-sizing: border-box;
 }
 
 .fb-comments iframe { width:100% !important; height: 100% !important; }
