@@ -108,6 +108,7 @@ require("module/box_device.php");
 </head>
 <body>
 <div id="closed"></div>
+<input type="hidden" id="hiddenHomeLink" value="<?php echo $root; ?>">
 <header class="menu">
     <div class="m-wrap">
         <?php include("module/box_logo.php") ;?>

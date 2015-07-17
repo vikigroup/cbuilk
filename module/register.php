@@ -46,15 +46,15 @@ if (isset($_POST['btn_dangky'])==true)//isset kiem tra submit
 			$khoa=1;
 			$kichhoatx=0;
             $expired_key = date( "Y-m-d H:i:s", strtotime( "$ngay +2 day" ) ); //cong them 2 ngay
-			$vale1='username,password,name,mobile,email,date_added,last_modified,active,status,randomkey,key_expiration';
+			$vale1='username,password,name,mobile,email,date_added,last_modified,active,status,randomkey';
 			$vale2="'".$tendk."','".$password."','".$hoten."','".$dienthoai."','".$email."','".$ngay."','"
-			.$ngay."','".$kichhoatx."','".$khoa."','".$randomkey."','".$expired_key."'";
+			.$ngay."','".$kichhoatx."','".$khoa."','".$randomkey."'";
 			insert_table('tbl_customer',$vale1,$vale2,$hinh);
 
 			$_SESSION['register_re']="1";
 
             echo("<script>
-                window.onload = function(){
+                $(window).ready(function(){
                     $('#divConfirm').html('<img src=".'../imgs/load.gif'."><p>Đang xử lý, xin vui lòng chờ...</p>');
                     lightbox_open('lightConfirm', 'fadeConfirm');
                     var dataString = 'email=".$email."&hoten=".$hoten."&tendk=".$tendk."&matkhau=".$matkhau."&key=".$randomkey."';
@@ -69,7 +69,7 @@ if (isset($_POST['btn_dangky'])==true)//isset kiem tra submit
                             $('.pCloseConfirm').show();
                         }
                     });
-                }
+                });
             </script>");
         }
 }
@@ -134,11 +134,6 @@ $(document).ready(function() {
             return false;
         }
 	});
-
-    function isValidEmailAddress(emailAddress) {
-        var regex = /\S+@\S+\.\S+/;
-        return regex.test(emailAddress);
-    }
 });
 </script>
     <ul>

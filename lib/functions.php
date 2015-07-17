@@ -34,6 +34,14 @@ if($functionName == "changePassWord"){
     changePassWord();
 }
 
+if($functionName == "checkRestorePassWord"){
+    checkRestorePassWord();
+}
+
+if($functionName == "updateRandomKey"){
+    updateRandomKey();
+}
+
 function connect(){
     // Create connection
     $conn = new mysqli($GLOBALS['hostname'], $GLOBALS['username'], $GLOBALS['password'], $GLOBALS['databasename']);
@@ -100,6 +108,25 @@ function changePassWord(){
             echo $key;
         }
     }
+}
+
+function checkRestorePassWord(){
+    $restoreKey = filter_input(INPUT_POST, 'restoreKey');
+    $check = selectCondition("tbl_customer", "randomkey = '".$restoreKey."'");
+    if($check == 0){
+        echo 0;
+    }
+    else{
+        $email = selectField("tbl_customer", "email", "randomkey = '".$restoreKey."'");
+        echo $email;
+    }
+}
+
+function updateRandomKey(){
+    $email = filter_input(INPUT_POST, 'email');
+    $key = substr(str_shuffle(implode(array_merge(range(0,9), range('A', 'Z'), range('a', 'z')))), 0, 50);
+    $check = update("tbl_customer", "randomkey = '".$key."'", "email = '".$email."'");
+    echo $check;
 }
 
 function insertOrder(){

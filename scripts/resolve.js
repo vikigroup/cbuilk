@@ -293,16 +293,20 @@ function checkCode(){
                 $("#spanInputCodeFP").html("Mã xác nhận không đúng!<br/> Xin vui lòng kiểm tra và thử lại.");
             }
             else{
-                closeConfirmPopup('<p>Cài đặt Mật khẩu mới</p>' +
-                '<p>Mật khẩu mạnh là mật khẩu bao gồm các chữ cái và dấu chấm câu. Nó phải có ít nhất 6 ký tự.<br/>(ví dụ: 4pRte!ai@3)</p>' +
-                '<p><input type="password" class="input-text" placeholder="Nhập mật khẩu mới" id="txtPassWordFP" onkeypress="getPassWordStrength();"></p>' +
-                '<p><span id="strength_human"></span></p>' +
-                '<p><input type="password" class="input-text" placeholder="Xác nhận mật khẩu" id="txtRePassWordFP"></p>' +
-                '<p><span class="error hidden" id="spanCheckCodeFP"></span></p>' +
-                '<p><span class="button-warning pure-button" onclick="changePassWord();">Đổi mật khẩu</span></p>');
+                openChangePassWordPopup();
             }
         }
     });
+}
+
+function openChangePassWordPopup(){
+    closeConfirmPopup('<p>Cài đặt Mật khẩu mới</p>' +
+    '<p>Mật khẩu mạnh là mật khẩu bao gồm các chữ cái và dấu chấm câu. Nó phải có ít nhất 6 ký tự.<br/>(ví dụ: 4pRte!ai@3)</p>' +
+    '<p><input type="password" class="input-text" placeholder="Nhập mật khẩu mới" id="txtPassWordFP" onkeypress="getPassWordStrength();"></p>' +
+    '<p><span id="strength_human"></span></p>' +
+    '<p><input type="password" class="input-text" placeholder="Xác nhận mật khẩu" id="txtRePassWordFP"></p>' +
+    '<p><span class="error hidden" id="spanCheckCodeFP"></span></p>' +
+    '<p><span class="button-warning pure-button" onclick="changePassWord();">Đổi mật khẩu</span></p>');
 }
 
 function changePassWord(){
@@ -324,6 +328,10 @@ function changePassWord(){
     }
     else{
         var email = $("#txtFPEmail").val();
+        var isRestorePassWord = parseInt($("#hiddenRestorePassWord").val());
+        if(isRestorePassWord == 1){
+            email = $("#hiddenCustomerRestoreEmail").val();
+        }
         var dataString = "email="+email+"&passWord="+passWord+"&functionName="+"changePassWord";
         $.ajax({
             type: "POST",
@@ -335,19 +343,41 @@ function changePassWord(){
                     $("#spanCheckCodeFP").html("Đã xảy ra lỗi!<br/>Xin vui lòng tải lại trang và thử lại.");
                 }else{
                     openConfirmPopup('<p>Đang cập nhật thông tin...</p>');
-                    var dataString = "email="+email+"&key="+x;
-                    $.ajax({
-                        type: "POST",
-                        url: "lib/phpmailer/external/password_change.php",
-                        data: dataString,
-                        success: function(y){
-                            closeConfirmPopup('<p>Cài đặt mật khẩu mới thành công! <br/>Hệ thống đang chuyển về trang đăng nhập hoặc nhấn <a class="aResendActiveLink" onclick="backLoginPage();">vào đây</a></p>');
-                            $('.pCloseConfirm').hide();
-                            window.setTimeout(function () {
-                                location.href = $("#hiddenHomeLink").val()+"/dang-nhap.html";
-                            }, 10000)
-                        }
-                    });
+                    if(isRestorePassWord == 1){
+                        var data = "email="+email+"&functionName="+"updateRandomKey";
+                        $.ajax({
+                            type: "POST",
+                            url: "lib/functions.php",
+                            data: data,
+                            success: function(y){
+                                if(y == 0){
+                                    $("#spanCheckCodeFP").removeClass("hidden");
+                                    $("#spanCheckCodeFP").html("Đã xảy ra lỗi!<br/>Xin vui lòng tải lại trang và thử lại.");
+                                }else{
+                                    closeConfirmPopup('<p>Khôi phục mật khẩu thành công! <br/>Hệ thống đang chuyển về trang chủ hoặc nhấn <a class="aResendActiveLink" onclick="backHomePage();">vào đây</a></p>');
+                                    $('.pCloseConfirm').hide();
+                                    window.setTimeout(function () {
+                                        location.href = $("#hiddenHomeLink").val();
+                                    }, 10000)
+                                }
+                            }
+                        });
+                    }
+                    else{
+                        var data = "email="+email+"&key="+x;
+                        $.ajax({
+                            type: "POST",
+                            url: "lib/phpmailer/external/password_change.php",
+                            data: data,
+                            success: function(y){
+                                closeConfirmPopup('<p>Cài đặt mật khẩu mới thành công! <br/>Hệ thống đang chuyển về trang đăng nhập hoặc nhấn <a class="aResendActiveLink" onclick="backLoginPage();">vào đây</a></p>');
+                                $('.pCloseConfirm').hide();
+                                window.setTimeout(function () {
+                                    location.href = $("#hiddenHomeLink").val()+"/dang-nhap.html";
+                                }, 10000)
+                            }
+                        });
+                    }
                 }
             }
         });
@@ -357,6 +387,11 @@ function changePassWord(){
 function backLoginPage(){
     var homeLink = $("#hiddenHomeLink").val();
     window.location.href = homeLink+"/dang-nhap.html";
+}
+
+function backHomePage(){
+    var homeLink = $("#hiddenHomeLink").val();
+    window.location.href = homeLink;
 }
 
 function getPassWordStrength(){
