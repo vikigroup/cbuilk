@@ -22,7 +22,8 @@ function autoHome(){
     var windowSize = $(window).width();
     if($(window).width() < 992){
         $('.m-wrap, .dmsp4-3, .ads-home, .btn-gh3, .form_dn, .form_dn ul li, .l-fcont, .r-fcont' +
-            ', .sli-fcon-1 .bx-wrapper .bx-viewport, .filter-Prod, .content').css('width', windowSize);
+            ', .sli-fcon-1 .bx-wrapper .bx-viewport, .filter-Prod, .content, .menu').css('width', windowSize);
+        $('.search_top_header').css('width', windowSize - 2);
         $('.l-fcont, .r-fcont, table').css('width', windowSize - 10);
         $('.divProductLine1, .divProductOverlay1').css('width', windowSize/2 - 2);
         $('.sli-fcon-1').css('width', windowSize - 2);
@@ -54,7 +55,7 @@ function autoHome(){
         $('.select_input_search').css('width', $('.search_top_header form').width() - 123);
         $('.form_dn').css('width', windowSize - 139);
         $('.dmsp4-3').css('width', windowSize - 190 - 390 - 139);
-        $('.ads-home').css('max-width', windowSize - 190 - 190 - 139);
+        $('.ads-home').css('width', windowSize - 190 - 190 - 139);
         $('.btn-gh3').css('width', 190);
         $('.arrowCategory').css('width', 135);
         $('.primary-category, .btn-category').css('width', 140);
@@ -73,6 +74,8 @@ function autoHome(){
         $('#slider').css('left', (windowSize - 1210) / 2);
         $('.l-fcont').css('width', '73%');
         $('.r-fcont').css('width', '23%');
+        $('.search_top_header').css('width', 475);
+        $('.select_input_search').css('width', 352);
 
         for(var i = 0; i < 8; i++){
             if($('#aCategoryName'+i).height() > 14){

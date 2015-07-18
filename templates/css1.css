@@ -119,7 +119,7 @@ span.hotline { margin-left: 5px !important;}
     width: 100%;
     height: 100%;
 }
-.dmsp4-3 {float: left; max-width: 630px; height: 420px; overflow: hidden; background-color: #ffffff;}
+.dmsp4-3 {float: left; height: 420px; overflow: hidden; background-color: #ffffff;}
 .dmsp4-1, .dmsp4-2, .dmsp4-3, .divAds, .ads-floors a img{
     box-shadow: 0 1px 2px rgba(0,0,0,.1); box-sizing: border-box;
 }
@@ -134,7 +134,7 @@ span.hotline { margin-left: 5px !important;}
     box-shadow: none !important;
 }
 .img-right{width: 168px; height: 481px;}
-.ads-home{float:left; width: 830px; height: 330px !important; overflow: hidden;}
+.ads-home{float:left; max-width: 830px; height: 330px !important; overflow: hidden;}
 .ads-logo{width: 136px; background-color: white; float: left; padding: 18px 0 18px 0; text-align: center; border: 1px solid #F5F5F5;}
 .ads-logo img{max-width: 90px; max-height: 45px; display: inline}
 .ads-article article{}
@@ -1124,16 +1124,20 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 .slicknav_menu{
     background-color: #2A70D2 !important;
     margin-right: 1px;
-    height: 35px;
 }
 
 .slicknav_collapsed{
-    background-color: transparent !important;
-    height: 25px;
+    background-color: #2A70D2 !important;
+    height: 24px;
 }
 
 .slicknav_open, .menu-shop{
     background-color: #004481 !important;
+    border-radius: 4px;
+}
+
+.slicknav_btn{
+    margin-top: 0 !important;
 }
 
 .div404{
@@ -1182,6 +1186,9 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     }
     .nivoSlider img{
         height: 482px !important;
+    }
+    .dmsp4-3 {
+        max-width: 630px !important;
     }
 }
 
@@ -1232,10 +1239,10 @@ ul.ul-fP li.atc a {color: #3ba11b;}
         margin-left: 0;
     }
     .divProductLine1:nth-child(1), .divProductLine1:nth-child(3), .divProductLine1:nth-child(5){
-        margin-left: 0;
+        margin-left: -1px;
     }
     .divProductLine1:nth-child(2), .divProductLine1:nth-child(4), .divProductLine1:nth-child(6){
-        margin-left: 0;
+        margin-left: -1px;
         margin-right: 0;
     }
     .dmsp4-3{
@@ -1334,9 +1341,6 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     .dmsp4-3{
         width: 350px !important;
     }
-    .ads-home{
-        width: 450px !important;
-    }
     .menu{
         width: 97% !important;
     }
@@ -1377,6 +1381,9 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     .slide{
         max-width: 100% !important;
         width: 100% !important;
+    }
+    .search_top_header{
+        width: 475px !important;
     }
 }
 
