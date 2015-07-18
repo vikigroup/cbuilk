@@ -76,7 +76,7 @@ require("module/box_device.php");
     <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image" content="<?php if($myProduct['image'] != ''){echo $linkroot;?>/<?php echo $myProduct['image'];}else{echo $root.'/imgs/layout/logo.png';} ?>" />
     <meta name="google-signin-scope" content="profile email">
-    <meta name="google-signin-client_id" content="449603416239-5bbvg0ekokijdhas8p8rmtjhbde6cg67.apps.googleusercontent.com"
+    <meta name="google-signin-client_id" content="449603416239-se132bqu56psukmq6o0n7poegu17rgur.apps.googleusercontent.com"
 
     <link rel="shortcut icon" href="imgs/layout/logo.ico" type="image/x-icon" />
     <link rel="stylesheet" type="text/css" href="<?php echo $linkrootshop?>/templates/css.css">

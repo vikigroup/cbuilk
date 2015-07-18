@@ -1,13 +1,14 @@
 body{
-    overflow-x: hidden;
+    overflow-x: hidden !important;
     margin: 0 auto 0 auto;
     background-color: #F5F5F5;
 }
 
-.m-wrap, .container {max-width: 1210px; margin: 0 auto; width: 100%;}
+.m-wrap, .container{max-width: 1210px; margin: 0 auto; width: 100%;}
 
-img { max-width:100% !important; height: auto !important; }
+img, table{max-width:100% !important; height: auto !important;}
 
+table{width: 100% !important;}
 /************************************************************************************
 BEGIN HEADER
 *************************************************************************************/
@@ -56,9 +57,8 @@ a.btn-gh3 i{margin-right: 5px;}
     padding: 0 10px;
 }
 .ipt_s{
-    height: 30px; width: 100%;
-    border: none;
-    color: #959494;
+    height: 28px; width: 100%;
+    border: none !important;
     font-size: 11px;
     font-family: Arial, Helvetica, sans-serif;
     color: #aaa;
@@ -72,7 +72,7 @@ a.btn-gh3 i{margin-right: 5px;}
     top: 1px; right: 1px;
     cursor: pointer;
     background-size: 100%;
-    background-color: #669AD3 !important;
+    background-color: transparent !important;
 }
 /*.btn_s:hover {background-position: 0px -28px;}*/
 
@@ -129,6 +129,9 @@ span.hotline { margin-left: 5px !important;}
 }
 .bx-wrapper .bx-viewport{
     background-color: transparent !important;
+    padding: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
 }
 .img-right{width: 168px; height: 481px;}
 .ads-home{float:left; width: 830px; height: 330px !important; overflow: hidden;}
@@ -491,7 +494,7 @@ END FOOTER
 }
 /************************************** END PHAN TRANG **************************************/
 
-.breacrum {padding: 7px 0;}
+.breacrum {padding: 7px 5px;}
 .breacrum ul li {float: left;}
 .breacrum ul li a {background: url(../imgs/layout/icon-breacrum.png) no-repeat right; color: #999; padding: 0 14px 0 10px; cursor: pointer;}
 .breacrum ul li a:hover {color: #2C6B97; font-weight: bold;}
@@ -559,8 +562,8 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 .Prod-cate ul li.li-Pc2 .price-Pnb {color: #F98D32; float: right; font-size: 17px; text-align: right; width: 160px; height: inherit; background: none; padding-top: 0; white-space: inherit; text-overflow: inherit; overflow: inherit;}
 
 .f-cont {padding: 10px 0 20px 0;}
-.l-fcont {width: 75%; float: left;}
-.r-fcont {width: 25%; float: right;}
+.l-fcont {width: 73%; float: left; padding: 0 5px;}
+.r-fcont {width: 23%; float: right; padding: 0 5px;}
 
 .t-lfcont {font-size: 27px; font-weight: normal; color: #111; padding-bottom: 10px;}
 
@@ -662,7 +665,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 .main_f_tt{color:#4C4C4C;}
 .main_f_tt a{color:#4C4C4C;}
 .main_f_tt a:hover{text-decoration:underline;}
-.module_ftt{padding-top:15px;}
+.module_ftt{padding:15px 0 0 20px;}
 .l_f_tt{float:left; text-align:right; width:30%; font-weight:bold; height:29px; line-height:29px;}
 .r_f_tt{float:right; text-align:left; width:67%;}
 .ipt_f_tt{
@@ -1121,10 +1124,12 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 .slicknav_menu{
     background-color: #2A70D2 !important;
     margin-right: 1px;
+    height: 35px;
 }
 
 .slicknav_collapsed{
     background-color: transparent !important;
+    height: 25px;
 }
 
 .slicknav_open, .menu-shop{
@@ -1236,7 +1241,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     .dmsp4-3{
         overflow: visible;
         height: auto;
-        margin-bottom: 10px;
+        margin-bottom: 0;
     }
     .form_dn{
         margin-top: 0;
@@ -1306,15 +1311,14 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     }
     .m-slider{
         height: 383px !important;
-        margin: 50px 0 10px 0 !important;
+        margin: 40px 0 0 0 !important;
     }
     .nivoSlider img{
         height: 382px !important;
     }
 }
 
-@media (min-width: 992px) and (max-width: 1008px)
-{
+@media (min-width: 992px) and (max-width: 1008px){
     .fixed{
         width: 97%;
     }
@@ -1343,14 +1347,14 @@ ul.ul-fP li.atc a {color: #3ba11b;}
         width: 136px !important;
         height: auto !important;
     }
-    .l-fcont, .bx-viewport{
-        width: 60% !important;
-    }
     .sli-fcon-1{
         width: 95% !important;
     }
+    .l-fcont, .bx-viewport{
+        width: 750px !important;
+    }
     .r-fcont{
-        width: 40% !important;
+        width: 200px !important;
     }
     .li-Pc1, .prod_row1{
         width: 173px !important;
@@ -1801,8 +1805,6 @@ textarea:hover, textarea:focus{
     display: none;
 }
 
-iframe[id^="oauth2relay"] { height: 81px !important;}
-
 div#___plusone_0, .twitter-share-button, .fb_iframe_widget{
     vertical-align: top !important;
 }
@@ -1811,8 +1813,25 @@ div#___plusone_0, .twitter-share-button, .fb_iframe_widget{
     display: inline-block !important;
 }
 
+iframe[id^="oauth2relay"]{ height: 81px !important;}
+
 div#___plusone_0 iframe, .twitter-share-button{
     height: 20px !important;
     width: 100px !important;
     padding-bottom: 5px;
+}
+
+.div-google-width{
+    width: 40%;
+}
+
+.g-signin2{
+    text-align: center;
+}
+
+.fb-login-button span iframe{ height: 40px !important;}
+
+.div-facebook-width{
+    width: 60%;
+    text-align: center;
 }
