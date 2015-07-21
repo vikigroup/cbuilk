@@ -6,7 +6,7 @@
     <p class="pCloseConfirm" onclick='lightbox_close("lightConfirm", "fadeConfirm");'>Đóng cửa sổ</p>
 </div>
 <div class="fade" id="fadeConfirm"></div>
-
+<div class="clear"></div>
 <footer>
 <div class="m-wrap">
     <div class="i-foot">
@@ -81,8 +81,12 @@
         <span>Bản quyền © 2015  <b> <a href="http://<?php echo $sub; ?>/"><?php echo $sub; ?></a></span><br/>
         <span><?php echo get_field('tbl_config','id',2,'tenkh'); ?></span><br/>
         <span>Địa chỉ: <?php echo get_field('tbl_config','id',2,'dckh'); ?></span><br/>
-        <span>Số ĐKKD: <?php echo get_field('tbl_config','id',2,'faxkh'); ?></span><br/>
+        <span>Giấy phép: <?php echo get_field('tbl_config','id',2,'faxkh'); ?></span><br/>
+        <?php if(get_field('tbl_config','id',2,'content_responsiblity') != ''){ ?>
+            <span>Chịu trách nhiệm nội dung: <?php echo get_field('tbl_config','id',2,'content_responsiblity'); ?></span><br/>
+        <?php } ?>
+        <br/>
+        <p><a href="<?php echo $root; ?>/<?php echo get_field('tbl_shop_category','id',458,'subject'); ?>.html"><span class="hotline">Liên hệ quảng cáo: </i> <?=$row_title_lap['hotlinekh'];?></span></a></p>
     </div><!-- End .text-foot -->
-    
 </div><!-- End .m-wrap -->
 </footer>

@@ -1,8 +1,5 @@
 <article class="r-tool-ct r-box-tool">
-    <span class="hotline">Liên hệ quảng cáo: </i> <?=$row_title_lap['hotlinekh'];?></span>
     <ul>
-        <li>
-        </li>
         <?php if($_SESSION['kh_login_username']==""){?>
             <li><a href="<?php echo $linkrootshop;?>/dang-nhap.html">Đăng nhập</a></li>
             <li>|</li>
@@ -13,7 +10,7 @@
             <?php }else{ ?>
             <li>Xin chào, <?php echo $_SESSION['kh_login_username'];?></li>
             <?php } ?>
-            <li>|</li>
+            <br/>
             <li><a href="<?php echo $linkrootshop;?>/doi-mat-khau.html" title="">Đổi mật khẩu</a></li>
             <li>|</li>
             <li><a href="<?php echo $linkrootshop;?>/thoat.html" title="">Thoát</a></li>

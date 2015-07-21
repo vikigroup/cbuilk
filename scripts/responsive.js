@@ -58,7 +58,7 @@ function autoHome(){
         $('.dmsp4-3').css('width', windowSize - 190 - 390 - 139);
         $('.ads-home').css('width', windowSize - 190 - 190 - 139);
         $('.btn-gh3').css('width', 190);
-        $('.arrowCategory').css('width', 135);
+        $('.arrowCategory').css('width', 125);
         $('.primary-category, .btn-category').css('width', 140);
         $('.primary-category:nth-child(5)').css('width', 110);
         $('.form_dn ul li').css('width', 480);
@@ -69,7 +69,7 @@ function autoHome(){
         $('.t-Pnb, .filter-Prod, .content').css('max-width', 1000);
         $('.li-Pc1').css('width', 173);
         $('.prod_row1').css('width', 'inherit');
-        $('.t-Pnb').css('width', windowSize - 402);
+        $('.t-Pnb').css('width', $('.m-wrap').width() - 412);
         $('.m-Pnb').css('width', windowSize - 395);
         $('.content').css('width', windowSize - 350);
         $('#slider').css('left', (windowSize - 1210) / 2);
@@ -79,7 +79,7 @@ function autoHome(){
         $('.select_input_search').css('width', 352);
 
         for(var i = 0; i < 8; i++){
-            if($('#aCategoryName'+i).height() > 14){
+            if($('#aCategoryName'+i).height() > 15){
                 $('#divCategoryID'+i).css('padding', '5px 0 11px 0');
             }
         }

@@ -207,7 +207,7 @@ if($ghinho==1){ // prodetail
                     <span class="r_ipd"><?php echo $row_sanpham['view'];?></span>
                     <div class="clear"></div>
                 </li>
-            </ul>	
+            </ul>
         
         </div><!-- End .info_prod_details -->
 
@@ -244,7 +244,8 @@ if($ghinho==1){ // prodetail
                                             <div class="pure-control-group">
                                                 <label for="popBrandFC">Màu chữ</label>
                                                 <input type="text" id="popBrandFC" value="<?php if($brand_color != ''){echo $brand_color;}else{echo "#ffffff";} ?>" onchange="$('#popColorFC').val($('#popBrandFC').val());"/>
-                                                <input type="color" id="popColorFC" value="<?php if($brand_color != ''){echo $brand_color;}else{echo "#ffffff";} ?>" onchange="$('#popBrandFC').val(this.value);">                                            </div>
+                                                <input type="color" id="popColorFC" value="<?php if($brand_color != ''){echo $brand_color;}else{echo "#ffffff";} ?>" onchange="$('#popBrandFC').val(this.value);">
+                                            </div>
                                         </fieldset>
                                         <button type="submit" class="button-success pure-button" id="popBrandSubmit">Hoàn tất</button>
                                         <button class="fadeandscale_close button-error pure-button" id="popBrandClose">Đóng</button>
