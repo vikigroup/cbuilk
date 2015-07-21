@@ -26,7 +26,7 @@ function autoHome(){
         $('.search_top_header').css('width', windowSize - 2);
         $('.l-fcont, .r-fcont, table').css('width', windowSize - 10);
         $('.divProductLine1, .divProductOverlay1').css('width', windowSize/2 - 2);
-        $('.sli-fcon-1').css('width', windowSize - 2);
+        $('.sli-fcon-1 .bx-wrapper .bx-viewport').css('width', windowSize - 5);
         $('.li-Pc1').css('width', windowSize/2 - 23);
         $('.ul-ifoot li, .menu').css('width', '100%');
         $('.select_input_search').css('width', $('.search_top_header form').width() - 140);
@@ -35,6 +35,7 @@ function autoHome(){
         $('.hotline').attr('style', 'margin: 0 0 0 5px !important;');
         $('.dmsp4-3').css('max-width', windowSize);
         $('.prod_row1').css('width', windowSize/2 - 20);
+        $('._51mw').css('width', '70%');
 
         for(var i = 0; i < 8; i++){
             if($('#aCategoryName'+i).height() > 14){
@@ -83,6 +84,10 @@ function autoHome(){
             }
         }
     }
+}
+
+window.onload = function(){
+    $("_51mw").attr("style", "width: 50% !important;");
 }
 
 function addhttp(id, url) {

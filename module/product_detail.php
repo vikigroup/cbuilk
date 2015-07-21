@@ -108,11 +108,11 @@ if($ghinho==1){ // prodetail
         
         <?php if($row_sanpham['style']==0 || $row_sanpham['style']==4 || $row_sanpham['style']==2){?>
         <h4 class="t-ttct">
-            Thông tin chi tiết
+            <b>Thông tin chi tiết</b>
         </h4><!-- End .t-ttct -->
         <?php }else{?>
         <h4 class="t-ttct" style="padding-top:0px;">
-            Nội dung chi tiết
+            <b>Nội dung chi tiết</b>
         </h4><!-- End .t-ttct -->
         <?php }?>
 
@@ -124,7 +124,7 @@ if($ghinho==1){ // prodetail
             <a href="//www.pinterest.com/pin/create/button/" data-pin-do="buttonBookmark" data-pin-color="red"><img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_red_28.png" /></a>
             <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
             <div class="g-plusone" data-size="medium" data-href="<?php echo $linkrootshop;?>/<?php echo $row_sanpham['subject'];?>.html"></div>
-            <div class="fb-like" data-href="<?php echo $linkrootshop;?>/<?php echo $row_sanpham['subject'];?>.html" data-layout="standard" data-action="like" data-show-faces="false" data-share="false"></div>
+            <div class="fb-like" data-width="inherit" data-href="<?php echo $linkrootshop;?>/<?php echo $row_sanpham['subject'];?>.html" data-layout="standard" data-action="like" data-show-faces="false" data-share="false"></div>
             <div class="fb-comments" data-href="<?php echo $linkrootshop;?>/<?php echo $row_sanpham['subject'];?>.html" data-numposts="5" data-width="inherit" data-colorscheme="light"></div>
             <div id="fb-root"></div>
         </div><!-- End .face-cmm -->

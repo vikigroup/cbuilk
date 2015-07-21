@@ -9,13 +9,15 @@
     -webkit-box-sizing: border-box;
     line-height: 20px;
     padding: 20px;
-    margin-top: 0px !important;
+    margin-top: 0 !important;
     height:auto;
 }
 
 body{
-	font: normal 12px Arial, Helvetica, sans-serif;
+	font: normal 13px Arial, Helvetica, sans-serif;
 	font-weight: 300;
-	color: #4e4e4e;
-	background: #fff;
+	color: #000000;
+    overflow-x: hidden !important;
+    margin: 0 auto 0 auto;
+    background-color: #F5F5F5;
 }

@@ -137,6 +137,18 @@ if (isset($_POST['quayra'])==true) {
                             </div>
                             <div class="clear"></div>
                         </div><!-- End .module_ftt -->
+                        <div class="module_ftt">
+                            <div class="l_f_tt div-google-width">
+                                <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+                            </div>
+                            <div class="r_f_tt div-facebook-width">
+                                <fb:login-button size="xlarge" scope="public_profile,email" onlogin="checkLoginState();">
+                                    Sign in
+                                </fb:login-button>
+                                <div id="status"></div>
+                            </div>
+                            <div class="clear"></div>
+                        </div><!-- End .module_ftt -->
                         <div class="info_f_tt">
                             Đăng nhập bây giờ để có thể sử dụng các dịch vụ của chúng tôi.
                         </div><!-- End .info_f_tt -->

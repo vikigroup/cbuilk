@@ -221,15 +221,6 @@ $(document).ready(function() {
                         </div>
                         <div class="clear"></div>
                     </div><!-- End .module_ftt -->
-                    <div class="module_ftt">
-                        <div class="l_f_tt div-google-width">
-                            <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
-                        </div>
-                        <div class="r_f_tt div-facebook-width">
-                            <div scope="public_profile,email" class="fb-login-button" data-max-rows="1" data-size="xlarge" data-show-faces="false" data-auto-logout-link="false" onlogin="checkLoginState();"></div>
-                        </div>
-                        <div class="clear"></div>
-                        </div><!-- End .module_ftt -->
                     <div class="module_ftt"style="text-align:center; color:#F00; padding:5px;">
                         <?php echo $error_login;?>
                     </div>

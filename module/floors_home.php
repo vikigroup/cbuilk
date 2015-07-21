@@ -96,16 +96,16 @@ for($i = 0; $i < 8; $i++){
                     echo '<div class="slide"><a href="'.$row_floor1['link'].'" target="_blank"><img src="../web/'.$row_floor1['image'].'" alt="'.$row_floor1['name'].'"></a></div>';
                 }
                 else{
-                    echo '<div class="slide"><a href="'.$row_floor1['link'].'" target="_blank"><img src="http://placehold.it/190x67&text=No Image" alt="'.$row_floor1['name'].'"></a></div>';
+                    echo '<div class="slide"><a href="'.$row_floor1['link'].'" target="_blank"><img src="http://placehold.it/187x67&text=No Image" alt="'.$row_floor1['name'].'"></a></div>';
                 }
                 $total_adv1++;
             }
             if($total_adv1 == 0){
-                echo '<div class="slide"><a target="_blank"><img src="http://placehold.it/190x67"></a></div>';
-                echo '<div class="slide"><a target="_blank"><img src="http://placehold.it/190x67"></a></div>';
+                echo '<div class="slide"><a target="_blank"><img src="http://placehold.it/187x67"></a></div>';
+                echo '<div class="slide"><a target="_blank"><img src="http://placehold.it/187x67"></a></div>';
             }
             else if($total_adv1 == 1){
-                echo '<div class="slide"><a target="_blank"><img src="http://placehold.it/190x67"></a></div>';
+                echo '<div class="slide"><a target="_blank"><img src="http://placehold.it/187x67"></a></div>';
             }
             ?>
         </div>
@@ -137,8 +137,7 @@ for($i = 0; $i < 8; $i++){
         while($row_floor=mysql_fetch_assoc($product_floor)){
         ?>
         <div class="divProductLine1" style="background-image: url('<?php echo $linkrootshop.'/web/'.$row_floor['image'] ?>'); background-size: cover;" onclick="window.location.href = '<?php echo $linkrootshop;?>/<?php echo $row_floor['subject'];?>.html';">
-            <div class="divProductOverlay1" onmouseover="this.style.backgroundColor = '<?php echo $myArr3[$i] ?>';"
-                 onmouseout="this.style.backgroundColor = 'white'" onclick="window.location.href = '<?php echo $linkrootshop;?>/<?php echo $row_floor['subject'];?>.html';">
+            <div class="divProductOverlay1" style="background-color: <?php echo $myArr3[$i] ?>" onclick="window.location.href = '<?php echo $linkrootshop;?>/<?php echo $row_floor['subject'];?>.html';">
                 <span><?php echo $row_floor['name'] ?></span>
                 <?php if($row_floor['price'] == 0 && $row_floor['pricekm'] == 0){ ?>
                 <span class="spanMoneyKM">Giá liên hệ</span>

@@ -499,7 +499,7 @@ function statusChangeCallback(response) {
 function checkLoginState() {
     FB.getLoginStatus(function(response) {
         statusChangeCallback(response);
-    });
+    }, {scope: 'public_profile,email'});
 }
 
 window.fbAsyncInit = function() {
@@ -511,7 +511,7 @@ window.fbAsyncInit = function() {
 
     FB.getLoginStatus(function(response) {
         statusChangeCallback(response);
-    });
+    }, {scope: 'public_profile,email'});
 };
 
 (function(d, s, id){
@@ -530,7 +530,8 @@ function testAPI() {
         console.log('Successful login for: ' + response.name);
         document.getElementById('status').innerHTML =
             'Thanks for logging in, ' + response.name + '!';
-    });
+        alert(JSON.stringify(response));
+    }, {scope: 'public_profile,email'});
 }
 
 !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
@@ -542,7 +543,6 @@ function onSignIn(googleUser) {
     console.log("Name: " + profile.getName());
     console.log("Image URL: " + profile.getImageUrl());
     console.log("Email: " + profile.getEmail());
-    //alert(profile.getEmail());
 
     // The ID token you need to pass to your backend:
     var id_token = googleUser.getAuthResponse().id_token;

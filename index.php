@@ -65,7 +65,7 @@ require("module/box_device.php");
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta name="robots" content="index, follow"/>
-    <meta name="author" content="www.cbuilk.com"/>
+    <meta name="author" content="<?php echo $root; ?>"/>
     <meta property="fb:admins" content="100009718393773"/>
     <meta property="fb:admins" content="100009190135848"/>
     <meta property="og:type" content="website"/>
@@ -91,10 +91,9 @@ require("module/box_device.php");
 
     <link href="<?php echo $linkrootshop?>/templates/css1.css" rel="stylesheet"  />
     <link href="<?php echo $linkrootshop?>/templates/hover.css" rel="stylesheet" />
-
     <link href="<?php echo $linkrootshop?>/lib/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="<?php echo $linkrootshop?>/lib/jquery.bxslider/jquery.bxslider.css"/>
 
+    <link rel="stylesheet" type="text/css" href="<?php echo $linkrootshop?>/lib/jquery.bxslider/jquery.bxslider.css"/>
     <script type="text/javascript" src="<?php echo $linkrootshop?>/lib/jquery.bxslider/jquery.bxslider.min.js"></script>
     <script type="text/javascript" src="<?php echo $linkrootshop?>/lib/jquery.bxslider/plugins/jquery.easing.1.3.js"></script>
     <script type="text/javascript" src="<?php echo $linkrootshop?>/lib/jquery.bxslider/plugins/jquery.fitvids.js"></script>
@@ -104,8 +103,8 @@ require("module/box_device.php");
     <script type="text/javascript" src="<?php echo $linkrootshop?>/lib/SlickNav/jquery.slicknav.js"></script>
 
     <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
-    <link rel="stylesheet" type="text/css" href="<?php echo $linkrootshop?>/scripts/nivo-slider/nivo-slider.css"   />
 
+    <link rel="stylesheet" type="text/css" href="<?php echo $linkrootshop?>/scripts/nivo-slider/nivo-slider.css"   />
     <link rel="stylesheet" type="text/css" href="<?php echo $linkrootshop?>/scripts/nivo-slider/themes/default/default.css">
 </head>
 <body>
@@ -153,7 +152,7 @@ require("module/box_device.php");
 <script type="text/javascript" src="<?php echo $linkrootshop?>/scripts/scrolltopcontrol.js"></script>
 <script type="text/javascript" src="<?php echo $linkrootshop?>/scripts/jquery.popupoverlay.js"></script>
 <script type="text/javascript"  src="<?php echo $linkrootshop?>/scripts/resolve.js"></script>
-<script src="https://apis.google.com/js/platform.js" async defer></script>
+<script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
 <script type="text/javascript" async defer src="//assets.pinterest.com/js/pinit.js"></script>
 <script type="text/javascript" src="<?php echo $linkrootshop?>/scripts/nivo-slider/jquery.nivo.slider.js"></script>
 
