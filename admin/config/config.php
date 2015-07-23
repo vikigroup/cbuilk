@@ -51,8 +51,9 @@ if (isset($_POST['btnSave'])){
 	$hotlinekh     = isset($_POST['hotlinekh']) ? trim($_POST['hotlinekh']) : '';
 	$emailkh       = isset($_POST['emailkh']) ? trim($_POST['emailkh']) : '';
 	$faxkh         = isset($_POST['faxkh']) ? trim($_POST['faxkh']) : '';
-	
-	$title         = isset($_POST['title']) ? trim($_POST['title']) : '';
+    $contentkh     = isset($_POST['contentkh']) ? trim($_POST['contentkh']) : '';
+
+    $title         = isset($_POST['title']) ? trim($_POST['title']) : '';
 	$description   = isset($_POST['description']) ? trim($_POST['description']) : '';
 	$keywords      = isset($_POST['keywords']) ? trim($_POST['keywords']) : '';
     $cache         = $_POST['onoffswitch'];
@@ -74,7 +75,7 @@ if (isset($_POST['btnSave'])){
 	if ($errMsg==''){
 		if (!empty($_POST['id'])){
 			$oldid = $_POST['id'];
-			$sql = "update tbl_config set copyright='".$copyright."',title='".$title."', description='".$description."',keywords='".$keywords."',tenkh='".$tenkh."',dckh='".$dckh."', dtkh='".$dtkh."', hotlinekh='".$hotlinekh."', emailkh='".$emailkh."', faxkh='".$faxkh."', note='".$detail."', cauhinh_mail_ten='".$cauhinh_mail_ten."', cauhinh_mail_mk='".encryptIt($cauhinh_mail_mk)."', cache='".$cache."' where id='".$oldid."'";
+			$sql = "update tbl_config set copyright='".$copyright."',title='".$title."', description='".$description."',keywords='".$keywords."',tenkh='".$tenkh."',dckh='".$dckh."', dtkh='".$dtkh."', hotlinekh='".$hotlinekh."', emailkh='".$emailkh."', faxkh='".$faxkh."', contentkh='".$contentkh."', note='".$detail."', cauhinh_mail_ten='".$cauhinh_mail_ten."', cauhinh_mail_mk='".encryptIt($cauhinh_mail_mk)."', cache='".$cache."' where id='".$oldid."'";
 		}
 		
 		if (mysql_query($sql,$conn)){
@@ -104,6 +105,7 @@ if (isset($_POST['btnSave'])){
 			$hotlinekh     = $row['hotlinekh'];
 			$emailkh       = $row['emailkh'];
 			$faxkh         = $row['faxkh'];
+            $contentkh     = $row['contentkh'];
 			$cauhinh_mail_ten    = $row['cauhinh_mail_ten'];
 			$cauhinh_mail_mk     = decryptIt($row['cauhinh_mail_mk']);
 			$title         = $row['title'];
@@ -182,6 +184,10 @@ if (isset($_POST['btnSave'])){
                                 <tr>
                                   <td valign="middle">Giấy phép ĐKKD<span class="sao_bb">*</span></td>
                                   <td valign="middle"><input name="faxkh" type="text" class="table_khungnho" id="faxkh" value="<?=$faxkh?>"  /></td>
+                                </tr>
+                                <tr>
+                                    <td valign="middle">Chịu trách nhiệm nội dung<span class="sao_bb">*</span></td>
+                                    <td valign="middle"><input name="contentkh" type="text" class="table_khungnho" id="contentkh" value="<?=$contentkh?>"  /></td>
                                 </tr>
                                 <tr>
                                     <td valign="middle">Chế độ cache</td>

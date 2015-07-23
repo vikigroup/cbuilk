@@ -51,7 +51,7 @@ function autoHome(){
     if($(window).width() >= 992){
         $('.m-wrap, .f-cont').css('max-width', 1210);
         $('.m-wrap, .f-cont').css('width', '100%');
-        $('.menu').css('width', '97%');
+        $('.menu').css('width', '100%');
         $('.mini-bar').css('width', '3%');
         $('.select_input_search').css('width', $('.search_top_header form').width() - 123);
         $('.form_dn').css('width', windowSize - 139);
@@ -80,7 +80,7 @@ function autoHome(){
 
         for(var i = 0; i < 8; i++){
             if($('#aCategoryName'+i).height() > 15){
-                $('#divCategoryID'+i).css('padding', '5px 0 11px 0');
+                $('#divCategoryID'+i).css('padding', '5px 5px 11px');
             }
         }
     }

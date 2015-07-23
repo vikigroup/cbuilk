@@ -959,6 +959,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     filter: alpha(opacity=85);
     -moz-opacity: 0.85;
     -khtml-opacity: 0.85;
+    background-color: white;
 }
 
 .divProductOverlay1:hover{
@@ -1023,7 +1024,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     top: 0;
     height: 100%;
     overflow: hidden;
-    z-index: 100;
+    z-index: 1002;
     padding: 250px 0 250px 0;
     width: 3%;
 }
@@ -1073,10 +1074,11 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 
 .menu {
     background: #ffffff;
-    z-index: 1002;
+    z-index: 1001;
     height: 80px;
     overflow: hidden;
     top: 0;
+    width: 100%;
 }
 
 .menu .m-wrap{
@@ -1178,7 +1180,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
         width: 100% !important;
     }
     .menu{
-        width: 97% !important;
+        width: 100% !important;
     }
     .m-slider{
         height: 483px !important;
@@ -1199,7 +1201,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
         margin-top: 80px;
     }
     .arrowCategory{
-        padding: 11px 5px 5px !important;
+        padding: 11px 5px 5px;
     }
     .r-box-tool ul li:first-child{
         margin: 0 0 5px 0;
@@ -1352,7 +1354,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
         width: 350px !important;
     }
     .menu{
-        width: 97% !important;
+        width: 100% !important;
     }
     .mini-bar{
         width: 3% !important;
