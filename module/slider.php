@@ -1,7 +1,7 @@
 <header class="m-slider">
     <div id="slider">
         <?php
-        $gt=get_records("tbl_slider","status=0 AND idshop=0","sort","0,20"," ");
+        $gt=get_records("tbl_slider","status=0 AND idshop=0","date_added DESC, sort","0,20"," ");
         $index = 0;
         while($row_slide=mysql_fetch_assoc($gt)){ ?>
             <a id="aSlider<?php echo $index ?>" target="_blank" href="<?php echo $row_slide['link']; ?>" style="background-color: <?php echo $row_slide['color']?>">

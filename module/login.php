@@ -139,13 +139,12 @@ if (isset($_POST['quayra'])==true) {
                         </div><!-- End .module_ftt -->
                         <div class="module_ftt">
                             <div class="l_f_tt div-google-width">
-                                <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+                                <div class="g-signin2" data-width="200" data-height="25" data-longtitle="true" data-onsuccess="onSignIn" data-theme="dark"></div>
                             </div>
                             <div class="r_f_tt div-facebook-width">
-                                <fb:login-button size="xlarge" scope="public_profile,email" onlogin="checkLoginState();">
-                                    Sign in
+                                <fb:login-button size="large" autologoutlink="true" scope="email,user_photos,publish_actions" onlogin="checkLoginState();">
+                                    Đăng nhập bằng Facebook
                                 </fb:login-button>
-                                <div id="status"></div>
                             </div>
                             <div class="clear"></div>
                         </div><!-- End .module_ftt -->
@@ -157,7 +156,5 @@ if (isset($_POST['quayra'])==true) {
             </div><!-- End .main_f_dn -->
         </li>
     </ul>
-
     <div class="clear"></div>
-
 </div>

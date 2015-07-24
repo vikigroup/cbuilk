@@ -86,10 +86,6 @@ function autoHome(){
     }
 }
 
-window.onload = function(){
-    $("_51mw").attr("style", "width: 50% !important;");
-}
-
 function addhttp(id, url) {
     var pattern = /^((http|https):\/\/)/;
     if(!pattern.test(url)) {

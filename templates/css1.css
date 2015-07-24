@@ -19,7 +19,7 @@ a.btn-gh1 {background: url(../imgs/layout/btn-gh1.png) no-repeat 0px 0px; displa
 a.btn-gh2 {background: url(../imgs/layout/btn-gh2.png) no-repeat 0px 0px; display: block; width: 164px; height: 32px;}
 a.btn-gh3 {background-color: #2A70D2; display: block; color: #ffffff !important; text-align: center; padding: 0 0 10px 0; width: 190px; height: 23px; cursor: pointer; font-size: 14px !important;}
 a.btn-gh3:hover{text-decoration: underline;}
-a.btn-gh3 i{margin-right: 5px;}
+a.btn-gh3 i{margin-right: 10px;}
 .btn-gh ul li a.btn-gh1:hover , .btn-gh ul li a.btn-gh2:hover {background-position: 0px -32px;}
 
 .search_top_header {position: absolute; top: 24px; height: 30px; border: 1px solid #ddd; background: #fff;}
@@ -939,13 +939,6 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     position: relative;
     cursor: pointer;
     border: 1px solid #F5F5F5;
-    -webkit-transition: all 1s ease;
-}
-
-.divProductLine1:hover{
-    -webkit-transition: all 1s ease;
-    -webkit-filter:  grayscale(1);
-    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
 }
 
 .divProductOverlay1{
@@ -1174,7 +1167,8 @@ ul.ul-fP li.atc a {color: #3ba11b;}
         background-color: transparent !important;
     }
     iframe {
-        width:100% !important; height: 500px !important;
+        width: 100%;
+        height: 500px;
     }
     .sli-fcon-1{
         width: 100% !important;
@@ -1303,7 +1297,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     }
     .menu{
         width: 100% !important;
-        height: 154px;
+        height: 165px;
     }
     .select_input_search{
         width: 61%;
@@ -1824,6 +1818,23 @@ textarea:hover, textarea:focus{
     display: none;
 }
 
+.avatar {
+    float: left;
+    margin-right: 1em;
+    position: relative;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    -webkit-box-shadow: 0 0 0 3px #fff, 0 0 0 4px #999, 0 2px 5px 4px rgba(0,0,0,.2);
+    -moz-box-shadow: 0 0 0 3px #fff, 0 0 0 4px #999, 0 2px 5px 4px rgba(0,0,0,.2);
+    box-shadow: 0 0 0 3px #fff, 0 0 0 4px #999, 0 2px 5px 4px rgba(0,0,0,.2);
+    width: 48px;
+    height: 48px;
+}
+
+/************************************************************************************
+SOCIAL STYLE
+*************************************************************************************/
 div#___plusone_0, .twitter-share-button, .fb_iframe_widget{
     vertical-align: top !important;
 }
@@ -1841,16 +1852,26 @@ div#___plusone_0 iframe, .twitter-share-button{
 }
 
 .div-google-width{
-    width: 40%;
+    width: 50%;
 }
 
-.g-signin2{
-    text-align: center;
+.abcRioButton{
+    margin: 0 auto !important;
 }
 
 .fb-login-button span iframe{ height: 40px !important;}
 
 .div-facebook-width{
-    width: 60%;
+    width: 50%;
     text-align: center;
+}
+
+.abcRioButtonContents{
+    font-size: 13px !important;
+}
+
+@media (max-width: 991px) {
+    .div-google-width, .div-facebook-width{
+        width: 100%;
+    }
 }

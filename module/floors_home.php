@@ -136,7 +136,7 @@ for($i = 0; $i < 8; $i++){
 
         while($row_floor=mysql_fetch_assoc($product_floor)){
         ?>
-        <div class="divProductLine1" style="background-image: url('<?php echo $linkrootshop.'/web/'.$row_floor['image'] ?>'); background-size: cover;" onclick="window.location.href = '<?php echo $linkrootshop;?>/<?php echo $row_floor['subject'];?>.html';">
+        <div class="divProductLine1 hvr-float-shadow" style="background-image: url('<?php echo $linkrootshop.'/web/'.$row_floor['image'] ?>'); background-size: cover;" onclick="window.location.href = '<?php echo $linkrootshop;?>/<?php echo $row_floor['subject'];?>.html';">
             <div class="divProductOverlay1" onclick="window.location.href = '<?php echo $linkrootshop;?>/<?php echo $row_floor['subject'];?>.html';">
                 <span><?php echo $row_floor['name'] ?></span>
                 <?php if($row_floor['price'] == 0 && $row_floor['pricekm'] == 0){ ?>

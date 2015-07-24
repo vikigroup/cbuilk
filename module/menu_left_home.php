@@ -1,14 +1,10 @@
 <article class="dmsp left-home">
-
     <div class="mn-dm fix-box-sizing">
-<!--        <h2 class="t-mn-dm">-->
-<!--            Danh mục sản phẩm-->
-<!--        </h2><!-- End .t-mn-dm -->
         <div class="m-mn-dm">
             <ul class="ul-dm">
                 <?php
                 $arrayID = array('209', '210', '211', '390');
-                $cate=get_records("tbl_shop_category","status=0 AND parent=2 AND sort != 0 AND id NOT IN ( '" . implode($arrayID, "', '"). "' )","sort","8,15"," ");
+                $cate=get_records("tbl_shop_category","status=0 AND parent=457 AND sort != 0 AND id NOT IN ( '" . implode($arrayID, "', '"). "' )","sort","8,15"," ");
                 $i=1;
                 while($row_cate=mysql_fetch_assoc($cate)){
                     ?>
@@ -17,9 +13,7 @@
                         <a href="<?php echo $linkrootshop?>/<?php echo $row_cate['subject'];?>.html"><?php echo $row_cate['name'];?></a>
                         <span class="mask-sub-menu"></span>
                         <div id="s-mn<?php echo $i;?>" class="sub-menu">
-
                             <h4 class="t-sub-mn"><?php echo $row_cate['name'];?></h4><!-- End .t-sub-mn -->
-
                             <div class="m-sub-mn">
                                 <ul>
                                     <?php
@@ -40,10 +34,7 @@
                         </div><!-- End .sub-menu -->
                     </li>
                     <?php $i++; }?>
-
             </ul>
-<!--            <a class="readmore" href="--><?php //echo $linkrootshop?><!--/xem-tat-ca.html">Xem tất cả danh mục</a>-->
         </div><!-- End .m-mn-dm -->
     </div><!-- End .mn-dm -->
-
 </article><!-- End .dmsp -->
