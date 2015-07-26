@@ -131,7 +131,7 @@ span.hotline {background-color: #FB8833; color: white; padding: 10px;}
     box-shadow: none !important;
 }
 .img-right{width: 168px; height: 481px;}
-.ads-home{float:left; max-width: 830px; height: 330px !important; overflow: hidden;}
+.ads-home{float:left; max-width: 830px; width: 830px; height: 330px !important; overflow: hidden;}
 .ads-logo{width: 136px; background-color: white; float: left; padding: 18px 0 18px 0; text-align: center; border: 1px solid #F5F5F5;}
 .ads-logo img{max-width: 90px; max-height: 45px; display: inline}
 .ads-article article{}
@@ -1828,8 +1828,8 @@ textarea:hover, textarea:focus{
     -webkit-box-shadow: 0 0 0 3px #fff, 0 0 0 4px #999, 0 2px 5px 4px rgba(0,0,0,.2);
     -moz-box-shadow: 0 0 0 3px #fff, 0 0 0 4px #999, 0 2px 5px 4px rgba(0,0,0,.2);
     box-shadow: 0 0 0 3px #fff, 0 0 0 4px #999, 0 2px 5px 4px rgba(0,0,0,.2);
-    width: 48px;
-    height: 48px;
+    width: 48px !important;
+    height: 48px !important;
 }
 
 /************************************************************************************

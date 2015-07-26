@@ -469,7 +469,7 @@ function statusChangeCallback(response) {
     console.log('statusChangeCallback');
     console.log(response);
     if (response.status === 'connected') {
-        testAPI();
+        signInFacebook();
     } else if (response.status === 'not_authorized') {
         document.getElementById('status').innerHTML = 'Please log ' +
         'into this app.';
@@ -488,6 +488,8 @@ function checkLoginState() {
 window.fbAsyncInit = function() {
     FB.init({
         appId      : '1460618637571000',
+        status     : true,
+        cookie     : true,
         xfbml      : true,
         version    : 'v2.3'
     });
@@ -501,27 +503,56 @@ window.fbAsyncInit = function() {
     fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
 
-function testAPI() {
-    console.log('Welcome!  Fetching your information.... ');
+function signInFacebook() {
     FB.api('/me', function(response) {
-        console.log('Successful login for: ' + response.name);
-        document.getElementById('status').innerHTML =
-            'Thanks for logging in, ' + response.name + '!';
-        alert(JSON.stringify(response));
-    }, { scope: 'email,user_photos,publish_actions' });
+        var name = response.name;
+        var id = response.id;
+        var email = response.email;
+        var gender = 0;
+        if(response.gender == "male"){
+            gender = 1;
+        }
+        if(isValidEmailAddress(email) == false){
+            email = id;
+        }
+        var image = "https://graph.facebook.com/"+id+"/picture?type=small";
+        var dataString = "name="+name+"&image="+image+"&email="+email+"&gender="+gender+"&isFacebook="+"1"+"&id="+id+"&functionName="+"checkLoginSocial";
+        ajax(dataString);
+    }, { scope: 'public_profile,email' });
 }
 
 !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
 
 function onSignIn(googleUser) {
-    var profile = googleUser.getBasicProfile();
-    console.log("ID: " + profile.getId()); // Don't send this directly to your server!
-    console.log("Name: " + profile.getName());
-    console.log("Image URL: " + profile.getImageUrl());
-    console.log("Email: " + profile.getEmail());
+    var isLogin = $('#hiddenSocialLogin').val();
+    if(isLogin == 1){
+        var profile = googleUser.getBasicProfile();
+        var name = profile.getName();
+        var image = profile.getImageUrl();
+        var email = profile.getEmail();
+        var dataString = "name="+name+"&image="+image+"&email="+email+"&functionName="+"checkLoginSocial";
+        ajax(dataString);
+        var auth2 = gapi.auth2.getAuthInstance();
+        auth2.signOut().then(function () {
+        });
+    }
+}
 
-    var id_token = googleUser.getAuthResponse().id_token;
-    console.log("ID Token: " + id_token);
+function ajax(dataString){
+    var dataString = dataString;
+    $.ajax({
+        type: "POST",
+        url: "lib/functions.php",
+        data: dataString,
+        success: function(x){
+            if(x == 1){
+                backHomePage();
+            }
+            else{
+                alert("Đã xảy ra lỗi!<br/>Xin vui lòng tải lại trang và thử lại.");
+            }
+        }
+    });
 }
 
 window.onload = function(){

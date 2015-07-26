@@ -57,7 +57,7 @@ require("module/box_device.php");
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "hrvp://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:og="http://ogp.me/ns#"
+      prefix="og: http://ogp.me/ns#"
       xmlns:fb="http://www.facebook.com/2008/fbml">
 <head>
     <?php include("module/title.php") ;?>
@@ -66,8 +66,6 @@ require("module/box_device.php");
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta name="robots" content="index, follow"/>
     <meta name="author" content="<?php echo $root; ?>"/>
-    <meta property="fb:admins" content="100009718393773"/>
-    <meta property="fb:admins" content="100009190135848"/>
     <meta property="og:type" content="website"/>
     <meta property="og:site_name" content="<?php echo $title_t; ?>"/>
     <meta property="og:url" content="http://<?php echo $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']; ?>" />
@@ -75,8 +73,9 @@ require("module/box_device.php");
     <meta property="og:description" content="<?php echo $description_t; ?>" />
     <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image" content="<?php if($myProduct['image'] != ''){echo $linkroot;?>/<?php echo $myProduct['image'];}else{echo $root.'/imgs/layout/logo.png';} ?>" />
+    <meta property="fb:app_id" content="1460618637571000"/>
     <meta name="google-signin-scope" content="profile email">
-    <meta name="google-signin-client_id" content="449603416239-se132bqu56psukmq6o0n7poegu17rgur.apps.googleusercontent.com"
+    <meta name="google-signin-client_id" content="449603416239-se132bqu56psukmq6o0n7poegu17rgur.apps.googleusercontent.com">
 
     <link rel="shortcut icon" href="imgs/layout/logo.ico" type="image/x-icon" />
     <link rel="stylesheet" type="text/css" href="<?php echo $linkrootshop?>/templates/css.css">
@@ -108,6 +107,15 @@ require("module/box_device.php");
     <link rel="stylesheet" type="text/css" href="<?php echo $linkrootshop?>/scripts/nivo-slider/themes/default/default.css">
 </head>
 <body>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.4&appId=1460618637571000";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
 <div id="closed"></div>
 <input type="hidden" id="hiddenHomeLink" value="<?php echo $root; ?>">
 <header class="menu">

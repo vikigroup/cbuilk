@@ -1,5 +1,6 @@
 <?php
 require("../database.php");
+header('Content-Type: text/html; charset=utf-8');
 session_start();
 date_default_timezone_set('Asia/Ho_Chi_Minh');
 $dt = date("Y-m-d H:i:s");
@@ -42,6 +43,10 @@ if($functionName == "updateRandomKey"){
     updateRandomKey();
 }
 
+if($functionName == "checkLoginSocial"){
+    checkLoginSocial();
+}
+
 function connect(){
     // Create connection
     $conn = new mysqli($GLOBALS['hostname'], $GLOBALS['username'], $GLOBALS['password'], $GLOBALS['databasename']);
@@ -51,6 +56,42 @@ function connect(){
     }
     else{
         return $conn;
+    }
+}
+
+function checkLoginSocial(){
+    $date = $GLOBALS['dt'];
+    $name = filter_input(INPUT_POST, 'name');
+    $image = filter_input(INPUT_POST, 'image');
+    $userName = strtolower(preg_replace("/\s/", "", remove_unicode($name)));
+    $isFacebook = filter_input(INPUT_POST, 'isFacebook');
+    if($isFacebook == 1){
+        $idFacebook = filter_input(INPUT_POST, 'id');
+        $userName .= $idFacebook;
+    }
+    $email = filter_input(INPUT_POST, 'email');
+    $gender = 0;
+    if(filter_input(INPUT_POST, 'gender') == 1){
+        $gender = 1;
+    }
+    $isExist = selectCondition("tbl_customer", "email = '".$email."'");
+    if($isExist == 0){
+        $idCustomer = maxID("id", "tbl_customer")+1;
+        $sql = "INSERT INTO tbl_customer VALUES ('$idCustomer', n'$name', '$gender', '', '$image', '$userName', '', '', '', '$email', '', '$date', '0', '$date', '1', '1', '', '', '')";
+        $result = query($sql);
+        if($result == 1){
+            $_SESSION['kh_login_id'] = $idCustomer;
+            $_SESSION['kh_login_username'] = $userName;
+            echo 1;
+        }
+        else{
+            echo 0;
+        }
+    }
+    else{
+        $_SESSION['kh_login_id'] = selectField("tbl_customer", "id", "email = '".$email."'");
+        $_SESSION['kh_login_username'] = selectField("tbl_customer", "username", "email = '".$email."'");
+        echo 1;
     }
 }
 
@@ -241,7 +282,35 @@ function selectCondition($table, $condition){
     $conn->close();
 }
 
+function query($sql){
+    $conn = connect();
+    if ($conn->query($sql) === TRUE) {
+        return 1;
+    } else {
+        return $conn->error;
+    }
+    $conn->close();
+}
+
 function close($conn){
     $conn->close();
+}
+
+function remove_unicode($str) {
+$str = preg_replace("/(à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ)/", 'a', $str);
+  $str = preg_replace("/(è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ)/", 'e', $str);
+  $str = preg_replace("/(ì|í|ị|ỉ|ĩ)/", 'i', $str);
+  $str = preg_replace("/(ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ)/", 'o', $str);
+  $str = preg_replace("/(ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ)/", 'u', $str);
+  $str = preg_replace("/(ỳ|ý|ỵ|ỷ|ỹ)/", 'y', $str);
+  $str = preg_replace("/(đ)/", 'd', $str);
+  $str = preg_replace("/(À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ậ|Ẩ|Ẫ|Ă|Ằ|Ắ|Ặ|Ẳ|Ẵ)/", 'A', $str);
+  $str = preg_replace("/(È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ệ|Ể|Ễ)/", 'E', $str);
+  $str = preg_replace("/(Ì|Í|Ị|Ỉ|Ĩ)/", 'I', $str);
+  $str = preg_replace("/(Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ộ|Ổ|Ỗ|Ơ|Ờ|Ớ|Ợ|Ở|Ỡ)/", 'O', $str);
+  $str = preg_replace("/(Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ự|Ử|Ữ)/", 'U', $str);
+  $str = preg_replace("/(Ỳ|Ý|Ỵ|Ỷ|Ỹ)/", 'Y', $str);
+  $str = preg_replace("/(Đ)/", 'D', $str);
+  return $str;
 }
 ?>

@@ -1,4 +1,7 @@
 <?php
+if(isset($_SESSION['kh_login_username'])){
+    header("Location: ".$root);
+}
 
 if (isset($_POST['btn_dangnhap_in'])==true){
     $username= $_POST['username'];
@@ -34,7 +37,7 @@ if (isset($_POST['btn_dangnhap_in'])==true){
                 $_SESSION['kh_login_username'] = $row_user['username'];
                 /*	  chinh_table('tbl_customer',$row_user['id'],'xem=xem+1',' ',' ');*/
 
-                //luu usernam va pass words
+                //luu username va pass words
                 if (isset($_POST['nho'])== true){
                     setcookie("un", $_POST['username'], time() + 60*60*24*7 );
                     setcookie("pw", $_POST['password'], time() + 60*60*24*7 );
@@ -138,11 +141,12 @@ if (isset($_POST['quayra'])==true) {
                             <div class="clear"></div>
                         </div><!-- End .module_ftt -->
                         <div class="module_ftt">
+                            <input type="hidden" id="hiddenSocialLogin" value="0">
                             <div class="l_f_tt div-google-width">
-                                <div class="g-signin2" data-width="200" data-height="25" data-longtitle="true" data-onsuccess="onSignIn" data-theme="dark"></div>
+                                <div class="g-signin2" data-width="200" data-height="25" data-longtitle="true" data-onsuccess="onSignIn" data-theme="dark" onclick="$('#hiddenSocialLogin').val('1');"></div>
                             </div>
                             <div class="r_f_tt div-facebook-width">
-                                <fb:login-button size="large" autologoutlink="true" scope="email,user_photos,publish_actions" onlogin="checkLoginState();">
+                                <fb:login-button size="large" scope="public_profile,email" onlogin="checkLoginState();">
                                     Đăng nhập bằng Facebook
                                 </fb:login-button>
                             </div>

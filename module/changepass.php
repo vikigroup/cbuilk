@@ -4,6 +4,10 @@ if($username == ''){
     header("Location: ".$root."/dang-nhap.html");
 }
 
+if(strpos(get_field("tbl_customer","username",$_SESSION['kh_login_username'],"image"), 'http') >= 0){
+    header("Location: ".$root);
+}
+
 if (isset($_POST['btn_doipass'])==true) {
 
 $pass_old1 = $_POST['pass_old1'];

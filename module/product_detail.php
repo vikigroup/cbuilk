@@ -126,7 +126,6 @@ if($ghinho==1){ // prodetail
             <div class="g-plusone" data-size="medium" data-href="<?php echo $linkrootshop;?>/<?php echo $row_sanpham['subject'];?>.html"></div>
             <div class="fb-like" data-width="inherit" data-href="<?php echo $linkrootshop;?>/<?php echo $row_sanpham['subject'];?>.html" data-layout="standard" data-action="like" data-show-faces="false" data-share="false"></div>
             <div class="fb-comments" data-href="<?php echo $linkrootshop;?>/<?php echo $row_sanpham['subject'];?>.html" data-numposts="5" data-width="inherit" data-colorscheme="light"></div>
-            <div id="fb-root"></div>
         </div><!-- End .face-cmm -->
     </div><!-- End .l-fcont -->
     
