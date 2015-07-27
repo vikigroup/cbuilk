@@ -1,3 +1,8 @@
+<?php
+if(isset($_SESSION['kh_login_username'])){
+    header("Location: ".$root);
+}
+?>
 <div class="form_dn">
     <ul>
         <li style="text-align: center;">

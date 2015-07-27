@@ -47,6 +47,10 @@ if($functionName == "checkLoginSocial"){
     checkLoginSocial();
 }
 
+if($functionName == "updateTimeView"){
+    updateTimeView();
+}
+
 function connect(){
     // Create connection
     $conn = new mysqli($GLOBALS['hostname'], $GLOBALS['username'], $GLOBALS['password'], $GLOBALS['databasename']);
@@ -57,6 +61,13 @@ function connect(){
     else{
         return $conn;
     }
+}
+
+function updateTimeView(){
+    $id = filter_input(INPUT_POST, 'id');
+    $totalSeconds = floor(filter_input(INPUT_POST, 'totalSeconds'));
+    $check = update("tbl_item", "time_view = time_view + '".$totalSeconds."'", "id = '".$id."'");
+    echo $check;
 }
 
 function checkLoginSocial(){

@@ -549,7 +549,7 @@ function ajax(dataString){
                 backHomePage();
             }
             else{
-                alert("Đã xảy ra lỗi!<br/>Xin vui lòng tải lại trang và thử lại.");
+                alert("Đã xảy ra lỗi! \nXin vui lòng tải lại trang và thử lại.");
             }
         }
     });
@@ -563,3 +563,4 @@ function isValidEmailAddress(emailAddress) {
     var regex = /\S+@\S+\.\S+/;
     return regex.test(emailAddress);
 }
+

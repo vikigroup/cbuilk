@@ -64,22 +64,22 @@ for($i = 0; $i < 8; $i++){
             }
 
             ?>
-            <div class="divContent" style="background-color: <?php echo $myArr3[$i]; ?>; ?>">
+            <div class="divContent" style="background-color: <?php echo $myArr3[$i]; ?>" onclick="window.location.href = '<?php echo $linkrootshop?>/<?php echo $myArrSubject[0];?>.html'">
                 <?php if(isset($myArrImage[0])){ ?>
                     <img src="<?php echo $linkroot?>/<?php echo $myArrImage[0] ;?>" />
                 <?php }else{ ?>
                     <img src="<?php echo $linkroot?>/images/noimage.png" />
                 <?php } ?>
-                <p><a href="<?php echo $linkrootshop?>/<?php echo $myArrSubject[0];?>.html"><?php echo $myArrSubName[0]; ?></a></p>
+                <p><?php echo $myArrSubName[0]; ?></p>
             </div>
             <div class="sep"></div>
-            <div class="divContent" style="background-color: <?php echo $myArr3[$i]; ?>; ?>">
+            <div class="divContent" style="background-color: <?php echo $myArr3[$i]; ?>" onclick="window.location.href = '<?php echo $linkrootshop?>/<?php echo $myArrSubject[1];?>.html'">
                 <?php if(isset($myArrImage[1])){ ?>
                     <img src="<?php echo $linkroot?>/<?php echo $myArrImage[1] ;?>" />
                 <?php }else{ ?>
                     <img src="<?php echo $linkroot?>/images/noimage.png" />
                 <?php } ?>
-                <p><a href="<?php echo $linkrootshop?>/<?php echo $myArrSubject[1];?>.html"><?php echo $myArrSubName[1]; ?></a></p>
+                <p><?php echo $myArrSubName[1]; ?></p>
             </div>
         </div>
         <div class="divSubCategory">

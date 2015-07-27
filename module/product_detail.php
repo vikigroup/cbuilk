@@ -402,7 +402,28 @@ if($ghinho==1){ // prodetail
     </div><!-- End .r-fcont -->
     <div class="clear"></div>
 </section><!-- End .f-cont -->
-
+<script>
+    var startSeconds = new Date().getTime() / 1000;
+    window.onbeforeunload = function (e) {
+        var endSeconds = new Date().getTime() / 1000;
+        var totalSeconds = endSeconds - startSeconds;
+        var id = "<?php echo $row_sanpham['id']; ?>";
+        var dataString = "id="+id+"&totalSeconds="+totalSeconds+"&functionName="+"updateTimeView";
+        $.ajax({
+            type: "POST",
+            url: "lib/functions.php",
+            data: dataString,
+            success: function(x){
+                if(x == 1){
+                    return true;
+                }
+                else{
+                    alert("Đã xảy ra lỗi! \nXin vui lòng tải lại trang và thử lại.");
+                }
+            }
+        });
+    };
+</script>
 <?php }else {?>
 <?php
 $pageSize = 25;

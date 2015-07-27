@@ -27,7 +27,13 @@ if($cache == 1){
 
     if($pageName == ''){
         $pageName = $_GET['tenthongtin'];
-        $page = "thong-tin-".$pageName.".html";
+        if($pageName != ''){
+            $page = "thong-tin-".$pageName.".html";
+        }
+        else{
+            $pageName = "home";
+            $page = "home.html";
+        }
     }
 
     /* Define path and name of cached file */
@@ -101,14 +107,15 @@ require("module/box_device.php");
     <link rel="stylesheet" href="<?php echo $linkrootshop?>/lib/SlickNav/slicknav.css" media="screen and (max-width: 991px)"/>
     <script type="text/javascript" src="<?php echo $linkrootshop?>/lib/SlickNav/jquery.slicknav.js"></script>
 
-    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+    <link rel="stylesheet" href="<?php echo $linkrootshop?>/templates/pure-min.css">
 
     <link rel="stylesheet" type="text/css" href="<?php echo $linkrootshop?>/scripts/nivo-slider/nivo-slider.css"   />
     <link rel="stylesheet" type="text/css" href="<?php echo $linkrootshop?>/scripts/nivo-slider/themes/default/default.css">
 </head>
 <body>
 <div id="fb-root"></div>
-<script>(function(d, s, id) {
+<script>
+    (function(d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0];
         if (d.getElementById(id)) return;
         js = d.createElement(s); js.id = id;
@@ -160,8 +167,8 @@ require("module/box_device.php");
 <script type="text/javascript" src="<?php echo $linkrootshop?>/scripts/scrolltopcontrol.js"></script>
 <script type="text/javascript" src="<?php echo $linkrootshop?>/scripts/jquery.popupoverlay.js"></script>
 <script type="text/javascript"  src="<?php echo $linkrootshop?>/scripts/resolve.js"></script>
-<script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
-<script type="text/javascript" async defer src="//assets.pinterest.com/js/pinit.js"></script>
+<script src="<?php echo $linkrootshop?>/scripts/platform.js?onload=renderButton" async defer></script>
+<script type="text/javascript" async defer src="<?php echo $linkrootshop?>/scripts/pinit.js"></script>
 <script type="text/javascript" src="<?php echo $linkrootshop?>/scripts/nivo-slider/jquery.nivo.slider.js"></script>
 
 <?php include("module/footer.php") ;?>

@@ -187,7 +187,7 @@ $(document).ready(function() {
                         <div class="r_f_tt">
                             <select name="ddCat" id="ddCat" class="ipt_f_tt">
                             <?php
-                            $sql="SELECT * FROM tbl_shop_category WHERE status=0 and parent=2";
+                            $sql="SELECT * FROM tbl_shop_category WHERE status=0 and parent=457";
                             $gt=mysql_query($sql) or die(mysql_error());
                             while ($row=mysql_fetch_assoc($gt)){?>
                             <option value="<?php echo $row['id']; ?>"  <?php if($parent==$row['id']) echo 'selected="selected"';?> ><?php echo $row['name']; ?></option>
@@ -233,7 +233,7 @@ $(document).ready(function() {
                     <div class="module_ftt">
                         <div class="r_f_tt">
                             <input id="thoathuan" name="thoathuan" type="checkbox" value="<?php if($status>0){echo $status;}else{echo 0;} ?>" <? if ($status>0) echo 'checked' ?> onchange="if($(this).is(':checked')){this.value = 1;}else{this.value = 0;}"/>
-                                <a target="_blank" href="http://<?php echo $sub; ?>/thong-tin/qui-che-hoat-dong.html" title="" style="padding-left:5px;">Tôi đồng ý với thõa thuận sử dụng của <?php echo $sub; ?></a>
+                                <a target="_blank" href="http://<?php echo $sub; ?>/thong-tin/qui-che-hoat-dong.html" title="" style="padding-left:5px;">Tôi đồng ý với thỏa thuận sử dụng của <?php echo $sub; ?></a>
                             <span class="star_style">*</span>
                         </div>
                         <div class="clear"></div>
@@ -269,5 +269,19 @@ $(document).ready(function() {
 <?php }else {
 	header("Location: ".$linkrootshop."/dang-nhap.html");
 }
-	
 ?>
+<script type="text/javascript">
+    function goodbye(e) {
+        if(!e) e = window.event;
+        //e.cancelBubble is supported by IE - this will kill the bubbling process.
+        e.cancelBubble = true;
+        e.returnValue = 'Bạn chắc chắn muốn rời khỏi?'; //This is displayed on the dialog
+
+        //e.stopPropagation works in Firefox.
+        if (e.stopPropagation) {
+            e.stopPropagation();
+            e.preventDefault();
+        }
+    }
+    window.onbeforeunload=goodbye;
+</script>
