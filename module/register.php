@@ -1,4 +1,8 @@
 <?php
+if(isset($_SESSION['kh_login_username'])){
+    header("Location: ".$root);
+}
+
 if (isset($_POST['btn_dangky'])==true)//isset kiem tra submit
 	{
 		

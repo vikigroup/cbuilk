@@ -51,11 +51,10 @@
 						while($row_slide=mysql_fetch_assoc($gt)){
 						?>
                             <li>
-
                                 <div class="l-yahoo">
                                     <span><?=$row_slide['name']?></span>
                                 </div>
-                                <script type="text/javascript" src="http://www.skypeassets.com/i/scom/js/skype-uri.js"></script>
+                                <script type="text/javascript" src="<?php echo $linkrootshop?>/scripts/skype-uri.js"></script>
                                 <div id="SkypeButton" class="r-yahoo">
                                     <script type="text/javascript">
                                         Skype.ui({

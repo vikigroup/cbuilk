@@ -5,10 +5,8 @@ require("config.php");
 require("common_start.php");
 include("lib/func.lib.php");
 
-$myProduct   = getRecord('tbl_item', "subject='".$_GET['tensanpham']."'");
-
 $cache = get_field('tbl_config','id','2','cache');
-if($cache == 1){
+if($cache == 1 && !isset($_SESSION['kh_login_username'])){
     $link = $_SERVER['REQUEST_URI'];
     $myLink = explode("?", $link);
     $myData = explode("&", $myLink[1]);
@@ -16,32 +14,38 @@ if($cache == 1){
     $filterCache = $myFilter[1];
     $myPage = explode("=", $myData[1]);
     $pageNumCache = $myPage[1];
-
     /* Assign your dynamically generated page to $page */
     $pageName = $_GET['tensanpham'];
     $page = $pageName.".html";
-
     if($filterCache != ''){
         $page .= "?filter1=".$filterCache."&page=".$pageNumCache;
     }
-
     if($pageName == ''){
         $pageName = $_GET['tenthongtin'];
         if($pageName != ''){
             $page = "thong-tin-".$pageName.".html";
         }
         else{
-            $pageName = "home";
-            $page = "home.html";
+            if($link == '/'){
+                $pageName = "home";
+                $page = "home.html";
+            }
+            else{
+                if(strpos($link, "dang-nhap") !== false){
+                    $pageName = "dang-nhap";
+                    $page = "dang-nhap.html";
+                }
+                else if(strpos($link, "dang-ky") !== false){
+                    $pageName = "dang-ky";
+                    $page = "dang-ky.html";
+                }
+            }
         }
     }
-
     /* Define path and name of cached file */
     $cachefile = 'cache/' .$page;
-
     /* How long to keep cache file? */
     $cachetime = 18000;
-
     /* Is cache file still fresh? If so, serve it */
     if($pageName != ''){
         if (file_exists($cachefile) && time() - $cachetime < filemtime($cachefile)) {
@@ -49,7 +53,6 @@ if($cache == 1){
             exit;
         }
     }
-
     /* If no file or too old, render and capture HTML page. */
     ob_start();
 }
@@ -60,6 +63,7 @@ if($frame!="login" && $frame!="register" && $frame!="changepass" && $frame!="cha
     unset($_SESSION['back_raovat']);
 }
 require("module/box_device.php");
+$myProduct = getRecord('tbl_item', "subject='".$_GET['tensanpham']."'");
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "hrvp://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
@@ -114,15 +118,6 @@ require("module/box_device.php");
 </head>
 <body>
 <div id="fb-root"></div>
-<script>
-    (function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.4&appId=1460618637571000";
-        fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
-</script>
 <div id="closed"></div>
 <input type="hidden" id="hiddenHomeLink" value="<?php echo $root; ?>">
 <header class="menu">
@@ -166,9 +161,9 @@ require("module/box_device.php");
 
 <script type="text/javascript" src="<?php echo $linkrootshop?>/scripts/scrolltopcontrol.js"></script>
 <script type="text/javascript" src="<?php echo $linkrootshop?>/scripts/jquery.popupoverlay.js"></script>
-<script type="text/javascript"  src="<?php echo $linkrootshop?>/scripts/resolve.js"></script>
-<script src="<?php echo $linkrootshop?>/scripts/platform.js?onload=renderButton" async defer></script>
-<script type="text/javascript" async defer src="<?php echo $linkrootshop?>/scripts/pinit.js"></script>
+<script type="text/javascript" src="<?php echo $linkrootshop?>/scripts/resolve.js"></script>
+<script type="text/javascript" src="<?php echo $linkrootshop?>/scripts/platform.js?onload=renderButton" async defer></script>
+<script type="text/javascript" src="<?php echo $linkrootshop?>/scripts/pinit.js" async defer></script>
 <script type="text/javascript" src="<?php echo $linkrootshop?>/scripts/nivo-slider/jquery.nivo.slider.js"></script>
 
 <?php include("module/footer.php") ;?>
@@ -177,14 +172,13 @@ require("module/box_device.php");
 </html>
 
 <?php
-if($cache == 1){
+if($cache == 1 && !isset($_SESSION['kh_login_username'])){
     /* Save the cached content to a file */
     if($pageName != ''){
         $fp = fopen($cachefile, 'w');
         fwrite($fp, ob_get_contents());
         fclose($fp);
     }
-
     /* Send browser output */
     ob_end_flush();
 }

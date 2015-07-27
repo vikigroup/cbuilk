@@ -64,42 +64,44 @@ function insertOrder(dataString){
 
 //dinh dang lai duong dan trang chi tiet
 $(function(){
-    $('.f-sty-P1').trigger('click');
     var length = $('#divProductPag a').length;
-    var link = $('#divProductPag a').attr('href');
-    var myArr = link.split("/");
-    var filter = parseInt($('#hiddenProductPageFilter').val());
-    var pageNum = parseInt($('#hiddenProductPageNum').val());
-    if(filter == ''){
-        filter = 1;
-    }
-    var getPage = myArr[2].substr(1, myArr[2].length);
-    var linkAfter = "/"+myArr[1]+"?filter1="+filter+"&"+getPage;
-    for(var i = 0; i < length - 1; i++){
-        $('#divProductPag a:nth-child('+(i+1)+')').attr('href', linkAfter+(i+1));
-    }
+    if(length > 0){
+        $('.f-sty-P1').trigger('click');
+        var link = $('#divProductPag a').attr('href');
+        var myArr = link.split("/");
+        var filter = parseInt($('#hiddenProductPageFilter').val());
+        var pageNum = parseInt($('#hiddenProductPageNum').val());
+        if(filter == ''){
+            filter = 1;
+        }
+        var getPage = myArr[2].substr(1, myArr[2].length);
+        var linkAfter = "/"+myArr[1]+"?filter1="+filter+"&"+getPage;
+        for(var i = 0; i < length - 1; i++){
+            $('#divProductPag a:nth-child('+(i+1)+')').attr('href', linkAfter+(i+1));
+        }
 
-    $('#divProductPag').find('span').remove();
-    var firstPage = "/"+myArr[1]+"?filter1="+filter+"&"+getPage+1;
-    var previous = "/"+myArr[1]+"?filter1="+filter+"&"+getPage+(pageNum-1);
-    var next = "/"+myArr[1]+"?filter1="+filter+"&"+getPage+(pageNum+1);
-    var lastPage = "/"+myArr[1]+"?filter1="+filter+"&"+getPage+(length-1);
-    if(pageNum == length - 1){
-        next = lastPage;
+        $('#divProductPag').find('span').remove();
+        var firstPage = "/"+myArr[1]+"?filter1="+filter+"&"+getPage+1;
+        var previous = "/"+myArr[1]+"?filter1="+filter+"&"+getPage+(pageNum-1);
+        var next = "/"+myArr[1]+"?filter1="+filter+"&"+getPage+(pageNum+1);
+        var lastPage = "/"+myArr[1]+"?filter1="+filter+"&"+getPage+(length-1);
+        if(pageNum == length - 1){
+            next = lastPage;
+        }
+        if(pageNum-1 == 0){
+            previous = "/"+myArr[1]+"?filter1="+filter+"&"+getPage+1;
+        }
+
+        $('#divProductPag').prepend("<a href="+firstPage+">1</a>");
+        $('#divProductPag').prepend("<a href="+previous+">&lsaquo;</a>");
+        $('#divProductPag').prepend("<a href="+firstPage+">&#171;</a>");
+
+        $('#divProductPag a:nth-child('+(length+2)+')').attr('href', next);
+        $('#divProductPag a:nth-child('+(length+3)+')').attr('href', lastPage);
+
+        $('#divProductPag a:nth-child('+(pageNum+2)+')').css('color', '#ffffff');
+        $('#divProductPag a:nth-child('+(pageNum+2)+')').css('background-color', '#F96D29');
     }
-    if(pageNum-1 == 0){
-        previous = "/"+myArr[1]+"?filter1="+filter+"&"+getPage+1;
-    }
-
-    $('#divProductPag').prepend("<a href="+firstPage+">1</a>");
-    $('#divProductPag').prepend("<a href="+previous+">&lsaquo;</a>");
-    $('#divProductPag').prepend("<a href="+firstPage+">&#171;</a>");
-
-    $('#divProductPag a:nth-child('+(length+2)+')').attr('href', next);
-    $('#divProductPag a:nth-child('+(length+3)+')').attr('href', lastPage);
-
-    $('#divProductPag a:nth-child('+(pageNum+2)+')').css('color', '#ffffff');
-    $('#divProductPag a:nth-child('+(pageNum+2)+')').css('background-color', '#F96D29');
 });
 
 //dinh dang lai duong dan trang tim kiem
@@ -495,13 +497,13 @@ window.fbAsyncInit = function() {
     });
 };
 
-(function(d, s, id){
+(function(d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) {return;}
+    if (d.getElementById(id)) return;
     js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en_US/sdk.js";
+    js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.4&appId=1460618637571000";
     fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
+}(document, 'script', 'facebook-jssdk'));
 
 function signInFacebook() {
     FB.api('/me', function(response) {

@@ -114,7 +114,7 @@ function selectUserEmail(){
 
 function checkUserEmail(){
     $email = filter_input(INPUT_POST, 'email');
-    $isExist = selectCondition("tbl_customer", "email = '".$email."'");
+    $isExist = selectCondition("tbl_customer", "email = '".$email."' AND image NOT LIKE '%http%'");
     if($isExist == 1){
         $active = selectField("tbl_customer", "active", "email = '".$email."'");
         if($active == 0){
