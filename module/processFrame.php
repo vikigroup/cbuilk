@@ -1,7 +1,7 @@
 <?php 
 switch ($frame){
 	case "products"                : include("module/products.php");break;
-	case "xemtatca"                : include("module/xemtatca.php");break;
+	case "tatcadanhmuc"            : include("module/all_categories.php");break;
 	case "search"                  : include("module/search.php");break;
 	
 	case "info_detail"             : include("module/info_detail.php");break;

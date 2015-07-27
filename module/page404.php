@@ -11,7 +11,7 @@
                 setInterval("document.getElementById('sogiay').innerHTML=s--;",1000);
                 </script>
                 <a href="<?php echo $linkrootshop;?>"> Nhấn vào đây để quay lại trang chủ</a><br />
-                Hệ thống sẽ tự động quay lại trang chủ sau.<br />
+                Hệ thống sẽ tự động quay lại trang chủ sau<br />
                 <span id=sogiay></span>
                 <br />
             </div>

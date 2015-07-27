@@ -1,6 +1,6 @@
 <article class="l-tool-ct all-categories">
     <ul class="ul-ltct">
-        <li><a class="btn-gh3" href="<?php echo $linkrootshop?>/xem-tat-ca.html"><i class="fa fa-bars fa-lg"></i>Tất cả danh mục</a></li>
+        <li><a class="btn-gh3" href="<?php echo $linkrootshop?>/tat-ca-danh-muc.html"><i class="fa fa-bars fa-lg"></i>Tất cả danh mục</a></li>
     </ul>
     <div class="clear"></div>
 </article><!-- End .l-tool-ct -->

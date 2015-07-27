@@ -21,7 +21,7 @@ RewriteRule ^doi-mat-khau.html$ ?act=changepass [L]
 RewriteRule ^quan-ly.html$ ?act=changeinfo [L]
 RewriteRule ^thoat.html$ ?act=logout [L]
 RewriteRule ^thong-tin/(.*).html$ ?act=info_detail&tenthongtin=$1 [L]
-RewriteRule ^xem-tat-ca.html$ ?act=xemtatca [L]
+RewriteRule ^tat-ca-danh-muc.html$ ?act=tatcadanhmuc [L]
 RewriteRule ^quen-mat-khau.html$ ?act=forgetpass [L]
 
 RewriteRule ^dang-ky-gian-hang.html$ ?act=addshop [L]

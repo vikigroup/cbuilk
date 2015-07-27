@@ -129,10 +129,10 @@ $myProduct = getRecord('tbl_item', "subject='".$_GET['tensanpham']."'");
 </header>
 
 <div class="m-wrap menu-wrap">
-    <section class="tool-ct">
+    <div class="tool-ct">
         <?php include("module/box_support.php") ;?>
         <?php include("module/info_user.php") ;?>
-    </section><!-- End .tool-ct -->
+    </div><!-- End .tool-ct -->
 </div><!-- End .m-wrap -->
 
 <?php if($frame==""){ ?>
@@ -144,11 +144,11 @@ $myProduct = getRecord('tbl_item', "subject='".$_GET['tensanpham']."'");
 
 <div class="clear"></div>
 
-<section id="container" <?php if($frame == ''){echo 'class="fix_main"';} ?>>
+<div id="container" <?php if($frame == ''){echo 'class="fix_main"';} ?>>
     <div class="m-wrap">
         <?php include("module/processFrame.php");?>
     </div><!-- End .m-wrap -->
-</section><!-- End #container -->
+</div><!-- End #container -->
 
 <div class="mini-bar">
     <div class="mini-shopping">
