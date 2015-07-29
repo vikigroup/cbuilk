@@ -454,6 +454,64 @@ function checkPassStrength(pass) {
     return "";
 }
 
+function moveToMainCategory(id, mainCategory){
+    window.location.href = "#"+mainCategory;
+    var scrollTop = $('#hiddenScrollTop').val();
+    if(scrollTop == 0){
+        $(window).scrollTop($(window).scrollTop() - 72);
+    }
+    $('.divMainCategory').css('border-color', '#DDDDDD');
+    $('.divMainCategory').css('border-right', 'none');
+    $('.divMainCategory:last-child').css('border-right', '1px solid #DDDDDD');
+    $('.divMainCategory:last-child').css('padding-right', '15px');
+    $("#"+id).css('border', '1px solid #FF7419');
+    $('#hiddenScrollTop').val('1');
+}
+
+function scrollTopDesc(){
+    var scrollTop = $(window).scrollTop();
+    $(window).scrollTop(scrollTop - 72);
+}
+
+$(function(){
+    var scrollTop = $(window).scrollTop();
+    if(scrollTop > 0){
+        $('#topcontrol').click();
+    }
+});
+
+function loadMoreMainSubCategory(id, number){
+    var id = id;
+    var time = parseInt($("#hiddenMainSubCategoryLoadMore"+number).val());
+    var start = time*6;
+    var dataString = "id="+id+"&start="+start+"&functionName="+"loadMoreMainSubCategory";
+    $.ajax({
+        type: "POST",
+        url: "lib/functions.php",
+        data: dataString,
+        success: function(x){
+            if(x == 0){
+                alert("Đã xảy ra lỗi! \nXin vui lòng tải lại trang và thử lại.");
+            }
+            else{
+                var result = x.split(";");
+                for(var i = 0; i < result.length; i++){
+                    if(i != result.length - 1){
+                        var myArr = result[i].split(",");
+                        $('<div class="divMainSubCategoryName"><a href="'+myArr[0]+'">'+myArr[1]+'</a> </div>').insertBefore('#divMainSubCategoryName'+number+' input');
+                    }
+                    else{
+                        if(result[i] == 0){
+                            $('#divMainSubCategoryLoadMore'+number).hide();
+                        }
+                    }
+                }
+                $("#hiddenMainSubCategoryLoadMore"+number).val(''+(time+1)+'');
+            }
+        }
+    });
+}
+
 function openConfirmPopup(message){
     $('.pCloseConfirm').hide();
     $('#divConfirm').html('<img src="../imgs/load.gif"><p');

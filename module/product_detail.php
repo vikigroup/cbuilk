@@ -213,7 +213,6 @@ if($ghinho==1){ // prodetail
         <div class="block_prod_details">
             
             <div class="info_gh">
-                <?php if($row_sanpham['style'] != 1){ ?>
                 <div>
                     <?php if($row_sanpham['idshop'] == 0){ ?>
                     <div id="divBrand" class="i_gh_details" <?php if($brand_background != ''){echo "style='background-color: ".$brand_background."'";} ?>>
@@ -265,7 +264,6 @@ if($ghinho==1){ // prodetail
                     <?php } ?>
                     <div class="clear"></div>
                 </div>
-                <?php } ?>
 
                 <?php if($row_sanpham['style'] != 1 && $row_sanpham['style'] != 3){?>
                 <div style="padding-top:10px;">

@@ -189,4 +189,13 @@ function randomKey($lenght){
     $key = substr(str_shuffle(implode(array_merge(range(0,9), range('A', 'Z'), range('a', 'z')))), 0, $lenght);
     return $key;
 }
+
+function count_category($id){
+    global $conn;
+    $sql = "SELECT count(id) AS countID FROM tbl_shop_category WHERE parent = '$id'";
+    $gt = mysql_query($sql,$conn) or die (mysql_error());
+    while($result = mysql_fetch_assoc($gt)){
+        return $result['countID'];
+    }
+}
 ?>

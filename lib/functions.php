@@ -51,15 +51,43 @@ if($functionName == "updateTimeView"){
     updateTimeView();
 }
 
+if($functionName == "loadMoreMainSubCategory"){
+    loadMoreMainSubCategory();
+}
+
 function connect(){
     // Create connection
     $conn = new mysqli($GLOBALS['hostname'], $GLOBALS['username'], $GLOBALS['password'], $GLOBALS['databasename']);
+    // Change character set to utf8
+    mysqli_set_charset($conn,"utf8");
     // Check connection
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
     else{
         return $conn;
+    }
+}
+
+function loadMoreMainSubCategory(){
+    $id = filter_input(INPUT_POST, 'id');
+    $start = filter_input(INPUT_POST, 'start');
+    $result = selectData("tbl_shop_category", "parent = '".$id."' ORDER BY name COLLATE utf8_unicode_ci LIMIT ".$start.",6");
+    if($result != 0){
+        $data = "";
+        while($row = $result->fetch_assoc()) {
+            $data .= $row['subject'].",".$row['name'].";";
+        }
+        $isMore = 0;
+        $dataMore = selectData("tbl_shop_category", "parent = '".$id."' ORDER BY name COLLATE utf8_unicode_ci LIMIT ".($start+6).",6");
+        if($dataMore != 0){
+            $isMore = 1;
+        }
+        $data .= $isMore;
+        echo $data;
+    }
+    else{
+        echo 0;
     }
 }
 
@@ -241,7 +269,7 @@ function updateCustomerActive(){
         }
         else{
             echo 0;
-        }
+    }
     }
     else{
         echo 0;
@@ -257,6 +285,22 @@ function update($table, $field, $condition){
         return "Error updating record: " . $conn->error;
     }
     $conn->close();
+}
+
+//select data
+function selectData($table, $condition){
+    $conn = connect();
+    $sql = "SELECT * FROM ".$table." WHERE ".$condition;
+    if($condition == ''){
+        $sql = "SELECT * FROM ".$table;
+    }
+    $result = $conn->query($sql);
+    if ($result->num_rows > 0) {
+        return $result;
+    } else {
+        return 0;
+    }
+    close($conn);
 }
 
 //select with a specified field

@@ -131,7 +131,7 @@ span.hotline {background-color: #FB8833; color: white; padding: 10px;}
     box-shadow: none !important;
 }
 .img-right{width: 168px; height: 481px;}
-.ads-home{float:left; max-width: 830px; width: 830px; height: 330px !important; overflow: hidden;}
+.ads-home{float:left; max-width: 830px !important; width: 830px; height: 330px !important; overflow: hidden;}
 .ads-logo{width: 136px; background-color: white; float: left; padding: 18px 0 18px 0; text-align: center; border: 1px solid #F5F5F5;}
 .ads-logo img{max-width: 90px; max-height: 45px; display: inline}
 .ads-article article{}
@@ -184,6 +184,36 @@ span.hotline {background-color: #FB8833; color: white; padding: 10px;}
 
 .t-mn-dm {color:#0066FF; font-size: 16px; font-weight: bold; padding: 6px 0 3px 0; border-bottom: 1px solid #ddd; text-align: center; text-transform: uppercase;}
 .m-mn-dm {}
+.l-list{
+    width: 100%;
+    height: auto;
+    margin-left: 1px;
+}
+.divMainCategory{
+    width: 167px;
+    float: left;
+    background-color: #FFffff;
+    border: 1px solid #DDDDDD;
+    border-right: none;
+    padding: 15px;
+    cursor: pointer;
+}
+.divMainCategory:last-child{
+    border-right: 1px solid #DDDDDD;
+    padding-right: 16px;
+}
+.divMainImage{
+    float: left;
+}
+.divMainImage img{
+    width: 40px;
+    height: 40px;
+}
+.divMainName{
+    float: left;
+    padding: 10px;
+}
+
 .readmore {font-size: 10px; text-transform: uppercase; color: #333; background: url(../imgs/layout/icon_rm.png) no-repeat 10px 9px; padding: 6px 0 6px 24px; display: block;}
 .readmore:hover {color: #3ba11b;}
 
@@ -441,11 +471,12 @@ footer {}
 .i-foot ul.ul-ifoot > li {float: left; width: 25%;}
 .t-ifoot {padding: 0 0 0 20px; background: #ffffff; height: 30px; line-height: 30px;}
 .m-ifoot {padding: 10px 10px 10px 20px; line-height: 22px; font-size: 11px; background: #ffffff;}
-.m-ifoot ul.news li a {color: #444; background: url(../imgs/layout/icon-ifoot.png) no-repeat left 5px; padding: 0 0 0 10px;}
+.m-ifoot ul.news li a {color: #444; background: url(../imgs/layout/icon-ifoot.png) no-repeat left 5px; padding: 0 0 0 10px; font-size: 13px;}
 .m-ifoot ul.news li a:hover {color: #3ba11b; text-decoration: underline;}
 
 .m-ifoot ul.yahoo li {height: 22px; line-height: 22px;}
 .l-yahoo {float: left; width: 30%;}
+.l-yahoo span{font-size: 13px;}
 .r-yahoo {overflow: hidden; width: 100px; display: inline-block}
 .m-ifoot ul.yahoo li .l-yahoo a {color: #444; background: url(../imgs/layout/icon-ifoot.png) no-repeat left 5px; padding: 0 0 0 10px;}
 .m-ifoot ul.yahoo li .l-yahoo a:hover {color: #3ba11b; text-decoration: underline;}
@@ -719,19 +750,17 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 .info_f_tt{padding:15px; border-top:1px solid #eee; font-size:11px;}
 
 .list-cate {
-    border: 1px solid #DBDBDB;
-    padding: 0 10px;
-    /*
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    border-radius: 3px;*/
+    padding: 5px;
 }
 /****************************alldanhmuc*******************************************/
 
 .f-list
 {
-    margin: 20px 10px;
-    padding:0px 10px;
+    margin: 20px 10px 20px 2px;
+    background-color: #ffffff;
+    box-shadow: 0 1px 2px rgba(0,0,0,.1);
+    box-sizing: border-box;
+    height: auto;
 }
 .f-list ul.ul-list > li
 {
@@ -811,6 +840,45 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 {
     color:red;
     text-decoration: underline;
+}
+.divMainSubCategory{
+    width: 100%;
+    border-bottom: 1px solid #DBDBDB;
+    height: auto;
+    padding: 15px 0 20px 0;
+}
+.divMainSubCategoryTitle{
+    width: 100%;
+    padding: 10px;
+}
+.divMainSubCategoryTitle a{
+    color: #FF7819;
+    font-size: 18px;
+}
+.divMainSubCategoryName{
+    width: 175px;
+    float: left;
+    padding: 3px 10px 3px 10px;
+}
+.divMainSubCategoryName a{
+    color: #000000;
+    font-size: 14px;
+}
+.divMainSubCategoryName a:hover{
+    color: #FF7819 !important;
+    text-decoration: underline;
+}
+.main_subCategory{
+    color: #4A85F4 !important;
+}
+.divMainSubCategoryLoadMore{
+    width: 100%;
+    padding: 10px;
+}
+
+.divMainSubCategoryLoadMore a:hover{
+    color: #ffffff !important;
+    text-decoration: none;
 }
 
 /*****************************end#all*****************************************/
@@ -1656,6 +1724,7 @@ pre.prettyprint {
     color: white !important;
     border-radius: 4px !important;
     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2) !important;
+    padding: 5px;
 }
 
 .button-success {
