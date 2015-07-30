@@ -33,6 +33,8 @@ function autoHome(){
         $('#menu').slicknav({
             prependTo:'#container'
         });
+
+        $('.divMainCategory').width('100%');
     }
 
     if($(window).width() >= 992){

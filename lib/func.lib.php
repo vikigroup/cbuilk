@@ -198,4 +198,22 @@ function count_category($id){
         return $result['countID'];
     }
 }
+
+function count_items($id){
+    global $conn;
+    $myArr = array();
+    array_push($myArr, $id);
+
+    $sql1 = "SELECT id FROM tbl_shop_category WHERE parent = '$id'";
+    $gt1 = mysql_query($sql1,$conn) or die (mysql_error());
+    while($result1 = mysql_fetch_assoc($gt1)){
+        array_push($myArr, $result1['id']);
+    }
+
+    $sql2 = "SELECT count(id) AS countID FROM tbl_item WHERE parent IN('".implode("','",$myArr)."') OR parent1 IN('".implode("','",$myArr)."')";
+    $gt2 = mysql_query($sql2,$conn) or die (mysql_error());
+    while($result2 = mysql_fetch_assoc($gt2)){
+        return $result2['countID'];
+    }
+}
 ?>

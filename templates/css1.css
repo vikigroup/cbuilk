@@ -188,24 +188,33 @@ span.hotline {background-color: #FB8833; color: white; padding: 10px;}
     width: 100%;
     height: auto;
 }
+
 .divMainCategory{
     width: 167px;
+    height: 42px;
     float: left;
     border: 1px solid #DDDDDD;
-    border-right: none;
-    padding: 14px;
+    padding: 0 14px;
     cursor: pointer;
 }
 .divMainCategory:last-child{
     border-right: 1px solid #DDDDDD;
 }
+
+.divMainCategoryContents{
+    display: table;
+    margin: 0 auto;
+}
+
 .divMainImage{
     float: left;
 }
+
 .divMainImage img{
     width: 40px;
     height: 40px;
 }
+
 .divMainName{
     float: left;
     padding: 10px;
@@ -466,8 +475,8 @@ footer {}
 .bg-ifoot {box-shadow: 0 1px 2px rgba(0,0,0,.1); box-sizing: border-box;}
 /*background: url(../imgs/layout/ul-ifoot.png) repeat-y;*/
 .i-foot ul.ul-ifoot > li {float: left; width: 25%;}
-.t-ifoot {padding: 0 0 0 20px; background: #ffffff; height: 30px; line-height: 30px;}
-.m-ifoot {padding: 10px 10px 10px 20px; line-height: 22px; font-size: 11px; background: #ffffff;}
+.t-ifoot {padding: 15px 0 0 20px; height: 30px; line-height: 30px;}
+.m-ifoot {padding: 10px 10px 15px 20px; line-height: 22px; font-size: 11px;}
 .m-ifoot ul.news li a {color: #444; background: url(../imgs/layout/icon-ifoot.png) no-repeat left 5px; padding: 0 0 0 10px; font-size: 13px;}
 .m-ifoot ul.news li a:hover {color: #3ba11b; text-decoration: underline;}
 
@@ -918,20 +927,15 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 }
 
 .divMainSubCategoryName{
-    width: 445px;
+    width: 410px;
     float: left;
-    padding: 10px;
-}
-
-.divMainSubCategoryName{
-    width: 445px;
-    float: left;
-    padding: 10px;
+    padding: 20px 10px;
+    margin-left: 35px;
 }
 
 .divMainLastCategoryName{
     padding: 5px 0;
-    width: 222px;
+    width: 205px;
     float: left;
 }
 
@@ -1357,6 +1361,9 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     .r-box-tool ul li:first-child{
         margin: 0 0 5px 0;
     }
+    .divMainCategory{
+        border-right: none;
+    }
 }
 
 @media (max-width: 991px){
@@ -1485,6 +1492,10 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     }
     .arrowCategory{
         padding-top: 10px !important;
+    }
+    .divMainCategory{
+        border-right: 1px solid #DDDDDD !important;
+        margin-right: 5px;
     }
 }
 
