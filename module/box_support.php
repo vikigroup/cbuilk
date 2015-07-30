@@ -79,7 +79,7 @@
 <article class="l-tool-ct primary-category menu-category">
     <ul class="ul-ltct">
         <ul id="menu">
-            <li><a href="<?php echo $linkrootshop?>/xem-tat-ca.html">Tất cả danh mục</a></li>
+            <li><a href="<?php echo $linkrootshop?>/tat-ca-danh-muc.html">Tất cả danh mục</a></li>
             <li><a href="<?php echo $linkrootshop?>/<?php echo $old['subject']; ?>.html"><?php echo $old['name']; ?></a></li>
             <li><a href="<?php echo $linkrootshop?>/<?php echo $rent['subject']; ?>.html"><?php echo $rent['name']; ?></a></li>
             <li><a href="<?php echo $linkrootshop; ?>/<?php echo $news['subject']; ?>.html"><?php echo $news['name']; ?></a></li>

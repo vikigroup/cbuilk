@@ -1,9 +1,9 @@
 <?php
-$myArr1 = array('#DBA5EE', '#C14150', '#66E4E6', '#965BB9', '#FF8BCF', '#D3CFCA', '#619ECE', '#9AB554');
-$myArr2 = array('#DDADEE', '#C65461', '#75E5E7', '#A06BBF', '#FE96D3', '#D6D3CE', '#70A7D2', '#A3BB65');
-$myArr3 = array('#E1B6F0', '#CC6672', '#84E8EA', '#AA7BC6', '#FEA1D7', '#DBD7D3', '#80B0D7', '#ADC375');
+$myArr1 = array('#68284E', '#C14150', '#0D9799', '#965BB9', '#D85885', '#181818', '#619ECE', '#9AB554', '#BB5A0E', '#4B3029', '#2C9E7A', '#C9213D');
+$myArr2 = array('#7C325C', '#C65461', '#12ACB4', '#A06BBF', '#E66492', '#242424', '#70A7D2', '#A3BB65', '#C5671C', '#5A4439', '#3CB38D', '#E83052');
+$myArr3 = array('#873865', '#CC6672', '#17B4BB', '#AA7BC6', '#FF649D', '#2D2D2D', '#80B0D7', '#ADC375', '#D06716', '#674941', '#3CB38D', '#E93052');
 
-$cate_floor = get_records("tbl_shop_category","status=0 AND parent=457 AND sort != 0","sort, date_added DESC","0,8"," ");
+$cate_floor = get_records("tbl_shop_category","status=0 AND parent=457 AND sort != 0","sort, date_added DESC","0,12"," ");
 $myArrID = array();
 $myArrName = array();
 $myArrPrimarySubject = array();
@@ -14,7 +14,7 @@ while($row_cate_floor=mysql_fetch_assoc($cate_floor)){
     array_push($myArrPrimarySubject, $row_cate_floor['subject']);
     array_push($myArrPrimaryImage, $row_cate_floor['image_large']);
 }
-for($i = 0; $i < 8; $i++){
+for($i = 0; $i < 12; $i++){
 ?>
 <section class="Adv ads-floors">
     <?php
@@ -66,18 +66,18 @@ for($i = 0; $i < 8; $i++){
             ?>
             <div class="divContent" style="background-color: <?php echo $myArr3[$i]; ?>" onclick="window.location.href = '<?php echo $linkrootshop?>/<?php echo $myArrSubject[0];?>.html'">
                 <?php if(isset($myArrImage[0])){ ?>
-                    <img src="<?php echo $linkroot?>/<?php echo $myArrImage[0] ;?>" />
+                    <img class="hvr-pop" src="<?php echo $linkroot?>/<?php echo $myArrImage[0] ;?>" />
                 <?php }else{ ?>
-                    <img src="<?php echo $linkroot?>/images/noimage.png" />
+                    <img class="hvr-pop" src="<?php echo $linkroot?>/images/noimage.png" />
                 <?php } ?>
                 <p><?php echo $myArrSubName[0]; ?></p>
             </div>
             <div class="sep"></div>
             <div class="divContent" style="background-color: <?php echo $myArr3[$i]; ?>" onclick="window.location.href = '<?php echo $linkrootshop?>/<?php echo $myArrSubject[1];?>.html'">
                 <?php if(isset($myArrImage[1])){ ?>
-                    <img src="<?php echo $linkroot?>/<?php echo $myArrImage[1] ;?>" />
+                    <img class="hvr-pop" src="<?php echo $linkroot?>/<?php echo $myArrImage[1] ;?>" />
                 <?php }else{ ?>
-                    <img src="<?php echo $linkroot?>/images/noimage.png" />
+                    <img class="hvr-pop" src="<?php echo $linkroot?>/images/noimage.png" />
                 <?php } ?>
                 <p><?php echo $myArrSubName[1]; ?></p>
             </div>

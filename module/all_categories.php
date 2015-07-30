@@ -71,19 +71,21 @@
         <h2>Những sản phẩm có thể bạn quan tâm</h2>
     </div>
     <div class="r-products">
-        <?php
-        $interProducts = get_records("tbl_item","status=0 AND style=0","time_view DESC","0,5"," ");
-        while($row=mysql_fetch_assoc($interProducts)){ ?>
-        <div class="r-contents" onclick="window.location.href = '<?php echo $root; ?>/<?php echo $row['subject']; ?>.html'">
-            <div class="r-image">
-                <img src="<?php echo $root; ?>/web/<?php echo $row['image']; ?>">
+        <div class="r-center">
+            <?php
+            $interProducts = get_records("tbl_item","status=0 AND style=0","time_view DESC","0,5"," ");
+            while($row=mysql_fetch_assoc($interProducts)){ ?>
+            <div class="r-contents" onclick="window.location.href = '<?php echo $root; ?>/<?php echo $row['subject']; ?>.html'">
+                <div class="r-image">
+                    <img src="<?php echo $root; ?>/web/<?php echo $row['image']; ?>">
+                </div>
+                <div class="r-contents-title">
+                    <p><?php echo $row['name']; ?></p>
+                </div>
             </div>
-            <div class="r-contents-title">
-                <p><?php echo $row['name']; ?></p>
-            </div>
+            <?php } ?>
+            <div class="clear"></div>
         </div>
-        <?php } ?>
-        <div class="clear"></div>
     </div>
 </div>
 <script>

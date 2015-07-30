@@ -759,16 +759,18 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 /****************************alldanhmuc*******************************************/
 .r-list{
     float: left;
+    text-align: center;
+}
+
+.r-list a img{
     width: 280px;
-    margin-top: 35px;
+    height: 452px;
 }
 
 .f-list
 {
-    margin: 20px 0;
     height: auto;
     float: left;
-    width: 930px;
 }
 
 .f-list ul.ul-list > li
@@ -872,11 +874,17 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 }
 
 .r-products{
-    margin: 0 80px;
+    width: 100%;
+}
+
+.r-center{
+    display: table;
+    margin: 0 auto;
 }
 
 .r-contents{
     width: 196px;
+    min-height: 207px;
     float: left;
     margin: 0 5px;
     cursor: pointer;
@@ -906,13 +914,12 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 }
 
 .divMainSubCategory{
-    width: 100%;
     height: auto;
     padding: 15px 0 20px 0;
+    overflow: hidden;
 }
 
 .divMainSubCategoryTitle{
-    width: 100%;
     padding: 10px;
 }
 
@@ -930,11 +937,10 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     width: 410px;
     float: left;
     padding: 20px 10px;
-    margin-left: 35px;
 }
 
 .divMainLastCategoryName{
-    padding: 5px 0;
+    padding: 5px;
     width: 205px;
     float: left;
 }
@@ -1364,6 +1370,15 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     .divMainCategory{
         border-right: none;
     }
+    .r-list{
+        margin-top: 35px;
+    }
+    .f-list{
+        margin: 20px 0;
+    }
+    .divMainSubCategoryName{
+        margin-left: 35px;
+    }
 }
 
 @media (max-width: 991px){
@@ -1374,9 +1389,6 @@ ul.ul-fP li.atc a {color: #3ba11b;}
         top: 70px !important;
         left: 0 !important;
         width: 100%;
-    }
-    .menu, .r-box-tool, .search_top_header{
-        margin-left: -1px !important;
     }
     .btn-gh3{
         margin-bottom: 5px;
@@ -1495,7 +1507,17 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     }
     .divMainCategory{
         border-right: 1px solid #DDDDDD !important;
-        margin-right: 5px;
+        border-bottom: none !important;
+    }
+    .divMainCategory:last-child{
+        border-bottom: 1px solid #DDDDDD !important;
+    }
+    .divMainImage{
+        margin-left: 5px;
+    }
+    .l-list{
+        position: initial !important;
+        top: initial !important;
     }
 }
 
@@ -1558,6 +1580,24 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     }
     .search_top_header{
         width: 475px !important;
+    }
+    .divMainCategory{
+        width: 130px !important;
+    }
+    .f-list{
+        width: 80% !important;
+    }
+    .r-list{
+        width: 20% !important;
+    }
+    .r-contents{
+        width: 18% !important;
+    }
+    .divMainSubCategoryName{
+        width: 42% !important;
+    }
+    .divMainLastCategoryName{
+        width: 130px !important;
     }
 }
 

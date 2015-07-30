@@ -9,7 +9,7 @@ function autoHome(){
     var windowSize = $(window).width();
     if($(window).width() < 992){
         $('.m-wrap, .dmsp4-3, .ads-home, .btn-gh3, .form_dn, .form_dn ul li, .l-fcont, .r-fcont' +
-            ', .sli-fcon-1 .bx-wrapper .bx-viewport, .filter-Prod, .content, .menu').css('width', windowSize);
+            ', .sli-fcon-1 .bx-wrapper .bx-viewport, .filter-Prod, .content, .menu, .f-list, .divMainSubCategoryName').css('width', windowSize);
         $('.search_top_header').css('width', windowSize - 2);
         $('.l-fcont, .r-fcont, table').css('width', windowSize - 10);
         $('.divProductLine1, .divProductOverlay1').css('width', windowSize/2 - 2);
@@ -34,7 +34,11 @@ function autoHome(){
             prependTo:'#container'
         });
 
-        $('.divMainCategory').width('100%');
+        $('.r-list').width('100%');
+        $('.divMainLastCategoryName').width((windowSize - 20)/2 - 10);
+        $('.divMainSubCategoryName').width(windowSize - 20);
+        $('.r-contents').width(windowSize - 12);
+        $('.divMainCategory').width(windowSize - 30);
     }
 
     if($(window).width() >= 992){
@@ -76,5 +80,10 @@ function autoHome(){
         var numItems = $('.divMainCategory').length;
         $('.divMainCategory').width($(".list-cate").width()/numItems - 29);
         $('.divMainCategory:last-child').width($('.divMainCategory:last-child').width() - 4);
+        $('.f-list').css('width', '80%');
+        $('.r-list').width('20%');
+        $('.divMainSubCategoryName').css('width', ($('.f-list').width() - 70 - 40)/2 - 10);
+        $('.divMainLastCategoryName').width(($('.divMainSubCategoryName').width() - 35)/2);
+        $('.r-contents').width($('.r-products').width()/5 - 20);
     }
 }
