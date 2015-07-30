@@ -227,20 +227,20 @@ if($ghinho==1){ // prodetail
                                     <form class="pure-form pure-form-aligned" id="popBrandForm">
                                         <fieldset>
                                             <div class="pure-control-group">
-                                                <label for="popBrandName">Tên thương hiệu</label>
+                                                <label for="popBrandName" class="button-secondary">Tên thương hiệu</label>
                                                 <input id="popBrandName" type="text" value="<?php echo $row_sanpham['brand_name']; ?>" required>
                                             </div>
                                             <div class="pure-control-group">
-                                                <label for="popBrandLink">Đường dẫn</label>
-                                                <input id="popBrandLink" type="text" value="<?php echo $row_sanpham['brand_link']; ?>" required onchange="addhttp(this.id, this.value)">
+                                                <label for="popBrandLink" class="button-secondary">Đường dẫn</label>
+                                                <input id="popBrandLink" type="text" value="<?php echo $row_sanpham['brand_link']; ?>" required onchange="addhttp(this.id, this.value);">
                                             </div>
                                             <div class="pure-control-group">
-                                                <label for="popBrandBG">Màu nền</label>
+                                                <label for="popBrandBG" class="button-secondary">Màu nền</label>
                                                 <input type="text" id="popBrandBG" value="<?php if($brand_background != ''){echo $brand_background;}else{echo "#000000";} ?>" onchange="$('#popColorBG').val($('#popBrandBG').val());"/>
                                                 <input type="color" id="popColorBG" value="<?php if($brand_background != ''){echo $brand_background;}else{echo "#000000";} ?>" onchange="$('#popBrandBG').val(this.value);">
                                             </div>
                                             <div class="pure-control-group">
-                                                <label for="popBrandFC">Màu chữ</label>
+                                                <label for="popBrandFC" class="button-secondary">Màu chữ</label>
                                                 <input type="text" id="popBrandFC" value="<?php if($brand_color != ''){echo $brand_color;}else{echo "#ffffff";} ?>" onchange="$('#popColorFC').val($('#popBrandFC').val());"/>
                                                 <input type="color" id="popColorFC" value="<?php if($brand_color != ''){echo $brand_color;}else{echo "#ffffff";} ?>" onchange="$('#popBrandFC').val(this.value);">
                                             </div>
@@ -249,15 +249,6 @@ if($ghinho==1){ // prodetail
                                         <button class="fadeandscale_close button-error pure-button" id="popBrandClose">Đóng</button>
                                     </form>
                                 </div>
-
-                                <script>
-                                    $(document).ready(function () {
-                                        $('#fadeandscale').popup({
-                                            pagecontainer: '.container',
-                                            transition: 'all 0.3s'
-                                        });
-                                    });
-                                </script>
                             <?php } ?>
                         </h3>
                     </div>

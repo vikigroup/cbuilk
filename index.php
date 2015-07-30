@@ -4,9 +4,8 @@ header('Content-Type: text/html; charset=utf-8');
 require("config.php");
 require("common_start.php");
 include("lib/func.lib.php");
-
 $cache = get_field('tbl_config','id','2','cache');
-if($cache == 1 && !isset($_SESSION['kh_login_username'])){
+if($cache == 1 && !isset($_SESSION['kh_login_username']) && $_SESSION['kt_login_level'] != 3){
     $link = $_SERVER['REQUEST_URI'];
     $myLink = explode("?", $link);
     $myData = explode("&", $myLink[1]);
@@ -30,15 +29,8 @@ if($cache == 1 && !isset($_SESSION['kh_login_username'])){
                 $pageName = "home";
                 $page = "home.html";
             }
-            else{
-                if(strpos($link, "dang-nhap") !== false){
-                    $pageName = "dang-nhap";
-                    $page = "dang-nhap.html";
-                }
-                else if(strpos($link, "dang-ky") !== false){
-                    $pageName = "dang-ky";
-                    $page = "dang-ky.html";
-                }
+            else if(strpos($link, "dang-nhap") !== false || strpos($link, "dang-ky") !== false){
+                    $pageName = "";
             }
         }
     }

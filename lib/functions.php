@@ -72,14 +72,14 @@ function connect(){
 function loadMoreMainSubCategory(){
     $id = filter_input(INPUT_POST, 'id');
     $start = filter_input(INPUT_POST, 'start');
-    $result = selectData("tbl_shop_category", "parent = '".$id."' ORDER BY name COLLATE utf8_unicode_ci LIMIT ".$start.",6");
+    $result = selectData("tbl_shop_category", "parent = '".$id."' ORDER BY name COLLATE utf8_unicode_ci LIMIT ".$start.",20");
     if($result != 0){
         $data = "";
         while($row = $result->fetch_assoc()) {
             $data .= $row['subject'].",".$row['name'].";";
         }
         $isMore = 0;
-        $dataMore = selectData("tbl_shop_category", "parent = '".$id."' ORDER BY name COLLATE utf8_unicode_ci LIMIT ".($start+6).",6");
+        $dataMore = selectData("tbl_shop_category", "parent = '".$id."' ORDER BY name COLLATE utf8_unicode_ci LIMIT ".($start+20).",20");
         if($dataMore != 0){
             $isMore = 1;
         }

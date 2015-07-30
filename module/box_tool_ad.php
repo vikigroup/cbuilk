@@ -12,9 +12,9 @@
             ?>
             <li><img class="avatar" src="<?php echo $avatar; ?>" alt="<?php echo $_SESSION['kh_login_username']; ?>" /></li>
             <?php }else{ ?>
-            <li><img class="avatar" src="<?php echo '../web/images/avatar/'.$avatar; ?>" alt="<?php echo $_SESSION['kh_login_username']; ?>" /></li>
+            <li><img class="avatar" src="<?php echo '/web/images/avatar/'.$avatar; ?>" alt="<?php echo $_SESSION['kh_login_username']; ?>" /></li>
             <?php }}else{ ?>
-            <li><img class="avatar" src="../imgs/noavatar.jpg'" alt="<?php echo $_SESSION['kh_login_username']; ?>" /></li>
+            <li><img class="avatar" src="../imgs/noavatar.jpg" alt="<?php echo $_SESSION['kh_login_username']; ?>" /></li>
             <?php } ?>
             <?php if($domain != ""){ ?>
             <li><a onclick="if($(window).width() > 991){window.location.href = 'http://<?php echo $domain ?>.<?php echo $sub ?>/quantri.html';} else{alert('Chức năng này chỉ dành cho phiên bản đầy đủ...');}">Trang quản trị</a></li>

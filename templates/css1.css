@@ -187,20 +187,17 @@ span.hotline {background-color: #FB8833; color: white; padding: 10px;}
 .l-list{
     width: 100%;
     height: auto;
-    margin-left: 1px;
 }
 .divMainCategory{
     width: 167px;
     float: left;
-    background-color: #FFffff;
     border: 1px solid #DDDDDD;
     border-right: none;
-    padding: 15px;
+    padding: 14px;
     cursor: pointer;
 }
 .divMainCategory:last-child{
     border-right: 1px solid #DDDDDD;
-    padding-right: 16px;
 }
 .divMainImage{
     float: left;
@@ -749,28 +746,33 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 
 .info_f_tt{padding:15px; border-top:1px solid #eee; font-size:11px;}
 
-.list-cate {
-    padding: 5px;
-}
+.list-cate {  }
 /****************************alldanhmuc*******************************************/
+.r-list{
+    float: left;
+    width: 280px;
+    margin-top: 35px;
+}
 
 .f-list
 {
-    margin: 20px 10px 20px 2px;
-    background-color: #ffffff;
-    box-shadow: 0 1px 2px rgba(0,0,0,.1);
-    box-sizing: border-box;
+    margin: 20px 0;
     height: auto;
+    float: left;
+    width: 930px;
 }
+
 .f-list ul.ul-list > li
 {
     float: left;
     width: 25%;
 }
+
 .f-list ul.ul-list > li + li + li + li + li + li
 {
     margin-top: 0px ;
 }
+
 .f-list ul.ul-list > li:nth-child(5),
 .f-list ul.ul-list > li:nth-child(9),
 .f-list ul.ul-list > li:nth-child(13),
@@ -794,6 +796,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     text-align: center;
     padding-top: 1px;
 }
+
 .f-list ul.ul-list > li > a> img
 {
     width:45px;
@@ -836,48 +839,134 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     padding-top: 0px;
     float:left;
 }
+
 .f-list ul.ul-list > li > ul > li > a:hover
 {
     color:red;
     text-decoration: underline;
 }
+
+.r-cate{
+    width: 100%;
+    height: auto;
+    border: 1px solid #ECECEC;
+    padding-bottom: 20px;
+}
+
+.r-title{
+    padding: 20px;
+}
+
+.r-title h2{
+    font-size: 22px;
+    padding-bottom: 30px;
+}
+
+.r-products{
+    margin: 0 80px;
+}
+
+.r-contents{
+    width: 196px;
+    float: left;
+    margin: 0 5px;
+    cursor: pointer;
+    border: 1px solid transparent;
+}
+
+.r-contents:hover{
+    border: 1px solid #bbb;
+    box-shadow: rgba(81, 203, 238, 1) 0 0 8px;
+    -moz-box-shadow: rgba(81, 203, 238, 1) 0 0 8px;
+    -webkit-box-shadow: rgba(81, 203, 238, 1) 0 0 8px;
+}
+
+.r-image{
+    width: 140px;
+    height: 140px;
+    margin: 0 auto;
+}
+
+.r-image img{
+    height: inherit !important;
+}
+
+.r-contents-title{
+    text-align: center;
+    padding: 5px;
+}
+
 .divMainSubCategory{
     width: 100%;
-    border-bottom: 1px solid #DBDBDB;
     height: auto;
     padding: 15px 0 20px 0;
 }
+
 .divMainSubCategoryTitle{
     width: 100%;
     padding: 10px;
 }
+
+.divMainSubCategoryTitle h3 a{
+    margin-left: 20px;
+}
+
 .divMainSubCategoryTitle a{
-    color: #FF7819;
-    font-size: 18px;
+    color: #000000;
+    font-size: 22px;
+    font-weight: normal;
 }
+
 .divMainSubCategoryName{
-    width: 175px;
+    width: 445px;
     float: left;
-    padding: 3px 10px 3px 10px;
+    padding: 10px;
 }
+
+.divMainSubCategoryName{
+    width: 445px;
+    float: left;
+    padding: 10px;
+}
+
+.divMainLastCategoryName{
+    padding: 5px 0;
+    width: 222px;
+    float: left;
+}
+
 .divMainSubCategoryName a{
     color: #000000;
     font-size: 14px;
 }
+
 .divMainSubCategoryName a:hover{
     color: #FF7819 !important;
     text-decoration: underline;
 }
+
 .main_subCategory{
-    color: #4A85F4 !important;
+    color: #06c !important;
+    font-weight: bold;
+    font-size: 14px !important;
 }
+
+.main_total_items{
+    color: #999999;
+    font-weight: bold;
+    font-size: 14px !important;
+}
+
 .divMainSubCategoryLoadMore{
     width: 100%;
     padding: 10px;
 }
 
+.divMainSubCategoryLoadMore a{
+    color: #4A85F4 !important;
+}
+
 .divMainSubCategoryLoadMore a:hover{
-    color: #ffffff !important;
     text-decoration: none;
 }
 
@@ -1682,8 +1771,18 @@ label{
     top: -10px;
 }
 
+.btn-float-left{
+    float: left;
+}
+
 .btn-edit{
     float: right;
+}
+
+#basic{
+    background-color: #ffffff;
+    border-radius: 5px;
+    padding: 10px;
 }
 
 #fadeandscale{
@@ -1745,6 +1844,10 @@ pre.prettyprint {
 
 .button-transparent {
     background: transparent !important; /* this is a green */
+}
+
+.secondary {
+    color: rgb(66, 184, 221) !important; /* this is a green */
 }
 
 .success {
@@ -1899,6 +2002,53 @@ textarea:hover, textarea:focus{
     box-shadow: 0 0 0 3px #fff, 0 0 0 4px #999, 0 2px 5px 4px rgba(0,0,0,.2);
     width: 48px !important;
     height: 48px !important;
+}
+
+.onoffswitch {
+    position: relative; width: 90px;
+    -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+}
+.onoffswitch-checkbox {
+    display: none;
+}
+.onoffswitch-label {
+    display: block; overflow: hidden; cursor: pointer;
+    border: 2px solid #004481; border-radius: 20px;
+}
+.onoffswitch-inner {
+    display: block; width: 200%; margin-left: -100%;
+    -moz-transition: margin 0.3s ease-in 0s; -webkit-transition: margin 0.3s ease-in 0s;
+    -o-transition: margin 0.3s ease-in 0s; transition: margin 0.3s ease-in 0s;
+}
+.onoffswitch-inner:before, .onoffswitch-inner:after {
+    display: block; float: left; width: 50%; height: 20px; padding: 0; line-height: 20px;
+    font-size: 14px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
+    -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+}
+.onoffswitch-inner:before {
+    content: "BẬT";
+    padding-left: 10px;
+    background-color: #2A70D2; color: #FFFFFF;
+}
+.onoffswitch-inner:after {
+    content: "TĂT";
+    padding-right: 10px;
+    background-color: #EEEEEE; color: #999999;
+    text-align: right;
+}
+.onoffswitch-switch {
+    display: block; width: 18px; margin: 1px;
+    background: #FFFFFF;
+    border: 2px solid #004481; border-radius: 20px;
+    position: absolute; top: 0; bottom: 0; right: 66px;
+    -moz-transition: all 0.3s ease-in 0s; -webkit-transition: all 0.3s ease-in 0s;
+    -o-transition: all 0.3s ease-in 0s; transition: all 0.3s ease-in 0s;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+    margin-left: 0;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+    right: 0px;
 }
 
 /************************************************************************************

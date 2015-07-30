@@ -458,7 +458,7 @@ function moveToMainCategory(id, mainCategory){
     window.location.href = "#"+mainCategory;
     var scrollTop = $('#hiddenScrollTop').val();
     if(scrollTop == 0){
-        $(window).scrollTop($(window).scrollTop() - 72);
+        $(window).scrollTop($(window).scrollTop() - 70);
     }
     $('.divMainCategory').css('border-color', '#DDDDDD');
     $('.divMainCategory').css('border-right', 'none');
@@ -470,7 +470,7 @@ function moveToMainCategory(id, mainCategory){
 
 function scrollTopDesc(){
     var scrollTop = $(window).scrollTop();
-    $(window).scrollTop(scrollTop - 72);
+    $(window).scrollTop(scrollTop - 70);
 }
 
 $(function(){
@@ -483,7 +483,7 @@ $(function(){
 function loadMoreMainSubCategory(id, number){
     var id = id;
     var time = parseInt($("#hiddenMainSubCategoryLoadMore"+number).val());
-    var start = time*6;
+    var start = time*20;
     var dataString = "id="+id+"&start="+start+"&functionName="+"loadMoreMainSubCategory";
     $.ajax({
         type: "POST",
@@ -498,7 +498,7 @@ function loadMoreMainSubCategory(id, number){
                 for(var i = 0; i < result.length; i++){
                     if(i != result.length - 1){
                         var myArr = result[i].split(",");
-                        $('<div class="divMainSubCategoryName"><a href="'+myArr[0]+'">'+myArr[1]+'</a> </div>').insertBefore('#divMainSubCategoryName'+number+' input');
+                        $('<div class="divMainLastCategoryName"><a href="'+myArr[0]+'">'+myArr[1]+'</a> </div>').insertBefore('#divMainSubCategoryName'+number+' input');
                     }
                     else{
                         if(result[i] == 0){
@@ -510,6 +510,22 @@ function loadMoreMainSubCategory(id, number){
             }
         }
     });
+}
+
+$(document).ready(function () {
+    $('#fadeandscale').popup({
+        pagecontainer: '.container',
+        transition: 'all 0.3s'
+    });
+    $('#basic').popup();
+});
+
+function addhttp(id, url) {
+    var pattern = /^((http|https):\/\/)/;
+    if(!pattern.test(url)) {
+        url = "http://" + url;
+    }
+    $('#'+id).val(url);
 }
 
 function openConfirmPopup(message){
