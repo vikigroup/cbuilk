@@ -500,6 +500,14 @@ function loadMoreMainSubCategory(id, number){
                     if(i != result.length - 1){
                         var myArr = result[i].split(",");
                         $('<div class="divMainLastCategoryName"><a href="'+myArr[0]+'">'+myArr[1]+'</a> </div>').insertBefore('#divMainSubCategoryName'+number+' input');
+                        var windowSize = $(window).width();
+                        if($(window).width() < 992){
+                            $('.divMainLastCategoryName').width((windowSize - 20)/2 - 10);
+                        }
+                        else{
+                            $('.divMainLastCategoryName').width(($('.divMainSubCategoryName').width() - 35)/2);
+                        }
+
                     }
                     else{
                         if(result[i] == 0){

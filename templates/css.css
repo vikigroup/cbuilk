@@ -20,4 +20,5 @@ body{
     overflow-x: hidden !important;
     margin: 0 auto 0 auto;
     background-color: #F5F5F5;
+    max-width: 100%;
 }
