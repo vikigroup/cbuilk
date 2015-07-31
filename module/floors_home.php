@@ -27,7 +27,7 @@ for($i = 0; $i < 12; $i++){
                 echo '<a href="'.$row_floor['link'].'" target="_blank"><img src="../web/'.$row_floor['image'].'" alt="'.$row_floor['name'].'"></a>';
             }
             else{
-                echo '<a href="'.$row_floor['link'].'" target="_blank"><img src="http://placehold.it/190x330&text=No Image" alt="'.$row_floor['name'].'"></a>';
+                echo '<a href="'.$row_floor['link'].'" target="_blank"><img src="http://placehold.it/1210x60&text=No Image" alt="'.$row_floor['name'].'"></a>';
             }
         }
         else{

@@ -3,9 +3,7 @@
 <div id="wrapper">
         <ul id="nav">
             <li><a href="../index.php" target="_blank">Trang chủ</a></li>
-            
             <?php if($_SESSION['kt_login_id']!=""){?>
-            
             <li>
                 <a href="#"> Gian hàng &darr;</a>
                 <ul>
@@ -19,7 +17,6 @@
 
                 </ul>
             </li>
-                
             <li>
                 <a href="#"> Quản lý website &darr;</a>
                 <ul>
@@ -37,7 +34,6 @@
                     </li>
                 </ul>
             </li>
-
             <li>
                 <a href="#"> Sản phẩm &darr;</a>
                 <ul>
@@ -46,7 +42,6 @@
                     <li><a href="admin.php?act=product_m">Tạo sản phẩm mới</a></li>
                 </ul>
             </li>
-
             <li>
                 <a href="#"> Máy cũ &darr;</a>
                 <ul>
@@ -55,7 +50,6 @@
                     <li><a href="admin.php?act=machine_m">Tạo máy cũ</a></li>
                 </ul>
             </li>
-
             <li>
                 <a href="admin.php?act=service">Dịch vụ &darr;</a>
                 <ul>
@@ -64,7 +58,6 @@
                     <li><a href="admin.php?act=service_m">Tạo dịch vụ mới</a></li>
                 </ul>
             </li>
-
             <li>
                 <a href="#"> Tin tức &darr;</a>
                 <ul>
@@ -73,7 +66,6 @@
                     <li><a href="admin.php?act=news_m">Tạo tin tức mới</a></li>
                 </ul>
             </li>
-
             <li>
                 <a href="#"> Video &darr;</a>
                 <ul>
@@ -82,7 +74,14 @@
                     <li><a href="admin.php?act=video_m">Tạo video mới</a></li>
                 </ul>
             </li>
+            <li>
+                <a href="#"> Quảng cáo &darr;</a>
+                <ul>
+                    <li><a href="admin.php?act=advertisement_category">Danh mục video</a> </li>
+                    <li><a href="admin.php?act=advertisement">Tất cả video</a></li>
+                    <li><a href="admin.php?act=advertisement_m">Tạo video mới</a></li>
+                </ul>
+            </li>
             <?php }?>
-  
       </ul>
 </div>

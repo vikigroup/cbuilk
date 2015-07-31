@@ -263,21 +263,21 @@ if (isset($_POST['btnSave'])){
         $("#slPageCreateAdminBanner option").remove();
         if(selector == 0){
             $("#slPageCreateAdminBanner").append("<option value='0'>TOP (190x330)</option>");
-            for(var i = 1; i <= 8; i++){
+            for(var i = 1; i <= 12; i++){
                 $("#slPageCreateAdminBanner").append("<option value='"+i+"'>"+i+"C (187x67)</option>");
             }
         }
         if(selector == 1){
             for(var j = 1; j <= 4; j++){
-                $("#slPageCreateAdminBanner").append("<option value='"+(j+8)+"'>TOP - HÀNG "+j+" (90x45)</option>");
+                $("#slPageCreateAdminBanner").append("<option value='"+(j+12)+"'>TOP - HÀNG "+j+" (90x45)</option>");
             }
 
-            for(var i = 1; i <= 8; i++){
+            for(var i = 1; i <= 12; i++){
                 $("#slPageCreateAdminBanner").append("<option value='"+i+"'>"+i+"C (390x420)</option>");
             }
         }
         if(selector == 2){
-            for(var i = 1; i <= 8; i++){
+            for(var i = 1; i <= 12; i++){
                 $("#slPageCreateAdminBanner").append("<option value='"+i+"'>"+i+"C (1210x60)</option>");
             }
         }

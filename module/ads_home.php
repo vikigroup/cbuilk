@@ -22,7 +22,7 @@
 <article class="ads-home ads-top ads-article">
     <!-- line 1 -->
     <?php
-    $adv_top_center1=get_records("tbl_adv","status = 0 AND start_banner <= '".$dt."' AND '".$dt."' <= finish_banner AND main_position = 1 AND sub_position = 9","date_added","6"," ");
+    $adv_top_center1=get_records("tbl_adv","status = 0 AND start_banner <= '".$dt."' AND '".$dt."' <= finish_banner AND main_position = 1 AND sub_position = 13","date_added","6"," ");
     $total1 = 0;
     while($row1=mysql_fetch_assoc($adv_top_center1)){
         if($row1['image'] != ''){
@@ -42,7 +42,7 @@
 
     <!-- line 2 -->
     <?php
-    $adv_top_center1=get_records("tbl_adv","status = 0 AND start_banner <= '".$dt."' AND '".$dt."' <= finish_banner AND main_position = 1 AND sub_position = 10","date_added","6"," ");
+    $adv_top_center1=get_records("tbl_adv","status = 0 AND start_banner <= '".$dt."' AND '".$dt."' <= finish_banner AND main_position = 1 AND sub_position = 14","date_added","6"," ");
     $total1 = 0;
     while($row1=mysql_fetch_assoc($adv_top_center1)){
         if($row1['image'] != ''){
@@ -62,7 +62,7 @@
 
     <!-- line 3 -->
     <?php
-    $adv_top_center1=get_records("tbl_adv","status = 0 AND start_banner <= '".$dt."' AND '".$dt."' <= finish_banner AND main_position = 1 AND sub_position = 11","date_added","6"," ");
+    $adv_top_center1=get_records("tbl_adv","status = 0 AND start_banner <= '".$dt."' AND '".$dt."' <= finish_banner AND main_position = 1 AND sub_position = 15","date_added","6"," ");
     $total1 = 0;
     while($row1=mysql_fetch_assoc($adv_top_center1)){
         if($row1['image'] != ''){
@@ -82,7 +82,7 @@
 
     <!-- line 4 -->
     <?php
-    $adv_top_center1=get_records("tbl_adv","status = 0 AND start_banner <= '".$dt."' AND '".$dt."' <= finish_banner AND main_position = 1 AND sub_position = 12","date_added","6"," ");
+    $adv_top_center1=get_records("tbl_adv","status = 0 AND start_banner <= '".$dt."' AND '".$dt."' <= finish_banner AND main_position = 1 AND sub_position = 16","date_added","6"," ");
     $total1 = 0;
     while($row1=mysql_fetch_assoc($adv_top_center1)){
         if($row1['image'] != ''){
