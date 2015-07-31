@@ -178,7 +178,7 @@ if($parent!=-1 || $parent1!=-1) {
 }
 else $where="1=1   and (id='{$tukhoa}' or name LIKE '%$tukhoa%' or '{$tukhoa}'=-1)";
 
-$where.=" AND ( status='{$anhien}' or '{$anhien}'=-1)  AND ( hot='{$noibat}' or '{$noibat}'=-1) AND cate=3";
+$where.=" AND ( status='{$anhien}' or '{$anhien}'=-1)  AND ( hot='{$noibat}' or '{$noibat}'=-1) AND cate=5";
 
 $MAXPAGE=1;
 $totalRows=countRecord("tbl_shop_category",$where);
@@ -186,7 +186,7 @@ $totalRows=countRecord("tbl_shop_category",$where);
 if ($_REQUEST['cat']!='') $where="parent=".$_REQUEST['cat']; ?>
 <form method="POST" action="#" name="frmForm" enctype="multipart/form-data">
     <input type="hidden" name="page" value="<?=$page?>">
-    <input type="hidden" name="act" value="video_category">
+    <input type="hidden" name="act" value="advertisement_category">
     <?
     // $pageindex = createPage(countRecord("tbl_shop_category",$where),"./?act=shop_category&cat=".$_REQUEST['cat']."&page=",$MAXPAGE,$page)?>
 
@@ -200,7 +200,7 @@ if ($_REQUEST['cat']!='') $where="parent=".$_REQUEST['cat']; ?>
             <td valign="middle"  colspan="10">
                 <center>
                     <div class="table_chu_tieude">
-                        <strong>DANH MỤC VIDEO</strong>
+                        <strong>DANH MỤC QUẢNG CÁO</strong>
                     </div>
                 </center>
             </td>
@@ -216,7 +216,7 @@ if ($_REQUEST['cat']!='') $where="parent=".$_REQUEST['cat']; ?>
 
                     <option value="-1" <?php if($parent==-1) echo 'selected="selected"';?> > Chọn danh mục </option>
                     <?php
-                    $gt=get_records("tbl_shop_category","parent=390 and status=0","name COLLATE utf8_unicode_ci"," "," ");
+                    $gt=get_records("tbl_shop_category","parent=458 and status=0","name COLLATE utf8_unicode_ci"," "," ");
                     while($row=mysql_fetch_assoc($gt)){?>
                         <option value="<?php echo $row['id']; ?>"><?php echo $row['name']; ?></option>
                     <?php } ?>
@@ -237,25 +237,25 @@ if ($_REQUEST['cat']!='') $where="parent=".$_REQUEST['cat']; ?>
         <tr >
             <td valign="middle" align="left" style="background-color:#F0F0F0; height:40px; padding-left:20px" colspan="10">
                 <div class="link_loc" style="width:80px;text-align:center; padding:3px; border:solid 1px #999; float:left; margin-right:5px;<?php if($noibat==0  &&  $anhien==0) echo 'background-color:#FF0; color:#000;';else echo 'background-color:#FFF; color:#FFF;"';?>">
-                    <a href="admin.php?act=video_category&tang=1&anhien=-1&noibat=-1">Tất cả</a>
+                    <a href="admin.php?act=advertisement_category&tang=1&anhien=-1&noibat=-1">Tất cả</a>
                 </div>
                 <div class="link_loc" style="width:80px; text-align:center; padding:3px; border:solid 1px #999; float:left; margin-right:5px;<?php if($tang==1) echo 'background-color:#FF0; color:#000;';else echo 'background-color:#FFF; color:#FFF;"';?>" >
-                    <a href="admin.php?act=video_category&tang=1&anhien=<?php echo $_SESSION['kt_anhien'] ?>&noibat=<?php echo $_SESSION['kt_noibat']?>">Tăng dần</a>
+                    <a href="admin.php?act=advertisement_category&tang=1&anhien=<?php echo $_SESSION['kt_anhien'] ?>&noibat=<?php echo $_SESSION['kt_noibat']?>">Tăng dần</a>
                 </div>
                 <div class="link_loc" style="width:80px;text-align:center; padding:3px; border:solid 1px #999; float:left; margin-right:5px;<?php if($tang==0) echo 'background-color:#FF0; color:#000;';else echo 'background-color:#FFF; color:#FFF;"';?>">
-                    <a href="admin.php?act=video_category&tang=0&anhien=<?php echo $_SESSION['kt_anhien'] ?>&noibat=<?php echo $_SESSION['kt_noibat']?>">Giảm dần</a>
+                    <a href="admin.php?act=advertisement_category&tang=0&anhien=<?php echo $_SESSION['kt_anhien'] ?>&noibat=<?php echo $_SESSION['kt_noibat']?>">Giảm dần</a>
                 </div>
                 <div class="link_loc" style="width:80px;text-align:center; padding:3px; border:solid 1px #999; float:left; margin-right:5px;<?php if($anhien==1) echo 'background-color:#FF0; color:#000;';else echo 'background-color:#FFF; color:#FFF;"';?>">
-                    <a href="admin.php?act=video_category&tang=<?php echo $_SESSION['kt_tang'] ?>&anhien=1&noibat=<?php echo $_SESSION['kt_noibat'] ?>"> Ẩn </a>
+                    <a href="admin.php?act=advertisement_category&tang=<?php echo $_SESSION['kt_tang'] ?>&anhien=1&noibat=<?php echo $_SESSION['kt_noibat'] ?>"> Ẩn </a>
                 </div>
                 <div class="link_loc" style="width:80px;text-align:center; padding:3px; border:solid 1px #999; float:left; margin-right:5px;<?php if($anhien==0) echo 'background-color:#FF0; color:#000;';else echo 'background-color:#FFF; color:#FFF;"';?>">
-                    <a href="admin.php?act=video_category&tang=<?php echo $_SESSION['kt_tang'] ?>&anhien=0&&noibat=<?php echo $_SESSION['kt_noibat'] ?>">Hiện</a>
+                    <a href="admin.php?act=advertisement_category&tang=<?php echo $_SESSION['kt_tang'] ?>&anhien=0&&noibat=<?php echo $_SESSION['kt_noibat'] ?>">Hiện</a>
                 </div>
                 <div class="link_loc" style="width:80px;text-align:center; padding:3px; border:solid 1px #999; float:left; margin-right:5px;<?php if($noibat==1) echo 'background-color:#FF0; color:#000;';else echo 'background-color:#FFF; color:#FFF;"';?>">
-                    <a href="admin.php?act=video_category&tang=<?php echo $_SESSION['kt_tang'] ?>&anhien=<?php echo $_SESSION['kt_anhien'] ?>&noibat=1">Nổi bật</a>
+                    <a href="admin.php?act=advertisement_category&tang=<?php echo $_SESSION['kt_tang'] ?>&anhien=<?php echo $_SESSION['kt_anhien'] ?>&noibat=1">Nổi bật</a>
                 </div>
                 <div class="link_loc" style="width:80px;text-align:center; padding:3px; border:solid 1px #999; float:left; margin-right:5px;<?php if($noibat==0) echo 'background-color:#FF0; color:#000;';else echo 'background-color:#FFF; color:#FFF;"';?>">
-                    <a href="admin.php?act=video_category&tang=<?php echo $_SESSION['kt_tang'] ?>&anhien=<?php echo $_SESSION['kt_anhien'] ?>&noibat=0">ko nổi bật</a>
+                    <a href="admin.php?act=advertisement_category&tang=<?php echo $_SESSION['kt_tang'] ?>&anhien=<?php echo $_SESSION['kt_anhien'] ?>&noibat=0">ko nổi bật</a>
                 </div>
             </td>
         </tr>
@@ -268,7 +268,7 @@ if ($_REQUEST['cat']!='') $where="parent=".$_REQUEST['cat']; ?>
             </td>
 
             <td width="80" align="center" colspan="1">
-                <div><a href="admin.php?act=video_category_m">
+                <div><a href="admin.php?act=advertisement_category_m">
                         <img width="48" height="48" border="0" src="images/them.png">
                     </a></div></td>
         </tr>
@@ -331,8 +331,8 @@ if ($_REQUEST['cat']!='') $where="parent=".$_REQUEST['cat']; ?>
                     <?=$row['dateAdd']?>
                 </td>
                 <td align="center">
-                    <a href="admin.php?act=video_category_m&cat=<?=$_REQUEST['cat']?>&page=<?=$_REQUEST['page']?>&id=<?=$row['id']?>"><img src="images/icon3.png"/></a>
-                    <a  title="Xóa" href="admin.php?act=video_category&action=del&page=<?=$_REQUEST['page']?>&id=<?=$row['id']?>" onclick="return confirm('Bạn chắc chắn muốn xóa?');" ><img src="images/icon4.png" width="20" border="0" /></a>
+                    <a href="admin.php?act=advertisement_category_m&cat=<?=$_REQUEST['cat']?>&page=<?=$_REQUEST['page']?>&id=<?=$row['id']?>"><img src="images/icon3.png"/></a>
+                    <a  title="Xóa" href="admin.php?act=advertisement_category&action=del&page=<?=$_REQUEST['page']?>&id=<?=$row['id']?>" onclick="return confirm('Bạn chắc chắn muốn xóa?');" ><img src="images/icon4.png" width="20" border="0" /></a>
                 </td>
             </tr>
         <?php }?>

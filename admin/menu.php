@@ -77,9 +77,9 @@
             <li>
                 <a href="#"> Quảng cáo &darr;</a>
                 <ul>
-                    <li><a href="admin.php?act=advertisement_category">Danh mục video</a> </li>
-                    <li><a href="admin.php?act=advertisement">Tất cả video</a></li>
-                    <li><a href="admin.php?act=advertisement_m">Tạo video mới</a></li>
+                    <li><a href="admin.php?act=advertisement_category">Danh mục quảng cáo</a> </li>
+                    <li><a href="admin.php?act=advertisement">Tất cả quảng cáo</a></li>
+                    <li><a href="admin.php?act=advertisement_m">Tạo quảng cáo mới</a></li>
                 </ul>
             </li>
             <?php }?>

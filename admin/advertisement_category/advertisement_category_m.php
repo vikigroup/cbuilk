@@ -32,7 +32,6 @@ if(isset($frame)==true){
             return false;
         }
 
-        //document.forms.frmForm.elements.txtSubject.value = oEdit0.getHTMLBody();
         document.forms.frmForm.elements.txtDetailShort.value = oEdit1.getHTMLBody();
         document.forms.frmForm.elements.txtDetail.value = oEdit2.getHTMLBody();
 
@@ -40,11 +39,8 @@ if(isset($frame)==true){
     }
 </script>
 
-
-
 <? $errMsg =''?>
 <?
-
 $path = "../web/images/shopcate";
 $pathdb = "images/shopcate";
 if (isset($_POST['btnSave'])){
@@ -54,7 +50,7 @@ if (isset($_POST['btnSave'])){
     $parent1       = $_POST['ddCatch'];
 
     if($parent1==-1) $parent1=$parent;
-    if($parent1==-1 && $parent==-1) $parent1=390;
+    if($parent1==-1 && $parent==-1) $parent1=458;
     $subject       = vietdecode($name);
     $detail_short  = isset($_POST['txtDetailShort']) ? trim($_POST['txtDetailShort']) : '';
     $detail        = isset($_POST['txtDetail']) ? trim($_POST['txtDetail']) : '';
@@ -81,7 +77,7 @@ if (isset($_POST['btnSave'])){
             $oldid = $_POST['id'];
             $sql = "update tbl_shop_category set code='".$code."',name='".$name."', parent='".$parent1."', subject='".$subject."', detail_short='".$detail_short."', detail='".$detail."', sort='".$sort."', title='".$title."', description='".$description."', keyword='".$keyword."', status='".$status."', last_modified=now(), lang='".$lang."' where id='".$oldid."'";
         }else{
-            echo $sql = "insert into tbl_shop_category (code, name, parent, subject, detail_short, detail, title , description , keyword , sort, status, date_added, last_modified, lang, cate) values ('".$code."','".$name."','".$parent1."','".$subject."','".$detail_short."','".$detail."','".$title."','".$description."','".$keyword."','".$sort."','".$status."',now(),now(),'".$lang."','3')";
+            echo $sql = "insert into tbl_shop_category (code, name, parent, subject, detail_short, detail, title , description , keyword , sort, status, date_added, last_modified, lang, cate) values ('".$code."','".$name."','".$parent1."','".$subject."','".$detail_short."','".$detail."','".$title."','".$description."','".$keyword."','".$sort."','".$status."',now(),now(),'".$lang."','5')";
         }
         if (mysql_query($sql,$conn)){
             if(empty($_POST['id'])) $oldid = mysql_insert_id();
@@ -89,7 +85,7 @@ if (isset($_POST['btnSave'])){
 
             $arrField = array(
                 "subject"          => "'".vietdecode($name)
-            );// ko them id vao cuoi cho dep
+            );
             $result = update("tbl_shop_category",$arrField,"id=".$oldid);
 
             $sqlUpdateField = "";
@@ -128,8 +124,8 @@ if (isset($_POST['btnSave'])){
     }
 
     if ($errMsg == '')
-        echo '<script>window.location="admin.php?act=video_category&cat='.$_REQUEST['cat'].'&page='.$_REQUEST['page'].'&code=1"</script>';
-}else{
+        echo '<script>window.location="admin.php?act=advertisement_category&cat='.$_REQUEST['cat'].'&page='.$_REQUEST['page'].'&code=1"</script>';
+    }else{
     if (isset($_GET['id'])){
         $oldid=$_GET['id'];
         $page = $_GET['page'];
@@ -158,11 +154,9 @@ if (isset($_POST['btnSave'])){
             $title         = $row['title'];
             $description   = $row['description'];
             $keyword       = $row['keyword'];
-
         }
     }
 }
-
 ?>
 <?php
 if( $errMsg !=""){
@@ -175,42 +169,37 @@ if( $errMsg !=""){
 <script>
     $(document).ready(function() {
         $("#ddCat").change(function(){
-            var id=$(this).val();//val(1) gan vao gia tri 1 dung trong form
+            var id=$(this).val();
             var table="tbl_shop_category";
-            $("#ddCatch").load("getChild.php?table="+ table + "&id=" +id); //alert(idthanhpho)
+            $("#ddCatch").load("getChild.php?table="+ table + "&id=" +id);
         });
     });
 </script>
 <div class="row-fluid">
     <div class="span12">
         <div class="box-widget">
-
             <div class="widget-container">
                 <div class="widget-block">
-
-                    <form method="post" name="frmForm" enctype="multipart/form-data" action="admin.php?act=video_category_m">
+                    <form method="post" name="frmForm" enctype="multipart/form-data" action="admin.php?act=advertisement_category_m">
                         <input type="hidden" name="txtSubject" id="txtSubject">
                         <input type="hidden" name="txtDetailShort" id="txtDetailShort">
                         <input type="hidden" name="txtDetail" id="txtDetail">
-
-                        <input type="hidden" name="act" value="video_category_m">
+                        <input type="hidden" name="act" value="advertisement_category_m">
                         <input type="hidden" name="id" value="<?=$_REQUEST['id']?>">
                         <input type="hidden" name="page" value="<?=$_REQUEST['page']?>">
 
                         <table  class="table_chinh">
-
                             <tr>
-                                <td class="table_chu_tieude_them" colspan="2" align="center" valign="middle"  >DANH MỤC VIDEO</td>
+                                <td class="table_chu_tieude_them" colspan="2" align="center" valign="middle"  >DANH MỤC QUẢNG CÁO</td>
                             </tr>
                             <tr>
                                 <td valign="middle"  class="table_chu">&nbsp;</td>
                                 <td valign="middle">&nbsp;</td>
                             </tr>
                             <tr>
-
                                 <td valign="middle"  class="table_chu">Danh mục</td>
-
-                                <td valign="middle"><select name="ddCat" id="ddCat" class="table_list">
+                                <td valign="middle">
+                                    <select name="ddCat" id="ddCat" class="table_list">
                                         <?php if($_POST['ddCat']!=NULL){ ?>
                                             <option value="<?php echo $idtheloaic=$_POST['ddCat'] ; ?>"><?php echo get_field('tbl_shop_category','id',$parent,'name'); ?></option>
                                         <?php }?>
@@ -219,13 +208,13 @@ if( $errMsg !=""){
                                         <?php }?>
                                         <option value="-1" <?php if($parent==-1) echo 'selected="selected"';?> > Chọn danh mục </option>
                                         <?php
-                                        $gt=get_records("tbl_shop_category","status=0 and parent=390","name COLLATE utf8_unicode_ci"," "," ");
+                                        $gt=get_records("tbl_shop_category","status=0 and parent=458","name COLLATE utf8_unicode_ci"," "," ");
                                         while($row=mysql_fetch_assoc($gt)){?>
                                             <option value="<?php echo $row['id']; ?>" <?php if($parent==$row['id']) echo 'selected="selected"';?> ><?php echo $row['name']; ?></option>
                                         <?php } ?>
-                                    </select></td>
+                                    </select>
+                                </td>
                             </tr>
-
                             <tr>
                                 <td height="31" valign="middle" class="table_chu"></td>
                                 <td valign="middle">
@@ -274,51 +263,28 @@ if( $errMsg !=""){
                                 </td>
                             </tr>
                             <tr>
-
                                 <td valign="middle" width="30%">
-
                                     Tiêu đề  <span class="sao_bb">*</span>
-
                                 </td>
-
                                 <td valign="middle" width="70%">
-
                                     <input name="title" type="text" class="table_khungnho" id="title" value="<?=$title?>"/>
-
                                 </td>
-
                             </tr>
-
                             <tr>
-
                                 <td valign="middle" width="30%">
-
                                     Mô tả  <span class="sao_bb">*</span>
-
                                 </td>
-
                                 <td valign="middle" width="70%">
-
                                     <input name="description" type="text" class="table_khungnho" id="description" value="<?=$description?>"/>
-
                                 </td>
-
                             </tr>
-
                             <tr>
-
                                 <td valign="middle" width="30%">
-
                                     Từ khóa tìm kiếm  <span class="sao_bb">*</span>
-
                                 </td>
-
                                 <td valign="middle" width="70%">
-
                                     <input name="keyword" type="text" class="table_khungnho" id="keyword" value="<?=$keyword?>"/>
-
                                 </td>
-
                             </tr>
                             <tr>
                                 <td valign="top" width="30%">
@@ -329,7 +295,6 @@ if( $errMsg !=""){
                             </tr>
                             <tr>
                                 <td valign="top" width="30%">&nbsp;
-
                                 </td>
                                 <td valign="middle" width="70%">
                                     <input type="submit" name="btnSave" VALUE="Cập nhật" class=button onclick="return btnSave_onclick()">
@@ -338,7 +303,6 @@ if( $errMsg !=""){
                             </tr>
                         </table>
                     </form>
-
                 </div>
             </div>
         </div>
