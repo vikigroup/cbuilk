@@ -4,7 +4,7 @@ RewriteRule \.php.$ - [R=404,NC,L]
 <Files *.*>
 Order allow,deny
 Deny from all
-ErrorDocument 403 http://www.cpcmart.com
+ErrorDocument 403 http://cbuilk.com
 </Files>
 <FilesMatch "\.(gif|jpe?g|png|JPE?G|PNG|GIF)$">
   allow from all
