@@ -112,13 +112,13 @@ $myProduct = getRecord('tbl_item', "subject='".$_GET['tensanpham']."'");
 <div id="fb-root"></div>
 <div id="closed"></div>
 <input type="hidden" id="hiddenHomeLink" value="<?php echo $root; ?>">
-<header class="menu">
-    <div class="m-wrap">
+<div class="m-header">
+    <div class="menu">
         <?php include("module/box_logo.php") ;?>
         <?php include("module/box_search.php") ;?>
         <?php include("module/box_tool_ad.php") ;?>
-    </div><!-- End .m-wrap -->
-</header>
+    </div>
+</div><!-- End .m-wrap -->
 
 <div class="m-wrap menu-wrap">
     <div class="tool-ct">

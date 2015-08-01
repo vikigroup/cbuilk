@@ -1187,6 +1187,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     z-index: 1002;
     padding: 250px 0 250px 0;
     width: 3%;
+    max-width: 40px;
 }
 
 .mini-user{
@@ -1230,19 +1231,6 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 .mini-shopping, .mini-shopping a{
     color: #ffffff !important;
     text-align: center;
-}
-
-.menu {
-    background: #ffffff;
-    z-index: 1001;
-    height: 80px;
-    overflow: hidden;
-    top: 0;
-    width: 100%;
-}
-
-.menu .m-wrap{
-    max-width: 100% !important;
 }
 
 #imgPreviewWithStyles {
@@ -1306,11 +1294,18 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     padding: 10% 0;
 }
 
-.m-slider{
-    background-color: #FFffff;
+.m-slider, .m-header{
+    background-color: #ffffff;
     width: 100%;
     box-shadow: 0 1px 2px rgba(0,0,0,.1);
     box-sizing: border-box;
+}
+
+.menu{
+    width: 1210px;
+    height: 80px;
+    margin: 0 auto;
+    position: relative;
 }
 
 @media (min-width: 992px) {
@@ -1340,11 +1335,8 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     .sli-fcon-1{
         width: 100% !important;
     }
-    .menu{
-        width: 100% !important;
-    }
     .m-slider{
-        height: 483px !important;
+        height: 482px !important;
     }
     .nivoSlider img{
         height: 482px !important;
@@ -1354,12 +1346,6 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     }
     .fix_main{
         margin-top: 20px;
-    }
-    .menu{
-        position: fixed;
-    }
-    .menu-wrap{
-        margin-top: 80px;
     }
     .arrowCategory{
         padding: 11px 5px 5px;
@@ -1378,6 +1364,17 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     }
     .divMainSubCategoryName{
         margin-left: 35px;
+    }
+    .m-header{
+        background-color: #ffffff;
+        height: 80px;
+        position: fixed;
+        z-index: 1001;
+        overflow: hidden;
+        top: 0;
+    }
+    .menu-wrap{
+        margin-top: 80px;
     }
 }
 
@@ -1458,9 +1455,6 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     }
     .filter-Prod .t-Pnb{
         padding: 0;
-    }
-    .logo{
-        left: 20%;
     }
     .fix_main{
         margin-top: 0 !important;

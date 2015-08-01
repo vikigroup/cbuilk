@@ -44,7 +44,6 @@ function autoHome(){
     if($(window).width() >= 992){
         $('.m-wrap, .f-cont').css('max-width', 1210);
         $('.m-wrap, .f-cont').css('width', '100%');
-        $('.menu').css('width', '100%');
         $('.mini-bar').css('width', '3%');
         $('.select_input_search').css('width', $('.search_top_header form').width() - 123);
         $('.form_dn').css('width', windowSize - 139);

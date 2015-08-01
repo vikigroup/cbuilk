@@ -1,4 +1,4 @@
-<header class="m-slider">
+<div class="m-slider">
     <div id="slider">
         <?php
         $gt=get_records("tbl_slider","status=0 AND idshop=0","date_added DESC, sort","0,20"," ");
@@ -9,7 +9,7 @@
             </a>
         <?php $index++; } ?>
     </div>
-</header>
+</div>
 <script>
     $(function() {
         $('#slider').css({'visibility':'visible'}).nivoSlider({
