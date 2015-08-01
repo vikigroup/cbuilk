@@ -94,8 +94,8 @@ if (isset($_POST['btnSave'])){
 	}
 
 	if ($name=="") $errMsg .= "Hãy nhập tên danh mục !<br>";
-	$errMsg .= checkUpload($_FILES["txtImage"],".jpg;.gif;.bmp;.png",16*16,0);
-	$errMsg .= checkUpload($_FILES["txtImageLarge"],".jpg;.gif;.bmp;.png",500*1024,0);
+	$errMsg .= checkUpload($_FILES["txtImage"],".jpg;.gif;.bmp;.png",25*25,0);
+	$errMsg .= checkUpload($_FILES["txtImageLarge"],".jpg;.gif;.bmp;.png",482*1020,0);
 
 	if ($errMsg==''){
 		if (!empty($_POST['id'])){
@@ -275,19 +275,22 @@ if (isset($_POST['btnSave'])){
                             </tr>
                             <tr>
                                 <td valign="middle" width="30%">
-                                Hình đại diện</td>
+                                Hình đại diện
+                                </td>
                                 <td valign="middle" width="70%">
                                     <input type="file" name="txtImage" class="textbox" size="34">
                                     <input type="checkbox" name="chkClearImg" value="on"> Xóa bỏ hình ảnh	 <br>
-                                    <? if ($image!=''){ echo '<img width="80" border="0" src="../web/'.$image.'"><br><br>Hình (kích thước nhỏ)';}?>&nbsp;&nbsp;
+                                    <? if ($image!=''){ echo '<img width="80" border="0" src="../web/'.$image.'">';}?><br><br>
+                                    Hình (kích thước nhỏ)<i> (kích thước tối đa 25x25) </i>
                                 </td>
                             </tr>
                              <tr>
                                <td valign="middle">Hình lớn</td>
                                <td>
-                              <input name="txtImageLarge" type="file" class="" id="txtImageLarge"/>&nbsp;&nbsp;<input type="checkbox" name="chkClearImgLarge" value="on"> Xóa bỏ hình ảnh <br />
-                               <? if ($image_large!=''){ echo '<img width="200" border="0" src="../web/'.$image_large.'"><br><br>Hình (kích thước nhỏ)';}?>&nbsp;&nbsp;
-                              </td>
+                                   <input name="txtImageLarge" type="file" class="" id="txtImageLarge"/>&nbsp;&nbsp;<input type="checkbox" name="chkClearImgLarge" value="on"> Xóa bỏ hình ảnh <br />
+                                   <? if ($image_large!=''){ echo '<img width="200" border="0" src="../web/'.$image_large.'">';}?><br><br>
+                                   Hình (kích thước lớn)<i> (kích thước tối đa 1020x482) </i>
+                               </td>
                              </tr>
                              <tr>
                                 <td valign="middle" width="30%">
@@ -295,7 +298,7 @@ if (isset($_POST['btnSave'])){
                                 </td>
                                 <td valign="middle" width="70%">
                                     <input name="title" type="text" class="table_khungnho" id="title" value="<?=$title?>"/>
-                                    <i>(tối đa 70 ký tự)</i>
+                                    <i>(nên tối đa 70 ký tự)</i>
                                 </td>
                             </tr>
                              <tr>
@@ -304,7 +307,7 @@ if (isset($_POST['btnSave'])){
                                 </td>
                                 <td valign="middle" width="70%">
                                     <input name="description" type="text" class="table_khungvua" id="description" value="<?=$description?>"/>
-                                    <i>(tối đa 160 ký tự)</i>
+                                    <i>(nên tối đa 160 ký tự)</i>
                                 </td>
                             </tr>
                             <tr>
@@ -312,8 +315,8 @@ if (isset($_POST['btnSave'])){
                                     Từ khóa SEO  <span class="sao_bb">*</span>
                                 </td>
                                 <td valign="middle" width="70%">
-                                    <input name="keyword" type="text" class="table_khungnho" id="keyword" value="<?=$keyword?>"/>
-                                    <i>(có dấu và không dấu)</i>
+                                    <input name="keyword" type="text" class="table_khungnho" id="keyword" value="<?=$keyword?>"/><br/>
+                                    <i>(từ khóa nên có hai dạng có dấu và không dấu)</i>
                                 </td>
                             </tr>
                             <tr>

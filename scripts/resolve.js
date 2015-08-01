@@ -1,3 +1,9 @@
+$(function(){
+    $("body").on("contextmenu", "img", function(e) {
+        return false;
+    });
+});
+
 $('#btnConfirmPopup').click(function(){
     var name = $('#txtNamePopup').val();
     var phone = $('#txtPhonePopup').val();
