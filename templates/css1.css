@@ -20,37 +20,76 @@ a.btn-gh2 {background: url(../imgs/layout/btn-gh2.png) no-repeat 0px 0px; displa
 a.btn-gh3 {background-color: #2A70D2; display: block; color: #ffffff !important; text-align: center; padding: 0 0 10px 0; width: 190px; height: 23px; cursor: pointer; font-size: 14px !important;}
 a.btn-gh3:hover{text-decoration: underline;}
 a.btn-gh3 i{margin-right: 10px;}
-.btn-gh ul li a.btn-gh1:hover , .btn-gh ul li a.btn-gh2:hover {background-position: 0px -32px;}
+.btn-gh ul li a.btn-gh1:hover , .btn-gh ul li a.btn-gh2:hover {background-position: 0 -32px;}
 
-.search_top_header {position: absolute; top: 24px; height: 30px; border: 1px solid #ddd; background: #fff;}
+.search_top_header {
+    position: absolute;
+    top: 18px;
+    height: 36px;
+    border: 2px solid #FF7519;
+    background: #fff;
+    border-radius: 3px;
+}
 
 .select_item_search {
-    width: 95px;
-    height: 30px;
-    background: url(../imgs/layout/select_item_search.png) repeat-x;
+    width: 140px;
+    height: 32px;
     float: left;
     font-size: 11px;
     border-right: 1px solid #ddd;
+    padding: 2px 0;
 }
-.select22 {position: absolute; z-index: 10; cursor: pointer; width: 95px; height: 30px; top: 0px; visibility: visible;}
-.sp1_select {display: block; position: relative; padding: 0 10px 0 0;}
-.sp2_select {
+
+.select22{
+    position: absolute;
+    z-index: 10;
+    cursor: pointer;
+    width: 100%;
+    height: 34px;
+    top: 0;
+    visibility: visible;
+    font-size: 16px;
+    border: none;
+    color: #707070;
+    display: none;
+}
+
+.sp1_select{
+    display: block;
+    position: relative;
+    height: 30px;
+    width: 100%;
+}
+
+.sp2_select{
     display: block;
     line-height: 30px;
-    padding: 0 15px 0 10px;
     color: #707070;
-    background: url(../imgs/layout/arrown_select.png) no-repeat right;
+    background: url(../imgs/layout/arrown_select.png) no-repeat 90% 50%;
     position: relative;
-    top: 0px; left: 0;
+    top: 0;
+    left: 0;
+    height: 100%;
     cursor: pointer;
     overflow: visible;
+    padding: 2px 15px 2px 10px;
+    font-size: 16px;
+    text-align: center;
 }
-.select_input_search {overflow: hidden; z-index: 20; position: relative; display: inline-block;}
+.select_input_search{
+    overflow: hidden;
+    z-index: 20;
+    position: relative;
+    display: inline-block;
+    height: 36px;
+}
 .select_input_search input{
     padding: 0 10px;
+    font-size: 16px;
 }
 .ipt_s{
-    height: 28px; width: 100%;
+    height: 100%;
+    width: 100%;
     border: none !important;
     font-size: 11px;
     font-family: Arial, Helvetica, sans-serif;
@@ -58,14 +97,17 @@ a.btn-gh3 i{margin-right: 10px;}
 }
 .ipt_s:focus, .ipt_s:hover {color: #333;}
 .btn_s{
-    background: url(../imgs/search.png) no-repeat 0px 0px !important;
-    width: 28px; height: 28px;
+    width: 132px;
+    height: 36px;
     border: none;
     position: absolute;
-    top: 1px; right: 1px;
+    top: 0;
+    right: 0;
     cursor: pointer;
     background-size: 100%;
-    background-color: transparent !important;
+    background-color: #ff7519;
+    font-size: 16px;
+    color: #ffffff;
 }
 /*.btn_s:hover {background-position: 0px -28px;}*/
 
@@ -1177,7 +1219,6 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 }
 
 .mini-bar{
-    visibility: visible;
     background-color: #000000;
     position: fixed;
     right: 0;
@@ -1316,11 +1357,11 @@ ul.ul-fP li.atc a {color: #3ba11b;}
         margin-left: 55px;
     }
     .search_top_header{
-        width: 475px;
-        left: 266px;
+        width: 608px;
+        left: 306px;
     }
     .select_input_search{
-        width: 352px;
+        width: 335px;
     }
     .menu-category, .slicknav_menu, #menu li{
         display: none;
@@ -1375,6 +1416,9 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     }
     .menu-wrap{
         margin-top: 80px;
+    }
+    .mini-bar{
+        visibility: visible !important;
     }
 }
 
@@ -1535,6 +1579,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
         width: 100% !important;
     }
     .mini-bar{
+        visibility: visible !important;
         width: 3% !important;
     }
     .arrowCategory{

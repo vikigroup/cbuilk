@@ -4,6 +4,36 @@ $(function(){
     });
 });
 
+$(document).ready(function(){
+    $('select.select22').each(function(){
+        var title = $(this).attr('title');
+        if( $('option:selected', this).val() != ''  ) title = $('option:selected',this).text();
+        $(this)
+            .css({'z-index':10,'opacity':0,'-khtml-appearance':'none','display':'block'})
+            .after('<span class="sp2_select">' + title + '</span>')
+            .change(function(){
+                var val = $('option:selected',this).text();
+                $(this).next().text(val);
+            });
+    });
+});
+
+$('.ipt_s').focus(function(){
+    $('.search_top_header').css('box-shadow', '#FF7519 0px 0px 8px');
+});
+
+$('.ipt_s').blur(function(){
+    $('.search_top_header').css('box-shadow', 'initial');
+});
+
+$('#btnSearchTopHeader').click(function(){
+    if($('#keyword'). val() == ''){
+        alert("Ops! Bạn chưa nhập từ khóa... :-)");
+        $('#keyword').focus();
+        return false;
+    }
+});
+
 $('#btnConfirmPopup').click(function(){
     var name = $('#txtNamePopup').val();
     var phone = $('#txtPhonePopup').val();

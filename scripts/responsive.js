@@ -67,8 +67,8 @@ function autoHome(){
         $('#slider').css('left', (windowSize - 1210) / 2);
         $('.l-fcont').css('width', '73%');
         $('.r-fcont').css('width', '23%');
-        $('.search_top_header').css('width', 475);
-        $('.select_input_search').css('width', 352);
+        $('.search_top_header').css('width', 608);
+        $('.select_input_search').css('width', 335);
 
         for(var i = 0; i < 8; i++){
             if($('#aCategoryName'+i).height() > 15){
