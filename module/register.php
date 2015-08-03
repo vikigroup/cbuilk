@@ -13,30 +13,27 @@ if (isset($_POST['btn_dangky'])==true)//isset kiem tra submit
 		$email = $_POST['email'];
 		$dienthoai = $_POST['dienthoai'];
 		$cap = $_POST['cap'];
-		
-		
+
 		$tendk = trim(strip_tags($tendk));
 		$matkhau = trim(strip_tags($matkhau));
 		$golaimatkhau = trim(strip_tags($golaimatkhau));
 		$hoten = trim(strip_tags($hoten));
 		$email = trim(strip_tags($email));
 		$dienthoai = trim(strip_tags($dienthoai));
-
 		
-		if (get_magic_quotes_gpc()==false) 
-			{
-				$tendk = mysql_real_escape_string($tendk);
-				$matkhau = mysql_real_escape_string($matkhau);
-				$golaimatkhau = mysql_real_escape_string($golaimatkhau);
-				$hoten = mysql_real_escape_string($hoten);
-				$email = mysql_real_escape_string($email);
-				$dienthoai = mysql_real_escape_string($dienthoai);
-			}
+		if (get_magic_quotes_gpc()==false){
+            $tendk = mysql_real_escape_string($tendk);
+            $matkhau = mysql_real_escape_string($matkhau);
+            $golaimatkhau = mysql_real_escape_string($golaimatkhau);
+            $hoten = mysql_real_escape_string($hoten);
+            $email = mysql_real_escape_string($email);
+            $dienthoai = mysql_real_escape_string($dienthoai);
+        }
 		
 		$coloi=false;
 
-        if(get_field("tbl_customer","username",$tendk,"id")!="") {$coloi=true; $loi = "Tên đăng nhập này đã được đăng ký!<br/>";}
-        else if(get_field("tbl_customer","email",$email,"id")!="") {$coloi=true; $loi .= "Email này đã được đăng ký!<br/>";}
+        if(get_field("tbl_customer","username",$tendk,"id")!="" && strpos(get_field("tbl_customer","username",$tendk,"image"), "http") === false) {$coloi=true; $loi = "Tên đăng nhập này đã được đăng ký!<br/>";}
+        else if(get_field("tbl_customer","email",$email,"id")!="" && strpos(get_field("tbl_customer","email",$email,"image"), "http") === false) {$coloi=true; $loi .= "Email này đã được đăng ký!<br/>";}
 
         if ($_SESSION['captcha_code'] != $cap) {$coloi=true; $loi .= "Mã bảo mật chưa đúng!";}
 

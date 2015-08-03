@@ -1,4 +1,4 @@
-<article class="r-tool-ct r-box-tool">
+<article class="r-tool-ct r-box-tool" <?php if($_SESSION['kh_login_username'] != ''){echo 'style="margin: 15px 50px 0 50px;"';} ?>>
     <ul>
         <?php if($_SESSION['kh_login_username']==""){?>
             <li><a href="<?php echo $linkrootshop;?>/dang-nhap.html">Đăng nhập</a></li>
@@ -10,20 +10,81 @@
             $avatar = get_field("tbl_customer","username",$_SESSION['kh_login_username'],"image");
             if($avatar != ''){if(strpos($avatar, 'http') >= 0){
             ?>
-            <li><img class="avatar" src="<?php echo $avatar; ?>" alt="<?php echo $_SESSION['kh_login_username']; ?>" /></li>
+            <li>
+                <div class="size">
+                    <img class="avatar field" src="<?php echo $avatar; ?>" alt="<?php echo $_SESSION['kh_login_username']; ?>" />
+                    <ul class="list">
+                        <?php if($domain != ""){ ?>
+                        <li><a onclick="if($(window).width() > 991){window.location.href = 'http://<?php echo $domain ?>.<?php echo $sub ?>/quantri.html';} else{alert('Chức năng này chỉ dành cho phiên bản đầy đủ...');}">Trang quản trị</a></li>
+                        <?php } ?>
+                        <li><a href="<?php echo $linkrootshop;?>/thoat.html" title="">Thoát</a></li>
+                    </ul>
+                </div>
+            </li>
             <?php }else{ ?>
-            <li><img class="avatar" src="<?php echo '/web/images/avatar/'.$avatar; ?>" alt="<?php echo $_SESSION['kh_login_username']; ?>" /></li>
+            <li>
+                <div class="size">
+                    <img class="avatar field" src="<?php echo '/web/images/avatar/'.$avatar; ?>" alt="<?php echo $_SESSION['kh_login_username']; ?>" />
+                    <ul class="list">
+                        <?php if($domain != ""){ ?>
+                            <li><a onclick="if($(window).width() > 991){window.location.href = 'http://<?php echo $domain ?>.<?php echo $sub ?>/quantri.html';} else{alert('Chức năng này chỉ dành cho phiên bản đầy đủ...');}">Trang quản trị</a></li>
+                        <?php } ?>
+                        <li><a href="<?php echo $linkrootshop;?>/doi-mat-khau.html" title="">Đổi mật khẩu</a></li>
+                        <li><a href="<?php echo $linkrootshop;?>/thoat.html" title="">Thoát</a></li>
+                    </ul>
+                </div>
+            </li>
             <?php }}else{ ?>
-            <li><img class="avatar" src="../imgs/noavatar.jpg" alt="<?php echo $_SESSION['kh_login_username']; ?>" /></li>
+            <li>
+                <div class="size">
+                    <img class="avatar field" src="../imgs/noavatar.jpg" alt="<?php echo $_SESSION['kh_login_username']; ?>" />
+                    <ul class="list">
+                        <?php if($domain != ""){ ?>
+                            <li><a onclick="if($(window).width() > 991){window.location.href = 'http://<?php echo $domain ?>.<?php echo $sub ?>/quantri.html';} else{alert('Chức năng này chỉ dành cho phiên bản đầy đủ...');}">Trang quản trị</a></li>
+                        <?php } ?>
+                        <li><a href="<?php echo $linkrootshop;?>/doi-mat-khau.html" title="">Đổi mật khẩu</a></li>
+                        <li><a href="<?php echo $linkrootshop;?>/thoat.html" title="">Thoát</a></li>
+                    </ul>
+                </div>
+            </li>
             <?php } ?>
-            <?php if($domain != ""){ ?>
-            <li><a onclick="if($(window).width() > 991){window.location.href = 'http://<?php echo $domain ?>.<?php echo $sub ?>/quantri.html';} else{alert('Chức năng này chỉ dành cho phiên bản đầy đủ...');}">Trang quản trị</a></li>
-            <?php } ?>
-            <?php if(strpos($avatar, 'http') < 0){ ?>
-            <li><a href="<?php echo $linkrootshop;?>/doi-mat-khau.html" title="">Đổi mật khẩu</a></li>
-            <li>|</li>
-            <?php } ?>
-            <li><a href="<?php echo $linkrootshop;?>/thoat.html" title="">Thoát</a></li>
         <?php }?>
     </ul>
 </article><!-- End .r-tool-ct -->
+<script>
+    (function($){
+        $.fn.styleddropdown = function(){
+            return this.each(function(){
+                var obj = $(this)
+                obj.find('.field').click(function() { //onclick event, 'list' fadein
+                    obj.find('.list').fadeIn(400);
+
+                    $(document).keyup(function(event) { //keypress event, fadeout on 'escape'
+                        if(event.keyCode == 27) {
+                            obj.find('.list').fadeOut(400);
+                        }
+                    });
+
+                    obj.find('.list').hover(function(){ },
+                        function(){
+                            $(this).fadeOut(400);
+                        });
+                });
+
+                obj.find('.list li').click(function() { //onclick event, change field value with selected 'list' item and fadeout 'list'
+                    obj.find('.field')
+                        .val($(this).html())
+                        .css({
+                            'background':'#fff',
+                            'color':'#333'
+                        });
+                    obj.find('.list').fadeOut(400);
+                });
+            });
+        };
+    })(jQuery);
+
+    $(function(){
+        $('.size').styleddropdown();
+    });
+</script>

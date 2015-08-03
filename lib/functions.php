@@ -103,17 +103,14 @@ function checkLoginSocial(){
     $name = filter_input(INPUT_POST, 'name');
     $image = filter_input(INPUT_POST, 'image');
     $userName = strtolower(preg_replace("/\s/", "", remove_unicode($name)));
-    $isFacebook = filter_input(INPUT_POST, 'isFacebook');
-    if($isFacebook == 1){
-        $idFacebook = filter_input(INPUT_POST, 'id');
-        $userName .= $idFacebook;
-    }
+    $id = filter_input(INPUT_POST, 'id');
+    $userName .= $id;
     $email = filter_input(INPUT_POST, 'email');
     $gender = 0;
     if(filter_input(INPUT_POST, 'gender') == 1){
         $gender = 1;
     }
-    $isExist = selectCondition("tbl_customer", "email = '".$email."'");
+    $isExist = selectCondition("tbl_customer", "username = '".$userName."'");
     if($isExist == 0){
         $idCustomer = maxID("id", "tbl_customer")+1;
         $sql = "INSERT INTO tbl_customer VALUES ('$idCustomer', n'$name', '$gender', '', '$image', '$userName', '', '', '', '$email', '', '$date', '0', '$date', '1', '1', '', '', '')";
@@ -128,8 +125,8 @@ function checkLoginSocial(){
         }
     }
     else{
-        $_SESSION['kh_login_id'] = selectField("tbl_customer", "id", "email = '".$email."'");
-        $_SESSION['kh_login_username'] = selectField("tbl_customer", "username", "email = '".$email."'");
+        $_SESSION['kh_login_id'] = selectField("tbl_customer", "id", "email = '".$email."' AND image LIKE '%http%'");
+        $_SESSION['kh_login_username'] = selectField("tbl_customer", "username", "email = '".$email."' AND image LIKE '%http%'");
         echo 1;
     }
 }

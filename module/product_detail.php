@@ -124,6 +124,7 @@ if($ghinho==1){ // prodetail
             <a href="//www.pinterest.com/pin/create/button/" data-pin-do="buttonBookmark" data-pin-color="red"><img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_red_28.png" /></a>
             <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
             <div class="g-plusone" data-size="medium" data-href="<?php echo $linkrootshop;?>/<?php echo $row_sanpham['subject'];?>.html"></div>
+            <div class="fb-share-button" data-href="<?php echo $linkrootshop;?>/<?php echo $row_sanpham['subject'];?>.html" data-layout="button_count"></div>
             <div class="fb-like" data-width="inherit" data-href="<?php echo $linkrootshop;?>/<?php echo $row_sanpham['subject'];?>.html" data-layout="standard" data-action="like" data-show-faces="false" data-share="false"></div>
             <div class="fb-comments" data-href="<?php echo $linkrootshop;?>/<?php echo $row_sanpham['subject'];?>.html" data-numposts="5" data-width="inherit" data-colorscheme="light"></div>
         </div><!-- End .face-cmm -->
@@ -181,7 +182,7 @@ if($ghinho==1){ // prodetail
 
         <div class="i_p_prod_details">
             <?php if($row_sanpham['idshop'] == 0){ ?>
-                <a href="http://<?php echo $root;?>" title="<?php echo $row_sanpham['title'];?>">
+                <a href="<?php echo $root;?>" title="<?php echo $row_sanpham['title'];?>">
                     <img src="<?php echo $root;?>/imgs/layout/logo.png" alt="<?php echo $row_sanpham['title'];?>"/>
                 </a>
             <?php } else{ ?>

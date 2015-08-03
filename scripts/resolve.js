@@ -141,40 +141,42 @@ $(function(){
 });
 
 //dinh dang lai duong dan trang tim kiem
-window.onload = function(){
-    $('.f-sty-P1').trigger('click');
+$(function(){
     var length = $('#divSearchPag a').length;
-    var link = $('#divSearchPag a').attr('href');
-    var myArr = link.split("/");
-    var page = myArr[5].substr(0,1);
-    var pageNum = parseInt($('#hiddenSearchPageNum').val());
-    var linkAfter = myArr[0]+"/"+myArr[1]+"/"+myArr[2]+"/"+myArr[3].replace("-", "%20")+"html?page=";
-    for(var i = 0; i < length - 1; i++){
-        $('#divSearchPag a:nth-child('+(i+1)+')').attr('href', linkAfter+(i+1));
+    if(length > 0){
+        $('.f-sty-P1').trigger('click');
+        var link = $('#divSearchPag a').attr('href');
+        var myArr = link.split("/");
+        var page = myArr[5].substr(0,1);
+        var pageNum = parseInt($('#hiddenSearchPageNum').val());
+        var linkAfter = myArr[0]+"/"+myArr[1]+"/"+myArr[2]+"/"+myArr[3].replace("-", "%20")+"html?page=";
+        for(var i = 0; i < length - 1; i++){
+            $('#divSearchPag a:nth-child('+(i+1)+')').attr('href', linkAfter+(i+1));
+        }
+
+        $('#divSearchPag').find('span').remove();
+        var firstPage = myArr[0]+"/"+myArr[1]+"/"+myArr[2]+"/"+myArr[3].replace("-", "%20")+"html?page=1";
+        var previous =  myArr[0]+"/"+myArr[1]+"/"+myArr[2]+"/"+myArr[3].replace("-", "%20")+"html?page="+(parseInt(pageNum)-1);
+        var next = myArr[0]+"/"+myArr[1]+"/"+myArr[2]+"/"+myArr[3].replace("-", "%20")+"html?page="+(parseInt(pageNum)+1);
+        var lastPage = myArr[0]+"/"+myArr[1]+"/"+myArr[2]+"/"+myArr[3].replace("-", "%20")+"html?page="+(length-1);
+        if(pageNum == length - 1){
+            next = lastPage;
+        }
+        if(pageNum-1 == 0){
+            previous = myArr[0]+"/"+myArr[1]+"/"+myArr[2]+"/"+myArr[3].replace("-", "%20")+"html?page=1";
+        }
+
+        $('#divSearchPag').prepend("<a href="+firstPage+">1</a>");
+        $('#divSearchPag').prepend("<a href="+previous+">&lsaquo;</a>");
+        $('#divSearchPag').prepend("<a href="+firstPage+">&#171;</a>");
+
+        $('#divSearchPag a:nth-child('+(length+2)+')').attr('href', next);
+        $('#divSearchPag a:nth-child('+(length+3)+')').attr('href', lastPage);
+
+        $('#divSearchPag a:nth-child('+(pageNum+2)+')').css('color', '#ffffff');
+        $('#divSearchPag a:nth-child('+(pageNum+2)+')').css('background-color', '#F96D29');
     }
-
-    $('#divSearchPag').find('span').remove();
-    var firstPage = myArr[0]+"/"+myArr[1]+"/"+myArr[2]+"/"+myArr[3].replace("-", "%20")+"html?page=1";
-    var previous =  myArr[0]+"/"+myArr[1]+"/"+myArr[2]+"/"+myArr[3].replace("-", "%20")+"html?page="+(parseInt(pageNum)-1);
-    var next = myArr[0]+"/"+myArr[1]+"/"+myArr[2]+"/"+myArr[3].replace("-", "%20")+"html?page="+(parseInt(pageNum)+1);
-    var lastPage = myArr[0]+"/"+myArr[1]+"/"+myArr[2]+"/"+myArr[3].replace("-", "%20")+"html?page="+(length-1);
-    if(pageNum == length - 1){
-        next = lastPage;
-    }
-    if(pageNum-1 == 0){
-        previous = myArr[0]+"/"+myArr[1]+"/"+myArr[2]+"/"+myArr[3].replace("-", "%20")+"html?page=1";
-    }
-
-    $('#divSearchPag').prepend("<a href="+firstPage+">1</a>");
-    $('#divSearchPag').prepend("<a href="+previous+">&lsaquo;</a>");
-    $('#divSearchPag').prepend("<a href="+firstPage+">&#171;</a>");
-
-    $('#divSearchPag a:nth-child('+(length+2)+')').attr('href', next);
-    $('#divSearchPag a:nth-child('+(length+3)+')').attr('href', lastPage);
-
-    $('#divSearchPag a:nth-child('+(pageNum+2)+')').css('color', '#ffffff');
-    $('#divSearchPag a:nth-child('+(pageNum+2)+')').css('background-color', '#F96D29');
-}
+});
 
 $("#popBrandForm").on('submit',function(e) {
     e.preventDefault();
@@ -637,7 +639,7 @@ function signInFacebook() {
             email = id;
         }
         var image = "https://graph.facebook.com/"+id+"/picture?type=small";
-        var dataString = "name="+name+"&image="+image+"&email="+email+"&gender="+gender+"&isFacebook="+"1"+"&id="+id+"&functionName="+"checkLoginSocial";
+        var dataString = "name="+name+"&image="+image+"&email="+email+"&gender="+gender+"&id="+id+"&functionName="+"checkLoginSocial";
         ajax(dataString);
     }, { scope: 'public_profile,email' });
 }
@@ -648,10 +650,11 @@ function onSignIn(googleUser) {
     var isLogin = $('#hiddenSocialLogin').val();
     if(isLogin == 1){
         var profile = googleUser.getBasicProfile();
+        var id = profile.getId();
         var name = profile.getName();
         var image = profile.getImageUrl();
         var email = profile.getEmail();
-        var dataString = "name="+name+"&image="+image+"&email="+email+"&functionName="+"checkLoginSocial";
+        var dataString = "name="+name+"&image="+image+"&email="+email+"&id="+id+"&functionName="+"checkLoginSocial";
         ajax(dataString);
         var auth2 = gapi.auth2.getAuthInstance();
         auth2.signOut().then(function () {
@@ -667,7 +670,8 @@ function ajax(dataString){
         data: dataString,
         success: function(x){
             if(x == 1){
-                backHomePage();
+                var homeLink = $("#hiddenHomeLink").val();
+                window.location.href = homeLink+"/dang-ky-gian-hang.html";
             }
             else{
                 alert("Đã xảy ra lỗi! \nXin vui lòng tải lại trang và thử lại.");

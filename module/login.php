@@ -35,7 +35,6 @@ if (isset($_POST['btn_dangnhap_in'])==true){
                 $row_user = mysql_fetch_assoc($user);
                 $_SESSION['kh_login_id'] = $row_user['id'];
                 $_SESSION['kh_login_username'] = $row_user['username'];
-                /*	  chinh_table('tbl_customer',$row_user['id'],'xem=xem+1',' ',' ');*/
 
                 //luu username va pass words
                 if (isset($_POST['nho'])== true){

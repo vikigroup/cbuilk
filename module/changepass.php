@@ -1,10 +1,9 @@
 <?php
-$username = $_SESSION['kh_login_username'];
-if($username == ''){
+if($_SESSION['kh_login_username'] == ''){
     header("Location: ".$root."/dang-nhap.html");
 }
 
-if(strpos(get_field("tbl_customer","username",$_SESSION['kh_login_username'],"image"), 'http') >= 0){
+if(strpos(get_field("tbl_customer","username",$_SESSION['kh_login_username'],"image"), 'http') !== false){
     header("Location: ".$root);
 }
 
