@@ -1,4 +1,4 @@
-.m-wrap, .container{max-width: 1210px; margin: 0 auto; width: 100%;}
+.m-wrap, .container{max-width: 1210px;  margin: 0 auto; width: 1210px;}
 
 img, table{max-width:100% !important; height: auto !important;}
 
@@ -97,7 +97,7 @@ a.btn-gh3 i{margin-right: 10px;}
 }
 .ipt_s:focus, .ipt_s:hover {color: #333;}
 .btn_s{
-    width: 132px;
+    width: 40px;
     height: 36px;
     border: none;
     position: absolute;
@@ -109,7 +109,6 @@ a.btn-gh3 i{margin-right: 10px;}
     font-size: 16px;
     color: #ffffff;
 }
-/*.btn_s:hover {background-position: 0px -28px;}*/
 
 /************************************************************************************
 END HEADER
@@ -1426,7 +1425,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
         margin: 60px 0  60px 0;
     }
     .search_top_header{
-        top: 70px !important;
+        top: 80px !important;
         left: 0 !important;
         width: 100%;
     }
@@ -1439,8 +1438,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     .r-box-tool{
         margin: 80px auto 5px auto;
         width: 100%;
-        padding: 30px 0 30px 0;
-        border-bottom: 1px solid #dbdbdb;
+        padding: 35px 0 5px 0;
         display: block;
         background-color: #ffffff !important;
     }
@@ -1510,11 +1508,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     }
     .menu{
         width: 100% !important;
-        height: 165px;
-    }
-    .select_input_search{
-        width: 61%;
-        padding: 0 5px 0 6px;
+        height: 135px;
     }
     .div404{
         padding: 35% 0;
@@ -1555,6 +1549,20 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     .l-list{
         position: initial !important;
         top: initial !important;
+    }
+    .select22, .sp2_select, .select_input_search input, .ipt_s{
+        font-size: 13px;
+    }
+    .select_item_search{
+        width: 100px;
+    }
+    .size{
+        position: absolute !important;
+        right: 0;
+        top: 15px;
+    }
+    .avatar{
+        top: 15px;
     }
 }
 
@@ -1617,7 +1625,10 @@ ul.ul-fP li.atc a {color: #3ba11b;}
         width: 100% !important;
     }
     .search_top_header{
-        width: 475px !important;
+        width: 375px !important;
+    }
+    .select_input_search{
+        width: 195px !important;
     }
     .divMainCategory{
         width: 130px !important;

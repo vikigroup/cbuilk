@@ -29,6 +29,10 @@ if($cache == 1 && !isset($_SESSION['kh_login_username']) && $_SESSION['kt_login_
                 $pageName = "home";
                 $page = "home.html";
             }
+            if(strpos($link, "tat-ca-danh-muc") !== false){
+                $pageName = "tat-ca-danh-muc";
+                $page = "tat-ca-danh-muc.html";
+            }
             else if(strpos($link, "dang-nhap") !== false || strpos($link, "dang-ky") !== false){
                     $pageName = "";
             }
@@ -155,7 +159,7 @@ $myProduct = getRecord('tbl_item', "subject='".$_GET['tensanpham']."'");
 <script type="text/javascript" src="<?php echo $linkrootshop?>/scripts/jquery.popupoverlay.js"></script>
 <script type="text/javascript" src="<?php echo $linkrootshop?>/scripts/resolve.js"></script>
 <script type="text/javascript" src="<?php echo $linkrootshop?>/scripts/platform.js?onload=renderButton" async defer></script>
-<script type="text/javascript" src="<?php echo $linkrootshop?>/scripts/pinit.js" async defer></script>
+<script type="text/javascript" async defer data-pin-color="red" data-pin-height="28" data-pin-hover="true" src="<?php echo $linkrootshop?>/scripts/pinit.js"></script>
 <script type="text/javascript" src="<?php echo $linkrootshop?>/scripts/nivo-slider/jquery.nivo.slider.js"></script>
 
 <?php include("module/footer.php") ;?>

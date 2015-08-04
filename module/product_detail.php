@@ -121,7 +121,6 @@ if($ghinho==1){ // prodetail
             <div class="clear"></div>
         </div><!-- End .f-ndct -->
         <div class="face-cmm">
-            <a href="//www.pinterest.com/pin/create/button/" data-pin-do="buttonBookmark" data-pin-color="red"><img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_red_28.png" /></a>
             <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
             <div class="g-plusone" data-size="medium" data-href="<?php echo $linkrootshop;?>/<?php echo $row_sanpham['subject'];?>.html"></div>
             <div class="fb-share-button" data-href="<?php echo $linkrootshop;?>/<?php echo $row_sanpham['subject'];?>.html" data-layout="button_count"></div>

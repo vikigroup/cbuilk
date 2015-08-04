@@ -14,9 +14,9 @@
             </span>
         </div><!-- End .select_item_search -->
         <div class="select_input_search">
-            <input name="keyword" id="keyword" class="ipt_s" type="text" placeholder="Bạn đang tìm kiếm điều gì..."/>
+            <input name="keyword" id="keyword" class="ipt_s" type="text" placeholder="Bạn tìm kiếm điều gì..."/>
         </div><!-- End .select_input_search -->
-        <button class="btn_s" type="submit" id="btnSearchTopHeader"><i class='fa fa-search fa-lg'></i> Tìm kiếm </button>
+        <button class="btn_s" type="submit" id="btnSearchTopHeader"><i class='fa fa-search fa-lg'></i></button>
         <div class="clear"></div>
         </form>
 </article><!-- End .search_top_header -->

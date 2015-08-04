@@ -93,12 +93,12 @@
         $(window).scroll(function(){
             if($(window).width() > 991){
                 if($(document).scrollTop() > 60) {
-                    $('.menu').css('position', 'absolute');
+                    $('.m-header').css('position', 'absolute');
                     $('.l-list').css('position', 'fixed');
                     $('.l-list').css('top', '0');
                     $('.divMainCategory').css("background-color", '#ffffff');
                 }else{
-                    $('.menu').css('position', 'fixed');
+                    $('.m-header').css('position', 'fixed');
                     $('.l-list').css('position', 'initial');
                     $('.l-list').css('top', 'initial');
                     $('#hiddenScrollTop').val('0');

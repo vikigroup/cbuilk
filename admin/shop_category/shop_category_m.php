@@ -61,28 +61,18 @@ if (isset($_POST['btnSave'])){
 	$description   = isset($_POST['description']) ? trim($_POST['description']) : "";
 	$keyword       = isset($_POST['keyword']) ? trim($_POST['keyword']) : "";
 
-	$cate          = 0;
-    if($parent1 == 2) {
+    if($_POST['id'] == '' && $parent == -1) {
         $sql = "SELECT max(cate) AS maxCate FROM tbl_shop_category";
         $result = mysql_query($sql, $conn);
-        while ($row = mysql_fetch_assoc($result)) {
+        while ($row = mysql_fetch_assoc($result)){
             $cate = $row['maxCate']+1;
         }
-    }else{
-        if($parent == 211){
-            $cate = 1;
-        }
-        if($parent == 209){
-            $cate = 2;
-        }
-        if($parent == 390){
-            $cate = 3;
-        }
-        if($parent == 210){
-            $cate = 4;
-        }
-        if($parent == 458){
-            $cate = 5;
+    }
+    else{
+        $query = "select cate from tbl_shop_category where id='".$parent."'";
+        $data = mysql_query($query, $conn);
+        while ($row_cate = mysql_fetch_assoc($data)){
+            $cate = $row_cate['cate'];
         }
     }
 
@@ -240,7 +230,6 @@ if (isset($_POST['btnSave'])){
                                     <option value="<?php echo $row['id']; ?>" <?php if($parent==$row['id']) echo 'selected="selected"';?> ><?php echo $row['name']; ?></option>
                                     <?php } ?>
                                   </select>
-                                  <span class="sao_bb">*</span>
                               </td>
                             </tr>
                             <tr>
