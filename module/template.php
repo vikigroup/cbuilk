@@ -18,7 +18,7 @@ if($idtem>0){
 	';
 }else echo '
 	<center>
-		<img  width="346" src="'.$linkrootshop.'imgs/layout/RegistrationOnline.jpg" alt=""/>
+		<img  width="346" src="'.$linkrootshop.'imgs/layout/RegistrationOnline.png" alt=""/>
 	</center>';
 	
 

@@ -19,7 +19,7 @@
                     ?>
                     <li>
                         <a href="http://<?php echo $row_shop_new['subject'];?>.<?php echo $sub;?>" target="_blank">
-                            <?php if( $row_shop_new['logo']=="") $hinh=$linkrootshop."/imgs/layout/RegistrationOnline.jpg";else $hinh=$linkroot."/".$row_shop_new['logo'];?>
+                            <?php if( $row_shop_new['logo']=="") $hinh=$linkrootshop."/imgs/layout/RegistrationOnline.png";else $hinh=$linkroot."/".$row_shop_new['logo'];?>
                             <img  width="80" height="80"  src="<?php echo $hinh;?>" alt="<?php echo $row_shop_new['name'];?>"/>
                         </a>
                     </li>
@@ -63,7 +63,7 @@
             ?>
             <li>
                 <a href="http://<?php echo $row_shop_new['subject'];?>.<?php echo $sub;?>" target="_blank">
-					<?php if( $row_shop_new['logo']=="") $hinh=$linkrootshop."/imgs/layout/RegistrationOnline.jpg";else $hinh=$linkroot."/web/".$row_shop_new['logo'];?>
+					<?php if( $row_shop_new['logo']=="") $hinh=$linkrootshop."/imgs/layout/RegistrationOnline.png";else $hinh=$linkroot."/web/".$row_shop_new['logo'];?>
                     <img width="80" height="80" src="<?php echo $hinh;?>" alt="<?php echo $row_shop_new['name'];?>"/>
                 </a>
             </li>

@@ -26,7 +26,7 @@
                         <div class="i-Pnb">
                             <a href="<?php echo $linkrootshop;?>/<?php echo $row_new['subject'];?>.html" title="<?php echo $row_new['name'];?>">
                                
-                               <?php if( $row_new['image']=="") $hinh=$linkrootshop."/imgs/layout/RegistrationOnline.jpg";else $hinh=$linkrootshop."/imagecache/image.php/".$row_new['image']."?width=176&amp;height=140&amp;cropratio=1:1&amp;image=".$linkroot."/".$row_new['image'];?>
+                               <?php if( $row_new['image']=="") $hinh=$linkrootshop."/imgs/layout/RegistrationOnline.png";else $hinh=$linkrootshop."/imagecache/image.php/".$row_new['image']."?width=176&amp;height=140&amp;cropratio=1:1&amp;image=".$linkroot."/".$row_new['image'];?>
                                 <img src="<?php echo $hinh;?>" alt="<?php echo $row_new['name'];?>"/> 
                             </a>
                         </div><!-- End .i-Pnb -->
