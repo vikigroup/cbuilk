@@ -2,9 +2,9 @@
     <ul>
         <?php if($_SESSION['kh_login_username']==""){?>
             <li class="r-box-language">
-                <a href="<?php echo $linkrootshop;?>/dang-nhap.html">Đăng nhập</a>
+                <a href="<?php echo $root; ?>/dang-nhap.html">Đăng nhập</a>
                 <span> | </span>
-                <a href="<?php echo $linkrootshop;?>/dang-ky.html">Đăng ký</a>
+                <a href="<?php echo $root; ?>/dang-ky.html">Đăng ký</a>
             </li>
             <li class="r-box-language">
                 <a href="#"><img src="<?php echo $root; ?>/imgs/icon_flag_vietnamese.png"></a>
@@ -23,7 +23,7 @@
                         <?php if($domain != ""){ ?>
                         <li><a onclick="if($(window).width() > 991){window.location.href = 'http://<?php echo $domain ?>.<?php echo $sub ?>/quantri.html';} else{alert('Chức năng này chỉ dành cho phiên bản đầy đủ...');}">Trang quản trị</a></li>
                         <?php } ?>
-                        <li><a href="<?php echo $linkrootshop;?>/thoat.html" title="">Thoát</a></li>
+                        <li><a href="<?php echo $root; ?>/thoat.html" title="">Thoát</a></li>
                         <li class="r-box-language">
                             <a href="#"><img src="<?php echo $root; ?>/imgs/icon_flag_vietnamese.png"></a>
                             <a href="#"><img src="<?php echo $root; ?>/imgs/icon_flag_english.png"></a>
@@ -39,8 +39,8 @@
                         <?php if($domain != ""){ ?>
                             <li><a onclick="if($(window).width() > 991){window.location.href = 'http://<?php echo $domain ?>.<?php echo $sub ?>/quantri.html';} else{alert('Chức năng này chỉ dành cho phiên bản đầy đủ...');}">Trang quản trị</a></li>
                         <?php } ?>
-                        <li><a href="<?php echo $linkrootshop;?>/doi-mat-khau.html" title="">Đổi mật khẩu</a></li>
-                        <li><a href="<?php echo $linkrootshop;?>/thoat.html" title="">Thoát</a></li>
+                        <li><a href="<?php echo $root; ?>/doi-mat-khau.html" title="">Đổi mật khẩu</a></li>
+                        <li><a href="<?php echo $root; ?>/thoat.html" title="">Thoát</a></li>
                         <li class="r-box-language">
                             <a href="#"><img src="<?php echo $root; ?>/imgs/icon_flag_vietnamese.png"></a>
                             <a href="#"><img src="<?php echo $root; ?>/imgs/icon_flag_english.png"></a>
@@ -51,13 +51,13 @@
             <?php }}else{ ?>
             <li class="r-avatar">
                 <div class="size">
-                    <img class="avatar field" src="../imgs/noavatar.jpg" alt="<?php echo $_SESSION['kh_login_username']; ?>" />
+                    <img class="avatar field" src="<?php echo $root; ?>/imgs/noavatar.jpg" alt="<?php echo $_SESSION['kh_login_username']; ?>" />
                     <ul class="list">
                         <?php if($domain != ""){ ?>
                             <li><a onclick="if($(window).width() > 991){window.location.href = 'http://<?php echo $domain ?>.<?php echo $sub ?>/quantri.html';} else{alert('Chức năng này chỉ dành cho phiên bản đầy đủ...');}">Trang quản trị</a></li>
                         <?php } ?>
-                        <li><a href="<?php echo $linkrootshop;?>/doi-mat-khau.html" title="">Đổi mật khẩu</a></li>
-                        <li><a href="<?php echo $linkrootshop;?>/thoat.html" title="">Thoát</a></li>
+                        <li><a href="<?php echo $root; ?>/doi-mat-khau.html" title="">Đổi mật khẩu</a></li>
+                        <li><a href="<?php echo $root; ?>/thoat.html" title="">Thoát</a></li>
                         <li class="r-box-language">
                             <a href="#"><img src="<?php echo $root; ?>/imgs/icon_flag_vietnamese.png"></a>
                             <a href="#"><img src="<?php echo $root; ?>/imgs/icon_flag_english.png"></a>
@@ -67,7 +67,8 @@
             </li>
             <?php } ?>
             <li class="c-sale">
-                <a href="<?php echo $linkrootshop;?>/dang-ky-gian-hang.html">Bán hàng cùng <?php echo $subname; ?></span></a>
+                <a href="<?php echo $root; ?>/dang-ky-gian-hang.html">Bán hàng cùng <?php echo $subname; ?></span></a>
+                <img src="<?php echo $root; ?>/imgs/icon_hot.gif">
             </li>
         <?php }?>
     </ul>

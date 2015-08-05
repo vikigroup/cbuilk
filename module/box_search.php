@@ -3,7 +3,7 @@
         <div class="select_item_search">
             <span class="sp1_select">
                 <select class="select22" name="loai" id="loai">
-                    <option value="tat-ca">Tất cả</option>
+                    <option value="tat-ca">Tất cả danh mục</option>
 					<?php
                     $cate=get_records("tbl_shop_category","status=0 AND  parent=2"," "," "," ");
                     while($row_cate=mysql_fetch_assoc($cate)){

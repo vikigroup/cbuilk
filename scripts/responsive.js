@@ -10,13 +10,13 @@ function autoHome(){
     if($(window).width() < 992){
         $('.m-wrap, .dmsp4-3, .ads-home, .btn-gh3, .form_dn, .form_dn ul li, .l-fcont, .r-fcont' +
             ', .sli-fcon-1 .bx-wrapper .bx-viewport, .filter-Prod, .content, .menu, .f-list, .divMainSubCategoryName').css('width', windowSize);
-        $('.search_top_header').css('width', windowSize - 4);
+        $('.search_top_header').css('width', windowSize - 2);
         $('.l-fcont, .r-fcont, table').css('width', windowSize - 10);
         $('.divProductLine1, .divProductOverlay1').css('width', windowSize/2 - 2);
         $('.sli-fcon-1 .bx-wrapper .bx-viewport').css('width', windowSize - 5);
         $('.li-Pc1').css('width', windowSize/2 - 23);
         $('.ul-ifoot li, .menu').css('width', '100%');
-        $('.select_input_search').css('width', $('.search_top_header').width() - 100 - 40);
+        $('.select_input_search').css('width', $('.search_top_header').width() - 130 - 40);
         $('.arrowCategory').css('width', windowSize - 54);
         $('.t-Pnb, .m-Pnb').css('max-width', windowSize - 2);
         $('.hotline').attr('style', 'margin: 0 0 0 5px !important;');
