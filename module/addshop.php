@@ -1,78 +1,65 @@
 <?php  
 if(isset($_SESSION['kh_login_id'])){
-	
-// check dang nhap thanh vien	
-$id=get_field('tbl_shop','iduser',$_SESSION['kh_login_id'],'id');
-if($id!="") {
-	echo '<script> alert("Bạn đã thực hiện việc đăng ký gian hàng cho tài khoản này...") </script>';
-	echo  '<script>window.location="'.$linkrootshop.'" </script>';
-}
+    $id=get_field('tbl_shop','iduser',$_SESSION['kh_login_id'],'id');
+    if($id!="") {
+        echo '<script> alert("Bạn đã thực hiện việc đăng ký gian hàng cho tài khoản này...") </script>';
+        echo  '<script>window.location="'.$linkrootshop.'" </script>';
+    }
 
-if(isset($_SESSION['kh_login_username'])){  
-	$row_user  = getRecord('tbl_customer', "username='".$_SESSION['kh_login_username']."'");
- 
-	if($row_user['mobile']=="" || $row_user['address']=="") {
-	   /* $_SESSION['back_shop']="http://shop.jbs.vn".$_SERVER['REQUEST_URI'];
-		unset($_SESSION['back_raovat']);
-		header("location: http://shop.jbs.vn/quan-ly.html");*/
-	}
-}
+    if (isset($_POST['btn_dangky'])==true){
+            $tenshop = $_POST['tenshop'];
+            $tenmien = $_POST['tenmien'];
+            $intro   = $_POST['intro'];
+            $ddCat   = $_POST['ddCat'];
+            $idtemplate   = $_POST['idtemplate'];
+            $status  = $_POST['thoathuan'];
+            $cap = $_POST['cap'];
 
-if (isset($_POST['btn_dangky'])==true)//isset kiem tra submit
-	{
-		$tenshop = $_POST['tenshop'];
-		$tenmien = $_POST['tenmien'];
-		$intro   = $_POST['intro'];
-		$ddCat   = $_POST['ddCat'];
-		$idtemplate   = $_POST['idtemplate'];
-        $status  = $_POST['thoathuan'];
-        $cap = $_POST['cap'];
+            $tenshop = trim(strip_tags($tenshop));
+            $tenmien = trim(strip_tags($tenmien));
+            $intro   = trim(strip_tags($intro));
+            $ddCat   = trim(strip_tags($ddCat));
 
-        $tenshop = trim(strip_tags($tenshop));
-		$tenmien = trim(strip_tags($tenmien));
-		$intro   = trim(strip_tags($intro));
-		$ddCat   = trim(strip_tags($ddCat));
+            if (get_magic_quotes_gpc()==false)
+                {
+                    $tenshop = mysql_real_escape_string($tenshop);
+                    $tenmien = mysql_real_escape_string($tenmien);
+                    $intro = mysql_real_escape_string($intro);
+                    $ddCat = mysql_real_escape_string($ddCat);
+                    $idtemplate = mysql_real_escape_string($idtemplate);
+                }
 
-		if (get_magic_quotes_gpc()==false) 
-			{
-				$tenshop = mysql_real_escape_string($tenshop);
-				$tenmien = mysql_real_escape_string($tenmien);
-				$intro = mysql_real_escape_string($intro);
-				$ddCat = mysql_real_escape_string($ddCat);
-				$idtemplate = mysql_real_escape_string($idtemplate);
-			}
-		
-		$coloi=false;
-	
-		if ($_SESSION['captcha_code'] != $cap) {$coloi=true; $loi="Mã bảo mật chưa đúng!";}
+            $coloi=false;
 
-		if ($loi!="") {$coloi=true; $error_login = $loi;}
+            if ($_SESSION['captcha_code'] != $cap) {$coloi=true; $loi="Mã bảo mật chưa đúng!";}
 
-		if ($coloi==FALSE) 
-		{  
-			$iduser=$_SESSION['kh_login_id'];
-			$password=md5(md5(md5($matkhau)));
-			$randomkey=chuoingaunhien(50);
-			$khoa=1;
-			$vale1='iduser,intro,parent,idtemplate,name,subject,date_added,last_modified,status';
-			$vale2="'".$iduser."','".$intro."','".$ddCat."','".$idtemplate."','".$tenshop."','".$tenmien."','".$ngay."','".$ngay."',0";
-			insert_table('tbl_shop',$vale1,$vale2,$hinh);
+            if ($loi!="") {$coloi=true; $error_login = $loi;}
 
-			$sql = sprintf("SELECT * FROM tbl_customer WHERE id='%s'", $iduser);
-			$user = mysql_query($sql);
-			$row_user=mysql_fetch_assoc($user);
+            if ($coloi==FALSE)
+            {
+                $iduser=$_SESSION['kh_login_id'];
+                $password=md5(md5(md5($matkhau)));
+                $randomkey=chuoingaunhien(50);
+                $khoa=1;
+                $vale1='iduser,intro,parent,idtemplate,name,subject,date_added,last_modified,status';
+                $vale2="'".$iduser."','".$intro."','".$ddCat."','".$idtemplate."','".$tenshop."','".$tenmien."','".$ngay."','".$ngay."',0";
+                insert_table('tbl_shop',$vale1,$vale2,$hinh);
 
-			$_SESSION['kh_login_id'] = $row_user['id'];
-			$_SESSION['kh_login_username'] = $row_user['username'];
+                $sql = sprintf("SELECT * FROM tbl_customer WHERE id='%s'", $iduser);
+                $user = mysql_query($sql);
+                $row_user=mysql_fetch_assoc($user);
 
-            echo("<script>if(confirm('Xin chúc mừng bạn đã mở gian hàng thành công! Vào trang quản trị ngay')){
-                window.location='http://".$tenmien.".".$sub."/quantri.html';
-             } else {
-                window.location='".$linkrootshop."';
-             };</script>");
-		}
-}
-$username = $_SESSION['kh_login_username'];
+                $_SESSION['kh_login_id'] = $row_user['id'];
+                $_SESSION['kh_login_username'] = $row_user['username'];
+
+                echo("<script>if(confirm('Xin chúc mừng bạn đã mở gian hàng thành công! Vào trang quản trị ngay')){
+                    window.location='http://".$tenmien.".".$sub."/quantri.html';
+                 } else {
+                    window.location='".$linkrootshop."';
+                 };</script>");
+            }
+    }
+    $username = $_SESSION['kh_login_username'];
 ?>
 <script>
 $(document).ready(function() {
@@ -124,39 +111,27 @@ $(document).ready(function() {
         }
     });
 });
-	
-	
-
 </script>
 <div class="form_dn">
-    
     <ul>
-        <li id="gif_slide_frame"  >
-            <center>
-                <img src="<?php echo $linkrootshop;?>/imgs/layout/LoginRed.png" alt=""/>
-            </center>
+        <li id="gif_slide_frame" style="text-align: center;">
+            <img src="<?php echo $linkrootshop;?>/imgs/layout/LoginRed.png" alt=""/>
         </li>
         <li>
             <div class="main_f_dn">
                 <h1 class="title_f_tt">Đăng ký mở gian hàng </h1>
                 <form id="form1" name="form1" method="post">
                 <div class="main_f_tt">
-                
                     <div class="module_ftt">
-                        <div class="l_f_tt">
-                            Tên gian hàng
-                        </div>
+                        <div class="l_f_tt">Tên gian hàng</div>
                         <div class="r_f_tt">
                             <input class="ipt_f_tt" required type="text" name="tenshop" id="tenshop" value="<?php echo $tenshop; ?>" />
                             <span class="star_style">*</span>
                         </div>
                         <div class="clear"></div>
                     </div><!-- End .module_ftt -->
-                    
                     <div class="module_ftt">
-                        <div class="l_f_tt">
-                            Tên miền
-                        </div>
+                        <div class="l_f_tt">Tên miền</div>
                         <div class="r_f_tt" style="position:relative;">
                             <input class="ipt_f_tt" name="tenmien" id="tenmien" required type="text" placeholder="tenmiengianhang" style="width:142px; text-align:left;" value="<?php echo $tenmien; ?>"/>
                             <input name="asdadasd" class="ipt_f_tt" type="text" value=".<?php echo $sub;?>" disabled="disabled"  style="width:70px;" />
@@ -165,25 +140,18 @@ $(document).ready(function() {
                         </div>
                         <div class="clear"></div>
                     </div><!-- End .module_ftt -->
-                    
                     <div class="module_ftt">
-                        <div class="l_f_tt">
-                          Loại gian hàng
-                        </div>
+                        <div class="l_f_tt">Loại gian hàng</div>
                         <div class="r_f_tt">
                              <select name="intro" id="intro" class="ipt_f_tt">
-                                    <option value="0" <?php if($intro==0) echo 'selected="selected"';?>  >Sản phẩm  </option>
-                                    <option value="1" <?php if($intro==1) echo 'selected="selected"';?>>Giới thiệu công ty</option>
-                                </select>
-                             
+                                <option value="0" <?php if($intro==0) echo 'selected="selected"';?>  >Sản phẩm  </option>
+                                <option value="1" <?php if($intro==1) echo 'selected="selected"';?>> Giới thiệu công ty </option>
+                            </select>
                         </div>
                         <div class="clear"></div>
                     </div><!-- End .module_ftt -->
-                    
                      <div class="module_ftt">
-                        <div class="l_f_tt">
-                           Lĩnh vực kinh doanh
-                        </div>
+                        <div class="l_f_tt">Lĩnh vực kinh doanh</div>
                         <div class="r_f_tt">
                             <select name="ddCat" id="ddCat" class="ipt_f_tt">
                             <?php
@@ -197,11 +165,8 @@ $(document).ready(function() {
                         </div>
                         <div class="clear"></div>
                     </div><!-- End .module_ftt -->
-                    
                     <div class="module_ftt">
-                        <div class="l_f_tt">
-                          Giao diện gian hàng
-                        </div>
+                        <div class="l_f_tt">Giao diện gian hàng</div>
                         <div class="r_f_tt">
                             <select name="idtemplate" id="idtemplate" class="ipt_f_tt">
                             <?php
@@ -215,11 +180,8 @@ $(document).ready(function() {
                         </div>
                         <div class="clear"></div>
                     </div><!-- End .module_ftt -->
-                    
                     <div class="module_ftt">
-                        <div class="l_f_tt">
-                          Nhập mã xác nhận
-                        </div>
+                        <div class="l_f_tt">Nhập mã xác nhận</div>
                         <div class="r_f_tt">
                             <input style="width:200px;" name="cap" id="cap" required value="<?php echo $cap; ?>" class="ipt_f_tt" type="text"/>
                             <div class="img_capcha" style="width:80px; padding-left:0px;">
@@ -229,7 +191,6 @@ $(document).ready(function() {
                         </div>
                         <div class="clear"></div>
                     </div><!-- End .module_ftt -->
-
                     <div class="module_ftt">
                         <div class="r_f_tt">
                             <input id="thoathuan" name="thoathuan" type="checkbox" value="<?php if($status>0){echo $status;}else{echo 0;} ?>" <? if ($status>0) echo 'checked' ?> onchange="if($(this).is(':checked')){this.value = 1;}else{this.value = 0;}"/>
@@ -238,34 +199,27 @@ $(document).ready(function() {
                         </div>
                         <div class="clear"></div>
                     </div><!-- End .module_ftt -->
-
                     <div class="module_ftt"style="text-align:center; color:#F00; padding:5px;">
                         <?php echo $error_login;?>
                     </div>
-
                     <div class="module_ftt">
                         <div class="l_f_tt">
                            &nbsp;
                         </div>
                         <div class="r_f_tt">
                             <div style="padding-bottom:15px;">
-                            <input name="btn_dangky" id="btn_dangky" class="btn_dn" type="submit" value="&nbsp;"/>
+                            <input name="btn_dangky" id="btn_dangky" class="btn_dk" type="submit" value="&nbsp;"/>
                             </div>
                         </div>
                         <div class="clear"></div>
                     </div><!-- End .module_ftt -->
-                  
-                    
                 </div><!-- End .main_f_tt -->
                 </form>
             </div><!-- End .main_f_dn -->
         </li>
     </ul>
-    
     <div class="clear"></div>
-
 </div>
-
 <?php }else {
 	header("Location: ".$linkrootshop."/dang-nhap.html");
 }

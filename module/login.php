@@ -128,31 +128,28 @@ if (isset($_POST['quayra'])==true) {
                         <div class="module_ftt" style="color:#F00; text-align:center;">
                             <?php echo $error_login;?>
                         </div>
-                        <div class="module_ftt">
-                            <div class="l_f_tt">
-                                &nbsp;
-                            </div>
-                            <div class="r_f_tt">
-                                <div style="padding-bottom:15px;">
-                                    <input name="btn_dangnhap_in" class="btn_dn" type="submit" value="&nbsp;"/>
-                                </div>
-                            </div>
-                            <div class="clear"></div>
+                        <div class="module_ftt module_social">
+                            <input name="btn_dangnhap_in" class="btn_dn" type="submit" value="&nbsp;"/>
                         </div><!-- End .module_ftt -->
-                        <div class="module_ftt">
+                        <div class="module_ftt module_social">
+                            <span>(hoặc)</span>
+                        </div><!-- End .module_ftt -->
+                        <div class="module_ftt module_social">
                             <input type="hidden" id="hiddenSocialLogin" value="0">
                             <div class="l_f_tt div-google-width">
-                                <div class="g-signin2" data-width="200" data-height="25" data-longtitle="true" data-onsuccess="onSignIn" data-theme="dark" onclick="$('#hiddenSocialLogin').val('1');"></div>
+                                <input type="hidden" id="hiddenSubName" value="<?php echo ucfirst($subname); ?>">
+                                <div class="g-signin2" data-width="144" data-height="25" data-longtitle="true" data-onsuccess="onSignIn" data-theme="dark" onclick="$('#hiddenSocialLogin').val('1');"></div>
                             </div>
                             <div class="r_f_tt div-facebook-width">
                                 <fb:login-button size="large" scope="public_profile,email" onlogin="checkLoginState();">
-                                    Đăng nhập bằng Facebook
+                                    Kết nối với <?php echo ucfirst($subname); ?>
                                 </fb:login-button>
                             </div>
                             <div class="clear"></div>
                         </div><!-- End .module_ftt -->
                         <div class="info_f_tt">
-                            Đăng nhập bây giờ để có thể sử dụng các dịch vụ của chúng tôi.
+                            <p>Đăng nhập bây giờ để có thể sử dụng các dịch vụ của chúng tôi.</p>
+                            <span>Bạn chưa có tài khoản? <a class="info_register" href="<?php echo $root; ?>/dang-ky.html">Đăng ký</a> ngay!</span>
                         </div><!-- End .info_f_tt -->
                     </div><!-- End .main_f_tt -->
                 </form>

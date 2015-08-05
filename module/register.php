@@ -139,7 +139,7 @@ $(document).ready(function() {
 </script>
     <ul>
         <li style="text-align: center;">
-            <img src="<?php echo $linkrootshop;?>/imgs/layout/LoginRed.png" alt=""/>
+            <img src="<?php echo $linkrootshop;?>/imgs/layout/RegistrationOnline.png" alt=""/>
         </li>
         <li>
             <div class="main_f_dn">

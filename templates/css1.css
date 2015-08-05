@@ -511,8 +511,12 @@ BEGIN FOOTER
 footer {}
 
 .i-foot {}
-.bg-ifoot {box-shadow: 0 1px 2px rgba(0,0,0,.1); box-sizing: border-box;}
-/*background: url(../imgs/layout/ul-ifoot.png) repeat-y;*/
+.bg-ifoot {
+    box-shadow: 0 1px 2px rgba(0,0,0,.1);
+    box-sizing: border-box;
+    border: 1px solid rgba(0,0,0,.1);
+}
+
 .i-foot ul.ul-ifoot > li {float: left; width: 25%;}
 .t-ifoot {padding: 15px 0 0 20px; height: 30px; line-height: 30px;}
 .m-ifoot {padding: 10px 10px 15px 20px; line-height: 22px; font-size: 11px;}
@@ -792,7 +796,11 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 
 .star_style{color:#ff003a; font-size:11px; font-family:Tahoma, Geneva, sans-serif; padding-left:3px;}
 
-.info_f_tt{padding:15px; border-top:1px solid #eee; font-size:11px;}
+.info_f_tt{padding:15px; border-top:1px solid #eee;}
+
+.info_register{
+    color: red !important;
+}
 
 .list-cate {  }
 /****************************alldanhmuc*******************************************/
@@ -2180,6 +2188,8 @@ textarea:hover, textarea:focus{
 }
 .size>ul.list li {
     padding:10px;
+    text-align: center;
+    width: auto;
 }
 .size>ul.list li:last-child { border:none }
 
@@ -2223,6 +2233,10 @@ div#___plusone_0 iframe, .twitter-share-button{
 
 .abcRioButtonContents{
     font-size: 13px !important;
+}
+
+.module_social{
+    padding-right: 20px;
 }
 
 @media (max-width: 991px) {
