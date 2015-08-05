@@ -76,6 +76,14 @@
     <div class="clear"></div>
 </article><!-- End .l-tool-ct -->
 
+<article class="l-tool-ct primary-category">
+    <ul class="ul-ltct">
+        <?php $accessory=getRecord('tbl_shop_category', "id=500"); ?>
+        <li><a class="btn-gh3 btn-category" href="<?php echo $linkrootshop; ?>/<?php echo $accessory['subject']; ?>.html"><?php echo $accessory['name']; ?></a></li>
+    </ul>
+    <div class="clear"></div>
+</article><!-- End .l-tool-ct -->
+
 <article class="l-tool-ct primary-category menu-category">
     <ul class="ul-ltct">
         <ul id="menu">
@@ -84,7 +92,10 @@
             <li><a href="<?php echo $linkrootshop?>/<?php echo $rent['subject']; ?>.html"><?php echo $rent['name']; ?></a></li>
             <li><a href="<?php echo $linkrootshop; ?>/<?php echo $news['subject']; ?>.html"><?php echo $news['name']; ?></a></li>
             <li><a href="<?php echo $linkrootshop; ?>/<?php echo $video['subject']; ?>.html"><?php echo $video['name']; ?></a></li>
+            <li><a href="<?php echo $linkrootshop; ?>/<?php echo $accessory['subject']; ?>.html"><?php echo $accessory['name']; ?></a></li>
+            <?php if($_SESSION['kh_login_username']==""){?>
             <li><a href="<?php echo $linkrootshop?>/dang-ky-gian-hang.html" class="menu-shop">Mở gian hàng miễn phí</a></li>
+            <?php } ?>
         </ul>
     </ul>
     <div class="clear"></div>

@@ -66,6 +66,9 @@
                 </div>
             </li>
             <?php } ?>
+            <li class="c-sale">
+                <a href="<?php echo $linkrootshop;?>/dang-ky-gian-hang.html">Bán hàng cùng <?php echo $subname; ?></span></a>
+            </li>
         <?php }?>
     </ul>
 </article><!-- End .r-tool-ct -->

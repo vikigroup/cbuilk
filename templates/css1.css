@@ -133,8 +133,8 @@ span.hotline {background-color: #FB8833; color: white; padding: 10px;}
 .r-tool-ct ul li {float: left; cursor: pointer;}
 .r-tool-ct ul li + li {padding-left: 5px;}
 .r-tool-ct ul li a {color: #444;}
-.r-tool-ct ul li a:hover {color: #3ba11b; text-decoration: underline;}
-.sty-user {color: #3ba11b; font-weight: bold; text-transform: none;}
+.r-tool-ct ul li a:hover {color: #FB8833; text-decoration: underline;}
+.sty-user {color: #FB8833; font-weight: bold; text-transform: none;}
 
 .top-ct {padding: 20px 0;}
 .dmsp {float: left; width: 190px;}
@@ -1346,6 +1346,17 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     position: relative;
 }
 
+.c-sale{
+    display: none;
+}
+
+.c-label{
+    padding: 5px;
+    border: 1px solid #1ECB96;
+    border-radius: 5px;
+    color: #1ECB96;
+}
+
 @media (min-width: 992px) {
     .primary-category{
         display: block !important;
@@ -1417,6 +1428,10 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     }
     .mini-bar{
         visibility: visible !important;
+    }
+    .r-box-language{
+        text-align: center;
+        width: 100%;
     }
 }
 
@@ -1566,6 +1581,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     }
     .m-header{
         padding-bottom: 20px;
+        height: auto;
     }
     .r-box-language{
         width: 40%;
@@ -1582,6 +1598,18 @@ ul.ul-fP li.atc a {color: #3ba11b;}
         left: initial;
         display: table;
         margin: 0 auto;
+    }
+    .c-sale{
+        display: block;
+        text-align: center;
+        width: 100%;
+        text-transform: uppercase;
+    }
+    .c-sale a{
+        color: #059CB7 !important;
+    }
+    .c-sale a:hover{
+        text-decoration: none !important;
     }
 }
 
@@ -2116,15 +2144,19 @@ textarea:hover, textarea:focus{
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     border-radius: 50%;
-    -webkit-box-shadow: 0 0 0 3px #fff, 0 0 0 4px #999, 0 2px 5px 4px rgba(0,0,0,.2);
-    -moz-box-shadow: 0 0 0 3px #fff, 0 0 0 4px #999, 0 2px 5px 4px rgba(0,0,0,.2);
-    box-shadow: 0 0 0 3px #fff, 0 0 0 4px #999, 0 2px 5px 4px rgba(0,0,0,.2);
     width: 48px !important;
     height: 48px !important;
     top: -5px;
 }
 
-.size {  }
+.r-avatar{
+    width: 100%;
+}
+
+.size {
+    display: table;
+    margin: 0 auto;
+}
 .size img{ margin: 0 auto; }
 .size .field {
     width:300px; color:#fff; border:none; cursor:pointer;

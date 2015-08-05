@@ -50,7 +50,7 @@ if (isset($_POST['btnSave'])){
     $parent1       = $_POST['ddCatch'];
 
     if($parent1==-1) $parent1=$parent;
-    if($parent1==-1 && $parent==-1) $parent1=458;
+    if($parent1==-1 && $parent==-1) $parent1=500;
     $subject       = vietdecode($name);
     $detail_short  = isset($_POST['txtDetailShort']) ? trim($_POST['txtDetailShort']) : '';
     $detail        = isset($_POST['txtDetail']) ? trim($_POST['txtDetail']) : '';
@@ -77,7 +77,7 @@ if (isset($_POST['btnSave'])){
             $oldid = $_POST['id'];
             $sql = "update tbl_shop_category set code='".$code."',name='".$name."', parent='".$parent1."', subject='".$subject."', detail_short='".$detail_short."', detail='".$detail."', sort='".$sort."', title='".$title."', description='".$description."', keyword='".$keyword."', status='".$status."', last_modified=now(), lang='".$lang."' where id='".$oldid."'";
         }else{
-            echo $sql = "insert into tbl_shop_category (code, name, parent, subject, detail_short, detail, title , description , keyword , sort, status, date_added, last_modified, lang, cate) values ('".$code."','".$name."','".$parent1."','".$subject."','".$detail_short."','".$detail."','".$title."','".$description."','".$keyword."','".$sort."','".$status."',now(),now(),'".$lang."','5')";
+            echo $sql = "insert into tbl_shop_category (code, name, parent, subject, detail_short, detail, title , description , keyword , sort, status, date_added, last_modified, lang, cate) values ('".$code."','".$name."','".$parent1."','".$subject."','".$detail_short."','".$detail."','".$title."','".$description."','".$keyword."','".$sort."','".$status."',now(),now(),'".$lang."','6')";
         }
         if (mysql_query($sql,$conn)){
             if(empty($_POST['id'])) $oldid = mysql_insert_id();
@@ -124,7 +124,7 @@ if (isset($_POST['btnSave'])){
     }
 
     if ($errMsg == '')
-        echo '<script>window.location="admin.php?act=advertisement_category&cat='.$_REQUEST['cat'].'&page='.$_REQUEST['page'].'&code=1"</script>';
+        echo '<script>window.location="admin.php?act=accessory_category&cat='.$_REQUEST['cat'].'&page='.$_REQUEST['page'].'&code=1"</script>';
 }else{
     if (isset($_GET['id'])){
         $oldid=$_GET['id'];
@@ -180,17 +180,17 @@ if( $errMsg !=""){
         <div class="box-widget">
             <div class="widget-container">
                 <div class="widget-block">
-                    <form method="post" name="frmForm" enctype="multipart/form-data" action="admin.php?act=advertisement_category_m">
+                    <form method="post" name="frmForm" enctype="multipart/form-data" action="admin.php?act=accessory_category_m">
                         <input type="hidden" name="txtSubject" id="txtSubject">
                         <input type="hidden" name="txtDetailShort" id="txtDetailShort">
                         <input type="hidden" name="txtDetail" id="txtDetail">
-                        <input type="hidden" name="act" value="advertisement_category_m">
+                        <input type="hidden" name="act" value="accessory_category_m">
                         <input type="hidden" name="id" value="<?=$_REQUEST['id']?>">
                         <input type="hidden" name="page" value="<?=$_REQUEST['page']?>">
 
                         <table  class="table_chinh">
                             <tr>
-                                <td class="table_chu_tieude_them" colspan="2" align="center" valign="middle"  >DANH MỤC QUẢNG CÁO</td>
+                                <td class="table_chu_tieude_them" colspan="2" align="center" valign="middle"  >DANH MỤC PHỤ TÙNG</td>
                             </tr>
                             <tr>
                                 <td valign="middle"  class="table_chu">&nbsp;</td>
@@ -208,7 +208,7 @@ if( $errMsg !=""){
                                         <?php }?>
                                         <option value="-1" <?php if($parent==-1) echo 'selected="selected"';?> > Chọn danh mục </option>
                                         <?php
-                                        $gt=get_records("tbl_shop_category","status=0 and parent=458","name COLLATE utf8_unicode_ci"," "," ");
+                                        $gt=get_records("tbl_shop_category","status=0 and parent=500","name COLLATE utf8_unicode_ci"," "," ");
                                         while($row=mysql_fetch_assoc($gt)){?>
                                             <option value="<?php echo $row['id']; ?>" <?php if($parent==$row['id']) echo 'selected="selected"';?> ><?php echo $row['name']; ?></option>
                                         <?php } ?>
