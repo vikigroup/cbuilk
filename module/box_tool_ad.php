@@ -68,7 +68,7 @@
             <?php } ?>
             <li class="c-sale">
                 <a href="<?php echo $root; ?>/dang-ky-gian-hang.html">Bán hàng cùng <?php echo $subname; ?></span></a>
-                <img src="<?php echo $root; ?>/imgs/icon-hot.png">
+                <img src="<?php echo $root; ?>/imgs/icon-hot.gif">
             </li>
         <?php }?>
     </ul>
