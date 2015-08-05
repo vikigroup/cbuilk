@@ -82,6 +82,14 @@
                     <li><a href="admin.php?act=advertisement_m">Tạo quảng cáo mới</a></li>
                 </ul>
             </li>
+            <li>
+                <a href="#"> Phụ tùng &darr;</a>
+                <ul>
+                    <li><a href="admin.php?act=accessory_category">Danh mục phụ tùng</a> </li>
+                    <li><a href="admin.php?act=accessory">Tất cả phụ tùng</a></li>
+                    <li><a href="admin.php?act=accessory_m">Tạo phụ tùng mới</a></li>
+                </ul>
+            </li>
             <?php }?>
       </ul>
 </div>

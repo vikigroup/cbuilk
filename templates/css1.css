@@ -128,8 +128,7 @@ span.hotline {background-color: #FB8833; color: white; padding: 10px;}
 .l-tool-ct ul.ul-ltct > li span.support {background: url(../imgs/layout/support.png) no-repeat left; padding-left: 22px; display: block;}
 .l-tool-ct ul.ul-ltct > li + li {padding-left: 20px;}
 
-.r-box-tool{margin: 30px;}
-
+.r-box-tool{margin: 20px 0 15px 0;}
 .r-tool-ct {float: right; background-color: #ffffff;}
 .r-tool-ct ul li {float: left; cursor: pointer;}
 .r-tool-ct ul li + li {padding-left: 5px;}
@@ -1366,6 +1365,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     }
     .r-box-tool{
         background-color: transparent !important;
+        width: 190px;
     }
     iframe {
         width: 100%;
@@ -1436,9 +1436,9 @@ ul.ul-fP li.atc a {color: #3ba11b;}
         display: none;
     }
     .r-box-tool{
-        margin: 80px auto 5px auto;
+        margin: 0 auto 0 auto !important;
         width: 100%;
-        padding: 35px 0 5px 0;
+        padding: 50px 0 10px 0;
         display: block;
         background-color: #ffffff !important;
     }
@@ -1558,11 +1558,30 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     }
     .size{
         position: absolute !important;
-        right: 0;
+        right: 5px;
         top: 15px;
     }
     .avatar{
         top: 15px;
+    }
+    .m-header{
+        padding-bottom: 20px;
+    }
+    .r-box-language{
+        width: 40%;
+        float: left;
+        padding-left: 10px !important;
+    }
+    .r-box-language:last-child{
+        float: right;
+        text-align: right;
+    }
+    .logo{
+        position: initial;
+        top: initial;
+        left: initial;
+        display: table;
+        margin: 0 auto;
     }
 }
 
@@ -2105,11 +2124,12 @@ textarea:hover, textarea:focus{
     top: -5px;
 }
 
-.size { position:relative; }
+.size {  }
+.size img{ margin: 0 auto; }
 .size .field {
-    width:300px; background:#EC6603; color:#fff; padding:5px; border:none; cursor:pointer;
+    width:300px; color:#fff; border:none; cursor:pointer;
     font-family:'lucida sans unicode',sans-serif; font-size:1em;
-    border:solid 1px #EC6603;
+    border:solid 1px transparent;
     -webkit-transition: all .4s ease-in-out;
     transition: all .4s ease-in-out;
 }

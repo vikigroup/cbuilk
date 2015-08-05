@@ -16,6 +16,9 @@ switch ($frame){
     case "machine_category"             : include("machine_category/machine_category.php");break;
     case "machine_category_m"           : include("machine_category/machine_category_m.php");break;
 
+    case "accessory_category"           : include("accessory_category/accessory_category.php");break;
+    case "accessory_category_m"         : include("accessory_category/accessory_category_m.php");break;
+
 	case "shop"                         : include("shop/shop.php");break;
 	case "shop_m"                       : include("shop/shop_m.php");break;
 	
@@ -97,6 +100,9 @@ switch ($frame){
 
     case "machine"                      : include("machine/machine.php");break;
     case "machine_m"                    : include("machine/machine_m.php");break;
+
+    case "accessory"                    : include("accessory/accessory.php");break;
+    case "accessory_m"                  : include("accessory/accessory_m.php");break;
 
 	case "login"                        : include("login.php");break;
 	case "logout"                       : unset($_SESSION['kt_login_id']);

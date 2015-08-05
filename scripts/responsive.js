@@ -70,7 +70,7 @@ function autoHome(){
         $('.search_top_header').css('width', $('.m-wrap').width() - 190 - 190 - 222);
         $('.select_input_search').css('width', $('.search_top_header').width() - 140 - 40);
 
-        for(var i = 0; i < 8; i++){
+        for(var i = 0; i < 12; i++){
             if($('#aCategoryName'+i).height() > 15){
                 $('#divCategoryID'+i).css('padding', '5px 5px 11px');
             }

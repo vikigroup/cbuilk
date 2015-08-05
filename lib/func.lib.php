@@ -216,4 +216,16 @@ function count_items($id){
         return $result2['countID'];
     }
 }
+
+function optimizeString($string){
+    $data = explode(",", $string);
+    $str = "";
+    for($i = 0; $i < count($data); $i++){
+        if($data[$i] != ''){
+            $str .= $data[$i].",";
+        }
+    }
+    $strAfter = substr($str, 0, strlen($str) - 1);
+    return $strAfter;
+}
 ?>

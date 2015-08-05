@@ -181,7 +181,7 @@ $(document).ready(function() {
 					$where.=" AND ( status='{$anhien}' or '{$anhien}'=-1)  AND ( hot='{$noibat}' or '{$noibat}'=-1) AND cate = 0";
 				
                 $MAXPAGE=1;
-				$totalRows=countRecord("tbl_shop_category",$where) - 3;
+				$totalRows=countRecord("tbl_shop_category",$where);
 				
                 if ($_REQUEST['cat']!='') $where="parent=".$_REQUEST['cat']; ?>
                 <form method="POST" action="#" name="frmForm" enctype="multipart/form-data">

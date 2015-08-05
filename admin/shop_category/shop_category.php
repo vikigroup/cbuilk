@@ -174,7 +174,8 @@ $(document).ready(function() {
                 if($parent!=-1 || $parent1!=-1) {
 						if($parent1!='-1') $parenstrt="$parent1";
 						else $parenstrt=getParent("tbl_shop_category",$parent);
-						$where="1=1   and (id='{$tukhoa}' or name LIKE '%$tukhoa%' or '{$tukhoa}'=-1) and  (parent in ({$parenstrt}) or id=$parent)";
+                        $parenstrtAfter = optimizeString($parenstrt);
+						$where="1=1   and (id='{$tukhoa}' or name LIKE '%$tukhoa%' or '{$tukhoa}'=-1) and  (parent in ({$parenstrtAfter}) or id=$parent)";
 					}
                     else $where="1=1   and (id='{$tukhoa}' or name LIKE '%$tukhoa%' or '{$tukhoa}'=-1)";
 					
@@ -296,8 +297,7 @@ $(document).ready(function() {
 						$sortby="order by sort $ks";
 						if ($_REQUEST['sortby']!='') $sortby="order by ".(int)$_REQUEST['sortby'];
 						$direction=($_REQUEST['direction']==''||$_REQUEST['direction']=='0'?"desc":"");
-						
-						 $sql="select *,DATE_FORMAT(date_added,'%d/%m/%Y %h:%i') as dateAdd,DATE_FORMAT(last_modified,'%d/%m/%Y %h:%i') as dateModify from tbl_shop_category where $where $sortby   limit ".($startRow).",".$pageSize;
+						$sql="select *,DATE_FORMAT(date_added,'%d/%m/%Y %h:%i') as dateAdd,DATE_FORMAT(last_modified,'%d/%m/%Y %h:%i') as dateModify from tbl_shop_category where $where $sortby   limit ".($startRow).",".$pageSize;
 						$result=mysql_query($sql,$conn);
 						$i=0;
 						while($row=mysql_fetch_array($result)){
@@ -348,8 +348,6 @@ $(document).ready(function() {
                         
                     </table>
                 </form>
-                
-             
                 </div>
             </div>
         </div>
