@@ -132,7 +132,7 @@ span.hotline {background-color: #FB8833; color: white; padding: 10px;}
 .r-tool-ct {float: right; background-color: #ffffff;}
 .r-tool-ct ul li {float: left; cursor: pointer; color: #ffffff;}
 .r-tool-ct ul li + li {padding-left: 5px;}
-.r-tool-ct ul li a {color: #ffffff;}
+.r-tool-ct ul li a {color: #444;}
 .r-tool-ct ul li a:hover {color: #FB8833; text-decoration: underline;}
 .sty-user {color: #FB8833; font-weight: bold; text-transform: none;}
 
@@ -1340,18 +1340,11 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     padding: 10% 0;
 }
 
-.m-slider{
-    background-color: #ffffff;
-}
-
 .m-slider, .m-header{
+    background-color: #ffffff;
     width: 100%;
     box-shadow: 0 1px 2px rgba(0,0,0,.1);
     box-sizing: border-box;
-}
-
-.m-header{
-    background-color: #324551;
 }
 
 .menu{
@@ -1635,9 +1628,6 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     }
     .c-sale a:hover{
         text-decoration: none !important;
-    }
-    .r-tool-ct ul li, .r-tool-ct ul li a{
-        color: #000000;
     }
 }
 

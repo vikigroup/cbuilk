@@ -115,7 +115,7 @@ $(document).ready(function() {
 <div class="form_dn">
     <ul>
         <li id="gif_slide_frame" style="text-align: center;">
-            <img src="<?php echo $linkrootshop;?>/imgs/layout/LoginRed.png" alt=""/>
+            <img src="<?php echo $linkrootshop;?>/imgs/layout/add-shop.png" alt=""/>
         </li>
         <li>
             <div class="main_f_dn">

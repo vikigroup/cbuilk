@@ -87,7 +87,7 @@ if (isset($_POST['quayra'])==true) {
     </script>
     <ul>
         <li>
-            <img src="<?php echo $linkrootshop;?>/imgs/layout/add-shop.png" alt=""/>
+            <img src="<?php echo $linkrootshop;?>/imgs/layout/LoginRed.png" alt=""/>
         </li>
         <li>
             <div class="main_f_dn">
@@ -132,7 +132,7 @@ if (isset($_POST['quayra'])==true) {
                             <input name="btn_dangnhap_in" class="btn_dn" type="submit" value="&nbsp;"/>
                         </div><!-- End .module_ftt -->
                         <div class="module_ftt module_social">
-                            <span>(hoặc)</span>
+                            <span>hoặc</span>
                         </div><!-- End .module_ftt -->
                         <div class="module_ftt module_social">
                             <input type="hidden" id="hiddenSocialLogin" value="0">
