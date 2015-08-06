@@ -24,7 +24,7 @@ function autoHome(){
         $('.prod_row1').css('width', windowSize/2 - 20);
         $('._51mw').css('width', '70%');
 
-        for(var i = 0; i < 8; i++){
+        for(var i = 0; i < 12; i++){
             if($('#aCategoryName'+i).height() > 14){
                 $('#divCategoryID'+i).css('padding', '5px 0 0 0');
             }
@@ -51,8 +51,7 @@ function autoHome(){
         $('.ads-home').css('width', windowSize - 190 - 190 - 139);
         $('.btn-gh3').css('width', 190);
         $('.arrowCategory').css('width', 125);
-        $('.primary-category, .btn-category').css('width', 140);
-        $('.primary-category:nth-child(5)').css('width', 110);
+        $('.primary-category, .btn-category').css('width', ($('.m-wrap').width() - 190 - 190)/5);
         $('.form_dn ul li').css('width', 480);
         $('.divProductLine1, .divProductOverlay1').css('width', 208);
         $('.ul-ifoot li').css('width', '25%');

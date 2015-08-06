@@ -62,6 +62,8 @@ require("module/box_device.php");
 $myProduct = getRecord('tbl_item', "subject='".$_GET['tensanpham']."'");
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "hrvp://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--[if IE 8]> <html class="lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en"> <!--<![endif]-->
 <html xmlns="http://www.w3.org/1999/xhtml"
       prefix="og: http://ogp.me/ns#"
       xmlns:fb="http://www.facebook.com/2008/fbml">
@@ -127,7 +129,6 @@ $myProduct = getRecord('tbl_item', "subject='".$_GET['tensanpham']."'");
 <div class="m-wrap menu-wrap">
     <div class="tool-ct">
         <?php include("module/box_support.php") ;?>
-        <?php include("module/info_user.php") ;?>
     </div><!-- End .tool-ct -->
 </div><!-- End .m-wrap -->
 
