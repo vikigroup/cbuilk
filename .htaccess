@@ -1,4 +1,7 @@
-RewriteEngine on
+RewriteEngine On
+#RewriteCond %{SERVER_PORT} 80
+#RewriteRule ^(.*)$ https://www.cbuilk.com/$1 [R,L]
+
 ErrorDocument 404 /404.shtml
 ErrorDocument 401 /403.shtml
 ErrorDocument 403 /403.shtml
