@@ -681,7 +681,7 @@ function ajax(dataString){
 }
 
 window.onload = function(){
-    $(".abcRioButtonContents span").html("Kết nối với "+$("#hiddenSubName").val());
+    $(".abcRioButtonContents span").html("Log In");
 }
 
 function isValidEmailAddress(emailAddress) {

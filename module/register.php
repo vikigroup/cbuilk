@@ -217,7 +217,7 @@ $(document).ready(function() {
                         </div>
                         <div class="r_f_tt">
                             <div style="padding-bottom:15px;">
-                            <input id="btn_dangky" name="btn_dangky" class="btn_dk" type="submit" value="&nbsp;"/>
+                            <button id="btn_dangky" name="btn_dangky" class="btn_dk" type="submit">ĐĂNG KÝ</button>
                             </div>
                         </div>
                         <div class="clear"></div>

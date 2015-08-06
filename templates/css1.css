@@ -32,7 +32,7 @@ a.btn-gh3 i{margin-right: 10px;}
 }
 
 .select_item_search {
-    width: 140px;
+    width: 160px;
     height: 32px;
     float: left;
     font-size: 11px;
@@ -65,7 +65,7 @@ a.btn-gh3 i{margin-right: 10px;}
     display: block;
     line-height: 30px;
     color: #707070;
-    background: url(../imgs/layout/arrown_select.png) no-repeat 96% 50%;
+    background: url(../imgs/layout/arrown_select.png) no-repeat 95% 50%;
     position: relative;
     top: 0;
     left: 0;
@@ -74,7 +74,7 @@ a.btn-gh3 i{margin-right: 10px;}
     overflow: visible;
     padding: 0 5px;
     font-size: 14px;
-    text-align: left;
+    text-align: center;
 }
 .select_input_search{
     overflow: hidden;
@@ -110,10 +110,6 @@ a.btn-gh3 i{margin-right: 10px;}
     color: #ffffff;
 }
 
-.btn_s:hover{
-    background-color: #B7CD4C;
-}
-
 /************************************************************************************
 END HEADER
 *************************************************************************************/
@@ -134,7 +130,7 @@ span.hotline {background-color: #FB8833; color: white; padding: 10px;}
 
 .r-box-tool{margin: 20px 0 15px 0;}
 .r-tool-ct {float: right; background-color: #ffffff;}
-.r-tool-ct ul li {float: left; cursor: pointer; color: #ffffff;}
+.r-tool-ct ul li {float: left; cursor: pointer;}
 .r-tool-ct ul li + li {padding-left: 5px;}
 .r-tool-ct ul li a {color: #444;}
 .r-tool-ct ul li a:hover {color: #FB8833; text-decoration: underline;}
@@ -519,7 +515,6 @@ footer {}
     box-shadow: 0 1px 2px rgba(0,0,0,.1);
     box-sizing: border-box;
     border: 1px solid rgba(0,0,0,.1);
-    border-radius: 5px;
 }
 
 .i-foot ul.ul-ifoot > li {float: left; width: 25%;}
@@ -775,18 +770,22 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 
 .btn_dn{
     width:108px; height:32px;
-    background:url(../imgs/layout/dangnhap.png) no-repeat 0px 0px;
     cursor:pointer;
     border:0;
+    background-color: #FF7519;
+    color: #ffffff;
 }
-.btn_dn:hover{background:url(../imgs/layout/dangnhap.png) no-repeat 0px -32px}
 .btn_dk{
     width:108px; height:32px;
-    background:url(../imgs/layout/dangky.png) no-repeat 0px -0px;
     cursor:pointer;
     border:0;
+    background-color: #FF7519;
+    color: #ffffff;
 }
-.btn_dk:hover{background:url(../imgs/layout/dangky.png) no-repeat 0px -32px}
+.btn_dn:hover, .btn_dk:hover, .btn_s:hover{
+    background-color: #F16A28;
+}
+
 .btn_qmk {
     width:161px; height:32px;
     background: url(../imgs/layout/quenmatkhau.png) no-repeat 0px 0px;
@@ -1279,6 +1278,10 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     z-index: 9999;
 }
 
+.mini-shopping{
+    margin: 5px 0;
+}
+
 .mini-shopping, .mini-shopping a{
     color: #ffffff !important;
     text-align: center;
@@ -1311,13 +1314,12 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 
 .primary-category{
     width: 166px;
-    display: none;
 }
 
 .primary-category .ul-ltct li a.btn-gh3{
     background-color: transparent;
     color: #000000 !important;
-    width: 140px;
+    width: 166px;
 }
 
 .slicknav_menu{
@@ -1370,7 +1372,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 }
 
 .r-box-language a img{
-    border-radius: 5px;
+    border-radius: 2px;
 }
 
 @media (min-width: 992px) {
@@ -1680,9 +1682,6 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     .m-Pnb .bx-wrapper .bx-viewport{
         width: 608px !important;
     }
-    .btn-category{
-        width: 90px !important;
-    }
     .primary-category{
         display: none !important;
     }
@@ -1697,7 +1696,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
         width: 375px !important;
     }
     .select_input_search{
-        width: 195px !important;
+        width: 175px !important;
     }
     .divMainCategory{
         width: 130px !important;
@@ -2155,10 +2154,6 @@ textarea:hover, textarea:focus{
     width: 90% !important;
 }
 
-.hidden{
-    display: none;
-}
-
 .avatar {
     float: left;
     margin-right: 1em;
@@ -2382,8 +2377,26 @@ div#___plusone_0 iframe, .twitter-share-button{
     font-size: 13px !important;
 }
 
+.abcRioButtonIcon{
+    margin: 2px 0 0 5px !important;
+}
+
+.abcRioButtonIconImage{
+    width: 8px !important;
+}
+
 .module_social{
     padding-right: 20px;
+}
+
+.g-signin2{
+    float: right;
+    margin-right: 5px;
+}
+
+.f-signin2{
+    float: left;
+    margin-left: 5px;
 }
 
 @media (max-width: 991px) {

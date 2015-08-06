@@ -129,27 +129,26 @@ if (isset($_POST['quayra'])==true) {
                             <?php echo $error_login;?>
                         </div>
                         <div class="module_ftt module_social">
-                            <input name="btn_dangnhap_in" class="btn_dn" type="submit" value="&nbsp;"/>
+                            <button name="btn_dangnhap_in" class="btn_dn" type="submit">ĐĂNG NHẬP</button>
                         </div><!-- End .module_ftt -->
                         <div class="module_ftt module_social">
-                            <span>hoặc</span>
+                            <span><b>hoặc</b></span>
                         </div><!-- End .module_ftt -->
                         <div class="module_ftt module_social">
                             <input type="hidden" id="hiddenSocialLogin" value="0">
                             <div class="l_f_tt div-google-width">
                                 <input type="hidden" id="hiddenSubName" value="<?php echo ucfirst($subname); ?>">
-                                <div class="g-signin2" data-width="144" data-height="25" data-longtitle="true" data-onsuccess="onSignIn" data-theme="dark" onclick="$('#hiddenSocialLogin').val('1');"></div>
+                                <div class="g-signin2" data-width="77" data-height="25" data-longtitle="true" data-onsuccess="onSignIn" data-theme="dark" onclick="$('#hiddenSocialLogin').val('1');"></div>
                             </div>
                             <div class="r_f_tt div-facebook-width">
-                                <fb:login-button size="large" scope="public_profile,email" onlogin="checkLoginState();">
-                                    Kết nối với <?php echo ucfirst($subname); ?>
+                                <fb:login-button class="f-signin2" size="large" scope="public_profile,email" onlogin="checkLoginState();">
                                 </fb:login-button>
                             </div>
                             <div class="clear"></div>
                         </div><!-- End .module_ftt -->
                         <div class="info_f_tt">
                             <p>Đăng nhập bây giờ để có thể sử dụng các dịch vụ của chúng tôi.</p>
-                            <span>Bạn chưa có tài khoản? <a class="info_register" href="<?php echo $root; ?>/dang-ky.html">Đăng ký</a> ngay!</span>
+                            <span>Bạn chưa có tài khoản? <a class="info_register" href="<?php echo $root; ?>/dang-ky.html"><b>Đăng ký</b></a> ngay!</span>
                         </div><!-- End .info_f_tt -->
                     </div><!-- End .main_f_tt -->
                 </form>

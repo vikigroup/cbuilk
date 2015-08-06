@@ -67,7 +67,7 @@ function autoHome(){
         $('.l-fcont').css('width', '73%');
         $('.r-fcont').css('width', '23%');
         $('.search_top_header').css('width', $('.m-wrap').width() - 190 - 190 - 222);
-        $('.select_input_search').css('width', $('.search_top_header').width() - 140 - 40);
+        $('.select_input_search').css('width', $('.search_top_header').width() - 160 - 40);
 
         for(var i = 0; i < 12; i++){
             if($('#aCategoryName'+i).height() > 15){

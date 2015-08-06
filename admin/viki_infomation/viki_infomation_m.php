@@ -60,7 +60,7 @@ if (isset($_POST['btnSave'])){
 	$description   = isset($_POST['description']) ? trim($_POST['description']) : "";
 	$keyword       = isset($_POST['keyword']) ? trim($_POST['keyword']) : "";
 	
-	$catInfo       = getRecord('jbs_tin', 'id='.$parent);
+	$catInfo       = getRecord('viki_tin', 'id='.$parent);
 	if(!$multiLanguage){
 		$lang      = $catInfo['lang'];
 	}else{
@@ -74,18 +74,18 @@ if (isset($_POST['btnSave'])){
 	if ($errMsg==''){
 		if (!empty($_POST['id'])){
 			$oldid = $_POST['id'];
-			$sql = "update jbs_tin set name='".$name."',parent='".$parent."',detail='".$detail."',sort='".$sort."', status='".$status."', title='".$title."', description='".$description."', keyword='".$keyword."',last_modified=now() where id='".$oldid."'";
+			$sql = "update viki_tin set name='".$name."',parent='".$parent."',detail='".$detail."',sort='".$sort."', status='".$status."', title='".$title."', description='".$description."', keyword='".$keyword."',last_modified=now() where id='".$oldid."'";
 		}else{
-			$sql = "insert into jbs_tin (name, parent , detail, title , description , keyword , sort, status,  date_added, last_modified  ) values ('".$name."','".$parent."','".$detail."','".$title."','".$description."','".$keyword."','".$sort."','".$status."',now(),now())";
+			$sql = "insert into viki_tin (name, parent , detail, title , description , keyword , sort, status,  date_added, last_modified  ) values ('".$name."','".$parent."','".$detail."','".$title."','".$description."','".$keyword."','".$sort."','".$status."',now(),now())";
 		}
 		if (mysql_query($sql,$conn)){
 			if(empty($_POST['id'])) $oldid = mysql_insert_id();
-			$r = getRecord("jbs_tin","id=".$oldid);
+			$r = getRecord("viki_tin","id=".$oldid);
 		
 			$arrField = array(
 			"subject"          => "'".vietdecode($name)."'"
 			);// ko them id vao cuoi cho dep
-			$result = update("jbs_tin",$arrField,"id=".$oldid);
+			$result = update("viki_tin",$arrField,"id=".$oldid);
 			
 			$sqlUpdateField = "";
 			
@@ -114,7 +114,7 @@ if (isset($_POST['btnSave'])){
 			}
 			
 			if($sqlUpdateField!='')	{
-				$sqlUpdate = "update jbs_tin set $sqlUpdateField where id='".$oldid."'";
+				$sqlUpdate = "update viki_tin set $sqlUpdateField where id='".$oldid."'";
 				mysql_query($sqlUpdate,$conn);
 			}
 		}else{
@@ -128,7 +128,7 @@ if (isset($_POST['btnSave'])){
 	if (isset($_GET['id'])){
 		$oldid=$_GET['id'];
 		$page = $_GET['page'];
-		$sql = "select * from jbs_tin where id='".$oldid."'";
+		$sql = "select * from viki_tin where id='".$oldid."'";
 		if ($result = mysql_query($sql,$conn)) {
 			$row=mysql_fetch_array($result);
 			$code          = $row['code'];
