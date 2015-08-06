@@ -174,7 +174,7 @@ $startRow = ($pageNum-1) * $pageSize;
 if($parent!=-1 || $parent1!=-1) {
     if($parent1!='-1') $parenstrt="$parent1";
     else $parenstrt=getParent("tbl_shop_category",$parent);
-    $where="1=1   and (id='{$tukhoa}' or name LIKE '%$tukhoa%' or '{$tukhoa}'=-1) and  (parent in ({$parenstrt}) or id=$parent)";
+    $where="1=1   and (id='{$tukhoa}' or name LIKE '%$tukhoa%' or '{$tukhoa}'=-1) and  (parent in ({$parenstrt}) or id=$parent1 or id=$parent)";
 }
 else $where="1=1   and (id='{$tukhoa}' or name LIKE '%$tukhoa%' or '{$tukhoa}'=-1)";
 
@@ -187,8 +187,6 @@ if ($_REQUEST['cat']!='') $where="parent=".$_REQUEST['cat']; ?>
 <form method="POST" action="#" name="frmForm" enctype="multipart/form-data">
     <input type="hidden" name="page" value="<?=$page?>">
     <input type="hidden" name="act" value="advertisement_category">
-    <?
-    // $pageindex = createPage(countRecord("tbl_shop_category",$where),"./?act=shop_category&cat=".$_REQUEST['cat']."&page=",$MAXPAGE,$page)?>
 
     <? if ($_REQUEST['code']==1) $errMsg = 'Cập nhật thành công.'?>
 

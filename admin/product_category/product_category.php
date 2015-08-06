@@ -172,13 +172,13 @@ $(document).ready(function() {
 				$startRow = ($pageNum-1) * $pageSize;
 			
                 if($parent!=-1 || $parent1!=-1) {
-						if($parent1!='-1') $parenstrt="$parent1";
-						else $parenstrt=getParent("tbl_news_category",$parent);
-						$where="1=1   and (id='{$tukhoa}' or name LIKE '%$tukhoa%' or '{$tukhoa}'=-1) and  (parent in ({$parenstrt}) or id=$parent)";
-					}
-                    else $where="1=1   and (id='{$tukhoa}' or name LIKE '%$tukhoa%' or '{$tukhoa}'=-1)";
+                    if($parent1!='-1') $parenstrt="$parent1";
+                    else $parenstrt=getParent("tbl_news_category",$parent);
+                    $where="1=1   and (id='{$tukhoa}' or name LIKE '%$tukhoa%' or '{$tukhoa}'=-1) and  (parent in ({$parenstrt}) or id=$parent1 or id=$parent)";
+				}
+                else $where="1=1   and (id='{$tukhoa}' or name LIKE '%$tukhoa%' or '{$tukhoa}'=-1)";
 					
-					$where.=" AND ( status='{$anhien}' or '{$anhien}'=-1)  AND ( hot='{$noibat}' or '{$noibat}'=-1) AND cate = 0";
+				$where.=" AND ( status='{$anhien}' or '{$anhien}'=-1)  AND ( hot='{$noibat}' or '{$noibat}'=-1) AND cate = 0";
 				
                 $MAXPAGE=1;
 				$totalRows=countRecord("tbl_shop_category",$where);

@@ -111,13 +111,9 @@ $(document).ready(function() {
 <div class="row-fluid">
     <div class="span12">
         <div class="box-widget">
-             
             <div class="widget-container">
                 <div class="widget-block">
-                    
-                    
 				<?
-				
                 switch ($_GET['action']){
                     case 'del' :
                         $id = $_GET['id'];
@@ -172,14 +168,14 @@ $(document).ready(function() {
 				$startRow = ($pageNum-1) * $pageSize;
 
                 if($parent!=-1 || $parent1!=-1) {
-						if($parent1!='-1') $parenstrt="$parent1";
-						else $parenstrt=getParent("tbl_shop_category",$parent);
-                        $parenstrtAfter = optimizeString($parenstrt);
-						$where="1=1   and (id='{$tukhoa}' or name LIKE '%$tukhoa%' or '{$tukhoa}'=-1) and  (parent in ({$parenstrtAfter}) or id=$parent)";
-					}
-                    else $where="1=1   and (id='{$tukhoa}' or name LIKE '%$tukhoa%' or '{$tukhoa}'=-1)";
+                    if($parent1!='-1') $parenstrt="$parent1";
+                    else $parenstrt=getParent("tbl_shop_category",$parent);
+                    $parenstrtAfter = optimizeString($parenstrt);
+                    $where="1=1   and (id='{$tukhoa}' or name LIKE '%$tukhoa%' or '{$tukhoa}'=-1) and  (parent in ({$parenstrtAfter}) or id=$parent1 or id=$parent)";
+				}
+                else $where="1=1   and (id='{$tukhoa}' or name LIKE '%$tukhoa%' or '{$tukhoa}'=-1)";
 					
-					$where.=" AND ( status='{$anhien}' or '{$anhien}'=-1)  AND ( hot='{$noibat}' or '{$noibat}'=-1)";
+				$where.=" AND ( status='{$anhien}' or '{$anhien}'=-1)  AND ( hot='{$noibat}' or '{$noibat}'=-1)";
 				
                 $MAXPAGE=1;
 				$totalRows=countRecord("tbl_shop_category",$where);
@@ -188,36 +184,27 @@ $(document).ready(function() {
                 <form method="POST" action="" name="frmForm" enctype="multipart/form-data">
                 <input type="hidden" name="page" value="<?=$page?>">
                 <input type="hidden" name="act" value="shop_category">
-                <?
-               // $pageindex = createPage(countRecord("tbl_shop_category",$where),"./?act=shop_category&cat=".$_REQUEST['cat']."&page=",$MAXPAGE,$page)?>
-                
+
                 <? if ($_REQUEST['code']==1) $errMsg = 'Cập nhật thành công.'?>
-                
-               
                 	 
                   <table width="100%"   class="admin_table">
                         <thead>
-                        	<tr align="center" >
-                                  <td valign="middle"  colspan="10">
-                                    <center>
-                                        <div class="table_chu_tieude">
-                                        <strong>DANH MỤC WEBSITE</strong>
-                                        </div>
-                                    </center>
-                              </td>
-                          </tr>
                                 <tr align="center" >
-                                  <td valign="middle" style="background-color:#F0F0F0; height:40px; padding-left:20px" colspan="10">  
-                                  		<? //comboCategory('ddCat',getArrayCategory('jbs_news_category'),'list_tim_loc',$parent,1)?>
-                                        
+                                      <td valign="middle" style="text-align: center;" colspan="10">
+                                            <div class="table_chu_tieude">
+                                            <strong>DANH MỤC WEBSITE</strong>
+                                            </div>
+                                      </td>
+                                </tr>
+                                <tr align="center" >
+                                  <td valign="middle" style="background-color:#F0F0F0; height:40px; padding-left:20px" colspan="10">
                                         <select name="ddCat" id="ddCat" class="list_tim_loc table_list">
-											<?php if($_POST['ddCat']!=NULL){ ?>
-                                            <option value="<?php echo $idtheloaic=$_POST['ddCat'] ; ?>"><?php echo get_field('tbl_shop_category','id',$parent,'name'); ?> </option> 
+                                            <?php if($_POST['ddCat']!=NULL){ ?>
+                                            <option value="<?php echo $idtheloaic=$_POST['ddCat'] ; ?>"><?php echo get_field('tbl_shop_category','id',$parent,'name'); ?> </option>
                                             <?php }?>
-                                            
-                                            <option value="-1" <?php if($parent==-1) echo 'selected="selected"';?> > Chọn danh mục </option> 
-                                            <?php   
-											$gt=get_records("tbl_shop_category","parent=2 and status=0","name COLLATE utf8_unicode_ci"," "," ");
+                                            <option value="-1" <?php if($parent==-1) echo 'selected="selected"';?> > Chọn danh mục </option>
+                                            <?php
+                                            $gt=get_records("tbl_shop_category","parent=2 and status=0","name COLLATE utf8_unicode_ci"," "," ");
                                             while($row=mysql_fetch_assoc($gt)){?>
                                             <option value="<?php echo $row['id']; ?>"><?php echo $row['name']; ?></option>
                                             <?php } ?>
@@ -231,8 +218,6 @@ $(document).ready(function() {
                                         <input class="table_khungnho"  name="tukhoa" id="tukhoa" type="text" value="Từ khóa..." onfocus="if(this.value=='Từ khóa...') this.value='';" onblur="if(this.value=='') this.value='Từ khóa...';" />
                                         <input name="tim" type="submit" class="nut_table" id="tim" value="Tìm kiếm"/>
                                         <input type="submit" name="reset" id="reset" class="nut_table" value="Reset" title=" Reset " />
-                                 
-                                  
                                   </td>
                                 </tr>
                                 <tr >
@@ -277,9 +262,7 @@ $(document).ready(function() {
                                 <td width="3%" align="center">
                                     <input name="chkall" id="chkall" type="checkbox"   onClick="chkallClick(this);"/>
                                 </td>
-                                <td width="4%" align="center">
-                                    STT
-                                </td>
+                                <td width="4%" align="center">STT</td>
                                 <td width="22%" align="center">Hình</td>
                                 <td width="13%" align="center"><span class="title"><a class="title" href="<?=getLinkSortAdmin(3)?>">Tên danh mục</a></span></td>
                                 <td width="12%" align="center"><a class="title" href="<?=getLinkSortAdmin(4)?>">Thuộc danh mục</a></td>
@@ -287,9 +270,7 @@ $(document).ready(function() {
                                 <td width="7%" align="center"><a class="title" href="<?=getLinkSortAdmin(15)?>">Tiêu biểu</a></td>
                                 <td width="11%" align="center"><span class="title"><a class="title" href="<?=getLinkSortAdmin(11)?>">Không hiển thị</a></span></td>
                                 <td width="10%" align="center"><a class="title" href="<?=getLinkSortAdmin(12)?>">Ngày tạo lập</a></td>
-                                <td width="7%" align="center">
-                                    Công cụ
-                                </td>
+                                <td width="7%" align="center">Công cụ</td>
                             </tr>
                         </thead>
                         <tbody>
@@ -335,8 +316,7 @@ $(document).ready(function() {
                                     <a  title="Xóa" href="admin.php?act=shop_category&action=del&page=<?=$_REQUEST['page']?>&id=<?=$row['id']?>" onclick="return confirm('Bạn có muốn xoá luôn không ?');" ><img src="images/icon4.png" width="20" border="0" /></a>
                                 </td>
                             </tr>
-                         <?php }?>  
-                           
+                         <?php }?>
                         </tbody>
                         <tr>
                           <td  class="PageNext" colspan="10" align="center" valign="middle">
@@ -345,7 +325,6 @@ $(document).ready(function() {
                           </div>
                           </td>  							  
                         </tr>
-                        
                     </table>
                 </form>
                 </div>
