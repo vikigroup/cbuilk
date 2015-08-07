@@ -3,29 +3,33 @@
         <h4>Chỉnh sửa hệ thống</h4>
         <form class="pure-form pure-form-aligned" id="popSystemForm">
             <fieldset>
+                <div class="pure-control-group" id="popSystemContent">
+                    <?php include("system_edit.php"); ?>
+                </div>
+                <input type="hidden" id="popSystemID">
                 <div class="pure-control-group">
-                    <label for="popSystemName" class="button-secondary">Tên liên kết</label>
-                    <input id="popSystemName" type="text" value="<?php echo $row_sanpham['brand_name']; ?>" required>
+                    <label for="popSystemName" class="button-secondary">Tên thay thế</label>
+                    <input id="popSystemName" type="text" required>
                 </div>
                 <div class="pure-control-group">
                     <label for="popSystemLink" class="button-secondary">Đường dẫn</label>
-                    <input id="popSystemLink" type="text" value="<?php echo $row_sanpham['brand_link']; ?>" required onchange="addhttp(this.id, this.value);">
+                    <input id="popSystemLink" type="text" required onchange="addhttp(this.id, this.value);">
                 </div>
                 <div class="pure-control-group">
                     <label for="popSystemBG" class="button-secondary">Màu nền</label>
-                    <input type="text" id="popSystemBG" value="<?php if($brand_background != ''){echo $brand_background;}else{echo "#000000";} ?>" onchange="$('#popSystemColorBG').val($('#popSystemBG').val());"/>
-                    <input type="color" id="popSystemColorBG" value="<?php if($brand_background != ''){echo $brand_background;}else{echo "#000000";} ?>" onchange="$('#popSystemBG').val(this.value);">
+                    <input type="text" id="popSystemBG" onchange="$('#popSystemColorBG').val($('#popSystemBG').val());"/>
+                    <input type="color" id="popSystemColorBG" onchange="$('#popSystemBG').val(this.value);">
                 </div>
                 <div class="pure-control-group">
                     <label for="popSystemFC" class="button-secondary">Màu chữ</label>
-                    <input type="text" id="popSystemFC" value="<?php if($brand_color != ''){echo $brand_color;}else{echo "#ffffff";} ?>" onchange="$('#popSystemColorFC').val($('#popSystemFC').val());"/>
-                    <input type="color" id="popSystemColorFC" value="<?php if($brand_color != ''){echo $brand_color;}else{echo "#ffffff";} ?>" onchange="$('#popSystemFC').val(this.value);">
+                    <input type="text" id="popSystemFC" onchange="$('#popSystemColorFC').val($('#popSystemFC').val());"/>
+                    <input type="color" id="popSystemColorFC" onchange="$('#popSystemFC').val(this.value);">
                 </div>
                 <div class="pure-control-group">
                     <label for="popSystemDisplay" class="button-secondary btn-float-left">Hiển thị</label>
                     <div class="container">
                         <label class="switch switch-green">
-                            <input type="checkbox" class="switch-input" checked>
+                            <input id="popSystemDisplay" type="checkbox" class="switch-input">
                             <span class="switch-label" data-on="On" data-off="Off"></span>
                             <span class="switch-handle"></span>
                         </label>
@@ -35,6 +39,7 @@
             <button type="submit" class="button-success pure-button" id="popSystemSubmit">Hoàn tất</button>
             <button class="basic_close button-error pure-button" id="popSystemClose">Đóng</button>
         </form>
+
     </div>
 <?php } ?>
 

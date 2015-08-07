@@ -1,9 +1,7 @@
 <?php 
 $tensanpham=$_GET['tenthongtin'];
-$row_sanpham   = getRecord('jbs_tin', "subject='".$tensanpham."'");
- 
+$row_sanpham   = getRecord('viki_tin', "subject='".$tensanpham."'");
 if($row_sanpham['id']=="")  header("Location: ".$linkrootshop."/404-page-not-found.html");
-
 ?>
  
 <section class="breacrum">
@@ -15,31 +13,19 @@ if($row_sanpham['id']=="")  header("Location: ".$linkrootshop."/404-page-not-fou
 </section><!-- End .breacrum -->
 
 <section class="f-cont">
-    
     <div class="l-fcont">
-        
         <h1 class="t-lfcont"  >
             <?php echo  $row_sanpham['name'];?>   
         </h1><!-- End .t-lfcont -->
-  
-        
         <div class="f-ndct">
-        
-           <?php echo $row_sanpham['detail'];?> 
-        
+           <?php echo $row_sanpham['detail'];?>
             <div class="clear"></div>
         </div><!-- End .f-ndct -->
- 
-        
     </div><!-- End .l-fcont -->
     
     <div class="r-fcont">
- 
-        
         <div class="block_prod_details">
-        
             <div class="f_prod_other">
-                
                 <h1 class="title_prod_other">
                      <?php if($row_sanpham['cate']==0) echo "Sản phẩm";else echo "Dịch vụ"?> của chúng tôi
                 </h1><!-- End .title_prod_other -->
@@ -78,18 +64,13 @@ if($row_sanpham['id']=="")  header("Location: ".$linkrootshop."/404-page-not-fou
                             </span>
                             <div class="clear"></div>
                         </li>
-                      <?php }?>   
-                        
+                      <?php }?>
                     </ul>
                 </div><!-- End .main_prod_other -->
- 
             </div><!-- End .f_prod_other -->
-        
         </div><!-- End .block_prod_details -->
-         
     </div><!-- End .r-fcont -->
-    
-    <div class="clear"></div>                
+    <div class="clear"></div>
 </section><!-- End .f-cont -->
 
   

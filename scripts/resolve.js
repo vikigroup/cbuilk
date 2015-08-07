@@ -1,5 +1,5 @@
 $(function(){
-    $("body").on("contextmenu", "img", function(e) {
+    $(".m-slider").on("contextmenu", "img", function(e) {
         return false;
     });
 });
@@ -198,7 +198,7 @@ $("#popBrandSubmit").click(function(){
             data: dataString,
             success: function(x){
                 if(x == 1){
-                    alert("Cập nhật thành công!");
+                    alert("Chúc mừng! Bạn đã cập nhật thành công :-)");
                     $('#aBrand').attr("href", popBrandLink);
                     $('#aBrand').attr("title", popBrandName);
                     $('#aBrand').html(popBrandName);
@@ -565,6 +565,72 @@ $(document).ready(function () {
         transition: 'all 0.3s'
     });
     $('#basic').popup();
+});
+
+$("#aSystemEdit").click(function(){
+    setValueSystem();
+    $("#popSystemBG").change();
+    $("#popSystemFC").change();
+});
+
+function setValueSystem(){
+    var id = $("#popSystemSelect").val() - 1;
+    var name = JSON.parse($("#hiddenSystemName").val());
+    var link = JSON.parse($("#hiddenSystemLink").val());
+    var backGround = JSON.parse($("#hiddenSystemBackground").val());
+    var color = JSON.parse($("#hiddenSystemColor").val());
+    var display = JSON.parse($("#hiddenSystemDisplay").val());
+
+    $("#popSystemID").val($("#popSystemSelect").val());
+    $("#popSystemName").val(name[id]);
+    $("#popSystemLink").val(link[id]);
+    $("#popSystemBG").val(backGround[id]);
+    $("#popSystemFC").val(color[id]);
+    if(display[id] == 1){
+        $("#popSystemDisplay").prop("checked", true);
+    }
+    else{
+        $("#popSystemDisplay").prop("checked", false);
+    }
+}
+
+$(function(){
+    $("#popSystemForm").on('submit',function(e) {
+        e.preventDefault();
+    });
+
+    $("#popSystemSubmit").click(function(){
+        var id = $("#popSystemID").val();
+        var name = $("#popSystemName").val();
+        var link = $("#popSystemLink").val();
+        var backGround = $("#popSystemBG").val();
+        var color = $("#popSystemFC").val();
+        var display = 1;
+        if(!$("#popSystemDisplay").is(":checked")){
+            display = 0;
+        }
+        var dataString = "id="+id+"&name="+name+"&link="+link+"&backGround="+backGround+"&color="+color+"&display="+display+"&functionName="+"updateSystemEdit";
+        $.ajax({
+            type: "POST",
+            url: "lib/functions.php",
+            data: dataString,
+            success: function(x){
+                if(x == 1){
+                    alert("Chúc mừng! Bạn đã cập nhật thành công :-)");
+                    $.ajax({
+                        url: "module/system_edit.php",
+                        success: function(y){
+                            $("#popSystemContent").html(y);
+                            $('#popSystemClose').click();
+                        }
+                    });
+                }
+                else{
+                    alert("Đã xảy ra lỗi! \nXin vui lòng tải lại trang và thử lại.");
+                }
+            }
+        });
+    });
 });
 
 function addhttp(id, url) {

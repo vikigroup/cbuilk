@@ -55,6 +55,10 @@ if($functionName == "loadMoreMainSubCategory"){
     loadMoreMainSubCategory();
 }
 
+if($functionName == "updateSystemEdit"){
+    updateSystemEdit();
+}
+
 function connect(){
     // Create connection
     $conn = new mysqli($GLOBALS['hostname'], $GLOBALS['username'], $GLOBALS['password'], $GLOBALS['databasename']);
@@ -67,6 +71,18 @@ function connect(){
     else{
         return $conn;
     }
+}
+
+function updateSystemEdit(){
+    $id = filter_input(INPUT_POST, 'id');
+    $name = filter_input(INPUT_POST, 'name');
+    $link = filter_input(INPUT_POST, 'link');
+    $backGround = filter_input(INPUT_POST, 'backGround');
+    $color = filter_input(INPUT_POST, 'color');
+    $display = filter_input(INPUT_POST, 'display');
+    $check = update("tbl_system", "module_name = '".$name."', module_link = '".$link."', module_background = '".$backGround."'
+    , module_color = '".$color."', module_display = '".$display."'", "id = '".$id."'");
+    echo $check;
 }
 
 function loadMoreMainSubCategory(){

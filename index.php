@@ -150,7 +150,7 @@ $myProduct = getRecord('tbl_item', "subject='".$_GET['tensanpham']."'");
 <div class="mini-bar">
     <?php if($_SESSION['kt_login_level'] == 3){ ?>
     <div class="mini-shopping">
-        <a href="#basic" class="initialism basic_open pure-button-primary pure-button" title="Chỉnh sửa hệ thống">
+        <a id="aSystemEdit" href="#basic" class="initialism basic_open pure-button-primary pure-button" title="Chỉnh sửa hệ thống">
             <p><i class="fa fa-pencil"></i></p>
         </a>
     </div>

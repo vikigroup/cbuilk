@@ -122,7 +122,7 @@ BEGIN CONTAINER
 
 .tool-ct {height: 34px; line-height: 34px; font-size: 11px; z-index: 9;}
 .l-tool-ct {float: left;}
-.l-tool-ct ul.ul-ltct > li {float: left; text-transform: capitalize !important;}
+.l-tool-ct ul.ul-ltct > li {float: left;}
 span.hotline {background-color: #FB8833; color: white; padding: 10px;}
 .hotline a{color: white !important;}
 .l-tool-ct ul.ul-ltct > li span.support {background: url(../imgs/layout/support.png) no-repeat left; padding-left: 22px; display: block;}
@@ -2333,6 +2333,14 @@ textarea:hover, textarea:focus{
 
 .switch-green > .switch-input:checked ~ .switch-label {
     background: #4fb845;
+}
+
+#popSystemSelect{
+    height: 35px;
+}
+
+#popSystemName, #popSystemLink{
+    width: 61%;
 }
 
 /************************************************************************************
