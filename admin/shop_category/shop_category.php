@@ -303,34 +303,24 @@ $(document).ready(function() {
                                         <td align="center">
                                             <input type="checkbox" name="chk[]" value="<?=$row['id']?>"  class="tai_c" />
                                         </td>
-                                        <td align="center">
-                                            <?=$row['id']?>
-                                        </td>
+                                        <td align="center"><?=$row['id']?></td>
                                         <td align="center"><?php if($row['image']==true){ ?>
                                           <a onclick="positionedPopup (this.href,'myWindow','500','400','100','400','yes');return false" href="<?=$row['image']?>" title="Click vào xem ảnh"> <img src="../web/<?=$row['image']?>" width="40" height="40" border="0" class="hinh" /></a>
                                           <?php }else{?>
                                           <img src="../<?php echo $noimgs; ?>" width="40" height="40" border="0" class="hinh" />
                                           <?php }?></td>
-                                        <td align="center">
-                                            <?=$row['name']?>
-                                        </td>
-                                        <td align="center">
-                                            <?=$parent['name']?>
-                                        </td>
-                                        <td align="center">
-                                            <?=$row['sort']?>
-                                        </td>
+                                        <td align="center"><?=$row['name']?></td>
+                                        <td align="center"><?=$parent['name']?></td>
+                                        <td align="center"><?=$row['sort']?></td>
                                         <td align="center"><span class="smallfont"><img src="images/noibat_<?=$row['hot']?>.png" alt="" width="25" height="25" class="hot" title="Tiêu biểu" value="<?=$row['id']?>" /></span></td>
-                                        <td align="center"><span class="smallfont"><img src="images/anhien_<?=$row['status']?>.png" width="25" height="25" class="anhien" title="<?php if($row['status'] == 1){echo 'Nhấn vào để hiện';}else{{echo 'Nhấn vào để ẩn';} } ?>" value="<?=$row['id']?>" /></span></td>
-                                        <td align="center">
-                                            <?=$row['dateAdd']?>
-                                        </td>
+                                        <td align="center"><span class="smallfont"><img src="images/anhien_<?=$row['status']?>.png" width="25" height="25" class="anhien" title="<?php if($row['status'] == 1){echo 'Nhấn vào để hiện';}else{{echo 'Nhấn vào để ẩn';}} ?>" value="<?=$row['id']?>" /></span></td>
+                                        <td align="center"><?=$row['dateAdd']?></td>
                                         <td align="center">
                                             <a href="admin.php?act=shop_category_m&cat=<?=$_REQUEST['cat']?>&page=<?=$_REQUEST['page']?>&id=<?=$row['id']?>"><img src="images/icon3.png"/></a>
                                             <a  title="Xóa" href="admin.php?act=shop_category&action=del&page=<?=$_REQUEST['page']?>&id=<?=$row['id']?>" onclick="return confirm('Bạn có muốn xoá không ?');" ><img src="images/icon4.png" width="20" border="0" /></a>
                                         </td>
                                     </tr>
-                                 <?php }?>
+                                <?php }?>
                             </tbody>
                             <tr>
                                 <td  class="PageNext" colspan="10" align="center" valign="middle">

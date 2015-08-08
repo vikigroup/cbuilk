@@ -66,8 +66,8 @@ $(document).ready(function() {
             cache: false,
             success: function(data){
                 obj.src=data;
-                if (data=="images/anhien_1.png") obj.title="Nhắp vào để ẩn";
-                else obj.title="Nhắp vào để hiện";
+                if (data=="images/anhien_1.png") obj.title="Nhắp vào để hiện";
+                else obj.title="Nhắp vào để ẩn";
             }
         });
     });
@@ -155,12 +155,12 @@ $(document).ready(function() {
                     if ($_REQUEST['cat']!='') $where="parent=".$_REQUEST['cat']; ?>
 
                     <form method="POST" action="#" name="frmForm" enctype="multipart/form-data">
-                    <input type="hidden" name="page" value="<?=$page?>">
-                    <input type="hidden" name="act" value="viki_infomation">
-                    <? if ($_REQUEST['code']==1) $errMsg = 'Cập nhật thành công.'?>
-                      <table width="100%"  class="admin_table">
+                        <input type="hidden" name="page" value="<?=$page?>">
+                        <input type="hidden" name="act" value="viki_infomation">
+                        <? if ($_REQUEST['code']==1) $errMsg = 'Cập nhật thành công.'?>
+                        <table width="100%"  class="admin_table">
                             <thead>
-                            	 <tr align="center" >
+                                 <tr align="center" >
                                   <td valign="middle"  colspan="10" style="text-align: center;">
                                         <div class="table_chu_tieude">
                                         <strong>THÔNG TIN</strong>
@@ -168,51 +168,50 @@ $(document).ready(function() {
                                    </td>
                                 </tr>
                                 <tr align="center" >
-                                  <td valign="middle" style="background-color:#F0F0F0; height:40px; padding-left:20px" colspan="10">
+                                    <td valign="middle" style="background-color:#F0F0F0; height:40px; padding-left:20px" colspan="10">
                                         <input class="table_khungnho"  name="tukhoa" id="tukhoa" type="text" value="Từ khóa..." placeholder="Từ khóa" onfocus="if(this.value=='Từ khóa...') this.value='';" onblur="if(this.value=='') this.value='Từ khóa...';"/>
                                         <input name="tim" type="submit" class="nut_table" id="tim" value="Tìm kiếm"/>
                                         <input type="submit" name="reset" class="nut_table" value="Reset" title=" Reset " />
                                   </td>
                                 </tr>
-    							<tr>
-                                  <td valign="middle" align="left" style="background-color:#F0F0F0; height:40px; padding-left:20px" colspan="10">
+                                <tr>
+                                    <td valign="middle" align="left" style="background-color:#F0F0F0; height:40px; padding-left:20px" colspan="10">
                                         <div class="link_loc" style="width:80px;text-align:center; padding:3px; border:solid 1px #999; float:left; margin-right:5px;<?php if($noibat==0  &&  $anhien==0) echo 'background-color:#FF0; color:#000;';else echo 'background-color:#FFF; color:#FFF;"';?>">
-                                       	  <a href="admin.php?act=viki_infomation&tang=1&anhien=-1&noibat=-1">Tất cả</a>
+                                          <a href="admin.php?act=viki_infomation&tang=1&anhien=-1&noibat=-1">Tất cả</a>
                                         </div>
                                         <div class="link_loc" style="width:80px; text-align:center; padding:3px; border:solid 1px #999; float:left; margin-right:5px;<?php if($tang==1) echo 'background-color:#FF0; color:#000;';else echo 'background-color:#FFF; color:#FFF;"';?>" >
-                                       	  <a href="admin.php?act=viki_infomation&tang=1&anhien=<?php echo $_SESSION['kt_anhien'] ?>&noibat=<?php echo $_SESSION['kt_noibat']?>">Tăng dần</a>
+                                          <a href="admin.php?act=viki_infomation&tang=1&anhien=<?php echo $_SESSION['kt_anhien'] ?>&noibat=<?php echo $_SESSION['kt_noibat']?>">Tăng dần</a>
                                         </div>
                                         <div class="link_loc" style="width:80px;text-align:center; padding:3px; border:solid 1px #999; float:left; margin-right:5px;<?php if($tang==0) echo 'background-color:#FF0; color:#000;';else echo 'background-color:#FFF; color:#FFF;"';?>">
-                                       	  <a href="admin.php?act=viki_infomation&tang=0&anhien=<?php echo $_SESSION['kt_anhien'] ?>&noibat=<?php echo $_SESSION['kt_noibat']?>">Giảm dần</a>
+                                          <a href="admin.php?act=viki_infomation&tang=0&anhien=<?php echo $_SESSION['kt_anhien'] ?>&noibat=<?php echo $_SESSION['kt_noibat']?>">Giảm dần</a>
                                         </div>
                                         <div class="link_loc" style="width:80px;text-align:center; padding:3px; border:solid 1px #999; float:left; margin-right:5px;<?php if($anhien==1) echo 'background-color:#FF0; color:#000;';else echo 'background-color:#FFF; color:#FFF;"';?>">
-                                       	  <a href="admin.php?act=viki_infomation&tang=<?php echo $_SESSION['kt_tang'] ?>&anhien=1&noibat=<?php echo $_SESSION['kt_noibat'] ?>"> Ẩn </a>
+                                          <a href="admin.php?act=viki_infomation&tang=<?php echo $_SESSION['kt_tang'] ?>&anhien=1&noibat=<?php echo $_SESSION['kt_noibat'] ?>"> Ẩn </a>
                                         </div>
                                          <div class="link_loc" style="width:80px;text-align:center; padding:3px; border:solid 1px #999; float:left; margin-right:5px;<?php if($anhien==0) echo 'background-color:#FF0; color:#000;';else echo 'background-color:#FFF; color:#FFF;"';?>">
-                                       	   <a href="admin.php?act=viki_infomation&tang=<?php echo $_SESSION['kt_tang'] ?>&anhien=0&&noibat=<?php echo $_SESSION['kt_noibat'] ?>">Hiện</a>
+                                           <a href="admin.php?act=viki_infomation&tang=<?php echo $_SESSION['kt_tang'] ?>&anhien=0&&noibat=<?php echo $_SESSION['kt_noibat'] ?>">Hiện</a>
                                         </div>
                                         <div class="link_loc" style="width:80px;text-align:center; padding:3px; border:solid 1px #999; float:left; margin-right:5px;<?php if($noibat==1) echo 'background-color:#FF0; color:#000;';else echo 'background-color:#FFF; color:#FFF;"';?>">
-                                       	  <a href="admin.php?act=viki_infomation&tang=<?php echo $_SESSION['kt_tang'] ?>&anhien=<?php echo $_SESSION['kt_anhien'] ?>&noibat=1">Nổi bật</a>
+                                          <a href="admin.php?act=viki_infomation&tang=<?php echo $_SESSION['kt_tang'] ?>&anhien=<?php echo $_SESSION['kt_anhien'] ?>&noibat=1">Nổi bật</a>
                                         </div>
                                          <div class="link_loc" style="width:80px;text-align:center; padding:3px; border:solid 1px #999; float:left; margin-right:5px;<?php if($noibat==0) echo 'background-color:#FF0; color:#000;';else echo 'background-color:#FFF; color:#FFF;"';?>">
-                                       	   <a href="admin.php?act=viki_infomation&tang=<?php echo $_SESSION['kt_tang'] ?>&anhien=<?php echo $_SESSION['kt_anhien'] ?>&noibat=0">ko nổi bật</a>
+                                           <a href="admin.php?act=viki_infomation&tang=<?php echo $_SESSION['kt_tang'] ?>&anhien=<?php echo $_SESSION['kt_anhien'] ?>&noibat=0">ko nổi bật</a>
                                         </div>
                                   </td>
                                 </tr>
                                 <tr>
-                                  <td align="center" colspan="2">
+                                    <td align="center" colspan="2">
                                   <input type="submit" value="Xóa chọn" name="btnDel" onClick="return confirm('Bạn có chắc chắn muốn xóa ?');" class="button">
                                   </td>
-                                  <td align="center" class="PageNum" colspan="6">
-                                    	<?php echo pagesListLimit($totalRows,$pageSize);?>
+                                    <td align="center" class="PageNum" colspan="6">
+                                        <?php echo pagesListLimit($totalRows,$pageSize);?>
                                   </td>
-
-                                 <td width="80" align="center" colspan="1">
+                                    <td width="80" align="center" colspan="1">
                                   <div><a href="admin.php?act=viki_infomation_m">
                                   <img width="48" height="48" border="0" src="images/them.png">
                                   </a></div></td>
                                 </tr>
-                              <tr class="admin_tieude_table">
+                                <tr class="admin_tieude_table">
                                     <td align="center">
                                         <input type="checkbox" name="chkall" id="chkall" onClick="chkallClick(this);"/>
                                     </td>
@@ -221,60 +220,58 @@ $(document).ready(function() {
                                     <td align="center"><a class="title" href="<?=getLinkSortAdmin(3)?>">Tên </a></td>
                                     <td align="center"><a class="title" href="<?=getLinkSortAdmin(10)?>">Thứ tự sắp xếp</a></td>
                                     <td align="center"><a class="title" href="<?=getLinkSortAdmin(15)?>">Tiêu biểu</a></td>
-                                    <td align="center"><span class="title"><a class="title" href="<?=getLinkSortAdmin(11)?>">Không hiển thị</a></span></td>
+                                    <td align="center"><span class="title"><a class="title" href="<?=getLinkSortAdmin(11)?>">Hiện/Ẩn</a></span></td>
                                     <td align="center"><a class="title" href="<?=getLinkSortAdmin(12)?>">Ngày tạo lập</a></td>
                                     <td align="center">Công cụ</td>
                                 </tr>
                             </thead>
                             <tbody>
+                                <?
+                                $sortby="order by sort $ks";
 
-                            <?
-                            $sortby="order by sort $ks";
+                                if ($_REQUEST['sortby']!='') $sortby="order by ".(int)$_REQUEST['sortby'];
 
-                            if ($_REQUEST['sortby']!='') $sortby="order by ".(int)$_REQUEST['sortby'];
+                                $direction=($_REQUEST['direction']==''||$_REQUEST['direction']=='0'?"desc":"");
+                                $sql="select *,DATE_FORMAT(date_added,'%d/%m/%Y %h:%i') as dateAdd,DATE_FORMAT(last_modified,'%d/%m/%Y %h:%i') as dateModify from viki_tin where  $where $sortby   limit ".($startRow).",".$pageSize;
+                                $result=mysql_query($sql,$conn);
+                                $i=0;
 
-                            $direction=($_REQUEST['direction']==''||$_REQUEST['direction']=='0'?"desc":"");
-                            $sql="select *,DATE_FORMAT(date_added,'%d/%m/%Y %h:%i') as dateAdd,DATE_FORMAT(last_modified,'%d/%m/%Y %h:%i') as dateModify from viki_tin where  $where $sortby   limit ".($startRow).",".$pageSize;
-                            $result=mysql_query($sql,$conn);
-                            $i=0;
-
-                            while($row=mysql_fetch_array($result)){
-                                $parent = getRecord('viki_tin','id = '.$row['parent']);
-                                $color = $i++%2 ? "#d5d5d5" : "#e5e5e5";
-                            ?>
-
+                                while($row=mysql_fetch_array($result)){
+                                    $parent = getRecord('viki_tin','id = '.$row['parent']);
+                                    $color = $i++%2 ? "#d5d5d5" : "#e5e5e5";
+                                ?>
                                 <tr>
                                     <td align="center">
                                         <input type="checkbox" name="chk[]" value="<?=$row['id']?>" class="tai_c"/>
                                     </td>
                                     <td align="center"><?=$row['id']?></td>
                                     <td align="center">
-                                         <?php if($row['image']==true){ ?>
-                                        <a onclick="positionedPopup (this.href,'myWindow','500','400','100','400','yes');return false" href="<?=$row['hinh1']?>" title="Click vào xem ảnh">
-                                        <img src="../web/<?=$row['image']?>" width="80" height="80" border="0" class="hinh" />
+                                        <?php if($row['image']==true){ ?>
+                                            <a onclick="positionedPopup (this.href,'myWindow','500','400','100','400','yes');return false" href="<?=$row['hinh1']?>" title="Click vào xem ảnh">
+                                            <img src="../web/<?=$row['image']?>" width="80" height="80" border="0" class="hinh" />
                                         </a>
-                                      <?php }else{?>
-                                        <img src="../<?php echo $noimgs; ?>" width="80" height="80" border="0" class="hinh" />
-                                      <?php }?>
+                                        <?php }else{?>
+                                            <img src="../<?php echo $noimgs; ?>" width="80" height="80" border="0" class="hinh" />
+                                        <?php }?>
                                     </td>
                                     <td align="center"><?=$row['name']?></td>
                                     <td align="center"><?=$row['sort']?></td>
                                     <td align="center"><span class="smallfont"><img src="images/noibat_<?=$row['hot']?>.png" alt="" width="25" height="25" class="hot" title="Tiêu biểu" value="<?=$row['id']?>" /></span></td>
-                                    <td align="center"><span class="smallfont"><img src="images/anhien_<?=$row['status']?>.png" width="25" height="25" class="anhien" title="Ẩn hiện" value="<?=$row['id']?>" /></span></td>
+                                    <td align="center"><span class="smallfont"><img src="images/anhien_<?=$row['status']?>.png" width="25" height="25" class="anhien" title="<?php if($row['status'] == 1){echo 'Nhấn vào để hiện';}else{{echo 'Nhấn vào để ẩn';}} ?>" value="<?=$row['id']?>" /></span></td>
                                     <td align="center"><?=$row['dateAdd']?></td>
                                     <td align="center">
                                         <a href="admin.php?act=viki_infomation_m&cat=<?=$_REQUEST['cat']?>&page=<?=$_REQUEST['page']?>&id=<?=$row['id']?>"><img src="images/icon3.png"/></a>
                                         <a  title="Xóa" href="admin.php?act=viki_infomation&action=del&page=<?=$_REQUEST['page']?>&id=<?=$row['id']?>" onclick="return confirm('Bạn có muốn xoá luôn không ?');" ><img src="images/icon4.png" width="20" border="0" /></a>
                                     </td>
                                 </tr>
-                             <?php }?>
-                             <tr>
-                              <td  class="PageNext" colspan="10" align="center" valign="middle">
-							  <div style="padding:5px;">
-							  <?php echo pagesLinks($totalRows,$pageSize); ?>
-                              </div>
-                              </td>
-                            </tr>
+                                <?php }?>
+                                <tr>
+                                    <td  class="PageNext" colspan="10" align="center" valign="middle">
+                                        <div style="padding:5px;">
+                                            <?php echo pagesLinks($totalRows,$pageSize); ?>
+                                        </div>
+                                    </td>
+                                </tr>
                             </tbody>
                         </table>
                     </form>

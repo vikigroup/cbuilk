@@ -32,7 +32,6 @@ if(isset($frame)==true){
             return false;
         }
 
-        //document.forms.frmForm.elements.txtSubject.value = oEdit0.getHTMLBody();
         document.frmForm.txtDetailShort.focus();
         document.forms.frmForm.elements.txtDetail.value = oEdit2.getHTMLBody();
 
@@ -42,7 +41,6 @@ if(isset($frame)==true){
 
 <? $errMsg =''?>
 <?
-
 $path = "../web/images/jbsnews";
 $pathdb = "images/jbsnews";
 if (isset($_POST['btnSave'])){
@@ -84,7 +82,7 @@ if (isset($_POST['btnSave'])){
 		
 			$arrField = array(
 			"subject"          => "'".vietdecode($name)."'"
-			);// ko them id vao cuoi cho dep
+			);
 			$result = update("viki_tin",$arrField,"id=".$oldid);
 			
 			$sqlUpdateField = "";
@@ -151,11 +149,8 @@ if (isset($_POST['btnSave'])){
 		}
 	}
 }
-
 ?>
-<?php
-	if( $errMsg !=""){ 
-?>
+<?php if( $errMsg !=""){ ?>
 <div class="alert alert-block no-radius fade in">
     <button type="button" class="close" data-dismiss="alert"><span class="mini-icon cross_c"></span></button>
     <h4>Warning!</h4>
@@ -167,213 +162,95 @@ if (isset($_POST['btnSave'])){
 <div class="row-fluid">
     <div class="span12">
         <div class="box-widget">
-             
             <div class="widget-container">
                 <div class="widget-block">
-                    
                    <form method="post" name="frmForm" enctype="multipart/form-data" action="admin.php?act=viki_infomation_m">
-
-
-
-            
-
-            <input type="hidden" name="act" value="viki_infomation_m">
-
-            <input type="hidden" name="id" value="<?=$_REQUEST['id']?>">
-
-            <input type="hidden" name="page" value="<?=$_REQUEST['page']?>">
-
-            <div> <? if($errMsg!=''){echo '<p align=center class="err">'.$errMsg.'<br></p>';}?>  </div>
-
-                <table  class="table_chinh">
-                    <tr>
-                    	<td class="table_chu_tieude_them" colspan="2" align="center" valign="middle"  >THÔNG TIN</td>
-                    </tr>
-                    <tr>
-                        <td valign="middle"  class="table_chu">&nbsp;</td>
-                        <td valign="middle">&nbsp;</td>
-                    </tr>
-
-                    <tr>
-
-                        <td valign="middle" width="30%">
-
-                            Tên  <span class="sao_bb">*</span>
-
-                        </td>
-
-                        <td valign="middle" width="70%">
-
-                            <input name="txtName" type="text" class="table_khungnho" id="txtName" value="<?=$name?>"/>
-
-                        </td>
-
-                    </tr>
-
-                    <tr>
-
-                      <td valign="middle">Nội dung</td>
-
-                      <td valign="middle">&nbsp;</td>
-
-                    </tr>
-
-                    <tr>
-
-                      <td colspan="2" valign="middle"><textarea name="txtDetail" class="txt" id="txtDetail"><?php echo $detail?></textarea>
-
-                          <script type="text/javascript">
-
-                              var editor = CKEDITOR.replace( 'txtDetail',
-
-                                  {
-
-                                      height:500,
-
-                                      width:780,
-
-                                      filebrowserImageBrowseUrl : '../lib/ckfinder/ckfinder.html?Type=Images',
-
-                                      filebrowserFlashBrowseUrl : '../lib/ckfinder/ckfinder.html?Type=Flash',
-
-                                      filebrowserImageUploadUrl : '../lib/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
-
-                                      filebrowserFlashUploadUrl : '../lib/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash',
-
-                                      fullPage : true
-
-                                  });
-
-                          </script>
-
-                      </td>
-
-                    </tr>
-
-                    <tr>
-
-                        <td valign="middle" width="30%">
-
-                           Thứ tự sắp xếp
-
-                        </td>
-
-                        <td valign="middle" width="70%">
-
-                            <input class="table_khungnho" value="<?=$sort?>" type="text" name="txtSort"  />
-
-                        </td>
-
-                    </tr>
-
-                    <tr>
-
-                        <td valign="middle" width="30%">
-
-                        Hình đại diện</td>
-
-                        <td valign="middle" width="70%">
-
-                            <input type="file" name="txtImage" class="textbox" size="34">
-
-							<input type="checkbox" name="chkClearImg" value="on"> Xóa bỏ hình ảnh	 <br>
-
-							<? if ($image!=''){ echo '<img border="0" width="80" height="80" src="../web/'.$image.'"><br><br>Hình (kích thước nhỏ)';}?>&nbsp;&nbsp;
-
-                            <?  if ($image_large!=''){ echo '<img border="0" src="../web/'.$image_large.'"><br><br>Hình (kích thước lớn)';}?>
-
-                     
-
-                            
-
-                        </td>
-
-                    </tr>
-
-                    <tr>
-
-                        <td valign="middle" width="30%">
-
-                            Tiêu đề  <span class="sao_bb">*</span>
-
-                        </td>
-
-                        <td valign="middle" width="70%">
-
-                            <input name="title" type="text" class="table_khungnho" id="title" value="<?=$title?>"/>
-
-                        </td>
-
-                    </tr>
-
-                     <tr>
-
-                        <td valign="middle" width="30%">
-
-                            Mô tả  <span class="sao_bb">*</span>
-
-                        </td>
-
-                        <td valign="middle" width="70%">
-
-                            <input name="description" type="text" class="table_khungnho" id="description" value="<?=$description?>"/>
-
-                        </td>
-
-                    </tr>
-
-                    <tr>
-
-                        <td valign="middle" width="30%">
-
-                            Từ khóa tìm kiếm  <span class="sao_bb">*</span>
-
-                        </td>
-
-                        <td valign="middle" width="70%">
-
-                            <input name="keyword" type="text" class="table_khungnho" id="keyword" value="<?=$keyword?>"/>
-
-                        </td>
-
-                    </tr>
-
-                    <tr>
-
-                        <td valign="top" width="30%">
-
-                            Không hiển thị</td>
-
-                        <td valign="middle" width="70%">
-
-                            <input type="checkbox" name="chkStatus" value="<?php if($status>0){echo $status;}else{echo 0;} ?>" <? if ($status>0) echo 'checked' ?> onchange="if($(this).is(':checked')){this.value = 1;}else{this.value = 0;}">
-
-                        </td>
-
-                    </tr>
-
-                    <tr>
-
-                        <td valign="top" width="30%">&nbsp;
-
-                            
-
-                        </td>
-
-                        <td valign="middle" width="70%">
-
-                            <input type="submit" name="btnSave" VALUE="Cập nhật" class=button onclick="return btnSave_onclick()">
-
-                            <input type="reset" class=button value="Nhập lại">	
-
-                        </td>
-
-                    </tr>
-
-                </table>
-
-                </form> 
-
+                       <input type="hidden" name="act" value="viki_infomation_m">
+                       <input type="hidden" name="id" value="<?=$_REQUEST['id']?>">
+                       <input type="hidden" name="page" value="<?=$_REQUEST['page']?>">
+                       <div> <? if($errMsg!=''){echo '<p align=center class="err">'.$errMsg.'<br></p>';}?></div>
+                       <table  class="table_chinh">
+                           <tr>
+                               <td class="table_chu_tieude_them" colspan="2" align="center" valign="middle"  >THÔNG TIN</td>
+                           </tr>
+                           <tr>
+                               <td valign="middle"  class="table_chu">&nbsp;</td>
+                               <td valign="middle">&nbsp;</td>
+                           </tr>
+                           <tr>
+                               <td valign="middle" width="30%">Tên  <span class="sao_bb">*</span></td>
+                               <td valign="middle" width="70%">
+                                   <input name="txtName" type="text" class="table_khungnho" id="txtName" value="<?=$name?>"/>
+                               </td>
+                           </tr>
+                           <tr>
+                               <td valign="middle">Nội dung</td>
+                               <td valign="middle">&nbsp;</td>
+                           </tr>
+                           <tr>
+                               <td colspan="2" valign="middle"><textarea name="txtDetail" class="txt" id="txtDetail"><?php echo $detail?></textarea>
+                                   <script type="text/javascript">
+                                       var editor = CKEDITOR.replace( 'txtDetail',
+                                           {
+                                               height:500,
+                                               width:780,
+                                               filebrowserImageBrowseUrl : '../lib/ckfinder/ckfinder.html?Type=Images',
+                                               filebrowserFlashBrowseUrl : '../lib/ckfinder/ckfinder.html?Type=Flash',
+                                               filebrowserImageUploadUrl : '../lib/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
+                                               filebrowserFlashUploadUrl : '../lib/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash',
+                                               fullPage : true
+                                           });
+                                   </script>
+                               </td>
+                           </tr>
+                           <tr>
+                               <td valign="middle" width="30%">Thứ tự sắp xếp</td>
+                               <td valign="middle" width="70%">
+                                   <input class="table_khungnho" value="<?=$sort?>" type="text" name="txtSort"/>
+                               </td>
+                           </tr>
+                           <tr>
+                               <td valign="middle" width="30%">Hình đại diện</td>
+                               <td valign="middle" width="70%">
+                                   <input type="file" name="txtImage" class="textbox" size="34">
+                                   <input type="checkbox" name="chkClearImg" value="on"> Xóa bỏ hình ảnh <br>
+                                   <? if ($image!=''){ echo '<img border="0" width="80" height="80" src="../web/'.$image.'"><br><br>Hình (kích thước nhỏ)';}?>&nbsp;&nbsp;
+                                   <?  if ($image_large!=''){ echo '<img border="0" src="../web/'.$image_large.'"><br><br>Hình (kích thước lớn)';}?>
+                               </td>
+                           </tr>
+                           <tr>
+                               <td valign="middle" width="30%">Tiêu đề  <span class="sao_bb">*</span></td>
+                               <td valign="middle" width="70%">
+                                   <input name="title" type="text" class="table_khungnho" id="title" value="<?=$title?>"/>
+                               </td>
+                           </tr>
+                           <tr>
+                               <td valign="middle" width="30%">Mô tả  <span class="sao_bb">*</span></td>
+                               <td valign="middle" width="70%">
+                                   <input name="description" type="text" class="table_khungnho" id="description" value="<?=$description?>"/>
+                               </td>
+                           </tr>
+                           <tr>
+                               <td valign="middle" width="30%">Từ khóa tìm kiếm  <span class="sao_bb">*</span></td>
+                               <td valign="middle" width="70%">
+                                   <input name="keyword" type="text" class="table_khungnho" id="keyword" value="<?=$keyword?>"/>
+                               </td>
+                           </tr>
+                           <tr>
+                               <td valign="top" width="30%">Không hiển thị</td>
+                               <td valign="middle" width="70%">
+                                   <input type="checkbox" name="chkStatus" value="<?php if($status>0){echo $status;}else{echo 0;} ?>" <? if ($status>0) echo 'checked' ?> onchange="if($(this).is(':checked')){this.value = 1;}else{this.value = 0;}">
+                               </td>
+                           </tr>
+                           <tr>
+                               <td valign="top" width="30%">&nbsp;</td>
+                               <td valign="middle" width="70%">
+                                   <input type="submit" name="btnSave" value="Cập nhật" class=button onclick="return btnSave_onclick()">
+                                   <input type="reset" class=button value="Nhập lại">
+                               </td>
+                           </tr>
+                       </table>
+                   </form>
                 </div>
             </div>
         </div>
