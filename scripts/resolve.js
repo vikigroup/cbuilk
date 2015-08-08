@@ -1,5 +1,5 @@
 $(function(){
-    $(".m-slider").on("contextmenu", "img", function(e) {
+    $(".m-slider, .dmsp, .ads-logo, .dmsp1, .divAds, .ads-floors, .dmsp4-2").on("contextmenu", "img", function(e) {
         return false;
     });
 });
@@ -592,6 +592,9 @@ function setValueSystem(){
     else{
         $("#popSystemDisplay").prop("checked", false);
     }
+
+    $("#popSystemBG").change();
+    $("#popSystemFC").change();
 }
 
 $(function(){

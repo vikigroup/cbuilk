@@ -228,4 +228,32 @@ function optimizeString($string){
     $strAfter = substr($str, 0, strlen($str) - 1);
     return $strAfter;
 }
+
+function parentString($id){
+    global $conn;
+    $myArr = array();
+    $str = "";
+    $sql = "SELECT id FROM tbl_shop_category WHERE parent = '$id'";
+    $gt = mysql_query($sql,$conn) or die (mysql_error());
+    while($result = mysql_fetch_assoc($gt)){
+        array_push($myArr, $result['id']);
+    }
+
+    foreach($myArr as $objMyArr){
+        $str .= subParentString($objMyArr);
+    }
+    $strAfter = substr($str, 0, strlen($str) - 1);
+    return $strAfter;
+}
+
+function subParentString($id){
+    global $conn;
+    $str = "";
+    $sql = "SELECT id FROM tbl_shop_category WHERE parent = '$id'";
+    $gt = mysql_query($sql,$conn) or die (mysql_error());
+    while($result = mysql_fetch_assoc($gt)){
+        $str .= $result['id'].",";
+    }
+    return $str;
+}
 ?>

@@ -90,6 +90,30 @@ if (isset($_POST['btnSave'])){
 	if ($errMsg==''){
 		if (!empty($_POST['id'])){
 			$oldid = $_POST['id'];
+            $myArr = array(209, 210, 211, 390, 458, 500);
+            if(in_array($oldid, $myArr)){
+                $link = $root."/".$subject.".html";
+                if($oldid == 210){
+                    $idSystem = 2;
+                }
+                if($oldid == 209){
+                    $idSystem = 3;
+                }
+                if($oldid == 211){
+                    $idSystem = 4;
+                }
+                if($oldid == 390){
+                    $idSystem = 5;
+                }
+                if($oldid == 500){
+                    $idSystem = 6;
+                }
+                if($oldid == 458){
+                    $idSystem = 24;
+                }
+                $query = "update tbl_system set module_name='".$name."',module_link='".$link."', module_display='".!$status."' where id='".$idSystem."'";
+                mysql_query($query,$conn);
+            }
 			$sql = "update tbl_shop_category set code='".$code."',name='".$name."', parent='".$parent1."',subject='".$subject."',detail_short='".$detail_short."',detail='".$detail."', sort='".$sort."', title='".$title."', description='".$description."', keyword='".$keyword."', status='".$status."',last_modified=now(), lang='".$lang."', cate='".$cate."' where id='".$oldid."'";
 		}else{
 			echo $sql = "insert into tbl_shop_category (code, name, parent, subject, detail_short, detail, title , description , keyword , sort, status,  date_added, last_modified, lang, cate) values ('".$code."','".$name."','".$parent1."','".$subject."','".$detail_short."','".$detail."','".$title."','".$description."','".$keyword."','".$sort."','".$status."',now(),now(),'".$lang."','".$cate."')";

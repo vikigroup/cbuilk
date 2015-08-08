@@ -63,7 +63,7 @@
         <div class="clear"></div>
         <?php $k++; } ?>
     </div><!-- End .f-list -->
-    <div class="r-list"><a href="<?php echo $linkrootshop?>/thong-tin/<?=get_field('jbs_tin','id',7,'subject');?>.html"><img src="<?php echo $linkrootshop?>/imgs/chinhsachbanhang.png"></a></div>
+    <div class="r-list"><a href="<?php echo $linkrootshop?>/thong-tin/<?=get_field('viki_tin','id',7,'subject');?>.html"><img src="<?php echo $linkrootshop?>/imgs/chinhsachbanhang.png"></a></div>
     <div class="clear"></div>
 </section>
 <div class="r-cate">
