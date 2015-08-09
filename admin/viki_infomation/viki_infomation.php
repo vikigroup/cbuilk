@@ -53,6 +53,45 @@ settype($noibat,"int");
 if($tang==0){$ks='ASC';}//0 tang
 elseif($tang==1){$ks='DESC';}//1 giam
 else $ks='DESC';
+
+switch ($_GET['action']){
+    case 'del' :
+        $id = $_GET['id'];
+
+        mysql_query("delete from tbl_system where id='".($id+12)."'",$conn);
+
+        $r = getRecord("viki_tin","id=".$id);
+        $result = mysql_query("delete from viki_tin where id='".$id."'",$conn);
+        if ($result){
+            if(file_exists('../web/'.$r['image'])) @unlink('../web/'.$r['image']);
+            if(file_exists('../web/'.$r['image_large'])) @unlink('../web/'.$r['image_large']);
+            $errMsg = "Đã xóa thành công.";
+        }else $errMsg = "Không thể xóa dữ liệu !";
+        break;
+}
+
+if (isset($_POST['btnDel'])){
+    $cntDel=0;
+    $cntNotDel=0;
+    $cntParentExist=0;
+    if($_POST['chk']!=''){
+        foreach ($_POST['chk'] as $id){
+            $r = getRecord("viki_tin","id=".$id);
+            @$result = mysql_query("delete from viki_tin where id='".$id."'",$conn);
+            if ($result){
+                if(file_exists('../web/'.$r['image'])) @unlink('../web/'.$r['image']);
+                if(file_exists('../web/'.$r['image_large'])) @unlink('../web/'.$r['image_large']);
+                $cntDel++;
+            }else $cntNotDel++;
+        }
+
+        $errMsg = "Đã xóa ".$cntDel." phần tử.<br><br>";
+        $errMsg .= $cntNotDel>0 ? "Không thể xóa ".$cntNotDel." phần tử.<br>" : '';
+        $errMsg .= $cntParentExist>0 ? "Đang có danh mục con sử dụng ".$cntParentExist." phần tử." : '';
+    }else{
+        $errMsg = "Hãy chọn trước khi xóa !";
+    }
+}
 ?>
 
 <script>
@@ -86,6 +125,11 @@ $(document).ready(function() {
             }
         });
     });
+
+    $("#chkall").click(function(){
+        var status=this.checked;
+        $("input[class='tai_c']").each(function(){this.checked=status;})
+    });
 });
 </script>
 
@@ -93,7 +137,7 @@ $(document).ready(function() {
 <div class="alert alert-block no-radius fade in">
     <button type="button" class="close" data-dismiss="alert"><span class="mini-icon cross_c"></span></button>
     <h4>Warning!</h4>
-     <? $errMsg =''?>
+     <?php echo $errMsg; ?>
 </div>
 <?php }?>
 <div class="row-fluid">
@@ -102,42 +146,6 @@ $(document).ready(function() {
             <div class="widget-container">
                 <div class="widget-block">
 					<?
-                    switch ($_GET['action']){
-                        case 'del' :
-                            $id = $_GET['id'];
-                            $r = getRecord("viki_tin","id=".$id);
-                            @$result = mysql_query("delete from viki_tin where id='".$id."'",$conn);
-                            if ($result){
-                                if(file_exists('../web/'.$r['image'])) @unlink('../web/'.$r['image']);
-                                if(file_exists('../web/'.$r['image_large'])) @unlink('../web/'.$r['image_large']);
-                                $errMsg = "Đã xóa thành công.";
-                            }else $errMsg = "Không thể xóa dữ liệu !";
-                            break;
-                    }
-
-                    if (isset($_POST['btnDel'])){
-                        $cntDel=0;
-                        $cntNotDel=0;
-                        $cntParentExist=0;
-                        if($_POST['chk']!=''){
-                            foreach ($_POST['chk'] as $id){
-                                $r = getRecord("viki_tin","id=".$id);
-                                @$result = mysql_query("delete from viki_tin where id='".$id."'",$conn);
-                                if ($result){
-                                    if(file_exists('../web/'.$r['image'])) @unlink('../web/'.$r['image']);
-                                    if(file_exists('../web/'.$r['image_large'])) @unlink('../web/'.$r['image_large']);
-                                    $cntDel++;
-                                }else $cntNotDel++;
-                            }
-
-                            $errMsg = "Đã xóa ".$cntDel." phần tử.<br><br>";
-                            $errMsg .= $cntNotDel>0 ? "Không thể xóa ".$cntNotDel." phần tử.<br>" : '';
-                            $errMsg .= $cntParentExist>0 ? "Đang có danh mục con sử dụng ".$cntParentExist." phần tử." : '';
-                        }else{
-                            $errMsg = "Hãy chọn trước khi xóa !";
-                        }
-                    }
-
                     $pageSize = 50;
                     $pageNum = 1;
                     $totalRows = 0;
@@ -261,12 +269,12 @@ $(document).ready(function() {
                                     <td align="center"><?=$row['dateAdd']?></td>
                                     <td align="center">
                                         <a href="admin.php?act=viki_infomation_m&cat=<?=$_REQUEST['cat']?>&page=<?=$_REQUEST['page']?>&id=<?=$row['id']?>"><img src="images/icon3.png"/></a>
-                                        <a  title="Xóa" href="admin.php?act=viki_infomation&action=del&page=<?=$_REQUEST['page']?>&id=<?=$row['id']?>" onclick="return confirm('Bạn có muốn xoá luôn không ?');" ><img src="images/icon4.png" width="20" border="0" /></a>
+                                        <a title="Xóa" href="admin.php?act=viki_infomation&action=del&page=<?=$_REQUEST['page']?>&id=<?=$row['id']?>" onclick="return confirm('Bạn có muốn xoá không ?');" ><img src="images/icon4.png" width="20" border="0" /></a>
                                     </td>
                                 </tr>
                                 <?php }?>
                                 <tr>
-                                    <td  class="PageNext" colspan="10" align="center" valign="middle">
+                                    <td class="PageNext" colspan="10" align="center" valign="middle">
                                         <div style="padding:5px;">
                                             <?php echo pagesLinks($totalRows,$pageSize); ?>
                                         </div>
