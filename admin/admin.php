@@ -18,6 +18,7 @@
 <script src="../lib/toolstip/ajax-dynamic-content.js" type="text/javascript"></script>
 <script src="../lib/toolstip/home.js" type="text/javascript"></script>
 <script src="../lib/swfobject_modified.js" type="text/javascript"></script>
+<script src="../scripts/admin.js" type="text/javascript"></script>
 </head>
 
 <body>
@@ -25,7 +26,7 @@
 <div id="ketop"></div><!--ketop -->
 	<div id="banner"><img src="images/admin.png"   vspace="10" align="left" />
         <div id="dangnhap">
-       	  <?php  include("login/login_dangnhap.php") ?>
+       	  <?php include("login/login_dangnhap.php") ?>
         </div><!--dangnhap -->
 	</div><!--banner -->
     <div id="menu"><?php  include("menu.php") ?></div><!--menu -->
