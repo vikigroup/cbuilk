@@ -18,27 +18,34 @@
 
 	if ($anhien == 1) $anhien = 0; 	else $anhien = 1;
 
-    $myArr = array(209, 210, 211, 390, 458, 500);
-    if(in_array($id, $myArr)) {
-        if ($id == 210) {
-            $idSystem = 2;
+    if($table == "tbl_shop_category"){
+        $myArr = array(209, 210, 211, 390, 458, 500);
+        if(in_array($id, $myArr)){
+            if ($id == 210) {
+                $idSystem = 2;
+            }
+            if ($id == 209) {
+                $idSystem = 3;
+            }
+            if ($id == 211) {
+                $idSystem = 4;
+            }
+            if ($id == 390) {
+                $idSystem = 5;
+            }
+            if ($id == 500) {
+                $idSystem = 6;
+            }
+            if ($id == 458) {
+                $idSystem = 24;
+            }
+            $query = "update tbl_system set module_display='" . !$anhien . "' where id='" . $idSystem . "'";
+            mysql_query($query, $conn);
         }
-        if ($id == 209) {
-            $idSystem = 3;
-        }
-        if ($id == 211) {
-            $idSystem = 4;
-        }
-        if ($id == 390) {
-            $idSystem = 5;
-        }
-        if ($id == 500) {
-            $idSystem = 6;
-        }
-        if ($id == 458) {
-            $idSystem = 24;
-        }
-        $query = "update tbl_system set module_display='" . !$anhien . "' where id='" . $idSystem . "'";
+    }
+
+    if($table == "viki_tin"){
+        $query = "update tbl_system set module_display='" . !$anhien . "' where id='" . ($id+12) . "'";
         mysql_query($query, $conn);
     }
 

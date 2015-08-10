@@ -256,4 +256,13 @@ function subParentString($id){
     }
     return $str;
 }
+
+function maxField($id, $table){
+    global $conn;
+    $sql = "SELECT MAX(".$id.") AS maxID FROM ".$table;
+    $gt = mysql_query($sql,$conn) or die (mysql_error());
+    while($result = mysql_fetch_assoc($gt)){
+        return $result['maxID'];
+    }
+}
 ?>

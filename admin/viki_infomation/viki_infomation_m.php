@@ -50,14 +50,14 @@ if (isset($_POST['btnSave'])){
 	$subject       = vietdecode($name);
 	$detail_short  = isset($_POST['txtDetailShort']) ? trim($_POST['txtDetailShort']) : '';
 	$detail        = isset($_POST['txtDetail']) ? trim($_POST['txtDetail']) : '';
-	$link          = isset($_POST['link']) ? trim($_POST['link']) : '';
 	$sort          = isset($_POST['txtSort']) ? trim($_POST['txtSort']) : 0;
 	$status        = $_POST['chkStatus'];
 	
 	$title         = isset($_POST['title']) ? trim($_POST['title']) : "";
 	$description   = isset($_POST['description']) ? trim($_POST['description']) : "";
 	$keyword       = isset($_POST['keyword']) ? trim($_POST['keyword']) : "";
-	
+	$position      = $_POST['slPosition'];
+
 	$catInfo       = getRecord('viki_tin', 'id='.$parent);
 	if(!$multiLanguage){
 		$lang      = $catInfo['lang'];
@@ -72,10 +72,20 @@ if (isset($_POST['btnSave'])){
 	if ($errMsg==''){
 		if (!empty($_POST['id'])){
 			$oldid = $_POST['id'];
-			$sql = "update viki_tin set name='".$name."',parent='".$parent."',detail='".$detail."',sort='".$sort."', status='".$status."', title='".$title."', description='".$description."', keyword='".$keyword."',last_modified=now() where id='".$oldid."'";
-		}else{
-			$sql = "insert into viki_tin (name, parent , detail, title , description , keyword , sort, status,  date_added, last_modified  ) values ('".$name."','".$parent."','".$detail."','".$title."','".$description."','".$keyword."','".$sort."','".$status."',now(),now())";
-		}
+			$sql = "update viki_tin set name='".$name."',parent='".$parent."',detail='".$detail."',sort='".$sort."', status='".$status."', title='".$title."', description='".$description."', keyword='".$keyword."', pos='".$position."', last_modified=now() where id='".$oldid."'";
+
+            $link = $root."/".$subject.".html";
+            $query = "update tbl_system set module_name='".$name."',module_link='".$link."',module_display='".!$status."' where id='".($oldid+12)."'";
+            mysql_query($query,$conn);
+        }else{
+            $idInfo = maxField("id", "viki_tin")+1;
+			$sql = "insert into viki_tin (id, name, parent , detail, title , description , keyword , pos, sort, status,  date_added, last_modified  ) values ('".$idInfo."','".$name."','".$parent."','".$detail."','".$title."','".$description."','".$keyword."','".$position."','".$sort."','".$status."',now(),now())";
+
+            $link = $root."/".$subject.".html";
+            $idSystem = maxField("id", "tbl_system")+1;
+            $query = "insert into tbl_system (id, module_name, module_link, module_color, module_display) values ('".$idSystem."','".$name."','".$link."','#444','".!$status."')";
+            mysql_query($query,$conn);
+        }
 		if (mysql_query($sql,$conn)){
 			if(empty($_POST['id'])) $oldid = mysql_insert_id();
 			$r = getRecord("viki_tin","id=".$oldid);
@@ -134,7 +144,6 @@ if (isset($_POST['btnSave'])){
 			$parent        = $row['parent'];
 			$subject       = $row['subject'];
 			$detail_short  = $row['detail_short'];
-			$link         = $row['link'];
 			$detail        = $row['detail'];
 			$image         = $row['image'];
 			$image_large   = $row['image_large'];
@@ -146,7 +155,8 @@ if (isset($_POST['btnSave'])){
 			$title         = $row['title'];
 			$description   = $row['description'];
 			$keyword       = $row['keyword'];
-		}
+            $position      = $row['pos'];
+        }
 	}
 }
 ?>
@@ -171,16 +181,27 @@ if (isset($_POST['btnSave'])){
                        <div> <? if($errMsg!=''){echo '<p align=center class="err">'.$errMsg.'<br></p>';}?></div>
                        <table  class="table_chinh">
                            <tr>
-                               <td class="table_chu_tieude_them" colspan="2" align="center" valign="middle"  >THÔNG TIN</td>
+                               <td class="table_chu_tieude_them" colspan="2" align="center" valign="middle">THÔNG TIN</td>
                            </tr>
                            <tr>
-                               <td valign="middle"  class="table_chu">&nbsp;</td>
+                               <td valign="middle" class="table_chu">&nbsp;</td>
                                <td valign="middle">&nbsp;</td>
                            </tr>
                            <tr>
                                <td valign="middle" width="30%">Tên  <span class="sao_bb">*</span></td>
                                <td valign="middle" width="70%">
                                    <input name="txtName" type="text" class="table_khungnho" id="txtName" value="<?=$name?>"/>
+                               </td>
+                           </tr>
+                           <tr>
+                               <td valign="middle" width="30%">Vị trí  <span class="sao_bb">*</span></td>
+                               <td valign="middle" width="70%">
+                                   <select class="table_khungnho table_selector" id="slPosition" name="slPosition">
+                                       <option value="1">Footer - Cột thứ nhất</option>
+                                       <option value="2">Footer - Cột thứ hai</option>
+                                       <option value="3">Footer - Cột thứ ba</option>
+                                       <option value="4">Footer - Cột thứ tư</option>
+                                   </select>
                                </td>
                            </tr>
                            <tr>
@@ -256,3 +277,10 @@ if (isset($_POST['btnSave'])){
         </div>
     </div>
 </div>
+
+<script>
+    $(function(){
+        var position = "<?php echo $position; ?>";
+        $("#slPosition").val(position);
+    });
+</script>

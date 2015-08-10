@@ -49,6 +49,57 @@ settype($noibat,"int");
 if($tang==0){$ks='ASC';}//0 tang
 elseif($tang==1){$ks='DESC';}//1 giam
 else $ks='DESC';
+
+switch ($_GET['action']){
+    case 'del' :
+        $id = $_GET['id'];
+        $myArr = array(209, 210, 211, 390, 457, 458, 500);
+        if(!in_array($id, $myArr)){
+            $r = getRecord("tbl_shop_category","id=".$id);
+            $resultParent = mysql_query("select id from tbl_shop_category where parent='".$id."'",$conn);
+            if (mysql_num_rows($resultParent) <= 0){
+                @$result = mysql_query("delete from tbl_shop_category where id='".$id."'",$conn);
+                if ($result){
+                    if(file_exists('../'.$r['image'])) @unlink('../'.$r['image']);
+                    if(file_exists('../'.$r['image_large'])) @unlink('../'.$r['image_large']);
+                    $errMsg = "Đã xóa thành công.";
+                }else $errMsg = "Ops! Không thể xóa dữ liệu!";
+            }else{
+                $errMsg = "Ops! Đang có danh mục sử dụng. Bạn không thể xóa!";
+            }
+            break;
+        }
+        else{
+            $errMsg = "Ops! Danh mục bạn đang xóa hiện là danh mục hệ thống nên thao tác này bị hủy!";
+        }
+}
+
+if (isset($_POST['btnDel'])){
+    $cntDel=0;
+    $cntNotDel=0;
+    $cntParentExist=0;
+    if($_POST['chk']!=''){
+        foreach ($_POST['chk'] as $id){
+            $r = getRecord("tbl_shop_category","id=".$id);
+            $resultParent = mysql_query("select id from tbl_shop_category where parent='".$id."'",$conn);
+            if (mysql_num_rows($resultParent) <= 0){
+                @$result = mysql_query("delete from tbl_shop_category where id='".$id."'",$conn);
+                if ($result){
+                    if(file_exists('../'.$r['image'])) @unlink('../'.$r['image']);
+                    if(file_exists('../'.$r['image_large'])) @unlink('../'.$r['image_large']);
+                    $cntDel++;
+                }else $cntNotDel++;
+            }else{
+                $cntParentExist++;
+            }
+        }
+        $errMsg = "Đã xóa ".$cntDel." phần tử.<br><br>";
+        $errMsg .= $cntNotDel>0 ? "Không thể xóa ".$cntNotDel." phần tử.<br>" : '';
+        $errMsg .= $cntParentExist>0 ? "Đang có danh mục con sử dụng ".$cntParentExist." phần tử." : '';
+    }else{
+        $errMsg = "Hãy chọn trước khi xóa !";
+    }
+}
 ?>
 <script>
 $(document).ready(function() {	  
@@ -86,7 +137,6 @@ $(document).ready(function() {
 		var status=this.checked;
 		$("input[class='tai_c']").each(function(){this.checked=status;})
 	});
-	
 });
 </script>
 <script>
@@ -98,13 +148,11 @@ $(document).ready(function() {
 	});
 });
 </script>
-<?php
-	if( $errMsg !=""){ 
-?>
+<?php if( $errMsg != ""){ ?>
 <div class="alert alert-block no-radius fade in">
     <button type="button" class="close" data-dismiss="alert"><span class="mini-icon cross_c"></span></button>
     <h4>Warning!</h4>
-     <? $errMsg =''?>
+    <?php echo $errMsg; ?>
 </div>
 <?php }?>
 <div class="row-fluid">
@@ -113,51 +161,6 @@ $(document).ready(function() {
             <div class="widget-container">
                 <div class="widget-block">
                     <?
-                    switch ($_GET['action']){
-                        case 'del' :
-                            $id = $_GET['id'];
-                            $r = getRecord("tbl_shop_category","id=".$id);
-                            $resultParent = mysql_query("select id from tbl_shop_category where parent='".$id."'",$conn);
-                            if (mysql_num_rows($resultParent) <= 0){
-                                @$result = mysql_query("delete from tbl_shop_category where id='".$id."'",$conn);
-                                if ($result){
-                                    if(file_exists('../'.$r['image'])) @unlink('../'.$r['image']);
-                                    if(file_exists('../'.$r['image_large'])) @unlink('../'.$r['image_large']);
-                                    $errMsg = "Đã xóa thành công.";
-                                }else $errMsg = "Không thể xóa dữ liệu !";
-                            }else{
-                                $errMsg = "Đang có danh mục sử dụng. Bạn không thể xóa !";
-                            }
-                            break;
-                    }
-
-                    if (isset($_POST['btnDel'])){
-                        $cntDel=0;
-                        $cntNotDel=0;
-                        $cntParentExist=0;
-                        if($_POST['chk']!=''){
-                            foreach ($_POST['chk'] as $id){
-                                $r = getRecord("tbl_shop_category","id=".$id);
-                                $resultParent = mysql_query("select id from tbl_shop_category where parent='".$id."'",$conn);
-                                if (mysql_num_rows($resultParent) <= 0){
-                                    @$result = mysql_query("delete from tbl_shop_category where id='".$id."'",$conn);
-                                    if ($result){
-                                        if(file_exists('../'.$r['image'])) @unlink('../'.$r['image']);
-                                        if(file_exists('../'.$r['image_large'])) @unlink('../'.$r['image_large']);
-                                        $cntDel++;
-                                    }else $cntNotDel++;
-                                }else{
-                                    $cntParentExist++;
-                                }
-                            }
-                            $errMsg = "Đã xóa ".$cntDel." phần tử.<br><br>";
-                            $errMsg .= $cntNotDel>0 ? "Không thể xóa ".$cntNotDel." phần tử.<br>" : '';
-                            $errMsg .= $cntParentExist>0 ? "Đang có danh mục con sử dụng ".$cntParentExist." phần tử." : '';
-                        }else{
-                            $errMsg = "Hãy chọn trước khi xóa !";
-                        }
-                    }
-
                     $pageSize = 6;
                     $pageNum = 1;
                     $totalRows = 0;
@@ -190,7 +193,7 @@ $(document).ready(function() {
                     $totalRows=countRecord("tbl_shop_category",$where);
 
                     if ($_REQUEST['cat']!='') $where="parent=".$_REQUEST['cat']; ?>
-                    <form method="POST" action="" name="frmForm" enctype="multipart/form-data">
+                    <form method="POST" action="" id="frmForm" name="frmForm" enctype="multipart/form-data">
                         <input type="hidden" name="page" value="<?=$page?>">
                         <input type="hidden" name="act" value="shop_category">
 
@@ -274,7 +277,7 @@ $(document).ready(function() {
                                     </tr>
                                 <tr class="admin_tieude_table">
                                     <td width="3%" align="center">
-                                        <input name="chkall" id="chkall" type="checkbox"   onClick="chkallClick(this);"/>
+                                        <input name="chkall" id="chkall" type="checkbox" onClick="chkallClick(this);"/>
                                     </td>
                                     <td width="4%" align="center">STT</td>
                                     <td width="22%" align="center">Hình</td>

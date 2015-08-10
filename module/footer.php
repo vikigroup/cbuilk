@@ -62,9 +62,12 @@
                     <h4 class="t-ifoot">Giới thiệu</h4><!-- End .t-ifoot -->
                     <div class="m-ifoot">
                         <ul class="news">
-                            <li><a href="<?php echo $linkrootshop?>/thong-tin/<?=get_field('viki_tin','id',1,'subject');?>.html"><?=get_field('viki_tin','id',1,'name');?></a></li>
-                            <li><a href="<?php echo $linkrootshop?>/thong-tin/<?=get_field('viki_tin','id',2,'subject');?>.html"><?=get_field('viki_tin','id',2,'name');?></a></li>
-                            <li><a href="<?php echo $linkrootshop?>/thong-tin/<?=get_field('viki_tin','id',3,'subject');?>.html"><?=get_field('viki_tin','id',3,'name');?></a></li>
+                            <?php
+                            $result1 = get_records("viki_tin","status = 0 AND pos = 1","sort, date_added DESC"," "," ");
+                            while($row_result1 = mysql_fetch_assoc($result1)){
+                            ?>
+                            <li><a href="<?php echo $root; ?>/thong-tin/<?php echo $row_result1['subject'];?>.html"><?php echo $row_result1['name'];?></a></li>
+                            <?php } ?>
                         </ul>
                     </div><!-- End .m-ifoot -->
                 </li>                    
@@ -72,9 +75,12 @@
                     <h4 class="t-ifoot">Dành cho người bán</h4><!-- End .t-ifoot -->
                     <div class="m-ifoot">
                         <ul class="news">
-                             <li><a href="<?php echo $linkrootshop?>/thong-tin/<?=get_field('viki_tin','id',6,'subject');?>.html"><?=get_field('viki_tin','id',6,'name');?></a></li>
-                            <li><a href="<?php echo $linkrootshop?>/thong-tin/<?=get_field('viki_tin','id',7,'subject');?>.html"><?=get_field('viki_tin','id',7,'name');?></a></li>
-                            <li><a href="<?php echo $linkrootshop?>/thong-tin/<?=get_field('viki_tin','id',8,'subject');?>.html"><?=get_field('viki_tin','id',8,'name');?></a></li>
+                            <?php
+                            $result2 = get_records("viki_tin","status = 0 AND pos = 2","sort, date_added DESC"," "," ");
+                            while($row_result2 = mysql_fetch_assoc($result2)){
+                            ?>
+                            <li><a href="<?php echo $root; ?>/thong-tin/<?php echo $row_result2['subject'];?>.html"><?php echo $row_result2['name'];?></a></li>
+                            <?php } ?>
                         </ul>
                     </div><!-- End .m-ifoot -->
                 </li>                    
@@ -82,9 +88,12 @@
                     <h4 class="t-ifoot">Dành cho người mua</h4><!-- End .t-ifoot -->
                     <div class="m-ifoot">
                         <ul class="news">
-                             <li><a href="<?php echo $linkrootshop?>/thong-tin/<?=get_field('viki_tin','id',9,'subject');?>.html"><?=get_field('viki_tin','id',9,'name');?></a></li>
-                            <li><a href="<?php echo $linkrootshop?>/thong-tin/<?=get_field('viki_tin','id',10,'subject');?>.html"><?=get_field('viki_tin','id',10,'name');?></a></li>
-                            <li><a href="<?php echo $linkrootshop?>/thong-tin/<?=get_field('viki_tin','id',11,'subject');?>.html"><?=get_field('viki_tin','id',11,'name');?></a></li>
+                            <?php
+                            $result3 = get_records("viki_tin","status = 0 AND pos = 3","sort, date_added DESC"," "," ");
+                            while($row_result3 = mysql_fetch_assoc($result3)){
+                            ?>
+                            <li><a href="<?php echo $root; ?>/thong-tin/<?php echo $row_result3['subject'];?>.html"><?php echo $row_result3['name'];?></a></li>
+                            <?php } ?>
                         </ul>
                     </div><!-- End .m-ifoot -->
                 </li>
@@ -92,9 +101,12 @@
                     <h4 class="t-ifoot">Hỗ trợ trực tuyến</h4><!-- End .t-ifoot -->
                     <div class="m-ifoot">
                         <ul class="news">
-                            <li><a href="<?php echo $linkrootshop?>/thong-tin/<?=get_field('viki_tin','id',12,'subject');?>.html"><?=get_field('viki_tin','id',12,'name');?></a></li>
-                            <li><a href="<?php echo $linkrootshop?>/thong-tin/<?=get_field('viki_tin','id',13,'subject');?>.html"><?=get_field('viki_tin','id',13,'name');?></a></li>
-                            <li><a href="<?php echo $linkrootshop?>/thong-tin/<?=get_field('viki_tin','id',14,'subject');?>.html"><?=get_field('viki_tin','id',14,'name');?></a></li>
+                            <?php
+                            $result4 = get_records("viki_tin","status = 0 AND pos = 4","sort, date_added DESC"," "," ");
+                            while($row_result4 = mysql_fetch_assoc($result4)){
+                            ?>
+                            <li><a href="<?php echo $root; ?>/thong-tin/<?php echo $row_result4['subject'];?>.html"><?php echo $row_result4['name'];?></a></li>
+                            <?php } ?>
                         </ul>
                     </div><!-- End .m-ifoot -->
                 </li>

@@ -109,7 +109,7 @@ if (isset($_POST['btnSave'])){
                     $idSystem = 6;
                 }
                 if($oldid == 458){
-                    $idSystem = 24;
+                    $idSystem = 7;
                 }
                 $query = "update tbl_system set module_name='".$name."',module_link='".$link."', module_display='".!$status."' where id='".$idSystem."'";
                 mysql_query($query,$conn);
