@@ -11,7 +11,7 @@
 <link href="templates/admin.css" rel="stylesheet" type="text/css" />
 <link href="templates/khung_quantri.css" rel="stylesheet" type="text/css" />
 <link rel="shortcut icon" href="../imgs/favicon.ico" />
-<script type="text/javascript" charset="utf-8" src="../lib/jquery-1.4.4.js"></script>
+<script type="text/javascript" charset="utf-8" src="../scripts/jquery.js"></script>
 <script type="text/javascript" src="../lib/ckeditor/ckeditor.js"></script>
 <script type="text/javascript" src="../lib/ckfinder/ckfinder.js"></script>
 <script src="../lib/toolstip/ajax.js" type="text/javascript"></script>

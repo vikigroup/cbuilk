@@ -59,6 +59,10 @@ if($functionName == "updateSystemEdit"){
     updateSystemEdit();
 }
 
+if($functionName == "emptySessionCategory"){
+    emptySessionCategory();
+}
+
 function connect(){
     // Create connection
     $conn = new mysqli($GLOBALS['hostname'], $GLOBALS['username'], $GLOBALS['password'], $GLOBALS['databasename']);
@@ -288,6 +292,14 @@ function updateCustomerActive(){
         echo 0;
     }
 }
+
+//------------------------ admin functions ------------------------//
+function emptySessionCategory(){
+    $_SESSION['kt_tukhoa_bignew']=-1;
+    $_SESSION['kt_parent_bignew']=-1;
+    $_SESSION['kt_ddCatch_bignew']=-1;
+}
+//------------------------ admin functions ------------------------//
 
 function update($table, $field, $condition){
     $conn = connect();

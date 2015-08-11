@@ -19,7 +19,7 @@
             <li>
                 <a href="#"> Quản lý website &darr;</a>
                 <ul>
-                    <li><a href="#" onclick="emptySession('shop_category');">Tất cả danh mục</a></li>
+                    <li><a href="#" onclick="emptySessionCategory('shop_category');">Tất cả danh mục</a></li>
                     <li><a href="admin.php?act=config&id=2">Cấu hình</a> </li>
                     <li><a href="admin.php?act=slider">Slide ảnh</a></li>
                     <li><a href="admin.php?act=viki_infomation">Thông tin</a></li>
@@ -36,7 +36,7 @@
             <li>
                 <a href="#"> Sản phẩm &darr;</a>
                 <ul>
-                    <li><a href="admin.php?act=product_category">Danh mục sản phẩm</a></li>
+                    <li><a href="#" onclick="emptySessionCategory('product_category');">Danh mục sản phẩm</a></li>
                     <li><a href="admin.php?act=product">Tất cả sản phẩm</a></li>
                     <li><a href="admin.php?act=product_m">Tạo sản phẩm mới</a></li>
                 </ul>
@@ -44,7 +44,7 @@
             <li>
                 <a href="#"> Máy cũ &darr;</a>
                 <ul>
-                    <li><a href="admin.php?act=machine_category">Danh mục máy cũ</a></li>
+                    <li><a href="#" onclick="emptySessionCategory('machine_category');">Danh mục máy cũ</a></li>
                     <li><a href="admin.php?act=machine">Tất cả máy cũ</a></li>
                     <li><a href="admin.php?act=machine_m">Tạo máy cũ</a></li>
                 </ul>
@@ -52,7 +52,7 @@
             <li>
                 <a href="admin.php?act=service">Dịch vụ &darr;</a>
                 <ul>
-                    <li><a href="admin.php?act=service_category">Danh mục dịch vụ</a></li>
+                    <li><a href="#" onclick="emptySessionCategory('service_category');">Danh mục dịch vụ</a></li>
                     <li><a href="admin.php?act=service">Tất cả dịch vụ</a></li>
                     <li><a href="admin.php?act=service_m">Tạo dịch vụ mới</a></li>
                 </ul>
@@ -60,7 +60,7 @@
             <li>
                 <a href="#"> Tin tức &darr;</a>
                 <ul>
-                    <li><a href="admin.php?act=news_category">Danh mục tin tức</a></li>
+                    <li><a href="#" onclick="emptySessionCategory('news_category');">Danh mục tin tức</a></li>
                     <li><a href="admin.php?act=news">Tất cả tin tức</a></li>
                     <li><a href="admin.php?act=news_m">Tạo tin tức mới</a></li>
                 </ul>
@@ -68,7 +68,7 @@
             <li>
                 <a href="#"> Video &darr;</a>
                 <ul>
-                    <li><a href="admin.php?act=video_category">Danh mục video</a></li>
+                    <li><a href="#" onclick="emptySessionCategory('video_category');">Danh mục video</a></li>
                     <li><a href="admin.php?act=video">Tất cả video</a></li>
                     <li><a href="admin.php?act=video_m">Tạo video mới</a></li>
                 </ul>
@@ -76,7 +76,7 @@
             <li>
                 <a href="#"> Quảng cáo &darr;</a>
                 <ul>
-                    <li><a href="admin.php?act=advertisement_category">Danh mục quảng cáo</a></li>
+                    <li><a href="#" onclick="emptySessionCategory('advertisement_category');">Danh mục quảng cáo</a></li>
                     <li><a href="admin.php?act=advertisement">Tất cả quảng cáo</a></li>
                     <li><a href="admin.php?act=advertisement_m">Tạo quảng cáo mới</a></li>
                 </ul>
@@ -84,7 +84,7 @@
             <li>
                 <a href="#"> Phụ tùng &darr;</a>
                 <ul>
-                    <li><a href="admin.php?act=accessory_category">Danh mục phụ tùng</a></li>
+                    <li><a href="#" onclick="emptySessionCategory('accessory_category');">Danh mục phụ tùng</a></li>
                     <li><a href="admin.php?act=accessory">Tất cả phụ tùng</a></li>
                     <li><a href="admin.php?act=accessory_m">Tạo phụ tùng mới</a></li>
                 </ul>
