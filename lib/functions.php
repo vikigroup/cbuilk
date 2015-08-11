@@ -92,7 +92,7 @@ function loadMoreMainSubCategory(){
     if($result != 0){
         $data = "";
         while($row = $result->fetch_assoc()) {
-            $data .= $row['subject'].",".$row['name'].";";
+            $data .= $row['subject'].",".$row['name'].",".$row['target'].";";
         }
         $isMore = 0;
         $dataMore = selectData("tbl_shop_category", "parent = '".$id."' ORDER BY sort, name COLLATE utf8_unicode_ci LIMIT ".($start+20).",20");

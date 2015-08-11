@@ -1,3 +1,3 @@
-$("#reset").click(function(){
-    $(".pAlert").hide();
-});
+function emptySession(action){
+
+}

@@ -265,4 +265,8 @@ function maxField($id, $table){
         return $result['maxID'];
     }
 }
+
+function resetSearch(){
+    $_POST['tukhoa'] = NULL;
+}
 ?>

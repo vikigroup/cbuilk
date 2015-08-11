@@ -20,7 +20,6 @@
 <script src="../lib/swfobject_modified.js" type="text/javascript"></script>
 <script src="../scripts/admin.js" type="text/javascript"></script>
 </head>
-
 <body>
 <div id="main">
 <div id="ketop"></div><!--ketop -->
@@ -34,9 +33,7 @@
     <table width="100%">
        <tr>
           <td align="center" valign="top">
-         
-        	  <?php if($_SESSION['kt_login_id']!="") include("processFrame.php");?>  
-                     
+        	  <?php if($_SESSION['kt_login_id']!="") include("processFrame.php");?>
            </td>
        </tr>
     </table>

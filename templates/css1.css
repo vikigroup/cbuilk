@@ -394,7 +394,7 @@ ul.ul-dm > li:hover > .sub-menu {display: block;}
     overflow: hidden;
     text-overflow: ellipsis;
 }
-.s-Pnb {display: block; color: #666; padding: 6px 0 0 0; overflow: hidden; white-space: nowrap; height: 18px; text-overflow: ellipsis; background: none !important;}
+.s-Pnb {display: none; color: #666; padding: 6px 0 0 0; overflow: hidden; white-space: nowrap; height: 18px; text-overflow: ellipsis; background: none !important;}
 .n-Pnb:hover{}
 .price-Pnb {display: block; color: #f98d32; padding: 10px 0 10px 0; text-align: center; overflow: hidden; white-space: nowrap; height: 15px; text-overflow: ellipsis; background: url(../imgs/layout/price-Pnb.png) no-repeat 0px 7px;}
 

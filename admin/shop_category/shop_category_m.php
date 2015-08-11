@@ -56,8 +56,9 @@ if (isset($_POST['btnSave'])){
 	$detail        = isset($_POST['txtDetail']) ? trim($_POST['txtDetail']) : '';
 	$sort          = isset($_POST['txtSort']) ? trim($_POST['txtSort']) : 0;
 	$status        = $_POST['chkStatus'];
-	
-	$title         = isset($_POST['title']) ? trim($_POST['title']) : "";
+    $target        = $_POST['chkTarget'];
+
+    $title         = isset($_POST['title']) ? trim($_POST['title']) : "";
 	$description   = isset($_POST['description']) ? trim($_POST['description']) : "";
 	$keyword       = isset($_POST['keyword']) ? trim($_POST['keyword']) : "";
 
@@ -114,9 +115,9 @@ if (isset($_POST['btnSave'])){
                 $query = "update tbl_system set module_name='".$name."',module_link='".$link."', module_display='".!$status."' where id='".$idSystem."'";
                 mysql_query($query,$conn);
             }
-			$sql = "update tbl_shop_category set code='".$code."',name='".$name."', parent='".$parent1."',subject='".$subject."',detail_short='".$detail_short."',detail='".$detail."', sort='".$sort."', title='".$title."', description='".$description."', keyword='".$keyword."', status='".$status."',last_modified=now(), lang='".$lang."', cate='".$cate."' where id='".$oldid."'";
+			$sql = "update tbl_shop_category set code='".$code."',name='".$name."', parent='".$parent1."',subject='".$subject."',detail_short='".$detail_short."',detail='".$detail."', sort='".$sort."', title='".$title."', description='".$description."', keyword='".$keyword."', status='".$status."',last_modified=now(), lang='".$lang."', cate='".$cate."', target='".$target."' where id='".$oldid."'";
 		}else{
-			echo $sql = "insert into tbl_shop_category (code, name, parent, subject, detail_short, detail, title , description , keyword , sort, status,  date_added, last_modified, lang, cate) values ('".$code."','".$name."','".$parent1."','".$subject."','".$detail_short."','".$detail."','".$title."','".$description."','".$keyword."','".$sort."','".$status."',now(),now(),'".$lang."','".$cate."')";
+			echo $sql = "insert into tbl_shop_category (code, name, parent, subject, detail_short, detail, title , description , keyword , sort, status,  date_added, last_modified, lang, cate, target) values ('".$code."','".$name."','".$parent1."','".$subject."','".$detail_short."','".$detail."','".$title."','".$description."','".$keyword."','".$sort."','".$status."',now(),now(),'".$lang."','".$cate."','".$target."')";
 		}
 		if (mysql_query($sql,$conn)){
 			if(empty($_POST['id'])) $oldid = mysql_insert_id();
@@ -193,6 +194,8 @@ if (isset($_POST['btnSave'])){
 			$title         = $row['title'];
 			$description   = $row['description'];
 			$keyword       = $row['keyword'];
+
+            $target        = $row['target'];
 		}
 	}
 }
@@ -277,7 +280,7 @@ if (isset($_POST['btnSave'])){
                             <tr>
                                 <td valign="middle" width="30%">Thứ tự sắp xếp</td>
                                 <td valign="middle" width="70%">
-                                    <input class="table_khungnho" value="<?=$sort?>" type="text" name="txtSort"/>
+                                    <input class="table_khungnho" value="<?php if($sort != ''){echo $sort;}else{echo 0;} ?>" type="text" name="txtSort"/>
                                     <p class="pGuideline"><i>Thứ tự hiển thị của danh mục, sắp xếp tăng dần từ nhỏ đến lớn</i></p>
                                 </td>
                             </tr>
@@ -285,45 +288,50 @@ if (isset($_POST['btnSave'])){
                                 <td valign="middle" width="30%">Hình đại diện</td>
                                 <td valign="middle" width="70%">
                                     <input type="file" name="txtImage" class="textbox" size="34">
-                                    <input type="checkbox" name="chkClearImg" value="on"> Xóa bỏ hình ảnh	 <br>
-                                    <? if ($image!=''){ echo '<img width="80" border="0" src="../web/'.$image.'">';}?><br><br>
+                                    <?php if($image != ''){ ?>
+                                        <input type="checkbox" name="chkClearImg" value="on"> Xóa bỏ hình ảnh <br>
+                                    <?php } ?>
+                                    <?php if($image != ''){echo '<img width="80" border="0" src="../web/'.$image.'">';} ?><br><br>
                                     Hình (kích thước nhỏ)<i> (kích thước tối đa 250x250) </i>
                                 </td>
                             </tr>
                              <tr>
                                <td valign="middle">Hình lớn</td>
                                <td>
-                                   <input name="txtImageLarge" type="file" class="" id="txtImageLarge"/>&nbsp;&nbsp;<input type="checkbox" name="chkClearImgLarge" value="on"> Xóa bỏ hình ảnh <br />
-                                   <? if ($image_large!=''){ echo '<img width="200" border="0" src="../web/'.$image_large.'">';}?><br><br>
+                                   <input name="txtImageLarge" type="file" class="" id="txtImageLarge"/>
+                                   <?php if($image_large != ''){ ?>
+                                       <input type="checkbox" name="chkClearImgLarge" value="on"> Xóa bỏ hình ảnh <br />
+                                   <?php } ?>
+                                   <?php if($image_large != ''){echo '<img width="200" border="0" src="../web/'.$image_large.'">';} ?><br><br>
                                    Hình (kích thước lớn)<i> (kích thước tối đa 1020x482) </i>
                                </td>
                              </tr>
                              <tr>
-                                <td valign="middle" width="30%">Tiêu đề SEO <span class="sao_bb">*</span></td>
+                                <td valign="middle" width="30%">Tiêu đề trang <span class="sao_bb">*</span></td>
                                 <td valign="middle" width="70%">
                                     <input name="title" type="text" class="table_khungnho" id="title" value="<?=$title?>"/>
-                                    <i>(nên tối đa 70 ký tự)</i>
+                                    <p class="pGuideline"><i>Nội dung thẻ meta Title hiển thị ở trang tiếng Việt</i></p>
                                 </td>
                              </tr>
                              <tr>
-                                <td valign="middle" width="30%">Mô tả SEO <span class="sao_bb">*</span></td>
+                                <td valign="middle" width="30%">Mô tả trang <span class="sao_bb">*</span></td>
                                 <td valign="middle" width="70%">
                                     <input name="description" type="text" class="table_khungvua" id="description" value="<?=$description?>"/>
-                                    <i>(nên tối đa 160 ký tự)</i>
+                                    <p class="pGuideline"><i>Nội dung thẻ meta Description hiển thị ở trang tiếng Việt</i></p>
                                 </td>
                              </tr>
                             <tr>
-                                <td valign="middle" width="30%">Từ khóa SEO  <span class="sao_bb">*</span></td>
+                                <td valign="middle" width="30%">Từ khóa VN  <span class="sao_bb">*</span></td>
                                 <td valign="middle" width="70%">
                                     <input name="keyword" type="text" class="table_khungnho" id="keyword" value="<?=$keyword?>"/><br/>
-                                    <i>(từ khóa nên có hai dạng có dấu và không dấu)</i>
+                                    <p class="pGuideline"><i>Nội dung từ khóa chính (Thẻ meta Keyword) hiển thị ở trang tiếng Việt</i></p>
                                 </td>
                             </tr>
                             <tr>
-                                <td valign="top" width="30%">Ẩn/Hiện</td>
+                                <td valign="top" width="30%">Tùy chọn</td>
                                 <td valign="middle" width="70%">
-                                    <input type="checkbox" name="chkStatus" value="<?php if($status>0){echo $status;}else{echo 0;} ?>" <? if ($status>0) echo 'checked' ?> onchange="if($(this).is(':checked')){this.value = 1;}else{this.value = 0;}">
-                                    <i>(nhấn chọn đồng nghĩa với việc danh mục này không được hiển thị)</i>
+                                    <input type="checkbox" name="chkStatus" value="<?php if($status>0){echo $status;}else{echo 0;} ?>" <? if ($status>0) echo 'checked' ?> onchange="if($(this).is(':checked')){this.value = 1;}else{this.value = 0;}"> Ẩn &nbsp; &nbsp;
+                                    <input type="checkbox" name="chkTarget" value="<?php if($target>0){echo $target;}else{echo 0;} ?>" <? if ($target>0) echo 'checked' ?> onchange="if($(this).is(':checked')){this.value = 1;}else{this.value = 0;}"> Mở link ngoài ra tab mới
                                 </td>
                             </tr>
                             <tr>

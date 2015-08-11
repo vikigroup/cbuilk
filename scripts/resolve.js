@@ -537,7 +537,13 @@ function loadMoreMainSubCategory(id, number){
                 for(var i = 0; i < result.length; i++){
                     if(i != result.length - 1){
                         var myArr = result[i].split(",");
-                        $('<div class="divMainLastCategoryName"><a href="'+myArr[0]+'">'+myArr[1]+'</a> </div>').insertBefore('#divMainSubCategoryName'+number+' input');
+                        if(myArr[2] == 0){
+                            $('<div class="divMainLastCategoryName"><a href="'+myArr[0]+'.html">'+myArr[1]+'</a> </div>').insertBefore('#divMainSubCategoryName'+number+' input');
+                        }
+                        else{
+                            $('<div class="divMainLastCategoryName"><a target="_blank" href="'+myArr[0]+'.html">'+myArr[1]+'</a> </div>').insertBefore('#divMainSubCategoryName'+number+' input');
+                        }
+
                         var windowSize = $(window).width();
                         if($(window).width() < 992){
                             $('.divMainLastCategoryName').width((windowSize - 20)/2 - 10);
@@ -757,4 +763,3 @@ function isValidEmailAddress(emailAddress) {
     var regex = /\S+@\S+\.\S+/;
     return regex.test(emailAddress);
 }
-

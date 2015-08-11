@@ -99,6 +99,10 @@
     width: 312px;
 }
 
+.pGuideline{
+    padding: 5px 0;
+}
+
 .strongAlert{
     font-weight: 700;
 }
@@ -124,7 +128,7 @@
     color: #8a6d3b;
     background-color: #fcf8e3;
     border: 1px solid #faebcc;
-}
+]}
 
 .pSuccess{
     color: #3c763d;

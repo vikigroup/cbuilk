@@ -13,7 +13,7 @@
 <article class="l-tool-ct primary-category l-system" id="l-system2">
     <ul class="ul-ltct">
         <?php $old=getRecord('tbl_shop_category', "id=210"); ?>
-        <li><a class="btn-gh3 btn-category" href="<?php echo $linkrootshop?>/<?php echo $old['subject']; ?>.html"><?php echo $old['name']; ?></a></li>
+        <li><a <?php if($old['target'] == 1){echo 'target="_blank"';} ?> class="btn-gh3 btn-category" href="<?php echo $linkrootshop?>/<?php echo $old['subject']; ?>.html"><?php echo $old['name']; ?></a></li>
     </ul>
     <div class="clear"></div>
 </article><!-- End .l-tool-ct -->
@@ -21,7 +21,7 @@
 <article class="l-tool-ct primary-category l-system" id="l-system3">
     <ul class="ul-ltct">
         <?php $rent=getRecord('tbl_shop_category', "id=209"); ?>
-        <li><a class="btn-gh3 btn-category" href="<?php echo $linkrootshop?>/<?php echo $rent['subject']; ?>.html"><?php echo $rent['name']; ?></a></li>
+        <li><a <?php if($rent['target'] == 1){echo 'target="_blank"';} ?> class="btn-gh3 btn-category" href="<?php echo $linkrootshop?>/<?php echo $rent['subject']; ?>.html"><?php echo $rent['name']; ?></a></li>
     </ul>
     <div class="clear"></div>
 </article><!-- End .l-tool-ct -->
@@ -29,7 +29,7 @@
 <article class="l-tool-ct primary-category l-system" id="l-system4">
     <ul class="ul-ltct">
         <?php $news=getRecord('tbl_shop_category', "id=211"); ?>
-        <li><a class="btn-gh3 btn-category" href="<?php echo $linkrootshop; ?>/<?php echo $news['subject']; ?>.html" style="background-color: #2A70D2; color: white !important;"><?php echo $news['name']; ?></a></li>
+        <li><a <?php if($news['target'] == 1){echo 'target="_blank"';} ?> class="btn-gh3 btn-category" href="<?php echo $linkrootshop; ?>/<?php echo $news['subject']; ?>.html" style="background-color: #2A70D2; color: white !important;"><?php echo $news['name']; ?></a></li>
     </ul>
     <div class="clear"></div>
 </article><!-- End .l-tool-ct -->
@@ -37,7 +37,7 @@
 <article class="l-tool-ct primary-category l-system" id="l-system5">
     <ul class="ul-ltct">
         <?php $video=getRecord('tbl_shop_category', "id=390"); ?>
-        <li><a class="btn-gh3 btn-category" href="<?php echo $linkrootshop; ?>/<?php echo $video['subject']; ?>.html"><?php echo $video['name']; ?></a></li>
+        <li><a <?php if($video['target'] == 1){echo 'target="_blank"';} ?> class="btn-gh3 btn-category" href="<?php echo $linkrootshop; ?>/<?php echo $video['subject']; ?>.html"><?php echo $video['name']; ?></a></li>
     </ul>
     <div class="clear"></div>
 </article><!-- End .l-tool-ct -->
@@ -45,7 +45,7 @@
 <article class="l-tool-ct primary-category l-system" id="l-system6">
     <ul class="ul-ltct">
         <?php $accessory=getRecord('tbl_shop_category', "id=500"); ?>
-        <li><a class="btn-gh3 btn-category" href="<?php echo $linkrootshop; ?>/<?php echo $accessory['subject']; ?>.html"><?php echo $accessory['name']; ?></a></li>
+        <li><a <?php if($accessory['target'] == 1){echo 'target="_blank"';} ?> class="btn-gh3 btn-category" href="<?php echo $linkrootshop; ?>/<?php echo $accessory['subject']; ?>.html"><?php echo $accessory['name']; ?></a></li>
     </ul>
     <div class="clear"></div>
 </article><!-- End .l-tool-ct -->

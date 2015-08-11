@@ -30,12 +30,12 @@
         <div class="divMainSubCategory" id="<?php echo $row_cate['subject']; ?>">
             <input type="hidden" id="hiddenMainSubCategory" value="<?php echo $k; ?>">
             <div class="divMainImage"><img src="<?php echo $root; ?>/web/<?php if($row_cate['image'] != ''){echo $row_cate['image'];}else{echo '/images/item_noimage.png';} ?>"></div>
-            <div class="divMainSubCategoryTitle"><h3><a href="<?php echo $root; ?>/<?php echo $row_cate['subject']; ?>.html"> <?php echo $row_cate['name']; ?> </a></h3></div>
+            <div class="divMainSubCategoryTitle"><h3><a <?php if($row_cate['target'] == 1){echo 'target="_blank"';} ?> href="<?php echo $root; ?>/<?php echo $row_cate['subject']; ?>.html"> <?php echo $row_cate['name']; ?> </a></h3></div>
             <?php $subCate = get_records("tbl_shop_category","status=0 AND parent='".$row_cate['id']."'","sort, name COLLATE utf8_unicode_ci"," "," ");
             $m = 1;
             while($row_subCate = mysql_fetch_assoc($subCate)){ ?>
             <div class="divMainSubCategoryName" id="divMainSubCategoryName<?php echo $h; ?>">
-                <a class="main_subCategory" href="<?php echo $root; ?>/<?php echo $row_subCate['subject']; ?>.html"><?php echo $row_subCate['name']; ?></a>
+                <a <?php if($row_subCate['target'] == 1){echo 'target="_blank"';} ?> class="main_subCategory" href="<?php echo $root; ?>/<?php echo $row_subCate['subject']; ?>.html"><?php echo $row_subCate['name']; ?></a>
                 <span class="main_total_items">(<?php echo count_items($row_subCate['id']); ?>)</span>
                 <div class="clear"></div>
                 <?php $subSubCate = get_records("tbl_shop_category","status=0 AND parent='".$row_subCate['id']."'","sort, name COLLATE utf8_unicode_ci","0,20"," ");
@@ -44,7 +44,7 @@
                 while($row_subSubCate = mysql_fetch_assoc($subSubCate)){ ?>
                     <?php if($i <= 20){ ?>
                     <div class="divMainLastCategoryName">
-                        <a href="<?php echo $root; ?>/<?php echo $row_subSubCate['subject']; ?>.html"><?php echo $row_subSubCate['name']; ?></a>
+                        <a <?php if($row_subSubCate['target'] == 1){echo 'target="_blank"';} ?> href="<?php echo $root; ?>/<?php echo $row_subSubCate['subject']; ?>.html"><?php echo $row_subSubCate['name']; ?></a>
                     </div>
                     <?php } ?>
                     <?php if($i == 20 && $num_rows > 20){ ?>

@@ -124,7 +124,7 @@
             <span>Chịu trách nhiệm nội dung: <?php echo get_field('tbl_config','id',2,'contentkh'); ?></span><br/>
         <?php } ?>
         <br/>
-        <p><a href="<?php echo $root; ?>/<?php echo get_field('tbl_shop_category','id',458,'subject'); ?>.html"><span class="hotline">QUẢNG CÁO</span></a></p>
+        <p><a <?php if(get_field('tbl_shop_category','id',458,'target') == 1){echo 'target="_blank"';}; ?> href="<?php echo $root; ?>/<?php echo get_field('tbl_shop_category','id',458,'subject'); ?>.html"><span class="hotline">QUẢNG CÁO</span></a></p>
     </div><!-- End .text-foot -->
 </div><!-- End .m-wrap -->
 </footer>

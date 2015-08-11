@@ -1,11 +1,12 @@
 <?php
 if(isset($frame)==true){
     check_permiss($_SESSION['kt_login_id'],1,'admin.php');
+
 }else{
     header("location: ../admin.php");
 }
 
-if (isset($_POST['tim'])==true)//isset kiem tra submit
+if (isset($_POST['tim'])==true)
 {
     if($_POST['tukhoa']!=NULL && $_POST['tukhoa'] != 'Từ khóa...'){$tukhoa=$_POST['tukhoa'];}else {$tukhoa=-1;}
     $_SESSION['kt_tukhoa_bignew']=$tukhoa;
@@ -20,12 +21,17 @@ if (isset($_POST['tim'])==true)//isset kiem tra submit
     if($_POST['ddCatch']!=NULL){$parent1=$_POST['ddCatch'];}else {$parent1=-1;}
     $_SESSION['kt_ddCatch_bignew']=$parent1;
 }
+
 if (isset($_POST['reset'])==true) {
     $_POST['ddCatch'] = -1;
     $_SESSION['kt_tukhoa_bignew']=-1;
     $_SESSION['kt_parent_bignew']=-1;
     $_SESSION['kt_ddCatch_bignew']=-1;
+    $errMsg = '';
+    $_POST['tukhoa'] = NULL;
+    header("Location: ".$root."/admin/admin.php?act=".$_GET['act']."&pageNum=1");
 }
+
 if($_SESSION['kt_tukhoa_bignew']==NULL){$tukhoa=-1;}
 if($_SESSION['kt_tukhoa_bignew']!=NULL){$tukhoa=$_SESSION['kt_tukhoa_bignew'];}
 if($_SESSION['kt_parent_bignew']==NULL){$parent=-1;}
@@ -101,6 +107,14 @@ if (isset($_POST['btnDel'])){
     }
 }
 ?>
+<script>
+    $(function(){
+        var pageNum = "<?php echo $_GET['pageNum']; ?>";
+        if(pageNum == 0){
+            $("#reset").click();
+        }
+    });
+</script>
 <script>
 $(document).ready(function() {	  
 	$("img.anhien").click(function(){
@@ -210,7 +224,7 @@ $(document).ready(function() {
                                 <tr align="center" >
                                     <td valign="middle" style="background-color:#F0F0F0; height:40px; padding-left:20px" colspan="10">
                                         <select name="ddCat" id="ddCat" class="list_tim_loc table_list">
-                                            <?php if($_POST['ddCat']!=NULL){ ?>
+                                            <?php if($_POST['ddCat']!=-1){ ?>
                                             <option value="<?php echo $idtheloaic=$_POST['ddCat'] ; ?>"><?php echo get_field('tbl_shop_category','id',$parent,'name'); ?> </option>
                                             <?php }?>
                                             <option value="-1" <?php if($parent==-1) echo 'selected="selected"';?> > Chọn danh mục </option>
@@ -225,7 +239,7 @@ $(document).ready(function() {
                                                 <option value="<?php echo $parent1=$_POST['ddCatch'] ; ?>"><?php echo get_field('tbl_shop_category','id',$parent1,'name'); ?> </option>
                                             <?php }?>
                                             <?php
-                                            $gt=get_records("tbl_shop_category","parent='".$_POST['ddCat']."' and id!='".$_POST['ddCatch']."' and status=0","name COLLATE utf8_unicode_ci"," "," ");
+                                            $gt=get_records("tbl_shop_category","parent='".$_POST['ddCat']."' and id!='".$_POST['ddCatch']."' and id not in ('1','2','3') and status=0","name COLLATE utf8_unicode_ci"," "," ");
                                             while($row=mysql_fetch_assoc($gt)){?>
                                                 <option value="<?php echo $row['id']; ?>"><?php echo $row['name']; ?></option>
                                             <?php } ?>
@@ -233,7 +247,7 @@ $(document).ready(function() {
                                         </select>
                                         <input class="table_khungnho"  name="tukhoa" id="tukhoa" type="text" value="Từ khóa..." onfocus="if(this.value=='Từ khóa...') this.value='';" onblur="if(this.value=='') this.value='Từ khóa...';" />
                                         <input name="tim" type="submit" class="nut_table" id="tim" value="Tìm kiếm"/>
-                                        <input type="submit" name="reset" id="reset" class="nut_table" value="Reset" title=" Reset " />
+                                        <input type="submit" name="reset" id="reset" class="nut_table" value="Tất cả" title=" Reset "/>
                                     </td>
                                 </tr>
                                 <tr >
@@ -330,7 +344,7 @@ $(document).ready(function() {
                             <tr>
                                 <td  class="PageNext" colspan="10" align="center" valign="middle">
                                     <div style="padding:5px;">
-                                        <?php echo pagesLinks($totalRows,$pageSize); ?>
+                                        <?php echo pagesLinks($totalRows,$pageSize,$tukhoa); ?>
                                     </div>
                                 </td>
                             </tr>
