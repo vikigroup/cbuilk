@@ -63,6 +63,10 @@ if($functionName == "emptySessionCategory"){
     emptySessionCategory();
 }
 
+if($functionName == "removeUnicode"){
+    removeUnicode();
+}
+
 function connect(){
     // Create connection
     $conn = new mysqli($GLOBALS['hostname'], $GLOBALS['username'], $GLOBALS['password'], $GLOBALS['databasename']);
@@ -75,6 +79,11 @@ function connect(){
     else{
         return $conn;
     }
+}
+
+function removeUnicode(){
+    $string = filter_input(INPUT_POST, 'string');
+    echo remove_unicode($string);
 }
 
 function updateSystemEdit(){

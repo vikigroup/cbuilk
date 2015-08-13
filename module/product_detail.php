@@ -38,9 +38,9 @@ if($ghinho==1){ // prodetail
 <script type="text/javascript" >
 	$(document).ready(function() {
 		$(".btn_prod_details").click(function(){
-			var sl=$("#qty").val();
-			var nameshop=$("#name_shop").val();
-			var id=$("#id").val();	
+			var sl = $("#qty").val();
+			var nameshop = $("#name_shop").val();
+			var id = $("#id").val();
 			$(location).attr('href', 'http://'+nameshop+'.<?php echo $sub;?>?act=add_item&id='+id+'&sl='+sl);
 		});
 	});
@@ -48,35 +48,32 @@ if($ghinho==1){ // prodetail
 <section class="breacrum">
     <ul>
         <?php
-        if($row_sanpham['style']==1){$news=getRecord('tbl_shop_category', "id=211");?>
-        <li><a <?php if($news['target'] == 1){echo "target='_blank'";} ?> href="<?php echo $linkrootshop;?>/<?php echo $news['subject'];?>.html"><?php echo $news['name'];?></a></li>
+        if($row_sanpham['style'] == 1){$news=getRecord('tbl_shop_category', "id=211");?>
+        <li><a <?php if($news['target'] == 1){echo "target='_blank'";} ?> href="<?php if($news['other_link'] != ''){echo $news['other_link'];}else{echo $root.'/'.$news['subject'].'.html';} ?>"><?php echo $news['title_page']; ?></a></li>
         <?php $row_parent = getRecord('tbl_shop_category', "id=".$row_sanpham['parent1']); ?>
-        <li><a href="<?php echo $linkrootshop;?>/<?php echo get_field('tbl_shop_category','id',$row_parent['parent'],'subject');?>.html"><?php echo get_field('tbl_shop_category','id',$row_parent['parent'],'name');?></a></li>
+        <li><a <?php if(get_field('tbl_shop_category','id',$row_parent['parent'],'target') == 1){echo "target='_blank'";} ?> href="<?php if(get_field('tbl_shop_category','id',$row_parent['parent'],'other_link') != ''){echo get_field('tbl_shop_category','id',$row_parent['parent'],'other_link');}else{echo $root.'/'.get_field('tbl_shop_category','id',$row_parent['parent'],'subject').'.html';} ?>"><?php echo get_field('tbl_shop_category','id',$row_parent['parent'],'title_page'); ?></a></li>
         <?php } ?>
         <?php
-		$cha=get_field('tbl_shop_category','id',get_field('tbl_shop_category','id',$row_sanpham['parent1'],'parent'),'parent');
-        if($cha==2){
+		$cha = get_field('tbl_shop_category','id',get_field('tbl_shop_category','id',$row_sanpham['parent1'],'parent'),'parent');
+        if($cha == 2){
 		?>
-        <li><a <?php if(get_field('tbl_shop_category','id',get_field('tbl_shop_category','id',$row_sanpham['parent1'],'parent'),'target') == 1){echo "target='_blank'";} ?> href="<?php echo $linkrootshop;?>/<?php echo get_field('tbl_shop_category','id',get_field('tbl_shop_category','id',$row_sanpham['parent1'],'parent'),'subject');?>.html" title="<?php echo get_field('tbl_shop_category','id',get_field('tbl_shop_category','id',$row_sanpham['parent1'],'parent'),'title');?>"><?php echo get_field('tbl_shop_category','id',get_field('tbl_shop_category','id',$row_sanpham['parent1'],'parent'),'name');?></a></li>
+        <li><a <?php if(get_field('tbl_shop_category','id',get_field('tbl_shop_category','id',$row_sanpham['parent1'],'parent'),'target') == 1){echo "target='_blank'";} ?> href="<?php if(get_field('tbl_shop_category','id',get_field('tbl_shop_category','id',$row_sanpham['parent1'],'parent'),'other_link') != ''){echo get_field('tbl_shop_category','id',get_field('tbl_shop_category','id',$row_sanpham['parent1'],'parent'),'other_link');}else{echo $root.'/'.get_field('tbl_shop_category','id',get_field('tbl_shop_category','id',$row_sanpham['parent1'],'parent'),'subject').'.html';} ?>" title="<?php echo get_field('tbl_shop_category','id',get_field('tbl_shop_category','id',$row_sanpham['parent1'],'parent'),'title');?>"><?php echo get_field('tbl_shop_category','id',get_field('tbl_shop_category','id',$row_sanpham['parent1'],'parent'),'title_page'); ?></a></li>
         <?php }?>
-        <li><a <?php if(get_field('tbl_shop_category','id',$row_sanpham['parent1'],'target') == 1){echo "target='_blank'";} ?> href="<?php echo $linkrootshop;?>/<?php echo get_field('tbl_shop_category','id',$row_sanpham['parent1'],'subject');?>.html" title="<?php echo get_field('tbl_shop_category','id',$row_sanpham['parent1'],'title');?>"><?php echo get_field('tbl_shop_category','id',$row_sanpham['parent1'],'name');?></a></li>
-        <li><a title="<?php echo $row_sanpham['title'];?>"><?php echo $row_sanpham['name'];?> </a></li>
+        <li><a <?php if(get_field('tbl_shop_category','id',$row_sanpham['parent1'],'target') == 1){echo "target='_blank'";} ?> href="<?php if(get_field('tbl_shop_category','id',$row_sanpham['parent1'],'other_link') != ''){echo get_field('tbl_shop_category','id',$row_sanpham['parent1'],'other_link');}else{echo $root.'/'.get_field('tbl_shop_category','id',$row_sanpham['parent1'],'subject').'.html';} ?>" title="<?php echo get_field('tbl_shop_category','id',$row_sanpham['parent1'],'title');?>"><?php echo get_field('tbl_shop_category','id',$row_sanpham['parent1'],'title_page'); ?></a></li>
+        <li><a title="<?php echo $row_sanpham['title']; ?>"><?php echo $row_sanpham['title_page']; ?> </a></li>
     </ul>
     <div class="clear"></div>
 </section><!-- End .breacrum -->
 
 <section class="f-cont">
-    
     <div class="l-fcont">
-        
         <h1 class="t-lfcont"  >
-            <?php echo $row_sanpham['name'];?>   
+            <?php echo $row_sanpham['name'];?>
         </h1><!-- End .t-lfcont -->
 
         <p><?php echo $row_sanpham['detail_short'];?></p>
 
         <div class="sli-lfcont">
-
             <div class="sli-fcon-1">
                 <ul class="ul-sli-fcon-1">
 					<?php
@@ -91,9 +88,7 @@ if($ghinho==1){ // prodetail
                     <?php }?>
                 </ul>
             </div>
-
             <div class="clear"></div>
-
             <script type="text/javascript">
                 $('.ul-sli-fcon-1').bxSlider({
                     pagerCustom: '#sli-fcon-2',
@@ -103,7 +98,6 @@ if($ghinho==1){ // prodetail
                     adaptiveHeight: true
                 });
             </script>
-
         </div><!-- End .sli-lfcont -->
         
         <?php if($row_sanpham['style']==0 || $row_sanpham['style']==4 || $row_sanpham['style']==2){?>
@@ -172,13 +166,11 @@ if($ghinho==1){ // prodetail
                     <input checked="checked" class="checked" id="popupAccept" type="checkbox" value="true">
                     Tôi đồng ý với <a href="#" target="_blank" style="color: #4a90e2">Chính sách và quy định đặt hàng trực tuyến</a>
                 </div>
-                <!-- Popup Content is untill here--><a class="popup-close" href="#closed" onclick="$('.popup-container').hide();">X</a>
+                <a class="popup-close" href="#closed" onclick="$('.popup-container').hide();">X</a>
             </div>
         </div>
         <?php } ?>
-
         <div class="clear"></div>
-
         <div class="i_p_prod_details">
             <?php if($row_sanpham['idshop'] == 0){ ?>
                 <a href="<?php echo $root;?>" title="<?php echo $row_sanpham['title'];?>">
@@ -190,11 +182,8 @@ if($ghinho==1){ // prodetail
                 </a>
             <?php } ?>
         </div>
-
         <div class="clear"></div>
-
         <div class="info_prod_details">
-        
             <ul>
                 <li>
                     <h4 class="l_ipd">Ngày đăng </h4>
@@ -207,11 +196,9 @@ if($ghinho==1){ // prodetail
                     <div class="clear"></div>
                 </li>
             </ul>
-        
         </div><!-- End .info_prod_details -->
 
         <div class="block_prod_details">
-            
             <div class="info_gh">
                 <div>
                     <?php if($row_sanpham['idshop'] == 0){ ?>
@@ -284,7 +271,6 @@ if($ghinho==1){ // prodetail
                 </div>
                 <?php } ?>
             </div><!-- End .info_gh -->
-            
         </div><!-- End .block_prod_details -->
 
         <div class="block_prod_details">
@@ -326,27 +312,25 @@ if($ghinho==1){ // prodetail
                             </span>
                             <div class="clear"></div>
                         </li>
-                      <?php }?>   
-                        
+                      <?php }?>
                     </ul>
                 </div><!-- End .main_prod_other -->
                 
                 <div style="text-align:right;">
                     <?php if($row_sanpham['style'] == 1){$news = getRecord('tbl_shop_category', "id=211"); ?>
-                        <a <?php if($news['target'] == 1){echo "target='_blank'";} ?> class="rm_prod_other hvr-icon-wobble-horizontal" href="<?php echo $root ;?>/<?php echo $news['subject']; ?>.html" title="<?php echo $news['title']; ?>">Xem thêm tin tức</a>
+                        <a <?php if($news['target'] == 1){echo "target='_blank'";} ?> class="rm_prod_other hvr-icon-wobble-horizontal" href="<?php if($news['other_link'] != ''){echo $news['other_link'];}else{echo $root.'/'.$news['subject'].'.html';} ?>" title="<?php echo $news['title']; ?>">Xem thêm tin tức</a>
                     <?php } else if($row_sanpham['style'] == 2){$rent = getRecord('tbl_shop_category', "id=209"); ?>
-                        <a <?php if($rent['target'] == 1){echo "target='_blank'";} ?> class="rm_prod_other hvr-icon-wobble-horizontal" href="<?php echo $root ;?>/<?php echo $rent['subject']; ?>.html" title="<?php echo $rent['title']; ?>">Xem thêm dịch vụ</a>
+                        <a <?php if($rent['target'] == 1){echo "target='_blank'";} ?> class="rm_prod_other hvr-icon-wobble-horizontal" href="<?php if($rent['other_link'] != ''){echo $rent['other_link'];}else{echo $root.'/'.$rent['subject'].'.html';} ?>" title="<?php echo $rent['title']; ?>">Xem thêm dịch vụ</a>
                     <?php } else if($row_sanpham['style'] == 0){$allProducts = getRecord('tbl_shop_category', "id=457"); ?>
-                        <a <?php if($allProducts['target'] == 1){echo "target='_blank'";} ?> class="rm_prod_other hvr-icon-wobble-horizontal" href="<?php echo $root ;?>/<?php echo $allProducts['subject']; ?>.html" title="<?php echo $allProducts['title']; ?>">Xem thêm sản phẩm</a>
+                        <a <?php if($allProducts['target'] == 1){echo "target='_blank'";} ?> class="rm_prod_other hvr-icon-wobble-horizontal" href="<?php if($allProducts['other_link'] != ''){echo $allProducts['other_link'];}else{echo $root.'/'.$allProducts['subject'].'.html';} ?>" title="<?php echo $allProducts['title']; ?>">Xem thêm sản phẩm</a>
                     <?php } else if($row_sanpham['style'] == 4){$old = getRecord('tbl_shop_category', "id=210"); ?>
-                        <a <?php if($old['target'] == 1){echo "target='_blank'";} ?> class="rm_prod_other hvr-icon-wobble-horizontal" href="<?php echo $root ;?>/<?php echo $old['subject']; ?>.html" title="<?php echo $old['title']; ?>">Xem thêm máy củ</a>
+                        <a <?php if($old['target'] == 1){echo "target='_blank'";} ?> class="rm_prod_other hvr-icon-wobble-horizontal" href="<?php if($old['other_link'] != ''){echo $old['other_link'];}else{echo $root.'/'.$old['subject'].'.html';} ?>" title="<?php echo $old['title']; ?>">Xem thêm máy củ</a>
                     <?php } else if($row_sanpham['style'] == 3){$video = getRecord('tbl_shop_category', "id=390"); ?>
-                        <a <?php if($video['target'] == 1){echo "target='_blank'";} ?> class="rm_prod_other hvr-icon-wobble-horizontal" href="<?php echo $root ;?>/<?php echo $video['subject']; ?>.html" title="<?php echo $video['title']; ?>">Xem thêm video</a>
+                        <a <?php if($video['target'] == 1){echo "target='_blank'";} ?> class="rm_prod_other hvr-icon-wobble-horizontal" href="<?php if($video['other_link'] != ''){echo $video['other_link'];}else{echo $root.'/'.$video['subject'].'.html';} ?>" title="<?php echo $video['title']; ?>">Xem thêm video</a>
                     <?php } else if($row_sanpham['style'] == 6){$accessory = getRecord('tbl_shop_category', "id=500"); ?>
-                        <a <?php if($accessory['target'] == 1){echo "target='_blank'";} ?> class="rm_prod_other hvr-icon-wobble-horizontal" href="<?php echo $root ;?>/<?php echo $accessory['subject']; ?>.html" title="<?php echo $accessory['title']; ?>">Xem thêm phụ tùng</a>
+                        <a <?php if($accessory['target'] == 1){echo "target='_blank'";} ?> class="rm_prod_other hvr-icon-wobble-horizontal" href="<?php if($accessory['other_link'] != ''){echo $accessory['other_link'];}else{echo $root.'/'.$accessory['subject'].'.html';} ?>" title="<?php echo $accessory['title']; ?>">Xem thêm phụ tùng</a>
                     <?php } ?>
                 </div>
-                
             </div><!-- End .f_prod_other -->
         </div><!-- End .block_prod_details -->
         
@@ -483,26 +467,27 @@ else{
 <section class="breacrum">
     <ul>
         <?php
-        if($row_category['cate']==1 && $row_category['id'] != 211){$news_item=getRecord('tbl_shop_category', "id=211");?>
-        <li><a <?php if($news_item['target'] == 1){echo "target='_blank'";} ?> href="<?php echo $linkrootshop;?>/<?php echo $news_item['subject'];?>.html"><?php echo $news_item['name'];?></a></li>
+        if($row_category['cate']==1 && $row_category['id'] != 211){$news_item = getRecord('tbl_shop_category', "id=211");?>
+        <li><a <?php if($news_item['target'] == 1){echo "target='_blank'";} ?> href="<?php if($news_item['other_link'] != ''){echo $news_item['other_link'];}else{echo $root.'/'.$news_item['subject'].'.html';} ?>"><?php echo $news_item['title_page']; ?></a></li>
         <?php } ?>
         <?php
         if($row_category['cate']==3 && $row_category['id'] != 390){$video_item=getRecord('tbl_shop_category', "id=390");?>
-            <li><a <?php if($video_item['target'] == 1){echo "target='_blank'";} ?> href="<?php echo $linkrootshop;?>/<?php echo $video_item['subject'];?>.html"><?php echo $video_item['name'];?></a></li>
+            <li><a <?php if($video_item['target'] == 1){echo "target='_blank'";} ?> href="<?php if($video_item['other_link'] != ''){echo $video_item['other_link'];}else{echo $root.'/'.$video_item['subject'].'.html';} ?>"><?php echo $video_item['title_page'];?></a></li>
         <?php } ?>
         <?php
         $row_bc = getRecord('tbl_shop_category', "id=".$parent);
         if($row_bc != ''){
         ?>
-        <li><a <?php if(get_field('tbl_shop_category','id',$row_bc['parent'],'target') == 1){echo 'target="_blank"';} ?> href="<?php echo $linkrootshop;?>/<?php echo get_field('tbl_shop_category','id',$row_bc['parent'],'subject');?>.html"><?php echo get_field('tbl_shop_category','id',$row_bc['parent'],'name');?></a></li>
+        <li><a <?php if(get_field('tbl_shop_category','id',$row_bc['parent'],'target') == 1){echo 'target="_blank"';} ?> href="<?php if(get_field('tbl_shop_category','id',$row_bc['parent'],'other_link') != ''){echo get_field('tbl_shop_category','id',$row_bc['parent'],'other_link');}else{echo $root.'/'.get_field('tbl_shop_category','id',$row_bc['parent'],'subject').'.html';} ?>"><?php echo get_field('tbl_shop_category','id',$row_bc['parent'],'title_page'); ?></a></li>
         <?php } ?>
-        <li><a <?php if(get_field('tbl_shop_category','subject',$tensanpham,'target') == 1){echo 'target="_blank"';} ?> href="<?php echo $linkrootshop;?>/<?php echo $tensanpham;?>.html"><?php echo get_field('tbl_shop_category','subject',$tensanpham,'name');?></a></li>
+        <li><a <?php if(get_field('tbl_shop_category','subject',$tensanpham,'target') == 1){echo 'target="_blank"';} ?> href="<?php if(get_field('tbl_shop_category','subject',$tensanpham,'other_link') != ''){echo get_field('tbl_shop_category','subject',$tensanpham,'other_link');}else{echo $root.'/'.$tensanpham.'.html';} ?>"><?php echo get_field('tbl_shop_category','subject',$tensanpham,'title_page'); ?></a></li>
         <li style="float: right; margin-right: 35px;">
             <a>Hiện có <strong><?php echo $totalRows;?></strong>
                 <?php if($row_category['cate'] == 0 || $row_category['cate'] == 4 || $row_category['cate'] == 6){echo " sản phẩm";}
                     else if($row_category['cate'] == 1){echo " tin";}
                     else if($row_category['cate'] == 2){echo " dịch vụ";}
                     else if($row_category['cate'] == 3){echo " video";}
+                    else if($row_category['cate'] == 5){echo " quảng cáo";}
                 ?>
             </a>
         </li>
@@ -513,13 +498,13 @@ else{
 <section class="f-ct">
     <div class="sidebar">
         <div class="catelog">
-            <h2 class="t-mn-dm">
+            <h1 class="t-mn-dm">
 			<?php
-				echo get_field('tbl_shop_category','subject',$danhmuc,'name');
+				echo get_field('tbl_shop_category','subject',$danhmuc,'title_page');
 				if(countRecord("tbl_shop_category","parent='".$parent1."'")>0) get_field('tbl_shop_category','subject',$tensanpham,'parent');
-				else get_field('tbl_shop_category','id',get_field('tbl_shop_category','subject',$tensanpham,'parent'),'name');
+				else get_field('tbl_shop_category','id',get_field('tbl_shop_category','subject',$tensanpham,'parent'),'title_page');
 			?>
-            </h2>
+            </h1>
             <div class="m-cate">
                 <ul>
                     <?php
@@ -527,7 +512,7 @@ else{
 					else  $cate1=get_records("tbl_shop_category","status=0 AND cate NOT IN (1,2,3,4) AND id != 457 AND parent='".get_field('tbl_shop_category','subject',$danhmuc,'parent')."'"," "," "," ");
 					while($row_cate1=mysql_fetch_assoc($cate1)){
 					?>
-                    <li><a <?php if($row_cate1['target'] == 1){echo "target='_blank'";} ?> href="<?php echo $linkrootshop?>/<?php echo $row_cate1['subject'];?>.html" title="<?php echo $row_cate1['title']?>"><?php echo $row_cate1['name']?></a></li>
+                    <li><a <?php if($row_cate1['target'] == 1){echo "target='_blank'";} ?> href="<?php echo $linkrootshop?>/<?php echo $row_cate1['subject'];?>.html" title="<?php echo $row_cate1['title']?>"><?php echo $row_cate1['title_page']?></a></li>
 					<?php }?> 
                 </ul>
                 <div class="clear"></div>
@@ -567,9 +552,7 @@ else{
                     </li>
                     <?php } } ?>
                 </ul>
-                
                 <div class="clear"></div>
-
                 <script type="text/javascript">
                     $(document).ready(function(){
                         $('.ul-Pnb').bxSlider({
@@ -582,7 +565,6 @@ else{
                         });
                     });
                 </script>
-            
             </article><!-- End .m-Pnb -->
             
             <article class="m-Pnb2">
@@ -603,11 +585,9 @@ else{
                         <span class="price-Pnb"><?php  if($row_new['pricekm'] > 0){echo number_format($row_new['pricekm'],0)."  VNĐ";}else if($row_new['price'] > 0){echo number_format($row_new['price'],0)."  VNĐ";}else{echo "Giá: Liên hệ";} ?></span>
                     </li>
                    <?php }?>
-                   
                 </ul>
                 <div class="clear"></div>
             </article><!-- Responsive m-Pnb2 -->
-        
         </section><!-- End .Prod-nb -->
         <?php } ?>
 
@@ -690,7 +670,6 @@ else{
             </div>
             <div class="clear"></div>
         </div><!-- End .frame_phantrang -->
-        
     </div><!-- End .content -->
     <?php } ?>
     <div class="clear"></div>

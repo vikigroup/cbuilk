@@ -7,7 +7,6 @@ if(isset($frame)==true){
 ?>
 <? $errMsg =''?>
 <?
-
 $path = "../web/images/adv";
 $pathdb = "images/adv";
 if (isset($_POST['btnSave'])){
@@ -54,11 +53,6 @@ if (isset($_POST['btnSave'])){
 		if (mysql_query($sql,$conn)){
 			if(empty($_POST['id'])) $oldid = mysql_insert_id();
 			$r = getRecord("tbl_adv","id=".$oldid);
-		
-			/*$arrField = array(
-			"subject"          => "'".vietdecode($name)
-			);// ko them id vao cuoi cho dep
-			$result = update("tbl_adv",$arrField,"id=".$oldid);*/
 			
 			$sqlUpdateField = "";
 			
@@ -110,7 +104,7 @@ if (isset($_POST['btnSave'])){
 			$parent        = $row['parent'];
 			$subject       = $row['subject'];
 			$detail_short  = $row['detail_short'];
-			$link         = $row['link'];
+			$link          = $row['link'];
 			$detail        = $row['detail'];
 			$image         = $row['image'];
 			$image_large   = $row['image_large'];
@@ -122,21 +116,16 @@ if (isset($_POST['btnSave'])){
             $subPosition   = $row['sub_position'];
             $startDateTime = $row['start_banner'];
             $endDateTime   = $row['finish_banner'];
-            $style   = $row['style'];
+            $style         = $row['style'];
         }
 	}
 }
-
 ?>
 
-
-<?php
-	if( $errMsg !=""){ 
-?>
+<?php if( $errMsg !=""){ ?>
 <div class="alert alert-block no-radius fade in">
     <button type="button" class="close" data-dismiss="alert"><span class="mini-icon cross_c"></span></button>
-    <h4>Warning!</h4>
-     <?=$errMsg;?>
+    <p class="pAlert pWarning"><strong class="strongAlert strongWarning">Warning!</strong> <?php echo $errMsg; ?> <span class="xClose" title="Đóng" onclick="$(this).parent().hide();">x</span></p>
 </div>
 <?php }?>
 <div class="row-fluid">
@@ -145,101 +134,85 @@ if (isset($_POST['btnSave'])){
             <div class="widget-container">
                 <div class="widget-block">
                    <form method="post" name="frmForm" enctype="multipart/form-data" action="admin.php?act=adv_m">
-            <input type="hidden" name="txtSubject" id="txtSubject">
-            <input type="hidden" name="txtDetailShort" id="txtDetailShort">
-            <input type="hidden" name="txtDetail" id="txtDetail">
-            
-            <input type="hidden" name="act" value="adv_m">
-            <input type="hidden" name="id" value="<?=$_REQUEST['id']?>">
-            <input type="hidden" name="page" value="<?=$_REQUEST['page']?>">
-            <div> <? if($errMsg!=''){echo '<p align=center class="err">'.$errMsg.'<br></p>';}?>  </div>
-                 <table  class="table_chinh">
-
-                    <tr>
-                      <td class="table_chu_tieude_them" colspan="2" align="center" valign="middle"  >QUẢNG CÁO</td>
-                  </tr>
-                    <tr>
-                      <td valign="middle"  class="table_chu">&nbsp;</td>
-                      <td valign="middle">&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td valign="middle" width="30%">
-                            Tên<span class="sao_bb">*</span>
-                        </td>
-                        <td valign="middle" width="70%">
-                            <input name="txtName" type="text" class="table_khungnho" id="txtName" value="<?=$name?>"/>
-                        </td>
-                    </tr>
-                    <tr>
-                      <td valign="middle" width="30%">Link<span class="sao_bb">*</span></td>
-                      <td valign="middle"><input name="link" type="text" class="table_khungnho" id="link" value="<?=$link;?>" onchange="addhttp(this.value)"/></td>
-                    </tr>
-                    <tr>
-                        <td valign="middle" width="30%">
-                           Thứ tự sắp xếp
-                        </td>
-                        <td valign="middle" width="70%">
-                            <input class="table_khungnho" value="<?=$sort?>" type="text" name="txtSort"  />
-                        </td>
-                    </tr>
-                     <tr>
-                         <td valign="middle" width="30%">
-                             Vị trí<span class="sao_bb">*</span>
-                         </td>
-                         <td valign="middle" width="70%">
-                             <select class="table_khungnho" id="slAlignCreateAdminBanner" name="slAlignCreateAdminBanner" value="<?=$mainPosition?>" style="margin-bottom: 5px;" onchange="positionSelector(this.value);">
-                                 <option value="0" id="0">BÊN TRÁI</option>
-                                 <option value="1" id="1">Ở GIỮA</option>
-                                 <option value="2" id="2">BÊN TRÊN</option>
-                                 <option value="3" id="3">BÊN PHẢI</option>
-                             </select>
-                             <input type="hidden" name="slType" id="slType" value="<?=$style?>">
-                             <select class="table_khungnho" id="slPageCreateAdminBanner" name="slPageCreateAdminBanner" value="<?=$subPosition?>" onchange="$('#slType').val($('#slPageCreateAdminBanner option:selected').text());"> </select>
-                         </td>
-                     </tr>
-                     <tr>
-                         <td valign="middle" width="30%">
-                             Thời gian đặt banner<span class="sao_bb">*</span>
-                         </td>
-                         <td valign="middle" width="70%">
-                             <input style="margin-top: 2px;" type="date" class="table_khungnho" name="txtCreateBannerCreateDatetime" value="<?=$startDateTime?>" id="txtCreateBannerCreateDatetime">
-                         </td>
-                     </tr>
-                     <tr>
-                         <td valign="middle" width="30%">
-                             Thời gian kết thúc banner<span class="sao_bb">*</span>
-                         </td>
-                         <td valign="middle" width="70%">
-                             <input style="margin-top: 2px;" type="date" class="table_khungnho" name="txtCreateBannerEndDatetime" value="<?=$endDateTime?>" id="txtCreateBannerEndDatetime">
-                         </td>
-                     </tr>
-                    <tr>
-                        <td valign="middle" width="30%">
-                        Hình đại diện</td>
-                        <td valign="middle" width="70%">
-                            <input type="file" name="txtImage" class="textbox" size="34">
-							<input type="checkbox" name="chkClearImg" value="on"> Xóa bỏ hình ảnh	 <br>
-							<? if ($image!=''){ echo '<img border="0" width="80" height="80" src="../web/'.$image.'"><br><br>Hình (kích thước nhỏ)';}?>&nbsp;&nbsp;
-                        </td>
-                    </tr>
-                    <tr>
-                        <td valign="top" width="30%">
-                            Không hiển thị</td>
-                        <td valign="middle" width="70%">
-                            <input type="checkbox" name="chkStatus" value="<?php if($status>0){echo $status;}else{echo 0;} ?>" <? if ($status>0) echo 'checked' ?> onchange="if($(this).is(':checked')){this.value = 1;}else{this.value = 0;}">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td valign="top" width="30%">&nbsp;
-                            
-                        </td>
-                        <td valign="middle" width="70%">
-                            <input type="submit" name="btnSave" VALUE="Cập nhật" class=button onclick="return btnSave_onclick()">
-                            <input type="reset" class=button value="Nhập lại">	
-                        </td>
-                    </tr>
-                </table>
-                </form>
+                       <input type="hidden" name="txtSubject" id="txtSubject">
+                       <input type="hidden" name="txtDetailShort" id="txtDetailShort">
+                       <input type="hidden" name="txtDetail" id="txtDetail">
+                       <input type="hidden" name="act" value="adv_m">
+                       <input type="hidden" name="id" value="<?=$_REQUEST['id']?>">
+                       <input type="hidden" name="page" value="<?=$_REQUEST['page']?>">
+                       <div><? if($errMsg!=''){echo '<p align=center class="err">'.$errMsg.'<br></p>';} ?></div>
+                       <table  class="table_chinh">
+                           <tr>
+                               <td class="table_chu_tieude_them" colspan="2" align="center" valign="middle">QUẢNG CÁO</td>
+                           </tr>
+                           <tr>
+                               <td valign="middle" class="table_chu">&nbsp;</td>
+                               <td valign="middle">&nbsp;</td>
+                           </tr>
+                           <tr>
+                               <td valign="middle" width="30%">Tên<span class="sao_bb">*</span></td>
+                               <td valign="middle" width="70%">
+                                   <input name="txtName" type="text" class="table_khungnho" id="txtName" value="<?=$name?>"/>
+                               </td>
+                           </tr>
+                           <tr>
+                               <td valign="middle" width="30%">Link<span class="sao_bb">*</span></td>
+                               <td valign="middle"><input name="link" type="text" class="table_khungnho" id="link" value="<?php echo $link; ?>" onchange="if(this.value != ''){addhttp(this.id, this.value);}"/></td>
+                           </tr>
+                           <tr>
+                               <td valign="middle" width="30%">Thứ tự sắp xếp</td>
+                               <td valign="middle" width="70%">
+                                   <input class="table_khungnho" value="<?=$sort?>" type="text" name="txtSort"  />
+                               </td>
+                           </tr>
+                           <tr>
+                               <td valign="middle" width="30%">Vị trí<span class="sao_bb">*</span></td>
+                               <td valign="middle" width="70%">
+                                   <select class="table_khungnho" id="slAlignCreateAdminBanner" name="slAlignCreateAdminBanner" value="<?=$mainPosition?>" style="margin-bottom: 5px;" onchange="positionSelector(this.value);">
+                                       <option value="0" id="0">BÊN TRÁI</option>
+                                       <option value="1" id="1">Ở GIỮA</option>
+                                       <option value="2" id="2">BÊN TRÊN</option>
+                                       <option value="3" id="3">BÊN PHẢI</option>
+                                   </select>
+                                   <input type="hidden" name="slType" id="slType" value="<?=$style?>">
+                                   <select class="table_khungnho" id="slPageCreateAdminBanner" name="slPageCreateAdminBanner" value="<?=$subPosition?>" onchange="$('#slType').val($('#slPageCreateAdminBanner option:selected').text());"> </select>
+                                 </td>
+                             </tr>
+                           <tr>
+                               <td valign="middle" width="30%">Thời gian đặt banner<span class="sao_bb">*</span></td>
+                               <td valign="middle" width="70%">
+                                   <input style="margin-top: 2px;" type="date" class="table_khungnho" name="txtCreateBannerCreateDatetime" value="<?=$startDateTime?>" id="txtCreateBannerCreateDatetime">
+                               </td>
+                           </tr>
+                           <tr>
+                               <td valign="middle" width="30%">Thời gian kết thúc banner<span class="sao_bb">*</span></td>
+                               <td valign="middle" width="70%">
+                                   <input style="margin-top: 2px;" type="date" class="table_khungnho" name="txtCreateBannerEndDatetime" value="<?=$endDateTime?>" id="txtCreateBannerEndDatetime">
+                               </td>
+                           </tr>
+                           <tr>
+                               <td valign="middle" width="30%">Hình đại diện</td>
+                               <td valign="middle" width="70%">
+                                   <input type="file" name="txtImage" class="textbox" size="34">
+                                   <input type="checkbox" name="chkClearImg" value="on"> Xóa bỏ hình ảnh	 <br>
+                                   <? if ($image!=''){ echo '<img border="0" width="80" height="80" src="../web/'.$image.'"><br><br>Hình (kích thước nhỏ)';}?>&nbsp;&nbsp;
+                               </td>
+                           </tr>
+                           <tr>
+                               <td valign="top" width="30%">Không hiển thị</td>
+                               <td valign="middle" width="70%">
+                                   <input type="checkbox" name="chkStatus" value="<?php if($status>0){echo $status;}else{echo 0;} ?>" <? if ($status>0) echo 'checked' ?> onchange="if($(this).is(':checked')){this.value = 1;}else{this.value = 0;}">
+                               </td>
+                           </tr>
+                           <tr>
+                               <td valign="top" width="30%">&nbsp;</td>
+                               <td valign="middle" width="70%">
+                                   <input type="submit" name="btnSave" VALUE="Cập nhật" class=button onclick="return btnSave_onclick()">
+                                   <input type="reset" class=button value="Nhập lại">
+                               </td>
+                            </tr>
+                       </table>
+                   </form>
                 </div>
             </div>
         </div>
@@ -258,39 +231,4 @@ if (isset($_POST['btnSave'])){
             $("select#slPageCreateAdminBanner").val("<?php echo $subPosition ?>");
         }
     });
-
-    function positionSelector(selector){
-        $("#slPageCreateAdminBanner option").remove();
-        if(selector == 0){
-            $("#slPageCreateAdminBanner").append("<option value='0'>TOP (190x330)</option>");
-            for(var i = 1; i <= 12; i++){
-                $("#slPageCreateAdminBanner").append("<option value='"+i+"'>"+i+"C (187x67)</option>");
-            }
-        }
-        if(selector == 1){
-            for(var j = 1; j <= 4; j++){
-                $("#slPageCreateAdminBanner").append("<option value='"+(j+12)+"'>TOP - HÀNG "+j+" (90x45)</option>");
-            }
-
-            for(var i = 1; i <= 12; i++){
-                $("#slPageCreateAdminBanner").append("<option value='"+i+"'>"+i+"C (390x420)</option>");
-            }
-        }
-        if(selector == 2){
-            for(var i = 1; i <= 12; i++){
-                $("#slPageCreateAdminBanner").append("<option value='"+i+"'>"+i+"C (1210x60)</option>");
-            }
-        }
-        if(selector == 3){
-            $("#slPageCreateAdminBanner").append("<option value='0'>TOP (190x330)</option>");
-        }
-    }
-
-    function addhttp(url) {
-        var pattern = /^((http|https):\/\/)/;
-        if(!pattern.test(url)) {
-            url = "http://" + url;
-        }
-        $('#link').val(url);
-    }
 </script>

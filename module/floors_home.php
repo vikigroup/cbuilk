@@ -10,7 +10,7 @@ $myArrPrimarySubject = array();
 $myArrPrimaryImage = array();
 while($row_cate_floor=mysql_fetch_assoc($cate_floor)){
     array_push($myArrID, $row_cate_floor['id']);
-    array_push($myArrName, $row_cate_floor['name']);
+    array_push($myArrName, $row_cate_floor['title_page']);
     array_push($myArrPrimarySubject, $row_cate_floor['subject']);
     array_push($myArrPrimaryImage, $row_cate_floor['image_large']);
 }
@@ -24,10 +24,10 @@ for($i = 0; $i < 12; $i++){
         $row_floor=mysql_fetch_array($result_floor);
         if($row_floor['amount'] > 0){
             if($row_floor['image'] != ''){
-                echo '<a href="'.$row_floor['link'].'" target="_blank"><img src="../web/'.$row_floor['image'].'" alt="'.$row_floor['name'].'"></a>';
+                echo '<a href="'.$row_floor['link'].'" target="_blank"><img src="../web/'.$row_floor['image'].'" alt="'.$row_floor['title_page'].'"></a>';
             }
             else{
-                echo '<a href="'.$row_floor['link'].'" target="_blank"><img src="http://placehold.it/1210x60&text=No Image" alt="'.$row_floor['name'].'"></a>';
+                echo '<a href="'.$row_floor['link'].'" target="_blank"><img src="http://placehold.it/1210x60&text=No Image" alt="'.$row_floor['title_page'].'"></a>';
             }
         }
         else{
@@ -51,14 +51,14 @@ for($i = 0; $i < 12; $i++){
             $myArrSubject = array();
             $myArrImage = array();
             while($row_sub_cate1=mysql_fetch_assoc($sub_cate_floor1)){
-                array_push($myArrSubName, $row_sub_cate1['name']);
+                array_push($myArrSubName, $row_sub_cate1['title_page']);
                 array_push($myArrSubject, $row_sub_cate1['subject']);
                 array_push($myArrImage, $row_sub_cate1['image']);
             }
 
             $sub_cate_floor2=get_records("tbl_shop_category","status=0 AND parent='".$myArrID[$i]."' AND hot=0","sort, date_added DESC","6"," ");
             while($row_sub_cate2=mysql_fetch_assoc($sub_cate_floor2)){
-                array_push($myArrSubName, $row_sub_cate2['name']);
+                array_push($myArrSubName, $row_sub_cate2['title_page']);
                 array_push($myArrSubject, $row_sub_cate2['subject']);
                 array_push($myArrImage, $row_sub_cate2['image']);
             }
@@ -93,10 +93,10 @@ for($i = 0; $i < 12; $i++){
             $total_adv1 = 0;
             while($row_floor1=mysql_fetch_assoc($adv_floor1)){
                 if($row_floor1['image'] != ''){
-                    echo '<div class="slide"><a href="'.$row_floor1['link'].'" target="_blank"><img src="../web/'.$row_floor1['image'].'" alt="'.$row_floor1['name'].'"></a></div>';
+                    echo '<div class="slide"><a href="'.$row_floor1['link'].'" target="_blank"><img src="../web/'.$row_floor1['image'].'" alt="'.$row_floor1['title_page'].'"></a></div>';
                 }
                 else{
-                    echo '<div class="slide"><a href="'.$row_floor1['link'].'" target="_blank"><img src="http://placehold.it/187x67&text=No Image" alt="'.$row_floor1['name'].'"></a></div>';
+                    echo '<div class="slide"><a href="'.$row_floor1['link'].'" target="_blank"><img src="http://placehold.it/187x67&text=No Image" alt="'.$row_floor1['title_page'].'"></a></div>';
                 }
                 $total_adv1++;
             }
@@ -117,10 +117,10 @@ for($i = 0; $i < 12; $i++){
             $row_floor=mysql_fetch_array($result_floor);
             if($row_floor['amount'] > 0){
                 if($row_floor['image'] != ''){
-                    echo '<a href="'.$row_floor['link'].'" target="_blank"><img src="../web/'.$row_floor['image'].'" alt="'.$row_floor['name'].'"></a>';
+                    echo '<a href="'.$row_floor['link'].'" target="_blank"><img src="../web/'.$row_floor['image'].'" alt="'.$row_floor['title_page'].'"></a>';
                 }
                 else{
-                    echo '<a href="'.$row_floor['link'].'" target="_blank"><img src="http://placehold.it/190x330&text=No Image" alt="'.$row_floor['name'].'"></a>';
+                    echo '<a href="'.$row_floor['link'].'" target="_blank"><img src="http://placehold.it/190x330&text=No Image" alt="'.$row_floor['title_page'].'"></a>';
                 }
             }
             else{
@@ -138,7 +138,7 @@ for($i = 0; $i < 12; $i++){
         ?>
         <div class="divProductLine1 hvr-float-shadow" style="background-image: url('<?php echo $linkrootshop.'/web/'.$row_floor['image'] ?>'); background-size: cover;" onclick="window.location.href = '<?php echo $linkrootshop;?>/<?php echo $row_floor['subject'];?>.html';">
             <div class="divProductOverlay1" onclick="window.location.href = '<?php echo $linkrootshop;?>/<?php echo $row_floor['subject'];?>.html';">
-                <span><?php echo $row_floor['name'] ?></span>
+                <span><?php echo $row_floor['title_page'] ?></span>
                 <?php if($row_floor['price'] == 0 && $row_floor['pricekm'] == 0){ ?>
                 <span class="spanMoneyKM">Giá liên hệ</span>
                 <?php }else if($row_floor['price'] > 0 && $row_floor['pricekm'] > 0){ ?>

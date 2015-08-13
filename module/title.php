@@ -100,3 +100,4 @@
 <title><?php echo $title_t ;?></title>
     <meta name="description" content="<?php echo $description_t ;?>" />
     <meta name="keywords" content="<?php echo $keywords_t ;?>" />
+    <meta name="WT.ti" content="<?php echo $title_t ;?>" />

@@ -74,6 +74,7 @@ $myProduct = getRecord('tbl_item', "subject='".$_GET['tensanpham']."'");
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta name="robots" content="index, follow"/>
     <meta name="author" content="<?php echo $root; ?>"/>
+    <meta name="generator" content="<?php echo $sub; ?>"/>
     <meta property="og:type" content="website"/>
     <meta property="og:site_name" content="<?php echo $title_t; ?>"/>
     <meta property="og:url" content="http://<?php echo $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']; ?>" />

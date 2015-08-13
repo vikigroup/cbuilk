@@ -107,6 +107,10 @@
     font-weight: 700;
 }
 
+.strongInfo{
+    color: #31708f;
+}
+
 .strongWarning{
     color: #8a6d3b;
 }
@@ -122,13 +126,20 @@
 .pAlert{
     padding: 15px;
     border-radius: 4px;
+    position: relative;
+}
+
+.pInfo{
+    color: #31708f;
+    background-color: #d9edf7;
+    border: 1px solid #bce8f1;
 }
 
 .pWarning{
     color: #8a6d3b;
     background-color: #fcf8e3;
     border: 1px solid #faebcc;
-]}
+}
 
 .pSuccess{
     color: #3c763d;
@@ -144,7 +155,9 @@
 
 .xClose{
     color: #333;
-    float: right;
+    position: absolute;
+    top: 5px;
+    right: 5px;
     font-size: 18px;
     font-weight: 700;
     opacity: 0.2;
@@ -155,3 +168,26 @@
     cursor: pointer;
     opacity: 0.8;
 }
+
+.tr_title{
+    border: 1px solid #cdcdcd;
+    background-color: #3883CC;
+    height: 36px;
+    border-radius: 3px;
+    color: #ffffff;
+}
+
+.btn-SEO{
+    background-color: #FB8833;
+    padding: 10px;
+    cursor: pointer;
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.txtSEO{
+    width: 25px;
+    border: 1px solid red;
+    padding: 5px;
+}
+
