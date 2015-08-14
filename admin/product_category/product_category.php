@@ -240,7 +240,7 @@ $(document).ready(function() {
                                                 <option value="<?php echo $row['id']; ?>"><?php echo $row['name']; ?></option>
                                             <?php } ?>
                                         </select>
-                                        <input class="table_khungnho"  name="tukhoa" id="tukhoa" type="text" value="<?php if($tukhoa != -1){echo $tukhoa;}else{echo 'Từ khóa...';} ?>" onfocus="if(this.value=='Từ khóa...') this.value='';" onblur="if(this.value=='') this.value='Từ khóa...';" />
+                                        <input class="table_khungnho" name="tukhoa" id="tukhoa" type="text" value="<?php if($tukhoa != -1){echo $tukhoa;}else{echo 'Từ khóa...';} ?>" onfocus="if(this.value=='Từ khóa...') this.value='';" onblur="if(this.value=='') this.value='Từ khóa...';" />
                                         <input name="tim" type="submit" class="nut_table" id="tim" value="Tìm kiếm"/>
                                         <input type="submit" name="reset" id="reset" class="nut_table" value="Tất cả" title=" Reset "/>
                                     </td>

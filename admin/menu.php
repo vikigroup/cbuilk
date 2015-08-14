@@ -50,7 +50,7 @@
                 </ul>
             </li>
             <li>
-                <a href="admin.php?act=service">Dịch vụ &darr;</a>
+                <a href="#">Dịch vụ &darr;</a>
                 <ul>
                     <li><a href="#" onclick="emptySessionCategory('service_category');">Danh mục dịch vụ</a></li>
                     <li><a href="admin.php?act=service">Tất cả dịch vụ</a></li>
