@@ -354,7 +354,7 @@ $(document).ready(function() {
                                 <?php }?>
                             </tbody>
                             <tr>
-                                <td  class="PageNext" colspan="10" align="center" valign="middle">
+                                <td class="PageNext" colspan="10" align="center" valign="middle">
                                     <div style="padding:5px;">
                                         <?php echo pagesLinks($totalRows,$pageSize); ?>
                                     </div>

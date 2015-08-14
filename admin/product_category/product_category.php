@@ -155,7 +155,7 @@ $(document).ready(function() {
             <div class="widget-container">
                 <div class="widget-block">
                     <?
-                    $pageSize = 6;
+                    $pageSize = 10;
                     $pageNum = 1;
                     $totalRows = 0;
 

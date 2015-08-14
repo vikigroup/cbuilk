@@ -2343,6 +2343,14 @@ textarea:hover, textarea:focus{
     width: 61%;
 }
 
+.pDescription{
+    text-transform: none;
+    color: #000000;
+    font-size: 13px;
+    font-weight: normal;
+    font-style: italic;
+}
+
 /************************************************************************************
 SOCIAL STYLE
 *************************************************************************************/

@@ -15,7 +15,7 @@
         <div class="divMainCategory" id="divMainCategory<?php echo $cateNum; ?>" onclick="moveToMainCategory(this.id, '<?php echo $row_cate['subject']; ?>'); scrollTopDesc();">
             <div class="divMainCategoryContents">
                 <div class="divMainImage"><img src="<?php echo $root; ?>/web/<?php if($row_cate['image'] != ''){echo $row_cate['image'];}else{echo '/images/item_noimage.png';} ?>"></div>
-                <div class="divMainName"><span><?php echo $row_cate['title_page']; ?></span></div>
+                <div class="divMainName"><span><?php echo $row_cate['name']; ?></span></div>
             </div>
         </div>
         <?php $cateNum++;} ?>
@@ -30,12 +30,12 @@
         <div class="divMainSubCategory" id="<?php echo $row_cate['subject']; ?>">
             <input type="hidden" id="hiddenMainSubCategory" value="<?php echo $k; ?>">
             <div class="divMainImage"><img src="<?php echo $root; ?>/web/<?php if($row_cate['image'] != ''){echo $row_cate['image'];}else{echo '/images/item_noimage.png';} ?>"></div>
-            <div class="divMainSubCategoryTitle"><h3><a <?php if($row_cate['target'] == 1){echo 'target="_blank"';} ?> href="<?php if($row_cate['other_link'] != ''){echo $row_cate['other_link'];}else{echo $root.'/'.$row_cate['subject'].'.html';} ?>"> <?php echo $row_cate['title_page']; ?> </a></h3></div>
+            <div class="divMainSubCategoryTitle"><h3><a <?php if($row_cate['target'] == 1){echo 'target="_blank"';} ?> href="<?php if($row_cate['other_link'] != ''){echo $row_cate['other_link'];}else{echo $root.'/'.$row_cate['subject'].'.html';} ?>"> <?php echo $row_cate['name']; ?> </a></h3></div>
             <?php $subCate = get_records("tbl_shop_category","status=0 AND parent='".$row_cate['id']."'","sort, name COLLATE utf8_unicode_ci"," "," ");
             $m = 1;
             while($row_subCate = mysql_fetch_assoc($subCate)){ ?>
             <div class="divMainSubCategoryName" id="divMainSubCategoryName<?php echo $h; ?>">
-                <a <?php if($row_subCate['target'] == 1){echo 'target="_blank"';} ?> class="main_subCategory" href="<?php if($row_subCate['other_link'] != ''){echo $row_subCate['other_link'];}else{echo $root.'/'.$row_subCate['subject'].'.html';} ?>"><?php echo $row_subCate['title_page']; ?></a>
+                <a <?php if($row_subCate['target'] == 1){echo 'target="_blank"';} ?> class="main_subCategory" href="<?php if($row_subCate['other_link'] != ''){echo $row_subCate['other_link'];}else{echo $root.'/'.$row_subCate['subject'].'.html';} ?>"><?php echo $row_subCate['name']; ?></a>
                 <span class="main_total_items">(<?php echo count_items($row_subCate['id']); ?>)</span>
                 <div class="clear"></div>
                 <?php $subSubCate = get_records("tbl_shop_category","status=0 AND parent='".$row_subCate['id']."'","sort, name COLLATE utf8_unicode_ci","0,20"," ");
@@ -44,7 +44,7 @@
                 while($row_subSubCate = mysql_fetch_assoc($subSubCate)){ ?>
                     <?php if($i <= 20){ ?>
                     <div class="divMainLastCategoryName">
-                        <a <?php if($row_subSubCate['target'] == 1){echo 'target="_blank"';} ?> href="<?php if($row_subSubCate['other_link'] != ''){echo $row_subSubCate['other_link'];}else{echo $root.'/'.$row_subSubCate['subject'].'.html';} ?>"><?php echo $row_subSubCate['title_page']; ?></a>
+                        <a <?php if($row_subSubCate['target'] == 1){echo 'target="_blank"';} ?> href="<?php if($row_subSubCate['other_link'] != ''){echo $row_subSubCate['other_link'];}else{echo $root.'/'.$row_subSubCate['subject'].'.html';} ?>"><?php echo $row_subSubCate['name']; ?></a>
                     </div>
                     <?php } ?>
                     <?php if($i == 20 && $num_rows > 20){ ?>
@@ -80,7 +80,7 @@
                     <img src="<?php echo $root; ?>/web/<?php echo $row['image']; ?>">
                 </div>
                 <div class="r-contents-title">
-                    <p><?php echo $row['title_page']; ?></p>
+                    <p><?php echo $row['name']; ?></p>
                 </div>
             </div>
             <?php } ?>

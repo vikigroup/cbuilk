@@ -126,7 +126,7 @@
         <br/>
         <p>
             <a <?php if(get_field('tbl_shop_category','id',458,'target') == 1){echo 'target="_blank"';}; ?> href="<?php if(get_field('tbl_shop_category','id',458,'other_link') != ''){echo get_field('tbl_shop_category','id',458,'other_link');}else{echo $root.'/'.get_field('tbl_shop_category','id',458,'subject').'.html';} ?>">
-                <span class="hotline"><?php get_field('tbl_shop_category','id',458,'title_page'); ?></span>
+                <span class="hotline"><?php echo get_field('tbl_shop_category','id',458,'name'); ?></span>
             </a>
         </p>
     </div><!-- End .text-foot -->

@@ -10,17 +10,17 @@
                 ?>
                 <li>
                     <span class="icon-dm"><img src="<?php echo $linkroot; ?>/<?php echo $row_cate['image']; ?>" /></span>
-                    <a href="<?php echo $linkrootshop; ?>/<?php echo $row_cate['subject'];?>.html"><?php echo $row_cate['title_page']; ?></a>
+                    <a href="<?php echo $linkrootshop; ?>/<?php echo $row_cate['subject'];?>.html"><?php echo $row_cate['name']; ?></a>
                     <span class="mask-sub-menu"></span>
                     <div id="s-mn<?php echo $i; ?>" class="sub-menu">
-                        <h4 class="t-sub-mn"><?php echo $row_cate['title_page']; ?></h4><!-- End .t-sub-mn -->
+                        <h4 class="t-sub-mn"><?php echo $row_cate['name']; ?></h4><!-- End .t-sub-mn -->
                         <div class="m-sub-mn">
                             <ul>
                                 <?php
                                 $cate1=get_records("tbl_shop_category","status=0 AND parent='".$row_cate['id']."'"," "," "," ");
                                 while($row_cate1=mysql_fetch_assoc($cate1)){
                                 ?>
-                                <li><a href="<?php echo $linkrootshop?>/<?php echo $row_cate1['subject'];?>.html"><?php echo $row_cate1['title_page']; ?></a></li>
+                                <li><a href="<?php echo $linkrootshop?>/<?php echo $row_cate1['subject'];?>.html"><?php echo $row_cate1['name']; ?></a></li>
                                 <?php }?>
                             </ul>
                             <div class="clear"></div>
