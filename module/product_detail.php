@@ -502,7 +502,7 @@ else{
 			<?php
 				echo get_field('tbl_shop_category','subject',$danhmuc,'title_page');
                 echo '<p class="pDescription">'.get_field('tbl_shop_category','subject',$danhmuc,'description_page').'</p>';
-                if(countRecord("tbl_shop_category","parent='".$parent1."'")>0) get_field('tbl_shop_category','subject',$tensanpham,'parent');
+                if(countRecord("tbl_shop_category","parent='".$parent1."'") > 0) get_field('tbl_shop_category','subject',$tensanpham,'parent');
 				else get_field('tbl_shop_category', 'id', get_field('tbl_shop_category', 'subject', $tensanpham, 'parent'), 'title_page');
 			?>
             </h1>
@@ -571,9 +571,9 @@ else{
             <article class="m-Pnb2">
                 <ul>
 					<?php 
-                    $new=get_records("tbl_item","status=0 AND type=0 AND parent1 in ({$parent}) "," ","0,9"," ");
-                    while($row_new=mysql_fetch_assoc($new)){
-                    $shop=getRecord('tbl_shop', "id='".$row_new['idshop']."'");
+                    $new = get_records("tbl_item","status=0 AND type=0 AND parent1 in ({$parent}) "," ","0,9"," ");
+                    while($row_new = mysql_fetch_assoc($new)){
+                    $shop = getRecord('tbl_shop', "id='".$row_new['idshop']."'");
                     ?>
                     <li>
                         <div class="i-Pnb">

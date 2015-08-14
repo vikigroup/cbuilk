@@ -1,5 +1,5 @@
 <?php
-if(isset($frame)==true){
+if(isset($frame) == true){
 	check_permiss($_SESSION['kt_login_id'],1,'admin.php');
 }else{
 	header("location: ../admin.php");
@@ -99,8 +99,8 @@ if (isset($_POST['btnSave'])){
 	$parent            = $_POST['ddCat'];
 	$parent1           = $_POST['ddCatch'];
 	
-	if($parent1==-1) $parent1=$parent;
-	if($parent1==-1 && $parent==-1 )$parent1=2;
+	if($parent1 == -1) $parent1 = $parent;
+	if($parent1 == -1 && $parent == -1 )$parent1 = 2;
 
 	$subject           = $_POST['txtSubjectSEO'];
 	$detail_short      = isset($_POST['txtDetailShort']) ? trim($_POST['txtDetailShort']) : '';
@@ -206,19 +206,19 @@ if (isset($_POST['btnSave'])){
 		echo '<script>window.location="admin.php?act=shop_category&cat='.$_REQUEST['cat'].'&page='.$_REQUEST['page'].'&code=1"</script>';
 }else{
 	if (isset($_GET['id'])){
-		$oldid=$_GET['id'];
+		$oldid = $_GET['id'];
 		$page = $_GET['page'];
 		$sql = "select * from tbl_shop_category where id='".$oldid."'";
 		if ($result = mysql_query($sql,$conn)) {
-			$row=mysql_fetch_array($result);
+			$row = mysql_fetch_array($result);
 			$code            = $row['code'];
 			$name            = $row['name'];
 
 			$parent1         = $row['parent'];
 			$parent          = get_field('tbl_shop_category','id',$parent1,'parent');
-			if($parent==2){
-				$parent=$parent1;
-				$parent1=-1;
+			if($parent == 2){
+				$parent = $parent1;
+				$parent1 = -1;
 			}
 
 			$subject         = $row['subject'];
@@ -289,20 +289,20 @@ if (isset($_POST['btnSave'])){
                               <td valign="middle" class="table_chu">Danh mục <span class="sao_bb">*</span></td>
                               <td valign="middle">
                                   <select name="ddCat" id="ddCat" class="table_list table_selector">
-                                      <?php if($_POST['ddCat']!=NULL){ ?>
-                                          <option value="<?php echo $idtheloaic=$_POST['ddCat'] ; ?>">&cir; <?php echo get_field('tbl_shop_category','id',$parent,'name'); ?></option>
+                                      <?php if($_POST['ddCat'] != NULL){ ?>
+                                          <option value="<?php echo $idtheloaic = $_POST['ddCat']; ?>">&cir; <?php echo get_field('tbl_shop_category','id',$parent,'name'); ?></option>
                                       <?php }?>
-                                      <?php if($parent!=-1 && $parent!=""){?>
-                                          <option value="<?php echo $parent ?>">&cir; <?php echo get_field('tbl_shop_category','id',$parent,'name'); ?></option>
+                                      <?php if($parent != -1 && $parent != ""){ ?>
+                                          <option value="<?php echo $parent; ?>">&cir; <?php echo get_field('tbl_shop_category','id',$parent,'name'); ?></option>
                                       <?php }?>
-                                      <option value="-1" <?php if($parent==-1) echo 'selected="selected"';?> >&cir; Chọn danh mục </option>
+                                      <option value="-1" <?php if($parent == -1) echo 'selected="selected"'; ?> >&cir; Chọn danh mục </option>
                                       <?php
-                                      $gt=get_records("tbl_shop_category","parent=2","name COLLATE utf8_unicode_ci"," "," ");
-                                      while($row=mysql_fetch_assoc($gt)){?>
-                                      <option value="<?php echo $row['id']; ?>" <?php if($parent==$row['id']) echo 'selected="selected"';?> >&cir; <?php echo $row['name']; ?></option>
+                                      $gt = get_records("tbl_shop_category","parent=2","name COLLATE utf8_unicode_ci"," "," ");
+                                      while($row=mysql_fetch_assoc($gt)){ ?>
+                                      <option value="<?php echo $row['id']; ?>" <?php if($parent == $row['id']) echo 'selected="selected"';?> >&cir; <?php echo $row['name']; ?></option>
                                           <?php
                                           $gtSub = get_records("tbl_shop_category","parent=".$row['id'],"name COLLATE utf8_unicode_ci"," "," ");
-                                          while($rowSub = mysql_fetch_assoc($gtSub)){?>
+                                          while($rowSub = mysql_fetch_assoc($gtSub)){ ?>
                                               <option value="<?php echo $rowSub['id']; ?>">&nbsp;&nbsp;&nbsp;|-> <?php echo $rowSub['name']; ?></option>
                                           <?php } ?>
                                       <?php } ?>
@@ -314,13 +314,13 @@ if (isset($_POST['btnSave'])){
                                 <td valign="middle">
                                     <select name="ddCatch" id="ddCatch" class="table_list table_selector">
                                         <?php if($_POST['ddCatch'] != NULL && $_POST['ddCatch'] != -1){ ?>
-                                            <option value="<?php echo $parent1=$_POST['ddCatch']; ?>"><?php echo get_field('tbl_shop_category','id',$parent1,'name'); ?></option>
+                                            <option value="<?php echo $parent1 = $_POST['ddCatch']; ?>"><?php echo get_field('tbl_shop_category','id',$parent1,'name'); ?></option>
                                         <?php }?>
-                                        <?php if($parent1!=-1 && $parent1!=""){?>
+                                        <?php if($parent1 != -1 && $parent1 != ""){ ?>
                                             <?php
-                                            $gt=get_records("tbl_shop_category","parent=".$parent,"name COLLATE utf8_unicode_ci"," "," ");
-                                            while($row=mysql_fetch_assoc($gt)){?>
-                                                <option value="<?php echo $row['id']; ?>" <?php if($parent1==$row['id']) echo 'selected="selected"';?> ><?php echo $row['name']; ?></option>
+                                            $gt = get_records("tbl_shop_category","parent=".$parent,"name COLLATE utf8_unicode_ci"," "," ");
+                                            while($row = mysql_fetch_assoc($gt)){ ?>
+                                                <option value="<?php echo $row['id']; ?>" <?php if($parent1 == $row['id']) echo 'selected="selected"'; ?> ><?php echo $row['name']; ?></option>
                                             <?php } ?>
                                         <?php }?>
                                         <option value="-1"> Chọn danh mục con </option>
@@ -339,8 +339,8 @@ if (isset($_POST['btnSave'])){
                                 <td valign="middle">
                                     <select name="ddCategory" id="ddCategory" class="table_list table_selector">
                                         <?php
-                                        $gt=get_records("tbl_shop_category","parent=2","name COLLATE utf8_unicode_ci"," "," ");
-                                        while($row=mysql_fetch_assoc($gt)){?>
+                                        $gt = get_records("tbl_shop_category","parent=2","name COLLATE utf8_unicode_ci"," "," ");
+                                        while($row = mysql_fetch_assoc($gt)){ ?>
                                             <option value="<?php echo $row['cate']; ?>" <?php if($cate == $row['cate']) echo 'selected="selected"';?> ><?php echo $row['name']; ?></option>
                                         <?php } ?>
                                     </select>
@@ -355,7 +355,7 @@ if (isset($_POST['btnSave'])){
                                         <input type="checkbox" name="chkClearImg" value="on"> Xóa bỏ hình ảnh <br>
                                     <?php } ?>
                                     <?php if($image != ''){echo '<img width="80" border="0" src="../web/'.$image.'">';} ?><br><br>
-                                    Hình (kích thước nhỏ)<i> (kích thước tối đa 250x250, ảnh đuôi JPEG, GIF , JPG , PNG) </i>
+                                    Hình (kích thước nhỏ)<i> (kích thước chuẩn 250x250, ảnh đuôi JPEG, GIF , JPG , PNG) </i>
                                 </td>
                             </tr>
                             <tr>
@@ -366,7 +366,7 @@ if (isset($_POST['btnSave'])){
                                        <input type="checkbox" name="chkClearImgLarge" value="on"> Xóa bỏ hình ảnh <br />
                                    <?php } ?>
                                    <?php if($image_large != ''){echo '<img width="200" border="0" src="../web/'.$image_large.'">';} ?><br><br>
-                                   Hình (kích thước lớn)<i> (kích thước tối đa 1020x482, ảnh đuôi JPEG, GIF , JPG , PNG) </i><br/><br/>
+                                   Hình (kích thước lớn)<i> (kích thước chuẩn 1020x482, ảnh đuôi JPEG, GIF , JPG , PNG) </i><br/><br/>
                                </td>
                             </tr>
                             <tr class="tr_title">
@@ -442,8 +442,8 @@ if (isset($_POST['btnSave'])){
                             <tr>
                                 <td valign="top" width="30%" class="table_chu">Tùy chọn</td>
                                 <td valign="middle" width="70%">
-                                    <input type="checkbox" name="chkStatus" value="<?php if($status>0){echo $status;}else{echo 0;} ?>" <? if ($status>0) echo 'checked' ?> onchange="if($(this).is(':checked')){this.value = 1;}else{this.value = 0;}"> Ẩn &nbsp; &nbsp;
-                                    <input type="checkbox" name="chkTarget" value="<?php if($target>0){echo $target;}else{echo 0;} ?>" <? if ($target>0) echo 'checked' ?> onchange="if($(this).is(':checked')){this.value = 1;}else{this.value = 0;}"> Mở link ngoài ra tab mới
+                                    <input type="checkbox" name="chkStatus" value="<?php if($status > 0){echo $status;}else{echo 0;} ?>" <? if ($status > 0) echo 'checked' ?> onchange="if($(this).is(':checked')){this.value = 1;}else{this.value = 0;}"> Ẩn &nbsp; &nbsp;
+                                    <input type="checkbox" name="chkTarget" value="<?php if($target > 0){echo $target;}else{echo 0;} ?>" <? if ($target > 0) echo 'checked' ?> onchange="if($(this).is(':checked')){this.value = 1;}else{this.value = 0;}"> Mở link ngoài ra tab mới
                                 </td>
                             </tr>
                             <tr>

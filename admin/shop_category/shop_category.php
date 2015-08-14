@@ -1,60 +1,60 @@
 <?php
-if(isset($frame)==true){
+if(isset($frame) == true){
     check_permiss($_SESSION['kt_login_id'],1,'admin.php');
 
 }else{
     header("location: ../admin.php");
 }
 
-if (isset($_POST['tim'])==true)
+if (isset($_POST['tim']) == true)
 {
-    if($_POST['tukhoa']!=NULL && $_POST['tukhoa'] != 'Từ khóa...'){$tukhoa=$_POST['tukhoa'];}else {$tukhoa=-1;}
-    $_SESSION['kt_tukhoa_bignew']=$tukhoa;
+    if($_POST['tukhoa'] != NULL && $_POST['tukhoa'] != 'Từ khóa...'){$tukhoa = $_POST['tukhoa'];}else {$tukhoa = -1;}
+    $_SESSION['kt_tukhoa_bignew'] = $tukhoa;
     $tukhoa = trim(strip_tags($tukhoa));
-    if (get_magic_quotes_gpc()==false)
+    if (get_magic_quotes_gpc() == false)
     {
         $tukhoa = mysql_real_escape_string($tukhoa);
     }
-    if($_POST['ddCat']!=NULL){$parent=$_POST['ddCat'];}else {$parent=-1;}
+    if($_POST['ddCat'] != NULL){$parent = $_POST['ddCat'];}else {$parent = -1;}
     $_SESSION['kt_parent_bignew']=$parent;
 
-    if($_POST['ddCatch']!=NULL){$parent1=$_POST['ddCatch'];}else {$parent1=-1;}
-    $_SESSION['kt_ddCatch_bignew']=$parent1;
+    if($_POST['ddCatch'] != NULL){$parent1 = $_POST['ddCatch'];}else {$parent1 = -1;}
+    $_SESSION['kt_ddCatch_bignew'] = $parent1;
 }
 
-if (isset($_POST['reset'])==true) {
+if (isset($_POST['reset']) == true) {
     $_POST['ddCatch'] = -1;
-    $_SESSION['kt_tukhoa_bignew']=-1;
-    $_SESSION['kt_parent_bignew']=-1;
-    $_SESSION['kt_ddCatch_bignew']=-1;
+    $_SESSION['kt_tukhoa_bignew'] = -1;
+    $_SESSION['kt_parent_bignew'] = -1;
+    $_SESSION['kt_ddCatch_bignew'] = -1;
     $errMsg = '';
     $_POST['tukhoa'] = NULL;
     header("Location: ".$root."/admin/admin.php?act=".$_GET['act']."&pageNum=1");
 }
 
-if($_SESSION['kt_tukhoa_bignew']==NULL){$tukhoa=-1;}
-if($_SESSION['kt_tukhoa_bignew']!=NULL){$tukhoa=$_SESSION['kt_tukhoa_bignew'];}
-if($_SESSION['kt_parent_bignew']==NULL){$parent=-1;}
-if($_SESSION['kt_parent_bignew']!=NULL){$parent=$_SESSION['kt_parent_bignew'];}
+if($_SESSION['kt_tukhoa_bignew'] == NULL){$tukhoa = -1;}
+if($_SESSION['kt_tukhoa_bignew'] != NULL){$tukhoa = $_SESSION['kt_tukhoa_bignew'];}
+if($_SESSION['kt_parent_bignew'] == NULL){$parent = -1;}
+if($_SESSION['kt_parent_bignew'] != NULL){$parent = $_SESSION['kt_parent_bignew'];}
 
-if($_SESSION['kt_ddCatch_bignew']==NULL){$parent1=-1;}
-if($_SESSION['kt_ddCatch_bignew']!=NULL){$parent1=$_SESSION['kt_ddCatch_bignew'];}
+if($_SESSION['kt_ddCatch_bignew'] == NULL){$parent1 = -1;}
+if($_SESSION['kt_ddCatch_bignew'] != NULL){$parent1 = $_SESSION['kt_ddCatch_bignew'];}
 
-if($_GET['anhien']==NULL){$anhien=-1;$_SESSION['kt_anhien']=$anhien;}
-if($_GET['anhien']!=NULL){$anhien=$_GET['anhien'];$_SESSION['kt_anhien']=$anhien;}
-settype($anhien,"int");
+if($_GET['anhien'] == NULL){$anhien = -1; $_SESSION['kt_anhien'] = $anhien;}
+if($_GET['anhien'] != NULL){$anhien = $_GET['anhien']; $_SESSION['kt_anhien'] = $anhien;}
+settype($anhien, "int");
 
-if($_GET['tang']==NULL){$tang=-1;$_SESSION['kt_tang']=$tang;}
-if($_GET['tang']!=NULL){$tang=$_GET['tang'];$_SESSION['kt_tang']=$tang;}
-settype($tang,"int");
+if($_GET['tang'] == NULL){$tang = -1; $_SESSION['kt_tang'] = $tang;}
+if($_GET['tang'] != NULL){$tang = $_GET['tang'];$_SESSION['kt_tang'] = $tang;}
+settype($tang, "int");
 
-if($_GET['noibat']==NULL){$noibat=-1;$_SESSION['kt_noibat']=$noibat;}
-if($_GET['noibat']!=NULL){$noibat=$_GET['noibat'];$_SESSION['kt_noibat']=$noibat;}
-settype($noibat,"int");
+if($_GET['noibat'] == NULL){$noibat = -1; $_SESSION['kt_noibat']=$noibat;}
+if($_GET['noibat'] != NULL){$noibat = $_GET['noibat']; $_SESSION['kt_noibat'] = $noibat;}
+settype($noibat, "int");
 
-if($tang==0){$ks='ASC';}//0 tang
-elseif($tang==1){$ks='DESC';}//1 giam
-else $ks='DESC';
+if($tang == 0){$ks = 'ASC';}//0 tang
+elseif($tang == 1){$ks = 'DESC';}//1 giam
+else $ks = 'DESC';
 
 switch ($_GET['action']){
     case 'del' :
@@ -81,13 +81,13 @@ switch ($_GET['action']){
 }
 
 if (isset($_POST['btnDel'])){
-    $cntDel=0;
-    $cntNotDel=0;
-    $cntParentExist=0;
+    $cntDel = 0;
+    $cntNotDel = 0;
+    $cntParentExist = 0;
     $myDeletedArr = array();
     $myUnDeletedArr = array();
     $mySubCatArr = array();
-    if($_POST['chk']!=''){
+    if($_POST['chk'] != ''){
         foreach ($_POST['chk'] as $id){
             $r = getRecord("tbl_shop_category","id=".$id);
             $resultParent = mysql_query("select id from tbl_shop_category where parent='".$id."'",$conn);
@@ -109,8 +109,8 @@ if (isset($_POST['btnDel'])){
             }
         }
         $errMsg = "Hệ thống đã xóa ".$cntDel." danh mục: ".implode(', ', $myDeletedArr)."<br/>";
-        $errMsg .= $cntNotDel>0 ? "Không thể xóa ".$cntNotDel." danh mục: ".implode(', ', $myUnDeletedArr).".<br/>" : '';
-        $errMsg .= $cntParentExist>0 ? "Bạn không thể xóa danh mục đang có danh mục con sử dụng. Gồm ".$cntParentExist." danh mục: ".implode(', ', $mySubCatArr) : '';
+        $errMsg .= $cntNotDel > 0 ? "Không thể xóa ".$cntNotDel." danh mục: ".implode(', ', $myUnDeletedArr).".<br/>" : '';
+        $errMsg .= $cntParentExist > 0 ? "Bạn không thể xóa danh mục đang có danh mục con sử dụng. Gồm ".$cntParentExist." danh mục: ".implode(', ', $mySubCatArr) : '';
     }else{
         $errMsg = 'Bạn chưa chọn danh mục cần xóa! Xin vui lòng chọn ít nhất một danh mục.';
     }
@@ -119,38 +119,38 @@ if (isset($_POST['btnDel'])){
 <script>
 $(document).ready(function() {
 	$("img.anhien").click(function(){
-	id=$(this).attr("value");
-	obj = this;
+        id = $(this).attr("value");
+	    obj = this;
 		$.ajax({
-		   url:'status.php',
-		   data: 'id='+ id +'&table=tbl_shop_category',
-		   cache: false,
-		   success: function(data){
-			obj.src=data;
-			if (data=="images/anhien_1.png") obj.title="Nhắp vào để hiện";
-			else obj.title="Nhắp vào để ẩn";
-		  }
+            url:'status.php',
+		    data: 'id='+ id +'&table=tbl_shop_category',
+		    cache: false,
+		    success: function(data){
+                obj.src = data;
+                if (data == "images/anhien_1.png") obj.title = "Nhắp vào để hiện";
+                else obj.title = "Nhắp vào để ẩn";
+		    }
 		});
 	});
 	
 	$("img.hot").click(function(){
-	id=$(this).attr("value");
-	obj = this;
+	    id = $(this).attr("value");
+	    obj = this;
 		$.ajax({
-		   url:'hot.php',
-		   data: 'id='+ id +'&table=tbl_shop_category',
-		   cache: false,
-		   success: function(data){
-			obj.src=data;
-			if (data=="images/noibat_1.png") obj.title="Nhắp vào để ẩn";
-			else obj.title="Nhắp vào để hiện";
-		  }
+            url:'hot.php',
+		    data: 'id='+ id +'&table=tbl_shop_category',
+		    cache: false,
+		    success: function(data){
+                obj.src = data;
+                if (data == "images/noibat_1.png") obj.title = "Nhắp vào để cài đặt về mặc định";
+                else obj.title = "Nhắp vào để cài đặt là danh mục tiêu biểu";
+		    }
 		});
 	});
 	
 	$("#chkall").click(function(){
-		var status=this.checked;
-		$("input[class='tai_c']").each(function(){this.checked=status;})
+		var status = this.checked;
+		$("input[class='tai_c']").each(function(){this.checked = status;})
 	});
 
     $("#btnDel").click(function(){
@@ -168,8 +168,8 @@ $(document).ready(function() {
 <script>
 $(document).ready(function() {
 	$("#ddCat").change(function(){ 
-		var id=$(this).val();
-		var table="tbl_shop_category";
+		var id = $(this).val();
+		var table = "tbl_shop_category";
 		$("#ddCatch").load("getChild.php?table="+ table + "&id=" +id);
 	});
 });
@@ -190,39 +190,39 @@ $(document).ready(function() {
                     $pageNum = 1;
                     $totalRows = 0;
 
-                    if (isset($_GET['pageNum'])==true) $pageNum = $_GET['pageNum'];
-                    if ($pageNum<=0) $pageNum=1;
+                    if (isset($_GET['pageNum']) == true) $pageNum = $_GET['pageNum'];
+                    if ($pageNum <= 0) $pageNum = 1;
                     $startRow = ($pageNum-1) * $pageSize;
 
-                    if($parent!=-1 || $parent1!=-1) {
-                        if($parent1!='-1') $parentstrt="$parent1";
-                        else $parentstrt=getParent("tbl_shop_category",$parent);
+                    if($parent != -1 || $parent1 != -1) {
+                        if($parent1 != '-1') $parentstrt = "$parent1";
+                        else $parentstrt = getParent("tbl_shop_category",$parent);
                         $parentstrtAfter = optimizeString($parentstrt);
-                        if($parent1!='-1'){
-                            $parentstrt="$parent1";
+                        if($parent1 != '-1'){
+                            $parentstrt = "$parent1";
                             $subParentString = parentString($parent1);
                         }
 
                         if($subParentString != ''){
-                            $where="1=1   and (id='{$tukhoa}' or name LIKE '%$tukhoa%' or '{$tukhoa}'=-1) and  (parent in ({$parentstrtAfter}) or id in ({$subParentString}) or id=$parent1 or id=$parent)";
+                            $where = "1=1   and (id='{$tukhoa}' or name LIKE '%$tukhoa%' or '{$tukhoa}'=-1) and  (parent in ({$parentstrtAfter}) or id in ({$subParentString}) or id=$parent1 or id=$parent)";
                         }
                         else{
-                            $where="1=1   and (id='{$tukhoa}' or name LIKE '%$tukhoa%' or '{$tukhoa}'=-1) and  (parent in ({$parentstrtAfter}) or id=$parent1 or id=$parent)";
+                            $where = "1=1   and (id='{$tukhoa}' or name LIKE '%$tukhoa%' or '{$tukhoa}'=-1) and  (parent in ({$parentstrtAfter}) or id=$parent1 or id=$parent)";
                         }
                     }
-                    else $where="1=1   and (id='{$tukhoa}' or name LIKE '%$tukhoa%' or '{$tukhoa}'=-1)";
+                    else $where = "1=1   and (id='{$tukhoa}' or name LIKE '%$tukhoa%' or '{$tukhoa}'=-1)";
 
-                    $where.=" AND ( status='{$anhien}' or '{$anhien}'=-1)  AND ( hot='{$noibat}' or '{$noibat}'=-1) AND id != 1";
+                    $where .= " AND ( status='{$anhien}' or '{$anhien}'=-1)  AND ( hot='{$noibat}' or '{$noibat}'=-1) AND id != 1";
 
-                    $MAXPAGE=1;
-                    $totalRows=countRecord("tbl_shop_category",$where);
+                    $MAXPAGE = 1;
+                    $totalRows = countRecord("tbl_shop_category",$where);
 
-                    if ($_REQUEST['cat']!='') $where="parent=".$_REQUEST['cat']; ?>
+                    if ($_REQUEST['cat'] != '') $where = "parent=".$_REQUEST['cat']; ?>
                     <form method="POST" action="" id="frmForm" name="frmForm" enctype="multipart/form-data">
                         <input type="hidden" name="page" value="<?=$page?>">
                         <input type="hidden" name="act" value="shop_category">
 
-                        <? if ($_REQUEST['code']==1) $errMsg = '<p class="pAlert pSuccess"><strong class="strongAlert strongSuccess">Chúc mừng!</strong> Bạn đã cập nhật thành công. <span class="xClose" title="Đóng" onclick="$(this).parent().hide();">x</span></p>'; ?>
+                        <? if ($_REQUEST['code'] == 1) $errMsg = '<p class="pAlert pSuccess"><strong class="strongAlert strongSuccess">Chúc mừng!</strong> Bạn đã cập nhật thành công. <span class="xClose" title="Đóng" onclick="$(this).parent().hide();">x</span></p>'; ?>
 
                         <table width="100%" class="admin_table">
                             <thead>
@@ -236,10 +236,10 @@ $(document).ready(function() {
                                 <tr align="center" >
                                     <td valign="middle" style="background-color:#F0F0F0; height:40px; padding-left:20px" colspan="10">
                                         <select name="ddCat" id="ddCat" class="list_tim_loc table_list">
-                                            <?php if($parent!=-1){ ?>
-                                            <option value="<?php echo $idtheloaic=$_POST['ddCat'] ; ?>"><?php echo get_field('tbl_shop_category','id',$parent,'name'); ?> </option>
+                                            <?php if($parent != -1){ ?>
+                                            <option value="<?php echo $idtheloaic = $_POST['ddCat'] ; ?>"><?php echo get_field('tbl_shop_category','id',$parent,'name'); ?> </option>
                                             <?php }?>
-                                            <option value="-1" <?php if($parent==-1) echo 'selected="selected"';?> > Chọn danh mục </option>
+                                            <option value="-1" <?php if($parent == -1) echo 'selected="selected"';?> > Chọn danh mục </option>
                                             <?php
                                             $gt = get_records("tbl_shop_category","parent=2 and id!='".$parent."'","name COLLATE utf8_unicode_ci"," "," ");
                                             while($row = mysql_fetch_assoc($gt)){?>
@@ -247,13 +247,13 @@ $(document).ready(function() {
                                             <?php } ?>
                                         </select>
                                         <select name="ddCatch" id="ddCatch" class="list_tim_loc table_list">
-                                            <?php if($parent1!=-1 ){ ?>
+                                            <?php if($parent1 != -1 ){ ?>
                                                 <option value="<?php echo $parent1; ?>"><?php echo get_field('tbl_shop_category','id',$parent1,'name'); ?> </option>
                                             <?php }?>
-                                            <option value="-1" <?php if($parent1==-1) echo 'selected="selected"';?> > Chọn danh mục con </option>
+                                            <option value="-1" <?php if($parent1 == -1) echo 'selected="selected"';?> > Chọn danh mục con </option>
                                             <?php
-                                            $gt=get_records("tbl_shop_category","parent='".$parent."' and id!='".$parent1."' and id not in ('1','2','3')","name COLLATE utf8_unicode_ci"," "," ");
-                                            while($row=mysql_fetch_assoc($gt)){?>
+                                            $gt = get_records("tbl_shop_category","parent='".$parent."' and id!='".$parent1."' and id not in ('1','2','3')","name COLLATE utf8_unicode_ci"," "," ");
+                                            while($row = mysql_fetch_assoc($gt)){?>
                                                 <option value="<?php echo $row['id']; ?>"><?php echo $row['name']; ?></option>
                                             <?php } ?>
                                         </select>
@@ -319,31 +319,31 @@ $(document).ready(function() {
                             </thead>
                             <tbody>
                                 <?
-                                $sortby="order by sort $ks";
-                                if ($_REQUEST['sortby']!='') $sortby="order by ".(int)$_REQUEST['sortby'];
-                                $direction=($_REQUEST['direction']==''||$_REQUEST['direction']=='0'?"desc":"");
-                                $sql="select *,DATE_FORMAT(date_added,'%d/%m/%Y %h:%i') as dateAdd,DATE_FORMAT(last_modified,'%d/%m/%Y %h:%i') as dateModify from tbl_shop_category where $where $sortby   limit ".($startRow).",".$pageSize;
-                                $result=mysql_query($sql,$conn);
-                                $i=0;
-                                while($row=mysql_fetch_array($result)){
+                                $sortby = "order by sort $ks";
+                                if ($_REQUEST['sortby'] != '') $sortby = "order by ".(int)$_REQUEST['sortby'];
+                                $direction = ($_REQUEST['direction']==''||$_REQUEST['direction']=='0'?"desc":"");
+                                $sql = "select *,DATE_FORMAT(date_added,'%d/%m/%Y %h:%i') as dateAdd,DATE_FORMAT(last_modified,'%d/%m/%Y %h:%i') as dateModify from tbl_shop_category where $where $sortby   limit ".($startRow).",".$pageSize;
+                                $result = mysql_query($sql,$conn);
+                                $i = 0;
+                                while($row = mysql_fetch_array($result)){
                                 $parent = getRecord('tbl_shop_category','id = '.$row['parent']);
-                                $color = $i++%2 ? "#d5d5d5" : "#e5e5e5";
+                                $color = $i++ % 2 ? "#d5d5d5" : "#e5e5e5";
                                 ?>
                                 <tr>
                                     <td align="center">
-                                        <input type="checkbox" name="chk[]" value="<?=$row['id']?>"  class="tai_c" />
+                                        <input type="checkbox" name="chk[]" value="<?=$row['id']?>" class="tai_c"/>
                                     </td>
                                     <td align="center"><?=$row['id']?></td>
-                                    <td align="center"><?php if($row['image']==true){ ?>
-                                        <a onclick="positionedPopup (this.href,'myWindow','500','400','100','400','yes');return false" href="../web/<?=$row['image']?>" title="Click vào xem ảnh"> <img src="../web/<?=$row['image']?>" width="40" height="40" border="0" class="hinh" /></a>
+                                    <td align="center"><?php if($row['image'] == true){ ?>
+                                        <a onclick="positionedPopup(this.href,'myWindow','500','400','100','400','yes'); return false;" href="../web/<?=$row['image']?>" title="Click vào xem ảnh"> <img src="../web/<?=$row['image']?>" width="40" height="40" border="0" class="hinh"/></a>
                                         <?php }else{?>
-                                        <img src="../<?php echo $noimgs; ?>" width="40" height="40" border="0" class="hinh" />
+                                        <img src="../<?php echo $noimgs; ?>" width="40" height="40" border="0" class="hinh"/>
                                         <?php }?>
                                     </td>
-                                    <td align="center"><a target="_blank" href="<?php echo $root.'/'.$row['subject'].'.html'; ?>"><?=$row['name']?></a></td>
+                                    <td align="center"><a target="_blank" href="<?php if($row['other_link'] != ''){echo $row['other_link'];}else{echo $root.'/'.$row['subject'].'.html';} ?>"><?=$row['name']?></a></td>
                                     <td align="center"><?=$parent['name']?></td>
                                     <td align="center"><?=$row['sort']?></td>
-                                    <td align="center"><span class="smallfont"><img src="images/noibat_<?=$row['hot']?>.png" alt="" width="25" height="25" class="hot" title="Tiêu biểu" value="<?=$row['id']?>" /></span></td>
+                                    <td align="center"><span class="smallfont"><img src="images/noibat_<?=$row['hot']?>.png" alt="" width="25" height="25" class="hot" title="<?php if($row['hot'] == 1){echo 'Nhấn vào để cài đặt về mặc định';}else{{echo 'Nhấn vào để cài đặt là danh mục tiêu biểu';}} ?>" value="<?=$row['id']?>" /></span></td>
                                     <td align="center"><span class="smallfont"><img src="images/anhien_<?=$row['status']?>.png" width="25" height="25" class="anhien" title="<?php if($row['status'] == 1){echo 'Nhấn vào để hiện';}else{{echo 'Nhấn vào để ẩn';}} ?>" value="<?=$row['id']?>" /></span></td>
                                     <td align="center"><?=$row['dateAdd']?></td>
                                     <td align="center">

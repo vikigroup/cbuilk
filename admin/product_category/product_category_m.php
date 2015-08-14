@@ -1,5 +1,5 @@
 <?php
-if(isset($frame)==true){
+if(isset($frame) == true){
 	check_permiss($_SESSION['kt_login_id'],1,'admin.php');
 }else{
 	header("location: ../admin.php");
@@ -8,12 +8,6 @@ if(isset($frame)==true){
 
 <script language="javascript">
 function btnSave_onclick(){
-    if($('#ddCat').val() == '-1'){
-        alert('Bạn chưa chọn "Danh mục"!');
-        $('#ddCat').focus();
-        return false;
-    }
-
     if($('#txtName').val() == ''){
         alert('Bạn chưa nhập "Tên danh mục"!');
         $('#txtName').focus();
@@ -99,15 +93,15 @@ if (isset($_POST['btnSave'])){
 	$parent            = $_POST['ddCat'];
 	$parent1           = $_POST['ddCatch'];
 	
-	if($parent1==-1) $parent1=$parent;
-	if($parent1==-1 && $parent==-1 )$parent1=2;
+	if($parent1 == -1) $parent1 = $parent;
+	if($parent1 == -1 && $parent == -1 )$parent1 = 457;
 
 	$subject           = $_POST['txtSubjectSEO'];
 	$detail_short      = isset($_POST['txtDetailShort']) ? trim($_POST['txtDetailShort']) : '';
 	$detail            = isset($_POST['txtDetail']) ? trim($_POST['txtDetail']) : '';
 	$sort              = isset($_POST['txtSort']) ? trim($_POST['txtSort']) : 0;
 	$status            = $_POST['chkStatus'];
-    $cate              = $_POST['ddCategory'];
+    $cate              = 0;
     $target            = $_POST['chkTarget'];
     $otherLink         = $_POST['txtOtherLink'];
     $titlePage         = isset($_POST['titlePage']) ? trim($_POST['titlePage']) : "";
@@ -125,35 +119,11 @@ if (isset($_POST['btnSave'])){
 
 	if ($name=="") $errMsg .= "Hãy nhập tên danh mục !<br>";
 	$errMsg .= checkUpload($_FILES["txtImage"],".jpg;.gif;.bmp;.png",250*250,0);
-	$errMsg .= checkUpload($_FILES["txtImageLarge"],".jpg;.gif;.bmp;.png",482*1020,0);
+	$errMsg .= checkUpload($_FILES["txtImageLarge"],".jpg;.gif;.bmp;.png",1020*482,0);
 
-	if ($errMsg==''){
+	if ($errMsg == ''){
 		if (!empty($_POST['id'])){
 			$oldid = $_POST['id'];
-            $myArr = array(209, 210, 211, 390, 458, 500);
-            if(in_array($oldid, $myArr)){
-                $link = $root."/".$subject.".html";
-                if($oldid == 210){
-                    $idSystem = 2;
-                }
-                if($oldid == 209){
-                    $idSystem = 3;
-                }
-                if($oldid == 211){
-                    $idSystem = 4;
-                }
-                if($oldid == 390){
-                    $idSystem = 5;
-                }
-                if($oldid == 500){
-                    $idSystem = 6;
-                }
-                if($oldid == 458){
-                    $idSystem = 7;
-                }
-                $query = "update tbl_system set module_name='".$name."',module_link='".$link."', module_display='".!$status."' where id='".$idSystem."'";
-                mysql_query($query,$conn);
-            }
 			$sql = "update tbl_shop_category set code='".$code."',name='".$name."', parent='".$parent1."',subject='".$subject."',detail_short='".$detail_short."',detail='".$detail."', sort='".$sort."', title='".$title."', description='".$description."', keyword='".$keyword."', status='".$status."',last_modified=now(), lang='".$lang."', cate='".$cate."', target='".$target."', other_link='".$otherLink."', title_page='".$titlePage."', description_page='".$descriptionPage."' where id='".$oldid."'";
         }else{
 			$sql = "insert into tbl_shop_category (code, name, parent, subject, detail_short, detail, title , description , keyword , sort, status,  date_added, last_modified, lang, cate, target, other_link, title_page , description_page) values ('".$code."','".$name."','".$parent1."','".$subject."','".$detail_short."','".$detail."','".$title."','".$description."','".$keyword."','".$sort."','".$status."',now(),now(),'".$lang."','".$cate."','".$target."','".$otherLink."','".$titlePage."','".$descriptionPage."')";
@@ -203,22 +173,22 @@ if (isset($_POST['btnSave'])){
 	}
 
 	if ($errMsg == '')
-		echo '<script>window.location="admin.php?act=shop_category&cat='.$_REQUEST['cat'].'&page='.$_REQUEST['page'].'&code=1"</script>';
+		echo '<script>window.location="admin.php?act=product_category&cat='.$_REQUEST['cat'].'&page='.$_REQUEST['page'].'&code=1"</script>';
 }else{
 	if (isset($_GET['id'])){
-		$oldid=$_GET['id'];
+		$oldid = $_GET['id'];
 		$page = $_GET['page'];
 		$sql = "select * from tbl_shop_category where id='".$oldid."'";
 		if ($result = mysql_query($sql,$conn)) {
-			$row=mysql_fetch_array($result);
+			$row = mysql_fetch_array($result);
 			$code            = $row['code'];
 			$name            = $row['name'];
 
 			$parent1         = $row['parent'];
 			$parent          = get_field('tbl_shop_category','id',$parent1,'parent');
-			if($parent==2){
-				$parent=$parent1;
-				$parent1=-1;
+			if($parent == 2){
+				$parent = $parent1;
+				$parent1 = -1;
 			}
 
 			$subject         = $row['subject'];
@@ -270,41 +240,36 @@ if (isset($_POST['btnSave'])){
         <div class="box-widget">
             <div class="widget-container">
                 <div class="widget-block">
-                   <form method="post" name="frmForm" enctype="multipart/form-data" action="admin.php?act=shop_category_m">
+                   <form method="post" name="frmForm" enctype="multipart/form-data" action="admin.php?act=product_category_m">
                         <input type="hidden" name="txtSubject" id="txtSubject">
                         <input type="hidden" name="txtDetailShort" id="txtDetailShort">
                         <input type="hidden" name="txtDetail" id="txtDetail">
-                        <input type="hidden" name="act" value="shop_category_m">
+                        <input type="hidden" name="act" value="product_category_m">
                         <input type="hidden" name="id" value="<?=$_REQUEST['id']?>">
                         <input type="hidden" name="page" value="<?=$_REQUEST['page']?>">
                         <table class="table_chinh">
                             <tr>
-                              <td class="table_chu_tieude_them" colspan="2" align="center" valign="middle">DANH MỤC WEBSITE</td>
+                              <td class="table_chu_tieude_them" colspan="2" align="center" valign="middle">DANH MỤC SẢN PHẨM</td>
                             </tr>
                             <tr class="tr_title">
                                 <td valign="middle"> &nbsp;Nội dung danh mục </td>
                                 <td valign="middle"> &nbsp;- Phần nhập dữ liệu </td>
                             </tr>
                             <tr>
-                              <td valign="middle" class="table_chu">Danh mục <span class="sao_bb">*</span></td>
+                              <td valign="middle" class="table_chu"> Danh mục </td>
                               <td valign="middle">
                                   <select name="ddCat" id="ddCat" class="table_list table_selector">
-                                      <?php if($_POST['ddCat']!=NULL){ ?>
-                                          <option value="<?php echo $idtheloaic=$_POST['ddCat'] ; ?>">&cir; <?php echo get_field('tbl_shop_category','id',$parent,'name'); ?></option>
+                                      <?php if($_POST['ddCat'] != NULL){ ?>
+                                          <option value="<?php echo $idtheloaic = $_POST['ddCat']; ?>">&cir; <?php echo get_field('tbl_shop_category','id',$parent,'name'); ?></option>
                                       <?php }?>
-                                      <?php if($parent!=-1 && $parent!=""){?>
-                                          <option value="<?php echo $parent ?>">&cir; <?php echo get_field('tbl_shop_category','id',$parent,'name'); ?></option>
+                                      <?php if($parent != -1 && $parent != ""){?>
+                                          <option value="<?php echo $parent; ?>">&cir; <?php echo get_field('tbl_shop_category','id',$parent,'name'); ?></option>
                                       <?php }?>
-                                      <option value="-1" <?php if($parent==-1) echo 'selected="selected"';?> >&cir; Chọn danh mục </option>
+                                      <option value="-1" <?php if($parent == -1) echo 'selected="selected"'; ?> >&cir; Chọn danh mục </option>
                                       <?php
-                                      $gt=get_records("tbl_shop_category","parent=2","name COLLATE utf8_unicode_ci"," "," ");
-                                      while($row=mysql_fetch_assoc($gt)){?>
-                                      <option value="<?php echo $row['id']; ?>" <?php if($parent==$row['id']) echo 'selected="selected"';?> >&cir; <?php echo $row['name']; ?></option>
-                                          <?php
-                                          $gtSub = get_records("tbl_shop_category","parent=".$row['id'],"name COLLATE utf8_unicode_ci"," "," ");
-                                          while($rowSub = mysql_fetch_assoc($gtSub)){?>
-                                              <option value="<?php echo $rowSub['id']; ?>">&nbsp;&nbsp;&nbsp;|-> <?php echo $rowSub['name']; ?></option>
-                                          <?php } ?>
+                                      $gt = get_records("tbl_shop_category","parent=457","name COLLATE utf8_unicode_ci"," "," ");
+                                      while($row = mysql_fetch_assoc($gt)){?>
+                                      <option value="<?php echo $row['id']; ?>" <?php if($parent == $row['id']) echo 'selected="selected"';?> >&cir; <?php echo $row['name']; ?></option>
                                       <?php } ?>
                                   </select>
                               </td>
@@ -316,11 +281,11 @@ if (isset($_POST['btnSave'])){
                                         <?php if($_POST['ddCatch'] != NULL && $_POST['ddCatch'] != -1){ ?>
                                             <option value="<?php echo $parent1=$_POST['ddCatch']; ?>"><?php echo get_field('tbl_shop_category','id',$parent1,'name'); ?></option>
                                         <?php }?>
-                                        <?php if($parent1!=-1 && $parent1!=""){?>
+                                        <?php if($parent1 != -1 && $parent1 != ""){ ?>
                                             <?php
-                                            $gt=get_records("tbl_shop_category","parent=".$parent,"name COLLATE utf8_unicode_ci"," "," ");
-                                            while($row=mysql_fetch_assoc($gt)){?>
-                                                <option value="<?php echo $row['id']; ?>" <?php if($parent1==$row['id']) echo 'selected="selected"';?> ><?php echo $row['name']; ?></option>
+                                            $gt = get_records("tbl_shop_category","parent=".$parent,"name COLLATE utf8_unicode_ci"," "," ");
+                                            while($row = mysql_fetch_assoc($gt)){ ?>
+                                                <option value="<?php echo $row['id']; ?>" <?php if($parent1 == $row['id']) echo 'selected="selected"'; ?> ><?php echo $row['name']; ?></option>
                                             <?php } ?>
                                         <?php }?>
                                         <option value="-1"> Chọn danh mục con </option>
@@ -335,19 +300,6 @@ if (isset($_POST['btnSave'])){
                                 </td>
                             </tr>
                             <tr>
-                                <td height="31" valign="middle" class="table_chu">Chọn thể loại</td>
-                                <td valign="middle">
-                                    <select name="ddCategory" id="ddCategory" class="table_list table_selector">
-                                        <?php
-                                        $gt=get_records("tbl_shop_category","parent=2","name COLLATE utf8_unicode_ci"," "," ");
-                                        while($row=mysql_fetch_assoc($gt)){?>
-                                            <option value="<?php echo $row['cate']; ?>" <?php if($cate == $row['cate']) echo 'selected="selected"';?> ><?php echo $row['name']; ?></option>
-                                        <?php } ?>
-                                    </select>
-                                    <p class="pGuideline"><i>Mỗi thể loại có chức năng khác nhau.<br/> Ví dụ: loại Tin tức để chứa tin tức, loại Sản phẩm để chứa sản phẩm.</i></p>
-                                </td>
-                            </tr>
-                            <tr>
                                 <td valign="middle" width="30%" class="table_chu">Hình đại diện</td>
                                 <td valign="middle" width="70%">
                                     <input type="file" name="txtImage" class="textbox" size="34">
@@ -355,7 +307,7 @@ if (isset($_POST['btnSave'])){
                                         <input type="checkbox" name="chkClearImg" value="on"> Xóa bỏ hình ảnh <br>
                                     <?php } ?>
                                     <?php if($image != ''){echo '<img width="80" border="0" src="../web/'.$image.'">';} ?><br><br>
-                                    Hình (kích thước nhỏ)<i> (kích thước tối đa 250x250, ảnh đuôi JPEG, GIF , JPG , PNG) </i>
+                                    Hình (kích thước nhỏ)<i> (kích thước chuẩn 250x250, ảnh đuôi JPEG, GIF , JPG , PNG) </i>
                                 </td>
                             </tr>
                             <tr>
@@ -366,7 +318,7 @@ if (isset($_POST['btnSave'])){
                                        <input type="checkbox" name="chkClearImgLarge" value="on"> Xóa bỏ hình ảnh <br />
                                    <?php } ?>
                                    <?php if($image_large != ''){echo '<img width="200" border="0" src="../web/'.$image_large.'">';} ?><br><br>
-                                   Hình (kích thước lớn)<i> (kích thước tối đa 1020x482, ảnh đuôi JPEG, GIF , JPG , PNG) </i><br/><br/>
+                                   Hình (kích thước lớn)<i> (kích thước chuẩn 1020x482, ảnh đuôi JPEG, GIF , JPG , PNG) </i><br/><br/>
                                </td>
                             </tr>
                             <tr class="tr_title">
@@ -442,8 +394,8 @@ if (isset($_POST['btnSave'])){
                             <tr>
                                 <td valign="top" width="30%" class="table_chu">Tùy chọn</td>
                                 <td valign="middle" width="70%">
-                                    <input type="checkbox" name="chkStatus" value="<?php if($status>0){echo $status;}else{echo 0;} ?>" <? if ($status>0) echo 'checked' ?> onchange="if($(this).is(':checked')){this.value = 1;}else{this.value = 0;}"> Ẩn &nbsp; &nbsp;
-                                    <input type="checkbox" name="chkTarget" value="<?php if($target>0){echo $target;}else{echo 0;} ?>" <? if ($target>0) echo 'checked' ?> onchange="if($(this).is(':checked')){this.value = 1;}else{this.value = 0;}"> Mở link ngoài ra tab mới
+                                    <input type="checkbox" name="chkStatus" value="<?php if($status > 0){echo $status;}else{echo 0;} ?>" <? if ($status > 0) echo 'checked' ?> onchange="if($(this).is(':checked')){this.value = 1;}else{this.value = 0;}"> Ẩn &nbsp; &nbsp;
+                                    <input type="checkbox" name="chkTarget" value="<?php if($target > 0){echo $target;}else{echo 0;} ?>" <? if ($target > 0) echo 'checked' ?> onchange="if($(this).is(':checked')){this.value = 1;}else{this.value = 0;}"> Mở link ngoài ra tab mới
                                 </td>
                             </tr>
                             <tr>
