@@ -8,7 +8,7 @@
                     $cate=get_records("tbl_shop_category","status=0 AND  parent=2"," "," "," ");
                     while($row_cate=mysql_fetch_assoc($cate)){
                     ?>
-                    <option value="<?php echo $row_cate['id'];?>"><?php echo $row_cate['title_page'];?></option>
+                    <option value="<?php echo $row_cate['id'];?>"><?php echo $row_cate['name'];?></option>
                     <?php }?>
                 </select>
             </span>

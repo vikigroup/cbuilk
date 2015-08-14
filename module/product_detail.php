@@ -513,7 +513,7 @@ else{
 					else  $cate1=get_records("tbl_shop_category","status=0 AND cate NOT IN (1,2,3,4) AND id != 457 AND parent='".get_field('tbl_shop_category','subject',$danhmuc,'parent')."'"," "," "," ");
 					while($row_cate1=mysql_fetch_assoc($cate1)){
 					?>
-                    <li><a <?php if($row_cate1['target'] == 1){echo "target='_blank'";} ?> href="<?php echo $linkrootshop?>/<?php echo $row_cate1['subject'];?>.html" title="<?php echo $row_cate1['title']?>"><?php echo $row_cate1['title_page']?></a></li>
+                    <li><a <?php if($row_cate1['target'] == 1){echo "target='_blank'";} ?> href="<?php echo $linkrootshop?>/<?php echo $row_cate1['subject'];?>.html" title="<?php echo $row_cate1['title']?>"><?php echo $row_cate1['name']?></a></li>
 					<?php }?> 
                 </ul>
                 <div class="clear"></div>
