@@ -116,16 +116,16 @@ if (isset($_POST['btnSave'])){
     if ($errMsg == ''){
         if (!empty($_POST['id'])){
             $oldid = $_POST['id'];
-            $sql = "update tbl_item set name='".$name."',parent='".$parent."',parent1='".$parent1."',detail='".$detail."',type='".$loaihinh."',price='".$price."',pricekm='".$pricekm."',sort='".$sort."',status='".$status."',title='".$title."',description='".$description."',keyword='".$keyword."',last_modified=now(), other_link='".$otherLink."', target='".$target."' where id='".$oldid."'";
+            $sql = "update tbl_item set name='".$name."',parent='".$parent."',parent1='".$parent1."',detail='".$detail."',type='".$loaihinh."',price='".$price."',pricekm='".$pricekm."',sort='".$sort."',status='".$status."',title='".$title."',description='".$description."',keyword='".$keyword."',last_modified=now(), other_link='".$otherLink."', target='".$target."', detail_short='".$detail_short."' where id='".$oldid."'";
         }else{
-            $sql = "insert into tbl_item (name, parent, parent1 , detail, type , price , pricekm , sort, status,  date_added, last_modified, style, title, description, keyword, other_link, target) values ('".$name."','".$parent."','".$parent1."','".$detail."','".$loaihinh."','".$price."','".$pricekm."','".$sort."','".$status."',now(),now(),'1','".$title."','".$description."','".$keyword."','".$otherLink."','".$target."')";
+            $sql = "insert into tbl_item (name, parent, parent1 , detail, type , price , pricekm , sort, status,  date_added, last_modified, style, title, description, keyword, other_link, target, detail_short) values ('".$name."','".$parent."','".$parent1."','".$detail."','".$loaihinh."','".$price."','".$pricekm."','".$sort."','".$status."',now(),now(),'1','".$title."','".$description."','".$keyword."','".$otherLink."','".$target."','".$detail_short."')";
         }
         if (mysql_query($sql,$conn)){
             if(empty($_POST['id'])) $oldid = mysql_insert_id();
             $r = getRecord("tbl_item","id=".$oldid);
 
             $arrField = array(
-                "subject"          => "'".vietdecode($name)."'"
+                "subject"          => "'".$subject."'"
             );
             $result = update("tbl_item",$arrField,"id=".$oldid);
 
@@ -278,7 +278,7 @@ if (isset($_POST['btnSave'])){
                         <tr>
                             <td valign="middle" width="30%" class="table_chu">Tên bài viết VN<span class="sao_bb">*</span></td>
                             <td valign="middle" width="70%">
-                                <input name="txtName" type="text" class="table_khungnho" id="txtName" value="<?=$name?>"/>
+                                <input name="txtName" type="text" class="table_khungnho" id="txtName" value='<?=$name?>'/>
                                 <p class="pGuideline"><i>Nhập tên bài viết. Tốt nhất là 60 ký tự.</i></p>
                             </td>
                         </tr>
@@ -337,7 +337,7 @@ if (isset($_POST['btnSave'])){
                         <tr>
                             <td valign="middle" width="30%" class="table_chu">Link danh mục VN<span class="sao_bb">*</span></td>
                             <td valign="middle" width="70%">
-                                <input type="hidden" name="txtSubjectSEO" id="txtSubjectSEO" value="<?=$subject?>">
+                                <input type="hidden" name="txtSubjectSEO" id="txtSubjectSEO" value='<?=$subject?>'>
                                 <input name="subject" type="text" class="table_khungnho" id="subject" value="<?=$subject?>" onchange="optimizeSubjectLink(this.id, 'txtSubjectSEO');"/>
                                 <p class="pGuideline"><i>Link hiển thị ở trang tiếng Việt. Quy tắc: không dấu, không ký tự đặc biệt,<br/> không khoảng trắng, khoảng trắng được thay thế bằng dấu gạch ngang (-).</i></p>
                             </td>
@@ -366,7 +366,7 @@ if (isset($_POST['btnSave'])){
                         </tr>
                         <tr class="tr_title">
                             <td valign="middle"> &nbsp;Cài đặt bài viết </td>
-                            <td valign="middle"> &nbsp;Phần mở rộng </td>
+                            <td valign="middle"> &nbsp;- Phần mở rộng </td>
                         </tr>
                         <tr>
                             <td valign="middle" width="30%" class="table_chu">Liên kết ngoài</td>

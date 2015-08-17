@@ -164,7 +164,7 @@ if (isset($_POST['btnSave'])){
 			$r = getRecord("tbl_shop_category","id=".$oldid);
 		
 			$arrField = array(
-			"subject"          => "'".vietdecode($name)
+			"subject"          => "'".$subject."'"
 			);
 			$result = update("tbl_shop_category",$arrField,"id=".$oldid);
 			
@@ -330,7 +330,7 @@ if (isset($_POST['btnSave'])){
                                 </td>
                             </tr>
                             <tr>
-                                <td valign="middle" width="30%" class="table_chu">Tên danh mục <span class="sao_bb">*</span></td>
+                                <td valign="middle" width="30%" class="table_chu">Tên danh mục<span class="sao_bb">*</span></td>
                                 <td valign="middle" width="70%">
                                     <input name="txtName" type="text" class="table_khungnho" id="txtName" value="<?=$name?>"/>
                                     <p class="pGuideline"><i>Nhập tên danh mục sẽ hiển thị ở trang tiếng Việt.</i></p>
@@ -432,7 +432,7 @@ if (isset($_POST['btnSave'])){
                             </tr>
                             <tr class="tr_title">
                                 <td valign="middle"> &nbsp;Cài đặt danh mục </td>
-                                <td valign="middle"> &nbsp;Phần mở rộng </td>
+                                <td valign="middle"> &nbsp;- Phần mở rộng </td>
                             </tr>
                             <tr>
                                 <td valign="middle" width="30%" class="table_chu">Liên kết ngoài</td>

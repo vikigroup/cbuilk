@@ -1,12 +1,12 @@
 <?php
-	if(isset($_GET['tukhoa'])) {$tukhoa=$_GET['tukhoa'];if($tukhoa=="tat-ca") $tukhoa="";$_SESSION['kh_tukhoa']=$tukhoa;}
+	if(isset($_GET['tukhoa'])){$tukhoa = $_GET['tukhoa']; if($tukhoa == "tat-ca") $tukhoa = ""; $_SESSION['kh_tukhoa'] = $tukhoa;}
     $tukhoa = str_replace(".", "", $tukhoa);
-	if(isset($_GET['loai'])) { if($_GET['loai']=="tat-ca") $parent1=2;else $parent1=$_GET['loai'];settype($parent1,"int");$_SESSION['kh_theloai']=$parent1;}
+	if(isset($_GET['loai'])){if($_GET['loai'] == "tat-ca") $parent1 = 2; else $parent1 = $_GET['loai']; settype($parent1,"int"); $_SESSION['kh_theloai']=$parent1;}
 	 
-	$parent=getParent("tbl_shop_category",$parent1);
+	$parent = getParent("tbl_shop_category",$parent1);
 	
-	if($parent1==2) $str_tim="";
-	else $str_tim="AND parent1 in ({$parent})";
+	if($parent1 == 2) $str_tim = "";
+	else $str_tim = "AND parent1 in ({$parent})";
 
     $link = $_SERVER['REQUEST_URI'];
     $myLink = explode("?", $link);
@@ -15,29 +15,26 @@
 
 	$pageSize = 25;
 	$totalRows = 0;
-	$xeptheo='id';
-	$dem=1;
-	
-    $sapxep="date_added DESC";
-	
-	settype($pageSize,"int");
-	settype($pageNum,"int");
-	settype($totalRows,"int");
-	settype($dem,"int");
 
-	if ($pageNum<=0) $pageNum=1;
+    $sapxep = "sort, date_added DESC";
+	
+	settype($pageSize, "int");
+	settype($pageNum, "int");
+	settype($totalRows, "int");
+
+	if ($pageNum <= 0) $pageNum = 1;
 	$startRow = ($pageNum-1) * $pageSize;
 
-    $totalRows = countRecord("tbl_item","status=0  AND cate=0 $str_tim  AND (  name LIKE '%$tukhoa%' or detail_short LIKE '%$tukhoa%' or detail LIKE '%$tukhoa%'  or title LIKE '%$tukhoa%' )"); 
-	$product=get_records("tbl_item","status=0 AND cate=0 $str_tim AND (  name LIKE '%$tukhoa%' or detail_short LIKE '%$tukhoa%' or detail LIKE '%$tukhoa%'  or title LIKE '%$tukhoa%' or keyword LIKE '%$tukhoa%') order by $sapxep limit ".$startRow.",".$pageSize," "," "," ");
+    $totalRows = countRecord("tbl_item","status=0  AND cate=0 $str_tim  AND (name LIKE '%$tukhoa%' or detail_short LIKE '%$tukhoa%' or detail LIKE '%$tukhoa%'  or title LIKE '%$tukhoa%')");
+	$product = get_records("tbl_item","status=0 AND cate=0 $str_tim AND (name LIKE '%$tukhoa%' or detail_short LIKE '%$tukhoa%' or detail LIKE '%$tukhoa%' or title LIKE '%$tukhoa%' or keyword LIKE '%$tukhoa%') order by $sapxep limit ".$startRow.",".$pageSize," "," "," ");
 ?>
 
 <input type="hidden" id="hiddenSearchPageNum" value="<?php echo $pageNum; ?>">
 <section class="breacrum">
     <ul>
-        <li><a href="<?php echo $linkrootshop;?>">Trang chủ</a></li>
-        <li><a> Tìm kiếm</a></li>
-        <li style="float: right; margin-right: 35px;"><a>Hiện có <strong><?php echo $totalRows;?></strong> kết quả </a></li>
+        <li><a href="<?php echo $linkrootshop; ?>">Trang chủ</a></li>
+        <li><a>Tìm kiếm</a></li>
+        <li style="float: right; margin-right: 35px;"><a>Hiện có <strong><?php echo $totalRows; ?></strong> kết quả </a></li>
     </ul>
     <div class="clear"></div>
 </section><!-- End .breacrum -->
@@ -51,9 +48,9 @@
             <div class="m-cate">
                 <ul>
                     <?php
-                       $cate1=get_records("tbl_shop_category","status=0 AND parent='2'","name COLLATE utf8_unicode_ci"," "," ");
-                        while($row_cate1=mysql_fetch_assoc($cate1)){?>
-                            <li><a href="<?php echo $linkrootshop?>/<?php echo $row_cate1['subject'];?>.html" title=""><?php echo $row_cate1['name']?></a></li>
+                       $cate1 = get_records("tbl_shop_category","status=0 AND parent='2'","name COLLATE utf8_unicode_ci"," "," ");
+                        while($row_cate1 = mysql_fetch_assoc($cate1)){?>
+                            <li><a href="<?php echo $linkrootshop; ?>/<?php echo $row_cate1['subject']; ?>.html" title=""><?php echo $row_cate1['name']; ?></a></li>
                     <?php }?>
                 </ul>
                 <div class="clear"></div>
@@ -73,39 +70,38 @@
                     <div class="clear"></div>
                 </div><!-- End .f-sty-P -->
             </h4>
-            <script type="text/javascript" src="<?php echo $linkrootshop?>/scripts/jquery_cookie.js" > </script>
-            <script type="text/javascript" src="<?php echo $linkrootshop?>/scripts/script_prod.js "> </script>
+            <script type="text/javascript" src="<?php echo $linkrootshop; ?>/scripts/jquery_cookie.js" > </script>
+            <script type="text/javascript" src="<?php echo $linkrootshop; ?>/scripts/script_prod.js "> </script>
         </section><!-- End .filter-Prod -->
         
         <section class="Prod-cate">
             <ul>
 				<?php 
-                while($row_new=mysql_fetch_assoc($product)){
-			    $shop=getRecord('tbl_shop', "id='".$row_new['idshop']."'");
-                ?>
-                <li class="li-Pc1">
+                while($row_new = mysql_fetch_assoc($product)){
+			    $shop = getRecord('tbl_shop', "id='".$row_new['idshop']."'"); ?>
+                <li class="li-Pc1 hvr-glow">
                     <div class="i-Pnb">
-                        <a href="<?php echo $linkrootshop;?>/<?php echo $row_new['subject'];?>.html" title="">
-                        	<img src="<?php echo $linkroot?>/<?=$row_new['image']?>" alt=""/>
+                        <a <?php if($row_new['target'] == 1){echo "target='_blank'";} ?> href="<?php if($row_new['other_link'] != ''){echo $row_new['other_link'];}else{echo $linkrootshop.'/'.$row_new['subject'].'.html';} ?>" title="<?php echo $row_new['title']; ?>">
+                            <img src="<?php echo $linkroot; ?>/<?=$row_new['image']?>" alt="<?php echo $row_new['title']; ?>"/>
                         </a>
                     </div><!-- End .i-Pnb -->
                     <div class="prod_row1">
-                        <a class="n-Pnb" href="<?php echo $linkrootshop;?>/<?php echo $row_new['subject'];?>.html"><b><?php echo $row_new['name'];?></b></a>
+                        <a <?php if($row_new['target'] == 1){echo "target='_blank'";} ?> class="n-Pnb" href="<?php if($row_new['other_link'] != ''){echo $row_new['other_link'];}else{echo $linkrootshop.'/'.$row_new['subject'].'.html';} ?>"><b><?php echo $row_new['name']; ?></b></a>
                         <?php if($row_new['idshop'] != 0){ ?>
-                        <a class="s-Pnb" href="http://<?php echo $shop['subject'];?>.<?php echo $sub;?>"><label><i class="icon-shopping-cart"></i><?php echo $shop['subject'];?></label></a>
+                        <a class="s-Pnb" href="http://<?php echo $shop['subject']; ?>.<?php echo $sub; ?>"><label><i class="icon-shopping-cart"></i><?php echo $shop['subject']; ?></label></a>
                         <?php } else{ ?>
-                        <a class="s-Pnb" href="<?php echo $linkrootshop ;?>"><label><i class="icon-shopping-cart"></i><?php echo $subname ;?></label></a>
+                        <a class="s-Pnb" href="<?php echo $linkrootshop; ?>"><label><i class="icon-shopping-cart"></i><?php echo $subname; ?></label></a>
                         <?php } ?>
                     </div><!-- End .prod_row1 -->
                     <div class="prod_row2">
                         Lượt xem
                         <br>
-                        <?php echo $row_new['view'];?>
+                        <?php echo $row_new['view']; ?>
                     </div><!-- End .prod_row2 -->
                     <div class="prod_row3">
                         Ngày đăng 
                         <br>
-                        <?php echo $row_new['date_added'];?>
+                        <?php echo date("d-m-Y", strtotime($row_new['date_added'])); ?>
                     </div><!-- End .prod_row3 -->
                     <?php if($row_new['style'] == 0 || $row_new['style'] == 2 || $row_new['style'] == 4){ ?>
                     <span class="price-Pnb"><?php  if($row_new['pricekm'] > 0){echo number_format($row_new['pricekm'],0)."  VNĐ";}else if($row_new['price'] > 0){echo number_format($row_new['price'],0)."  VNĐ";}else{echo "Giá: Liên hệ";} ?></span>

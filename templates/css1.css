@@ -395,8 +395,16 @@ ul.ul-dm > li:hover > .sub-menu {display: block;}
     text-overflow: ellipsis;
 }
 .s-Pnb {display: none; color: #666; padding: 6px 0 0 0; overflow: hidden; white-space: nowrap; height: 18px; text-overflow: ellipsis; background: none !important;}
+.s-Pnb i{display: block; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; max-width: 150px;}
+.iKeyWord{
+    padding: 5px;
+    background-color: rgb(28, 184, 65);
+    float: left;
+    margin: 5px 5px 5px 0;
+    color: #ffffff;
+}
 .n-Pnb:hover{}
-.price-Pnb {display: block; color: #f98d32; padding: 10px 0 10px 0; text-align: center; overflow: hidden; white-space: nowrap; height: 15px; text-overflow: ellipsis; background: url(../imgs/layout/price-Pnb.png) no-repeat 0px 7px;}
+.price-Pnb {display: block; color: #f98d32; padding: 10px 0 10px 0; margin: 10px 5px 0 0; text-align: center; overflow: hidden; white-space: nowrap; height: 15px; text-overflow: ellipsis; background: url(../imgs/layout/price-Pnb.png) no-repeat 0px 7px;}
 
 .Adv {padding-bottom: 20px; text-align: center;}
 .Adv img {max-width: 100%;}
@@ -2352,6 +2360,20 @@ textarea:hover, textarea:focus{
     font-size: 13px;
     font-weight: normal;
     font-style: italic;
+}
+
+.divUpdating{
+    clear: both;
+    text-align: center;
+}
+
+.divUpdating span{
+    padding: 5px;
+}
+
+.spanViews{
+    font-size: 12px !important;
+    color: #d11f48;
 }
 
 /************************************************************************************
