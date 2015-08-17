@@ -63,16 +63,17 @@ $(function(){
             alert('Bạn chưa nhập "Tên danh mục"!');
             $('#txtName').focus();
         }else{
-            var dataString = "string="+catName+"&functionName="+"removeUnicode";
+            var catNameAfter = catName.toLowerCase().replace(/ /g, "-");
+            var dataString = "string="+catNameAfter+"&functionName="+"removeUnicode";
             $.ajax({
                 type: "POST",
                 url: "../lib/functions.php",
                 data: dataString,
                 success: function(x){
-                    $("#subject, #txtSubjectSEO").val(x.toLowerCase().replace(/ /g, "-"));
+                    $("#subject, #txtSubjectSEO").val(x);
                     $('#title').val(catName);
                     $('#description').val(catName);
-                    $("#keyword").val(catName.toLowerCase()+", "+ x.toLowerCase());
+                    $("#keyword").val(catName.toLowerCase()+", "+ x.toLowerCase().replace(/-/g, " ").replace(/[0-9]/g, "").trim());
                     $("#charlimitinfo").val(156 - catName.length);
                 }
             });

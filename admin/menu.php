@@ -20,6 +20,7 @@
                 <a href="#"> Quản lý website &darr;</a>
                 <ul>
                     <li><a href="#" onclick="emptySessionCategory('shop_category');">Tất cả danh mục</a></li>
+                    <li><a href="#" onclick="emptySessionCategory('shop_post');">Tất cả bài viết</a></li>
                     <li><a href="admin.php?act=config&id=2">Cấu hình</a> </li>
                     <li><a href="admin.php?act=slider">Slide ảnh</a></li>
                     <li><a href="admin.php?act=viki_infomation">Thông tin</a></li>

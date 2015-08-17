@@ -52,8 +52,8 @@ if($_GET['noibat'] == NULL){$noibat = -1; $_SESSION['kt_noibat']=$noibat;}
 if($_GET['noibat'] != NULL){$noibat = $_GET['noibat']; $_SESSION['kt_noibat'] = $noibat;}
 settype($noibat, "int");
 
-if($tang == 0){$ks = 'ASC';}//0 tang
-elseif($tang == 1){$ks = 'DESC';}//1 giam
+if($tang == 0){$ks = 'DESC';}
+elseif($tang == 1){$ks = 'ASC';}
 else $ks = 'DESC';
 
 switch ($_GET['action']){
@@ -127,8 +127,8 @@ $(document).ready(function() {
 		    cache: false,
 		    success: function(data){
                 obj.src = data;
-                if (data == "images/anhien_1.png") obj.title = "Nhắp vào để hiện";
-                else obj.title = "Nhắp vào để ẩn";
+                if (data == "images/anhien_1.png") obj.title = "Nhấn vào để hiện";
+                else obj.title = "Nhấn vào để ẩn";
 		    }
 		});
 	});
@@ -142,8 +142,8 @@ $(document).ready(function() {
 		    cache: false,
 		    success: function(data){
                 obj.src = data;
-                if (data == "images/noibat_1.png") obj.title = "Nhắp vào để cài đặt về mặc định";
-                else obj.title = "Nhắp vào để cài đặt là danh mục tiêu biểu";
+                if (data == "images/noibat_1.png") obj.title = "Nhấn vào để cài đặt về mặc định";
+                else obj.title = "Nhấn vào để cài đặt là danh mục tiêu biểu";
 		    }
 		});
 	});
@@ -335,7 +335,9 @@ $(document).ready(function() {
                                     </td>
                                     <td align="center"><?=$row['id']?></td>
                                     <td align="center"><?php if($row['image'] == true){ ?>
-                                        <a onclick="positionedPopup(this.href,'myWindow','500','400','100','400','yes'); return false;" href="../web/<?=$row['image']?>" title="Click vào xem ảnh"> <img src="../web/<?=$row['image']?>" width="40" height="40" border="0" class="hinh"/></a>
+                                        <a onclick="positionedPopup(this.href,'myWindow','500','400','100','400','yes'); return false;" href="../web/<?=$row['image']?>" title="Click vào xem ảnh">
+                                            <img src="../web/<?=$row['image']?>" width="40" height="40" border="0" class="hinh"/>
+                                        </a>
                                         <?php }else{?>
                                         <img src="../<?php echo $noimgs; ?>" width="40" height="40" border="0" class="hinh"/>
                                         <?php }?>

@@ -83,7 +83,13 @@ function connect(){
 
 function removeUnicode(){
     $string = filter_input(INPUT_POST, 'string');
-    echo remove_unicode($string);
+    $subject = remove_unicode($string);
+    $check = selectCondition("tbl_shop_category", "subject = '".$subject."'");
+    if($check == 1){
+        $idCate = maxID("id", "tbl_shop_category")+1;
+        $subject .= "-".$idCate;
+    }
+    echo $subject;
 }
 
 function updateSystemEdit(){

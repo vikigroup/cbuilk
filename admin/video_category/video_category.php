@@ -51,8 +51,8 @@ if($_GET['noibat'] == NULL){$noibat = -1; $_SESSION['kt_noibat'] = $noibat;}
 if($_GET['noibat'] != NULL){$noibat = $_GET['noibat']; $_SESSION['kt_noibat'] = $noibat;}
 settype($noibat, "int");
 
-if($tang == 0){$ks = 'ASC';}//0 tang
-else if($tang == 1){$ks = 'DESC';}//1 giam
+if($tang == 0){$ks = 'DESC';}
+else if($tang == 1){$ks = 'ASC';}
 else $ks = 'DESC';
 
 switch ($_GET['action']){

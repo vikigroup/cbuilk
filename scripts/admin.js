@@ -26,16 +26,15 @@ function limitChars(textid, limit, infodiv) {
 }
 
 function optimizeSubjectLink(id, idHidden){
-    var subject = $("#"+id).val().trim();
+    var subject = $("#"+id).val().trim().toLowerCase().replace(/ /g, "-");
     var dataString = "string="+subject+"&functionName="+"removeUnicode";
     $.ajax({
         type: "POST",
         url: "../lib/functions.php",
         data: dataString,
         success: function(x){
-            var subjectAfter = x.toLowerCase().replace(/ /g, "-");
-            $("#"+id).val(subjectAfter);
-            $("#"+idHidden).val(subjectAfter);
+            $("#"+id).val(x);
+            $("#"+idHidden).val(x);
         }
     });
 }
@@ -70,7 +69,7 @@ function positionSelector(selector){
 function addhttp(id, url) {
     var pattern = /^((http|https):\/\/)/;
     if(!pattern.test(url)) {
-        url = "http://" + url;
+        url = "http://" + url.trim();
     }
     $('#'+id).val(url);
 }

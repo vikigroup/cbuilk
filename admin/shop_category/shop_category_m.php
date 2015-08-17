@@ -51,7 +51,7 @@ function btnSave_onclick(){
     }
 
     if($('#keyword').val() == ''){
-        alert('Bạn chưa nhập "từ khóa VN"! \nBạn có thể nhấn vào nút tạo SEO để hệ thống tự động thực hiện.');
+        alert('Bạn chưa nhập "Từ khóa VN"! \nBạn có thể nhấn vào nút tạo SEO để hệ thống tự động thực hiện.');
         $('#keyword').focus();
         return false;
     }
@@ -69,16 +69,17 @@ $(function(){
             alert('Bạn chưa nhập "Tên danh mục"!');
             $('#txtName').focus();
         }else{
-            var dataString = "string="+catName+"&functionName="+"removeUnicode";
+            var catNameAfter = catName.toLowerCase().replace(/ /g, "-");
+            var dataString = "string="+catNameAfter+"&functionName="+"removeUnicode";
             $.ajax({
                 type: "POST",
                 url: "../lib/functions.php",
                 data: dataString,
                 success: function(x){
-                    $("#subject, #txtSubjectSEO").val(x.toLowerCase().replace(/ /g, "-"));
+                    $("#subject, #txtSubjectSEO").val(x);
                     $('#title').val(catName);
                     $('#description').val(catName);
-                    $("#keyword").val(catName.toLowerCase()+", "+ x.toLowerCase());
+                    $("#keyword").val(catName.toLowerCase()+", "+ x.toLowerCase().replace(/-/g, " ").replace(/[0-9]/g, "").trim());
                     $("#charlimitinfo").val(156 - catName.length);
                 }
             });
@@ -123,7 +124,7 @@ if (isset($_POST['btnSave'])){
 		$lang      = $catInfo['lang'] != '' ? $catInfo['lang'] : $_POST['cmbLang'];
 	}
 
-	if ($name=="") $errMsg .= "Hãy nhập tên danh mục !<br>";
+	if ($name=="") $errMsg .= "Xin vui lòng nhập tên danh mục!<br/>";
 	$errMsg .= checkUpload($_FILES["txtImage"],".jpg;.gif;.bmp;.png",250*250,0);
 	$errMsg .= checkUpload($_FILES["txtImageLarge"],".jpg;.gif;.bmp;.png",482*1020,0);
 
@@ -242,12 +243,13 @@ if (isset($_POST['btnSave'])){
 	}
 }
 ?>
-<?php if( $errMsg != ""){ ?>
+
+<?php if($errMsg != ""){ ?>
 <div class="alert alert-block no-radius fade in">
     <button type="button" class="close" data-dismiss="alert"><span class="mini-icon cross_c"></span></button>
     <p class="pAlert pWarning"><strong class="strongAlert strongWarning">Cảnh báo!</strong> <?php echo $errMsg; ?> <span class="xClose" title="Đóng" onclick="$(this).parent().hide();">x</span></p>
 </div>
-<?php }?>
+<?php } ?>
 
 <script>
     $(document).ready(function() {
@@ -275,7 +277,7 @@ if (isset($_POST['btnSave'])){
                         <input type="hidden" name="txtDetailShort" id="txtDetailShort">
                         <input type="hidden" name="txtDetail" id="txtDetail">
                         <input type="hidden" name="act" value="shop_category_m">
-                        <input type="hidden" name="id" value="<?=$_REQUEST['id']?>">
+                        <input type="hidden" id="id" name="id" value="<?=$_REQUEST['id']?>">
                         <input type="hidden" name="page" value="<?=$_REQUEST['page']?>">
                         <table class="table_chinh">
                             <tr>
@@ -331,7 +333,7 @@ if (isset($_POST['btnSave'])){
                                 <td valign="middle" width="30%" class="table_chu">Tên danh mục <span class="sao_bb">*</span></td>
                                 <td valign="middle" width="70%">
                                     <input name="txtName" type="text" class="table_khungnho" id="txtName" value="<?=$name?>"/>
-                                    <p class="pGuideline"><i>Nhập tên danh mục sẽ hiển thị ở trang tiếng Việt</i></p>
+                                    <p class="pGuideline"><i>Nhập tên danh mục sẽ hiển thị ở trang tiếng Việt.</i></p>
                                 </td>
                             </tr>
                             <tr>
@@ -355,7 +357,7 @@ if (isset($_POST['btnSave'])){
                                         <input type="checkbox" name="chkClearImg" value="on"> Xóa bỏ hình ảnh <br>
                                     <?php } ?>
                                     <?php if($image != ''){echo '<img width="80" border="0" src="../web/'.$image.'">';} ?><br><br>
-                                    Hình (kích thước nhỏ)<i> (kích thước chuẩn 250x250, ảnh đuôi JPEG, GIF , JPG , PNG) </i>
+                                    Hình (kích thước nhỏ)<i> (kích thước chuẩn 250x250(px), ảnh đuôi JPEG, GIF , JPG , PNG). </i>
                                 </td>
                             </tr>
                             <tr>
@@ -366,7 +368,7 @@ if (isset($_POST['btnSave'])){
                                        <input type="checkbox" name="chkClearImgLarge" value="on"> Xóa bỏ hình ảnh <br />
                                    <?php } ?>
                                    <?php if($image_large != ''){echo '<img width="200" border="0" src="../web/'.$image_large.'">';} ?><br><br>
-                                   Hình (kích thước lớn)<i> (kích thước chuẩn 1020x482, ảnh đuôi JPEG, GIF , JPG , PNG) </i><br/><br/>
+                                   Hình (kích thước lớn)<i> (kích thước chuẩn 1020x482(px), ảnh đuôi JPEG, GIF , JPG , PNG). </i><br/><br/>
                                </td>
                             </tr>
                             <tr class="tr_title">
@@ -410,7 +412,7 @@ if (isset($_POST['btnSave'])){
                                 <td valign="middle" width="30%" class="table_chu">Tiêu đề trang<span class="sao_bb">*</span></td>
                                 <td valign="middle" width="70%">
                                     <input name="title" type="text" class="table_khungnho" id="title" value="<?=$title?>"/>
-                                    <p class="pGuideline"><i>Nội dung thẻ meta Title hiển thị ở trang tiếng Việt</i></p>
+                                    <p class="pGuideline"><i>Nội dung thẻ meta Title hiển thị ở trang tiếng Việt.</i></p>
                                 </td>
                              </tr>
                             <tr>
@@ -418,14 +420,14 @@ if (isset($_POST['btnSave'])){
                                 <td valign="middle" width="70%">
                                     <textarea name="description" class="table_khungvua" id="description" maxlength="156" onkeypress="limitChars(this.id, 156, 'charlimitinfo');" onkeyup="limitChars(this.id, 156, 'charlimitinfo');" onkeydown="limitChars(this.id, 156, 'charlimitinfo');"><?=$description?></textarea>
                                     <p class="pGuideline"><input type="text" class="txtSEO" id="charlimitinfo" value="156"> ký tự còn lại <b>(Tốt nhất là 156 ký tự).</b></p>
-                                    <p class="pGuideline"><i>Nội dung thẻ meta Description hiển thị ở trang tiếng Việt</i></p>
+                                    <p class="pGuideline"><i>Nội dung thẻ meta Description hiển thị ở trang tiếng Việt.</i></p>
                                 </td>
                              </tr>
                             <tr>
                                 <td valign="middle" width="30%" class="table_chu">Từ khóa VN<span class="sao_bb">*</span></td>
                                 <td valign="middle" width="70%">
                                     <input name="keyword" type="text" class="table_khungnho" id="keyword" value="<?=$keyword?>"/><br/>
-                                    <p class="pGuideline"><i>Nội dung từ khóa chính (Thẻ meta Keyword) hiển thị ở trang tiếng Việt</i></p>
+                                    <p class="pGuideline"><i>Nội dung từ khóa chính (Thẻ meta Keyword) hiển thị ở trang tiếng Việt.</i></p>
                                 </td>
                             </tr>
                             <tr class="tr_title">
@@ -442,8 +444,8 @@ if (isset($_POST['btnSave'])){
                             <tr>
                                 <td valign="top" width="30%" class="table_chu">Tùy chọn</td>
                                 <td valign="middle" width="70%">
-                                    <input type="checkbox" name="chkStatus" value="<?php if($status > 0){echo $status;}else{echo 0;} ?>" <? if ($status > 0) echo 'checked' ?> onchange="if($(this).is(':checked')){this.value = 1;}else{this.value = 0;}"> Ẩn &nbsp; &nbsp;
-                                    <input type="checkbox" name="chkTarget" value="<?php if($target > 0){echo $target;}else{echo 0;} ?>" <? if ($target > 0) echo 'checked' ?> onchange="if($(this).is(':checked')){this.value = 1;}else{this.value = 0;}"> Mở link ngoài ra tab mới
+                                    <input type="checkbox" name="chkStatus" value="<?php if($status > 0){echo $status;}else{echo 0;} ?>" <? if ($status > 0) echo 'checked'; ?> onchange="if($(this).is(':checked')){this.value = 1;}else{this.value = 0;}"> Ẩn &nbsp; &nbsp;
+                                    <input type="checkbox" name="chkTarget" value="<?php if($target > 0){echo $target;}else{echo 0;} ?>" <? if ($target > 0) echo 'checked'; ?> onchange="if($(this).is(':checked')){this.value = 1;}else{this.value = 0;}"> Mở link ngoài ra tab mới
                                 </td>
                             </tr>
                             <tr>

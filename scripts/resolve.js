@@ -645,7 +645,7 @@ $(function(){
 function addhttp(id, url) {
     var pattern = /^((http|https):\/\/)/;
     if(!pattern.test(url)) {
-        url = "http://" + url;
+        url = "http://" + url.trim();
     }
     $('#'+id).val(url);
 }

@@ -36,8 +36,8 @@ a.btn-gh3 i{margin-right: 10px;}
     height: 32px;
     float: left;
     font-size: 11px;
-    border-right: 1px solid #FF7519;
     padding: 2px 0;
+    background-color: #FF7519;
 }
 
 .select22{
@@ -64,7 +64,7 @@ a.btn-gh3 i{margin-right: 10px;}
 .sp2_select{
     display: block;
     line-height: 30px;
-    color: #707070;
+    color: #ffffff;
     background: url(../imgs/layout/arrown_select.png) no-repeat 95% 50%;
     position: relative;
     top: 0;
@@ -1449,6 +1449,9 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     .r-box-language{
         text-align: center;
         width: 100%;
+    }
+    .sli-lfcont .sli-fcon-1 .bx-wrapper .bx-viewport{
+        left: 0 !important;
     }
 }
 
