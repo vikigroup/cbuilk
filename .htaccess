@@ -34,7 +34,7 @@ RewriteRule ^kich-hoat.html$ ?act=active [L]
 RewriteRule ^khoi-phuc-mat-khau.html$ ?act=restorepassword [L]
 
 RewriteRule ^xu-ly.html$ module/xuly.php [L]
-RewriteRule ^tu-khoa-tim/(.*)/(.*)html$ ?act=search&loai=$1&tukhoa=$2 [L]
+RewriteRule ^tim-kiem/(.*)/(.*)html$ ?act=search&loai=$1&tukhoa=$2 [L]
 RewriteRule ^page-tu-khoa-tim/(.*)/(.*)/(.*).html$ index.php?act=search&keyword=$1&loai=$2&pageNum=$3 [L]
 
 RewriteRule ^page-danh-muc/(.*)/(.*)/(.*).html$ ?act=products&danhmuc=$1&tukhoa=$2&pageNum=$3 [L]

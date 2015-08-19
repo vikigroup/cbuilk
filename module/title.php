@@ -4,6 +4,7 @@
 		$title_t = $_GET['keyword'].' - '.$row_title_lap['title'];
 		$description_t = $row_title_lap['description'];
 		$keywords_t = $row_title_lap['keywords'];
+        $robots = "NOODP";
 	}
 	else if($_GET['act'] == 'products' && $_GET['danhmuc']){
 		$danhmuc = $_GET['danhmuc'];
@@ -13,7 +14,8 @@
 		$title_t = $row_rs_tit['title'] != '' ? $row_rs_tit['title'] : $row_rs_tit['name'];
 	    $description_t = $row_rs_tit['description'] != '' ? $row_rs_tit['description'] : $row_rs_tit['name'];
 		$keywords_t = $row_rs_tit['keyword'] != '' ? $row_rs_tit['keyword'] : $row_rs_tit['keyword'];
-	}
+        $robots = "NOODP";
+    }
 	else if($_GET['act'] == 'product_detail' && $_GET['tensanpham']){
 		$tensanpham = $_GET['tensanpham'];
 
@@ -24,7 +26,11 @@
 		$title_t = $row_rs_tit['title'] != '' ? $row_rs_tit['title'] : $row_rs_tit['name'];
 	    $description_t = $row_rs_tit['description'] != '' ? $row_rs_tit['description'] : $row_rs_tit['name'];
 		$keywords_t = $row_rs_tit['keyword'] != '' ? $row_rs_tit['keyword'] : $row_rs_tit['keyword'];
-	}
+        $robots = "NOODP";
+        if($row_rs_tit['noindex_nofollow'] == 1){
+            $robots = "NOINDEX, NOFOLLOW";
+        }
+    }
 	else if($_GET['act']=='service_detail' && $_GET['tendichvu']){
 		$tendichvu = $_GET['tendichvu'];
 
@@ -33,12 +39,17 @@
 		$title_t = $row_rs_tit['title'] != '' ? $row_rs_tit['title'] : $row_rs_tit['name'];
 	    $description_t = $row_rs_tit['description'] != '' ? $row_rs_tit['description'] : $row_rs_tit['name'];
 		$keywords_t = $row_rs_tit['keyword'] != '' ? $row_rs_tit['keyword'] : $row_rs_tit['keyword'];
-	}	
+        $robots = "NOODP";
+        if($row_rs_tit['noindex_nofollow'] == 1){
+            $robots = "NOINDEX, NOFOLLOW";
+        }
+    }
 	else if($_GET['act'] == 'news'){
 		$title_t = "Thông báo";
 	    $description_t = $row_title_lap['description'];
 		$keywords_t = $row_title_lap['keywords'];
-	}
+        $robots = "NOODP";
+    }
 	else if($_GET['act'] == 'new_detail'){
 		$tenthongtin = $_GET['tenthongtin'];
 
@@ -47,7 +58,8 @@
 		$title_t = $row_rs_tit['title'] != '' ? $row_rs_tit['title'] : $row_rs_tit['name'];
 	    $description_t = $row_rs_tit['description'] != '' ? $row_rs_tit['description'] : $row_rs_tit['name'];
 		$keywords_t = $row_rs_tit['keyword'] != '' ? $row_rs_tit['keyword'] : $row_rs_tit['keyword'];
-	}
+        $robots = "NOODP";
+    }
 	else if($_GET['act'] == 'info_detail'){
 		$tenthongtin = $_GET['tenthongtin'];
 
@@ -56,7 +68,8 @@
 		$title_t = $row_rs_tit['title'] != '' ? $row_rs_tit['title'] : $row_rs_tit['name'];
 	    $description_t = $row_rs_tit['description'] != '' ? $row_rs_tit['description'] : $row_rs_tit['name'];
 		$keywords_t = $row_rs_tit['keyword'] != '' ? $row_rs_tit['keyword'] : $row_rs_tit['keyword'];
-	}
+        $robots = "NOODP";
+    }
 	else if($_GET['act'] == 'detail'){
 		switch($_GET['idtin']){
 			case 1 :  $title_t    = "Quy định".' - '.$row_title_lap['title']; break;
@@ -65,39 +78,47 @@
 		}
 	    $description_t = $row_title_lap['description'];
 		$keywords_t = $row_title_lap['keywords'];
-	}
+        $robots = "NOODP";
+    }
 	else if($_GET['act'] == 'contact'){
 		$title_t = "Liên hệ".' - '.$row_title_lap['title'];
 	    $description_t = $row_title_lap['description'];
 		$keywords_t = $row_title_lap['keywords'];
-	}
+        $robots = "NOODP";
+    }
 	else if($_GET['act']=='register'){
 		$title_t = "Đăng kí".' - '.$row_title_lap['title'];
 	    $description_t = $row_title_lap['description'];
 		$keywords_t = $row_title_lap['keywords'];
-	}
+        $robots = "NOODP";
+    }
 	else if($_GET['act'] == 'login'){
 		$title_t = "Đăng nhập".' - '.$row_title_lap['title'];
 	    $description_t = $row_title_lap['description'];
 		$keywords_t = $row_title_lap['keywords'];
-	}
+        $robots = "NOODP";
+    }
 	else if($_GET['act']=='page404'){
 		$title_t = "Lỗi không tìm thấy".' - '.$row_title_lap['title'];;
 	    $description_t = $row_title_lap['description'];
 		$keywords_t = $row_title_lap['keywords'];
-	}
+        $robots = "NOODP";
+    }
 	else if($_GET['act'] == 'userquantritin'){
 		$title_t = "Quản trị tin đăng".' - '.$row_title_lap['title'];;
 	    $description_t = $row_title_lap['description'];
 		$keywords_t = $row_title_lap['keywords'];
-	}
+        $robots = "NOODP";
+    }
 	else{
 		$title_t = $row_title_lap['title'];
 		$description_t = $row_title_lap['description'];
 		$keywords_t = $row_title_lap['keywords'];
-	}
+        $robots = "NOODP";
+    }
 ?>
 <title><?php echo $title_t; ?></title>
     <meta name="description" content="<?php echo $description_t; ?>"/>
     <meta name="keywords" content="<?php echo $keywords_t; ?>"/>
     <meta name="WT.ti" content="<?php echo $title_t; ?>"/>
+    <meta name="robots" content="<?php echo $robots; ?>"/>

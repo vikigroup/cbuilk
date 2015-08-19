@@ -272,11 +272,11 @@ else $ks='DESC';
                                 <input type="checkbox" name="chkall" id="chkall" onClick="chkallClick(this);"/>
                             </td>
                             <td align="center">STT</td>
-                            <td align="center"><span class="title"><a class="title" >Hình</a></span></td>
+                            <td align="center"><span class="title"><a class="title">Hình</a></span></td>
                             <td align="center"><a class="title" href="<?=getLinkSortAdmin(3)?>">Tên </a></td>
                             <td align="center"><a class="title" href="<?=getLinkSortAdmin(3)?>">Shop</a></td>
                             <td align="center"><a class="title" href="<?=getLinkSortAdmin(10)?>">Thành viên</a></td>
-                            <td align="center"><a class="title" href="<?=getLinkSortAdmin(15)?>">Tiêu biểu</a></td>
+                            <td align="center"><a class="title" href="<?=getLinkSortAdmin(15)?>">Tin hot</a></td>
                             <td align="center"><span class="title"><a class="title" href="<?=getLinkSortAdmin(11)?>">Ẩn/Hiện</a></span></td>
                             <td align="center"><a class="title" href="<?=getLinkSortAdmin(12)?>">Ngày tạo lập</a></td>
                             <td align="center">Công cụ</td>

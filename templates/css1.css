@@ -396,12 +396,22 @@ ul.ul-dm > li:hover > .sub-menu {display: block;}
 }
 .s-Pnb {display: none; color: #666; padding: 6px 0 0 0; overflow: hidden; white-space: nowrap; height: 18px; text-overflow: ellipsis; background: none !important;}
 .s-Pnb i{display: block; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; max-width: 150px;}
+
+.s-DetailShort{padding-left: 5px;}
+
 .iKeyWord{
-    padding: 5px;
-    background-color: rgb(28, 184, 65);
+    padding: 3px 8px;
+    background-color: #f7f7f7;
     float: left;
-    margin: 5px 5px 5px 0;
-    color: #ffffff;
+    margin: 5px 3px 4px 0;
+    color: #0394CB;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 3px;
+    font-size: 12px;
+    line-height: 14px;
+    display: inline-block;
+    text-rendering: geometricPrecision;
+    font-style: normal;
 }
 .n-Pnb:hover{}
 .price-Pnb {display: block; color: #f98d32; padding: 10px 0 10px 0; margin: 10px 5px 0 0; text-align: center; overflow: hidden; white-space: nowrap; height: 15px; text-overflow: ellipsis; background: url(../imgs/layout/price-Pnb.png) no-repeat 0px 7px;}
@@ -650,7 +660,16 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 .l-fcont {width: 73%; float: left; padding: 0 5px;}
 .r-fcont {width: 23%; float: right; padding: 0 5px;}
 
-.t-lfcont {font-size: 27px; font-weight: normal; color: #111; padding-bottom: 10px;}
+.t-lfcont {font-size: 27px; font-weight: normal; color: #111; padding-bottom: 5px; margin: 0;}
+.t-lshort{
+    font-weight: bold;
+    padding-bottom: 15px;
+    color: #333;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+    text-rendering: geometricPrecision;
+    line-height: 22px;
+}
 
 .sli-lfcont {}
 .sli-fcon-1 {width: 100%; float: left;}
@@ -670,7 +689,9 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 .f-ndct img, .f-ndct div, .f-ndct table, .f-ndct h1, .f-ndct h2, .f-ndct h3, .f-ndct h4, .f-ndct h5, .f-ndct h6, .f-ndct p, .f-ndct strong, .f-ndct em {max-width: 100% !important; font-size: 14px;}
 .f-ndct img {padding: 5px 0;}
 
-.face-cmm {}
+.f-keyword{width: 100%;}
+
+.face-cmm {margin-top: 15px;}
 .fb-comments, .fb-comments iframe[style], .fb-like-box, .fb-like-box iframe[style] {width: 100% !important;}
 .fb-comments span, .fb-comments iframe span[style], .fb-like-box span, .fb-like-box iframe span[style] {width: 100% !important;}
 
@@ -1374,9 +1395,13 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 
 .c-label{
     padding: 5px;
-    border: 1px solid #1ECB96;
-    border-radius: 5px;
-    color: #1ECB96;
+    background-color: #1ECB96;
+    border-radius: 3px;
+    color: #ffffff;
+    margin-right: 10px;
+    font-family: arial;
+    font-size: 11px;
+    font-weight: normal;
 }
 
 .r-box-language a img{
@@ -2365,10 +2390,7 @@ textarea:hover, textarea:focus{
 .divUpdating{
     clear: both;
     text-align: center;
-}
-
-.divUpdating span{
-    padding: 5px;
+    margin: 15% auto 0 auto;
 }
 
 .spanViews{

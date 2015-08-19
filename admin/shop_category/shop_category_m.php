@@ -69,8 +69,9 @@ $(function(){
             alert('Bạn chưa nhập "Tên danh mục"!');
             $('#txtName').focus();
         }else{
+            var id = "<?php echo $_GET['id'] ?>";
             var catNameAfter = catName.toLowerCase().replace(/ /g, "-");
-            var dataString = "string="+catNameAfter+"&functionName="+"removeUnicode";
+            var dataString = "string="+catNameAfter+"&id="+id+"&functionName="+"removeUnicode";
             $.ajax({
                 type: "POST",
                 url: "../lib/functions.php",
@@ -86,7 +87,8 @@ $(function(){
         }
     });
 
-    $("#charlimitinfo").val(156 - $('#txtName').val().length);
+    $("#charlimitinfo").val(156 - $('#description').val().length);
+    $("#charlimitinfo").attr('value', 156 - $('#description').val().length);
 });
 </script>
 
@@ -419,7 +421,7 @@ if (isset($_POST['btnSave'])){
                                 <td valign="middle" width="30%" class="table_chu">Mô tả trang<span class="sao_bb">*</span></td>
                                 <td valign="middle" width="70%">
                                     <textarea name="description" class="table_khungvua" id="description" maxlength="156" onkeypress="limitChars(this.id, 156, 'charlimitinfo');" onkeyup="limitChars(this.id, 156, 'charlimitinfo');" onkeydown="limitChars(this.id, 156, 'charlimitinfo');"><?=$description?></textarea>
-                                    <p class="pGuideline"><input type="text" class="txtSEO" id="charlimitinfo" value="156"> ký tự còn lại <b>(Tốt nhất là 156 ký tự).</b></p>
+                                    <p class="pGuideline"><input type="text" class="txtSEO" id="charlimitinfo" disabled> ký tự còn lại <b>(Tốt nhất là 156 ký tự).</b></p>
                                     <p class="pGuideline"><i>Nội dung thẻ meta Description hiển thị ở trang tiếng Việt.</i></p>
                                 </td>
                              </tr>

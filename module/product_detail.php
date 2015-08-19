@@ -1,35 +1,35 @@
 <?php
-$tensanpham=$_GET['tensanpham'];
-$row_sanpham   = getRecord('tbl_item', "subject='".$tensanpham."'");
-$row_category  = getRecord('tbl_shop_category', "subject='".$tensanpham."'");
+$tensanpham = $_GET['tensanpham'];
+$row_sanpham = getRecord('tbl_item', "subject='".$tensanpham."'");
+$row_category = getRecord('tbl_shop_category', "subject='".$tensanpham."'");
 $brand_style = explode(",", $row_sanpham['brand_style']);
 $brand_background = $brand_style[0];
 $brand_color = $brand_style[1];
 
-if($row_sanpham['id']!="")   {
+if($row_sanpham['id'] != "")   {
 	$sql = "update tbl_item set view=view+1 where id='".$row_sanpham['id']."'";
 	mysql_query($sql);
-	$idshop=$row_sanpham['idshop'];
-	$ghinho=1;
+	$idshop = $row_sanpham['idshop'];
+	$ghinho = 1;
 }else{
 	if(isset($_GET['tensanpham'])) {
-		$danhmuc=$_GET['tensanpham'];
-		$parent1=get_field('tbl_shop_category','subject',$danhmuc,'id');
-		if($parent1=="")  echo  '<script>window.location="'.'404-page-not-found.html" </script>';
+		$danhmuc = $_GET['tensanpham'];
+		$parent1 = get_field('tbl_shop_category','subject',$danhmuc,'id');
+		if($parent1 == "") echo '<script>window.location="'.'404-page-not-found.html" </script>';
 	}
-	$parent=getParent("tbl_shop_category",$parent1);
-	$ghinho=2;
+	$parent = getParent("tbl_shop_category",$parent1);
+	$ghinho = 2;
 }
 
 if($row_sanpham['idshop'] == 0){
-    $row_support   = getRecord('tbl_support', "idshop=0");
-    $row_config   = getRecord('tbl_config', "id='2'");
+    $row_support = getRecord('tbl_support', "idshop=0");
+    $row_config = getRecord('tbl_config', "id='2'");
 }
 
-if($ghinho==1){ // prodetail
+if($ghinho == 1){
 
 ?>
-<input id="customerID" value="<?php echo $idKH=$_SESSION['kh_login_id']; ?>" type="hidden"/>
+<input id="customerID" value="<?php echo $idKH = $_SESSION['kh_login_id']; ?>" type="hidden"/>
 <input name="id" id="id" value="<?php echo $row_sanpham['id']; ?>" type="hidden"/>
 <input name="name_shop" id="name_shop" value="<?php echo $shop['subject']; ?>" type="hidden"/>
 <input id="hiddenProductPrice" type="hidden" value="<?php echo $row_sanpham['price']; ?>">
@@ -67,20 +67,20 @@ if($ghinho==1){ // prodetail
 
 <section class="f-cont">
     <div class="l-fcont">
-        <h1 class="t-lfcont"  >
+        <h1 class="t-lfcont">
             <?php echo $row_sanpham['name']; ?>
         </h1><!-- End .t-lfcont -->
 
-        <p><?php echo $row_sanpham['detail_short']; ?></p>
+        <p class="t-lshort"><span class="c-label"><?php echo ucfirst($sub); ?></span><?php echo $row_sanpham['detail_short']; ?></p>
 
         <div class="sli-lfcont">
             <div class="sli-fcon-1">
                 <ul class="ul-sli-fcon-1">
 					<?php
-                    $hinh=get_records("tbl_ad","idshop='{$idshop}' AND name='' AND iditem=".$row_sanpham['id'],"id DESC","0,10"," ");
-					$demm=mysql_num_rows($hinh);
-					if($demm>0){
-                    while($row_hinh=mysql_fetch_assoc($hinh)){
+                    $hinh = get_records("tbl_ad","idshop='{$idshop}' AND name='' AND iditem=".$row_sanpham['id'],"id DESC","0,10"," ");
+					$demm = mysql_num_rows($hinh);
+					if($demm > 0){
+                    while($row_hinh = mysql_fetch_assoc($hinh)){
                     ?>
                     <li><img src="<?php echo $linkroot; ?>/<?php echo $row_hinh['image']; ?>" /></li>
                     <?php }} else { ?>
@@ -100,7 +100,7 @@ if($ghinho==1){ // prodetail
             </script>
         </div><!-- End .sli-lfcont -->
         
-        <?php if($row_sanpham['style']==0 || $row_sanpham['style']==4 || $row_sanpham['style']==2){?>
+        <?php if($row_sanpham['style'] == 0 || $row_sanpham['style'] == 4 || $row_sanpham['style'] == 2){ ?>
         <h4 class="t-ttct">
             <b>Thông tin chi tiết</b>
         </h4><!-- End .t-ttct -->
@@ -109,11 +109,20 @@ if($ghinho==1){ // prodetail
             <b>Nội dung chi tiết</b>
         </h4><!-- End .t-ttct -->
         <?php }?>
-
         <div class="f-ndct">
            <?php echo $row_sanpham['detail']; ?>
             <div class="clear"></div>
         </div><!-- End .f-ndct -->
+        <p><b>Từ khóa</b></p>
+        <div class="f-keyword">
+            <?php
+                $myArrKeyWord = explode(", ", $row_sanpham['keyword']);
+                foreach($myArrKeyWord as $objMyArrKeyWord){
+                    echo "<a href='".$root."/tim-kiem/tat-ca/".$objMyArrKeyWord.".html'><i class='iKeyWord'>".$objMyArrKeyWord."</i></a>";
+                }
+            ?>
+            <div class="clear"></div>
+        </div>
         <div class="face-cmm">
             <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
             <div class="g-plusone" data-size="medium" data-href="<?php echo $linkrootshop; ?>/<?php echo $row_sanpham['subject']; ?>.html"></div>
@@ -124,23 +133,23 @@ if($ghinho==1){ // prodetail
     </div><!-- End .l-fcont -->
     
     <div class="r-fcont">
-        <?php $shop=getRecord('tbl_shop', "id='".$row_sanpham['idshop']."'"); ?>
+        <?php $shop = getRecord('tbl_shop', "id='".$row_sanpham['idshop']."'"); ?>
         <?php if($row_sanpham['style'] != 1 && $row_sanpham['style'] != 3){ ?>
         <div class="gbsp">
-            <span> <?php if($row_sanpham['style']==0 || $row_sanpham['style']==4){echo "Giá bán sản phẩm:";}else if($row_sanpham['style']==2){echo "Giá dịch vụ:";} ?></span>
+            <span><?php if($row_sanpham['style'] == 0 || $row_sanpham['style'] == 4){echo "Giá bán sản phẩm:";}else if($row_sanpham['style'] == 2){echo "Giá dịch vụ:";} ?></span>
             <h1><?php if($row_sanpham['pricekm'] > 0){echo number_format($row_sanpham['pricekm'],0)."  VNĐ";}else if($row_sanpham['price'] > 0){echo number_format($row_sanpham['price'],0)."  VNĐ";}else{echo "Giá: Liên hệ";} ?></h1>
         </div><!-- End .gbsp -->
         <?php } ?>
 
-        <?php if($row_sanpham['style']==0 || $row_sanpham['style']==4 || $row_sanpham['style']==2){?>
+        <?php if($row_sanpham['style'] == 0 || $row_sanpham['style'] == 4 || $row_sanpham['style'] == 2){?>
         <a href="#popup" class="popup-link" onclick="$('.popup-container').show();">ĐẶT MUA</a>
         <div class="popup-wrapper" id="popup">
             <div class="popup-container"><!-- Popup Contents, just modify with your own -->
                 <div class="popup-image">
                     <?php
-                    $demm=mysql_num_rows($hinh);
-                    if($demm>0){
-                        while($row_hinh=mysql_fetch_assoc($hinh)){
+                    $demm = mysql_num_rows($hinh);
+                    if($demm > 0){
+                        while($row_hinh = mysql_fetch_assoc($hinh)){
                             ?>
                             <img src="<?php echo $linkroot; ?>/<?php echo $row_hinh['image']; ?>" />
                         <?php }} else { ?>
@@ -515,8 +524,8 @@ else{
         </div><!-- End .catelog -->
     </div><!-- End .sidebar -->
 
-    <?php if($totalRows != 0){ ?>
     <div class="content">
+        <?php if($totalRows != 0){ ?>
         <?php if($row_category['id'] != 211 && $row_category['id'] != 390){ ?>
         <section class="Prod-nb">
             <h4 class="t-Pnb">
@@ -630,14 +639,14 @@ else{
                     </div><!-- End .i-Pnb -->
                     <div class="prod_row1">
                         <a <?php if($row_new['target'] == 1){echo "target='_blank'";} ?> class="n-Pnb" href="<?php if($row_new['other_link'] != ''){echo $row_new['other_link'];}else{echo $linkrootshop.'/'.$row_new['subject'].'.html';} ?>"><b><?php echo $row_new['name']; ?></b></a>
-                        <span class="s-Pnb"><?php echo $row_new['detail_short']; ?></span>
+                        <span class="s-Pnb s-DetailShort"><?php echo $row_new['detail_short']; ?></span>
                         <div class="clear"></div>
                         <?php if($row_new['keyword'] != ''){ ?>
                         <span class="s-Pnb">
                             <?php
                             $myArrNew = explode(", ", $row_new['keyword']);
                             foreach($myArrNew as $objMyArrNew){
-                                echo "<i class='iKeyWord'>".$objMyArrNew."</i>";
+                                echo "<a href='".$root."/tim-kiem/tat-ca/".$objMyArrNew.".html'><i class='iKeyWord'>".$objMyArrNew."</i></a>";
                             }
                             ?>
                         </span>
@@ -646,13 +655,13 @@ else{
                     </div><!-- End .prod_row1 -->
                     <div class="prod_row2">
                         Lượt xem
-                        <br>
-                        <span class="spanViews"><?php echo $row_new['view']; ?></span>
+                        <br/>
+                        <p><span class="spanViews"><?php echo $row_new['view']; ?></span></p>
                     </div><!-- End .prod_row2 -->
                     <div class="prod_row3">
                         Ngày đăng 
-                        <br>
-                        <span class="spanViews"><?php echo date("d-m-Y", strtotime($row_new['date_added'])); ?></span>
+                        <br/>
+                        <p><span class="spanViews"><?php echo date("d-m-Y", strtotime($row_new['date_added'])); ?></span></p>
                     </div><!-- End .prod_row3 -->
                     <?php if($row_category['cate'] != 1 && $row_category['cate'] != 3){ ?>
                     <span class="price-Pnb"><?php  if($row_new['pricekm'] > 0){echo number_format($row_new['pricekm'],0)."  VNĐ";}else if($row_new['price'] > 0){echo number_format($row_new['price'],0)."  VNĐ";}else{echo "Giá: Liên hệ";} ?></span>
@@ -673,10 +682,10 @@ else{
             </div>
             <div class="clear"></div>
         </div><!-- End .frame_phantrang -->
+        <div class="clear"></div>
+        <?php }else{ ?>
+            <div class="divUpdating"><span>Danh mục này hiện đang được cập nhật dữ liệu.</span></div>
+        <?php } ?>
     </div><!-- End .content -->
-    <?php }else{ ?>
-        <div class="divUpdating"><span>Danh mục này hiện đang được cập nhật dữ liệu.</span></div>
-    <?php } ?>
-    <div class="clear"></div>
 </section><!-- End .f-ct -->
 <?php } ?>

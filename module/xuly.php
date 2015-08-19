@@ -3,17 +3,15 @@
 	require("../common_start.php");
 	include("../lib/func.lib.php");
 	
-	$linkroot=$root; echo $_POST['keyword'];
+	$linkroot = $root; $_POST['keyword'];
 	
-	if($_POST['keyword']==true){
-		//$tukhoa=xuly_kytu_db_timkiem($_POST['keyword'],1);
-		$tukhoa=$_POST['keyword'];
-		$loai=$_POST['loai'];
-		$_SESSION['kt_tukhoa']=$_POST['keyword'];
-		$back=$linkrootshop.'/tu-khoa-tim/'.$loai.'/'.$tukhoa.'.html';
+	if($_POST['keyword'] == true){
+		$tukhoa = $_POST['keyword'];
+		$loai = $_POST['loai'];
+		$_SESSION['kt_tukhoa'] = $_POST['keyword'];
+		$back = $linkrootshop.'/tim-kiem/'.$loai.'/'.$tukhoa.'.html';
 		header("location: $back");
 	}else{
 		header("location: $linkrootshop");
 	}
-	
 ?>

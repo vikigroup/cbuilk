@@ -60,7 +60,7 @@ function autoHome(){
         $('.t-Pnb, .filter-Prod, .content').css('max-width', 1000);
         $('.li-Pc1').css('width', 173);
         $('.prod_row1').css('width', 'inherit');
-        $('.t-Pnb').css('width', $('.m-wrap').width() - 412);
+        $('.t-Pnb').css('width', $('.m-wrap').width() - 314);
         $('.m-Pnb').css('width', windowSize - 395);
         $('.content').css('width', windowSize - 350);
         $('#slider').css('left', (windowSize - 1210) / 2);

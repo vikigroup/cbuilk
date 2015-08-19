@@ -1,4 +1,5 @@
 function emptySessionCategory(action){
+    //action: trang yêu cầu
     var action = action;
     var dataString = "functionName="+"emptySessionCategory";
     $.ajax({
@@ -12,6 +13,9 @@ function emptySessionCategory(action){
 }
 
 function limitChars(textid, limit, infodiv) {
+    //textid: id của thẻ input nhập mô tả trang
+    //limit: số ký tự giới hạn nhập
+    //infodiv: trả về thông tin khi thực hiện thao tác nhập (số ký tự còn lại)
     var text = $('#'+textid).val();
     var textlength = text.length;
     if(textlength > limit) {
@@ -26,7 +30,9 @@ function limitChars(textid, limit, infodiv) {
 }
 
 function optimizeSubjectLink(id, idHidden){
-    var subject = $("#"+id).val().trim().toLowerCase().replace(/ /g, "-");
+    //id: id của thẻ input nhập giá trị link danh mục VN
+    //idHidden: id của thẻ hidden lưu giá trị link danh mục VN
+    var subject = optimizePostLink($("#"+id).val().trim().toLowerCase()).replace(/ /g, "-");
     var dataString = "string="+subject+"&functionName="+"removeUnicode";
     $.ajax({
         type: "POST",
@@ -39,7 +45,49 @@ function optimizeSubjectLink(id, idHidden){
     });
 }
 
+function removeStartWith(id, string){
+    //id: id của thẻ input nhập tiêu đề trang
+    //strng: giá trị thẻ input nhập tiêu đề trang
+    var string = string;
+    var str = string.trim();
+    var start = str.substr(0, 1).replace(/["]/g, '');
+    var rest = str.substr(1, str.length - 2);
+    var end = str.substr(str.length - 1, 1).replace(/["]/g, '');
+    $("#"+id).val(start+rest+end);
+}
+
+function optimizePostLink(string){
+    return string.trim().replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/g, '');
+}
+
+function setTimePost(idSelector, idDisplay, idSetTime, idHiddenStatus){
+    //idSelector: id thẻ checkbox thực hiện sự kiện click
+    //idDisplay: id thẻ checkbox lưu giá trị trạng thái bài viết (Ẩn/Hiện)
+    //idSetTime: id thẻ <tr> dùng thực hiện ẩn/hiện khung cài đặt thời gian post bài
+    //idHiddenStatus: id thẻ hidden lưu giá trị trạng thái cũ của bài viết (Ẩn/Hiện)
+    var check = $("#"+idSelector).val();
+    if(check == 0){
+        if(!$("#"+idDisplay).is(":checked")){
+            $("#"+idDisplay).prop("checked", true);
+            $("#"+idDisplay).val('1');
+        }
+        $("#"+idDisplay).attr("disabled", true);
+        $("#"+idSetTime).show();
+        $("#"+idSelector).val('1');
+    }
+    else{
+        if($("#"+idHiddenStatus).val() == 0){
+            $("#"+idDisplay).prop("checked", false);
+            $("#"+idDisplay).val('0');
+        }
+        $("#"+idDisplay).attr("disabled", false);
+        $("#"+idSetTime).hide();
+        $("#"+idSelector).val('0');
+    }
+}
+
 function positionSelector(selector){
+    //selector: vị trí quảng cáo
     $("#slPageCreateAdminBanner option").remove();
     if(selector == 0){
         $("#slPageCreateAdminBanner").append("<option value='0'>TOP (190x330)</option>");
@@ -67,6 +115,8 @@ function positionSelector(selector){
 }
 
 function addhttp(id, url) {
+    //id: id của thẻ input nhập liên kết ngoài
+    //url: giá trị thẻ input nhập liên kết ngoài
     var pattern = /^((http|https):\/\/)/;
     if(!pattern.test(url)) {
         url = "http://" + url.trim();
