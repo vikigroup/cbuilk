@@ -16,7 +16,7 @@
 	$pageSize = 25;
 	$totalRows = 0;
 
-    $sapxep = "sort, date_added DESC";
+    $sapxep = "top DESC, sort, date_added DESC";
 	
 	settype($pageSize, "int");
 	settype($pageNum, "int");
@@ -25,8 +25,8 @@
 	if ($pageNum <= 0) $pageNum = 1;
 	$startRow = ($pageNum-1) * $pageSize;
 
-    $totalRows = countRecord("tbl_item","status=0  AND cate=0 $str_tim  AND (name LIKE '%$tukhoa%' or detail_short LIKE '%$tukhoa%' or detail LIKE '%$tukhoa%' or title LIKE '%$tukhoa%')");
-	$product = get_records("tbl_item","status=0 AND cate=0 $str_tim AND (name LIKE '%$tukhoa%' or detail_short LIKE '%$tukhoa%' or detail LIKE '%$tukhoa%' or title LIKE '%$tukhoa%' or keyword LIKE '%$tukhoa%') order by $sapxep limit ".$startRow.",".$pageSize," "," "," ");
+    $totalRows = countRecord("tbl_item","status=0 AND set_time <= '$ngay' $str_tim  AND (name LIKE '%$tukhoa%' or detail_short LIKE '%$tukhoa%' or detail LIKE '%$tukhoa%' or title LIKE '%$tukhoa%')");
+	$product = get_records("tbl_item","status=0 AND set_time <= '$ngay' $str_tim AND (name LIKE '%$tukhoa%' or detail_short LIKE '%$tukhoa%' or detail LIKE '%$tukhoa%' or title LIKE '%$tukhoa%' or keyword LIKE '%$tukhoa%') order by $sapxep limit ".$startRow.",".$pageSize," "," "," ");
 ?>
 
 <input type="hidden" id="hiddenSearchPageNum" value="<?php echo $pageNum; ?>">
@@ -71,8 +71,9 @@
                     <div class="clear"></div>
                 </div><!-- End .f-sty-P -->
             </h4>
-            <script type="text/javascript" src="<?php echo $linkrootshop; ?>/scripts/jquery_cookie.js" > </script>
-            <script type="text/javascript" src="<?php echo $linkrootshop; ?>/scripts/script_prod.js "> </script>
+            <input type="hidden" id="hiddenSearchProd" value="1">
+            <script type="text/javascript" src="<?php echo $linkrootshop; ?>/scripts/jquery_cookie.js"></script>
+            <script type="text/javascript" src="<?php echo $linkrootshop; ?>/scripts/script_prod.js"></script>
         </section><!-- End .filter-Prod -->
         
         <section class="Prod-cate">
@@ -87,7 +88,7 @@
                         </a>
                     </div><!-- End .i-Pnb -->
                     <div class="prod_row1">
-                        <a <?php if($row_new['target'] == 1){echo "target='_blank'";} ?> class="n-Pnb" href="<?php if($row_new['other_link'] != ''){echo $row_new['other_link'];}else{echo $linkrootshop.'/'.$row_new['subject'].'.html';} ?>"><b><?php echo $row_new['name']; ?></b></a>
+                        <a <?php if($row_new['target'] == 1){echo "target='_blank'";} ?> class="n-Pnb<?php if($row_new['style'] == 1 || $row_new['style'] == 3){echo ' n-search';} ?>" href="<?php if($row_new['other_link'] != ''){echo $row_new['other_link'];}else{echo $linkrootshop.'/'.$row_new['subject'].'.html';} ?>"><b><?php echo $row_new['name']; ?></b></a>
                         <span class="s-Pnb s-DetailShort"><?php echo $row_new['detail_short']; ?></span>
                         <div class="clear"></div>
                     </div><!-- End .prod_row1 -->

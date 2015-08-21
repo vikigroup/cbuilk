@@ -20,6 +20,12 @@ if(isset($frame) == true){
             return false;
         }
 
+        if($('#txtDetailShort').val() == ''){
+            alert('Bạn chưa nhập "Mô tả ngắn VN"!');
+            $('#txtDetailShort').focus();
+            return false;
+        }
+
         if($('#subject').val() == ''){
             alert('Bạn chưa nhập "Link danh mục VN"! \nBạn có thể nhấn vào nút tạo SEO để hệ thống tự động thực hiện.');
             $('#subject').focus();
@@ -67,7 +73,7 @@ if(isset($frame) == true){
                     success: function(x){
                         $("#subject, #txtSubjectSEO").val(x);
                         $('#title').val($('#txtName').val());
-                        $('#description').val($('#txtName').val());
+                        $('#description').val($('#txtDetailShort').val());
                         $("#keyword").val(catName.toLowerCase()+", "+ x.toLowerCase().replace(/-/g, " ").replace(/[0-9]/g, "").trim());
                         $("#charlimitinfo").val(156 - catName.length);
                     }
@@ -111,6 +117,8 @@ if (isset($_POST['btnSave'])){
     $keyword            = isset($_POST['keyword']) ? trim($_POST['keyword']) : '';
     $noIndexNoFollow    = $_POST['chkNoIndexNoFollow'];
     $time               = $_POST['txtSetTime'];
+    $top                = $_POST['chkTop'];
+    $block              = $_POST['chkBlock'];
 
     $catInfo       = getRecord('tbl_item', 'id='.$parent);
     if(!$multiLanguage){
@@ -125,9 +133,9 @@ if (isset($_POST['btnSave'])){
     if ($errMsg == ''){
         if (!empty($_POST['id'])){
             $oldid = $_POST['id'];
-            $sql = "update tbl_item set name='".$name."',parent='".$parent."',parent1='".$parent1."',detail='".$detail."',type='".$loaihinh."',price='".$price."',pricekm='".$pricekm."',sort='".$sort."',status='".$status."',title='".$title."',description='".$description."',keyword='".$keyword."',last_modified=now(), other_link='".$otherLink."', target='".$target."', detail_short='".$detail_short."', hot='".$hot."', noindex_nofollow='".$noIndexNoFollow."', set_time='".$time."' where id='".$oldid."'";
+            $sql = "update tbl_item set name='".$name."',parent='".$parent."',parent1='".$parent1."',detail='".$detail."',type='".$loaihinh."',price='".$price."',pricekm='".$pricekm."',sort='".$sort."',status='".$status."',title='".$title."',description='".$description."',keyword='".$keyword."',last_modified=now(), other_link='".$otherLink."', target='".$target."', detail_short='".$detail_short."', hot='".$hot."', noindex_nofollow='".$noIndexNoFollow."', set_time='".$time."', top='".$top."', block='".$block."' where id='".$oldid."'";
         }else{
-            $sql = "insert into tbl_item (name, parent, parent1 , detail, type , price , pricekm , sort, status,  date_added, last_modified, style, title, description, keyword, other_link, target, detail_short, hot, noindex_nofollow, set_time) values ('".$name."','".$parent."','".$parent1."','".$detail."','".$loaihinh."','".$price."','".$pricekm."','".$sort."','".$status."',now(),now(),'1','".$title."','".$description."','".$keyword."','".$otherLink."','".$target."','".$detail_short."','".$hot."','".$noIndexNoFollow."','".$time."')";
+            $sql = "insert into tbl_item (name, parent, parent1 , detail, type , price , pricekm , sort, status,  date_added, last_modified, style, title, description, keyword, other_link, target, detail_short, hot, noindex_nofollow, set_time, top, block) values ('".$name."','".$parent."','".$parent1."','".$detail."','".$loaihinh."','".$price."','".$pricekm."','".$sort."','".$status."',now(),now(),'1','".$title."','".$description."','".$keyword."','".$otherLink."','".$target."','".$detail_short."','".$hot."','".$noIndexNoFollow."','".$time."','".$top."','".$block."')";
         }
         if (mysql_query($sql,$conn)){
             if(empty($_POST['id'])) $oldid = mysql_insert_id();
@@ -203,6 +211,8 @@ if (isset($_POST['btnSave'])){
             $last_modified      = $row['last_modified'];
             $noIndexNoFollow    = $row['noindex_nofollow'];
             $time               = $row['set_time'];
+            $top                = $row['top'];
+            $block              = $row['block'];
         }
     }
 }
@@ -306,12 +316,12 @@ if (isset($_POST['btnSave'])){
                             </td>
                         </tr>
                         <tr>
-                            <td valign="middle" class="table_chu">Mô tả ngắn VN</td>
+                            <td valign="middle" class="table_chu">Mô tả ngắn VN<span class="sao_bb">*</span></td>
                             <td valign="middle">&nbsp;</td>
                         </tr>
                         <tr>
                             <td colspan="2" valign="middle">
-                                <textarea name="txtDetailShort"  style="width:780px; height:150px;" id="txtDetailShort"><?php echo $detail_short;?></textarea>
+                                <textarea name="txtDetailShort" style="width:780px; height:150px;" id="txtDetailShort"><?php echo $detail_short;?></textarea>
                                 <p class="pGuideline"><i>Đoạn mô tả ngắn bài viết sẽ hiển thị ở trang tiếng Việt.</i></p>
                             </td>
                         </tr>
@@ -391,9 +401,11 @@ if (isset($_POST['btnSave'])){
                             <td valign="top" width="30%" class="table_chu">Tùy chọn</td>
                             <td valign="middle" width="70%">
                                 <input type="checkbox" name="chkNoIndexNoFollow" value="<?php if($noIndexNoFollow > 0){echo $noIndexNoFollow;}else{echo 0;} ?>" <? if ($noIndexNoFollow > 0) echo 'checked'; ?> onchange="if($(this).is(':checked')){this.value = 1;}else{this.value = 0;}"> Noindex, nofollow &nbsp; &nbsp;
+                                <input type="checkbox" name="chkBlock" value="<?php if($block > 0){echo $block;}else{echo 0;} ?>" <? if ($block > 0) echo 'checked'; ?> onchange="if($(this).is(':checked')){this.value = 1;}else{this.value = 0;}"> Khóa bài viết &nbsp; &nbsp;
                                 <input type="checkbox" name="chkStatus" id="chkStatus" value="<?php if($status > 0){echo $status;}else{echo 0;} ?>" <? if ($status > 0) echo 'checked'; ?> onchange="if($(this).is(':checked')){this.value = 1; $('#hiddenDisplayStatus').val('1');}else{this.value = 0; $('#hiddenDisplayStatus').val('0');}"> Ẩn &nbsp; &nbsp;
                                 <input type="checkbox" name="chkSetTime" id="chkSetTime" value="<?php if($time > date("Y-m-d H:i:s")){echo 1;}else{echo 0;} ?>" <?php if ($time > date("Y-m-d H:i:s")){echo 'checked';} ?> onclick="setTimePost(this.id, 'chkStatus', 'trSetTime', 'hiddenDisplayStatus');"> Hẹn giờ post tin &nbsp; &nbsp;
-                                <input type="checkbox" name="chkHot" value="<?php if($hot > 0){echo $hot;}else{echo 0;} ?>" <? if ($hot > 0) echo 'checked'; ?> onchange="if($(this).is(':checked')){this.value = 1;}else{this.value = 0;}"> Tin hot &nbsp; &nbsp;
+                                <input type="checkbox" name="chkHot" value="<?php if($hot > 0){echo $hot;}else{echo 0;} ?>" <? if ($hot > 0) echo 'checked'; ?> onchange="if($(this).is(':checked')){this.value = 1;}else{this.value = 0;}"> Tin hot &nbsp; &nbsp;<br/>
+                                <input type="checkbox" name="chkTop" value="<?php if($top > 0){echo $top;}else{echo 0;} ?>" <? if ($top > 0) echo 'checked'; ?> onchange="if($(this).is(':checked')){this.value = 1;}else{this.value = 0;}"> Nằm trên top &nbsp; &nbsp;
                                 <input type="checkbox" name="chkTarget" value="<?php if($target > 0){echo $target;}else{echo 0;} ?>" <? if ($target > 0) echo 'checked'; ?> onchange="if($(this).is(':checked')){this.value = 1;}else{this.value = 0;}"> Mở link ngoài ra tab mới
                                 <input type="hidden" id="hiddenDisplayStatus" value="<?php if($status > 0){echo $status;}else{echo 0;} ?>">
                             </td>
@@ -416,7 +428,8 @@ if (isset($_POST['btnSave'])){
                             <td valign="top" width="30%">&nbsp;</td>
                             <td valign="middle" width="70%">
                                 <input type="submit" name="btnSave" VALUE="Cập nhật" class=button onclick="return btnSave_onclick()">
-                                <input type="reset" id="reset" class=button value="Nhập lại">
+                                <input type="reset" id="reset" class="button" value="Nhập lại">
+                                <input type="button" id="close" class="button" value="Đóng" onclick="window.location.href = '<?php echo $root.'/admin/admin.php?act='.substr($frame, 0, strlen($frame) - 2); ?>';">
                             </td>
                         </tr>
                         </table>

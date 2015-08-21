@@ -146,22 +146,7 @@ $myProduct = getRecord('tbl_item', "subject='".$_GET['tensanpham']."'");
         <?php include("module/processFrame.php");?>
     </div><!-- End .m-wrap -->
 </div><!-- End #container -->
-
-<div class="mini-bar">
-    <?php if($_SESSION['kt_login_level'] == 3){ ?>
-    <div class="mini-shopping">
-        <a id="aSystemEdit" href="#basic" class="initialism basic_open pure-button-primary pure-button" title="Chỉnh sửa hệ thống">
-            <p><i class="fa fa-pencil"></i></p>
-        </a>
-    </div>
-    <?php } ?>
-    <div class="mini-shopping">
-        <a href="#" onclick="alert('Chức năng hiện đang được hoàn thiện...');">
-            <p><i class="fa fa-shopping-cart fa-lg"></i></p>
-            <p>Giỏ hàng</p>
-        </a>
-    </div>
-</div>
+<?php include("module/box_system.php") ;?>
 
 <script type="text/javascript" src="<?php echo $linkrootshop?>/scripts/scrolltopcontrol.js"></script>
 <script type="text/javascript" src="<?php echo $linkrootshop?>/scripts/jquery.popupoverlay.js"></script>

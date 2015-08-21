@@ -41,7 +41,8 @@ if (isset($_POST['btn_dangnhap'])==true){
 						  $_SESSION['kt_login_id'] = $row_user['id'];
 						  $_SESSION['kt_login_username'] = $row_user['username'];
 						  $_SESSION['kt_login_level'] = $row_user['idgroup'];
-						 // chinh_table('tbl_users',$row_user['id'],'xem=xem+1',' ',' ');
+                          date_default_timezone_set('Asia/Ho_Chi_Minh');
+                            // chinh_table('tbl_users',$row_user['id'],'xem=xem+1',' ',' ');
 						 // chinh_table('tbl_users',$row_user['id'],'ngayvaocuoi='."'".$ngay."'",' ',' ');
 							if (isset($_POST['rememberme'])== true)
 								{

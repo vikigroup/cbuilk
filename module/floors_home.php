@@ -131,25 +131,31 @@ for($i = 0; $i < 12; $i++){
     </article>
     <article class="dmsp4-3">
         <?php
-        $parent_floor=getParent("tbl_shop_category",$myArrID[$i]);
-        $product_floor=get_records("tbl_item","status=0 AND type=0 AND parent1 in ({$parent_floor})","sort, date_added DESC","0,6"," ");
-
-        while($row_floor=mysql_fetch_assoc($product_floor)){
-        ?>
-        <div class="divProductLine1 hvr-float-shadow" style="background-image: url('<?php echo $linkrootshop.'/web/'.$row_floor['image'] ?>'); background-size: cover;" onclick="window.location.href = '<?php echo $linkrootshop;?>/<?php echo $row_floor['subject'];?>.html';">
-            <div class="divProductOverlay1" onclick="window.location.href = '<?php echo $linkrootshop;?>/<?php echo $row_floor['subject'];?>.html';">
-                <span><?php echo $row_floor['name'] ?></span>
-                <?php if($row_floor['price'] == 0 && $row_floor['pricekm'] == 0){ ?>
-                <span class="spanMoneyKM">Giá liên hệ</span>
-                <?php }else if($row_floor['price'] > 0 && $row_floor['pricekm'] > 0){ ?>
-                    <span class="spanMoneyKM"><?php echo number_format($row_floor['pricekm'])."đ"; ?></span>
-                    <span class="spanMoney"><?php echo number_format($row_floor['price'])."đ"; ?></span>
-                <?php }else{ ?>
-                    <span class="spanMoneyKM"><?php if($row_floor['pricekm'] > 0){echo number_format($row_floor['pricekm'])."đ";}else{echo number_format($row_floor['price'])."đ";} ?></span>
-                <?php } ?>
+        $parent_floor = parentString($myArrID[$i]);
+        if($parent_floor != ''){
+            $parent_floor = $myArrID[$i].",".$parent_floor;
+        }
+        else{
+            $parent_floor = $myArrID[$i];
+        }
+        $product_floor = get_records("tbl_item","status=0 AND parent1 in ({$parent_floor}) AND set_time <= '$ngay'","top DESC, sort, date_added DESC","0,6"," ");
+        $total_product = countRecord("tbl_item","status=0 AND parent1 in ({$parent_floor}) AND set_time <= '$ngay'");
+        if($total_product > 0){
+            while($row_floor = mysql_fetch_assoc($product_floor)){ ?>
+            <div class="divProductLine1 hvr-float-shadow" style="background-image: url('<?php echo $linkrootshop.'/web/'.$row_floor['image'] ?>'); background-size: cover;" onclick="window.location.href = '<?php echo $linkrootshop;?>/<?php echo $row_floor['subject'];?>.html';">
+                <div class="divProductOverlay1" onclick="window.location.href = '<?php echo $linkrootshop;?>/<?php echo $row_floor['subject'];?>.html';">
+                    <span><?php echo $row_floor['name'] ?></span>
+                    <?php if($row_floor['price'] == 0 && $row_floor['pricekm'] == 0){ ?>
+                    <span class="spanMoneyKM">Giá liên hệ</span>
+                    <?php }else if($row_floor['price'] > 0 && $row_floor['pricekm'] > 0){ ?>
+                        <span class="spanMoneyKM"><?php echo number_format($row_floor['pricekm'])."đ"; ?></span>
+                        <span class="spanMoney"><?php echo number_format($row_floor['price'])."đ"; ?></span>
+                    <?php }else{ ?>
+                        <span class="spanMoneyKM"><?php if($row_floor['pricekm'] > 0){echo number_format($row_floor['pricekm'])."đ";}else{echo number_format($row_floor['price'])."đ";} ?></span>
+                    <?php } ?>
+                </div>
             </div>
-        </div>
-        <?php } ?>
+        <?php } } ?>
     </article>
 </section><!-- End .Prod-nb -->
 <?php } ?>

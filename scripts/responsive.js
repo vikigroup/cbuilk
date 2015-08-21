@@ -9,7 +9,7 @@ function autoHome(){
     var windowSize = $(window).width();
     if($(window).width() < 992){
         $('.m-wrap, .dmsp4-3, .ads-home, .btn-gh3, .form_dn, .form_dn ul li, .l-fcont, .r-fcont' +
-            ', .sli-fcon-1 .bx-wrapper .bx-viewport, .filter-Prod, .content, .menu, .f-list, .divMainSubCategoryName').css('width', windowSize);
+            ', .sli-fcon-1 .bx-wrapper .bx-viewport, .filter-Prod, .content, .menu, .f-list, .divMainSubCategoryName, .Prod-cate').css('width', windowSize);
         $('.search_top_header').css('width', windowSize - 2);
         $('.l-fcont, .r-fcont, table').css('width', windowSize - 10);
         $('.divProductLine1, .divProductOverlay1').css('width', windowSize/2 - 2);
@@ -22,7 +22,6 @@ function autoHome(){
         $('.hotline').attr('style', 'margin: 0 0 0 5px !important;');
         $('.dmsp4-3').css('max-width', windowSize);
         $('.prod_row1').css('width', windowSize/2 - 20);
-        $('._51mw').css('width', '70%');
 
         for(var i = 0; i < 12; i++){
             if($('#aCategoryName'+i).height() > 14){

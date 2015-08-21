@@ -409,8 +409,9 @@ if (isset($_POST['btnSave'])){
                             <tr>
                                 <td valign="top" width="30%">&nbsp;</td>
                                 <td valign="middle" width="70%">
-                                    <input type="submit" name="btnSave" VALUE="Cập nhật" class=button onclick="return btnSave_onclick()">
+                                    <input type="submit" name="btnSave" VALUE="Cập nhật" class="button" onclick="return btnSave_onclick();">
                                     <input type="reset" class="button" value="Nhập lại">
+                                    <input type="button" id="close" class="button" value="Đóng" onclick="window.location.href = '<?php echo $root.'/admin/admin.php?act='.substr($frame, 0, strlen($frame) - 2); ?>';">
                                 </td>
                             </tr>
                         </table>

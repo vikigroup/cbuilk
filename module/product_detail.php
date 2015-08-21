@@ -290,7 +290,7 @@ if($ghinho == 1){
                 <div class="main_prod_other">
                     <ul>
                     <?php 
-					$shop_product = get_records("tbl_item","status=0 AND style='".$row_sanpham['style']."' AND idshop=".$row_sanpham['idshop'],"view DESC","0,10"," ");
+					$shop_product = get_records("tbl_item","status=0 AND set_time <= '".$ngay."' AND style='".$row_sanpham['style']."' AND idshop=".$row_sanpham['idshop'],"top DESC, view DESC, sort, date_added DESC","0,10"," ");
 					while($row_shop_product = mysql_fetch_assoc($shop_product)){
 					?>
                         <li>
@@ -345,7 +345,7 @@ if($ghinho == 1){
                 <div class="main_prod_other">
                     <ul>
                     <?php 
-					$shop_product = get_records("tbl_item","status=0 AND type='".$row_sanpham['type']."' AND parent=".$row_sanpham['parent'],"id DESC","0,5"," ");
+					$shop_product = get_records("tbl_item","status=0 AND set_time <= '".$ngay."' AND id != '".$row_sanpham['id']."' AND parent=".$row_sanpham['parent'],"top DESC, sort, date_added DESC","0,5"," ");
 					while($row_shop_product = mysql_fetch_assoc($shop_product)){
 					$shop_other = getRecord('tbl_shop', "id='".$row_shop_product['idshop']."'"); ?>
                     <li>
@@ -419,13 +419,12 @@ $myData = explode("&", $myLink[1]);
 $myFilter = explode("=", $myData[0]);
 $filter = $myFilter[1];
 $hot = 0;
-$sapxep="id DESC";
-if($filter == 1){$sapxep = "id DESC"; $hot = 0;}
-if($filter == 2){$sapxep = "date_added DESC"; $hot = 1;}
-if($filter == 3){$sapxep = "view DESC"; $hot = 0;}
-if($filter == 4){$sapxep = "price DESC"; $hot = 0;}
-if($filter == 5){$sapxep = "price ASC"; $hot = 0;}
-
+$sapxep = "top DESC, date_added DESC";
+if($filter == 1){$sapxep = "top DESC, date_added DESC"; $hot = 0;}
+if($filter == 2){$sapxep = "top DESC, date_added DESC"; $hot = 1;}
+if($filter == 3){$sapxep = "top DESC, view DESC"; $hot = 0;}
+if($filter == 4){$sapxep = "top DESC, price DESC"; $hot = 0;}
+if($filter == 5){$sapxep = "top DESC, price ASC"; $hot = 0;}
 settype($pageSize,"int");
 settype($pageNum,"int");
 settype($totalRows,"int");
@@ -444,25 +443,25 @@ if($row_category['id'] == 457){
         $parent .= $row_dataAP['id'].",";
     }
     $parent = substr($parent, 0, -1);
-    $totalRows = countRecord("tbl_item","status=0 AND type=0 AND style = ".$style." AND (parent1 in ({$parent}) OR parent in ({$parent}))");
-    $product = get_records("tbl_item", "status=0 AND type=0 AND style = ".$style." AND (parent1 in ({$parent}) OR parent in ({$parent})) order by $sapxep limit ".$startRow.",".$pageSize," "," "," ");
-    if($hot == 1){$product=get_records("tbl_item", "status=0 AND type=0 AND style = ".$style." AND (parent1 in ({$parent}) OR parent in ({$parent})) AND hot=1  order by $sapxep limit ".$startRow.",".$pageSize," "," "," ");}
+    $totalRows = countRecord("tbl_item","status=0 AND set_time <= '$ngay' AND style = ".$style." AND (parent1 in ({$parent}) OR parent in ({$parent}))");
+    $product = get_records("tbl_item", "status=0 AND set_time <= '$ngay' AND style = ".$style." AND (parent1 in ({$parent}) OR parent in ({$parent})) order by $sapxep limit ".$startRow.",".$pageSize," "," "," ");
+    if($hot == 1){$product=get_records("tbl_item", "status=0 AND set_time <= '$ngay' AND style = ".$style." AND (parent1 in ({$parent}) OR parent in ({$parent})) AND hot=1 order by $sapxep limit ".$startRow.",".$pageSize," "," "," ");}
 }
 else if($row_category['id'] == 211){
     $parent = substr($parent, 0, -5);
     $style = 1;
-    $totalRows = countRecord("tbl_item","status=0 AND type=0 AND style = ".$style." AND (parent1 in ({$parent}) OR parent in ({$parent}))");
-    $product = get_records("tbl_item", "status=0 AND type=0 AND style = ".$style." AND (parent1 in ({$parent}) OR parent in ({$parent})) order by $sapxep limit ".$startRow.",".$pageSize," "," "," ");
-    if($hot == 1){$product=get_records("tbl_item", "status=0 AND type=0 AND style = ".$style." AND (parent1 in ({$parent}) OR parent in ({$parent})) AND hot=1  order by $sapxep limit ".$startRow.",".$pageSize," "," "," ");}
+    $totalRows = countRecord("tbl_item","status=0 AND set_time <= '$ngay' AND style = ".$style." AND (parent1 in ({$parent}) OR parent in ({$parent}))");
+    $product = get_records("tbl_item", "status=0 AND set_time <= '$ngay' AND style = ".$style." AND (parent1 in ({$parent}) OR parent in ({$parent})) order by $sapxep limit ".$startRow.",".$pageSize," "," "," ");
+    if($hot == 1){$product=get_records("tbl_item", "status=0 AND set_time <= '$ngay' AND style = ".$style." AND (parent1 in ({$parent}) OR parent in ({$parent})) AND hot=1 order by $sapxep limit ".$startRow.",".$pageSize," "," "," ");}
 }
 else{
-    $totalRows = countRecord("tbl_item","status=0 AND type=0 AND parent in ({$parent})");
-    $product = get_records("tbl_item", "status=0 AND type=0 AND parent in ({$parent}) order by $sapxep limit ".$startRow.",".$pageSize," "," "," ");
-    if($hot == 1){$product = get_records("tbl_item", "status=0 AND type=0 AND parent in ({$parent}) AND hot=1  order by $sapxep limit ".$startRow.",".$pageSize," "," "," ");}
+    $totalRows = countRecord("tbl_item","status=0 AND set_time <= '$ngay' AND parent in ({$parent})");
+    $product = get_records("tbl_item", "status=0 AND set_time <= '$ngay' AND parent in ({$parent}) order by $sapxep limit ".$startRow.",".$pageSize," "," "," ");
+    if($hot == 1){$product = get_records("tbl_item", "status=0 AND set_time <= '$ngay' AND parent in ({$parent}) AND hot=1 order by $sapxep limit ".$startRow.",".$pageSize," "," "," ");}
     if($totalRows == 0){
-        $totalRows = countRecord("tbl_item","status=0 AND type=0 AND parent1 in ({$parent})");
-        $product = get_records("tbl_item", "status=0 AND type=0 AND parent1 in ({$parent}) order by $sapxep limit ".$startRow.",".$pageSize," "," "," ");
-        if($hot == 1){$product = get_records("tbl_item", "status=0 AND type=0 AND parent1 in ({$parent}) AND hot=1  order by $sapxep limit ".$startRow.",".$pageSize," "," "," ");}
+        $totalRows = countRecord("tbl_item","status=0 AND set_time <= '$ngay' AND parent1 in ({$parent})");
+        $product = get_records("tbl_item", "status=0 AND set_time <= '$ngay' AND parent1 in ({$parent}) order by $sapxep limit ".$startRow.",".$pageSize," "," "," ");
+        if($hot == 1){$product = get_records("tbl_item", "status=0 AND set_time <= '$ngay' AND parent1 in ({$parent}) AND hot=1 order by $sapxep limit ".$startRow.",".$pageSize," "," "," ");}
     }
 }
 ?>
@@ -537,8 +536,8 @@ else{
             <article class="m-Pnb">
                 <ul class="ul-Pnb">
 					<?php
-                    $totalNews = countRecord("tbl_item","status=0 AND type=0 AND pricekm != 0 AND parent1 in ({$parent})");
-                    $new = get_records("tbl_item","status=0 AND type=0 AND pricekm != 0 AND parent1 in ({$parent}) "," ","0,9"," ");
+                    $totalNews = countRecord("tbl_item","status=0 AND pricekm != 0 AND parent1 in ({$parent}) AND set_time <= '$ngay'");
+                    $new = get_records("tbl_item","status=0 AND pricekm != 0 AND parent1 in ({$parent}) AND set_time <= '$ngay'","top DESC, sort, date_added DESC","0,9"," ");
                     if($totalNews == 0){if($row_category['cate'] == 0 || $row_category['cate'] == 4 || $row_category['cate'] == 6){echo "Hiện không có sản phẩm khuyến mãi trong danh mục này";}
                     else if($row_category['cate'] == 2){echo "Hiện không có dịch vụ khuyến mãi trong danh mục này";}
                     else if($row_category['cate'] == 5){echo "Hiện không có quảng cáo khuyến mãi trong danh mục này";}}else{
@@ -575,7 +574,7 @@ else{
             <article class="m-Pnb2">
                 <ul>
 					<?php 
-                    $new = get_records("tbl_item","status=0 AND type=0 AND parent1 in ({$parent}) "," ","0,9"," ");
+                    $new = get_records("tbl_item","status=0 AND parent1 in ({$parent}) AND set_time <= '$ngay'","top DESC, sort, date_added DESC","0,9"," ");
                     while($row_new = mysql_fetch_assoc($new)){
                     $shop = getRecord('tbl_shop', "id='".$row_new['idshop']."'");
                     ?>

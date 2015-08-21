@@ -101,3 +101,11 @@ pre
 .marker {
     background-color: Yellow;
 }
+
+html{
+    height:100%;
+}
+body
+{
+    height:100%;
+}
