@@ -1,9 +1,3 @@
-$(function(){
-    $(".m-slider, .dmsp, .ads-logo, .dmsp1, .divAds, .ads-floors, .dmsp4-2").on("contextmenu", "img", function(e) {
-        return false;
-    });
-});
-
 $(document).ready(function(){
     $('select.select22').each(function(){
         var title = $(this).attr('title');
@@ -434,6 +428,11 @@ function backHomePage(){
     window.location.href = homeLink;
 }
 
+function backRegisterShopPage(){
+    var homeLink = $("#hiddenHomeLink").val();
+    window.location.href = homeLink+"/dang-ky-gian-hang.html";
+}
+
 function getPassWordStrength(){
     var pass = $("#txtPassWordFP").val();
     var strength = checkPassStrength(pass);
@@ -642,6 +641,57 @@ $(function(){
     });
 });
 
+function confirmRegisterShop(userName){
+    if(userName == '') {
+        var check = confirm("Để sử dụng dịch vụ này bạn cần đăng nhập vào hệ thống. \nChúng tôi sẽ đưa bạn đến trang đăng nhập ngay bây giờ?");
+        if (check == true) {
+            backLoginPage();
+        }
+        else {
+            return;
+        }
+    }
+    else{
+        backRegisterShopPage();
+    }
+}
+
+(function($){
+    $.fn.styleddropdown = function(){
+        return this.each(function(){
+            var obj = $(this)
+            obj.find('.field').click(function() { //onclick event, 'list' fadein
+                obj.find('.list').fadeIn(400);
+
+                $(document).keyup(function(event) { //keypress event, fadeout on 'escape'
+                    if(event.keyCode == 27) {
+                        obj.find('.list').fadeOut(400);
+                    }
+                });
+
+                obj.find('.list').hover(function(){ },
+                    function(){
+                        $(this).fadeOut(400);
+                    });
+            });
+
+            obj.find('.list li').click(function() { //onclick event, change field value with selected 'list' item and fadeout 'list'
+                obj.find('.field')
+                    .val($(this).html())
+                    .css({
+                        'background':'#fff',
+                        'color':'#333'
+                    });
+                obj.find('.list').fadeOut(400);
+            });
+        });
+    };
+})(jQuery);
+
+$(function(){
+    $('.size').styleddropdown();
+});
+
 function addhttp(id, url) {
     var pattern = /^((http|https):\/\/)/;
     if(!pattern.test(url)) {
@@ -745,8 +795,7 @@ function ajax(dataString){
         data: dataString,
         success: function(x){
             if(x == 1){
-                var homeLink = $("#hiddenHomeLink").val();
-                window.location.href = homeLink+"/dang-ky-gian-hang.html";
+                confirmSuccessLogin();
             }
             else{
                 alert("Đã xảy ra lỗi! \nXin vui lòng tải lại trang và thử lại.");
@@ -757,9 +806,21 @@ function ajax(dataString){
 
 window.onload = function(){
     $(".abcRioButtonContents span").html("Log In");
+    $(".g-signin2").show();
 }
 
 function isValidEmailAddress(emailAddress) {
     var regex = /\S+@\S+\.\S+/;
     return regex.test(emailAddress);
+}
+
+function confirmSuccessLogin(){
+    $('#divConfirm').html('<p>Đăng nhập thành công...</p>');
+    lightbox_open('lightConfirm', 'fadeConfirm');
+    $('#divConfirm').append('<p>Hệ thống đang chuyển về trang chủ hoặc nhấn <a class="aResendActiveLink" onclick = "backRegisterShopPage();">vào đây</a> để bắt đầu bán hàng cùng chúng tôi.</p>');
+    $('.pCloseConfirm').attr('onclick', 'backHomePage()');
+    $('.pCloseConfirm').show();
+    window.setTimeout(function () {
+        location.href = $('#hiddenHomeLink').val();
+    }, 10000)
 }

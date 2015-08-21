@@ -59,8 +59,8 @@
             <li><a href="<?php echo $root; ?>/<?php echo $news['subject']; ?>.html"><?php echo $news['name']; ?></a></li>
             <li><a href="<?php echo $root; ?>/<?php echo $video['subject']; ?>.html"><?php echo $video['name']; ?></a></li>
             <li><a href="<?php echo $root; ?>/<?php echo $accessory['subject']; ?>.html"><?php echo $accessory['name']; ?></a></li>
-            <?php if($_SESSION['kh_login_username']==""){?>
-            <li><a href="<?php echo $root; ?>/dang-ky-gian-hang.html" class="menu-shop">Bán hàng cùng <?php echo ucfirst($subname); ?></a></li>
+            <?php if($_SESSION['kh_login_username'] == ""){?>
+            <li><a href="#" class="menu-shop" onclick="confirmRegisterShop('<?php echo $_SESSION['kh_login_username']; ?>');">Bán hàng cùng <?php echo ucfirst($subname); ?></a></li>
             <?php } ?>
         </ul>
     </ul>
@@ -69,7 +69,7 @@
 
 <article class="r-tool-ct l-system" id="l-system7">
     <ul>
-        <li><a class="btn-gh3" href="<?php echo $root; ?>/dang-ky-gian-hang.html"><i class="fa fa-home fa-lg"></i>Bán hàng cùng <?php echo $subname; ?></a></li>
+        <li><a class="btn-gh3" href="#" onclick="confirmRegisterShop('<?php echo $_SESSION['kh_login_username']; ?>');"><i class="fa fa-home fa-lg"></i>Bán hàng cùng <?php echo $subname; ?></a></li>
     </ul>
     <div class="clear"></div>
 </article><!-- End .r-tool-ct -->

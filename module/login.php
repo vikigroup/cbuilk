@@ -50,14 +50,18 @@ if (isset($_POST['btn_dangnhap_in'])==true){
                     $row_user  = getRecord('tbl_customer', "username='".$_SESSION['kh_login_username']."'");
                 }
 
-                if(check_table('tbl_shop',"iduser='".$row_user['id']."'",'id')==false){
-                    $shop = getRecord('tbl_shop', "iduser='".$row_user['id']."'");
-                    echo '<script>window.location="http://'.$shop['subject'].'.'.$sub.'/quantri.html"</script>';
-                }
-                else echo '<script>window.location="'.$linkrootshop.'/dang-ky-gian-hang.html'.'"</script>';
-
-                echo '<script>window.location="'.$linkrootshop.''.'"</script>';
-
+                echo("<script>
+                $(window).ready(function(){
+                    $('#divConfirm').html('<p>Đăng nhập thành công...</p>');
+                    lightbox_open('lightConfirm', 'fadeConfirm');
+                    $('#divConfirm').append('<p>Hệ thống đang chuyển về trang chủ hoặc nhấn <a class=".'aResendActiveLink'." onclick = ".'backRegisterShopPage();'.">vào đây</a> để bắt đầu bán hàng cùng chúng tôi.</p>');
+                    $('.pCloseConfirm').attr('onclick', 'backHomePage()');
+                    $('.pCloseConfirm').show();
+                    window.setTimeout(function () {
+                        location.href = $('#hiddenHomeLink').val();
+                    }, 10000)
+                });
+                </script>");
             }else{ //Thất bại
                 header("location: $linkrootshop");
             }
@@ -146,6 +150,7 @@ if (isset($_POST['quayra']) == true) {
                             </div>
                             <div class="clear"></div>
                         </div><!-- End .module_ftt -->
+                        <div class="clear"></div>
                         <div class="info_f_tt">
                             <p>Đăng nhập bây giờ để có thể sử dụng các dịch vụ của chúng tôi.</p>
                             <span>Bạn chưa có tài khoản? <a class="info_register" href="<?php echo $root; ?>/dang-ky.html"><b>Đăng ký</b></a> ngay!</span>

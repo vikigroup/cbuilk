@@ -60,7 +60,7 @@ if($ghinho == 1){
         <li><a <?php if(get_field('tbl_shop_category','id',get_field('tbl_shop_category','id',$row_sanpham['parent1'],'parent'),'target') == 1){echo "target='_blank'";} ?> href="<?php if(get_field('tbl_shop_category','id',get_field('tbl_shop_category','id',$row_sanpham['parent1'],'parent'),'other_link') != ''){echo get_field('tbl_shop_category','id',get_field('tbl_shop_category','id',$row_sanpham['parent1'],'parent'),'other_link');}else{echo $root.'/'.get_field('tbl_shop_category','id',get_field('tbl_shop_category','id',$row_sanpham['parent1'],'parent'),'subject').'.html';} ?>" title="<?php echo get_field('tbl_shop_category','id',get_field('tbl_shop_category','id',$row_sanpham['parent1'],'parent'),'title'); ?>"><?php echo get_field('tbl_shop_category','id',get_field('tbl_shop_category','id',$row_sanpham['parent1'],'parent'),'name'); ?></a></li>
         <?php }?>
         <li><a <?php if(get_field('tbl_shop_category','id',$row_sanpham['parent1'],'target') == 1){echo "target='_blank'";} ?> href="<?php if(get_field('tbl_shop_category','id',$row_sanpham['parent1'],'other_link') != ''){echo get_field('tbl_shop_category','id',$row_sanpham['parent1'],'other_link');}else{echo $root.'/'.get_field('tbl_shop_category','id',$row_sanpham['parent1'],'subject').'.html';} ?>" title="<?php echo get_field('tbl_shop_category','id',$row_sanpham['parent1'],'title'); ?>"><?php echo get_field('tbl_shop_category','id',$row_sanpham['parent1'],'name'); ?></a></li>
-        <li><a title="<?php echo $row_sanpham['title']; ?>"><?php echo $row_sanpham['title_page']; ?> </a></li>
+        <li><a title="<?php echo $row_sanpham['title']; ?>"><?php echo $row_sanpham['name']; ?> </a></li>
     </ul>
     <div class="clear"></div>
 </section><!-- End .breacrum -->
@@ -127,7 +127,7 @@ if($ghinho == 1){
             <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
             <div class="g-plusone" data-size="medium" data-href="<?php echo $linkrootshop; ?>/<?php echo $row_sanpham['subject']; ?>.html"></div>
             <div class="fb-share-button" data-href="<?php echo $linkrootshop; ?>/<?php echo $row_sanpham['subject']; ?>.html" data-layout="button_count"></div>
-            <div class="fb-like" data-width="inherit" data-href="<?php echo $linkrootshop; ?>/<?php echo $row_sanpham['subject']; ?>.html" data-layout="standard" data-action="like" data-show-faces="false" data-share="false"></div>
+            <div class="fb-like" data-href="<?php echo $linkrootshop; ?>/<?php echo $row_sanpham['subject']; ?>.html" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div>
             <div class="fb-comments" data-href="<?php echo $linkrootshop; ?>/<?php echo $row_sanpham['subject']; ?>.html" data-numposts="5" data-width="inherit" data-colorscheme="light"></div>
         </div><!-- End .face-cmm -->
     </div><!-- End .l-fcont -->
@@ -290,7 +290,7 @@ if($ghinho == 1){
                 <div class="main_prod_other">
                     <ul>
                     <?php 
-					$shop_product = get_records("tbl_item","status=0 AND set_time <= '".$ngay."' AND style='".$row_sanpham['style']."' AND idshop=".$row_sanpham['idshop'],"top DESC, view DESC, sort, date_added DESC","0,10"," ");
+					$shop_product = get_records("tbl_item","status=0 AND set_time <= '".$ngay."' AND style='".$row_sanpham['style']."' AND idshop=".$row_sanpham['idshop'],"top DESC, view DESC, sort, date_added DESC","0,5"," ");
 					while($row_shop_product = mysql_fetch_assoc($shop_product)){
 					?>
                         <li>
@@ -344,8 +344,8 @@ if($ghinho == 1){
                 </h1><!-- End .title_prod_other -->
                 <div class="main_prod_other">
                     <ul>
-                    <?php 
-					$shop_product = get_records("tbl_item","status=0 AND set_time <= '".$ngay."' AND id != '".$row_sanpham['id']."' AND parent=".$row_sanpham['parent'],"top DESC, sort, date_added DESC","0,5"," ");
+                    <?php
+					$shop_product = get_records("tbl_item","status=0 AND set_time <= '".$ngay."' AND id != '".$row_sanpham['id']."' AND parent1=".$row_sanpham['parent1'],"top DESC, sort, date_added DESC","0,5"," ");
 					while($row_shop_product = mysql_fetch_assoc($shop_product)){
 					$shop_other = getRecord('tbl_shop', "id='".$row_shop_product['idshop']."'"); ?>
                     <li>
@@ -407,11 +407,11 @@ if($ghinho == 1){
 
 <?php }else {?>
 <?php
-$pageSize = 25;
+$pageSize = 20;
 $pageNum = 1;
 $totalRows = 0;
-$xeptheo='id';
-$dem=1;
+$xeptheo = 'id';
+$dem = 1;
 
 $link = $_SERVER['REQUEST_URI'];
 $myLink = explode("?", $link);
@@ -598,16 +598,16 @@ else{
         <section class="filter-Prod">
             <h4 class="t-Pnb">
                 <ul class="ul-fP">
-                    <li class="act"><a href="<?php echo $linkrootshop; ?>/<?php echo $tensanpham ?>.html?filter1=1&page=<?php echo $pageNum ?>">Mới nhất</a></li>
+                    <li class="act"><a href="<?php echo $root; ?>/<?php echo $tensanpham ?>.html?filter1=1&page=<?php echo $pageNum ?>">Mới nhất</a></li>
                     <li>|</li>
-                    <li class="act"><a href="<?php echo $linkrootshop; ?>/<?php echo $tensanpham ?>.html?filter1=2&page=<?php echo $pageNum ?>">Nổi bật</a></li>
+                    <li class="act"><a href="<?php echo $root; ?>/<?php echo $tensanpham ?>.html?filter1=2&page=<?php echo $pageNum ?>">Nổi bật</a></li>
                     <li>|</li>
-                    <li class="act"><a href="<?php echo $linkrootshop; ?>/<?php echo $tensanpham ?>.html?filter1=3&page=<?php echo $pageNum ?>">Xem nhiều</a></li>
+                    <li class="act"><a href="<?php echo $root; ?>/<?php echo $tensanpham ?>.html?filter1=3&page=<?php echo $pageNum ?>">Xem nhiều</a></li>
                     <li>|</li>
                     <?php $myArrIDs = array(211, 390); $myArrCate = array(1, 3); if(!in_array($row_category['id'], $myArrIDs) && !in_array($row_category['cate'], $myArrCate)){ ?>
-                    <li class="act"><a href="<?php echo $linkrootshop; ?>/<?php echo $tensanpham ?>.html?filter1=4&page=<?php echo $pageNum ?>">Giá cao</a></li>
+                    <li class="act"><a href="<?php echo $root; ?>/<?php echo $tensanpham ?>.html?filter1=4&page=<?php echo $pageNum ?>">Giá cao</a></li>
                     <li>|</li>
-                    <li class="act"><a href="<?php echo $linkrootshop; ?>/<?php echo $tensanpham ?>.html?filter1=5&page=<?php echo $pageNum ?>">Giá thấp</a></li>
+                    <li class="act"><a href="<?php echo $root; ?>/<?php echo $tensanpham ?>.html?filter1=5&page=<?php echo $pageNum ?>">Giá thấp</a></li>
                     <li>|</li>
                     <?php } ?>
                 </ul>
@@ -620,8 +620,8 @@ else{
                     <div class="clear"></div>
                 </div><!-- End .f-sty-P -->
             </h4>
-            <script type="text/javascript" src="<?php echo $linkrootshop; ?>/scripts/jquery_cookie.js"></script>
-            <script type="text/javascript" src="<?php echo $linkrootshop; ?>/scripts/script_prod.js"></script>
+            <script type="text/javascript" src="<?php echo $root; ?>/scripts/jquery_cookie.js"></script>
+            <script type="text/javascript" src="<?php echo $root; ?>/scripts/script_prod.js"></script>
         </section><!-- End .filter-Prod -->
         
         <section class="Prod-cate">

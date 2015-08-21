@@ -55,7 +55,6 @@
             <button type="submit" class="button-success pure-button" id="popSystemSubmit">Hoàn tất</button>
             <button class="basic_close button-error pure-button" id="popSystemClose">Đóng</button>
         </form>
-
     </div>
 <?php } ?>
 
@@ -68,4 +67,8 @@
 </div>
 <div class="fade" id="fadeConfirm"></div>
 <div class="clear"></div>
+
+<div id="fb-root"></div>
+<div id="closed"></div>
+<input type="hidden" id="hiddenHomeLink" value="<?php echo $root; ?>">
 

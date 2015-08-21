@@ -3,7 +3,7 @@ if(isset($_SESSION['kh_login_username'])){
     header("Location: ".$root);
 }
 
-if (isset($_POST['btn_dangky'])==true)//isset kiem tra submit
+if (isset($_POST['btn_dangky']) == true)//isset kiem tra submit
 	{
 		
 		$tendk = $_POST['tendk'];
@@ -21,7 +21,7 @@ if (isset($_POST['btn_dangky'])==true)//isset kiem tra submit
 		$email = trim(strip_tags($email));
 		$dienthoai = trim(strip_tags($dienthoai));
 		
-		if (get_magic_quotes_gpc()==false){
+		if (get_magic_quotes_gpc() == false){
             $tendk = mysql_real_escape_string($tendk);
             $matkhau = mysql_real_escape_string($matkhau);
             $golaimatkhau = mysql_real_escape_string($golaimatkhau);
@@ -30,22 +30,22 @@ if (isset($_POST['btn_dangky'])==true)//isset kiem tra submit
             $dienthoai = mysql_real_escape_string($dienthoai);
         }
 		
-		$coloi=false;
+		$coloi = false;
 
-        if(get_field("tbl_customer","username",$tendk,"id")!="" && strpos(get_field("tbl_customer","username",$tendk,"image"), "http") === false) {$coloi=true; $loi = "Tên đăng nhập này đã được đăng ký!<br/>";}
-        else if(get_field("tbl_customer","email",$email,"id")!="" && strpos(get_field("tbl_customer","email",$email,"image"), "http") === false) {$coloi=true; $loi .= "Email này đã được đăng ký!<br/>";}
+        if(get_field("tbl_customer","username",$tendk,"id")!="" && strpos(get_field("tbl_customer","username",$tendk,"image"), "http") === false) {$coloi = true; $loi = "Tên đăng nhập này đã được đăng ký!<br/>";}
+        else if(get_field("tbl_customer","email",$email,"id")!="" && strpos(get_field("tbl_customer","email",$email,"image"), "http") === false) {$coloi = true; $loi .= "Email này đã được đăng ký!<br/>";}
 
-        if ($_SESSION['captcha_code'] != $cap) {$coloi=true; $loi .= "Mã bảo mật chưa đúng!";}
+        if ($_SESSION['captcha_code'] != $cap) {$coloi = true; $loi .= "Mã bảo mật chưa đúng!";}
 
-		if ($loi!="") {$coloi=true; $error_login = $loi;}
+		if ($loi != "") {$coloi = true; $error_login = $loi;}
 
-		if ($coloi==FALSE) 
+		if ($coloi == FALSE)
 		{  
 			
-			$password=md5(md5(md5($matkhau)));
-			$randomkey=chuoingaunhien(50);
-			$khoa=1;
-			$kichhoatx=0;
+			$password = md5(md5(md5($matkhau)));
+			$randomkey = chuoingaunhien(50);
+			$khoa = 1;
+			$kichhoatx = 0;
             $expired_key = date( "Y-m-d H:i:s", strtotime( "$ngay +2 day" ) ); //cong them 2 ngay
 			$vale1='username,password,name,mobile,email,date_added,last_modified,active,status,randomkey';
 			$vale2="'".$tendk."','".$password."','".$hoten."','".$dienthoai."','".$email."','".$ngay."','"
@@ -56,7 +56,7 @@ if (isset($_POST['btn_dangky'])==true)//isset kiem tra submit
 
             echo("<script>
                 $(window).ready(function(){
-                    $('#divConfirm').html('<img src=".'../imgs/load.gif'."><p>Đang xử lý, xin vui lòng chờ...</p>');
+                    $('#divConfirm').html('<img src=".'../imgs/load.gif'."><p>ang xử lý, xin vui lòng chờờ...</p>');
                     lightbox_open('lightConfirm', 'fadeConfirm');
                     var dataString = 'email=".$email."&hoten=".$hoten."&tendk=".$tendk."&matkhau=".$matkhau."&key=".$randomkey."';
                     $.ajax({
@@ -76,7 +76,7 @@ if (isset($_POST['btn_dangky'])==true)//isset kiem tra submit
 }
 
 	$username = $_SESSION['kh_login_username'];
-	if (isset($_POST['quayra'])==true) {
+	if (isset($_POST['quayra']) == true) {
 
 		header("location: $linkrootshop");
 	}
@@ -86,9 +86,9 @@ if (isset($_POST['btn_dangky'])==true)//isset kiem tra submit
 <script>
 $(document).ready(function() {
 	$("#tendk").keyup(function(){
-	   var val=this.value;
-	   var strlen=val.length;
-	   if(strlen>=2) $("#error").load("<?php echo $linkrootshop;?>/module/username.php?user="+val);
+	   var val = this.value;
+	   var strlen = val.length;
+	   if(strlen>=2) $("#error").load("<?php echo $linkrootshop; ?>/module/username.php?user="+val);
 	});
 
     $('#btn_dangky').click(function(){

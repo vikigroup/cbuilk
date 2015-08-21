@@ -21,7 +21,7 @@ for($i = 0; $i < 12; $i++){
     $dt = date("Y-m-d");
     $adv_floor = "SELECT *, COUNT(id) AS amount FROM tbl_adv WHERE status = 0 AND start_banner <= '".$dt."' AND '".$dt."' <= finish_banner AND main_position = 2 AND sub_position = '".($i+1)."' ORDER BY sort, date_added DESC LIMIT 1";
     if ($result_floor = mysql_query($adv_floor,$conn)) {
-        $row_floor=mysql_fetch_array($result_floor);
+        $row_floor = mysql_fetch_array($result_floor);
         if($row_floor['amount'] > 0){
             if($row_floor['image'] != ''){
                 echo '<a href="'.$row_floor['link'].'" target="_blank"><img src="../web/'.$row_floor['image'].'" alt="'.$row_floor['name'].'"></a>';
@@ -41,57 +41,58 @@ for($i = 0; $i < 12; $i++){
         <div class="arrowLine" style="background-color: <?php echo $myArr1[$i]; ?>;">
             <span><?php echo $i+1; ?>c</span>
         </div>
-        <div class="arrowCategory" style="background-color: <?php echo $myArr2[$i]; ?>;" id="divCategoryID<?php echo $i ?>" onclick="window.location.href = '<?php echo $linkrootshop?>/<?php echo $myArrPrimarySubject[$i];?>.html'">
-            <a href="<?php echo $linkrootshop?>/<?php echo $myArrPrimarySubject[$i];?>.html" id="aCategoryName<?php echo $i ?>"><?php echo $myArrName[$i]; ?></a>
+        <div class="arrowCategory" style="background-color: <?php echo $myArr2[$i]; ?>;" id="divCategoryID<?php echo $i; ?>" onclick="window.location.href = '<?php echo $root; ?>/<?php echo $myArrPrimarySubject[$i]; ?>.html'">
+            <a href="<?php echo $root; ?>/<?php echo $myArrPrimarySubject[$i]; ?>.html" id="aCategoryName<?php echo $i ?>"><?php echo $myArrName[$i]; ?></a>
         </div>
         <div class="divCategory" style="background-color: <?php echo $myArr3[$i]; ?>; border-top: 1px solid <?php echo $myArr1[$i]; ?>">
             <?php
-            $sub_cate_floor1=get_records("tbl_shop_category","status=0 AND parent='".$myArrID[$i]."' AND hot=1","sort, date_added DESC","2"," ");
+            $sub_cate_floor1 = get_records("tbl_shop_category","status=0 AND parent='".$myArrID[$i]."' AND hot=1","sort, date_added DESC","2"," ");
             $myArrSubName = array();
             $myArrSubject = array();
             $myArrImage = array();
-            while($row_sub_cate1=mysql_fetch_assoc($sub_cate_floor1)){
+            while($row_sub_cate1 = mysql_fetch_assoc($sub_cate_floor1)){
                 array_push($myArrSubName, $row_sub_cate1['name']);
                 array_push($myArrSubject, $row_sub_cate1['subject']);
                 array_push($myArrImage, $row_sub_cate1['image']);
             }
 
-            $sub_cate_floor2=get_records("tbl_shop_category","status=0 AND parent='".$myArrID[$i]."' AND hot=0","sort, date_added DESC","6"," ");
-            while($row_sub_cate2=mysql_fetch_assoc($sub_cate_floor2)){
+            $sub_cate_floor2 = get_records("tbl_shop_category","status=0 AND parent='".$myArrID[$i]."' AND hot=0","sort, date_added DESC","6"," ");
+            while($row_sub_cate2 = mysql_fetch_assoc($sub_cate_floor2)){
                 array_push($myArrSubName, $row_sub_cate2['name']);
                 array_push($myArrSubject, $row_sub_cate2['subject']);
                 array_push($myArrImage, $row_sub_cate2['image']);
             }
 
             ?>
-            <div class="divContent" style="background-color: <?php echo $myArr3[$i]; ?>" onclick="window.location.href = '<?php echo $linkrootshop?>/<?php echo $myArrSubject[0];?>.html'">
+            <div class="divContent" style="background-color: <?php echo $myArr3[$i]; ?>" onclick="window.location.href = '<?php echo $root; ?>/<?php echo $myArrSubject[0]; ?>.html'">
                 <?php if(isset($myArrImage[0])){ ?>
-                    <img class="hvr-pop" src="<?php echo $linkroot?>/<?php echo $myArrImage[0] ;?>" />
+                    <img class="hvr-pop" src="<?php echo $linkroot; ?>/<?php echo $myArrImage[0]; ?>"/>
                 <?php }else{ ?>
-                    <img class="hvr-pop" src="<?php echo $linkroot?>/images/noimage.png" />
+                    <img class="hvr-pop" src="<?php echo $linkroot; ?>/images/noimage.png"/>
                 <?php } ?>
                 <p><?php echo $myArrSubName[0]; ?></p>
             </div>
             <div class="sep"></div>
-            <div class="divContent" style="background-color: <?php echo $myArr3[$i]; ?>" onclick="window.location.href = '<?php echo $linkrootshop?>/<?php echo $myArrSubject[1];?>.html'">
+            <div class="divContent" style="background-color: <?php echo $myArr3[$i]; ?>" onclick="window.location.href = '<?php echo $linkrootshop?>/<?php echo $myArrSubject[1]; ?>.html'">
                 <?php if(isset($myArrImage[1])){ ?>
-                    <img class="hvr-pop" src="<?php echo $linkroot?>/<?php echo $myArrImage[1] ;?>" />
+                    <img class="hvr-pop" src="<?php echo $linkroot; ?>/<?php echo $myArrImage[1]; ?>" />
                 <?php }else{ ?>
-                    <img class="hvr-pop" src="<?php echo $linkroot?>/images/noimage.png" />
+                    <img class="hvr-pop" src="<?php echo $linkroot; ?>/images/noimage.png" />
                 <?php } ?>
                 <p><?php echo $myArrSubName[1]; ?></p>
             </div>
         </div>
         <div class="divSubCategory">
             <?php for($j = 2; $j < 8; $j++){ ?>
-                <p class="aSubCategory"><a href="<?php echo $linkrootshop?>/<?php echo $myArrSubject[$j];?>.html" class="a-subName"><?php echo $myArrSubName[$j] ?></a></p>
-            <?php } ?>
+                <?php if($myArrSubName[$j] != ''){ ?>
+                <p class="aSubCategory"><a href="<?php echo $root; ?>/<?php echo $myArrSubject[$j]; ?>.html" class="a-subName"><?php echo $myArrSubName[$j]; ?></a></p>
+            <?php } } ?>
         </div>
         <div class="divAds">
             <?php
-            $adv_floor1=get_records("tbl_adv","status = 0 AND start_banner <= '".$dt."' AND '".$dt."' <= finish_banner AND main_position = 0 AND sub_position = '".($i+1)."'","sort, date_added DESC"," "," ");
+            $adv_floor1 = get_records("tbl_adv","status = 0 AND start_banner <= '".$dt."' AND '".$dt."' <= finish_banner AND main_position = 0 AND sub_position = '".($i+1)."'","sort, date_added DESC"," "," ");
             $total_adv1 = 0;
-            while($row_floor1=mysql_fetch_assoc($adv_floor1)){
+            while($row_floor1 = mysql_fetch_assoc($adv_floor1)){
                 if($row_floor1['image'] != ''){
                     echo '<div class="slide"><a href="'.$row_floor1['link'].'" target="_blank"><img src="../web/'.$row_floor1['image'].'" alt="'.$row_floor1['name'].'"></a></div>';
                 }
@@ -114,7 +115,7 @@ for($i = 0; $i < 12; $i++){
         <?php
         $adv_floor = "SELECT *, COUNT(id) AS amount FROM tbl_adv WHERE status = 0 AND start_banner <= '".$dt."' AND '".$dt."' <= finish_banner AND main_position = 1 AND sub_position = '".($i+1)."' ORDER BY sort, date_added DESC LIMIT 1";
         if ($result_floor = mysql_query($adv_floor,$conn)) {
-            $row_floor=mysql_fetch_array($result_floor);
+            $row_floor = mysql_fetch_array($result_floor);
             if($row_floor['amount'] > 0){
                 if($row_floor['image'] != ''){
                     echo '<a href="'.$row_floor['link'].'" target="_blank"><img src="../web/'.$row_floor['image'].'" alt="'.$row_floor['name'].'"></a>';

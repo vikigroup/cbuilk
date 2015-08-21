@@ -13,7 +13,7 @@
     $myPage = explode("=", $myLink[1]);
     $pageNum = $myPage[1];
 
-	$pageSize = 25;
+	$pageSize = 20;
 	$totalRows = 0;
 
     $sapxep = "top DESC, sort, date_added DESC";

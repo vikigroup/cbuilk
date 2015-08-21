@@ -55,7 +55,7 @@ if($cache == 1 && !isset($_SESSION['kh_login_username']) && $_SESSION['kt_login_
 ?>
 
 <?php
-if($frame!="login" && $frame!="register" && $frame!="changepass" && $frame!="changeinfo"){
+if($frame != "login" && $frame != "register" && $frame != "changepass" && $frame != "changeinfo"){
     unset($_SESSION['back_raovat']);
 }
 require("module/box_device.php");
@@ -76,87 +76,83 @@ $myProduct = getRecord('tbl_item', "subject='".$_GET['tensanpham']."'");
     <meta name="generator" content="<?php echo $sub; ?>"/>
     <meta property="og:type" content="website"/>
     <meta property="og:site_name" content="<?php echo $title_t; ?>"/>
-    <meta property="og:url" content="http://<?php echo $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']; ?>" />
+    <meta property="og:url" content="http://<?php echo $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']; ?>"/>
     <meta property="og:title" content="<?php echo $title_t; ?>" />
     <meta property="og:description" content="<?php echo $description_t; ?>" />
     <meta property="og:image:type" content="image/jpeg" />
-    <meta property="og:image" content="<?php if($myProduct['image'] != ''){echo $linkroot;?>/<?php echo $myProduct['image'];}else{echo $root.'/imgs/layout/logo.png';} ?>" />
+    <meta property="og:image" content="<?php if($myProduct['image'] != ''){echo $linkroot;?>/<?php echo $myProduct['image'];}else{echo $root.'/imgs/layout/logo.png';} ?>"/>
     <meta property="fb:app_id" content="1460618637571000"/>
     <meta name="google-signin-scope" content="profile email">
     <meta name="google-signin-client_id" content="449603416239-se132bqu56psukmq6o0n7poegu17rgur.apps.googleusercontent.com">
 
-    <link rel="shortcut icon" href="imgs/layout/logo.ico" type="image/x-icon" />
-    <link rel="stylesheet" type="text/css" href="<?php echo $linkrootshop?>/templates/css.css">
-    <script type="text/javascript" src="<?php echo $linkrootshop?>/scripts/jquery.js"></script>
+    <link rel="shortcut icon" href="<?php echo $root; ?>/imgs/layout/logo.ico" type="image/x-icon"/>
+    <link rel="stylesheet" type="text/css" href="<?php echo $root; ?>/templates/css.css">
+    <script type="text/javascript" src="<?php echo $root; ?>/scripts/jquery.js"></script>
 
     <!--[if lt IE 9]>
     <script type="text/javascript" src="<?php echo $linkrootshop?>/scripts/css3-mediaqueries.js"></script>
     <script type="text/javascript" src="<?php echo $linkrootshop?>/scripts/html5.js"></script>
-    <link rel="stylesheet" type="text/css" href="<?php echo $linkrootshop?>/templates/FIX_IE.css" />
+    <link rel="stylesheet" type="text/css" href="<?php echo $linkrootshop?>/templates/FIX_IE.css"/>
     <script type="text/javascript" src="<?php echo $linkrootshop?>/scripts/selectivizr-min.js"></script>
     <![endif]-->
 
-    <link href="<?php echo $linkrootshop?>/templates/css1.css" rel="stylesheet"  />
-    <link href="<?php echo $linkrootshop?>/templates/hover.css" rel="stylesheet" />
-    <link href="<?php echo $linkrootshop?>/lib/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="<?php echo $root; ?>/templates/css1.css" rel="stylesheet"/>
+    <link href="<?php echo $root; ?>/templates/hover.css" rel="stylesheet"/>
+    <link href="<?php echo $root; ?>/lib/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet"/>
 
-    <link rel="stylesheet" type="text/css" href="<?php echo $linkrootshop?>/lib/jquery.bxslider/jquery.bxslider.css"/>
-    <script type="text/javascript" src="<?php echo $linkrootshop?>/lib/jquery.bxslider/jquery.bxslider.min.js"></script>
-    <script type="text/javascript" src="<?php echo $linkrootshop?>/lib/jquery.bxslider/plugins/jquery.easing.1.3.js"></script>
-    <script type="text/javascript" src="<?php echo $linkrootshop?>/lib/jquery.bxslider/plugins/jquery.fitvids.js"></script>
-    <script type="text/javascript"  src="<?php echo $linkrootshop?>/scripts/responsive.js"></script>
+    <link rel="stylesheet" type="text/css" href="<?php echo $root;?>/lib/jquery.bxslider/jquery.bxslider.css"/>
+    <script type="text/javascript" src="<?php echo $root; ?>/lib/jquery.bxslider/jquery.bxslider.min.js"></script>
+    <script type="text/javascript" src="<?php echo $root; ?>/lib/jquery.bxslider/plugins/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="<?php echo $root; ?>/lib/jquery.bxslider/plugins/jquery.fitvids.js"></script>
+    <script type="text/javascript"  src="<?php echo $root; ?>/scripts/responsive.js"></script>
 
-    <link rel="stylesheet" href="<?php echo $linkrootshop?>/lib/SlickNav/slicknav.css" media="screen and (max-width: 991px)"/>
-    <script type="text/javascript" src="<?php echo $linkrootshop?>/lib/SlickNav/jquery.slicknav.js"></script>
+    <link rel="stylesheet" href="<?php echo $root; ?>/lib/SlickNav/slicknav.css" media="screen and (max-width: 991px)"/>
+    <script type="text/javascript" src="<?php echo $root; ?>/lib/SlickNav/jquery.slicknav.js"></script>
 
-    <link rel="stylesheet" href="<?php echo $linkrootshop?>/templates/pure-min.css">
+    <link rel="stylesheet" href="<?php echo $root; ?>/templates/pure-min.css">
 
-    <link rel="stylesheet" type="text/css" href="<?php echo $linkrootshop?>/scripts/nivo-slider/nivo-slider.css"   />
-    <link rel="stylesheet" type="text/css" href="<?php echo $linkrootshop?>/scripts/nivo-slider/themes/default/default.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo $root; ?>/scripts/nivo-slider/nivo-slider.css"/>
+    <link rel="stylesheet" type="text/css" href="<?php echo $root; ?>/scripts/nivo-slider/themes/default/default.css">
 </head>
 <body>
-<div id="fb-root"></div>
-<div id="closed"></div>
-<input type="hidden" id="hiddenHomeLink" value="<?php echo $root; ?>">
 <div class="m-header">
     <div class="menu">
-        <?php include("module/box_logo.php") ;?>
-        <?php include("module/box_search.php") ;?>
-        <?php include("module/box_tool_ad.php") ;?>
+        <?php include("module/box_logo.php"); ?>
+        <?php include("module/box_search.php"); ?>
+        <?php include("module/box_tool_ad.php"); ?>
     </div>
 </div><!-- End .m-wrap -->
 
 <div class="m-wrap menu-wrap">
     <div class="tool-ct">
-        <?php include("module/box_support.php") ;?>
+        <?php include("module/box_support.php"); ?>
     </div><!-- End .tool-ct -->
 </div><!-- End .m-wrap -->
 
-<?php if($frame==""){ ?>
+<?php if($frame == ""){ ?>
 <div class="m-wrap">
-    <?php include("module/menu_left_home.php") ;?>
+    <?php include("module/menu_left_home.php"); ?>
 </div>
-<?php include("module/slider.php") ;?>
+<?php include("module/slider.php"); ?>
 <?php } ?>
-
 <div class="clear"></div>
 
 <div id="container" <?php if($frame == ''){echo 'class="fix_main"';} ?>>
     <div class="m-wrap">
-        <?php include("module/processFrame.php");?>
+        <?php include("module/processFrame.php"); ?>
     </div><!-- End .m-wrap -->
 </div><!-- End #container -->
-<?php include("module/box_system.php") ;?>
+<?php include("module/box_system.php"); ?>
 
-<script type="text/javascript" src="<?php echo $linkrootshop?>/scripts/scrolltopcontrol.js"></script>
-<script type="text/javascript" src="<?php echo $linkrootshop?>/scripts/jquery.popupoverlay.js"></script>
-<script type="text/javascript" src="<?php echo $linkrootshop?>/scripts/resolve.js"></script>
-<script type="text/javascript" src="<?php echo $linkrootshop?>/scripts/platform.js?onload=renderButton" async defer></script>
-<script type="text/javascript" async defer data-pin-color="red" data-pin-height="28" data-pin-hover="true" src="<?php echo $linkrootshop?>/scripts/pinit.js"></script>
-<script type="text/javascript" src="<?php echo $linkrootshop?>/scripts/nivo-slider/jquery.nivo.slider.js"></script>
+<script type="text/javascript" src="<?php echo $root; ?>/scripts/scrolltopcontrol.js"></script>
+<script type="text/javascript" src="<?php echo $root; ?>/scripts/jquery.popupoverlay.js"></script>
+<script type="text/javascript" src="<?php echo $root; ?>/scripts/resolve.js"></script>
+<script type="text/javascript" src="<?php echo $root; ?>/scripts/platform.js?onload=renderButton" async defer></script>
+<script type="text/javascript" async defer data-pin-color="red" data-pin-height="28" data-pin-hover="true" src="<?php echo $root; ?>/scripts/pinit.js"></script>
+<script type="text/javascript" src="<?php echo $root; ?>/scripts/nivo-slider/jquery.nivo.slider.js"></script>
 
-<?php include("module/footer.php") ;?>
-<?php require("common_end.php");?>
+<?php include("module/footer.php"); ?>
+<?php require("common_end.php"); ?>
 </body>
 </html>
 
