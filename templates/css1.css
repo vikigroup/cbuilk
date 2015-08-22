@@ -7,7 +7,7 @@ table{width: 100% !important;}
 BEGIN HEADER
 *************************************************************************************/
 
-header{border-bottom: 1px solid #dbdbdb; background-color: #ffffff; display: none;}
+header{border-bottom: 1px solid #dbdbdb; background-color: #ffffff;}
 
 .logo {position: absolute; top: 0; left: 0;}
 
@@ -80,7 +80,6 @@ a.btn-gh3 i{margin-right: 10px;}
     overflow: hidden;
     z-index: 20;
     position: relative;
-    display: none;
     height: 36px;
 }
 .select_input_search input{
@@ -118,7 +117,7 @@ END HEADER
 BEGIN CONTAINER
 *************************************************************************************/
 
-#container {padding: 0 0 20px 0; min-height: 400px;}
+#container {padding: 0 0 20px 0; min-height: 400px; display: none;}
 
 .tool-ct {height: 34px; line-height: 34px; font-size: 11px; z-index: 9;}
 .l-tool-ct {float: left;}
@@ -616,7 +615,7 @@ END FOOTER
 
 .f-ct {padding: 0 0 20px 0;}
 .sidebar {float: left; width: 190px;}
-.content {float: left; display: none;}
+.content {float: left;}
 
 .catelog {
     border: 1px solid #dbdbdb;
@@ -1288,7 +1287,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     padding: 250px 0 250px 0;
     width: 3%;
     max-width: 40px;
-    display: none;
+    visibility: visible;
 }
 
 .mini-user{
@@ -1409,6 +1408,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     height: 80px;
     margin: 0 auto;
     position: relative;
+    display: none;
 }
 
 .c-sale{
@@ -1497,9 +1497,6 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     }
     .menu-wrap{
         margin-top: 80px;
-    }
-    .mini-bar{
-        visibility: visible !important;
     }
     .r-box-language{
         text-align: center;
@@ -1728,7 +1725,6 @@ ul.ul-fP li.atc a {color: #3ba11b;}
         width: 100% !important;
     }
     .mini-bar{
-        visibility: visible !important;
         width: 3% !important;
     }
     .arrowCategory{
@@ -2437,7 +2433,7 @@ textarea:hover, textarea:focus{
 .divUpdating{
     clear: both;
     text-align: center;
-    margin: 15% auto 0 auto;
+    margin: 150px auto;
 }
 
 .spanViews{

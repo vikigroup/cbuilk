@@ -1,5 +1,5 @@
 $(function(){
-    $(".m-wrap, .container, header, .mini-bar, .content, .select_input_search").show();
+    $(".menu, .m-wrap, .container, #container").show();
     $(".m-slider, .dmsp, .ads-logo, .dmsp1, .divAds, .ads-floors, .dmsp4-2").on("contextmenu", "img", function(e) {
         return false;
     });
