@@ -86,6 +86,25 @@ function setTimePost(idSelector, idDisplay, idSetTime, idHiddenStatus){
     }
 }
 
+function checkPostStyle(style){
+    var myArr = new Array('1', '3');
+    if(myArr.indexOf(style) == -1){
+        $(".trPrice").show();
+    }
+    else{
+        $(".trPrice").hide();
+    }
+}
+
+function moneyString(id, div){
+    var n = parseInt($('#'+id).val());
+    var unit = $('#slCurrency option:selected').html();
+    if(isNaN(n)){
+        n = 0;
+    }
+    $('#'+div).html("<b>"+ n.toLocaleString() + " "+unit+"</b>");
+}
+
 function positionSelector(selector){
     //selector: vị trí quảng cáo
     $("#slPageCreateAdminBanner option").remove();
@@ -122,6 +141,17 @@ function addhttp(id, url) {
         url = "http://" + url.trim();
     }
     $('#'+id).val(url);
+}
+
+function validate(evt) {
+    var theEvent = evt || window.event;
+    var key = theEvent.keyCode || theEvent.which;
+    key = String.fromCharCode( key );
+    var regex = /[0-9]|\./;
+    if( !regex.test(key) ) {
+        theEvent.returnValue = false;
+        if(theEvent.preventDefault) theEvent.preventDefault();
+    }
 }
 
 var popupWindow = null;

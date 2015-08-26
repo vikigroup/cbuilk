@@ -190,3 +190,19 @@
     border: 1px solid red;
     padding: 5px;
 }
+
+.trPrice{
+    display: none;
+}
+
+.slCurrency{
+    background-color: #E8E8E8;
+    height: 25px;
+}
+
+.txtUnit{
+    background-color: #E8E8E8;
+    border: 1px solid #999;
+    height: 23px;
+    padding: 0 5px;
+}

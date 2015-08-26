@@ -65,8 +65,8 @@
                 <div class="clear"></div>
                 <div class="f-sty-P">
                     <ul>
-                        <li><a class="f-sty-P1" href="javascript:void(0)" onclick="$('label').width('100%');"></a></li>
-                        <li><a class="f-sty-P2" href="javascript:void(0)" onclick="$('label').width('inherit');"></a></li>
+                        <li><a class="f-sty-P1" href="javascript:void(0);" onclick="$('.s-Pnb').hide(); $('.n-Pnb').css('text-align', 'center'); $('label').width('100%');"></a></li>
+                        <li><a class="f-sty-P2" href="javascript:void(0);" onclick="$('.s-Pnb').show(); $('.n-Pnb').css('text-align', 'left'); $('label').width('inherit');"></a></li>
                     </ul>
                     <div class="clear"></div>
                 </div><!-- End .f-sty-P -->
@@ -103,7 +103,26 @@
                         <p><span class="spanViews"><?php echo date("d-m-Y", strtotime($row_new['date_added'])); ?></span></p>
                     </div><!-- End .prod_row3 -->
                     <?php if($row_new['style'] == 0 || $row_new['style'] == 2 || $row_new['style'] == 4){ ?>
-                    <span class="price-Pnb"><?php  if($row_new['pricekm'] > 0){echo number_format($row_new['pricekm'],0)."  VNĐ";}else if($row_new['price'] > 0){echo number_format($row_new['price'],0)."  VNĐ";}else{echo "Giá: Liên hệ";} ?></span>
+                    <span class="price-Pnb">
+                         <?php
+                         if($row_new['pricekm'] > 0){
+                             if($row_new['currency'] == 0){
+                                 echo number_format($row_new['pricekm'],0)."đ";
+                             }else{
+                                 echo "$".number_format($row_new['pricekm'],0);
+                             }
+                             echo " / ".ucfirst($row_new['unit']);
+                         }else if($row_new['price'] > 0){
+                             if($row_new['currency'] == 0){
+                                 echo number_format($row_new['price'],0)."đ";
+                             }else{
+                                 echo "$".number_format($row_new['price'],0);
+                             }
+                             echo " / ".ucfirst($row_new['unit']);
+                         }else{
+                             echo "Giá: Liên hệ";
+                         } ?>
+                    </span>
                     <?php } ?>
                     <div class="clear"></div>
                 </li>

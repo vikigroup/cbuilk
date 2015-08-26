@@ -9,7 +9,7 @@ if(isset($frame) == true){
 <script language="javascript">
     function btnSave_onclick(){
         if($('#ddCat').val() == -1){
-            alert('Bạn chưa chọn "Danh mục"');
+            alert('Bạn chưa chọn "Danh mục"!');
             $('#ddCat').focus();
             return false;
         }
@@ -17,6 +17,12 @@ if(isset($frame) == true){
         if($('#txtName').val() == ''){
             alert('Bạn chưa nhập "Tên bài viết"!');
             $('#txtName').focus();
+            return false;
+        }
+
+        if(parseFloat($("#txtPrice").val()) < parseFloat($("#txtPricekm").val())){
+            alert("Giá khuyến mãi phải <= giá bán sản phẩm!");
+            $("#txtPricekm").focus();
             return false;
         }
 
@@ -87,6 +93,8 @@ if(isset($frame) == true){
         $("#reset").click(function(){
             $("#subject").change();
         });
+
+        $('#txtPrice, #txtPricekm').keyup();
     });
 </script>
 
@@ -97,9 +105,10 @@ $pathdb = "images/gianhang/item";
 if (isset($_POST['btnSave'])){
     $code               = isset($_POST['txtCode']) ? trim($_POST['txtCode']) : '';
     $name               = isset($_POST['txtName']) ? trim($_POST['txtName']) : '';
-    $price              = isset($_POST['txtPrice']) ? trim($_POST['txtPrice']) : '';
-    $pricekm            = isset($_POST['txtPricekm']) ? trim($_POST['txtPricekm']) : '';
-    $loaihinh           = isset($_POST['loaihinh']) ? trim($_POST['loaihinh']) : '';
+    $price              = $_POST['txtPrice'];
+    $pricekm            = $_POST['txtPricekm'];
+    $currency           = $_POST['slCurrency'];
+    $unit               = $_POST['txtUnit'];
     $description        = isset($_POST['description']) ? trim($_POST['description']) : '';
 
     $parent             = $_POST['ddCat'];
@@ -119,6 +128,7 @@ if (isset($_POST['btnSave'])){
     $time               = $_POST['txtSetTime'];
     $top                = $_POST['chkTop'];
     $block              = $_POST['chkBlock'];
+    $style              = $_POST['ddCategory'];
 
     $catInfo       = getRecord('tbl_item', 'id='.$parent);
     if(!$multiLanguage){
@@ -133,9 +143,9 @@ if (isset($_POST['btnSave'])){
     if ($errMsg == ''){
         if (!empty($_POST['id'])){
             $oldid = $_POST['id'];
-            $sql = "update tbl_item set name='".$name."',parent='".$parent."',parent1='".$parent1."',detail='".$detail."',type='".$loaihinh."',price='".$price."',pricekm='".$pricekm."',sort='".$sort."',status='".$status."',title='".$title."',description='".$description."',keyword='".$keyword."',last_modified=now(), other_link='".$otherLink."', target='".$target."', detail_short='".$detail_short."', hot='".$hot."', noindex_nofollow='".$noIndexNoFollow."', set_time='".$time."', top='".$top."', block='".$block."' where id='".$oldid."'";
+            $sql = "update tbl_item set name='".$name."',parent='".$parent."',parent1='".$parent1."',detail='".$detail."',price='".$price."',pricekm='".$pricekm."',sort='".$sort."',status='".$status."',title='".$title."',description='".$description."',keyword='".$keyword."',last_modified=now(), style='".$style."', other_link='".$otherLink."', target='".$target."', detail_short='".$detail_short."', hot='".$hot."', noindex_nofollow='".$noIndexNoFollow."', set_time='".$time."', top='".$top."', block='".$block."', currency='".$currency."', unit='".$unit."' where id='".$oldid."'";
         }else{
-            $sql = "insert into tbl_item (name, parent, parent1 , detail, type , price , pricekm , sort, status,  date_added, last_modified, style, title, description, keyword, other_link, target, detail_short, hot, noindex_nofollow, set_time, top, block) values ('".$name."','".$parent."','".$parent1."','".$detail."','".$loaihinh."','".$price."','".$pricekm."','".$sort."','".$status."',now(),now(),'1','".$title."','".$description."','".$keyword."','".$otherLink."','".$target."','".$detail_short."','".$hot."','".$noIndexNoFollow."','".$time."','".$top."','".$block."')";
+            $sql = "insert into tbl_item (name, parent, parent1 , detail, price , pricekm , sort, status,  date_added, last_modified, style, title, description, keyword, other_link, target, detail_short, hot, noindex_nofollow, set_time, top, block, currency, unit) values ('".$name."','".$parent."','".$parent1."','".$detail."','".$price."','".$pricekm."','".$sort."','".$status."',now(),now(),'".$style."','".$title."','".$description."','".$keyword."','".$otherLink."','".$target."','".$detail_short."','".$hot."','".$noIndexNoFollow."','".$time."','".$top."','".$block."','".$currency."','".$unit."')";
         }
         if (mysql_query($sql,$conn)){
             if(empty($_POST['id'])) $oldid = mysql_insert_id();
@@ -164,7 +174,7 @@ if (isset($_POST['btnSave'])){
                 mysql_query($sqlUpdate, $conn);
             }
         }else{
-            $errMsg = "Không thể cập nhật !";
+            $errMsg = "Không thể cập nhật!";
         }
     }
 
@@ -193,11 +203,12 @@ if (isset($_POST['btnSave'])){
             $subject            = $row['subject'];
             $price              = $row['price'];
             $pricekm            = $row['pricekm'];
+            $currency           = $row['currency'];
+            $unit               = $row['unit'];
             $subject            = $row['subject'];
             $detail_short       = $row['detail_short'];
             $otherLink          = $row['other_link'];
             $target             = $row['target'];
-            $loaihinh           = $row['type'];
             $detail             = $row['detail'];
             $image              = $row['image'];
             $image_large        = $row['image_large'];
@@ -213,6 +224,7 @@ if (isset($_POST['btnSave'])){
             $time               = $row['set_time'];
             $top                = $row['top'];
             $block              = $row['block'];
+            $style              = $row['style'];
         }
     }
 }
@@ -232,6 +244,9 @@ if (isset($_POST['btnSave'])){
             var table = "tbl_shop_category";
             $("#ddCatch").load("getChild.php?table="+ table + "&id=" +id);
         });
+
+        var style = "<?php echo $style; ?>";
+        checkPostStyle(style);
     });
 </script>
 <script type="text/javascript" src="../lib/ckeditor/ckeditor.js"></script>
@@ -305,6 +320,19 @@ if (isset($_POST['btnSave'])){
                             </td>
                         </tr>
                         <tr>
+                            <td height="31" valign="middle" class="table_chu">Chọn thể loại</td>
+                            <td valign="middle">
+                                <select name="ddCategory" id="ddCategory" class="table_list table_selector" onchange="checkPostStyle(this.value);">
+                                    <?php
+                                    $gt = get_records("tbl_shop_category","parent=2","name COLLATE utf8_unicode_ci"," "," ");
+                                    while($row = mysql_fetch_assoc($gt)){ ?>
+                                        <option value="<?php echo $row['cate']; ?>" <?php if($style == $row['cate']) echo 'selected="selected"';?> ><?php echo $row['name']; ?></option>
+                                    <?php } ?>
+                                </select>
+                                <p class="pGuideline"><i>Mỗi thể loại có chức năng khác nhau.<br/> Ví dụ: loại Tin tức để chứa tin tức, loại Sản phẩm để chứa sản phẩm.</i></p>
+                            </td>
+                        </tr>
+                        <tr>
                             <td valign="middle" width="30%" class="table_chu">Hình đại diện</td>
                             <td valign="middle" width="70%">
                                 <input type="file" name="txtImage" class="textbox" size="34">
@@ -313,6 +341,39 @@ if (isset($_POST['btnSave'])){
                                 <?php } ?>
                                 <?php if($image != ''){echo '<img width="80" height="80" border="0" src="../web/'.$image.'">';} ?><br><br>
                                 <i> Kích thước chuẩn 883x577(px), ảnh đuôi JPEG, GIF , JPG , PNG. </i>
+                            </td>
+                        </tr>
+                        <tr class="trPrice">
+                            <td valign="middle" width="30%" class="table_chu">Giá bán</td>
+                            <td valign="middle" width="70%">
+                                <input name="txtPrice" id="txtPrice" type="text" class="table_khungnho" value="<?=$price?>" onkeyup="moneyString(this.id, 'spanPrice');" onkeypress="validate(event);"/>
+                                <span id="spanPrice" class="strongInfo"></span>
+                                <p class="pGuideline"><i>Giá bán sản phẩm phải là số thực. Giá trị nhỏ nhất là 0 (Giá liên hệ).</i></p>
+                            </td>
+                        </tr>
+                        <tr class="trPrice">
+                            <td valign="middle" width="30%" class="table_chu">Giá khuyến mãi</td>
+                            <td valign="middle" width="70%">
+                                <input name="txtPricekm" id="txtPricekm" type="text" class="table_khungnho" value="<?=$pricekm?>" onkeyup="moneyString(this.id, 'spanPriceKM');" onkeypress="validate(event);"/>
+                                <span id="spanPriceKM" class="strongInfo"></span>
+                                <p class="pGuideline"><i>Giá khuyến mãi phải nhỏ hơn hoặc bằng giá bán sản phẩm. Giá trị nhỏ nhất là 0 (Giá liên hệ).</i></p>
+                            </td>
+                        </tr>
+                        <tr class="trPrice">
+                            <td valign="middle" width="30%" class="table_chu">Loại tiền tệ</td>
+                            <td valign="middle" width="70%">
+                                <select name="slCurrency" id="slCurrency" class="slCurrency" onchange="$('#txtPrice, #txtPricekm').keyup();">
+                                    <option value="0" <?php if($currency == 0) echo 'selected="selected"';?> >đ</option>
+                                    <option value="1" <?php if($currency == 1) echo 'selected="selected"';?> >$</option>
+                                </select>
+                                <p class="pGuideline"><i>đ cho loại tiền tệ VND và $ cho loại tiền tệ USD.</i></p>
+                            </td>
+                        </tr>
+                        <tr class="trPrice">
+                            <td valign="middle" width="30%" class="table_chu">Đơn vị tính</td>
+                            <td valign="middle" width="70%">
+                                <input name="txtUnit" type="text" id="txtUnit" class="txtUnit" value="<?php if($unit != ''){echo $unit;}else{echo 'máy';}; ?>">
+                                <p class="pGuideline"><i>Mỗi sản phẩm có thể có một đơn vị tính khác nhau. Ví dụ: máy, mét, bình,...</i></p>
                             </td>
                         </tr>
                         <tr>
@@ -420,7 +481,7 @@ if (isset($_POST['btnSave'])){
                         <tr>
                             <td valign="middle" width="30%" class="table_chu">Số thứ tự</td>
                             <td valign="middle" width="70%">
-                                <input class="table_khungnho" value="<?php if($sort != ''){echo $sort;}else{echo 0;} ?>" type="text" name="txtSort" id="txtSort"/>
+                                <input class="table_khungnho" value="<?php if($sort != ''){echo $sort;}else{echo 0;} ?>" type="text" name="txtSort" id="txtSort" onkeypress="validate(event);"/>
                                 <p class="pGuideline"><i>Số thứ tự hiển thị của bài viết, ưu tiên từ nhỏ đến lớn.</i></p>
                             </td>
                         </tr>

@@ -1,4 +1,4 @@
-.m-wrap, .container{max-width: 1210px;  margin: 0 auto; width: 1210px; display: none;}
+.m-wrap, .container{max-width: 1210px;  margin: 0 auto; width: 1210px;}
 
 img, table{max-width:100% !important; height: auto !important;}
 
@@ -117,7 +117,7 @@ END HEADER
 BEGIN CONTAINER
 *************************************************************************************/
 
-#container {padding: 0 0 20px 0; min-height: 400px; display: none;}
+#container {padding: 0 0 20px 0; min-height: 400px;}
 
 .tool-ct {height: 34px; line-height: 34px; font-size: 11px; z-index: 9;}
 .l-tool-ct {float: left;}
@@ -347,25 +347,27 @@ ul.ul-dm > li:hover > .sub-menu {display: block;}
 
 /*Sub menu*/
 
-.Prod-nb {}
+.Prod-nb{}
+
 .t-Pnb {height: 37px; line-height: 37px; border: 1px solid #ececec; font-size: 15px; padding: 0 8px;}
+
 .m-Pnb {padding: 10px 0 0 0;}
 .m-Pnb .bx-wrapper .bx-viewport{margin-left: 5px;}
 .m-Pnb2 {display: none;}
-.m-Pnb ul li {
+.m-Pnb ul li{
     width: 176px; height: 218px;
     border: 1px solid #ececec;
     background: #fff;
-    padding: 5px 5px 0 5px;
+    padding: 5px;
     -moz-box-shadow: inset 0px 0px 5px 0px #f1f1f1;
     -webkit-box-shadow: inset 0px 0px 5px 0px #f1f1f1;
     box-shadow: inset 0px 0px 5px 0px #f1f1f1;
 }
-.m-Pnb ul li:hover {
-    border: 1px solid #bbb;
-    box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.2);
-    -moz-box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.2);
-    -webkit-box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.2);
+.li-Pnb:hover{
+    border-color: #C9C9C9;
+    box-shadow: rgba(81, 203, 238, 1) 0 0 8px;
+    -moz-box-shadow: rgba(81, 203, 238, 1) 0 0 8px;
+    -webkit-box-shadow: rgba(81, 203, 238, 1) 0 0 8px;
 }
 .m-Pnb .bx-controls .bx-pager {position: absolute; top: -33px; right: 17px; padding: inherit; bottom: inherit; text-align: inherit; width: inherit;}
 .m-Pnb .bx-controls .bx-pager  a {
@@ -409,7 +411,9 @@ ul.ul-dm > li:hover > .sub-menu {display: block;}
 .s-Pnb {display: none; color: #666; padding: 6px 0 0 0; overflow: hidden; white-space: nowrap; height: 18px; text-overflow: ellipsis; background: none !important;}
 .s-Pnb i{display: block; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; max-width: 150px;}
 
-.s-DetailShort{padding-left: 5px;}
+.s-DetailShort{
+    padding-left: 5px;
+}
 
 .iKeyWord{
     padding: 3px 8px;
@@ -672,9 +676,24 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 .Prod-cate ul li.li-Pc2 .i-Pnb img {width: 90px; min-height: 75px;}
 .Prod-cate ul li.li-Pc2 .prod_row1 {float: left; padding-left: 10px; width: 60% !important;}
 .Prod-cate ul li.li-Pc2 .prod_row1 .n-Pnb {padding-top: 0;}
+.Prod-cate ul li.li-Pc2 .prod_row1 .s-Pnb {
+    display: block !important; /* Fallback for non-webkit */
+    display: -webkit-box;
+    max-width: 100%;
+    height: auto; /* Fallback for non-webkit */
+    max-height: 35px;
+    margin: 0 auto;
+    font-size: 13px;
+    line-height: 1.3em;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 1;
+}
 .Prod-cate ul li.li-Pc2 .prod_row2 {float: left; padding-left: 10px; text-align: center; width: 85px;}
 .Prod-cate ul li.li-Pc2 .prod_row3 {float: left; padding-left: 10px; text-align: center; width: 85px;}
-.Prod-cate ul li.li-Pc2 .price-Pnb {color: #F98D32; float: right; font-size: 17px; text-align: right; width: 160px; height: inherit; background: none; padding-top: 0; white-space: inherit; text-overflow: inherit; overflow: inherit;}
+.Prod-cate ul li.li-Pc2 .price-Pnb {color: #F98D32; float: right; font-size: 17px; text-align: right; width: 160px; height: inherit; background: none; white-space: inherit; text-overflow: inherit; overflow: inherit;}
 
 .f-cont {padding: 10px 0 20px 0;}
 .l-fcont {width: 73%; float: left; padding: 0 5px;}
@@ -1220,6 +1239,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     -moz-opacity: 0.85;
     -khtml-opacity: 0.85;
     background-color: white;
+    min-height: 51px;
 }
 
 .divProductOverlay1:hover{
@@ -1230,7 +1250,6 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 .divProductLine1 span{
     display: inline-block;
     font-weight: normal;
-    padding: 0 5px 0 5px;
 }
 
 .divProductLine1 span:first-child{
@@ -1238,7 +1257,8 @@ ul.ul-fP li.atc a {color: #3ba11b;}
     display: block; /* Fallback for non-webkit */
     display: -webkit-box;
     max-width: 95%;
-    height: 35px; /* Fallback for non-webkit */
+    height: auto; /* Fallback for non-webkit */
+    max-height: 35px;
     margin: 0 auto;
     font-size: 14px;
     line-height: 1.3em;
@@ -1258,6 +1278,7 @@ ul.ul-fP li.atc a {color: #3ba11b;}
 .spanMoney{
     font-size: 14px;
     text-decoration: line-through ;
+    color: #000000;
 }
 
 .divProductLine2{
@@ -2439,6 +2460,9 @@ textarea:hover, textarea:focus{
 .spanViews{
     font-size: 12px !important;
     color: #d11f48;
+}
+.spanUnitHome{
+    padding: 0 !important;
 }
 
 /************************************************************************************

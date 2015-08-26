@@ -308,7 +308,26 @@ if($ghinho == 1){
                                     <a <?php if($row_shop_product['target'] == 1){echo "target='_blank'";} ?> title="<?php echo $row_shop_product['title']; ?>" href="<?php if($row_shop_product['other_link'] != ''){echo $row_shop_product['other_link'];}else{echo $linkrootshop.'/'.$row_shop_product['subject'].'.html';} ?>"><?php echo $row_shop_product['name']; ?></a>
                                 </h4>
                                 <?php if($row_sanpham['style'] != 1 && $row_sanpham['style'] != 3){ ?>
-                                    <p><?php if($row_shop_product['pricekm'] > 0){echo number_format($row_shop_product['pricekm'], 0)."  VNĐ";}else if($row_shop_product['price'] > 0){echo number_format($row_shop_product['price'],0)."  VNĐ";}else{echo "Giá: Liên hệ";} ?></p>
+                                    <p>
+                                        <?php
+                                        if($row_shop_product['pricekm'] > 0){
+                                            if($row_shop_product['currency'] == 0){
+                                                echo number_format($row_shop_product['pricekm'],0)."đ";
+                                            }else{
+                                                echo "$".number_format($row_shop_product['pricekm'],0);
+                                            }
+                                            echo " / ".ucfirst($row_shop_product['unit']);
+                                        }else if($row_shop_product['price'] > 0){
+                                            if($row_shop_product['currency'] == 0){
+                                                echo number_format($row_shop_product['price'],0)."đ";
+                                            }else{
+                                                echo "$".number_format($row_shop_product['price'],0);
+                                            }
+                                            echo " / ".ucfirst($row_shop_product['unit']);
+                                        }else{
+                                            echo "Giá: Liên hệ";
+                                        } ?>
+                                    </p>
                                 <?php }else { ?>
                                 <p class="spanViews"><?php echo date("d-m-Y", strtotime($row_shop_product['date_added']))?></p>
                                 <?php } ?>
@@ -366,7 +385,26 @@ if($ghinho == 1){
                                 <a href="http://<?php echo $shop['subject']; ?>.<?php echo $sub; ?>" target="_blank" title="<?php echo $shop['title']; ?>"> <?php echo $shop['name']; ?></a>
                             </span>
                              <?php if($row_sanpham['style'] != 1 && $row_sanpham['style'] != 3){?>
-                                 <p><?php if($row_shop_product['pricekm'] > 0){echo number_format($row_shop_product['pricekm'],0)."  VNĐ";}else if($row_shop_product['price'] > 0){echo number_format($row_shop_product['price'],0)."  VNĐ";}else{echo "Giá: Liên hệ";} ?></p>
+                                 <p>
+                                     <?php
+                                     if($row_shop_product['pricekm'] > 0){
+                                         if($row_shop_product['currency'] == 0){
+                                             echo number_format($row_shop_product['pricekm'],0)."đ";
+                                         }else{
+                                             echo "$".number_format($row_shop_product['pricekm'],0);
+                                         }
+                                         echo " / ".ucfirst($row_shop_product['unit']);
+                                     }else if($row_shop_product['price'] > 0){
+                                         if($row_shop_product['currency'] == 0){
+                                             echo number_format($row_shop_product['price'],0)."đ";
+                                         }else{
+                                             echo "$".number_format($row_shop_product['price'],0);
+                                         }
+                                         echo " / ".ucfirst($row_shop_product['unit']);
+                                     }else{
+                                         echo "Giá: Liên hệ";
+                                     } ?>
+                                 </p>
                              <?php } else { ?>
                                  <p class="spanViews"><?php echo date("d-m-Y", strtotime($row_shop_product['date_added']))?></p>
                              <?php } ?>
@@ -544,7 +582,7 @@ else{
                     while($row_new = mysql_fetch_assoc($new)){
 				    $shop = getRecord('tbl_shop', "id='".$row_new['idshop']."'");
                     ?>
-                    <li>
+                    <li class="li-Pnb">
                         <div class="i-Pnb">
                             <a <?php if($row_new['target'] == 1){echo "target='_blank'";} ?> href="<?php if($row_new['other_link'] != ''){echo $row_new['other_link'];}else{echo $linkrootshop.'/'.$row_new['subject'].'.html';} ?>" title="<?php echo $row_new['title']; ?>">
                                 <img src="<?php echo $linkroot; ?>/<?=$row_new['image']?>" alt="<?php echo $row_new['title']; ?>"/>
@@ -552,7 +590,7 @@ else{
                         </div><!-- End .i-Pnb -->
                         <a <?php if($row_new['target'] == 1){echo "target='_blank'";} ?> class="n-Pnb" href="<?php if($row_new['other_link'] != ''){echo $row_new['other_link'];}else{echo $linkrootshop.'/'.$row_new['subject'].'.html';} ?>"><b><?php echo $row_new['name']; ?></b></a>
                         <a class="s-Pnb" href="http://<?php echo $shop['subject']; ?>.<?php echo $sub; ?>"><?php echo $shop['subject']; ?></a>
-                        <span class="price-Pnb"><?php echo number_format($row_new['pricekm'],0)." VNĐ"; ?></span>
+                        <span class="price-Pnb"><?php if($row_new['currency'] == 0){echo number_format($row_new['pricekm'],0)."đ";}else{echo "$".number_format($row_new['pricekm'],0);} ?> / <?php echo ucfirst($row_new['unit']); ?></span>
                     </li>
                     <?php } } ?>
                 </ul>
@@ -560,10 +598,10 @@ else{
                 <script type="text/javascript">
                     $(document).ready(function(){
                         $('.ul-Pnb').bxSlider({
-                            slideWidth: 185,
+                            slideWidth: 173,
                             minSlides: 4,
                             maxSlides: 4,
-                            slideMargin: 10,
+                            slideMargin: 5,
                             controls: false,
                             infiniteLoop: false
                         });
@@ -573,7 +611,7 @@ else{
             
             <article class="m-Pnb2">
                 <ul>
-					<?php 
+					<?php
                     $new = get_records("tbl_item","status=0 AND parent1 in ({$parent}) AND set_time <= '$ngay'","top DESC, sort, date_added DESC","0,9"," ");
                     while($row_new = mysql_fetch_assoc($new)){
                     $shop = getRecord('tbl_shop', "id='".$row_new['idshop']."'");
@@ -586,7 +624,27 @@ else{
                         </div><!-- End .i-Pnb -->
                         <a <?php if($row_new['target'] == 1){echo "target='_blank'";} ?> class="n-Pnb" href="<?php if($row_new['other_link'] != ''){echo $row_new['other_link'];}else{echo $linkrootshop.'/'.$row_new['subject'].'.html';} ?>"><b><?php echo $row_new['name']; ?></b></a>
                         <a class="s-Pnb" href="http://<?php echo $shop['subject']; ?>.<?php echo $sub; ?>"><?php echo $shop['subject']; ?></a>
-                        <span class="price-Pnb"><?php  if($row_new['pricekm'] > 0){echo number_format($row_new['pricekm'],0)."  VNĐ";}else if($row_new['price'] > 0){echo number_format($row_new['price'],0)."  VNĐ";}else{echo "Giá: Liên hệ";} ?></span>
+                        <span class="price-Pnb">
+                            <?php
+                            if($row_new['pricekm'] > 0){
+                                if($row_new['currency'] == 0){
+                                    echo number_format($row_new['pricekm'],0)."đ";
+                                }else{
+                                    echo "$".number_format($row_new['pricekm'],0);
+                                }
+                                echo " / ".ucfirst($row_new['unit']);
+                            }else if($row_new['price'] > 0){
+                                if($row_new['currency'] == 0){
+                                    echo number_format($row_new['price'],0)."đ";
+                                }else{
+                                    echo "$".number_format($row_new['price'],0);
+                                }
+                                echo " / ".ucfirst($row_new['unit']);
+                            }else{
+                                echo "Giá: Liên hệ";
+                            }
+                            ?>
+                        </span>
                     </li>
                    <?php }?>
                 </ul>
@@ -663,7 +721,26 @@ else{
                         <p><span class="spanViews"><?php echo date("d-m-Y", strtotime($row_new['date_added'])); ?></span></p>
                     </div><!-- End .prod_row3 -->
                     <?php if($row_category['cate'] != 1 && $row_category['cate'] != 3){ ?>
-                    <span class="price-Pnb"><?php  if($row_new['pricekm'] > 0){echo number_format($row_new['pricekm'],0)."  VNĐ";}else if($row_new['price'] > 0){echo number_format($row_new['price'],0)."  VNĐ";}else{echo "Giá: Liên hệ";} ?></span>
+                    <span class="price-Pnb">
+                        <?php
+                        if($row_new['pricekm'] > 0){
+                            if($row_new['currency'] == 0){
+                                echo number_format($row_new['pricekm'],0)."đ";
+                            }else{
+                                echo "$".number_format($row_new['pricekm'],0);
+                            }
+                            echo " / ".ucfirst($row_new['unit']);
+                        }else if($row_new['price'] > 0){
+                            if($row_new['currency'] == 0){
+                                echo number_format($row_new['price'],0)."đ";
+                            }else{
+                                echo "$".number_format($row_new['price'],0);
+                            }
+                            echo " / ".ucfirst($row_new['unit']);
+                        }else{
+                            echo "Giá: Liên hệ";}
+                        ?>
+                    </span>
                     <?php } ?>
                     <div class="clear"></div>
                 </li>

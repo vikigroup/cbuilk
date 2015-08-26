@@ -402,7 +402,7 @@ if (isset($_POST['btnSave'])){
                             <tr>
                                 <td valign="middle" width="30%" class="table_chu">Thứ tự sắp xếp</td>
                                 <td valign="middle" width="70%">
-                                    <input class="table_khungnho" value="<?php if($sort != ''){echo $sort;}else{echo 0;} ?>" type="text" name="txtSort"/>
+                                    <input class="table_khungnho" value="<?php if($sort != ''){echo $sort;}else{echo 0;} ?>" type="text" name="txtSort" onkeypress="validate(event);"/>
                                     <p class="pGuideline"><i>Thứ tự hiển thị của danh mục, sắp xếp tăng dần từ nhỏ đến lớn</i></p>
                                 </td>
                             </tr>

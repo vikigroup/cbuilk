@@ -49,7 +49,26 @@ if($row_sanpham['id'] == "")  header("Location: ".$linkrootshop."/404-page-not-f
                                 <h4>
                                     <a <?php if($row_shop_product['target'] == 1){echo "target='_blank'";} ?> title="<?php echo $row_shop_product['title']; ?>" href="<?php if($row_shop_product['other_link'] != ''){echo $row_shop_product['other_link'];}else{echo $linkrootshop.'/'.$row_shop_product['subject'].'.html';} ?>"><?php echo $row_shop_product['name']; ?></a>
                                 </h4>
-                                <p><?php if($row_shop_product['pricekm'] > 0){echo number_format($row_shop_product['pricekm'],0)." VNĐ";}else if($row_shop_product['price'] > 0){echo number_format($row_shop_product['price'], 0)." VNĐ";}else{echo "Giá: Liên hệ";} ?></p>
+                                 <p>
+                                     <?php
+                                     if($row_shop_product['pricekm'] > 0){
+                                         if($row_shop_product['currency'] == 0){
+                                             echo number_format($row_shop_product['pricekm'],0)."đ";
+                                         }else{
+                                             echo "$".number_format($row_shop_product['pricekm'],0);
+                                         }
+                                         echo " / ".ucfirst($row_shop_product['unit']);
+                                     }else if($row_shop_product['price'] > 0){
+                                         if($row_shop_product['currency'] == 0){
+                                             echo number_format($row_shop_product['price'],0)."đ";
+                                         }else{
+                                             echo "$".number_format($row_shop_product['price'],0);
+                                         }
+                                         echo " / ".ucfirst($row_shop_product['unit']);
+                                     }else{
+                                         echo "Giá: Liên hệ";
+                                     } ?>
+                                 </p>
                             </span>
                             <div class="clear"></div>
                         </li>

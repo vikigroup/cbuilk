@@ -145,14 +145,28 @@ for($i = 0; $i < 12; $i++){
             while($row_floor = mysql_fetch_assoc($product_floor)){ ?>
             <div class="divProductLine1 hvr-float-shadow" style="background-image: url('<?php echo $linkrootshop.'/web/'.$row_floor['image'] ?>'); background-size: cover;" onclick="window.location.href = '<?php echo $linkrootshop;?>/<?php echo $row_floor['subject'];?>.html';">
                 <div class="divProductOverlay1" onclick="window.location.href = '<?php echo $linkrootshop;?>/<?php echo $row_floor['subject'];?>.html';">
-                    <span><?php echo $row_floor['name'] ?></span>
+                    <span class="spanName"><?php echo $row_floor['name'] ?></span>
                     <?php if($row_floor['price'] == 0 && $row_floor['pricekm'] == 0){ ?>
                     <span class="spanMoneyKM">Giá liên hệ</span>
                     <?php }else if($row_floor['price'] > 0 && $row_floor['pricekm'] > 0){ ?>
-                        <span class="spanMoneyKM"><?php echo number_format($row_floor['pricekm'])."đ"; ?></span>
-                        <span class="spanMoney"><?php echo number_format($row_floor['price'])."đ"; ?></span>
+                        <span class="spanMoneyKM"><?php if($row_floor['currency'] == 0){echo number_format($row_floor['pricekm'])."đ";}else{echo "$".number_format($row_floor['pricekm']);} ?></span>
+                        <span class="spanMoney"><?php if($row_floor['currency'] == 0){echo number_format($row_floor['price'])."đ";}else{echo "$".number_format($row_floor['price']);}; ?></span>
+                        <span class="spanUnitHome">/ <?php echo ucfirst($row_floor['unit']); ?></span>
                     <?php }else{ ?>
-                        <span class="spanMoneyKM"><?php if($row_floor['pricekm'] > 0){echo number_format($row_floor['pricekm'])."đ";}else{echo number_format($row_floor['price'])."đ";} ?></span>
+                        <span class="spanMoneyKM">
+                            <?php if($row_floor['pricekm'] > 0){
+                                if($row_floor['currency'] == 0){
+                                    echo number_format($row_floor['pricekm'])."đ";
+                                }else{
+                                    echo "$".number_format($row_floor['price']);};
+                            }else{
+                                if($row_floor['currency'] == 0){
+                                    echo number_format($row_floor['price'])."đ";
+                                }else{
+                                    echo "$".number_format($row_floor['price']);};
+                            } ?>
+                        </span>
+                        / <?php echo ucfirst($row_floor['unit']); ?>
                     <?php } ?>
                 </div>
             </div>
