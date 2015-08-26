@@ -12,6 +12,7 @@
 	font-style: italic;
 	color: #F00;
 	font-weight: normal;
+    padding: 5px;
 }
 .table_chu_tieude {
 	font-size: 24px;
@@ -21,19 +22,15 @@
 	float: left;
 	height: auto;
 	width: 100%;
-	border-bottom-width: 1px;
-	border-bottom-style: solid;
-	border-bottom-color: #CCC;
-	padding-bottom: 10px;
+	border: 1px solid #CCC;
+	padding: 10px;
 }
 .table_chu_tieude_them {
 	font-size: 24px;
 	font-weight: bold;
 	color: #000;
-	border-bottom-width: 1px;
-	border-bottom-style: solid;
-	border-bottom-color: #CCC;
-	padding-bottom: 10px;
+	border: 1px solid #CCC;
+	padding: 10px;
 }
 .table_admin_tr {
 	height: 30px;
@@ -50,6 +47,7 @@
 	border: 1px solid #999;
 	height: 23px;
     padding: 0 5px;
+    margin: 0 0 5px;
 }
 .table_khungvua {
 	width: 300px;
@@ -205,4 +203,72 @@
     border: 1px solid #999;
     height: 23px;
     padding: 0 5px;
+}
+
+.img_cap {
+    height: 25px;
+}
+
+.dangnhap {
+    width:250px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: bold;
+    color: #006E65;
+    float: right;
+    padding-left: 20px;
+    padding-top: 10px;
+    background-color: #EFEFEF;
+}
+.dangnhap a {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: bold;
+    color: #006E65;
+    text-decoration: none;
+    margin-left: 15px;
+}
+.dangnhap a:hover {
+    text-decoration: underline;
+}
+
+.text {
+    width: 200px;
+    margin: 10px;
+    height: 15px;
+    padding: 5px;
+}
+
+.error {
+    font-style: italic;
+    color: #C00;
+    font-weight: normal;
+    font-size: 12px;
+}
+
+#baoerror {
+    font-size: 12px;
+    font-style: italic;
+    color: #F00;
+    clear: both;
+    float: none;
+    font-weight: normal;
+    padding: 5px 5px 0;
+}
+
+.text_qm{
+    height: 22px;
+    text-align: center;
+    padding: 0 5px;
+    margin: 5px 0;
+}
+
+.pLogin{
+    margin: 10px;
+}
+
+.chuhd{
+    padding: 5px 0 0;
 }

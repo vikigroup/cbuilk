@@ -108,7 +108,9 @@ switch ($frame){
     case "accessory_m"                  : include("accessory/accessory_m.php"); break;
 
 	case "login"                        : include("login.php"); break;
-	case "logout"                       : unset($_SESSION['kt_login_id']);
+    case "login_doipass"                : include("login/login_doipass.php"); break;
+    case "login_doithongtin"            : include("login/login_doithongtin.php"); break;
+    case "logout"                       : unset($_SESSION['kt_login_id']);
                                           unset($_SESSION['kt_login_username']);
                                           unset($_SESSION['kt_login_level']);
                                           echo "<script>window.location='admin.php'</script>";

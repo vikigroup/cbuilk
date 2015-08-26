@@ -1,5 +1,5 @@
 <?php
-$root     ="http://cbuilk.com";
-$sub      ="cbuilk.com";
-$subname  ="cbuilk";
+$root     = "http://cbuilk.com";
+$sub      = "cbuilk.com";
+$subname  = "cbuilk";
 ?>

@@ -4,34 +4,33 @@ date_default_timezone_set('Asia/Ho_Chi_Minh');
 $ngay = date("Y-m-d H:i:s");
 require("database.php");
 
-$visitorTimeout = 900; //=15 * 60
+$visitorTimeout = 900; // = 15 * 60
 $MAXPAGE = 30;
-$multiLanguage = 1;//0 : single  ;  1 : multi
+$multiLanguage = 1; // 0 : single hoặc 1 : multi
 $arrLanguage = array(
 	array('vn','Việt Nam'),
 	array('en','English')
 );
 
-$root_file='';
-$linkroot='http://'.$_SERVER['HTTP_HOST'];
-$linkroot=$linkroot.$root_file;
+$root_file = '';
 
-$linkrootshop=$linkroot;
+$linkroot = 'http://'.$_SERVER['HTTP_HOST'];
+$linkroot = $linkroot.$root_file;
+$linkrootshop = $linkroot;
 $shophomepage = $linkrootshop;
-$linkroot=$linkrootshop."/web";
+$linkroot = $linkrootshop."/web";
 
-
-$noimgs="images/noimage.png";
+$noimgs = "images/noimage.png";
 
 require("website.php");
 
 ini_set('suhosin.session.cryptdocroot', 0);
 
 if(strpos($_SERVER['HTTP_HOST'],$sub) !== false) {
- 	 $a=$sub;
+ 	 $a = $sub;
 }
 
-if($a==$sub){
+if($a == $sub){
 	ini_set('session.cookie_domain', '.'.$sub);
 	session_set_cookie_params (0, '/','.'.$sub);
 
@@ -56,5 +55,4 @@ session_name('kt_login_id');
 session_name('kt_login_username');
 session_name('kt_login_level');
 session_name('kt_thanhpho');
-
 ?>

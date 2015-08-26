@@ -41,7 +41,7 @@ $('#btnConfirmPopup').click(function(){
     var idCustomer = $('#customerID').val();
 
     if(phone == '' || email == ''){
-        alert("Điện thoại và email là các thông tin bắc buộc. Xin vui lòng không được để trống...");
+        alert("Điện thoại và email là các thông tin bắt buộc. Xin vui lòng không được để trống...");
     }
     else if($('#popupAccept').is(':checked') == false){
         alert("Bạn chưa đồng ý với chính sách của chúng tôi...");
