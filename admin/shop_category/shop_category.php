@@ -6,23 +6,21 @@ if(isset($frame) == true){
     header("location: ../admin.php");
 }
 
-if (isset($_POST['tim']) == true)
-{
-    if($_POST['tukhoa'] != NULL && $_POST['tukhoa'] != 'Từ khóa...'){$tukhoa = $_POST['tukhoa'];}else {$tukhoa = -1;}
+if(isset($_POST['tim']) == true){
+    if($_POST['tukhoa'] != NULL && $_POST['tukhoa'] != 'Từ khóa...'){$tukhoa = $_POST['tukhoa'];} else{$tukhoa = -1;}
     $_SESSION['kt_tukhoa_bignew'] = $tukhoa;
     $tukhoa = trim(strip_tags($tukhoa));
-    if (get_magic_quotes_gpc() == false)
-    {
+    if (get_magic_quotes_gpc() == false){
         $tukhoa = mysql_real_escape_string($tukhoa);
     }
-    if($_POST['ddCat'] != NULL){$parent = $_POST['ddCat'];}else {$parent = -1;}
+    if($_POST['ddCat'] != NULL){$parent = $_POST['ddCat'];} else{$parent = -1;}
     $_SESSION['kt_parent_bignew']=$parent;
 
-    if($_POST['ddCatch'] != NULL){$parent1 = $_POST['ddCatch'];}else {$parent1 = -1;}
+    if($_POST['ddCatch'] != NULL){$parent1 = $_POST['ddCatch'];} else{$parent1 = -1;}
     $_SESSION['kt_ddCatch_bignew'] = $parent1;
 }
 
-if (isset($_POST['reset']) == true) {
+if(isset($_POST['reset']) == true){
     $_POST['ddCatch'] = -1;
     $_SESSION['kt_tukhoa_bignew'] = -1;
     $_SESSION['kt_parent_bignew'] = -1;
@@ -48,15 +46,15 @@ if($_GET['tang'] == NULL){$tang = -1; $_SESSION['kt_tang'] = $tang;}
 if($_GET['tang'] != NULL){$tang = $_GET['tang'];$_SESSION['kt_tang'] = $tang;}
 settype($tang, "int");
 
-if($_GET['noibat'] == NULL){$noibat = -1; $_SESSION['kt_noibat']=$noibat;}
+if($_GET['noibat'] == NULL){$noibat = -1; $_SESSION['kt_noibat'] = $noibat;}
 if($_GET['noibat'] != NULL){$noibat = $_GET['noibat']; $_SESSION['kt_noibat'] = $noibat;}
 settype($noibat, "int");
 
 if($tang == 0){$ks = 'DESC';}
-elseif($tang == 1){$ks = 'ASC';}
+else if($tang == 1){$ks = 'ASC';}
 else $ks = 'DESC';
 
-switch ($_GET['action']){
+switch($_GET['action']){
     case 'del' :
         $id = $_GET['id'];
         $myArr = array(209, 210, 211, 390, 457, 458, 500);
@@ -80,7 +78,7 @@ switch ($_GET['action']){
         }
 }
 
-if (isset($_POST['btnDel'])){
+if(isset($_POST['btnDel'])){
     $cntDel = 0;
     $cntNotDel = 0;
     $cntParentExist = 0;
@@ -116,6 +114,7 @@ if (isset($_POST['btnDel'])){
     }
 }
 ?>
+
 <script>
 $(document).ready(function() {
 	$("img.anhien").click(function(){
@@ -174,12 +173,14 @@ $(document).ready(function() {
 	});
 });
 </script>
+
 <?php if( $errMsg != ""){ ?>
 <div class="alert alert-block no-radius fade in">
     <button type="button" class="close" data-dismiss="alert"><span class="mini-icon cross_c"></span></button>
     <p class="pAlert pInfo"><strong class="strongAlert strongInfo">Thông báo</strong><br/> <?php echo $errMsg; ?> <span class="xClose" title="Đóng" onclick="$(this).parent().hide();">x</span></p>
 </div>
-<?php }?>
+<?php } ?>
+
 <div class="row-fluid">
     <div class="span12">
         <div class="box-widget">
@@ -237,9 +238,9 @@ $(document).ready(function() {
                                     <td valign="middle" style="background-color:#F0F0F0; height:40px; padding-left:20px" colspan="10">
                                         <select name="ddCat" id="ddCat" class="list_tim_loc table_list">
                                             <?php if($parent != -1){ ?>
-                                            <option value="<?php echo $idtheloaic = $_POST['ddCat'] ; ?>"><?php echo get_field('tbl_shop_category','id',$parent,'name'); ?> </option>
+                                            <option value="<?php echo $idtheloaic = $_POST['ddCat'] ; ?>"><?php echo get_field('tbl_shop_category','id',$parent,'name'); ?></option>
                                             <?php }?>
-                                            <option value="-1" <?php if($parent == -1) echo 'selected="selected"';?> > Chọn danh mục </option>
+                                            <option value="-1" <?php if($parent == -1) echo 'selected="selected"'; ?> > Chọn danh mục </option>
                                             <?php
                                             $gt = get_records("tbl_shop_category","parent=2 and id!='".$parent."'","name COLLATE utf8_unicode_ci"," "," ");
                                             while($row = mysql_fetch_assoc($gt)){?>
@@ -248,9 +249,9 @@ $(document).ready(function() {
                                         </select>
                                         <select name="ddCatch" id="ddCatch" class="list_tim_loc table_list">
                                             <?php if($parent1 != -1 ){ ?>
-                                                <option value="<?php echo $parent1; ?>"><?php echo get_field('tbl_shop_category','id',$parent1,'name'); ?> </option>
+                                                <option value="<?php echo $parent1; ?>"><?php echo get_field('tbl_shop_category','id',$parent1,'name'); ?></option>
                                             <?php }?>
-                                            <option value="-1" <?php if($parent1 == -1) echo 'selected="selected"';?> > Chọn danh mục con </option>
+                                            <option value="-1" <?php if($parent1 == -1) echo 'selected="selected"'; ?> > Chọn danh mục con </option>
                                             <?php
                                             $gt = get_records("tbl_shop_category","parent='".$parent."' and id!='".$parent1."' and id not in ('1','2','3')","name COLLATE utf8_unicode_ci"," "," ");
                                             while($row = mysql_fetch_assoc($gt)){?>
@@ -264,26 +265,26 @@ $(document).ready(function() {
                                 </tr>
                                 <tr >
                                     <td valign="middle" align="left" style="background-color:#F0F0F0; height:40px; padding-left:20px" colspan="10">
-                                        <div class="link_loc" style="width:80px;text-align:center; padding:3px; border:solid 1px #999; float:left; margin-right:5px;<?php if($noibat==0  &&  $anhien==0) echo 'background-color:#FF0; color:#000;';else echo 'background-color:#FFF; color:#FFF;"';?>">
+                                        <div class="link_loc" style="width:80px; text-align:center; padding:3px; border:solid 1px #999; float:left; margin-right:5px;<?php if($noibat == 0 && $anhien == 0) echo 'background-color:#FF0; color:#000;'; else echo 'background-color:#FFF; color:#FFF;"'; ?>">
                                             <a href="admin.php?act=shop_category&tang=1&anhien=-1&noibat=-1">Tất cả</a>
                                         </div>
-                                        <div class="link_loc" style="width:80px; text-align:center; padding:3px; border:solid 1px #999; float:left; margin-right:5px;<?php if($tang==1) echo 'background-color:#FF0; color:#000;';else echo 'background-color:#FFF; color:#FFF;"';?>" >
-                                            <a href="admin.php?act=shop_category&tang=1&anhien=<?php echo $_SESSION['kt_anhien'] ?>&noibat=<?php echo $_SESSION['kt_noibat']?>">Tăng dần</a>
+                                        <div class="link_loc" style="width:80px; text-align:center; padding:3px; border:solid 1px #999; float:left; margin-right:5px;<?php if($tang == 1) echo 'background-color:#FF0; color:#000;'; else echo 'background-color:#FFF; color:#FFF;"'; ?>">
+                                            <a href="admin.php?act=shop_category&tang=1&anhien=<?php echo $_SESSION['kt_anhien']; ?>&noibat=<?php echo $_SESSION['kt_noibat']; ?>">Tăng dần</a>
                                         </div>
-                                        <div class="link_loc" style="width:80px;text-align:center; padding:3px; border:solid 1px #999; float:left; margin-right:5px;<?php if($tang==0) echo 'background-color:#FF0; color:#000;';else echo 'background-color:#FFF; color:#FFF;"';?>">
-                                            <a href="admin.php?act=shop_category&tang=0&anhien=<?php echo $_SESSION['kt_anhien'] ?>&noibat=<?php echo $_SESSION['kt_noibat']?>">Giảm dần</a>
+                                        <div class="link_loc" style="width:80px; text-align:center; padding:3px; border:solid 1px #999; float:left; margin-right:5px;<?php if($tang == 0) echo 'background-color:#FF0; color:#000;'; else echo 'background-color:#FFF; color:#FFF;"'; ?>">
+                                            <a href="admin.php?act=shop_category&tang=0&anhien=<?php echo $_SESSION['kt_anhien']; ?>&noibat=<?php echo $_SESSION['kt_noibat']; ?>">Giảm dần</a>
                                         </div>
-                                        <div class="link_loc" style="width:80px;text-align:center; padding:3px; border:solid 1px #999; float:left; margin-right:5px;<?php if($anhien==1) echo 'background-color:#FF0; color:#000;';else echo 'background-color:#FFF; color:#FFF;"';?>">
-                                            <a href="admin.php?act=shop_category&tang=<?php echo $_SESSION['kt_tang'] ?>&anhien=1&noibat=<?php echo $_SESSION['kt_noibat'] ?>"> Ẩn </a>
+                                        <div class="link_loc" style="width:80px; text-align:center; padding:3px; border:solid 1px #999; float:left; margin-right:5px;<?php if($anhien == 1) echo 'background-color:#FF0; color:#000;'; else echo 'background-color:#FFF; color:#FFF;"'; ?>">
+                                            <a href="admin.php?act=shop_category&tang=<?php echo $_SESSION['kt_tang']; ?>&anhien=1&noibat=<?php echo $_SESSION['kt_noibat']; ?>"> Ẩn </a>
                                         </div>
-                                        <div class="link_loc" style="width:80px;text-align:center; padding:3px; border:solid 1px #999; float:left; margin-right:5px;<?php if($anhien==0) echo 'background-color:#FF0; color:#000;';else echo 'background-color:#FFF; color:#FFF;"';?>">
-                                            <a href="admin.php?act=shop_category&tang=<?php echo $_SESSION['kt_tang'] ?>&anhien=0&&noibat=<?php echo $_SESSION['kt_noibat'] ?>">Hiện</a>
+                                        <div class="link_loc" style="width:80px; text-align:center; padding:3px; border:solid 1px #999; float:left; margin-right:5px;<?php if($anhien == 0) echo 'background-color:#FF0; color:#000;'; else echo 'background-color:#FFF; color:#FFF;"'; ?>">
+                                            <a href="admin.php?act=shop_category&tang=<?php echo $_SESSION['kt_tang']; ?>&anhien=0&&noibat=<?php echo $_SESSION['kt_noibat']; ?>">Hiện</a>
                                         </div>
-                                        <div class="link_loc" style="width:80px;text-align:center; padding:3px; border:solid 1px #999; float:left; margin-right:5px;<?php if($noibat==1) echo 'background-color:#FF0; color:#000;';else echo 'background-color:#FFF; color:#FFF;"';?>">
-                                            <a href="admin.php?act=shop_category&tang=<?php echo $_SESSION['kt_tang'] ?>&anhien=<?php echo $_SESSION['kt_anhien'] ?>&noibat=1">Nổi bật</a>
+                                        <div class="link_loc" style="width:80px; text-align:center; padding:3px; border:solid 1px #999; float:left; margin-right:5px;<?php if($noibat == 1) echo 'background-color:#FF0; color:#000;'; else echo 'background-color:#FFF; color:#FFF;"'; ?>">
+                                            <a href="admin.php?act=shop_category&tang=<?php echo $_SESSION['kt_tang']; ?>&anhien=<?php echo $_SESSION['kt_anhien']; ?>&noibat=1">Nổi bật</a>
                                         </div>
-                                        <div class="link_loc" style="width:100px;text-align:center; padding:3px; border:solid 1px #999; float:left; margin-right:5px;<?php if($noibat==0) echo 'background-color:#FF0; color:#000;';else echo 'background-color:#FFF; color:#FFF;"';?>">
-                                            <a href="admin.php?act=shop_category&tang=<?php echo $_SESSION['kt_tang'] ?>&anhien=<?php echo $_SESSION['kt_anhien'] ?>&noibat=0">Không nổi bật</a>
+                                        <div class="link_loc" style="width:100px; text-align:center; padding:3px; border:solid 1px #999; float:left; margin-right:5px;<?php if($noibat == 0) echo 'background-color:#FF0; color:#000;'; else echo 'background-color:#FFF; color:#FFF;"'; ?>">
+                                            <a href="admin.php?act=shop_category&tang=<?php echo $_SESSION['kt_tang']; ?>&anhien=<?php echo $_SESSION['kt_anhien']; ?>&noibat=0">Không nổi bật</a>
                                         </div>
                                     </td>
                                 </tr>
@@ -292,7 +293,7 @@ $(document).ready(function() {
                                         <input type="submit" value="Xóa chọn" name="btnDel" id="btnDel" class="button">
                                     </td>
                                     <td align="center" class="PageNum" colspan="7">
-                                        <?php echo pagesListLimit($totalRows,$pageSize);?>
+                                        <?php echo pagesListLimit($totalRows,$pageSize); ?>
                                     </td>
                                     <td width="80" align="center" colspan="1">
                                         <div>
@@ -338,19 +339,31 @@ $(document).ready(function() {
                                         <a onclick="positionedPopup(this.href,'myWindow','500','400','100','400','yes'); return false;" href="../web/<?=$row['image']?>" title="Click vào xem ảnh">
                                             <img src="../web/<?=$row['image']?>" width="40" height="40" border="0" class="hinh"/>
                                         </a>
-                                        <?php }else{?>
-                                        <img src="../<?php echo $noimgs; ?>" width="40" height="40" border="0" class="hinh"/>
-                                        <?php }?>
+                                        <?php }else{ ?>
+                                            <img src="../<?php echo $noimgs; ?>" width="40" height="40" border="0" class="hinh"/>
+                                        <?php } ?>
                                     </td>
                                     <td align="center"><a target="_blank" href="<?php if($row['other_link'] != ''){echo $row['other_link'];}else{echo $root.'/'.$row['subject'].'.html';} ?>"><?=$row['name']?></a></td>
                                     <td align="center"><?=$parent['name']?></td>
                                     <td align="center"><?=$row['sort']?></td>
-                                    <td align="center"><span class="smallfont"><img src="images/noibat_<?=$row['hot']?>.png" alt="" width="25" height="25" class="hot" title="<?php if($row['hot'] == 1){echo 'Nhấn vào để cài đặt về mặc định';}else{{echo 'Nhấn vào để cài đặt là danh mục tiêu biểu';}} ?>" value="<?=$row['id']?>" /></span></td>
-                                    <td align="center"><span class="smallfont"><img src="images/anhien_<?=$row['status']?>.png" width="25" height="25" class="anhien" title="<?php if($row['status'] == 1){echo 'Nhấn vào để hiện';}else{{echo 'Nhấn vào để ẩn';}} ?>" value="<?=$row['id']?>" /></span></td>
+                                    <td align="center">
+                                        <span class="smallfont">
+                                            <img src="images/noibat_<?=$row['hot']?>.png" alt="" width="25" height="25" class="hot" title="<?php if($row['hot'] == 1){echo 'Nhấn vào để cài đặt về mặc định';} else{echo 'Nhấn vào để cài đặt là danh mục tiêu biểu';} ?>" value="<?=$row['id']?>"/>
+                                        </span>
+                                    </td>
+                                    <td align="center">
+                                        <span class="smallfont">
+                                            <img src="images/anhien_<?=$row['status']?>.png" width="25" height="25" class="anhien" title="<?php if($row['status'] == 1){echo 'Nhấn vào để hiện';} else{echo 'Nhấn vào để ẩn';} ?>" value="<?=$row['id']?>"/>
+                                        </span>
+                                    </td>
                                     <td align="center"><?=$row['dateAdd']?></td>
                                     <td align="center">
-                                        <a title="Cập nhật" href="admin.php?act=shop_category_m&cat=<?=$_REQUEST['cat']?>&page=<?=$_REQUEST['page']?>&id=<?=$row['id']?>"><img src="images/icon3.png"/></a>
-                                        <a title="Xóa" href="admin.php?act=shop_category&action=del&page=<?=$_REQUEST['page']?>&id=<?=$row['id']?>" onclick="return confirm('Bạn chắc chắn muốn xoá?');" ><img src="images/icon4.png" width="20" border="0" /></a>
+                                        <a title="Cập nhật" href="admin.php?act=shop_category_m&cat=<?=$_REQUEST['cat']?>&page=<?=$_REQUEST['page']?>&id=<?=$row['id']?>">
+                                            <img src="images/icon3.png"/>
+                                        </a>
+                                        <a title="Xóa" href="admin.php?act=shop_category&action=del&page=<?=$_REQUEST['page']?>&id=<?=$row['id']?>" onclick="return confirm('Bạn chắc chắn muốn xoá?');">
+                                            <img src="images/icon4.png" width="20" border="0"/>
+                                        </a>
                                     </td>
                                 </tr>
                                 <?php }?>

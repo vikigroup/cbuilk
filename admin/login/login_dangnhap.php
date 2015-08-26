@@ -64,77 +64,23 @@ if (isset($_POST['btn_dangnhap']) == true){
 }// if isset
 ?>
 
-<style type="text/css">
-<!--
-.img_cap {
-	height: 25px;
-}
-.dangnhap {
-	width:250px;
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: 12px;
-	font-style: normal;
-	font-weight: bold;
-	color: #006E65;
-	float: right;
-	padding-left: 20px;
-	padding-top: 10px;
-	background-color: #EFEFEF;
-}
-.dangnhap a {
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: 11px;
-	font-style: normal;
-	font-weight: bold;
-	color: #006E65;
-	text-decoration: none;
-	margin-left: 15px;
-}
-.text {
-	width: 200px;
-}
-.dangnhap a:hover {
-	text-decoration: underline;
-}
-.error {
-	font-style: italic;
-	color: #C00;
-	font-weight: normal;
-	font-size: 12px;
-}
-#baoerror {
-	font-size: 12px;
-	font-style: italic;
-	color: #F00;
-	clear: both;
-	float: none;
-	font-weight: normal;
-}
--->
-</style>
-
 <div style="float:left; margin-bottom:4px;">
   <div class="dangnhap" align="center">
 	<?php if($_SESSION['kt_login_username'] == true){ ?>
-        Chào, <span style="text-transform:uppercase; color:#606">
-        <?php echo get_field('tbl_users','id',$_SESSION['kt_login_id'],'username'); ?>
-        </span>
-        <br/><br/>
+        Chào, <span style="text-transform:uppercase; color:#606"><?php echo get_field('tbl_users','id',$_SESSION['kt_login_id'],'username'); ?></span><br/><br/>
         <a title="Đổi mật khẩu" href="admin.php?p=login_doipass">Mật khẩu</a>
-        <a title="Đổi thông tin" href="admin.php?p=login_doithongtin">Thông tin</a>
-        <br/>
-        <a title="Thoát đăng nhập" style="color:#F00" href="admin.php?act=logout">Thoát đăng nhập</a>
-        <br/><br/>
+        <a title="Đổi thông tin" href="admin.php?p=login_doithongtin">Thông tin</a><br/>
+        <a title="Thoát đăng nhập" style="color:#F00" href="admin.php?act=logout">Thoát đăng nhập</a><br/><br/>
         <span>Tỷ giá USD/VND: <?php echo number_format(get_currency("USD", "VND", 1), 2); ?></span><br/>
         <span>(theo Google Finance)</span>
     <?php }else{ ?>
     <form id="form1" name="form1" method="post" action="">
         Tên Đăng Nhập:<br/>
         <input name="username" type="text" class="text" id="username" title="Nhập tên đăng nhập của bạn" value="<?php echo $_COOKIE['un']; ?>"/><br/>
-        <span class="coloi_hien"><?php echo $error_username1;?></span><br/>
+        <span class="coloi_hien"><?php echo $error_username1; ?></span><br/>
         Mật Khẩu:<br/>
         <input name="password" type="password" class="text" id="password" title="Nhập mật khẩu của bạn" value="<?php echo $_COOKIE['pw']; ?>"/><br/>
-        <span class="coloi_hien"><?php echo $error_password1;?></span><br/>
+        <span class="coloi_hien"><?php echo $error_password1; ?></span><br/>
         <span class="coloi_hien"><?php echo $coloi_hien_cap; ?></span><br/>
         <input title="Click để chấp nhận đăng nhập" type="submit" name="btn_dangnhap" class="nut_table" value="Đăng nhập"/> &nbsp;&nbsp;
         <input title="Check vào để ghi nhớ mật khẩu" type="checkbox" name="nho" id="nho"/>&nbsp;&nbsp;Ghi nhớ<br/>

@@ -19,7 +19,7 @@
             <li>
                 <a href="#"> Người dùng &darr;</a>
                 <ul>
-                    <li><a href="admin.php?act=user">Thành viên</a></li>
+                    <li><a href="#" onclick="emptySessionCategory('user');">Thành viên</a></li>
                     <li><a href="admin.php?act=customer">Khách hàng</a></li>
                 </ul>
             </li>
