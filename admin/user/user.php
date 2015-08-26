@@ -63,9 +63,14 @@ $(document).ready(function() {
 		    data: 'id='+ id +'&table=tbl_users',
 		    cache: false,
 		    success: function(data){
-			    obj.src=data;
-			    if(data == "images/anhien_1.png") obj.title = "Nhấn vào để khóa";
-			    else obj.title = "Nhắp vào để mở";
+			    if(data == "images/anhien_1.png"){
+                    obj.src = "images/mo.png";
+                    obj.title = "Nhấn vào để khóa";
+                }
+			    else{
+                    obj.src = "images/dong.png";
+                    obj.title = "Nhắp vào để mở";
+                }
             }
 		});
 	});
@@ -183,10 +188,10 @@ $(document).ready(function() {
                                             <a href="admin.php?act=user&tang=0&anhien=<?php echo $_SESSION['kt_anhien']; ?>">Giảm dần</a>
                                         </div>
                                         <div class="link_loc" style="width:80px; text-align:center; padding:3px; border:solid 1px #999; float:left; margin-right:5px; <?php if($anhien == 1) echo 'background-color:#FF0; color:#000;'; else echo 'background-color:#FFF; color:#FFF;"'; ?>">
-                                            <a href="admin.php?act=user&tang=<?php echo $_SESSION['kt_tang']; ?>&anhien=1">Khóa</a>
+                                            <a href="admin.php?act=user&tang=<?php echo $_SESSION['kt_tang']; ?>&anhien=1">Mở</a>
                                         </div>
                                          <div class="link_loc" style="width:80px; text-align:center; padding:3px; border:solid 1px #999; float:left; margin-right:5px; <?php if($anhien == 0) echo 'background-color:#FF0; color:#000;'; else echo 'background-color:#FFF; color:#FFF;"'; ?>">
-                                            <a href="admin.php?act=user&tang=<?php echo $_SESSION['kt_tang']; ?>&anhien=0">Mở</a>
+                                            <a href="admin.php?act=user&tang=<?php echo $_SESSION['kt_tang']; ?>&anhien=0">Khóa</a>
                                         </div>
                                     </td>
                                 </tr>
@@ -211,14 +216,14 @@ $(document).ready(function() {
                                     </td>
                                     <td width="5%" align="center">STT</td>
                                     <td width="10%" align="center"><span class="title"><a class="title" href="<?=getLinkSortAdmin(3)?>">Tên thành viên</a></span></td>
-                                    <td width="7%" align="center"><a class="title" href="<?=getLinkSortAdmin(4)?>">Tên đăng nhập</a></td>
+                                    <td width="10%" align="center"><a class="title" href="<?=getLinkSortAdmin(4)?>">Tên đăng nhập</a></td>
                                     <td width="9%" align="center"><a class="title" href="<?=getLinkSortAdmin(10)?>">Hình ảnh</a></td>
                                     <td width="16%" align="center">Thông tin</td>
                                     <td width="9%" align="center">Quyền hạn</td>
                                     <td width="11%" align="center"><span class="title"><a class="title" href="<?=getLinkSortAdmin(11)?>">Ngày khởi tạo</a></span></td>
                                     <td width="12%" align="center"><a class="title" href="<?=getLinkSortAdmin(12)?>">Lần chỉnh sửa cuối</a></td>
-                                    <td width="8%" align="center"><a class="title" href="<?=getLinkSortAdmin(12)?>">Mở/Khóa</a></td>
-                                    <td width="10%" align="center">Công cụ</td>
+                                    <td width="8%" align="center"><a class="title" href="<?=getLinkSortAdmin(12)?>">Trạng thái</a></td>
+                                    <td width="7%" align="center">Công cụ</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -267,7 +272,7 @@ $(document).ready(function() {
                                     <td align="center"><?=$row['dateAdd']?></td>
                                     <td align="center">
                                         <span class="smallfont">
-                                            <img src="images/anhien_<?=$row['status']?>.png" width="25" height="25" class="anhien" title="<?php if($row['status'] == 1){echo 'Nhấn vào để khóa';} else{echo 'Nhấn vào để mở';} ?>" value="<?=$row['id']?>"/>
+                                            <img src="images/<?php if($row['status'] == 1){echo 'mo';} else{echo 'dong';} ?>.png" width="25" height="25" class="anhien" title="<?php if($row['status'] == 1){echo 'Nhấn vào để khóa';} else{echo 'Nhấn vào để mở';} ?>" value="<?=$row['id']?>"/>
                                         </span>
                                     </td>
                                     <td align="center">
