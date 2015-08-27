@@ -173,7 +173,7 @@ $(document).ready(function() {
         <input type="hidden" name="act" value="item_category">
         <?
        // $pageindex = createPage(countRecord("tbl_support",$where),"./?act=shop_category&cat=".$_REQUEST['cat']."&page=",$MAXPAGE,$page)?>
-        <?php //echo pagesLinks($totalRows,$pageSize);// Trang đầu,  Trang kế, tang trước, trang cuối ??>
+        <?php //echo pagesLinks($totalRows,$pageSize); ?>
         <? if ($_REQUEST['code']==1) $errMsg = 'Cập nhật thành công.';echo $errMsg;?>
             <table width="100%" border="1">
                 <thead>

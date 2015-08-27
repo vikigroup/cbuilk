@@ -11,7 +11,7 @@
                     <li><a href="admin.php?act=item_category">Danh mục sản phẩm</a></li>
                     <li><a href="admin.php?act=template">Giao diện</a></li>
                     <li><a href="admin.php?act=advuser">Quảng cáo</a></li>
-                    <li><a href="admin.php?act=slideruser">Slider</a></li>
+                    <li><a href="admin.php?act=slideruser">Slide ảnh</a></li>
                     <li><a href="admin.php?act=hotrouser">Hỗ trợ</a></li>
  					<li><a href="admin.php?act=videouser">Video</a></li>
                 </ul>

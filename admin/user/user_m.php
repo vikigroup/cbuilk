@@ -114,8 +114,9 @@ if(isset($_POST['btnSave'])){
 		}
 	}
 
-	if ($errMsg == '')
-		echo '<script>window.location="admin.php?act=user&cat='.$_REQUEST['cat'].'&page='.$_REQUEST['page'].'&code=1"</script>';
+	if ($errMsg == ''){
+        echo '<script>window.location="admin.php?act=user&cat='.$_REQUEST['cat'].'&page='.$_REQUEST['page'].'&code=1"</script>';
+    }
 }else{
 	if (isset($_GET['id'])){
 		$oldid = $_GET['id'];
