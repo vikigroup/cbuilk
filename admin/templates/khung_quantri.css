@@ -272,3 +272,11 @@
 .chuhd{
     padding: 5px 0 0;
 }
+
+#idgroup{
+    margin: 0 10px;
+}
+
+#idgroup:first-child{
+    margin-left: 0;
+}

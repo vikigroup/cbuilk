@@ -42,6 +42,7 @@
     <?php include("conts.php"); ?>
     <div id="ketop"></div><!--ketop -->
 </div><!--main -->
+<?php require("../common_end.php"); ?>
 </body>
 </html>
  

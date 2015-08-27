@@ -138,14 +138,14 @@ if (isset($_POST['btnSave'])){
     }
 
     if ($name == "") echo $errMsg .= "Xin vui lòng nhập tên bài viết!<br/>";
-    $errMsg .= checkUpload($_FILES["txtImage"],".jpg;.gif;.bmp;.png",577*883,0);
+    $errMsg .= checkUpload($_FILES["txtImage"],".jpeg;.jpg;.gif;.bmp;.png",577*883,0);
 
     if ($errMsg == ''){
         if (!empty($_POST['id'])){
             $oldid = $_POST['id'];
-            $sql = "update tbl_item set name='".$name."',parent='".$parent."',parent1='".$parent1."',detail='".$detail."',price='".$price."',pricekm='".$pricekm."',sort='".$sort."',status='".$status."',title='".$title."',description='".$description."',keyword='".$keyword."',last_modified=now(), style='".$style."', other_link='".$otherLink."', target='".$target."', detail_short='".$detail_short."', hot='".$hot."', noindex_nofollow='".$noIndexNoFollow."', set_time='".$time."', top='".$top."', block='".$block."', currency='".$currency."', unit='".$unit."' where id='".$oldid."'";
+            $sql = "update tbl_item set name='".$name."', parent='".$parent."', parent1='".$parent1."', detail='".$detail."', price='".$price."', pricekm='".$pricekm."', sort='".$sort."', status='".$status."', title='".$title."', description='".$description."', keyword='".$keyword."', last_modified=now(), style='".$style."', other_link='".$otherLink."', target='".$target."', detail_short='".$detail_short."', hot='".$hot."', noindex_nofollow='".$noIndexNoFollow."', set_time='".$time."', top='".$top."', block='".$block."', currency='".$currency."', unit='".$unit."' where id='".$oldid."'";
         }else{
-            $sql = "insert into tbl_item (name, parent, parent1 , detail, price , pricekm , sort, status,  date_added, last_modified, style, title, description, keyword, other_link, target, detail_short, hot, noindex_nofollow, set_time, top, block, currency, unit) values ('".$name."','".$parent."','".$parent1."','".$detail."','".$price."','".$pricekm."','".$sort."','".$status."',now(),now(),'".$style."','".$title."','".$description."','".$keyword."','".$otherLink."','".$target."','".$detail_short."','".$hot."','".$noIndexNoFollow."','".$time."','".$top."','".$block."','".$currency."','".$unit."')";
+            $sql = "insert into tbl_item (name, parent, parent1 , detail, price , pricekm , sort, status,  date_added, last_modified, style, title, description, keyword, other_link, target, detail_short, hot, noindex_nofollow, set_time, top, block, currency, unit) values ('".$name."', '".$parent."', '".$parent1."', '".$detail."', '".$price."', '".$pricekm."', '".$sort."', '".$status."', now(), now(), '".$style."', '".$title."', '".$description."', '".$keyword."', '".$otherLink."', '".$target."', '".$detail_short."', '".$hot."', '".$noIndexNoFollow."', '".$time."', '".$top."', '".$block."', '".$currency."', '".$unit."')";
         }
         if (mysql_query($sql,$conn)){
             if(empty($_POST['id'])) $oldid = mysql_insert_id();
@@ -174,7 +174,7 @@ if (isset($_POST['btnSave'])){
                 mysql_query($sqlUpdate, $conn);
             }
         }else{
-            $errMsg = "Không thể cập nhật!";
+            $errMsg = "Hệ thống không thể cập nhật dữ liệu!";
         }
     }
 
@@ -340,7 +340,7 @@ if (isset($_POST['btnSave'])){
                                     <input type="checkbox" name="chkClearImg" value="on"> Xóa bỏ hình ảnh <br>
                                 <?php } ?>
                                 <?php if($image != ''){echo '<img width="80" height="80" border="0" src="../web/'.$image.'">';} ?><br><br>
-                                <i> Kích thước chuẩn 883x577(px), ảnh đuôi JPEG, GIF , JPG , PNG. </i>
+                                <i> Kích thước chuẩn 883x577(px), ảnh đuôi JPEG, GIF, JPG, PNG, BMP. </i>
                             </td>
                         </tr>
                         <tr class="trPrice">
@@ -488,7 +488,7 @@ if (isset($_POST['btnSave'])){
                         <tr>
                             <td valign="top" width="30%">&nbsp;</td>
                             <td valign="middle" width="70%">
-                                <input type="submit" name="btnSave" VALUE="Cập nhật" class=button onclick="return btnSave_onclick()">
+                                <input type="submit" name="btnSave" value="Cập nhật" class="button" onclick="return btnSave_onclick();">
                                 <input type="reset" id="reset" class="button" value="Nhập lại">
                                 <input type="button" id="close" class="button" value="Đóng" onclick="window.location.href = '<?php echo $root.'/admin/admin.php?act='.substr($frame, 0, strlen($frame) - 2); ?>';">
                             </td>

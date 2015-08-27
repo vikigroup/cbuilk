@@ -26,7 +26,7 @@ if($_SESSION['LANGUAGE'] > 0){
 if($_SESSION['LANGUAGE'] == 1) $_lang = "vn";
 else $_lang = "en";
 
-$frame=$_REQUEST['act'];
+$frame = $_REQUEST['act'];
 
 //----------------------------------------------------------------------------------------------
 

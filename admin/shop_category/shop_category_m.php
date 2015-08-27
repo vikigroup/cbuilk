@@ -127,8 +127,8 @@ if (isset($_POST['btnSave'])){
 	}
 
 	if ($name=="") $errMsg .= "Xin vui lòng nhập tên danh mục!<br/>";
-	$errMsg .= checkUpload($_FILES["txtImage"],".jpg;.gif;.bmp;.png",250*250,0);
-	$errMsg .= checkUpload($_FILES["txtImageLarge"],".jpg;.gif;.bmp;.png",482*1020,0);
+	$errMsg .= checkUpload($_FILES["txtImage"],".jpeg;.jpg;.gif;.bmp;.png",250*250,0);
+	$errMsg .= checkUpload($_FILES["txtImageLarge"],".jpeg;.jpg;.gif;.bmp;.png",482*1020,0);
 
 	if ($errMsg==''){
 		if (!empty($_POST['id'])){
@@ -356,10 +356,10 @@ if (isset($_POST['btnSave'])){
                                 <td valign="middle" width="70%">
                                     <input type="file" name="txtImage" class="textbox" size="34">
                                     <?php if($image != ''){ ?>
-                                        <input type="checkbox" name="chkClearImg" value="on"> Xóa bỏ hình ảnh <br>
+                                        <input type="checkbox" name="chkClearImg" value="on"> Xóa bỏ hình ảnh <br/>
                                     <?php } ?>
-                                    <?php if($image != ''){echo '<img width="80" border="0" src="../web/'.$image.'">';} ?><br><br>
-                                    Hình (kích thước nhỏ)<i> (kích thước chuẩn 250x250(px), ảnh đuôi JPEG, GIF , JPG , PNG). </i>
+                                    <?php if($image != ''){echo '<img width="80" border="0" src="../web/'.$image.'">';} ?><br/><br/>
+                                    Hình (kích thước nhỏ)<i> (kích thước chuẩn 250x250(px), ảnh đuôi JPEG, GIF, JPG, PNG, BMP). </i>
                                 </td>
                             </tr>
                             <tr>
@@ -367,10 +367,10 @@ if (isset($_POST['btnSave'])){
                                <td>
                                    <input name="txtImageLarge" type="file" class="" id="txtImageLarge"/>
                                    <?php if($image_large != ''){ ?>
-                                       <input type="checkbox" name="chkClearImgLarge" value="on"> Xóa bỏ hình ảnh <br />
+                                       <input type="checkbox" name="chkClearImgLarge" value="on"> Xóa bỏ hình ảnh <br/>
                                    <?php } ?>
-                                   <?php if($image_large != ''){echo '<img width="200" border="0" src="../web/'.$image_large.'">';} ?><br><br>
-                                   Hình (kích thước lớn)<i> (kích thước chuẩn 1020x482(px), ảnh đuôi JPEG, GIF , JPG , PNG). </i><br/><br/>
+                                   <?php if($image_large != ''){echo '<img width="200" border="0" src="../web/'.$image_large.'">';} ?><br/><br/>
+                                   Hình (kích thước lớn)<i> (kích thước chuẩn 1020x482(px), ảnh đuôi JPEG, GIF, JPG, PNG, BMP). </i><br/><br/>
                                </td>
                             </tr>
                             <tr class="tr_title">

@@ -112,12 +112,11 @@ else $ks = 'DESC';
     });
 </script>
 
-<?php if($errMsg != ""){ ?>
-<div class="alert alert-block no-radius fade in">
-    <button type="button" class="close" data-dismiss="alert"><span class="mini-icon cross_c"></span></button>
-    <h4>Warning!</h4>
-    <? $errMsg =''?>
-</div>
+<?php if( $errMsg != ""){ ?>
+    <div class="alert alert-block no-radius fade in">
+        <button type="button" class="close" data-dismiss="alert"><span class="mini-icon cross_c"></span></button>
+        <p class="pAlert pInfo"><strong class="strongAlert strongInfo">Thông báo</strong><br/> <?php echo $errMsg; ?> <span class="xClose" title="Đóng" onclick="$(this).parent().hide();">x</span></p>
+    </div>
 <?php } ?>
 
 <div class="row-fluid">
