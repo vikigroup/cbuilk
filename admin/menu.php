@@ -5,10 +5,10 @@
             <li><a href="../index.php" target="_blank">Trang chủ</a></li>
             <?php if($_SESSION['kt_login_id']!=""){?>
             <li>
-                <a href="#"> Gian hàng &darr;</a>
+                <a href="#"> Quản lý gian hàng &darr;</a>
                 <ul>
-                    <li><a href="admin.php?act=shop">Danh sách gian hàng</a></li>
-                    <li><a href="admin.php?act=item_category">Danh mục sản phẩm</a></li>
+                    <li><a href="admin.php?act=shop">Tất cả gian hàng</a></li>
+                    <li><a href="admin.php?act=item_category">Tất cả danh mục</a></li>
                     <li><a href="admin.php?act=template">Giao diện</a></li>
                     <li><a href="admin.php?act=advuser">Quảng cáo</a></li>
                     <li><a href="admin.php?act=slideruser">Slide ảnh</a></li>
@@ -17,7 +17,7 @@
                 </ul>
             </li>
             <li>
-                <a href="#"> Người dùng &darr;</a>
+                <a href="#"> Quản lý người dùng &darr;</a>
                 <ul>
                     <li><a href="#" onclick="emptySessionCategory('user');">Thành viên</a></li>
                     <li><a href="admin.php?act=customer">Khách hàng</a></li>

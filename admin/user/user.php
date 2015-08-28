@@ -260,11 +260,11 @@ $(document).ready(function() {
                                         Email: <b><?=$row['mobile']?></b><br/>
                                     </td>
                                     <td align="center">
-                                        <a href="?act=user_permiss&id=<?php echo $row['id']; ?>">
+                                        <a href="?act=user_permiss&id=<?php echo $row['id']; ?>" title="Nhấn để chỉnh sửa phân quyền cho tài khoản này">
                                             <?php
-                                                if($row['idgroup'] == 1){echo 'User';}
-                                                else if($row['idgroup'] == 2){echo 'Mod';}
-                                                else if($row['idgroup'] == 3){echo 'Admin';}
+                                                if($row['idgroup'] == 1){echo 'Member';}
+                                                else if($row['idgroup'] == 2){echo 'Moderator';}
+                                                else if($row['idgroup'] == 3){echo 'Administrator';}
                                             ?>
                                         </a>
                                     </td>

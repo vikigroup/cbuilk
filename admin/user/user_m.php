@@ -72,6 +72,22 @@ if(isset($_POST['btnSave'])){
 
     $accessPassWord     = md5(md5(md5($accessPassWord)));
 
+    $listMod = array(11, 13, 15, 17, 19, 21, 23, 30);
+    $listAdmin = array();
+    for($i = 1; $i <= 30; $i++) {
+        array_push($listAdmin, $i);
+    }
+
+    if($idgroup == 2){
+        $list = implode(",", $listMod);
+    }
+    else if($idgroup == 3){
+        $list = implode(",", $listAdmin);
+    }
+    else{
+        $list = implode(",", array_diff($listAdmin, $listMod));
+    }
+
 	if(!$multiLanguage){
 		$lang      = $catInfo['lang'];
 	}else{
@@ -84,10 +100,10 @@ if(isset($_POST['btnSave'])){
 	if ($errMsg == ''){
 		if (!empty($_POST['id'])){
 			$oldid = $_POST['id'];
-			if($_POST['hiddenIsChanged'] == 0) $sql = "update tbl_users set name='".$name."', username='".$accessName."', mobile='".$mobile."', email='".$email."', cmnd='".$cmnd."', ghichu='".$ghichu."', sex='".$gioitinh."', idgroup='".$idgroup."', status='".$accessStatus."', last_modified=now() where id='".$oldid."'";
+			if($_POST['hiddenIsChanged'] == 0) $sql = "update tbl_users set name='".$name."', username='".$accessName."', mobile='".$mobile."', email='".$email."', cmnd='".$cmnd."', ghichu='".$ghichu."', sex='".$gioitinh."', idgroup='".$idgroup."', status='".$accessStatus."', list='".$list."', last_modified=now() where id='".$oldid."'";
 			else $sql = "update tbl_users set name='".$name."', username='".$accessName."', password='".$accessPassWord."', mobile='".$mobile."', email='".$email."', cmnd='".$cmnd."', ghichu='".$ghichu."', sex='".$gioitinh."', status='".$accessStatus."', last_modified=now() where id='".$oldid."'";
 		}else{
-			$sql = "insert into tbl_users (name, username, password, mobile, email, cmnd, ghichu, sex, idgroup, status, date_added, last_modified) values ('".$name."', '".$accessName."', '".$accessPassWord."', '".$mobile."', '".$email."', '".$cmnd."', '".$ghichu."', '".$gioitinh."', '".$idgroup."', '".$accessStatus."', now(), now())";
+			$sql = "insert into tbl_users (name, username, password, mobile, email, cmnd, ghichu, sex, idgroup, status, date_added, last_modified, list) values ('".$name."', '".$accessName."', '".$accessPassWord."', '".$mobile."', '".$email."', '".$cmnd."', '".$ghichu."', '".$gioitinh."', '".$idgroup."', '".$accessStatus."', now(), now(), '".$list."')";
 		} 
 		if(mysql_query($sql,$conn)){
 			if(empty($_POST['id'])) $oldid = mysql_insert_id();

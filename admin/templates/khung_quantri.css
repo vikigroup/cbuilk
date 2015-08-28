@@ -280,3 +280,21 @@
 #idgroup:first-child{
     margin-left: 0;
 }
+
+.divPermission{
+    padding: 10px;
+    border: 1px solid #CCC;
+    font-weight: bold;
+    color: #000;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.trPermission td{
+    padding: 5px;
+}
+
+.tbPermission{
+    margin-top: 10px;
+}
+

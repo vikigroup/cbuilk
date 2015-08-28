@@ -1,5 +1,5 @@
 <?php
-$noimgs = "imgs/no_image.gif";
+$noimgs = "imgs/avatar-M.png";
 switch ($frame){
 	case "shop_category"                : include("shop_category/shop_category.php"); break;
 	case "shop_category_m"              : include("shop_category/shop_category_m.php"); break;
