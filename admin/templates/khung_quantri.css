@@ -299,3 +299,11 @@
     margin-top: 10px;
 }
 
+.divPermissInfo{
+    position: relative;
+}
+
+.pull-right{
+    position: absolute;
+    right: 0;
+}

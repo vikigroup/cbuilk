@@ -106,20 +106,102 @@ function moneyString(id, div){
 }
 
 function checkPermission(){
-    var chosenPermiss = "";
+    var chosenPermiss = ""; //tạo chuỗi, insert vào bảng tbl_permiss
+    var chosenCrud = ""; //tạo chuỗi, insert vào bảng tbl_crud
+    var count = 0; //biến đếm số checkbox được chọn (thêm, sửa, xóa)
     for(var i = 1; i <= 30; i++){
         if($('#chkCreate'+i).is(':checked') == true || $('#chkUpdate'+i).is(':checked') == true || $('#chkDelete'+i).is(':checked') == true){
-            chosenPermiss += $('#hiddenPermissId'+i).val()+",";
-            if(!$('#chkCreate'+i).is(':checked') || !$('#chkUpdate'+i).is(':checked') || !$('#chkDelete'+i).is(':checked')){
-                var isCreate = $('#chkCreate'+i).is(':checked') == true ? 1 : 0;
-                var isUpdate = $('#chkUpdate'+i).is(':checked') == true ? 1 : 0;
-                var isDelete = $('#chkDelete'+i).is(':checked') == true ? 1 : 0;
+            var isCreate = $('#chkCreate'+i).is(':checked') == true ? 1 : 0;
+            if(isCreate == 1){
+                count++;
             }
+
+            var isUpdate = $('#chkUpdate'+i).is(':checked') == true ? 1 : 0;
+            if(isUpdate == 1){
+                count++;
+            }
+
+            var isDelete = $('#chkDelete'+i).is(':checked') == true ? 1 : 0;
+            if(isDelete == 1){
+                count++;
+            }
+
+            if(count == 3){
+                chosenPermiss += $('#hiddenPermissId'+i).val()+",";
+            }
+            else{ //khi có 1 trong 3 chức năng (thêm, sửa, xóa) không được active thì mới tạo chuỗi, thêm vào bảng tbl_crud
+                chosenPermiss += $('#hiddenPermissId'+i).val()+",";
+                chosenCrud += $('#hiddenPermissId'+i).val()+","+isCreate+","+isUpdate+","+isDelete+";";
+            }
+            count = 0;
         }
     }
     chosenPermiss = chosenPermiss.substring(0, chosenPermiss.length - 1);
+    chosenCrud = chosenCrud.substring(0, chosenCrud.length - 1);
     $("#hiddenChosenPermiss").val(chosenPermiss);
-    return false;
+    $("#hiddenChosenCrud").val(chosenCrud);
+    return true; //thực hiện submit form
+}
+
+function setAllPermission(option){
+    if(option == 0){
+        var isCheckAll = $('#hiddenAllPermiss').val();
+        if(isCheckAll == 0){
+            $('input[type=checkbox]').prop('checked', true);
+            $('#hiddenAllPermiss').val('1');
+            $('#chkAllPermiss').prop('title', 'Nhấn để cài đặt về mặc định');
+        }
+        else{
+            $('#reset').click();
+            $('#hiddenAllPermiss').val('0');
+            $('#chkAllPermiss').prop('title', 'Nhấn để cấp tất cả quyền cho thành viên này');
+        }
+    }
+    else if(option == 1){
+        var isCreateAll = $('#hiddenAllCreatePermiss').val();
+        setCrudPermission(isCreateAll, 1);
+    }
+    else if(option == 2){
+        var isUpdateAll = $('#hiddenAllUpdatePermiss').val();
+        setCrudPermission(isUpdateAll, 2);
+    }
+    else{
+        var isDeleteAll = $('#hiddenAllDeletePermiss').val();
+        setCrudPermission(isDeleteAll, 3);
+    }
+}
+
+function setCrudPermission(isCheck, crud){
+    var string = "Create";
+    var title = "thêm mới";
+    if(crud == 2){
+        string = "Update";
+        title = "chỉnh sửa";
+    }
+    else if(crud == 3){
+        string = "Delete";
+        title = "xóa";
+    }
+
+    for(var i = 1; i <= 30; i++){
+        if(isCheck == 0){
+            $('#chk'+string+i).prop('checked', true);
+        }
+        else{
+            $('#chk'+string+i).each(function(i,item){
+                this.checked = item.defaultChecked; //cài đặt checkbox về trạng thái ban đầu
+            });
+        }
+    }
+
+    if(isCheck == 0){
+        $('#hiddenAll'+string+'Permiss').val('1');
+        $('#chkAll'+string+'Permiss').prop('title', 'Nhấn để cài đặt về mặc định');
+    }
+    else{
+        $('#hiddenAll'+string+'Permiss').val('0');
+        $('#chkAll'+string+'Permiss').prop('title', 'Nhấn để cấp quyền '+title+' cho thành viên này ở tất cả các trang quản trị');
+    }
 }
 
 function positionSelector(selector){
@@ -169,6 +251,11 @@ function validate(evt) {
         theEvent.returnValue = false;
         if(theEvent.preventDefault) theEvent.preventDefault();
     }
+}
+
+function isValidEmailAddress(emailAddress) {
+    var regex = /\S+@\S+\.\S+/;
+    return regex.test(emailAddress);
 }
 
 var popupWindow = null;

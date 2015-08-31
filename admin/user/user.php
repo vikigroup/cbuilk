@@ -90,6 +90,11 @@ $(document).ready(function() {
             return confirm("Bạn chắc chắn muốn xóa?");
         }
     });
+
+    var isSuccessPermiss = "<?php echo $_GET['permiss']; ?>";
+    if(isSuccessPermiss == 1){
+        alert("Cập nhật phân quyền thành công!");
+    }
 });
 </script>
 
