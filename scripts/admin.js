@@ -105,6 +105,23 @@ function moneyString(id, div){
     $('#'+div).html("<b>"+ n.toLocaleString() + " "+unit+"</b>");
 }
 
+function checkPermission(){
+    var chosenPermiss = "";
+    for(var i = 1; i <= 30; i++){
+        if($('#chkCreate'+i).is(':checked') == true || $('#chkUpdate'+i).is(':checked') == true || $('#chkDelete'+i).is(':checked') == true){
+            chosenPermiss += $('#hiddenPermissId'+i).val()+",";
+            if(!$('#chkCreate'+i).is(':checked') || !$('#chkUpdate'+i).is(':checked') || !$('#chkDelete'+i).is(':checked')){
+                var isCreate = $('#chkCreate'+i).is(':checked') == true ? 1 : 0;
+                var isUpdate = $('#chkUpdate'+i).is(':checked') == true ? 1 : 0;
+                var isDelete = $('#chkDelete'+i).is(':checked') == true ? 1 : 0;
+            }
+        }
+    }
+    chosenPermiss = chosenPermiss.substring(0, chosenPermiss.length - 1);
+    $("#hiddenChosenPermiss").val(chosenPermiss);
+    return false;
+}
+
 function positionSelector(selector){
     //selector: vị trí quảng cáo
     $("#slPageCreateAdminBanner option").remove();

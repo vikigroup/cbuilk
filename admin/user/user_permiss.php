@@ -44,15 +44,6 @@
     }
 ?>
 
-<script type="text/javascript">
-    $(document).ready(function() {
-        $("#chonhet").click(function(){
-            var status = this.checked;
-            $("input[class='check_md']").each(function(){this.checked = status;})
-        });
-    });
-</script>
-
 <?php if( $errMsg != ""){ ?>
     <div class="alert alert-block no-radius fade in">
         <button type="button" class="close" data-dismiss="alert"><span class="mini-icon cross_c"></span></button>
@@ -77,9 +68,6 @@
                             <table width="100%" class="admin_table tbPermission">
                                 <thead>
                                     <tr class="admin_tieude_table">
-                                        <td width="3%" align="center">
-                                            <input type="checkbox" name="chonhet" id="chonhet" title="Chọn tất cả"/>
-                                        </td>
                                         <td width="2%" align="center">#</td>
                                         <td width="20%" align="center"><span class="title">Tên quyền</span></td>
                                         <td width="3%" align="center">Thêm</td>
@@ -88,29 +76,28 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <input type="hidden" id="hiddenChosenPermiss">
                                     <?php
                                         $lap_quyen = get_records('tbl_permiss','status=1','name COLLATE utf8_unicode_ci, id',' ',' ');
                                         $i = 1;
                                         while($row_lap_quyen = mysql_fetch_assoc($lap_quyen)){
                                             $myPermission = getRecord('tbl_crud', "id_users='".$id."' AND id_permiss='".$row_lap_quyen['id']."'"); ?>
                                         <tr class="trPermission">
-                                            <td align="center">
-                                                <input <?php if(number_in_list($row_tbl_users['list'], $row_lap_quyen['id'])){ ?> checked="checked" <?php } ?> name="cauhinh[]" class="check_md" type="checkbox" value="<?php echo $row_lap_quyen['id']; ?>"/>
-                                            </td>
+                                            <input type="hidden" id="hiddenPermissId<?php echo $i; ?>" value="<?php echo $row_lap_quyen['id']; ?>">
                                             <td align="center"><?php echo $i; ?></td>
                                             <td align="center">
                                                 <?php echo $row_lap_quyen['name']; ?>
                                             </td>
-                                            <td align="center"><input <?php if(number_in_list($row_tbl_users['list'], $row_lap_quyen['id'])){if($myPermission['create'] == 1 || $myPermission == ''){ ?> checked="checked" <?php }} ?> type="checkbox" name="chkCreate"></td>
-                                            <td align="center"><input <?php if(number_in_list($row_tbl_users['list'], $row_lap_quyen['id'])){if($myPermission['update'] == 1 || $myPermission == ''){ ?> checked="checked" <?php }} ?> type="checkbox" name="chkUpdate"></td>
-                                            <td align="center"><input <?php if(number_in_list($row_tbl_users['list'], $row_lap_quyen['id'])){if($myPermission['delete'] == 1 || $myPermission == ''){ ?> checked="checked" <?php }} ?> type="checkbox" name="chkDelete"></td>
+                                            <td align="center"><input <?php if(number_in_list($row_tbl_users['list'], $row_lap_quyen['id'])){if($myPermission['create'] == 1 || $myPermission == ''){ ?> checked="checked" <?php }} ?> type="checkbox" id="chkCreate<?php echo $i; ?>"></td>
+                                            <td align="center"><input <?php if(number_in_list($row_tbl_users['list'], $row_lap_quyen['id'])){if($myPermission['update'] == 1 || $myPermission == ''){ ?> checked="checked" <?php }} ?> type="checkbox" id="chkUpdate<?php echo $i; ?>"></td>
+                                            <td align="center"><input <?php if(number_in_list($row_tbl_users['list'], $row_lap_quyen['id'])){if($myPermission['delete'] == 1 || $myPermission == ''){ ?> checked="checked" <?php }} ?> type="checkbox" id="chkDelete<?php echo $i; ?>"></td>
                                         </tr>
                                     <?php $i++; } ?>
                                 </tbody>
                             </table>
                         </div>
                         <br/><br/>
-                        <input type="submit" name="them" class="nut_table" value="Cập nhật" title="Cập nhật"/>&nbsp;&nbsp;
+                        <input type="submit" name="them" id="btnPermission" class="nut_table" value="Cập nhật" title="Cập nhật" onclick="return checkPermission();"/>&nbsp;&nbsp;
                         <input type="reset" id="reset" class="nut_table" value="Mặc định">&nbsp;&nbsp;
                         <input type="button" name="quayra" class="nut_table" value="Trở về" title="Trở về" onclick="window.history.back();"/><br/>
                     </form>
