@@ -48,6 +48,13 @@ function btnSave_onclick(){
         $('#email').focus();
         return false;
     }
+    else{
+        if(!isValidEmailAddress($('#email').val())){
+            alert('"Email" không đúng định dạng!');
+            $('#email').focus();
+            return false;
+        }
+    }
 
 	return true;
 }
