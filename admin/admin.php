@@ -38,6 +38,9 @@
                </td>
            </tr>
         </table>
+        <?php if($_SESSION['error'] != ""){ ?>
+        <div class="divError"><?php echo $_SESSION['error']; ?></div>
+        <?php } ?>
     </div><!--cen -->
     <?php include("conts.php"); ?>
     <div id="ketop"></div><!--ketop -->

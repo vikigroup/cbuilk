@@ -1,8 +1,8 @@
 <?php
-if(isset($frame)==true){
-	check_permiss($_SESSION['kt_login_id'],18,'index.php');
+if(isset($frame) == true){
+	check_permiss($_SESSION['kt_login_id'], 9, 'admin.php');
 }else{
-	header("location: ../index.php");
+	header("location: ../admin.php");
 }
 ?>
 
@@ -260,13 +260,13 @@ if (isset($_POST['btnSave'])){
                            <tr>
                                <td valign="top" width="30%">Không hiển thị</td>
                                <td valign="middle" width="70%">
-                                   <input type="checkbox" name="chkStatus" value="<?php if($status>0){echo $status;}else{echo 0;} ?>" <? if ($status>0) echo 'checked' ?> onchange="if($(this).is(':checked')){this.value = 1;}else{this.value = 0;}">
+                                   <input type="checkbox" name="chkStatus" value="<?php if($status > 0){echo $status;} else{echo 0;} ?>" <? if ($status > 0) echo 'checked' ?> onchange="if($(this).is(':checked')){this.value = 1;} else{this.value = 0;}">
                                </td>
                            </tr>
                            <tr>
                                <td valign="top" width="30%">&nbsp;</td>
                                <td valign="middle" width="70%">
-                                   <input type="submit" name="btnSave" value="Cập nhật" class=button onclick="return btnSave_onclick()">
+                                   <input type="submit" name="btnSave" value="Cập nhật" class=button onclick="return btnSave_onclick();">
                                    <input type="reset" class=button value="Nhập lại">
                                </td>
                            </tr>

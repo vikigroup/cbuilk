@@ -1,6 +1,6 @@
 <?php
 if(isset($frame)==true){
-	check_permiss($_SESSION['kt_login_id'],7,'admin.php');
+	check_permiss($_SESSION['kt_login_id'],31,'admin.php');
 }else{
 	header("location: ../admin.php");
 }
@@ -252,7 +252,7 @@ $(document).ready(function() {
                                   <input type="submit" value="Xóa chọn" name="btnDel" onClick="return confirm('Bạn có chắc chắn muốn xóa ?');" class="button">
                                   </td>
                                   <td align="center" class="PageNum" colspan="7">
-                                    	<?php echo pagesLinks($totalRows,$pageSize);// Trang đầu,  Trang kế, tang trước, trang cuối ??>   
+                                    	<?php echo pagesLinks($totalRows,$pageSize); ?>
                                   </td>
                                   
                                  <td width="81" align="center" colspan="1">
@@ -329,7 +329,7 @@ $(document).ready(function() {
                          	<tr>
                               <td  class="PageNext" colspan="10" align="center" valign="middle">
 							  <div style="padding:5px;">
-							  <?php echo pagesLinks($totalRows,$pageSize);// Trang đầu,  Trang kế, tang trước, trang cuối ??>
+							  <?php echo pagesLinks($totalRows,$pageSize); ?>
                               </div>
                               </td>  							  
                             </tr>

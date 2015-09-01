@@ -314,6 +314,7 @@ function emptySessionCategory(){
     $_SESSION['kt_tukhoa_bignew']=-1;
     $_SESSION['kt_parent_bignew']=-1;
     $_SESSION['kt_ddCatch_bignew']=-1;
+    unset($_SESSION['error']);
 }
 //------------------------ admin functions ------------------------//
 

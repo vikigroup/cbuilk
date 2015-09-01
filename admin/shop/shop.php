@@ -456,7 +456,7 @@ border-top: 1px solid #dddddd;
 							 <tr>
                               <td  class="PageNext" colspan="10" align="center" valign="middle">
 							  <div style="padding:5px;">
-							  <?php echo pagesLinks($totalRows,$pageSize);// Trang đầu,  Trang kế, tang trước, trang cuối ??>
+							  <?php echo pagesLinks($totalRows,$pageSize); ?>
                               </div>
                               </td>  							  
                             </tr>  

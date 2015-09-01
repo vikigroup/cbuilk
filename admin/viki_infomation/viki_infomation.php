@@ -1,65 +1,62 @@
 <?php
-if(isset($frame)==true){
-    check_permiss($_SESSION['kt_login_id'],17,'admin.php');
+if(isset($frame) == true){
+    check_permiss($_SESSION['kt_login_id'], 9, 'admin.php');
 }else{
     header("location: ../admin.php");
 }
 
-if (isset($_POST['tim'])==true)//isset kiem tra submit
-{
-    if($_POST['tukhoa']!=""){$tukhoa=$_POST['tukhoa'];}else {$tukhoa=-1;}
-    if($tukhoa=="Từ khóa...") $tukhoa="";
-    $_SESSION['kt_tukhoa_bignew']=$tukhoa;
+if(isset($_POST['tim']) == true){ //isset kiem tra submit
+    if($_POST['tukhoa'] != ""){$tukhoa = $_POST['tukhoa'];}else {$tukhoa = -1;}
+    if($tukhoa == "Từ khóa...") $tukhoa = "";
+    $_SESSION['kt_tukhoa_bignew'] = $tukhoa;
     $tukhoa = trim(strip_tags($tukhoa));
-    if (get_magic_quotes_gpc()==false)
+    if (get_magic_quotes_gpc() == false)
     {
         $tukhoa = mysql_real_escape_string($tukhoa);
     }
 
-    if($_POST['ddCat']!=NULL){$parent=$_POST['ddCat'];}else {$parent=-1;}
-    $_SESSION['kt_parent_bignew']=$parent;
+    if($_POST['ddCat'] != NULL){$parent = $_POST['ddCat'];} else {$parent = -1;}
+    $_SESSION['kt_parent_bignew'] = $parent;
 
-    if($_POST['ddCatch']!=NULL){$parent1=$_POST['ddCatch'];}else {$parent1=-1;}
-    $_SESSION['kt_ddCatch_bignew']=$parent1;
+    if($_POST['ddCatch'] != NULL){$parent1 = $_POST['ddCatch'];} else {$parent1 = -1;}
+    $_SESSION['kt_ddCatch_bignew'] = $parent1;
 }
 
-if (isset($_POST['reset'])==true) {
+if(isset($_POST['reset']) == true){
     $_POST['ddCatch'] = -1;
-    $_SESSION['kt_tukhoa_bignew']=-1;
-    $_SESSION['kt_parent_bignew']=-1;
-    $_SESSION['kt_ddCatch_bignew']=-1;
+    $_SESSION['kt_tukhoa_bignew'] = -1;
+    $_SESSION['kt_parent_bignew'] = -1;
+    $_SESSION['kt_ddCatch_bignew'] = -1;
 
 }
-if($_SESSION['kt_tukhoa_bignew']==NULL){$tukhoa=-1;}
-if($_SESSION['kt_tukhoa_bignew']!=NULL){$tukhoa=$_SESSION['kt_tukhoa_bignew'];}
-if($_SESSION['kt_parent_bignew']==NULL){$parent=-1;}
-if($_SESSION['kt_parent_bignew']!=NULL){$parent=$_SESSION['kt_parent_bignew'];}
+if($_SESSION['kt_tukhoa_bignew'] == NULL){$tukhoa = -1;}
+if($_SESSION['kt_tukhoa_bignew'] != NULL){$tukhoa = $_SESSION['kt_tukhoa_bignew'];}
+if($_SESSION['kt_parent_bignew'] == NULL){$parent = -1;}
+if($_SESSION['kt_parent_bignew'] != NULL){$parent = $_SESSION['kt_parent_bignew'];}
 
-if($_SESSION['kt_ddCatch_bignew']==NULL){$parent1=-1;}
-if($_SESSION['kt_ddCatch_bignew']!=NULL){$parent1=$_SESSION['kt_ddCatch_bignew'];}
+if($_SESSION['kt_ddCatch_bignew'] == NULL){$parent1 = -1;}
+if($_SESSION['kt_ddCatch_bignew'] != NULL){$parent1 = $_SESSION['kt_ddCatch_bignew'];}
 
-if($_GET['anhien']==NULL){$anhien=-1;$_SESSION['kt_anhien']=$anhien;}
-if($_GET['anhien']!=NULL){$anhien=$_GET['anhien'];$_SESSION['kt_anhien']=$anhien;}
-settype($anhien,"int");
+if($_GET['anhien'] == NULL){$anhien = -1; $_SESSION['kt_anhien'] = $anhien;}
+if($_GET['anhien'] != NULL){$anhien = $_GET['anhien']; $_SESSION['kt_anhien'] = $anhien;}
+settype($anhien, "int");
 
-if($_GET['tang']==NULL){$tang=-1;$_SESSION['kt_tang']=$tang;}
-if($_GET['tang']!=NULL){$tang=$_GET['tang'];$_SESSION['kt_tang']=$tang;}
-settype($tang,"int");
+if($_GET['tang'] == NULL){$tang = -1; $_SESSION['kt_tang'] = $tang;}
+if($_GET['tang'] != NULL){$tang = $_GET['tang']; $_SESSION['kt_tang'] = $tang;}
+settype($tang, "int");
 
-if($_GET['noibat']==NULL){$noibat=-1;$_SESSION['kt_noibat']=$noibat;}
-if($_GET['noibat']!=NULL){$noibat=$_GET['noibat'];$_SESSION['kt_noibat']=$noibat;}
-settype($noibat,"int");
+if($_GET['noibat'] == NULL){$noibat = -1; $_SESSION['kt_noibat'] = $noibat;}
+if($_GET['noibat'] != NULL){$noibat = $_GET['noibat']; $_SESSION['kt_noibat'] = $noibat;}
+settype($noibat, "int");
 
-if($tang==0){$ks='ASC';}//0 tang
-elseif($tang==1){$ks='DESC';}//1 giam
-else $ks='DESC';
+if($tang == 0){$ks = 'ASC';} //0 tang
+else if($tang == 1){$ks = 'DESC';} //1 giam
+else $ks = 'DESC';
 
 switch ($_GET['action']){
     case 'del' :
         $id = $_GET['id'];
-
-        mysql_query("delete from tbl_system where id='".($id+12)."'",$conn);
-
+        mysql_query("delete from tbl_system where id = '".($id+12)."'",$conn);
         $r = getRecord("viki_tin","id=".$id);
         $result = mysql_query("delete from viki_tin where id='".$id."'",$conn);
         if ($result){
@@ -71,13 +68,13 @@ switch ($_GET['action']){
 }
 
 if (isset($_POST['btnDel'])){
-    $cntDel=0;
-    $cntNotDel=0;
-    $cntParentExist=0;
-    if($_POST['chk']!=''){
+    $cntDel = 0;
+    $cntNotDel = 0;
+    $cntParentExist = 0;
+    if($_POST['chk'] != ''){
         foreach ($_POST['chk'] as $id){
             $r = getRecord("viki_tin","id=".$id);
-            @$result = mysql_query("delete from viki_tin where id='".$id."'",$conn);
+            @$result = mysql_query("delete from viki_tin where id = '".$id."'",$conn);
             if ($result){
                 if(file_exists('../web/'.$r['image'])) @unlink('../web/'.$r['image']);
                 if(file_exists('../web/'.$r['image_large'])) @unlink('../web/'.$r['image_large']);
@@ -86,8 +83,8 @@ if (isset($_POST['btnDel'])){
         }
 
         $errMsg = "Đã xóa ".$cntDel." phần tử.<br><br>";
-        $errMsg .= $cntNotDel>0 ? "Không thể xóa ".$cntNotDel." phần tử.<br>" : '';
-        $errMsg .= $cntParentExist>0 ? "Đang có danh mục con sử dụng ".$cntParentExist." phần tử." : '';
+        $errMsg .= $cntNotDel > 0 ? "Không thể xóa ".$cntNotDel." phần tử.<br>" : '';
+        $errMsg .= $cntParentExist > 0 ? "Đang có danh mục con sử dụng ".$cntParentExist." phần tử." : '';
     }else{
         $errMsg = "Hãy chọn trước khi xóa !";
     }

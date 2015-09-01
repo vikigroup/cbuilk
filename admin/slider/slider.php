@@ -1,6 +1,6 @@
 <?php
 if(isset($frame)==true){
-    check_permiss($_SESSION['kt_login_id'],17,'admin.php');
+    check_permiss($_SESSION['kt_login_id'], 7, 'admin.php');
 }else{
     header("location: ../admin.php");
 }
@@ -186,7 +186,7 @@ $(document).ready(function() {
                 <input type="hidden" name="act" value="slider">
                 <?
                // $pageindex = createPage(countRecord("tbl_slider",$where),"./?act=shop_category&cat=".$_REQUEST['cat']."&page=",$MAXPAGE,$page)?>
-                <?php echo pagesLinks($totalRows,$pageSize);// Trang đầu,  Trang kế, tang trước, trang cuối ??>
+                <?php echo pagesLinks($totalRows,$pageSize); ?>
                 <? if ($_REQUEST['code']==1) $errMsg = 'Cập nhật thành công.'?>
                 
                
@@ -324,7 +324,7 @@ $(document).ready(function() {
                          	<tr>
                               <td  class="PageNext" colspan="10" align="center" valign="middle">
 							  <div style="padding:5px;">
-							  <?php echo pagesLinks($totalRows,$pageSize);// Trang đầu,  Trang kế, tang trước, trang cuối ??>
+							  <?php echo pagesLinks($totalRows,$pageSize); ?>
                               </div>
                               </td>  							  
                             </tr>

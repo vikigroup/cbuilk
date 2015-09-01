@@ -1,6 +1,6 @@
 <?php
 if(isset($frame)==true){
-	check_permiss($_SESSION['kt_login_id'],1,'admin.php');
+	check_permiss($_SESSION['kt_login_id'],28,'admin.php');
 }else{
 	header("location: ../admin.php");
 }
@@ -339,7 +339,7 @@ $(document).ready(function() {
                         <tr>
                           <td  class="PageNext" colspan="11" align="center" valign="middle">
                           <div style="padding:5px;">
-                          <?php echo pagesLinks($totalRows,$pageSize);// Trang đầu,  Trang kế, tang trước, trang cuối ??>
+                          <?php echo pagesLinks($totalRows,$pageSize); ?>
                           </div>
                           </td>  							  
                         </tr>

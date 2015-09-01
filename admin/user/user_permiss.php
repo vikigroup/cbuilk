@@ -1,8 +1,8 @@
 <?php 
     if(isset($frame) == true){
-        check_permiss($_SESSION['kt_login_id'],5,'index.php');
+        check_permiss($_SESSION['kt_login_id'],5,'admin.php');
     }else{
-        header("location: ../index.php");
+        header("location: ../admin.php");
     }
 
   	$id = $_GET['id'];

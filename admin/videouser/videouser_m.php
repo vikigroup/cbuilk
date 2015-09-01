@@ -1,6 +1,6 @@
 <?php
 if(isset($frame)==true){
-	check_permiss($_SESSION['kt_login_id'],13,'admin.php');
+	check_permiss($_SESSION['kt_login_id'],26,'admin.php');
 }else{
 	header("location: ../admin.php");
 }

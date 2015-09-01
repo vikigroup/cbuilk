@@ -56,6 +56,18 @@ function btnSave_onclick(){
         }
     }
 
+    if($('#mobile').val() != '' && !isValidPhoneNumber($('#mobile').val())){
+        alert('"Điện thoại" không đúng định dạng!');
+        $('#mobile').focus();
+        return false;
+    }
+
+    if($('#cmnd').val() != '' && !isValidIdNumber($('#cmnd').val())){
+        alert('"Số CMND" không đúng định dạng!');
+        $('#cmnd').focus();
+        return false;
+    }
+
 	return true;
 }
 </script>
@@ -81,7 +93,7 @@ if(isset($_POST['btnSave'])){
 
     $listMod = array(11, 13, 15, 17, 19, 21, 23, 30);
     $listAdmin = array();
-    for($i = 1; $i <= 30; $i++) {
+    for($i = 1; $i <= 31; $i++) {
         array_push($listAdmin, $i);
     }
 
@@ -276,9 +288,9 @@ if(isset($_POST['btnSave'])){
                             <tr>
                                 <td valign="top" width="30%">&nbsp;</td>
                                 <td valign="middle" width="70%">
-                                    <input name="btnSave" type="submit" id="btnSave" value="Cập nhật" onclick="return btnSave_onclick();"/>
-                                    <input type="reset" class="button" value="Nhập lại"/>
-                                    <input type="button" id="close" class="button" value="Đóng" onclick="window.location.href = '<?php echo $root.'/admin/admin.php?act='.substr($frame, 0, strlen($frame) - 2); ?>';">
+                                    <input name="btnSave" type="submit" id="btnSave" class="nut_table" value="Cập nhật" onclick="return btnSave_onclick();"/>
+                                    <input type="reset" class="nut_table" value="Nhập lại"/>
+                                    <input type="button" id="close" class="nut_table" value="Đóng" onclick="window.location.href = '<?php echo $root.'/admin/admin.php?act='.substr($frame, 0, strlen($frame) - 2); ?>';">
                                 </td>
                             </tr>
                         </table>

@@ -111,7 +111,6 @@ if (isset($_POST['btn_dangnhap']) == true){
         <?php } ?>
 
         <div id="baoerror"><?php echo $error_khoa; ?></div>
-        <div id="baoerror"><?php echo $_SESSION['error']; unset ($_SESSION['error']); ?></div>
         <div id="baoerror"><?php echo $error_quyen; ?></div>
     </div>
 </div>

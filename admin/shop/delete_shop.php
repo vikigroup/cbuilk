@@ -6,8 +6,6 @@
 
 	include("../../lib/func.lib.php");
 
-	//require("check_login.php");
-	
 	check_permiss($_SESSION['kt_login_id'],2,'index.php');
 
 	

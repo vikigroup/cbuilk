@@ -307,3 +307,12 @@
     position: absolute;
     right: 0;
 }
+
+.divError {
+    font-size: 18px;
+    color: #F00;
+    clear: both;
+    float: none;
+    font-weight: bold;
+    padding: 5px 5px 20px;
+}

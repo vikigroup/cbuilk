@@ -1,6 +1,6 @@
 <?php
 if(isset($frame) == true){
-    check_permiss($_SESSION['kt_login_id'],17,'admin.php');
+    check_permiss($_SESSION['kt_login_id'],5,'admin.php');
 }else{
     header("location: ../admin.php");
 }
@@ -146,7 +146,7 @@ $(document).ready(function() {
                         }
                     }
 
-                    $pageSize = 50;
+                    $pageSize = 10;
                     $pageNum = 1;
                     $totalRows = 0;
 
@@ -287,7 +287,7 @@ $(document).ready(function() {
                                 </tr>
                             <?php } ?>
                                 <tr>
-                                    <td class="PageNext" colspan="9" align="center" valign="middle">
+                                    <td class="PageNext" colspan="11" align="center" valign="middle">
                                         <div style="padding:5px;">
                                             <?php echo pagesLinks($totalRows,$pageSize); ?>
                                         </div>

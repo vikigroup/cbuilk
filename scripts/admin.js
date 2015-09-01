@@ -109,7 +109,7 @@ function checkPermission(){
     var chosenPermiss = ""; //tạo chuỗi, insert vào bảng tbl_permiss
     var chosenCrud = ""; //tạo chuỗi, insert vào bảng tbl_crud
     var count = 0; //biến đếm số checkbox được chọn (thêm, sửa, xóa)
-    for(var i = 1; i <= 30; i++){
+    for(var i = 1; i <= 31; i++){
         if($('#chkCreate'+i).is(':checked') == true || $('#chkUpdate'+i).is(':checked') == true || $('#chkDelete'+i).is(':checked') == true){
             var isCreate = $('#chkCreate'+i).is(':checked') == true ? 1 : 0;
             if(isCreate == 1){
@@ -183,7 +183,7 @@ function setCrudPermission(isCheck, crud){
         title = "xóa";
     }
 
-    for(var i = 1; i <= 30; i++){
+    for(var i = 1; i <= 31; i++){
         if(isCheck == 0){
             $('#chk'+string+i).prop('checked', true);
         }
@@ -254,8 +254,18 @@ function validate(evt) {
 }
 
 function isValidEmailAddress(emailAddress) {
-    var regex = /\S+@\S+\.\S+/;
+    var regex = /^\S+@\S+\.\S+$/;
     return regex.test(emailAddress);
+}
+
+function isValidPhoneNumber(txtPhone) {
+    var pattern = /^[0-9]{10,11}$/;
+    return pattern.test(txtPhone);
+}
+
+function isValidIdNumber(txtIdNumber) {
+    var pattern = /^[0-9]{9,12}$/;
+    return pattern.test(txtIdNumber);
 }
 
 var popupWindow = null;

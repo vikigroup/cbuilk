@@ -1,6 +1,6 @@
 <?php
 if(isset($frame)==true){
-	check_permiss($_SESSION['kt_login_id'],17,'admin.php');
+	check_permiss($_SESSION['kt_login_id'],26,'admin.php');
 }else{
 	header("location: ../admin.php");
 }
@@ -276,7 +276,7 @@ $(document).ready(function() {
     
                     <? if ($_REQUEST['code']==1) $errMsg = 'Cập nhật thành công.'?>
     
-    					<div class="page_t" > <?php echo pagesLinks($totalRows,$pageSize);// Trang đầu,  Trang kế, tang trước, trang cuối ??></div>
+    					<div class="page_t" > <?php echo pagesLinks($totalRows,$pageSize); ?></div>
                         <? if ($_REQUEST['code']==1) $errMsg = 'Cập nhật thành công.'?>
     
     					 
