@@ -138,64 +138,64 @@ if (isset($_POST['btnDel'])){
 ?>
 
 <script>
-    $(document).ready(function() {
-        $("img.anhien").click(function(){
-            id = $(this).attr("value");
-            obj = this;
-            $.ajax({
-                url:'status.php',
-                data: 'id='+ id +'&table=tbl_item',
-                cache: false,
-                success: function(data){
-                    obj.src = data;
-                    if (data == "images/anhien_1.png") obj.title = "Nhắp vào để hiện";
-                    else obj.title = "Nhắp vào để ẩn";
-                }
-            });
-        });
-
-        $("img.hot").click(function(){
-            id = $(this).attr("value");
-            obj = this;
-            $.ajax({
-                url:'hot.php',
-                data: 'id='+ id +'&table=tbl_item',
-                cache: false,
-                success: function(data){
-                    obj.src = data;
-                    if (data == "images/noibat_1.png") obj.title = "Nhấn vào để cài đặt về mặc định";
-                    else obj.title = "Nhấn vào để cài đặt là danh mục tiêu biểu";
-                }
-            });
-        });
-
-        $("#chkall").click(function(){
-            var status = this.checked;
-            $("input[class='tai_c']").each(function(){this.checked = status;})
-        });
-
-        $("#btnDel").click(function(){
-            var num = $('input[name="chk[]"]:checked').length;
-            if(num == 0){
-                alert("Bạn chưa chọn bài viết cần xóa! \nXin vui lòng chọn ít nhất một bài viết.");
-                return false;
+$(document).ready(function() {
+    $("img.anhien").click(function(){
+        id = $(this).attr("value");
+        obj = this;
+        $.ajax({
+            url:'status.php',
+            data: 'id='+ id +'&table=tbl_item',
+            cache: false,
+            success: function(data){
+                obj.src = data;
+                if (data == "images/anhien_1.png") obj.title = "Nhắp vào để hiện";
+                else obj.title = "Nhắp vào để ẩn";
             }
-            else{
-                return confirm("Bạn chắc chắn muốn xóa?");
-            }
-        });
-
-        var isDeny = "<?php echo $_GET['deny']; ?>";
-        if(isDeny == 1){
-            alert("Bài viết này hiện đang bị khóa. \nBạn không được cấp quyền để xóa hay chỉnh sửa. Xin vui lòng liên hệ quản trị viên để biết thêm chi tiết.");
-        }
-
-        $("#ddCat").change(function(){
-            var id = $(this).val();
-            var table = "tbl_shop_category";
-            $("#ddCatch").load("getChild.php?table="+ table + "&id=" +id);
         });
     });
+
+    $("img.hot").click(function(){
+        id = $(this).attr("value");
+        obj = this;
+        $.ajax({
+            url:'hot.php',
+            data: 'id='+ id +'&table=tbl_item',
+            cache: false,
+            success: function(data){
+                obj.src = data;
+                if (data == "images/noibat_1.png") obj.title = "Nhấn vào để cài đặt về mặc định";
+                else obj.title = "Nhấn vào để cài đặt là danh mục tiêu biểu";
+            }
+        });
+    });
+
+    $("#chkall").click(function(){
+        var status = this.checked;
+        $("input[class='tai_c']").each(function(){this.checked = status;})
+    });
+
+    $("#btnDel").click(function(){
+        var num = $('input[name="chk[]"]:checked').length;
+        if(num == 0){
+            alert("Bạn chưa chọn bài viết cần xóa! \nXin vui lòng chọn ít nhất một bài viết.");
+            return false;
+        }
+        else{
+            return confirm("Bạn chắc chắn muốn xóa?");
+        }
+    });
+
+    var isDeny = "<?php echo $_GET['deny']; ?>";
+    if(isDeny == 1){
+        alert("Bài viết này hiện đang bị khóa. \nBạn không được cấp quyền để xóa hay chỉnh sửa. Xin vui lòng liên hệ quản trị viên để biết thêm chi tiết.");
+    }
+
+    $("#ddCat").change(function(){
+        var id = $(this).val();
+        var table = "tbl_shop_category";
+        $("#ddCatch").load("getChild.php?table="+ table + "&id=" +id);
+    });
+});
 </script>
 
 <?php
@@ -370,6 +370,9 @@ if ($_REQUEST['code'] == 1) {
                                     </td>
                                     <td align="center"><?=$row['dateAdd']?></td>
                                     <td align="center">
+                                        <a target="_blank" class="aShopPost" title="Xem bài viết" href="<?php echo $root.'/'.$row['subject'].'.html'; ?>">
+                                            <img class="imgViewIcon" src="images/view_icon.png"/>
+                                        </a>
                                         <a class="aShopPost<?php if($row['block'] == 1 && $_SESSION['kt_login_level'] != 3){echo ' disabled';} ?>" title="Cập nhật" href="admin.php?act=shop_post_m&cat=<?=$_REQUEST['cat']?>&page=<?=$_REQUEST['page']?>&id=<?=$row['id']?>">
                                             <img <?php if($row['block'] == 1 && $_SESSION['kt_login_level'] != 3){echo 'class="grayscale"';} ?> src="images/icon3.png"/>
                                         </a>
