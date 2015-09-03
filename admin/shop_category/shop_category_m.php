@@ -71,7 +71,7 @@ $(function(){
         }else{
             var id = "<?php echo $_GET['id'] ?>";
             var catNameAfter = catName.toLowerCase().replace(/ /g, "-");
-            var dataString = "string="+catNameAfter+"&id="+id+"&functionName="+"removeUnicode";
+            var dataString = "string="+catNameAfter+"&id="+id+"&isPost=0"+"&functionName="+"removeUnicode";
             $.ajax({
                 type: "POST",
                 url: "../lib/functions.php",
@@ -80,7 +80,7 @@ $(function(){
                     $("#subject, #txtSubjectSEO").val(x);
                     $('#title').val(catName);
                     $('#description').val(catName);
-                    $("#keyword").val(catName.toLowerCase()+", "+ x.toLowerCase().replace(/-/g, " ").replace(/[0-9]/g, "").trim());
+                    $("#keyword").val(catName.toLowerCase()+", "+ removeUnicode(catName));
                     $("#charlimitinfo").val(156 - catName.length);
                 }
             });
@@ -461,9 +461,9 @@ if (isset($_POST['btnSave'])){
                             <tr>
                                 <td valign="top" width="30%">&nbsp;</td>
                                 <td valign="middle" width="70%">
-                                    <input type="submit" name="btnSave" VALUE="Cập nhật" class="button" onclick="return btnSave_onclick();">
-                                    <input type="reset" class="button" value="Nhập lại">
-                                    <input type="button" id="close" class="button" value="Đóng" onclick="window.location.href = '<?php echo $root.'/admin/admin.php?act='.substr($frame, 0, strlen($frame) - 2); ?>';">
+                                    <input type="submit" name="btnSave" VALUE="Cập nhật" class="nut_table" onclick="return btnSave_onclick();">
+                                    <input type="reset" class="nut_table" value="Nhập lại">
+                                    <input type="button" id="close" class="nut_table" value="Đóng" onclick="window.location.href = '<?php echo $root.'/admin/admin.php?act='.substr($frame, 0, strlen($frame) - 2); ?>';">
                                 </td>
                             </tr>
                         </table>

@@ -71,7 +71,7 @@ if(isset($frame) == true){
             }else{
                 var id = "<?php echo $_GET['id'] ?>";
                 var catNameAfter = catName.toLowerCase().replace(/ /g, "-");
-                var dataString = "string="+catNameAfter+"&id="+id+"&functionName="+"removeUnicode";
+                var dataString = "string="+catNameAfter+"&id="+id+"&isPost=1"+"&functionName="+"removeUnicode";
                 $.ajax({
                     type: "POST",
                     url: "../lib/functions.php",
@@ -80,7 +80,7 @@ if(isset($frame) == true){
                         $("#subject, #txtSubjectSEO").val(x);
                         $('#title').val($('#txtName').val());
                         $('#description').val($('#txtDetailShort').val());
-                        $("#keyword").val(catName.toLowerCase()+", "+ x.toLowerCase().replace(/-/g, " ").replace(/[0-9]/g, "").trim());
+                        $("#keyword").val(catName.toLowerCase()+", "+ removeUnicode(catName));
                         $("#charlimitinfo").val(156 - catName.length);
                     }
                 });
@@ -227,6 +227,12 @@ if (isset($_POST['btnSave'])){
             $style              = $row['style'];
         }
     }
+}
+?>
+
+<?php
+if($block == 1 && $_SESSION['kt_login_level'] != 3){
+    header("Location: ".$root.'/admin/admin.php?act='.substr($frame, 0, strlen($frame) - 2).'&deny=1');
 }
 ?>
 
@@ -382,7 +388,7 @@ if (isset($_POST['btnSave'])){
                         </tr>
                         <tr>
                             <td colspan="2" valign="middle">
-                                <textarea name="txtDetailShort" style="width:780px; height:150px;" id="txtDetailShort"><?php echo $detail_short;?></textarea>
+                                <textarea name="txtDetailShort" style="width:780px; height:150px; padding: 5px;" id="txtDetailShort"><?php echo $detail_short;?></textarea>
                                 <p class="pGuideline"><i>Đoạn mô tả ngắn bài viết sẽ hiển thị ở trang tiếng Việt.</i></p>
                             </td>
                         </tr>
@@ -488,9 +494,9 @@ if (isset($_POST['btnSave'])){
                         <tr>
                             <td valign="top" width="30%">&nbsp;</td>
                             <td valign="middle" width="70%">
-                                <input type="submit" name="btnSave" value="Cập nhật" class="button" onclick="return btnSave_onclick();">
-                                <input type="reset" id="reset" class="button" value="Nhập lại">
-                                <input type="button" id="close" class="button" value="Đóng" onclick="window.location.href = '<?php echo $root.'/admin/admin.php?act='.substr($frame, 0, strlen($frame) - 2); ?>';">
+                                <input type="submit" name="btnSave" value="Cập nhật" class="nut_table" onclick="return btnSave_onclick();">
+                                <input type="reset" id="reset" class="nut_table" value="Nhập lại">
+                                <input type="button" id="close" class="nut_table" value="Đóng" onclick="window.location.href = '<?php echo $root.'/admin/admin.php?act='.substr($frame, 0, strlen($frame) - 2); ?>';">
                             </td>
                         </tr>
                         </table>

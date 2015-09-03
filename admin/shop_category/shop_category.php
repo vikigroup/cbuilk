@@ -1,4 +1,5 @@
 <?php
+//kiểm tra quyền truy cập
 if(isset($frame) == true){
     check_permiss($_SESSION['kt_login_id'],1,'admin.php');
 
@@ -6,6 +7,7 @@ if(isset($frame) == true){
     header("location: ../admin.php");
 }
 
+//tìm kiếm
 if(isset($_POST['tim']) == true){
     if($_POST['tukhoa'] != NULL && $_POST['tukhoa'] != 'Từ khóa...'){$tukhoa = $_POST['tukhoa'];} else{$tukhoa = -1;}
     $_SESSION['kt_tukhoa_bignew'] = $tukhoa;
@@ -20,6 +22,7 @@ if(isset($_POST['tim']) == true){
     $_SESSION['kt_ddCatch_bignew'] = $parent1;
 }
 
+//hiển thị tất cả
 if(isset($_POST['reset']) == true){
     $_POST['ddCatch'] = -1;
     $_SESSION['kt_tukhoa_bignew'] = -1;
@@ -30,6 +33,7 @@ if(isset($_POST['reset']) == true){
     header("Location: ".$root."/admin/admin.php?act=".$_GET['act']."&pageNum=1");
 }
 
+//cài đặt tự chọn hiển thị dữ liệu
 if($_SESSION['kt_tukhoa_bignew'] == NULL){$tukhoa = -1;}
 if($_SESSION['kt_tukhoa_bignew'] != NULL){$tukhoa = $_SESSION['kt_tukhoa_bignew'];}
 if($_SESSION['kt_parent_bignew'] == NULL){$parent = -1;}
@@ -54,6 +58,44 @@ if($tang == 0){$ks = 'DESC';}
 else if($tang == 1){$ks = 'ASC';}
 else $ks = 'DESC';
 
+//đường dẫn tập tin hình ảnh mặc định
+$noimgs = "imgs/no_image.gif";
+
+//cài đặt hiển thị dữ liệu
+$pageSize = 10;
+$pageNum = 1;
+$totalRows = 0;
+
+if (isset($_GET['pageNum']) == true) $pageNum = $_GET['pageNum'];
+if ($pageNum <= 0) $pageNum = 1;
+$startRow = ($pageNum-1) * $pageSize;
+
+if($parent != -1 || $parent1 != -1) {
+    if($parent1 != '-1') $parentstrt = "$parent1";
+    else $parentstrt = getParent("tbl_shop_category",$parent);
+    $parentstrtAfter = optimizeString($parentstrt);
+    if($parent1 != '-1'){
+        $parentstrt = "$parent1";
+        $subParentString = parentString($parent1);
+    }
+
+    if($subParentString != ''){
+        $where = "1=1   and (id='{$tukhoa}' or name LIKE '%$tukhoa%' or '{$tukhoa}'=-1) and  (parent in ({$parentstrtAfter}) or id in ({$subParentString}) or id=$parent1 or id=$parent)";
+    }
+    else{
+        $where = "1=1   and (id='{$tukhoa}' or name LIKE '%$tukhoa%' or '{$tukhoa}'=-1) and  (parent in ({$parentstrtAfter}) or id=$parent1 or id=$parent)";
+    }
+}
+else $where = "1=1   and (id='{$tukhoa}' or name LIKE '%$tukhoa%' or '{$tukhoa}'=-1)";
+
+$where .= " AND ( status='{$anhien}' or '{$anhien}'=-1)  AND ( hot='{$noibat}' or '{$noibat}'=-1) AND id != 1";
+
+$MAXPAGE = 1;
+$totalRows = countRecord("tbl_shop_category",$where);
+
+if ($_REQUEST['cat'] != '') $where = "parent=".$_REQUEST['cat'];
+
+// xóa cụ thể
 switch($_GET['action']){
     case 'del' :
         $id = $_GET['id'];
@@ -66,18 +108,25 @@ switch($_GET['action']){
                 if ($result){
                     if(file_exists('../'.$r['image'])) @unlink('../'.$r['image']);
                     if(file_exists('../'.$r['image_large'])) @unlink('../'.$r['image_large']);
-                    $errMsg = '<p class="pAlert pSuccess"><strong class="strongAlert strongSuccess">Chúc mừng!</strong> Bạn đã xóa thành công. <span class="xClose" title="Đóng" onclick="$(this).parent().hide();">x</span></p>';
-                }else $errMsg = '<p class="pAlert pError"><strong class="strongAlert strongError">Cảnh báo!</strong> Hệ thống không thể xóa dữ liệu! Xin vui lòng tải lại trang và thử lại. <span class="xClose" title="Đóng" onclick="$(this).parent().hide();">x</span></p>';
+                    $status = 1;
+                    $errMsg = 'Chúc mừng! Bạn đã xóa thành công.';
+                }else{
+                    $status = 3;
+                    $errMsg = 'Cảnh báo! Hệ thống không thể xóa dữ liệu! Xin vui lòng tải lại trang và thử lại.';
+                }
             }else{
-                $errMsg = '<p class="pAlert pCảnh báo"><strong class="strongAlert strongWarning">Cảnh báo!</strong> Danh mục này hiện có danh mục con đang sử dụng! Xin vui lòng xóa danh mục con trước khi thực hiện xóa danh mục này. <span class="xClose" title="Đóng" onclick="$(this).parent().hide();">x</span></p>';
+                $status = 3;
+                $errMsg = 'Cảnh báo! Danh mục này hiện có danh mục con đang sử dụng! Xin vui lòng xóa danh mục con trước khi thực hiện xóa danh mục này.';
             }
             break;
         }
         else{
-            $errMsg = '<p class="pAlert pError"><strong class="strongAlert strongError">Cảnh báo!</strong> Danh mục bạn đang xóa hiện là danh mục hệ thống nên thao tác này bị hủy! <span class="xClose" title="Đóng" onclick="$(this).parent().hide();">x</span></p>';
+            $status = 0;
+            $errMsg = 'Lỗi! Danh mục bạn đang xóa hiện là danh mục hệ thống nên thao tác này bị hủy!';
         }
 }
 
+// xóa chọn
 if(isset($_POST['btnDel'])){
     $cntDel = 0;
     $cntNotDel = 0;
@@ -106,10 +155,12 @@ if(isset($_POST['btnDel'])){
                 array_push($mySubCatArr, $categoryName);
             }
         }
+        $status = 2;
         $errMsg = "Hệ thống đã xóa ".$cntDel." danh mục: ".implode(', ', $myDeletedArr)."<br/>";
         $errMsg .= $cntNotDel > 0 ? "Không thể xóa ".$cntNotDel." danh mục: ".implode(', ', $myUnDeletedArr).".<br/>" : '';
         $errMsg .= $cntParentExist > 0 ? "Bạn không thể xóa danh mục đang có danh mục con sử dụng. Gồm ".$cntParentExist." danh mục: ".implode(', ', $mySubCatArr) : '';
     }else{
+        $status = 0;
         $errMsg = 'Bạn chưa chọn danh mục cần xóa! Xin vui lòng chọn ít nhất một danh mục.';
     }
 }
@@ -162,23 +213,30 @@ $(document).ready(function() {
             return confirm("Bạn chắc chắn muốn xóa?");
         }
     });
-});
-</script>
-<script>
-$(document).ready(function() {
-	$("#ddCat").change(function(){ 
-		var id = $(this).val();
-		var table = "tbl_shop_category";
-		$("#ddCatch").load("getChild.php?table="+ table + "&id=" +id);
-	});
+
+    $("#ddCat").change(function(){
+        var id = $(this).val();
+        var table = "tbl_shop_category";
+        $("#ddCatch").load("getChild.php?table="+ table + "&id=" +id);
+    });
 });
 </script>
 
-<?php if( $errMsg != ""){ ?>
-<div class="alert alert-block no-radius fade in">
-    <button type="button" class="close" data-dismiss="alert"><span class="mini-icon cross_c"></span></button>
-    <p class="pAlert pInfo"><strong class="strongAlert strongInfo">Thông báo</strong><br/> <?php echo $errMsg; ?> <span class="xClose" title="Đóng" onclick="$(this).parent().hide();">x</span></p>
-</div>
+<?php if ($_REQUEST['code'] == 1){
+    $status = 1;
+    $errMsg = 'Chúc mừng! Bạn đã cập nhật danh mục thành công.';
+}
+?>
+
+<?php if($errMsg != ""){ ?>
+    <div class="alert alert-block no-radius fade in">
+        <button type="button" class="close" data-dismiss="alert"><span class="mini-icon cross_c"></span></button>
+        <p class="pAlert <?php if($status == 0){echo 'pError';} else if($status == 1){echo 'pSuccess';} else if($status == 2){echo 'pInfo';} else{echo 'pWarning';}; ?>">
+            <strong class="strongAlert <?php if($status == 0){echo 'strongError';} else if($status == 1){echo 'strongSuccess';} else if($status == 2){echo 'strongInfo';} else{echo 'strongWarning';}; ?>">Thông báo</strong><br/>
+            <?php echo $errMsg; ?>
+            <span class="xClose" title="Đóng" onclick="$(this).parent().hide();">x</span>
+        </p>
+    </div>
 <?php } ?>
 
 <div class="row-fluid">
@@ -186,45 +244,9 @@ $(document).ready(function() {
         <div class="box-widget">
             <div class="widget-container">
                 <div class="widget-block">
-                    <?
-                    $pageSize = 10;
-                    $pageNum = 1;
-                    $totalRows = 0;
-
-                    if (isset($_GET['pageNum']) == true) $pageNum = $_GET['pageNum'];
-                    if ($pageNum <= 0) $pageNum = 1;
-                    $startRow = ($pageNum-1) * $pageSize;
-
-                    if($parent != -1 || $parent1 != -1) {
-                        if($parent1 != '-1') $parentstrt = "$parent1";
-                        else $parentstrt = getParent("tbl_shop_category",$parent);
-                        $parentstrtAfter = optimizeString($parentstrt);
-                        if($parent1 != '-1'){
-                            $parentstrt = "$parent1";
-                            $subParentString = parentString($parent1);
-                        }
-
-                        if($subParentString != ''){
-                            $where = "1=1   and (id='{$tukhoa}' or name LIKE '%$tukhoa%' or '{$tukhoa}'=-1) and  (parent in ({$parentstrtAfter}) or id in ({$subParentString}) or id=$parent1 or id=$parent)";
-                        }
-                        else{
-                            $where = "1=1   and (id='{$tukhoa}' or name LIKE '%$tukhoa%' or '{$tukhoa}'=-1) and  (parent in ({$parentstrtAfter}) or id=$parent1 or id=$parent)";
-                        }
-                    }
-                    else $where = "1=1   and (id='{$tukhoa}' or name LIKE '%$tukhoa%' or '{$tukhoa}'=-1)";
-
-                    $where .= " AND ( status='{$anhien}' or '{$anhien}'=-1)  AND ( hot='{$noibat}' or '{$noibat}'=-1) AND id != 1";
-
-                    $MAXPAGE = 1;
-                    $totalRows = countRecord("tbl_shop_category",$where);
-
-                    if ($_REQUEST['cat'] != '') $where = "parent=".$_REQUEST['cat']; ?>
-                    <form method="POST" action="" id="frmForm" name="frmForm" enctype="multipart/form-data">
+                    <form method="POST" action="admin.php?act=shop_category" id="frmForm" name="frmForm" enctype="multipart/form-data">
                         <input type="hidden" name="page" value="<?=$page?>">
                         <input type="hidden" name="act" value="shop_category">
-
-                        <? if ($_REQUEST['code'] == 1) $errMsg = '<p class="pAlert pSuccess"><strong class="strongAlert strongSuccess">Chúc mừng!</strong> Bạn đã cập nhật thành công. <span class="xClose" title="Đóng" onclick="$(this).parent().hide();">x</span></p>'; ?>
-
                         <table width="100%" class="admin_table">
                             <thead>
                                 <tr align="center" >

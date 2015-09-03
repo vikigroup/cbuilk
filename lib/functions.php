@@ -85,9 +85,14 @@ function removeUnicode(){
     $id = filter_input(INPUT_POST, 'id');
     $string = filter_input(INPUT_POST, 'string');
     $subject = remove_unicode($string);
-    $check = selectCondition("tbl_shop_category", "subject = '".$subject."' AND id != '".$id."'");
+    $isPost = filter_input(INPUT_POST, 'isPost');
+    $table = "tbl_shop_category";
+    if($isPost == 1){
+        $table = "tbl_item";
+    }
+    $check = selectCondition($table, "subject = '".$subject."' AND id != '".$id."'");
     if($check == 1){
-        $idCate = maxID("id", "tbl_shop_category")+1;
+        $idCate = maxID("id", $table)+1;
         $subject .= "-".$idCate;
     }
     echo $subject;

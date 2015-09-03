@@ -1,11 +1,13 @@
 <?php
+//kiểm tra quyền truy cập
 if(isset($frame) == true){
     check_permiss($_SESSION['kt_login_id'], 30, 'admin.php');
 }else{
     header("location: ../admin.php");
 }
 
-if(isset($_POST['tim']) == true){//isset kiem tra submit
+//tìm kiếm
+if(isset($_POST['tim']) == true){ //isset kiem tra submit
     if($_POST['tukhoa'] != ""){$tukhoa = $_POST['tukhoa'];} else{$tukhoa = -1;}
     if($tukhoa == "Từ khóa...") $tukhoa = "";
     $_SESSION['kt_tukhoa_bignew'] = $tukhoa;
@@ -21,6 +23,7 @@ if(isset($_POST['tim']) == true){//isset kiem tra submit
     $_SESSION['kt_ddCatch_bignew'] = $parent1;
 }
 
+//hiển thị tất cả
 if(isset($_POST['reset']) == true){
     $_POST['ddCatch'] = -1;
     $_SESSION['kt_tukhoa_bignew'] = -1;
@@ -28,6 +31,8 @@ if(isset($_POST['reset']) == true){
     $_SESSION['kt_ddCatch_bignew'] = -1;
 
 }
+
+//cài đặt tự chọn hiển thị dữ liệu
 if($_SESSION['kt_tukhoa_bignew'] == NULL){$tukhoa = -1;}
 if($_SESSION['kt_tukhoa_bignew'] != NULL){$tukhoa = $_SESSION['kt_tukhoa_bignew'];}
 if($_SESSION['kt_parent_bignew'] == NULL){$parent = -1;}
@@ -51,6 +56,85 @@ settype($noibat, "int");
 if($tang == 0){$ks = 'DESC';}
 else if($tang == 1){$ks = 'ASC';}
 else $ks = 'DESC';
+
+//đường dẫn tập tin hình ảnh mặc định
+$noimgs = "imgs/no_images.png";
+
+//cài đặt hiển thị dữ liệu
+$pageSize = 10;
+$pageNum = 1;
+$totalRows = 0;
+
+if (isset($_GET['pageNum']) == true) $pageNum = $_GET['pageNum'];
+
+if ($pageNum <= 0) $pageNum = 1;
+
+$startRow = ($pageNum - 1) * $pageSize;
+
+if($parent != -1 || $parent1 != -1) {
+    if($parent1 != '-1') $parenstrt = "$parent1";
+    else $parenstrt = optimizeString(getParent("tbl_shop_category",$parent));
+    $where = "1 = 1 and (id = '{$tukhoa}' or name LIKE '%$tukhoa%' or '{$tukhoa}' = -1) and  (parent1 in ({$parenstrt}) or parent in ({$parenstrt}) or id = $parent or id = $parent1)";
+}
+else $where = "1 = 1 and (id = '{$tukhoa}' or name LIKE '%$tukhoa%' or '{$tukhoa}' = -1)";
+
+$where .= " AND ( status = '{$anhien}' or '{$anhien}' = -1)  AND ( hot = '{$noibat}' or '{$noibat}' = -1)";
+$MAXPAGE = 1;
+$totalRows = countRecord("tbl_item",$where);
+
+if ($_REQUEST['cat'] != '') $where = "parent = ".$_REQUEST['cat'];
+
+// xóa cụ thể
+switch ($_GET['action']){
+    case 'del' :
+        $id = $_GET['id'];
+        $r = getRecord("tbl_item","id=".$id);
+        if($r['block'] == 0){
+            $resultParent = 0;
+            @$result = mysql_query("delete from tbl_item where id='".$id."'",$conn);
+
+            if ($result){
+                if(file_exists('../web/'.$r['image'])) @unlink('../web/'.$r['image']);
+                if(file_exists('../web/'.$r['image_large'])) @unlink('../web/'.$r['image_large']);
+                $status = 1;
+                $errMsg = 'Chúc mừng! Bạn đã xóa thành công.';
+            }else{
+                $status = 3;
+                $errMsg = 'Cảnh báo! Hệ thống không thể xóa dữ liệu! Xin vui lòng tải lại trang và thử lại.';
+            }
+            break;
+        }else{
+            header("Location: ".$root.'/admin/admin.php?act=shop_post&deny=1');
+        }
+}
+
+// xóa chọn
+if (isset($_POST['btnDel'])){
+    $cntDel = 0;
+    $cntNotDel = 0;
+    $cntParentExist = 0;
+    if($_POST['chk'] != ''){
+        foreach ($_POST['chk'] as $id){
+            $r = getRecord("tbl_item","id=".$id);
+            $resultParent = 0;
+            @$result = mysql_query("delete from tbl_item where id='".$id."'",$conn);
+
+            if ($result){
+                if(file_exists('../web/'.$r['image'])) @unlink('../web/'.$r['image']);
+                if(file_exists('../web/'.$r['image_large'])) @unlink('../web/'.$r['image_large']);
+                $cntDel++;
+            }else $cntNotDel++;
+        }
+
+        $status = 2;
+        $errMsg = "Hệ thống đã xóa ".$cntDel." bài viết: ".implode(', ', $myDeletedArr)."<br/>";
+        $errMsg .= $cntNotDel > 0 ? "Không thể xóa ".$cntNotDel." danh mục: ".implode(', ', $myUnDeletedArr).".<br/>" : '';
+        $errMsg .= $cntParentExist > 0 ? "Bạn không thể xóa danh mục đang có danh mục con sử dụng. Gồm ".$cntParentExist." danh mục: ".implode(', ', $mySubCatArr) : '';
+    }else{
+        $status = 0;
+        $errMsg = 'Bạn chưa chọn bài viết cần xóa! Xin vui lòng chọn ít nhất một bài viết.';
+    }
+}
 ?>
 
 <script>
@@ -100,10 +184,12 @@ else $ks = 'DESC';
                 return confirm("Bạn chắc chắn muốn xóa?");
             }
         });
-    });
-</script>
-<script>
-    $(document).ready(function() {
+
+        var isDeny = "<?php echo $_GET['deny']; ?>";
+        if(isDeny == 1){
+            alert("Bài viết này hiện đang bị khóa. \nBạn không được cấp quyền để xóa hay chỉnh sửa. Xin vui lòng liên hệ quản trị viên để biết thêm chi tiết.");
+        }
+
         $("#ddCat").change(function(){
             var id = $(this).val();
             var table = "tbl_shop_category";
@@ -112,10 +198,21 @@ else $ks = 'DESC';
     });
 </script>
 
-<?php if( $errMsg != ""){ ?>
+<?php
+if ($_REQUEST['code'] == 1) {
+    $status = 1;
+    $errMsg = 'Chúc mừng! Bạn đã cập nhật thành công.';
+}
+?>
+
+<?php if($errMsg != ""){ ?>
     <div class="alert alert-block no-radius fade in">
         <button type="button" class="close" data-dismiss="alert"><span class="mini-icon cross_c"></span></button>
-        <p class="pAlert pInfo"><strong class="strongAlert strongInfo">Thông báo</strong><br/> <?php echo $errMsg; ?> <span class="xClose" title="Đóng" onclick="$(this).parent().hide();">x</span></p>
+        <p class="pAlert <?php if($status == 0){echo 'pError';} else if($status == 1){echo 'pSuccess';} else if($status == 2){echo 'pInfo';} else{echo 'pWarning';}; ?>">
+            <strong class="strongAlert <?php if($status == 0){echo 'strongError';} else if($status == 1){echo 'strongSuccess';} else if($status == 2){echo 'strongInfo';} else{echo 'strongWarning';}; ?>">Thông báo</strong><br/>
+            <?php echo $errMsg; ?>
+            <span class="xClose" title="Đóng" onclick="$(this).parent().hide();">x</span>
+        </p>
     </div>
 <?php } ?>
 
@@ -124,78 +221,9 @@ else $ks = 'DESC';
         <div class="box-widget">
             <div class="widget-container">
                 <div class="widget-block">
-                    <?
-                    switch ($_GET['action']){
-                        case 'del' :
-                            $id = $_GET['id'];
-                            $r = getRecord("tbl_item","id=".$id);
-                            $resultParent = 0;
-                            @$result = mysql_query("delete from tbl_item where id='".$id."'",$conn);
-
-                            if ($result){
-                                if(file_exists('../web/'.$r['image'])) @unlink('../web/'.$r['image']);
-                                if(file_exists('../web/'.$r['image_large'])) @unlink('../web/'.$r['image_large']);
-                                $errMsg = "Đã xóa thành công.";
-                                echo '<script>window.location="admin.php?act=shop_post&cat='.$_REQUEST['cat'].'&page='.$_REQUEST['page'].'&code=1"</script>';
-                            }else $errMsg = "Không thể xóa dữ liệu !";
-                            break;
-                    }
-
-                    if (isset($_POST['btnDel'])){
-                        $cntDel = 0;
-                        $cntNotDel = 0;
-                        $cntParentExist = 0;
-                        if($_POST['chk'] != ''){
-                            foreach ($_POST['chk'] as $id){
-                                $r = getRecord("tbl_item","id=".$id);
-                                $resultParent = 0;
-                                @$result = mysql_query("delete from tbl_item where id='".$id."'",$conn);
-
-                                if ($result){
-                                    if(file_exists('../web/'.$r['image'])) @unlink('../web/'.$r['image']);
-                                    if(file_exists('../web/'.$r['image_large'])) @unlink('../web/'.$r['image_large']);
-                                    $cntDel++;
-                                }else $cntNotDel++;
-                            }
-
-                            $errMsg = "Đã xóa ".$cntDel." phần tử.<br><br>";
-                            $errMsg .= $cntNotDel > 0 ? "Không thể xóa ".$cntNotDel." phần tử.<br>" : '';
-                            $errMsg .= $cntParentExist > 0 ? "Đang có danh mục con sử dụng ".$cntParentExist." phần tử." : '';
-                            echo '<script>window.location="admin.php?act=shop_post&cat='.$_REQUEST['cat'].'&page='.$_REQUEST['page'].'&code=1"</script>';
-                        }else{
-                            $errMsg = "Hãy chọn trước khi xóa !";
-                        }
-                    }
-
-                    $pageSize = 10;
-                    $pageNum = 1;
-                    $totalRows = 0;
-
-                    if (isset($_GET['pageNum']) == true) $pageNum = $_GET['pageNum'];
-
-                    if ($pageNum <= 0) $pageNum = 1;
-
-                    $startRow = ($pageNum - 1) * $pageSize;
-
-                    if($parent != -1 || $parent1 != -1) {
-                        if($parent1 != '-1') $parenstrt = "$parent1";
-                        else $parenstrt = optimizeString(getParent("tbl_shop_category",$parent));
-                        $where = "1 = 1 and (id = '{$tukhoa}' or name LIKE '%$tukhoa%' or '{$tukhoa}' = -1) and  (parent1 in ({$parenstrt}) or parent in ({$parenstrt}) or id = $parent or id = $parent1)";
-                    }
-                    else $where = "1 = 1 and (id = '{$tukhoa}' or name LIKE '%$tukhoa%' or '{$tukhoa}' = -1)";
-
-                    $where .= " AND ( status = '{$anhien}' or '{$anhien}' = -1)  AND ( hot = '{$noibat}' or '{$noibat}' = -1)";
-                    $MAXPAGE = 1;
-                    $totalRows = countRecord("tbl_item",$where);
-
-                    if ($_REQUEST['cat'] != '') $where = "parent = ".$_REQUEST['cat']; ?>
-
                     <form method="POST" action="admin.php?act=shop_post" name="frmForm" enctype="multipart/form-data">
                         <input type="hidden" name="page" value="<?=$page?>">
                         <input type="hidden" name="act" value="shop_post">
-
-                        <? if ($_REQUEST['code'] == 1) $errMsg = '<p class="pAlert pSuccess"><strong class="strongAlert strongSuccess">Chúc mừng!</strong> Bạn đã cập nhật thành công. <span class="xClose" title="Đóng" onclick="$(this).parent().hide();">x</span></p>'; ?>
-
                         <table width="100%"  class="admin_table">
                             <thead>
                             <tr align="center" >
@@ -304,7 +332,7 @@ else $ks = 'DESC';
                             $i = 0;
                             while($row = mysql_fetch_array($result)){
                                 $parent = getRecord('tbl_item','id = '.$row['parent']);
-                                $color = $i++%2 ? "#d5d5d5" : "#e5e5e5"; ?>
+                                $color = $i++ % 2 ? "#d5d5d5" : "#e5e5e5"; ?>
                                 <tr>
                                     <td align="center">
                                         <input type="checkbox" name="chk[]" value="<?=$row['id']?>" class="tai_c"/>
@@ -342,11 +370,11 @@ else $ks = 'DESC';
                                     </td>
                                     <td align="center"><?=$row['dateAdd']?></td>
                                     <td align="center">
-                                        <a title="Cập nhật" href="admin.php?act=shop_post_m&cat=<?=$_REQUEST['cat']?>&page=<?=$_REQUEST['page']?>&id=<?=$row['id']?>">
-                                            <img src="images/icon3.png"/>
+                                        <a class="aShopPost<?php if($row['block'] == 1 && $_SESSION['kt_login_level'] != 3){echo ' disabled';} ?>" title="Cập nhật" href="admin.php?act=shop_post_m&cat=<?=$_REQUEST['cat']?>&page=<?=$_REQUEST['page']?>&id=<?=$row['id']?>">
+                                            <img <?php if($row['block'] == 1 && $_SESSION['kt_login_level'] != 3){echo 'class="grayscale"';} ?> src="images/icon3.png"/>
                                         </a>
-                                        <a title="Xóa" href="admin.php?act=shop_post&action=del&page=<?=$_REQUEST['page']?>&id=<?=$row['id']?>" onclick="return confirm('Bạn chắc chắn muốn xoá?');">
-                                            <img src="images/icon4.png" width="20" border="0"/>
+                                        <a class="aShopPost<?php if($row['block'] == 1 && $_SESSION['kt_login_level'] != 3){echo ' disabled';} ?>"  title="Xóa" href="admin.php?act=shop_post&action=del&page=<?=$_REQUEST['page']?>&id=<?=$row['id']?>" onclick="return confirm('Bạn chắc chắn muốn xoá?');">
+                                            <img <?php if($row['block'] == 1 && $_SESSION['kt_login_level'] != 3){echo 'class="grayscale"';} ?> src="images/icon4.png" width="20" border="0"/>
                                         </a>
                                     </td>
                                 </tr>

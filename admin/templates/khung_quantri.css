@@ -54,7 +54,7 @@
 	height: 100px;
 	background-color: #E8E8E8;
 	border: 1px solid #999;
-    padding: 0 5px;
+    padding: 5px;
 }
 .table_list {
 	width: 300px;
@@ -315,4 +315,23 @@
     float: none;
     font-weight: bold;
     padding: 5px 5px 20px;
+}
+
+a.disabled {
+    pointer-events: none;
+    cursor: default;
+}
+
+.aShopPost{
+    text-decoration: none !important;
+}
+
+.grayscale{
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+    -o-filter: grayscale(100%);
+    filter: grayscale(100%);
+    filter: url(grayscale.svg); /* Firefox 4+ */
+    filter: gray; /* IE 6-9 */
 }
