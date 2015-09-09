@@ -67,6 +67,10 @@ if($functionName == "removeUnicode"){
     removeUnicode();
 }
 
+if($functionName == "getTemplate"){
+    getTemplate();
+}
+
 function connect(){
     // Create connection
     $conn = new mysqli($GLOBALS['hostname'], $GLOBALS['username'], $GLOBALS['password'], $GLOBALS['databasename']);
@@ -78,6 +82,21 @@ function connect(){
     }
     else{
         return $conn;
+    }
+}
+
+function getTemplate(){
+    $style = filter_input(INPUT_POST, 'style');
+    $result = selectData("tbl_template", "style = '".$style."' AND status = 0 ORDER BY name COLLATE utf8_unicode_ci");
+    if($result != 0){
+        $data = "";
+        while($row = $result->fetch_assoc()) {
+            $data .= $row['id'].",".$row['name'].";";
+        }
+        echo substr($data, 0, strlen($data) - 1);
+    }
+    else{
+        echo 0;
     }
 }
 
@@ -316,13 +335,12 @@ function updateCustomerActive(){
 
 //------------------------ admin functions ------------------------//
 function emptySessionCategory(){
-    $_SESSION['kt_tukhoa_bignew']=-1;
-    $_SESSION['kt_parent_bignew']=-1;
-    $_SESSION['kt_ddCatch_bignew']=-1;
-    unset($_SESSION['error']);
+    $_SESSION['kt_tukhoa_bignew'] = -1;
+    $_SESSION['kt_parent_bignew'] = -1;
+    $_SESSION['kt_ddCatch_bignew'] = -1;
+    $_SESSION['error'] = '';
 }
-//------------------------ admin functions ------------------------//
-
+//------------------------ query functions ------------------------//
 function update($table, $field, $condition){
     $conn = connect();
     $sql = "UPDATE ".$table." SET ".$field." WHERE ".$condition;

@@ -13,8 +13,8 @@
 <base href="<?php echo $host_link_full ; ?>"  />
 <?php include("content/title.php");?>
 <?php
-	$tm=$url;  
-	$template="temp".$tm;
+	$tm = $url;
+	$template = "temp".$tm;
 ?>
 <?php include("content/".$template."/header.php");?>
 

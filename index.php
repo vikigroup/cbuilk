@@ -153,6 +153,13 @@ $myProduct = getRecord('tbl_item', "subject='".$_GET['tensanpham']."'");
 
 <?php include("module/footer.php"); ?>
 <?php require("common_end.php"); ?>
+
+<script lang="javascript">
+    (function() {var _h1= document.getElementsByTagName('title')[0] || false;
+        var product_name = ''; if(_h1){product_name= _h1.textContent || _h1.innerText;}var ga = document.createElement('script'); ga.type = 'text/javascript';
+        ga.src = '//live.vnpgroup.net/js/web_client_box.php?hash=9bae01b71fdfa05509fca3c431ede45b&data=eyJzc29faWQiOjMwNTg2ODYsImhhc2giOiI0NGY5NGYyMTEyMGQ4ZDZhNzJhMGI3NzliZTg0MTE4YyJ9&pname='+product_name;
+        var s = document.getElementsByTagName('script');s[0].parentNode.insertBefore(ga, s[0]);})();
+</script>
 </body>
 </html>
 

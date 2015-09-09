@@ -25,13 +25,12 @@ if (isset($_POST['btn_dangnhap']) == true){
      }
 
 	 if($coloi == FALSE) {
-		 $sql = sprintf("SELECT * FROM tbl_users WHERE username='%s'", $username);
+		 $sql = sprintf("SELECT * FROM tbl_users WHERE username = '%s'", $username);
 		 $user = mysql_query($sql);
 		 $row_user = mysql_fetch_assoc($user);
 		 if(mysql_num_rows($user) <= 0)$error_username1 = "Tên đăng nhập không đúng!";
 		 else if(check_table('tbl_users',"username='".$username."' AND password='".$password."'",'id') == true)
 		 	{$coloi = true; $error_username1 = "Tài khoản và mật khẩu không đúng!";}
-//		 else if($row_user['idgroup'] == 1 || $row_user['idgroup'] == 0) $error_quyen = "Bạn không có quyền vào phần quản trị này.";
 		 else if($row_user['status'] == 0) $error_khoa = "Tài khoản của bạn đã bị khóa, vui lòng liên hệ quản trị viên để biết thêm chi tiết.";
          else{
              $sql = sprintf("SELECT * FROM tbl_users WHERE username='%s' AND password ='%s'",$username, $password);
@@ -58,11 +57,11 @@ if (isset($_POST['btn_dangnhap']) == true){
                  if(strlen($_SESSION['back']) > 0){
                      $back = $_SESSION['back'];
                      unset($_SESSION['back']);
-                     header("location:$back");
+                     header("location: $back");
                  }else{
                      $_SESSION['kt_login_username'] = $row_user['username'];
                  }
-             }else{header("location:$linkroot"."");}
+             }else{header("location: $linkroot"."");}
          }//else
 	 }//if ($coloi==FALSE)
 }// if isset

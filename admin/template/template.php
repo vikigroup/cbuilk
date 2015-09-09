@@ -274,7 +274,7 @@ border-top: 1px solid #dddddd;
                                     </td>
                                     <td align="center">
                                         <?php if($row['image']==true){ ?>
-                                        <a onclick="positionedPopup (this.href,'myWindow','500','400','100','400','yes');return false" href="<?=$row['hinh1']?>" title="Click vào xem ảnh">
+                                        <a onclick="positionedPopup (this.href,'myWindow','500','400','100','400','yes');return false" href="../<?=$row['image']?>" title="Click vào xem ảnh">
                                         <img src="../<?=$row['image']?>" width="80" height="80" border="0" class="hinh" />
                                         </a>
                                       <?php }else{?>

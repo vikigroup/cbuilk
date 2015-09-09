@@ -34,13 +34,13 @@
         <table width="100%">
            <tr>
               <td align="center" valign="top">
-                  <?php if($_SESSION['kt_login_id'] != "") include("processFrame.php"); ?>
+                  <?php if($_SESSION['kt_login_id'] != ""){ include("processFrame.php"); ?>
+                  <?php if($_SESSION['error'] != ""){ ?>
+                      <div class="divError"><?php echo $_SESSION['error']; ?></div>
+                  <?php }} ?>
                </td>
            </tr>
         </table>
-        <?php if($_SESSION['error'] != ""){ ?>
-        <div class="divError"><?php echo $_SESSION['error']; ?></div>
-        <?php } ?>
     </div><!--cen -->
     <?php include("conts.php"); ?>
     <div id="ketop"></div><!--ketop -->

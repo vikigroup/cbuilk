@@ -1,3 +1,51 @@
+//------------------------ popup functions ------------------------//
+function lightbox_open(idLight, idFade){
+    window.scrollTo(0,0);
+    document.getElementById(idLight).style.display='block';
+    document.getElementById(idFade).style.display='block';
+}
+
+function lightbox_close(idLight, idFade){
+    document.getElementById(idLight).style.display='none';
+    document.getElementById(idFade).style.display='none';
+}
+
+function openConfirmPopup(message){
+    $('.pCloseConfirm').hide();
+    $('#divConfirm').html('<img src="../imgs/load.gif"><p');
+    $('#divConfirm').append(message);
+    lightbox_open('lightConfirm', 'fadeConfirm');
+}
+
+function closeConfirmPopup(message){
+    $('#divConfirm').html(message);
+    $('.pCloseConfirm').show();
+}
+
+//------------------------ back to functions ------------------------//
+function backLoginPage(){
+    var homeLink = $("#hiddenHomeLink").val();
+    window.location.href = homeLink+"/dang-nhap.html";
+}
+
+function backHomePage(){
+    var homeLink = $("#hiddenHomeLink").val();
+    window.location.href = homeLink;
+}
+
+function backRegisterShopPage(){
+    var homeLink = $("#hiddenHomeLink").val();
+    window.location.href = homeLink+"/dang-ky-gian-hang.html";
+}
+
+//------------------------ ready functions ------------------------//
+$(function(){
+    var scrollTop = $(window).scrollTop();
+    if(scrollTop > 0){
+        $('#topcontrol').click();
+    }
+});
+
 $(document).ready(function(){
     $('select.select22').each(function(){
         var title = $(this).attr('title');
@@ -11,86 +59,6 @@ $(document).ready(function(){
             });
     });
 });
-
-$('.ipt_s').focus(function(){
-    $('.search_top_header').css('box-shadow', '#FF7519 0px 0px 8px');
-});
-
-$('.ipt_s').blur(function(){
-    $('.search_top_header').css('box-shadow', 'initial');
-});
-
-$('#btnSearchTopHeader').click(function(){
-    if($('#keyword'). val() == ''){
-        alert("Ops! Bạn chưa nhập từ khóa... :-)");
-        $('#keyword').focus();
-        return false;
-    }
-});
-
-$('#btnConfirmPopup').click(function(){
-    var name = $('#txtNamePopup').val();
-    var phone = $('#txtPhonePopup').val();
-    var address = $('#txtAddressPopup').val();
-    var email = $('#emailPopup').val();
-    var idProduct = $("#id").val();
-    var amount = $('#qtyPopup').val();
-    var unit = $('#hiddenProductPrice').val();
-    var idShop = $('#hiddenShopID').val();
-    var total = amount*unit;
-    var idCustomer = $('#customerID').val();
-
-    if(phone == '' || email == ''){
-        alert("Điện thoại và email là các thông tin bắt buộc. Xin vui lòng không được để trống...");
-    }
-    else if($('#popupAccept').is(':checked') == false){
-        alert("Bạn chưa đồng ý với chính sách của chúng tôi...");
-    }
-    else{
-        var dataString = "name="+name+"&phone="+phone+"&address="+address+"&email="+email+"&idProduct="+idProduct+"&amount="+amount+"&unit="+unit
-            +"&idShop="+idShop+"&total="+total+"&idCustomer="+idCustomer;
-        insertOrder(dataString);
-    }
-});
-
-function setMoney(){
-    var money = $('#qtyPopup').val();
-    if(money < 1){
-        $('.popup-price').html($('#hiddenProductPrice').val()+' VND');
-        $('#qtyPopup').val('1');
-    }else{
-        money = (money * $('#hiddenProductPrice').val()).toCurrencyString();
-        $('.popup-price').html(money + ' VND');
-    }
-}
-
-Number.prototype.toCurrencyString=function(){
-    return this.toFixed(0).replace(/(\d)(?=(\d{3})+\b)/g,'$1,');
-}
-
-function setDefault(id){
-    if($('#'+id).val() < 1){
-        $('#'+id).val(1);
-    }
-}
-
-function insertOrder(dataString){
-    var dataString = dataString+"&functionName="+"insertOrder";
-    $.ajax({
-        type: "POST",
-        url: "lib/functions.php",
-        data: dataString,
-        success: function(x){
-            if(x == 1){
-                alert("Cám ơn bạn đã đặt mua. Chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất.");
-                window.location.href = "#closed";
-            }
-            else{
-                alert("Lỗi! Xin vui lòng tải lại trang và thử lại...");
-            }
-        }
-    });
-}
 
 //dinh dang lai duong dan trang chi tiet
 $(function(){
@@ -172,6 +140,95 @@ $(function(){
     }
 });
 
+//select the template recently
+$(function(){
+    $("#intro").change();
+    $("#gif_slide_frame").load($("#hiddenAddShop").val()+"/module/template.php?idtem="+$("#hiddenShopTemplate").val());
+});
+
+//------------------------ search functions ------------------------//
+$('.ipt_s').focus(function(){
+    $('.search_top_header').css('box-shadow', '#FF7519 0px 0px 8px');
+});
+
+$('.ipt_s').blur(function(){
+    $('.search_top_header').css('box-shadow', 'initial');
+});
+
+$('#btnSearchTopHeader').click(function(){
+    if($('#keyword'). val() == ''){
+        alert("Ops! Bạn chưa nhập từ khóa... :-)");
+        $('#keyword').focus();
+        return false;
+    }
+});
+
+//------------------------ reservation functions ------------------------//
+$('#btnConfirmPopup').click(function(){
+    var name = $('#txtNamePopup').val();
+    var phone = $('#txtPhonePopup').val();
+    var address = $('#txtAddressPopup').val();
+    var email = $('#emailPopup').val();
+    var idProduct = $("#id").val();
+    var amount = $('#qtyPopup').val();
+    var unit = $('#hiddenProductPrice').val();
+    var idShop = $('#hiddenShopID').val();
+    var total = amount*unit;
+    var idCustomer = $('#customerID').val();
+
+    if(phone == '' || email == ''){
+        alert("Điện thoại và email là các thông tin bắt buộc. Xin vui lòng không được để trống...");
+    }
+    else if($('#popupAccept').is(':checked') == false){
+        alert("Bạn chưa đồng ý với chính sách của chúng tôi...");
+    }
+    else{
+        var dataString = "name="+name+"&phone="+phone+"&address="+address+"&email="+email+"&idProduct="+idProduct+"&amount="+amount+"&unit="+unit
+            +"&idShop="+idShop+"&total="+total+"&idCustomer="+idCustomer;
+        insertOrder(dataString);
+    }
+});
+
+function setMoney(){
+    var money = $('#qtyPopup').val();
+    if(money < 1){
+        $('.popup-price').html($('#hiddenProductPrice').val()+' VND');
+        $('#qtyPopup').val('1');
+    }else{
+        money = (money * $('#hiddenProductPrice').val()).toCurrencyString();
+        $('.popup-price').html(money + ' VND');
+    }
+}
+
+Number.prototype.toCurrencyString = function(){
+    return this.toFixed(0).replace(/(\d)(?=(\d{3})+\b)/g,'$1,');
+}
+
+function setDefault(id){
+    if($('#'+id).val() < 1){
+        $('#'+id).val(1);
+    }
+}
+
+function insertOrder(dataString){
+    var dataString = dataString+"&functionName="+"insertOrder";
+    $.ajax({
+        type: "POST",
+        url: "lib/functions.php",
+        data: dataString,
+        success: function(x){
+            if(x == 1){
+                alert("Cám ơn bạn đã đặt mua. Chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất.");
+                window.location.href = "#closed";
+            }
+            else{
+                alert("Lỗi! Xin vui lòng tải lại trang và thử lại...");
+            }
+        }
+    });
+}
+
+//------------------------ brand functions ------------------------//
 $("#popBrandForm").on('submit',function(e) {
     e.preventDefault();
 });
@@ -208,17 +265,7 @@ $("#popBrandSubmit").click(function(){
     }
 });
 
-function lightbox_open(idLight, idFade){
-    window.scrollTo(0,0);
-    document.getElementById(idLight).style.display='block';
-    document.getElementById(idFade).style.display='block';
-}
-
-function lightbox_close(idLight, idFade){
-    document.getElementById(idLight).style.display='none';
-    document.getElementById(idFade).style.display='none';
-}
-
+//------------------------ active functions ------------------------//
 $("#aResend").click(function(){
     openConfirmPopup('<p>Đang kiểm tra thông tin...</p>');
     window.setTimeout(function () {
@@ -249,6 +296,7 @@ function resendActiveLink(email){
     });
 }
 
+//------------------------ forget password functions ------------------------//
 $('#txtFPEmail').keypress(function(e) {
     if (e.which == 13) {
         forgetPassword();
@@ -418,21 +466,6 @@ function changePassWord(){
     }
 }
 
-function backLoginPage(){
-    var homeLink = $("#hiddenHomeLink").val();
-    window.location.href = homeLink+"/dang-nhap.html";
-}
-
-function backHomePage(){
-    var homeLink = $("#hiddenHomeLink").val();
-    window.location.href = homeLink;
-}
-
-function backRegisterShopPage(){
-    var homeLink = $("#hiddenHomeLink").val();
-    window.location.href = homeLink+"/dang-ky-gian-hang.html";
-}
-
 function getPassWordStrength(){
     var pass = $("#txtPassWordFP").val();
     var strength = checkPassStrength(pass);
@@ -491,6 +524,7 @@ function checkPassStrength(pass) {
     return "";
 }
 
+//------------------------ all categories functions ------------------------//
 function moveToMainCategory(id, mainCategory){
     window.location.href = "#"+mainCategory;
     var scrollTop = $('#hiddenScrollTop').val();
@@ -510,13 +544,6 @@ function scrollTopDesc(){
     var scrollTop = $(window).scrollTop();
     $(window).scrollTop(scrollTop - 64);
 }
-
-$(function(){
-    var scrollTop = $(window).scrollTop();
-    if(scrollTop > 0){
-        $('#topcontrol').click();
-    }
-});
 
 function loadMoreMainSubCategory(id, number){
     var id = id;
@@ -564,6 +591,7 @@ function loadMoreMainSubCategory(id, number){
     });
 }
 
+//------------------------ system edition functions ------------------------//
 $(document).ready(function () {
     $('#fadeandscale').popup({
         pagecontainer: '.container',
@@ -641,21 +669,7 @@ $(function(){
     });
 });
 
-function confirmRegisterShop(userName){
-    if(userName == '') {
-        var check = confirm("Để sử dụng dịch vụ này bạn cần đăng nhập vào hệ thống. \nChúng tôi sẽ đưa bạn đến trang đăng nhập ngay bây giờ?");
-        if (check == true) {
-            backLoginPage();
-        }
-        else {
-            return;
-        }
-    }
-    else{
-        backRegisterShopPage();
-    }
-}
-
+//------------------------ avatar popup functions ------------------------//
 (function($){
     $.fn.styleddropdown = function(){
         return this.each(function(){
@@ -692,6 +706,115 @@ $(function(){
     $('.size').styleddropdown();
 });
 
+//------------------------ add shop functions ------------------------//
+function confirmRegisterShop(userName){
+    if(userName == '') {
+        var check = confirm("Để sử dụng dịch vụ này bạn cần đăng nhập vào hệ thống. \nChúng tôi sẽ đưa bạn đến trang đăng nhập ngay bây giờ?");
+        if (check == true) {
+            backLoginPage();
+        }
+        else {
+            return;
+        }
+    }
+    else{
+        backRegisterShopPage();
+    }
+}
+
+$("#idtemplate").change(function(){
+    var idtheloai = $(this).val();
+    var linkRoot = $("#hiddenAddShop").val();
+    $("#gif_slide_frame").load(linkRoot+"/module/template.php?idtem="+idtheloai);
+});
+
+$("#tenmien").change(function(){
+    $("#baoloi").hide();
+    var val = deleteSpecialCharacter(removeUnicode($("#tenmien").val()));
+    $("#tenmien").val(val);
+    var strlen = val.length;
+    var linkRoot = $("#hiddenAddShop").val();
+    if(strlen >= 2){
+        $("#baoloi").show();
+        $("#baoloi").load(linkRoot+"/module/tenmien.php?tenmien="+val);
+    }
+});
+
+$('#btn_addshop').click(function(){
+    var tenshop = $("#tenshop").val();
+    var tenmien = $("#tenmien").val();
+    var cap = $("#cap").val();
+    var check = 0;
+
+    if(tenshop.length < 2) {
+        check = 1;
+        alert("Tên gian hàng phải >= 2 ký tự!");
+        $('#tenshop').focus();
+    }
+    else if(tenmien.length < 2) {
+        check = 1;
+        alert("Ten miền phải >= 2 ký tự!");
+        $('#tenmien').focus();
+    }
+    else if($('#ddCat').val() == '-1'){
+        check = 1;
+        alert("Bạn chưa chọn lĩnh vực gian hàng!");
+    }
+    else if($('#intro').val() == '-1'){
+        check = 1;
+        alert("Bạn chưa chọn loại gian hàng!");
+    }
+    else if($('#idtemplate').val() == '-1'){
+        check = 1;
+        alert("Bạn chưa chọn giao diện gian hàng!");
+    }
+    else if(cap=="") {
+        check = 1;
+        alert("Bạn chưa nhập mã bảo mật!");
+        $('#cap').focus();
+    }
+    else if(!$('#thoathuan').is(":checked")){
+        check = 1;
+        alert("Bạn chưa đồng ý với thõa thuận sử dụng của chúng tôi!");
+        $('#thoathuan').focus();
+    }
+
+    if(check == 0){
+        $('#frmAddShop').submit();
+    }
+    else{
+        return false;
+    }
+});
+
+function getTemplate(style){
+    var template = $("#hiddenShopTemplate").val();
+    var style = parseInt(style) - 1;
+    var dataString = "style="+style+"&functionName="+"getTemplate";
+    $.ajax({
+        type: "POST",
+        url: "lib/functions.php",
+        data: dataString,
+        success: function(x){
+            $("#idtemplate option").remove();
+            $("#idtemplate").append("<option value='0'>Chọn giao diện</option>");
+            if(x != 0){
+                var myArr = x.split(";");
+                for(var i = 0; i < myArr.length; i++){
+                    var myContent = myArr[i].split(",");
+                    if(myContent[0] == template){
+                        $("#idtemplate").append("<option value='"+myContent[0]+"' selected>&cir; "+myContent[1]+"</option>");
+                    }
+                    else{
+                        $("#idtemplate").append("<option value='"+myContent[0]+"'>&cir; "+myContent[1]+"</option>");
+                    }
+                }
+            }
+        }
+    });
+}
+
+//------------------------ regex functions ------------------------//
 function addhttp(id, url) {
     var pattern = /^((http|https):\/\/)/;
     if(!pattern.test(url)) {
@@ -700,16 +823,27 @@ function addhttp(id, url) {
     $('#'+id).val(url);
 }
 
-function openConfirmPopup(message){
-    $('.pCloseConfirm').hide();
-    $('#divConfirm').html('<img src="../imgs/load.gif"><p');
-    $('#divConfirm').append(message);
-    lightbox_open('lightConfirm', 'fadeConfirm');
+
+
+function isValidEmailAddress(emailAddress) {
+    var regex = /^[-a-z0-9~!$%^&*_=+}{\'?]+(\.[-a-z0-9~!$%^&*_=+}{\'?]+)*@([a-z0-9_][-a-z0-9_]*(\.[-a-z0-9_]+)*\.(aero|arpa|biz|com|coop|edu|gov|info|int|mil|museum|name|net|org|pro|travel|mobi|[a-z][a-z])|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$/i;
+    return regex.test(emailAddress);
 }
 
-function closeConfirmPopup(message){
-    $('#divConfirm').html(message);
-    $('.pCloseConfirm').show();
+function deleteSpecialCharacter(string){
+    return string.trim().replace(/[`~!@#$%^&*()_|+\s=?;:'",.<>\{\}\[\]\\\/]/g, '');
+}
+
+function removeUnicode(str) {
+    str = str.toLowerCase();
+    str = str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a");
+    str = str.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g, "e");
+    str = str.replace(/ì|í|ị|ỉ|ĩ/g, "i");
+    str = str.replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ/g, "o");
+    str = str.replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g, "u");
+    str = str.replace(/ỳ|ý|ỵ|ỷ|ỹ/g, "y");
+    str = str.replace(/đ/g, "d");
+    return str;
 }
 
 //------------------------ social functions ------------------------//
@@ -807,11 +941,6 @@ function ajax(dataString){
 window.onload = function(){
     $(".abcRioButtonContents span").html("Log In");
     $(".g-signin2").show();
-}
-
-function isValidEmailAddress(emailAddress) {
-    var regex = /\S+@\S+\.\S+/;
-    return regex.test(emailAddress);
 }
 
 function confirmSuccessLogin(){

@@ -69,7 +69,7 @@
 
 <article class="r-tool-ct l-system" id="l-system7">
     <ul>
-        <li><a class="btn-gh3" href="#" onclick="confirmRegisterShop('<?php echo $_SESSION['kh_login_username']; ?>');"><i class="fa fa-home fa-lg"></i>Bán hàng cùng <?php echo $subname; ?></a></li>
+        <li><a class="btn-gh3" href="#" onclick="confirmRegisterShop('<?php echo $_SESSION['kh_login_username']; ?>');"><i class="fa fa-home fa-lg"></i>Bán hàng cùng <?php echo ucfirst($subname); ?></a></li>
     </ul>
     <div class="clear"></div>
 </article><!-- End .r-tool-ct -->

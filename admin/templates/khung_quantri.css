@@ -103,6 +103,7 @@
 
 .strongAlert{
     font-weight: 700;
+    text-decoration: underline;
 }
 
 .strongInfo{
@@ -317,7 +318,7 @@
     padding: 5px 5px 20px;
 }
 
-a.disabled {
+a.disabled, img.disabled{
     pointer-events: none;
     cursor: default;
 }
@@ -338,4 +339,8 @@ a.disabled {
 
 .imgViewIcon{
     padding: 2px;
+}
+
+.hot, .anhien{
+    cursor: pointer;
 }

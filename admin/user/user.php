@@ -51,6 +51,9 @@ settype($noibat, "int");
 if($tang == 0){$ks = 'DESC';}//0 tang
 else if($tang == 1){$ks = 'ASC';}//1 giam
 else $ks = 'DESC';
+
+//đường dẫn tập tin hình ảnh mặc định
+$noimgs = "imgs/avatar-M.png";
 ?>
 
 <script>
