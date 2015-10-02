@@ -5,7 +5,7 @@ require("config.php");
 require("common_start.php");
 include("lib/func.lib.php");
 $cache = get_field('tbl_config','id','2','cache');
-if($cache == 1 && !isset($_SESSION['kh_login_username']) && $_SESSION['kt_login_level'] != 3){
+if($cache == 1 && !isset($_SESSION['kh_login_username']) && $_SESSION['kt_login_level'] != 3 && $_SESSION['kt_login_level'] != -1){
     $link = $_SERVER['REQUEST_URI'];
     $myLink = explode("?", $link);
     $myData = explode("&", $myLink[1]);
@@ -151,15 +151,12 @@ $myProduct = getRecord('tbl_item', "subject='".$_GET['tensanpham']."'");
 <script type="text/javascript" async defer data-pin-color="red" data-pin-height="28" data-pin-hover="true" src="<?php echo $root; ?>/scripts/pinit.js"></script>
 <script type="text/javascript" src="<?php echo $root; ?>/scripts/nivo-slider/jquery.nivo.slider.js"></script>
 
+<?php echo get_field('tbl_config','id','2','google_analytics'); ?>
+
+<?php echo get_field('tbl_config','id','2','other_code'); ?>
+
 <?php include("module/footer.php"); ?>
 <?php require("common_end.php"); ?>
-
-<script lang="javascript">
-    (function() {var _h1= document.getElementsByTagName('title')[0] || false;
-        var product_name = ''; if(_h1){product_name= _h1.textContent || _h1.innerText;}var ga = document.createElement('script'); ga.type = 'text/javascript';
-        ga.src = '//live.vnpgroup.net/js/web_client_box.php?hash=9bae01b71fdfa05509fca3c431ede45b&data=eyJzc29faWQiOjMwNTg2ODYsImhhc2giOiI0NGY5NGYyMTEyMGQ4ZDZhNzJhMGI3NzliZTg0MTE4YyJ9&pname='+product_name;
-        var s = document.getElementsByTagName('script');s[0].parentNode.insertBefore(ga, s[0]);})();
-</script>
 </body>
 </html>
 

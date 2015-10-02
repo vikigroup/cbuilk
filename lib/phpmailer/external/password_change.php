@@ -33,12 +33,8 @@ $body = '<div class="container-fluid" style="background: #8DCAE9; padding: 5px; 
                 <p style="margin: 10px 0;"><a href="'.$root.'/khoi-phuc-mat-khau.html?key='.$_POST['key'].'" style="background-color: #2A70D2; padding: 10px; color: #ffffff; text-decoration: none; border-radius: 5px;">Khôi Phục Mật Khẩu</a></p>
                 <p>Trân trọng,</p>
             </div>
-            <p>--</p>
             <p>
-                <span><b>'.$row_config['tenkh'].'</b></span><br/>
-                <span>'.$row_config['dckh'].'</span><br/>
-                <span>Điện thoại: '.$row_config['dtkh'].'</span><br/>
-                <span>Trang chủ: '.$root.'</span><br/>
+                <span>'.$row_config['email_footer'].'</span><br/>
             </p>
         </div>';
 
@@ -53,7 +49,7 @@ $mail->Port       = 465;                    // set the SMTP port for the GMAIL s
 $mail->Username   = $row_config['cauhinh_mail_ten']; // SMTP account username
 $mail->Password   = decryptIt($row_config['cauhinh_mail_mk']);        // SMTP account password
 
-$mail->SetFrom($row_config['cauhinh_mail_ten'], strtoupper($row_config['copyright']));
+$mail->SetFrom($row_config['cauhinh_mail_ten'], strtoupper($row_config['email_title']));
 
 $mail->Subject    = "Mật khẩu ".ucfirst($subname)." đã thay đổi";
 

@@ -1,5 +1,5 @@
 <div class="mini-bar">
-    <?php if($_SESSION['kt_login_level'] == 3){ ?>
+    <?php if($_SESSION['kt_login_level'] == 3 || $_SESSION['kt_login_level'] == -1){ ?>
         <div class="mini-shopping">
             <a id="aSystemEdit" href="#basic" class="initialism basic_open pure-button-primary pure-button" title="Chỉnh sửa hệ thống">
                 <p><i class="fa fa-pencil"></i></p>
@@ -14,7 +14,7 @@
     </div>
 </div>
 
-<?php if($_SESSION['kt_login_level'] == 3){ ?>
+<?php if($_SESSION['kt_login_level'] == 3 || $_SESSION['kt_login_level'] == -1){ ?>
     <div id="basic" class="well">
         <h4>Chỉnh sửa hệ thống</h4>
         <form class="pure-form pure-form-aligned" id="popSystemForm">

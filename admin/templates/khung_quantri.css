@@ -344,3 +344,8 @@ a.disabled, img.disabled{
 .hot, .anhien{
     cursor: pointer;
 }
+
+#txtGoogleAnalytics, #txtOtherCode{
+    width: 900px;
+    height: 200px;
+}
