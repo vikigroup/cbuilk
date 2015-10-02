@@ -69,6 +69,7 @@ $myProduct = getRecord('tbl_item', "subject='".$_GET['tensanpham']."'");
       xmlns:fb="http://www.facebook.com/2008/fbml">
 <head>
     <?php include("module/title.php") ;?>
+    <?php echo get_field('tbl_config','id','2','web_verification'); ?>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
@@ -142,19 +143,18 @@ $myProduct = getRecord('tbl_item', "subject='".$_GET['tensanpham']."'");
         <?php include("module/processFrame.php"); ?>
     </div><!-- End .m-wrap -->
 </div><!-- End #container -->
+
 <?php include("module/box_system.php"); ?>
 
 <script type="text/javascript" src="<?php echo $root; ?>/scripts/scrolltopcontrol.js"></script>
 <script type="text/javascript" src="<?php echo $root; ?>/scripts/jquery.popupoverlay.js"></script>
 <script type="text/javascript" src="<?php echo $root; ?>/scripts/resolve.js"></script>
 <script type="text/javascript" src="<?php echo $root; ?>/scripts/platform.js?onload=renderButton" async defer></script>
-<script type="text/javascript" async defer data-pin-color="red" data-pin-height="28" data-pin-hover="true" src="<?php echo $root; ?>/scripts/pinit.js"></script>
+<script type="text/javascript" src="<?php echo $root; ?>/scripts/pinit.js" async defer data-pin-color="red" data-pin-height="28" data-pin-hover="true"></script>
 <script type="text/javascript" src="<?php echo $root; ?>/scripts/nivo-slider/jquery.nivo.slider.js"></script>
 
 <?php echo get_field('tbl_config','id','2','google_analytics'); ?>
-
 <?php echo get_field('tbl_config','id','2','other_code'); ?>
-
 <?php include("module/footer.php"); ?>
 <?php require("common_end.php"); ?>
 </body>

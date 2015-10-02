@@ -345,7 +345,7 @@ a.disabled, img.disabled{
     cursor: pointer;
 }
 
-#txtGoogleAnalytics, #txtOtherCode{
+.txtConfig{
     width: 900px;
     height: 200px;
 }

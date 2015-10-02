@@ -32,8 +32,6 @@ function btnSave_onclick(){
 
 <? $errMsg =''?>
 <?
-$path = "../images/item";
-$pathdb = "images/item";
 if (isset($_POST['btnSave'])){
 	$code                   = isset($_POST['txtCode']) ? trim($_POST['txtCode']) : '';
 	$name                   = isset($_POST['txtName']) ? trim($_POST['txtName']) : '';
@@ -67,6 +65,7 @@ if (isset($_POST['btnSave'])){
 
 	$google_analytics       = isset($_POST['txtGoogleAnalytics']) ? trim($_POST['txtGoogleAnalytics']) : '';
 	$other_code             = isset($_POST['txtOtherCode']) ? trim($_POST['txtOtherCode']) : '';
+    $web_verification       = isset($_POST['txtWebVerification']) ? trim($_POST['txtWebVerification']) : '';
 
 	$catInfo                = getRecord('tbl_config', 'id='.$parent);
 	if(!$multiLanguage){
@@ -75,22 +74,35 @@ if (isset($_POST['btnSave'])){
 		$lang               = $catInfo['lang'] != '' ? $catInfo['lang'] : $_POST['cmbLang'];
 	}
 
-	//if ($name=="") $errMsg .= "Hãy nhập tên danh mục !<br>";
-	$errMsg .= checkUpload($_FILES["txtImage"],".jpg;.gif;.bmp",500*1024,0);
-	$errMsg .= checkUpload($_FILES["txtImageLarge"],".jpg;.gif;.bmp",500*1024,0);
+	$errMsg .= checkUpload($_FILES["txtSiteMap"],".xml",3238*3238,0);
 
-	if ($errMsg==''){
+	if ($errMsg == ''){
 		if (!empty($_POST['id'])){
 			$oldid = $_POST['id'];
 			$sql = "update tbl_config set copyright='".$copyright."',title='".$title."', description='".$description."',keywords='".$keywords."'
 			,tenkh='".$tenkh."',dckh='".$dckh."', dtkh='".$dtkh."', hotlinekh='".$hotlinekh."', emailkh='".$emailkh."', faxkh='".$faxkh."'
 			, contentkh='".$contentkh."', note='".$detail."', cauhinh_mail_ten='".$cauhinh_mail_ten."', cauhinh_mail_mk='".encryptIt($cauhinh_mail_mk)."'
 			, cache='".$cache."', email_bcc='".$email_bcc."', email_title='".$email_title."', email_footer='".$email_footer."', google_analytics='".$google_analytics."'
-			, other_code='".$other_code."' where id='".$oldid."'";
+			, other_code='".$other_code."', web_verification='".$web_verification."' where id='".$oldid."'";
 		}
 		
 		if (mysql_query($sql,$conn)){
-			$errMsg = "";
+            $sqlUpdateField = "";
+            if ($_POST['chkSiteMap'] == ''){
+                $extsmall = $_FILES['txtSiteMap']['name'];
+                if (makeUpload($_FILES['txtSiteMap'],"../$extsmall")){
+                    @chmod("../$extsmall", 0777);
+                    $sqlUpdateField = " site_map='$extsmall' ";
+                }
+            }else{
+                if(file_exists('../sitemap.xml')) @unlink('../sitemap.xml');
+                $sqlUpdateField = " site_map='' ";
+            }
+
+            if($sqlUpdateField!='')	{
+                $sqlUpdate = "update tbl_config set $sqlUpdateField where id='".$oldid."'";
+                mysql_query($sqlUpdate,$conn);
+            }
 		}else{
 			$errMsg = "Không thể cập nhật!";
 		}
@@ -128,6 +140,7 @@ if (isset($_POST['btnSave'])){
             $email_footer        = $row['email_footer'];
             $google_analytics    = $row['google_analytics'];
             $other_code          = $row['other_code'];
+            $web_verification    = $row['web_verification'];
         }
 	}
 }
@@ -225,15 +238,33 @@ if (isset($_POST['btnSave'])){
                             <tr><td valign="middle"><b>Google Analytics</b></td></tr>
                             <tr>
                                 <td colspan="2" valign="middle">
-                                    <textarea name="txtGoogleAnalytics" class="table_khungvua" id="txtGoogleAnalytics"><?php echo $google_analytics; ?></textarea>
+                                    <textarea name="txtGoogleAnalytics" class="table_khungvua txtConfig" id="txtGoogleAnalytics"><?php echo $google_analytics; ?></textarea>
                                     <p class="pGuideline"><i>Mã Google Analytics dùng thống kê lượt truy cập vào website.</i></p>
                                 </td>
                             </tr>
                             <tr><td valign="middle"><b>Các đoạn script khác</b></td></tr>
                             <tr>
                                 <td colspan="2" valign="middle">
-                                    <textarea name="txtOtherCode" class="table_khungvua" id="txtOtherCode"><?php echo $other_code; ?></textarea>
+                                    <textarea name="txtOtherCode" class="table_khungvua txtConfig" id="txtOtherCode"><?php echo $other_code; ?></textarea>
                                     <p class="pGuideline"><i>Mã zopim, livechat, remarketing ..., tất cả đều thêm ở đây, sẽ xuất hiện trong thẻ body!.</i></p>
+                                </td>
+                            </tr>
+                            <tr><td valign="middle"><b>Mã Verify Webmaster Tool</b></td></tr>
+                            <tr>
+                                <td colspan="2" valign="middle">
+                                    <textarea name="txtWebVerification" class="table_khungvua txtConfig" id="txtWebVerification"><?php echo $web_verification; ?></textarea>
+                                    <p class="pGuideline"><i>Đoạn mã verify Webmaster Tool dùng để xác minh trang web. Có thể gắn thêm các thẻ meta vào thẻ head ở đây!.</i></p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td valign="middle" width="30%" class="table_chu">File sitemap.xml</td>
+                                <td valign="middle" width="70%">
+                                    <input type="file" name="txtSiteMap" class="textbox" size="34">
+                                    <?php if($site_map != ''){ ?>
+                                        <input type="checkbox" name="chkSiteMap" value="on"> Xóa file <br/>
+                                    <?php } ?>
+                                    <?php if($site_map != ''){echo $image;} ?><br/><br/>
+                                    <i>File sitemap.xml dùng để khai báo cho Google về cấu trúc của website. Tạo file sitemap.xml <a target="_blank" href="http://www.xml-sitemaps.com/">tại đây</a>. </i>
                                 </td>
                             </tr>
                             <tr class="tr_title">
